@@ -106,7 +106,7 @@ class Onlyfansapi::Test::Resources::Stories::HighlightsTest < Onlyfansapi::Test:
 
     response =
       @only_fans_api.stories.highlights.add_story(
-        "similique",
+        "quis",
         account: "acct_XXXXXXXXXXXXXXX",
         highlight_id: 1_234_567_890,
         body_story_id: 2_345_678_901
@@ -129,7 +129,7 @@ class Onlyfansapi::Test::Resources::Stories::HighlightsTest < Onlyfansapi::Test:
 
     response =
       @only_fans_api.stories.highlights.remove_story(
-        "similique",
+        "quis",
         account: "acct_XXXXXXXXXXXXXXX",
         highlight_id: 1_234_567_890
       )
