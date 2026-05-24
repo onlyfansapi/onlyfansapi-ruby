@@ -18,10 +18,18 @@ module Onlyfansapi
       #   @return [String]
       required :name, String
 
-      # @!method initialize(account:, name:, request_options: {})
+      # @!attribute tags
+      #   Array of tag names to add to the tracking link.
+      #
+      #   @return [Array<String>, nil]
+      optional :tags, Onlyfansapi::Internal::Type::ArrayOf[String]
+
+      # @!method initialize(account:, name:, tags: nil, request_options: {})
       #   @param account [String]
       #
       #   @param name [String] The name of the Tracking Link
+      #
+      #   @param tags [Array<String>] Array of tag names to add to the tracking link.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
     end

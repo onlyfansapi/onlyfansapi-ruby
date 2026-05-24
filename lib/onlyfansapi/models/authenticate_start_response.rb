@@ -2,27 +2,75 @@
 
 module Onlyfansapi
   module Models
+    # For email_password or raw_data auth types
+    #
     # @see Onlyfansapi::Resources::Authenticate#start
-    class AuthenticateStartResponse < Onlyfansapi::Internal::Type::BaseModel
-      # @!attribute attempt_id
-      #
-      #   @return [String, nil]
-      optional :attempt_id, String
+    module AuthenticateStartResponse
+      extend Onlyfansapi::Internal::Type::Union
 
-      # @!attribute message
-      #
-      #   @return [String, nil]
-      optional :message, String
+      # For email_password or raw_data auth types
+      variant -> { Onlyfansapi::Models::AuthenticateStartResponse::UnionMember0 }
 
-      # @!attribute polling_url
-      #
-      #   @return [String, nil]
-      optional :polling_url, String
+      # For mobile_app auth type — includes the session code to scan with the FansAPI Auth+ app
+      variant -> { Onlyfansapi::Models::AuthenticateStartResponse::UnionMember1 }
 
-      # @!method initialize(attempt_id: nil, message: nil, polling_url: nil)
-      #   @param attempt_id [String]
-      #   @param message [String]
-      #   @param polling_url [String]
+      class UnionMember0 < Onlyfansapi::Internal::Type::BaseModel
+        # @!attribute attempt_id
+        #
+        #   @return [String, nil]
+        optional :attempt_id, String
+
+        # @!attribute message
+        #
+        #   @return [String, nil]
+        optional :message, String
+
+        # @!attribute polling_url
+        #
+        #   @return [String, nil]
+        optional :polling_url, String
+
+        # @!method initialize(attempt_id: nil, message: nil, polling_url: nil)
+        #   For email_password or raw_data auth types
+        #
+        #   @param attempt_id [String]
+        #   @param message [String]
+        #   @param polling_url [String]
+      end
+
+      class UnionMember1 < Onlyfansapi::Internal::Type::BaseModel
+        # @!attribute attempt_id
+        #
+        #   @return [String, nil]
+        optional :attempt_id, String
+
+        # @!attribute message
+        #
+        #   @return [String, nil]
+        optional :message, String
+
+        # @!attribute mobile_auth_session_deeplink
+        #
+        #   @return [String, nil]
+        optional :mobile_auth_session_deeplink, String
+
+        # @!attribute polling_url
+        #
+        #   @return [String, nil]
+        optional :polling_url, String
+
+        # @!method initialize(attempt_id: nil, message: nil, mobile_auth_session_deeplink: nil, polling_url: nil)
+        #   For mobile_app auth type — includes the session code to scan with the FansAPI
+        #   Auth+ app
+        #
+        #   @param attempt_id [String]
+        #   @param message [String]
+        #   @param mobile_auth_session_deeplink [String]
+        #   @param polling_url [String]
+      end
+
+      # @!method self.variants
+      #   @return [Array(Onlyfansapi::Models::AuthenticateStartResponse::UnionMember0, Onlyfansapi::Models::AuthenticateStartResponse::UnionMember1)]
     end
   end
 end

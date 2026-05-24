@@ -5,7 +5,10 @@ module Onlyfansapi
         def list: (
           String chat_id,
           account: String,
-          ?id: String,
+          ?filter: Onlyfansapi::Models::Chats::MessageListParams::filter,
+          ?first_id: String?,
+          ?last_id: String?,
+          ?limit: String,
           ?order: String,
           ?skip_users: String,
           ?request_options: Onlyfansapi::request_opts
@@ -21,11 +24,16 @@ module Onlyfansapi
         def send_: (
           String chat_id,
           account: String,
-          text: String,
+          ?giphy_id: String,
           ?locked_text: bool,
-          ?media_files: ::Array[String],
-          ?previews: ::Array[String],
+          ?media_files: ::Array[top],
+          ?previews: ::Array[top],
           ?price: Integer,
+          ?reply_to_message_id: Integer,
+          ?rf_guest: String,
+          ?rf_partner: String,
+          ?rf_tag: String,
+          ?text: String,
           ?request_options: Onlyfansapi::request_opts
         ) -> Onlyfansapi::Models::Chats::MessageSendResponse
 

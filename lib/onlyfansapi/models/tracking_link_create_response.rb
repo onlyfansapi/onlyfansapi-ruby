@@ -145,7 +145,7 @@ module Onlyfansapi
         # @!attribute end_date
         #
         #   @return [String, nil]
-        optional :end_date, String, api_name: :endDate
+        optional :end_date, String, api_name: :endDate, nil?: true
 
         # @!method initialize(id: nil, campaign_code: nil, campaign_name: nil, count_subscribers: nil, count_transitions: nil, created_at: nil, end_date: nil)
         #   @param id [Integer]
@@ -154,7 +154,7 @@ module Onlyfansapi
         #   @param count_subscribers [Integer]
         #   @param count_transitions [Integer]
         #   @param created_at [String]
-        #   @param end_date [String]
+        #   @param end_date [String, nil]
       end
     end
   end

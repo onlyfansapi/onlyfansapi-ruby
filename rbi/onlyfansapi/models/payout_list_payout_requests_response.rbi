@@ -387,10 +387,7 @@ module Onlyfansapi
           attr_writer :invoice_id
 
           sig { returns(T.nilable(String)) }
-          attr_reader :reject_reason
-
-          sig { params(reject_reason: String).void }
-          attr_writer :reject_reason
+          attr_accessor :reject_reason
 
           sig { returns(T.nilable(String)) }
           attr_reader :state
@@ -404,7 +401,7 @@ module Onlyfansapi
               created_at: String,
               currency: String,
               invoice_id: String,
-              reject_reason: String,
+              reject_reason: T.nilable(String),
               state: String
             ).returns(T.attached_class)
           end
@@ -425,7 +422,7 @@ module Onlyfansapi
                 created_at: String,
                 currency: String,
                 invoice_id: String,
-                reject_reason: String,
+                reject_reason: T.nilable(String),
                 state: String
               }
             )

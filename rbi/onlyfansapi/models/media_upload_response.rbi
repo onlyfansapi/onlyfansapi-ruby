@@ -43,6 +43,12 @@ module Onlyfansapi
       attr_writer :host
 
       sig { returns(T.nilable(String)) }
+      attr_reader :note
+
+      sig { params(note: String).void }
+      attr_writer :note
+
+      sig { returns(T.nilable(String)) }
       attr_reader :prefixed_id
 
       sig { params(prefixed_id: String).void }
@@ -82,6 +88,7 @@ module Onlyfansapi
           extra: String,
           file_name: String,
           host: String,
+          note: String,
           prefixed_id: String,
           process_id: String,
           source_url: String,
@@ -94,6 +101,7 @@ module Onlyfansapi
         extra: nil,
         file_name: nil,
         host: nil,
+        note: nil,
         prefixed_id: nil,
         process_id: nil,
         source_url: nil,
@@ -108,6 +116,7 @@ module Onlyfansapi
             extra: String,
             file_name: String,
             host: String,
+            note: String,
             prefixed_id: String,
             process_id: String,
             source_url: String,

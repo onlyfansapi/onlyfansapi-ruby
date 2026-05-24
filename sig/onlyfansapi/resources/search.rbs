@@ -2,11 +2,18 @@ module Onlyfansapi
   module Resources
     class Search
       def profiles: (
-        query: String,
-        ?limit: String,
+        ?cursor: String?,
+        ?filter: Onlyfansapi::SearchProfilesParams::Filter,
+        ?instagram: String,
+        ?limit: Integer,
         ?location: String,
-        ?max_subscribe_price: String,
-        ?min_subscribe_price: String,
+        ?max_subscribe_price: Float,
+        ?min_subscribe_price: Float,
+        ?query: String,
+        ?sort: Onlyfansapi::Models::SearchProfilesParams::sort,
+        ?sort_direction: Onlyfansapi::Models::SearchProfilesParams::sort_direction,
+        ?tiktok: String,
+        ?website: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::SearchProfilesResponse
 

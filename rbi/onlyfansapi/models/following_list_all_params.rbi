@@ -40,12 +40,17 @@ module Onlyfansapi
       sig { params(offset: Integer).void }
       attr_writer :offset
 
+      # Search within following name/username.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :query
+
       sig do
         params(
           account: String,
           filter: Onlyfansapi::FollowingListAllParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
+          query: T.nilable(String),
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -57,6 +62,8 @@ module Onlyfansapi
         limit: nil,
         # Pagination offset. Must be at least 0.
         offset: nil,
+        # Search within following name/username.
+        query: nil,
         request_options: {}
       )
       end
@@ -68,6 +75,7 @@ module Onlyfansapi
             filter: Onlyfansapi::FollowingListAllParams::Filter,
             limit: Integer,
             offset: Integer,
+            query: T.nilable(String),
             request_options: Onlyfansapi::RequestOptions
           }
         )
@@ -154,6 +162,17 @@ module Onlyfansapi
             end
           OrInteger = T.type_alias { Integer }
 
+          ONLINE_1 =
+            T.let(
+              1,
+              Onlyfansapi::FollowingListAllParams::Filter::Online::TaggedInteger
+            )
+          ONLINE_0 =
+            T.let(
+              0,
+              Onlyfansapi::FollowingListAllParams::Filter::Online::TaggedInteger
+            )
+
           sig do
             override.returns(
               T::Array[
@@ -174,6 +193,17 @@ module Onlyfansapi
               T.all(Integer, Onlyfansapi::FollowingListAllParams::Filter::Paid)
             end
           OrInteger = T.type_alias { Integer }
+
+          PAID_1 =
+            T.let(
+              1,
+              Onlyfansapi::FollowingListAllParams::Filter::Paid::TaggedInteger
+            )
+          PAID_0 =
+            T.let(
+              0,
+              Onlyfansapi::FollowingListAllParams::Filter::Paid::TaggedInteger
+            )
 
           sig do
             override.returns(

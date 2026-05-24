@@ -3,6 +3,7 @@ module Onlyfansapi
     class Profiles
       def retrieve: (
         String username,
+        ?fresh: bool?,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::ProfileRetrieveResponse
 

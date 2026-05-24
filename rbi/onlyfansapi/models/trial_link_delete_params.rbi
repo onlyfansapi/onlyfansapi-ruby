@@ -17,13 +17,13 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :account
 
-      sig { returns(Integer) }
+      sig { returns(String) }
       attr_accessor :trial_link_id
 
       sig do
         params(
           account: String,
-          trial_link_id: Integer,
+          trial_link_id: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -34,7 +34,7 @@ module Onlyfansapi
         override.returns(
           {
             account: String,
-            trial_link_id: Integer,
+            trial_link_id: String,
             request_options: Onlyfansapi::RequestOptions
           }
         )

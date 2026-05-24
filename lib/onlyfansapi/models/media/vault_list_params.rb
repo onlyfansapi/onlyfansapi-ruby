@@ -20,7 +20,7 @@ module Onlyfansapi
         optional :field, enum: -> { Onlyfansapi::Media::VaultListParams::Field }
 
         # @!attribute limit
-        #   Number of media to return per page. Default: `24`
+        #   Number of media to return per page (10 - 100). Default: `24`
         #
         #   @return [Integer, nil]
         optional :limit, Integer
@@ -42,7 +42,7 @@ module Onlyfansapi
         #   Optionally, search for a text query.
         #
         #   @return [String, nil]
-        optional :query, String
+        optional :query, String, nil?: true
 
         # @!attribute sort
         #   Sort the results. Default `desc`
@@ -64,14 +64,14 @@ module Onlyfansapi
         #
         #   @param field [Symbol, Onlyfansapi::Models::Media::VaultListParams::Field] Sort the results by a field. Default `recent`
         #
-        #   @param limit [Integer] Number of media to return per page. Default: `24`
+        #   @param limit [Integer] Number of media to return per page (10 - 100). Default: `24`
         #
         #   @param list [Integer] Only show media items from a specific list (category). \*\*Refer to our Media
         #   Vaul
         #
         #   @param offset [Integer] The offset used for pagination. Default `0`
         #
-        #   @param query [String] Optionally, search for a text query.
+        #   @param query [String, nil] Optionally, search for a text query.
         #
         #   @param sort [Symbol, Onlyfansapi::Models::Media::VaultListParams::Sort] Sort the results. Default `desc`
         #

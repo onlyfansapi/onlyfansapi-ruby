@@ -2,8 +2,10 @@ module Onlyfansapi
   module Resources
     class Webhooks
       def create: (
+        account_scope: String,
         endpoint_url: String,
         events: ::Array[String],
+        ?account_ids: ::Array[String],
         ?signing_secret: String?,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::WebhookCreateResponse

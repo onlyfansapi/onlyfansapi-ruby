@@ -7,14 +7,14 @@ module Onlyfansapi
         # Add multiple Users To OnlyFans User List
         sig do
           params(
-            user_list_id: Integer,
+            user_list_id: String,
             account: String,
             ids: T::Array[String],
             request_options: Onlyfansapi::RequestOptions::OrHash
           ).returns(Onlyfansapi::Models::UserLists::UserAddResponse)
         end
         def add(
-          # Path param: OnlyFans User List ID
+          # Path param: OnlyFans User List ID, or a default list name like `tagged`
           user_list_id,
           # Path param: The Account ID
           account:,
@@ -29,7 +29,7 @@ module Onlyfansapi
           params(
             user_id: Integer,
             account: String,
-            user_list_id: Integer,
+            user_list_id: String,
             request_options: Onlyfansapi::RequestOptions::OrHash
           ).returns(Onlyfansapi::Models::UserLists::UserRemoveResponse)
         end

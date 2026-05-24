@@ -18,7 +18,7 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :text
 
-      # Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+      # Number of days after which the post will expire. Between 1 and 30 days. Keep
       # empty for no expiration.
       sig { returns(T.nilable(Integer)) }
       attr_reader :expire_days
@@ -49,20 +49,20 @@ module Onlyfansapi
       sig { params(label_ids: String).void }
       attr_writer :label_ids
 
-      # Array of OFAPI `ofapi_media_` IDs, or OF media IDs
-      sig { returns(T.nilable(String)) }
+      # Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs.
+      sig { returns(T.nilable(T::Array[T.anything])) }
       attr_reader :media_files
 
-      sig { params(media_files: String).void }
+      sig { params(media_files: T::Array[T.anything]).void }
       attr_writer :media_files
 
-      # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-      # not 0). Will be shown if `price` is provided. All `previews` values must also
-      # exist in the `mediaFiles` array.
-      sig { returns(T.nilable(T::Array[String])) }
+      # Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+      # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+      # provided.
+      sig { returns(T.nilable(T::Array[T.anything])) }
       attr_reader :previews
 
-      sig { params(previews: T::Array[String]).void }
+      sig { params(previews: T::Array[T.anything]).void }
       attr_writer :previews
 
       # Array OnlyFans creator user IDs to tag in your post
@@ -130,8 +130,8 @@ module Onlyfansapi
           fund_raising_target_amount: Integer,
           fund_raising_tips_presets: T::Array[String],
           label_ids: String,
-          media_files: String,
-          previews: T::Array[String],
+          media_files: T::Array[T.anything],
+          previews: T::Array[T.anything],
           rf_tag: String,
           save_for_later: T::Boolean,
           scheduled_date: String,
@@ -146,7 +146,7 @@ module Onlyfansapi
         account:,
         # The post text content
         text:,
-        # Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+        # Number of days after which the post will expire. Between 1 and 30 days. Keep
         # empty for no expiration.
         expire_days: nil,
         # Add a fundraising target to your post. If present, value must be at least 10.
@@ -157,11 +157,11 @@ module Onlyfansapi
         fund_raising_tips_presets: nil,
         # Array of OF label IDs. Refer to our `/posts/labels` endpoint.
         label_ids: nil,
-        # Array of OFAPI `ofapi_media_` IDs, or OF media IDs
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs.
         media_files: nil,
-        # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        # not 0). Will be shown if `price` is provided. All `previews` values must also
-        # exist in the `mediaFiles` array.
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+        # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+        # provided.
         previews: nil,
         # Array OnlyFans creator user IDs to tag in your post
         rf_tag: nil,
@@ -192,8 +192,8 @@ module Onlyfansapi
             fund_raising_target_amount: Integer,
             fund_raising_tips_presets: T::Array[String],
             label_ids: String,
-            media_files: String,
-            previews: T::Array[String],
+            media_files: T::Array[T.anything],
+            previews: T::Array[T.anything],
             rf_tag: String,
             save_for_later: T::Boolean,
             scheduled_date: String,

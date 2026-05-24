@@ -406,10 +406,7 @@ module Onlyfansapi
             attr_writer :changed_at
 
             sig { returns(T.nilable(String)) }
-            attr_reader :giphy_id
-
-            sig { params(giphy_id: String).void }
-            attr_writer :giphy_id
+            attr_accessor :giphy_id
 
             sig { returns(T.nilable(T::Boolean)) }
             attr_reader :is_liked
@@ -454,7 +451,7 @@ module Onlyfansapi
                   Onlyfansapi::Models::Posts::CommentListResponse::Data::List::Author::OrHash,
                 can_like: T::Boolean,
                 changed_at: String,
-                giphy_id: String,
+                giphy_id: T.nilable(String),
                 is_liked: T::Boolean,
                 is_liked_by_author: T::Boolean,
                 is_pinned: T::Boolean,
@@ -486,7 +483,7 @@ module Onlyfansapi
                     Onlyfansapi::Models::Posts::CommentListResponse::Data::List::Author,
                   can_like: T::Boolean,
                   changed_at: String,
-                  giphy_id: String,
+                  giphy_id: T.nilable(String),
                   is_liked: T::Boolean,
                   is_liked_by_author: T::Boolean,
                   is_pinned: T::Boolean,

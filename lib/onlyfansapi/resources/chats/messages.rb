@@ -3,17 +3,25 @@
 module Onlyfansapi
   module Resources
     class Chats
-      # APIs for managing OnlyFans chats
       class Messages
+        # Some parameter documentations has been truncated, see
+        # {Onlyfansapi::Models::Chats::MessageListParams} for more details.
+        #
         # Get messages from a specific chat.
         #
-        # @overload list(chat_id, account:, id: nil, order: nil, skip_users: nil, request_options: {})
+        # @overload list(chat_id, account:, filter: nil, first_id: nil, last_id: nil, limit: nil, order: nil, skip_users: nil, request_options: {})
         #
         # @param chat_id [String] Path param: The ID of the chat (usually a fan's OnlyFans User ID)
         #
         # @param account [String] Path param: The Account ID
         #
-        # @param id [String] Query param: ID of the last message from previous page. Used for pagination
+        # @param filter [Symbol, Onlyfansapi::Models::Chats::MessageListParams::Filter] Query param: Filter by certain messages. Currently, only pins are filterable.
+        #
+        # @param first_id [String, nil] Query param: Use for pagination when `order=desc` (newest to oldest). Include th
+        #
+        # @param last_id [String, nil] Query param: Use for pagination when `order=asc` (oldest to newest). Include thi
+        #
+        # @param limit [String] Query param: The number of messages to return (default = 10, max = 100)
         #
         # @param order [String] Query param: Sort order for messages (desc or asc)
         #
@@ -45,11 +53,11 @@ module Onlyfansapi
         #
         # @overload delete(message_id, account:, chat_id:, request_options: {})
         #
-        # @param message_id [String] The ID of the message to delete
+        # @param message_id [String] The ID of the message to retrieve
         #
         # @param account [String] The Account ID
         #
-        # @param chat_id [String] The ID of the chat, usually a fan's OnlyFans User ID
+        # @param chat_id [String] The ID of the chat (usually a fan's OnlyFans User ID)
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -79,21 +87,31 @@ module Onlyfansapi
         #
         # Send a new message to a chat.
         #
-        # @overload send_(chat_id, account:, text:, locked_text: nil, media_files: nil, previews: nil, price: nil, request_options: {})
+        # @overload send_(chat_id, account:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
         #
         # @param chat_id [String] Path param: The ID of the chat (usually a fan's OnlyFans User ID)
         #
         # @param account [String] Path param: The Account ID
         #
-        # @param text [String] Body param: The message text content
+        # @param giphy_id [String] Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the G
         #
         # @param locked_text [Boolean] Body param: Whether the text should be shown or hidden
         #
-        # @param media_files [Array<String>] Body param: Array of media file upload prefixed_ids, or OF media IDs (required i
+        # @param media_files [Array<Object>] Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will
         #
-        # @param previews [Array<String>] Body param: Array of media file upload prefixed_ids, or OF media IDs (required i
+        # @param previews [Array<Object>] Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or inte
         #
         # @param price [Integer] Body param: Price for paid content (0 or between 3-200). In case this is not zer
+        #
+        # @param reply_to_message_id [Integer] Body param: Mark this message as a reply to another (can be either your own, or
+        #
+        # @param rf_guest [String] Body param: Array of OnlyFans Release Form Guest IDs to tag in your message
+        #
+        # @param rf_partner [String] Body param: Array of OnlyFans Release Form Partners IDs to tag in your message
+        #
+        # @param rf_tag [String] Body param: Array of OnlyFans Creator User IDs to tag in your message
+        #
+        # @param text [String] Body param: The message text content. Required unless a media file is present.
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

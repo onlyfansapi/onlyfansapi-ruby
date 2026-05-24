@@ -1,7 +1,7 @@
 module Onlyfansapi
   module Models
     type trial_link_delete_params =
-      { account: String, trial_link_id: Integer }
+      { account: String, trial_link_id: String }
       & Onlyfansapi::Internal::Type::request_parameters
 
     class TrialLinkDeleteParams < Onlyfansapi::Internal::Type::BaseModel
@@ -10,17 +10,17 @@ module Onlyfansapi
 
       attr_accessor account: String
 
-      attr_accessor trial_link_id: Integer
+      attr_accessor trial_link_id: String
 
       def initialize: (
         account: String,
-        trial_link_id: Integer,
+        trial_link_id: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
-        trial_link_id: Integer,
+        trial_link_id: String,
         request_options: Onlyfansapi::RequestOptions
       }
     end

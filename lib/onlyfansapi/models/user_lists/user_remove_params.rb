@@ -15,8 +15,8 @@ module Onlyfansapi
 
         # @!attribute user_list_id
         #
-        #   @return [Integer]
-        required :user_list_id, Integer
+        #   @return [String]
+        required :user_list_id, String
 
         # @!attribute user_id
         #
@@ -25,7 +25,7 @@ module Onlyfansapi
 
         # @!method initialize(account:, user_list_id:, user_id:, request_options: {})
         #   @param account [String]
-        #   @param user_list_id [Integer]
+        #   @param user_list_id [String]
         #   @param user_id [Integer]
         #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
       end

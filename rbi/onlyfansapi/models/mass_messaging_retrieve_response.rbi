@@ -371,10 +371,7 @@ module Onlyfansapi
           attr_writer :date
 
           sig { returns(T.nilable(String)) }
-          attr_reader :giphy_id
-
-          sig { params(giphy_id: String).void }
-          attr_writer :giphy_id
+          attr_accessor :giphy_id
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :has_error
@@ -395,10 +392,7 @@ module Onlyfansapi
           attr_writer :is_free
 
           sig { returns(T.nilable(String)) }
-          attr_reader :media_types
-
-          sig { params(media_types: String).void }
-          attr_writer :media_types
+          attr_accessor :media_types
 
           sig { returns(T.nilable(T::Array[T.anything])) }
           attr_reader :release_forms
@@ -441,11 +435,11 @@ module Onlyfansapi
               id: Integer,
               can_unsend: T::Boolean,
               date: String,
-              giphy_id: String,
+              giphy_id: T.nilable(String),
               has_error: T::Boolean,
               is_canceled: T::Boolean,
               is_free: T::Boolean,
-              media_types: String,
+              media_types: T.nilable(String),
               release_forms: T::Array[T.anything],
               sent_count: Integer,
               text: String,
@@ -478,11 +472,11 @@ module Onlyfansapi
                 id: Integer,
                 can_unsend: T::Boolean,
                 date: String,
-                giphy_id: String,
+                giphy_id: T.nilable(String),
                 has_error: T::Boolean,
                 is_canceled: T::Boolean,
                 is_free: T::Boolean,
-                media_types: String,
+                media_types: T.nilable(String),
                 release_forms: T::Array[T.anything],
                 sent_count: Integer,
                 text: String,

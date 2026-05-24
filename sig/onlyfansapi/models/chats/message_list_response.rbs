@@ -181,7 +181,7 @@ module Onlyfansapi
             changed_at: String,
             created_at: String,
             from_user: Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser,
-            giphy_id: String,
+            giphy_id: String?,
             is_couple_people_media: bool,
             is_free: bool,
             is_from_queue: bool,
@@ -244,9 +244,7 @@ module Onlyfansapi
             Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser
           ) -> Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser
 
-          attr_reader giphy_id: String?
-
-          def giphy_id=: (String) -> String
+          attr_accessor giphy_id: String?
 
           attr_reader is_couple_people_media: bool?
 
@@ -342,7 +340,7 @@ module Onlyfansapi
             ?changed_at: String,
             ?created_at: String,
             ?from_user: Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser,
-            ?giphy_id: String,
+            ?giphy_id: String?,
             ?is_couple_people_media: bool,
             ?is_free: bool,
             ?is_from_queue: bool,
@@ -376,7 +374,7 @@ module Onlyfansapi
             changed_at: String,
             created_at: String,
             from_user: Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser,
-            giphy_id: String,
+            giphy_id: String?,
             is_couple_people_media: bool,
             is_free: bool,
             is_from_queue: bool,

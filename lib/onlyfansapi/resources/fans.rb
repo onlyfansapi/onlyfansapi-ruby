@@ -4,19 +4,24 @@ module Onlyfansapi
   module Resources
     # APIs for managing OnlyFans fans (subscribers)
     class Fans
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::FanListActiveParams} for more details.
+      #
       # Get a paginated list of fans for an Account. Newest fans are first.
       #
-      # @overload list_active(account, filter: nil, limit: nil, offset: nil, type: nil, request_options: {})
+      # @overload list_active(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param filter [Onlyfansapi::Models::FanListActiveParams::Filter]
       #
-      # @param limit [String, nil] Number of fans to return (1-50)
+      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
       #
-      # @param offset [String, nil] Number of fans to skip
+      # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      # @param type [String, nil] Filter by fan type
+      # @param query [String, nil] Search within fan name/username.
+      #
+      # @param type [Symbol, Onlyfansapi::Models::FanListActiveParams::Type] Filter by fan type.
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -35,19 +40,24 @@ module Onlyfansapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::FanListAllParams} for more details.
+      #
       # Get a paginated list of fans for an Account. Newest fans are first.
       #
-      # @overload list_all(account, filter: nil, limit: nil, offset: nil, type: nil, request_options: {})
+      # @overload list_all(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param filter [Onlyfansapi::Models::FanListAllParams::Filter]
       #
-      # @param limit [String, nil] Number of fans to return (1-50)
+      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
       #
-      # @param offset [String, nil] Number of fans to skip
+      # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      # @param type [String, nil] Filter by fan type
+      # @param query [String, nil] Search within fan name/username.
+      #
+      # @param type [Symbol, Onlyfansapi::Models::FanListAllParams::Type] Filter by fan type.
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -66,19 +76,24 @@ module Onlyfansapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::FanListExpiredParams} for more details.
+      #
       # Get a paginated list of expired fans for an Account. Newest fans are first.
       #
-      # @overload list_expired(account, filter: nil, limit: nil, offset: nil, type: nil, request_options: {})
+      # @overload list_expired(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param filter [Onlyfansapi::Models::FanListExpiredParams::Filter]
       #
-      # @param limit [String, nil] Number of fans to return (1-50)
+      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
       #
-      # @param offset [String, nil] Number of fans to skip
+      # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      # @param type [String, nil] Filter by fan type
+      # @param query [String, nil] Search within fan name/username.
+      #
+      # @param type [Symbol, Onlyfansapi::Models::FanListExpiredParams::Type] Filter by fan type.
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -106,7 +121,7 @@ module Onlyfansapi
       #
       # @param end_date [String, nil] End date for filtering (required with start_date)
       #
-      # @param limit [String, nil] Number of fans to return (1-100)
+      # @param limit [String, nil] Number of fans to return (1-50)
       #
       # @param offset [String, nil] Number of fans to skip
       #

@@ -15,8 +15,8 @@ module Onlyfansapi
 
         # @!attribute user_list_id
         #
-        #   @return [Integer]
-        required :user_list_id, Integer
+        #   @return [String]
+        required :user_list_id, String
 
         # @!attribute ids
         #   Array of OnlyFans User IDs to be added into the list
@@ -27,7 +27,7 @@ module Onlyfansapi
         # @!method initialize(account:, user_list_id:, ids:, request_options: {})
         #   @param account [String]
         #
-        #   @param user_list_id [Integer]
+        #   @param user_list_id [String]
         #
         #   @param ids [Array<String>] Array of OnlyFans User IDs to be added into the list
         #

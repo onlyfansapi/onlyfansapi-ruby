@@ -9,7 +9,7 @@ module Onlyfansapi
       #
       # Get a paginated list of followings for an Account. Newest followings are first.
       #
-      # @overload list_active(account, filter: nil, limit: nil, offset: nil, request_options: {})
+      # @overload list_active(account, filter: nil, limit: nil, offset: nil, query: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -19,9 +19,11 @@ module Onlyfansapi
       #
       # @param offset [Integer] Pagination offset. Must be at least 0.
       #
+      # @param query [String, nil] Search within following name/username.
+      #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [nil]
+      # @return [Onlyfansapi::Models::FollowingListActiveResponse]
       #
       # @see Onlyfansapi::Models::FollowingListActiveParams
       def list_active(account, params = {})
@@ -31,7 +33,7 @@ module Onlyfansapi
           method: :get,
           path: ["api/%1$s/following/active", account],
           query: query,
-          model: NilClass,
+          model: Onlyfansapi::Models::FollowingListActiveResponse,
           options: options
         )
       end
@@ -41,7 +43,7 @@ module Onlyfansapi
       #
       # Get a paginated list of followings for an Account. Newest followings are first.
       #
-      # @overload list_all(account, filter: nil, limit: nil, offset: nil, request_options: {})
+      # @overload list_all(account, filter: nil, limit: nil, offset: nil, query: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -51,9 +53,11 @@ module Onlyfansapi
       #
       # @param offset [Integer] Pagination offset. Must be at least 0.
       #
+      # @param query [String, nil] Search within following name/username.
+      #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [nil]
+      # @return [Onlyfansapi::Models::FollowingListAllResponse]
       #
       # @see Onlyfansapi::Models::FollowingListAllParams
       def list_all(account, params = {})
@@ -63,7 +67,7 @@ module Onlyfansapi
           method: :get,
           path: ["api/%1$s/following/all", account],
           query: query,
-          model: NilClass,
+          model: Onlyfansapi::Models::FollowingListAllResponse,
           options: options
         )
       end
@@ -74,7 +78,7 @@ module Onlyfansapi
       # Get a paginated list of expired followings for an Account. Newest followings are
       # first.
       #
-      # @overload list_expired(account, filter: nil, limit: nil, offset: nil, request_options: {})
+      # @overload list_expired(account, filter: nil, limit: nil, offset: nil, query: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -84,9 +88,11 @@ module Onlyfansapi
       #
       # @param offset [Integer] Pagination offset. Must be at least 0.
       #
+      # @param query [String, nil] Search within following name/username.
+      #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [nil]
+      # @return [Onlyfansapi::Models::FollowingListExpiredResponse]
       #
       # @see Onlyfansapi::Models::FollowingListExpiredParams
       def list_expired(account, params = {})
@@ -96,7 +102,7 @@ module Onlyfansapi
           method: :get,
           path: ["api/%1$s/following/expired", account],
           query: query,
-          model: NilClass,
+          model: Onlyfansapi::Models::FollowingListExpiredResponse,
           options: options
         )
       end

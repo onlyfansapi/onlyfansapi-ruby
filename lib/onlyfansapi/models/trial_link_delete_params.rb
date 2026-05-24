@@ -14,12 +14,12 @@ module Onlyfansapi
 
       # @!attribute trial_link_id
       #
-      #   @return [Integer]
-      required :trial_link_id, Integer
+      #   @return [String]
+      required :trial_link_id, String
 
       # @!method initialize(account:, trial_link_id:, request_options: {})
       #   @param account [String]
-      #   @param trial_link_id [Integer]
+      #   @param trial_link_id [String]
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

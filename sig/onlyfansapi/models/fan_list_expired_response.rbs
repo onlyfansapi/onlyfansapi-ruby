@@ -157,16 +157,14 @@ module Onlyfansapi
         end
       end
 
-      type pagination = { next_page: String }
+      type pagination = { next_page: String? }
 
       class Pagination < Onlyfansapi::Internal::Type::BaseModel
-        attr_reader next_page: String?
+        attr_accessor next_page: String?
 
-        def next_page=: (String) -> String
+        def initialize: (?next_page: String?) -> void
 
-        def initialize: (?next_page: String) -> void
-
-        def to_hash: -> { next_page: String }
+        def to_hash: -> { next_page: String? }
       end
 
       type data =
@@ -239,7 +237,7 @@ module Onlyfansapi
             subscribed_by_expire: bool,
             subscribed_by_expire_date: String,
             subscribed_is_expired_now: bool,
-            subscribed_on: String,
+            subscribed_on: String?,
             subscribed_on_data: Onlyfansapi::Models::FanListExpiredResponse::Data::List::SubscribedOnData,
             subscribed_on_duration: String,
             subscribed_on_expired_now: bool,
@@ -429,9 +427,7 @@ module Onlyfansapi
 
           def subscribed_is_expired_now=: (bool) -> bool
 
-          attr_reader subscribed_on: String?
-
-          def subscribed_on=: (String) -> String
+          attr_accessor subscribed_on: String?
 
           attr_reader subscribed_on_data: Onlyfansapi::Models::FanListExpiredResponse::Data::List::SubscribedOnData?
 
@@ -527,7 +523,7 @@ module Onlyfansapi
             ?subscribed_by_expire: bool,
             ?subscribed_by_expire_date: String,
             ?subscribed_is_expired_now: bool,
-            ?subscribed_on: String,
+            ?subscribed_on: String?,
             ?subscribed_on_data: Onlyfansapi::Models::FanListExpiredResponse::Data::List::SubscribedOnData,
             ?subscribed_on_duration: String,
             ?subscribed_on_expired_now: bool,
@@ -584,7 +580,7 @@ module Onlyfansapi
             subscribed_by_expire: bool,
             subscribed_by_expire_date: String,
             subscribed_is_expired_now: bool,
-            subscribed_on: String,
+            subscribed_on: String?,
             subscribed_on_data: Onlyfansapi::Models::FanListExpiredResponse::Data::List::SubscribedOnData,
             subscribed_on_duration: String,
             subscribed_on_expired_now: bool,
@@ -703,10 +699,10 @@ module Onlyfansapi
 
           type subscribed_by_data =
             {
-              discount_finished_at: String,
+              discount_finished_at: String?,
               discount_percent: Integer,
               discount_period: Integer,
-              discount_started_at: String,
+              discount_started_at: String?,
               duration: String,
               expired_at: String,
               has_active_paid_subscriptions: bool,
@@ -714,7 +710,7 @@ module Onlyfansapi
               new_price: Integer,
               price: Integer,
               regular_price: Float,
-              renewed_at: String,
+              renewed_at: String?,
               show_posts_in_feed: bool,
               status: String,
               subscribe_at: String,
@@ -724,9 +720,7 @@ module Onlyfansapi
             }
 
           class SubscribedByData < Onlyfansapi::Internal::Type::BaseModel
-            attr_reader discount_finished_at: String?
-
-            def discount_finished_at=: (String) -> String
+            attr_accessor discount_finished_at: String?
 
             attr_reader discount_percent: Integer?
 
@@ -736,9 +730,7 @@ module Onlyfansapi
 
             def discount_period=: (Integer) -> Integer
 
-            attr_reader discount_started_at: String?
-
-            def discount_started_at=: (String) -> String
+            attr_accessor discount_started_at: String?
 
             attr_reader duration: String?
 
@@ -768,9 +760,7 @@ module Onlyfansapi
 
             def regular_price=: (Float) -> Float
 
-            attr_reader renewed_at: String?
-
-            def renewed_at=: (String) -> String
+            attr_accessor renewed_at: String?
 
             attr_reader show_posts_in_feed: bool?
 
@@ -799,10 +789,10 @@ module Onlyfansapi
             def unsubscribe_reason=: (String) -> String
 
             def initialize: (
-              ?discount_finished_at: String,
+              ?discount_finished_at: String?,
               ?discount_percent: Integer,
               ?discount_period: Integer,
-              ?discount_started_at: String,
+              ?discount_started_at: String?,
               ?duration: String,
               ?expired_at: String,
               ?has_active_paid_subscriptions: bool,
@@ -810,7 +800,7 @@ module Onlyfansapi
               ?new_price: Integer,
               ?price: Integer,
               ?regular_price: Float,
-              ?renewed_at: String,
+              ?renewed_at: String?,
               ?show_posts_in_feed: bool,
               ?status: String,
               ?subscribe_at: String,
@@ -820,10 +810,10 @@ module Onlyfansapi
             ) -> void
 
             def to_hash: -> {
-              discount_finished_at: String,
+              discount_finished_at: String?,
               discount_percent: Integer,
               discount_period: Integer,
-              discount_started_at: String,
+              discount_started_at: String?,
               duration: String,
               expired_at: String,
               has_active_paid_subscriptions: bool,
@@ -831,7 +821,7 @@ module Onlyfansapi
               new_price: Integer,
               price: Integer,
               regular_price: Float,
-              renewed_at: String,
+              renewed_at: String?,
               show_posts_in_feed: bool,
               status: String,
               subscribe_at: String,
@@ -844,14 +834,14 @@ module Onlyfansapi
               {
                 id: Integer,
                 action: String,
-                cancel_date: String,
+                cancel_date: String?,
                 date: String,
                 discount: Integer,
                 duration: Integer,
                 earning_id: Integer,
                 expire_date: String,
                 is_current: bool,
-                offer_end: String,
+                offer_end: String?,
                 offer_start: String,
                 price: Integer,
                 regular_price: Float,
@@ -870,9 +860,7 @@ module Onlyfansapi
 
               def action=: (String) -> String
 
-              attr_reader cancel_date: String?
-
-              def cancel_date=: (String) -> String
+              attr_accessor cancel_date: String?
 
               attr_reader date: String?
 
@@ -898,9 +886,7 @@ module Onlyfansapi
 
               def is_current=: (bool) -> bool
 
-              attr_reader offer_end: String?
-
-              def offer_end=: (String) -> String
+              attr_accessor offer_end: String?
 
               attr_reader offer_start: String?
 
@@ -933,14 +919,14 @@ module Onlyfansapi
               def initialize: (
                 ?id: Integer,
                 ?action: String,
-                ?cancel_date: String,
+                ?cancel_date: String?,
                 ?date: String,
                 ?discount: Integer,
                 ?duration: Integer,
                 ?earning_id: Integer,
                 ?expire_date: String,
                 ?is_current: bool,
-                ?offer_end: String,
+                ?offer_end: String?,
                 ?offer_start: String,
                 ?price: Integer,
                 ?regular_price: Float,
@@ -953,14 +939,14 @@ module Onlyfansapi
               def to_hash: -> {
                 id: Integer,
                 action: String,
-                cancel_date: String,
+                cancel_date: String?,
                 date: String,
                 discount: Integer,
                 duration: Integer,
                 earning_id: Integer,
                 expire_date: String,
                 is_current: bool,
-                offer_end: String,
+                offer_end: String?,
                 offer_start: String,
                 price: Integer,
                 regular_price: Float,
@@ -974,10 +960,10 @@ module Onlyfansapi
 
           type subscribed_on_data =
             {
-              discount_finished_at: String,
+              discount_finished_at: String?,
               discount_percent: Integer,
               discount_period: Integer,
-              discount_started_at: String,
+              discount_started_at: String?,
               duration: String,
               expired_at: String,
               has_active_paid_subscriptions: bool,
@@ -989,8 +975,8 @@ module Onlyfansapi
               price: Integer,
               recommendations: Integer,
               regular_price: Integer,
-              renewed_at: String,
-              status: String,
+              renewed_at: String?,
+              status: String?,
               streams_summ: Integer,
               subscribe_at: String,
               subscribe_price: Integer,
@@ -1002,9 +988,7 @@ module Onlyfansapi
             }
 
           class SubscribedOnData < Onlyfansapi::Internal::Type::BaseModel
-            attr_reader discount_finished_at: String?
-
-            def discount_finished_at=: (String) -> String
+            attr_accessor discount_finished_at: String?
 
             attr_reader discount_percent: Integer?
 
@@ -1014,9 +998,7 @@ module Onlyfansapi
 
             def discount_period=: (Integer) -> Integer
 
-            attr_reader discount_started_at: String?
-
-            def discount_started_at=: (String) -> String
+            attr_accessor discount_started_at: String?
 
             attr_reader duration: String?
 
@@ -1062,13 +1044,9 @@ module Onlyfansapi
 
             def regular_price=: (Integer) -> Integer
 
-            attr_reader renewed_at: String?
+            attr_accessor renewed_at: String?
 
-            def renewed_at=: (String) -> String
-
-            attr_reader status: String?
-
-            def status=: (String) -> String
+            attr_accessor status: String?
 
             attr_reader streams_summ: Integer?
 
@@ -1103,10 +1081,10 @@ module Onlyfansapi
             def unsubscribe_reason=: (String) -> String
 
             def initialize: (
-              ?discount_finished_at: String,
+              ?discount_finished_at: String?,
               ?discount_percent: Integer,
               ?discount_period: Integer,
-              ?discount_started_at: String,
+              ?discount_started_at: String?,
               ?duration: String,
               ?expired_at: String,
               ?has_active_paid_subscriptions: bool,
@@ -1118,8 +1096,8 @@ module Onlyfansapi
               ?price: Integer,
               ?recommendations: Integer,
               ?regular_price: Integer,
-              ?renewed_at: String,
-              ?status: String,
+              ?renewed_at: String?,
+              ?status: String?,
               ?streams_summ: Integer,
               ?subscribe_at: String,
               ?subscribe_price: Integer,
@@ -1131,10 +1109,10 @@ module Onlyfansapi
             ) -> void
 
             def to_hash: -> {
-              discount_finished_at: String,
+              discount_finished_at: String?,
               discount_percent: Integer,
               discount_period: Integer,
-              discount_started_at: String,
+              discount_started_at: String?,
               duration: String,
               expired_at: String,
               has_active_paid_subscriptions: bool,
@@ -1146,8 +1124,8 @@ module Onlyfansapi
               price: Integer,
               recommendations: Integer,
               regular_price: Integer,
-              renewed_at: String,
-              status: String,
+              renewed_at: String?,
+              status: String?,
               streams_summ: Integer,
               subscribe_at: String,
               subscribe_price: Integer,

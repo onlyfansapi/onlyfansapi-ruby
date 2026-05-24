@@ -163,10 +163,7 @@ module Onlyfansapi
           attr_writer :id
 
           sig { returns(T.nilable(String)) }
-          attr_reader :about
-
-          sig { params(about: String).void }
-          attr_writer :about
+          attr_accessor :about
 
           sig { returns(T.nilable(T::Array[String])) }
           attr_reader :adv_block
@@ -210,10 +207,7 @@ module Onlyfansapi
           attr_writer :audios_count
 
           sig { returns(T.nilable(String)) }
-          attr_reader :avatar
-
-          sig { params(avatar: String).void }
-          attr_writer :avatar
+          attr_accessor :avatar
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :avatar_header_converter_upload
@@ -222,10 +216,7 @@ module Onlyfansapi
           attr_writer :avatar_header_converter_upload
 
           sig { returns(T.nilable(String)) }
-          attr_reader :avatar_thumbs
-
-          sig { params(avatar_thumbs: String).void }
-          attr_writer :avatar_thumbs
+          attr_accessor :avatar_thumbs
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :can_add_card
@@ -467,22 +458,13 @@ module Onlyfansapi
           attr_writer :has_watermark_video
 
           sig { returns(T.nilable(String)) }
-          attr_reader :header
-
-          sig { params(header: String).void }
-          attr_writer :header
+          attr_accessor :header
 
           sig { returns(T.nilable(String)) }
-          attr_reader :header_size
-
-          sig { params(header_size: String).void }
-          attr_writer :header_size
+          attr_accessor :header_size
 
           sig { returns(T.nilable(String)) }
-          attr_reader :header_thumbs
-
-          sig { params(header_thumbs: String).void }
-          attr_writer :header_thumbs
+          attr_accessor :header_thumbs
 
           sig { returns(T.nilable(String)) }
           attr_reader :ip
@@ -629,10 +611,7 @@ module Onlyfansapi
           attr_writer :is_want_comments
 
           sig { returns(T.nilable(String)) }
-          attr_reader :iv_country
-
-          sig { params(iv_country: String).void }
-          attr_writer :iv_country
+          attr_accessor :iv_country
 
           sig { returns(T.nilable(String)) }
           attr_reader :iv_fail_reason
@@ -647,10 +626,7 @@ module Onlyfansapi
           attr_writer :iv_flow
 
           sig { returns(T.nilable(String)) }
-          attr_reader :iv_status
-
-          sig { params(iv_status: String).void }
-          attr_writer :iv_status
+          attr_accessor :iv_status
 
           sig { returns(T.nilable(String)) }
           attr_reader :join_date
@@ -665,10 +641,7 @@ module Onlyfansapi
           attr_writer :last_seen
 
           sig { returns(T.nilable(String)) }
-          attr_reader :location
-
-          sig { params(location: String).void }
-          attr_writer :location
+          attr_accessor :location
 
           sig { returns(T.nilable(Integer)) }
           attr_reader :max_pinned_posts_count
@@ -761,10 +734,7 @@ module Onlyfansapi
           attr_writer :subscribes_count
 
           sig { returns(T.nilable(String)) }
-          attr_reader :twitter_username
-
-          sig { params(twitter_username: String).void }
-          attr_writer :twitter_username
+          attr_accessor :twitter_username
 
           sig do
             returns(
@@ -832,16 +802,10 @@ module Onlyfansapi
           attr_writer :watermark_text
 
           sig { returns(T.nilable(String)) }
-          attr_reader :website
-
-          sig { params(website: String).void }
-          attr_writer :website
+          attr_accessor :website
 
           sig { returns(T.nilable(String)) }
-          attr_reader :wishlist
-
-          sig { params(wishlist: String).void }
-          attr_writer :wishlist
+          attr_accessor :wishlist
 
           sig { returns(T.nilable(String)) }
           attr_reader :ws_auth_token
@@ -858,16 +822,16 @@ module Onlyfansapi
           sig do
             params(
               id: Integer,
-              about: String,
+              about: T.nilable(String),
               adv_block: T::Array[String],
               age_verification_required: T::Boolean,
               age_verification_session:
                 Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::AgeVerificationSession::OrHash,
               archived_posts_count: Integer,
               audios_count: Integer,
-              avatar: String,
+              avatar: T.nilable(String),
               avatar_header_converter_upload: T::Boolean,
-              avatar_thumbs: String,
+              avatar_thumbs: T.nilable(String),
               can_add_card: T::Boolean,
               can_alternative_wallet_top_up: T::Boolean,
               can_chat: T::Boolean,
@@ -907,9 +871,9 @@ module Onlyfansapi
               has_tags: T::Boolean,
               has_watermark_photo: T::Boolean,
               has_watermark_video: T::Boolean,
-              header: String,
-              header_size: String,
-              header_thumbs: String,
+              header: T.nilable(String),
+              header_size: T.nilable(String),
+              header_thumbs: T.nilable(String),
               ip: String,
               is_age_verified: T::Boolean,
               is_allow_tweets: T::Boolean,
@@ -934,13 +898,13 @@ module Onlyfansapi
               is_visible_online: T::Boolean,
               is_wallet_autorecharge: T::Boolean,
               is_want_comments: T::Boolean,
-              iv_country: String,
+              iv_country: T.nilable(String),
               iv_fail_reason: String,
               iv_flow: String,
-              iv_status: String,
+              iv_status: T.nilable(String),
               join_date: String,
               last_seen: String,
-              location: String,
+              location: T.nilable(String),
               max_pinned_posts_count: Integer,
               medias_count: Integer,
               name: String,
@@ -956,7 +920,7 @@ module Onlyfansapi
               show_posts_in_feed: T::Boolean,
               subscribers_count: Integer,
               subscribes_count: Integer,
-              twitter_username: String,
+              twitter_username: T.nilable(String),
               upload:
                 Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::Upload::OrHash,
               username: String,
@@ -967,8 +931,8 @@ module Onlyfansapi
               wallet_first_rebills: T::Boolean,
               watermark_position: String,
               watermark_text: String,
-              website: String,
-              wishlist: String,
+              website: T.nilable(String),
+              wishlist: T.nilable(String),
               ws_auth_token: String,
               ws_url: String
             ).returns(T.attached_class)
@@ -1092,16 +1056,16 @@ module Onlyfansapi
             override.returns(
               {
                 id: Integer,
-                about: String,
+                about: T.nilable(String),
                 adv_block: T::Array[String],
                 age_verification_required: T::Boolean,
                 age_verification_session:
                   Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::AgeVerificationSession,
                 archived_posts_count: Integer,
                 audios_count: Integer,
-                avatar: String,
+                avatar: T.nilable(String),
                 avatar_header_converter_upload: T::Boolean,
-                avatar_thumbs: String,
+                avatar_thumbs: T.nilable(String),
                 can_add_card: T::Boolean,
                 can_alternative_wallet_top_up: T::Boolean,
                 can_chat: T::Boolean,
@@ -1141,9 +1105,9 @@ module Onlyfansapi
                 has_tags: T::Boolean,
                 has_watermark_photo: T::Boolean,
                 has_watermark_video: T::Boolean,
-                header: String,
-                header_size: String,
-                header_thumbs: String,
+                header: T.nilable(String),
+                header_size: T.nilable(String),
+                header_thumbs: T.nilable(String),
                 ip: String,
                 is_age_verified: T::Boolean,
                 is_allow_tweets: T::Boolean,
@@ -1168,13 +1132,13 @@ module Onlyfansapi
                 is_visible_online: T::Boolean,
                 is_wallet_autorecharge: T::Boolean,
                 is_want_comments: T::Boolean,
-                iv_country: String,
+                iv_country: T.nilable(String),
                 iv_fail_reason: String,
                 iv_flow: String,
-                iv_status: String,
+                iv_status: T.nilable(String),
                 join_date: String,
                 last_seen: String,
-                location: String,
+                location: T.nilable(String),
                 max_pinned_posts_count: Integer,
                 medias_count: Integer,
                 name: String,
@@ -1190,7 +1154,7 @@ module Onlyfansapi
                 show_posts_in_feed: T::Boolean,
                 subscribers_count: Integer,
                 subscribes_count: Integer,
-                twitter_username: String,
+                twitter_username: T.nilable(String),
                 upload:
                   Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::Upload,
                 username: String,
@@ -1201,8 +1165,8 @@ module Onlyfansapi
                 wallet_first_rebills: T::Boolean,
                 watermark_position: String,
                 watermark_text: String,
-                website: String,
-                wishlist: String,
+                website: T.nilable(String),
+                wishlist: T.nilable(String),
                 ws_auth_token: String,
                 ws_url: String
               }
@@ -1498,10 +1462,10 @@ module Onlyfansapi
         attr_writer :completed_at
 
         sig { returns(T.nilable(String)) }
-        attr_reader :error_message
+        attr_accessor :error_code
 
-        sig { params(error_message: String).void }
-        attr_writer :error_message
+        sig { returns(T.nilable(String)) }
+        attr_accessor :error_message
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :needs_otp
@@ -1510,10 +1474,7 @@ module Onlyfansapi
         attr_writer :needs_otp
 
         sig { returns(T.nilable(String)) }
-        attr_reader :otp_phone_ending
-
-        sig { params(otp_phone_ending: String).void }
-        attr_writer :otp_phone_ending
+        attr_accessor :otp_phone_ending
 
         sig { returns(T.nilable(String)) }
         attr_reader :started_at
@@ -1530,15 +1491,17 @@ module Onlyfansapi
         sig do
           params(
             completed_at: String,
-            error_message: String,
+            error_code: T.nilable(String),
+            error_message: T.nilable(String),
             needs_otp: T::Boolean,
-            otp_phone_ending: String,
+            otp_phone_ending: T.nilable(String),
             started_at: String,
             success: T::Boolean
           ).returns(T.attached_class)
         end
         def self.new(
           completed_at: nil,
+          error_code: nil,
           error_message: nil,
           needs_otp: nil,
           otp_phone_ending: nil,
@@ -1551,9 +1514,10 @@ module Onlyfansapi
           override.returns(
             {
               completed_at: String,
-              error_message: String,
+              error_code: T.nilable(String),
+              error_message: T.nilable(String),
               needs_otp: T::Boolean,
-              otp_phone_ending: String,
+              otp_phone_ending: T.nilable(String),
               started_at: String,
               success: T::Boolean
             }

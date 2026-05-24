@@ -202,12 +202,13 @@ module Onlyfansapi
             claim_counts: Integer,
             clicks_counts: Integer,
             created_at: String,
-            expired_at: String,
+            expired_at: String?,
             is_finished: bool,
             links: Onlyfansapi::Models::TrialLinkListResponse::Data::List::Links,
             revenue: Onlyfansapi::Models::TrialLinkListResponse::Data::List::Revenue,
             subscribe_counts: Integer,
             subscribe_days: Integer,
+            tags: ::Array[String],
             trial_link_name: String,
             url: String
           }
@@ -229,9 +230,7 @@ module Onlyfansapi
 
           def created_at=: (String) -> String
 
-          attr_reader expired_at: String?
-
-          def expired_at=: (String) -> String
+          attr_accessor expired_at: String?
 
           attr_reader is_finished: bool?
 
@@ -257,6 +256,10 @@ module Onlyfansapi
 
           def subscribe_days=: (Integer) -> Integer
 
+          attr_reader tags: ::Array[String]?
+
+          def tags=: (::Array[String]) -> ::Array[String]
+
           attr_reader trial_link_name: String?
 
           def trial_link_name=: (String) -> String
@@ -270,12 +273,13 @@ module Onlyfansapi
             ?claim_counts: Integer,
             ?clicks_counts: Integer,
             ?created_at: String,
-            ?expired_at: String,
+            ?expired_at: String?,
             ?is_finished: bool,
             ?links: Onlyfansapi::Models::TrialLinkListResponse::Data::List::Links,
             ?revenue: Onlyfansapi::Models::TrialLinkListResponse::Data::List::Revenue,
             ?subscribe_counts: Integer,
             ?subscribe_days: Integer,
+            ?tags: ::Array[String],
             ?trial_link_name: String,
             ?url: String
           ) -> void
@@ -285,12 +289,13 @@ module Onlyfansapi
             claim_counts: Integer,
             clicks_counts: Integer,
             created_at: String,
-            expired_at: String,
+            expired_at: String?,
             is_finished: bool,
             links: Onlyfansapi::Models::TrialLinkListResponse::Data::List::Links,
             revenue: Onlyfansapi::Models::TrialLinkListResponse::Data::List::Revenue,
             subscribe_counts: Integer,
             subscribe_days: Integer,
+            tags: ::Array[String],
             trial_link_name: String,
             url: String
           }

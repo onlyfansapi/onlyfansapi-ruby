@@ -21,6 +21,21 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :text
 
+      # Array of user list IDs that the mass message will NOT be sent to.
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_reader :excluded_lists
+
+      sig { params(excluded_lists: T::Array[String]).void }
+      attr_writer :excluded_lists
+
+      # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+      # endpoints (`/giphy/trending`, `/giphy/search`).
+      sig { returns(T.nilable(String)) }
+      attr_reader :giphy_id
+
+      sig { params(giphy_id: String).void }
+      attr_writer :giphy_id
+
       # Whether the text should be shown or hidden
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :locked_text
@@ -28,21 +43,21 @@ module Onlyfansapi
       sig { params(locked_text: T::Boolean).void }
       attr_writer :locked_text
 
-      # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-      # not 0). Will be hidden if `price` is provided.
-      sig { returns(T.nilable(T::Array[String])) }
+      # Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden
+      # if `price` is provided.
+      sig { returns(T.nilable(T::Array[T.anything])) }
       attr_reader :media_files
 
-      sig { params(media_files: T::Array[String]).void }
+      sig { params(media_files: T::Array[T.anything]).void }
       attr_writer :media_files
 
-      # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-      # not 0). Will be shown if `price` is provided. All `previews` values must also
-      # exist in the `mediaFiles` array.
-      sig { returns(T.nilable(T::Array[String])) }
+      # Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+      # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+      # provided.
+      sig { returns(T.nilable(T::Array[T.anything])) }
       attr_reader :previews
 
-      sig { params(previews: T::Array[String]).void }
+      sig { params(previews: T::Array[T.anything]).void }
       attr_writer :previews
 
       # Price for paid content (0 or between 3-200). In case this is not zero,
@@ -52,6 +67,27 @@ module Onlyfansapi
 
       sig { params(price: Integer).void }
       attr_writer :price
+
+      # Array of OnlyFans Release Form Guest IDs to tag in your mass message
+      sig { returns(T.nilable(String)) }
+      attr_reader :rf_guest
+
+      sig { params(rf_guest: String).void }
+      attr_writer :rf_guest
+
+      # Array of OnlyFans Release Form Partners IDs to tag in your mass message
+      sig { returns(T.nilable(String)) }
+      attr_reader :rf_partner
+
+      sig { params(rf_partner: String).void }
+      attr_writer :rf_partner
+
+      # Array of OnlyFans Creator User IDs to tag in your mass message
+      sig { returns(T.nilable(String)) }
+      attr_reader :rf_tag
+
+      sig { params(rf_tag: String).void }
+      attr_writer :rf_tag
 
       # Add your message to the "Saved for later" queue.
       sig { returns(T.nilable(T::Boolean)) }
@@ -85,10 +121,15 @@ module Onlyfansapi
         params(
           account: String,
           text: String,
+          excluded_lists: T::Array[String],
+          giphy_id: String,
           locked_text: T::Boolean,
-          media_files: T::Array[String],
-          previews: T::Array[String],
+          media_files: T::Array[T.anything],
+          previews: T::Array[T.anything],
           price: Integer,
+          rf_guest: String,
+          rf_partner: String,
+          rf_tag: String,
           save_for_later: T::Boolean,
           scheduled_date: String,
           user_ids: T::Array[String],
@@ -100,18 +141,29 @@ module Onlyfansapi
         account:,
         # The message text content
         text:,
+        # Array of user list IDs that the mass message will NOT be sent to.
+        excluded_lists: nil,
+        # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+        # endpoints (`/giphy/trending`, `/giphy/search`).
+        giphy_id: nil,
         # Whether the text should be shown or hidden
         locked_text: nil,
-        # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        # not 0). Will be hidden if `price` is provided.
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden
+        # if `price` is provided.
         media_files: nil,
-        # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        # not 0). Will be shown if `price` is provided. All `previews` values must also
-        # exist in the `mediaFiles` array.
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+        # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+        # provided.
         previews: nil,
         # Price for paid content (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
         price: nil,
+        # Array of OnlyFans Release Form Guest IDs to tag in your mass message
+        rf_guest: nil,
+        # Array of OnlyFans Release Form Partners IDs to tag in your mass message
+        rf_partner: nil,
+        # Array of OnlyFans Creator User IDs to tag in your mass message
+        rf_tag: nil,
         # Add your message to the "Saved for later" queue.
         save_for_later: nil,
         # Schedule the chat message in the future (UTC timezone).
@@ -129,10 +181,15 @@ module Onlyfansapi
           {
             account: String,
             text: String,
+            excluded_lists: T::Array[String],
+            giphy_id: String,
             locked_text: T::Boolean,
-            media_files: T::Array[String],
-            previews: T::Array[String],
+            media_files: T::Array[T.anything],
+            previews: T::Array[T.anything],
             price: Integer,
+            rf_guest: String,
+            rf_partner: String,
+            rf_tag: String,
             save_for_later: T::Boolean,
             scheduled_date: String,
             user_ids: T::Array[String],

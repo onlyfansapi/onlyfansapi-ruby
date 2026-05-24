@@ -5,13 +5,15 @@ module Onlyfansapi
     # APIs for managing OnlyFans transactions
     class Transactions
       # Get a paginated list of transactions for an Account. Newest transactions are
-      # first.
+      # first. You can filter by transaction type and tips source.
       sig do
         params(
           account: String,
           limit: String,
           marker: String,
           start_date: String,
+          tips_source: String,
+          type: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::TransactionListResponse)
       end
@@ -24,6 +26,12 @@ module Onlyfansapi
         marker: nil,
         # The start date for transactions list. Default: `-30days`
         start_date: nil,
+        # Filter tips by source. Only applies when `type=tips`. Options: `profile`,
+        # `post_all`, `chat`, `stream`, `story`
+        tips_source: nil,
+        # Filter by transaction type. Options: `subscribes`, `tips`, `post`,
+        # `chat_messages`, `stream`
+        type: nil,
         request_options: {}
       )
       end

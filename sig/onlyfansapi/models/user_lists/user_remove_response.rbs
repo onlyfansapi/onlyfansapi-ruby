@@ -394,7 +394,7 @@ module Onlyfansapi
             {
               id: Integer,
               can_add_user: bool,
-              cannot_add_user_reason: String,
+              cannot_add_user_reason: String?,
               has_user: bool,
               name: String,
               type: String
@@ -409,9 +409,7 @@ module Onlyfansapi
 
             def can_add_user=: (bool) -> bool
 
-            attr_reader cannot_add_user_reason: String?
-
-            def cannot_add_user_reason=: (String) -> String
+            attr_accessor cannot_add_user_reason: String?
 
             attr_reader has_user: bool?
 
@@ -428,7 +426,7 @@ module Onlyfansapi
             def initialize: (
               ?id: Integer,
               ?can_add_user: bool,
-              ?cannot_add_user_reason: String,
+              ?cannot_add_user_reason: String?,
               ?has_user: bool,
               ?name: String,
               ?type: String
@@ -437,7 +435,7 @@ module Onlyfansapi
             def to_hash: -> {
               id: Integer,
               can_add_user: bool,
-              cannot_add_user_reason: String,
+              cannot_add_user_reason: String?,
               has_user: bool,
               name: String,
               type: String

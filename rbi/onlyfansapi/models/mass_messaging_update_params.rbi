@@ -24,6 +24,14 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :text
 
+      # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+      # endpoints (`/giphy/trending`, `/giphy/search`).
+      sig { returns(T.nilable(String)) }
+      attr_reader :giphy_id
+
+      sig { params(giphy_id: String).void }
+      attr_writer :giphy_id
+
       # Whether the text should be shown or hidden
       sig { returns(T.nilable(T::Boolean)) }
       attr_reader :locked_text
@@ -82,6 +90,7 @@ module Onlyfansapi
           account: String,
           id: String,
           text: String,
+          giphy_id: String,
           locked_text: T::Boolean,
           media_files: T::Array[String],
           previews: T::Array[String],
@@ -97,6 +106,9 @@ module Onlyfansapi
         id:,
         # The message text content
         text:,
+        # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+        # endpoints (`/giphy/trending`, `/giphy/search`).
+        giphy_id: nil,
         # Whether the text should be shown or hidden
         locked_text: nil,
         # Array of media file upload prefixed_ids, or OF media IDs (required if price is
@@ -125,6 +137,7 @@ module Onlyfansapi
             account: String,
             id: String,
             text: String,
+            giphy_id: String,
             locked_text: T::Boolean,
             media_files: T::Array[String],
             previews: T::Array[String],

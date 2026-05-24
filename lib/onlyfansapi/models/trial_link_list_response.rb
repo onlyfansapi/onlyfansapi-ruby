@@ -168,7 +168,7 @@ module Onlyfansapi
           # @!attribute expired_at
           #
           #   @return [String, nil]
-          optional :expired_at, String, api_name: :expiredAt
+          optional :expired_at, String, api_name: :expiredAt, nil?: true
 
           # @!attribute is_finished
           #
@@ -195,6 +195,11 @@ module Onlyfansapi
           #   @return [Integer, nil]
           optional :subscribe_days, Integer, api_name: :subscribeDays
 
+          # @!attribute tags
+          #
+          #   @return [Array<String>, nil]
+          optional :tags, Onlyfansapi::Internal::Type::ArrayOf[String]
+
           # @!attribute trial_link_name
           #
           #   @return [String, nil]
@@ -205,17 +210,18 @@ module Onlyfansapi
           #   @return [String, nil]
           optional :url, String
 
-          # @!method initialize(id: nil, claim_counts: nil, clicks_counts: nil, created_at: nil, expired_at: nil, is_finished: nil, links: nil, revenue: nil, subscribe_counts: nil, subscribe_days: nil, trial_link_name: nil, url: nil)
+          # @!method initialize(id: nil, claim_counts: nil, clicks_counts: nil, created_at: nil, expired_at: nil, is_finished: nil, links: nil, revenue: nil, subscribe_counts: nil, subscribe_days: nil, tags: nil, trial_link_name: nil, url: nil)
           #   @param id [Integer]
           #   @param claim_counts [Integer]
           #   @param clicks_counts [Integer]
           #   @param created_at [String]
-          #   @param expired_at [String]
+          #   @param expired_at [String, nil]
           #   @param is_finished [Boolean]
           #   @param links [Onlyfansapi::Models::TrialLinkListResponse::Data::List::Links]
           #   @param revenue [Onlyfansapi::Models::TrialLinkListResponse::Data::List::Revenue]
           #   @param subscribe_counts [Integer]
           #   @param subscribe_days [Integer]
+          #   @param tags [Array<String>]
           #   @param trial_link_name [String]
           #   @param url [String]
 

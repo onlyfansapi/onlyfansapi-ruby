@@ -121,10 +121,10 @@ module Onlyfansapi
         # @!attribute next_page
         #
         #   @return [String, nil]
-        optional :next_page, String
+        optional :next_page, String, nil?: true
 
         # @!method initialize(next_page: nil)
-        #   @param next_page [String]
+        #   @param next_page [String, nil]
       end
 
       # @see Onlyfansapi::Models::FanListAllResponse#data
@@ -212,7 +212,7 @@ module Onlyfansapi
           # @!attribute current_subscribe_price
           #
           #   @return [String, nil]
-          optional :current_subscribe_price, String, api_name: :currentSubscribePrice
+          optional :current_subscribe_price, String, api_name: :currentSubscribePrice, nil?: true
 
           # @!attribute display_name
           #
@@ -242,17 +242,17 @@ module Onlyfansapi
           # @!attribute header
           #
           #   @return [String, nil]
-          optional :header, String
+          optional :header, String, nil?: true
 
           # @!attribute header_size
           #
           #   @return [String, nil]
-          optional :header_size, String, api_name: :headerSize
+          optional :header_size, String, api_name: :headerSize, nil?: true
 
           # @!attribute header_thumbs
           #
           #   @return [String, nil]
-          optional :header_thumbs, String, api_name: :headerThumbs
+          optional :header_thumbs, String, api_name: :headerThumbs, nil?: true
 
           # @!attribute hide_chat
           #
@@ -326,27 +326,27 @@ module Onlyfansapi
           # @!attribute subscribed_by_autoprolong
           #
           #   @return [String, nil]
-          optional :subscribed_by_autoprolong, String, api_name: :subscribedByAutoprolong
+          optional :subscribed_by_autoprolong, String, api_name: :subscribedByAutoprolong, nil?: true
 
           # @!attribute subscribed_by_data
           #
           #   @return [String, nil]
-          optional :subscribed_by_data, String, api_name: :subscribedByData
+          optional :subscribed_by_data, String, api_name: :subscribedByData, nil?: true
 
           # @!attribute subscribed_by_expire
           #
           #   @return [String, nil]
-          optional :subscribed_by_expire, String, api_name: :subscribedByExpire
+          optional :subscribed_by_expire, String, api_name: :subscribedByExpire, nil?: true
 
           # @!attribute subscribed_by_expire_date
           #
           #   @return [String, nil]
-          optional :subscribed_by_expire_date, String, api_name: :subscribedByExpireDate
+          optional :subscribed_by_expire_date, String, api_name: :subscribedByExpireDate, nil?: true
 
           # @!attribute subscribed_is_expired_now
           #
           #   @return [String, nil]
-          optional :subscribed_is_expired_now, String, api_name: :subscribedIsExpiredNow
+          optional :subscribed_is_expired_now, String, api_name: :subscribedIsExpiredNow, nil?: true
 
           # @!attribute subscribed_on
           #
@@ -432,15 +432,15 @@ module Onlyfansapi
           #   @param can_report [Boolean]
           #   @param can_restrict [Boolean]
           #   @param can_trial_send [Boolean]
-          #   @param current_subscribe_price [String]
+          #   @param current_subscribe_price [String, nil]
           #   @param display_name [String]
           #   @param has_not_viewed_story [Boolean]
           #   @param has_scheduled_stream [Boolean]
           #   @param has_stories [Boolean]
           #   @param has_stream [Boolean]
-          #   @param header [String]
-          #   @param header_size [String]
-          #   @param header_thumbs [String]
+          #   @param header [String, nil]
+          #   @param header_size [String, nil]
+          #   @param header_thumbs [String, nil]
           #   @param hide_chat [Boolean]
           #   @param is_blocked [Boolean]
           #   @param is_paywall_required [Boolean]
@@ -454,11 +454,11 @@ module Onlyfansapi
           #   @param notice [String]
           #   @param promo_offers [Array<Onlyfansapi::Models::FanListAllResponse::Data::List::PromoOffer>]
           #   @param subscribed_by [Boolean]
-          #   @param subscribed_by_autoprolong [String]
-          #   @param subscribed_by_data [String]
-          #   @param subscribed_by_expire [String]
-          #   @param subscribed_by_expire_date [String]
-          #   @param subscribed_is_expired_now [String]
+          #   @param subscribed_by_autoprolong [String, nil]
+          #   @param subscribed_by_data [String, nil]
+          #   @param subscribed_by_expire [String, nil]
+          #   @param subscribed_by_expire_date [String, nil]
+          #   @param subscribed_is_expired_now [String, nil]
           #   @param subscribed_on [Boolean]
           #   @param subscribed_on_data [Onlyfansapi::Models::FanListAllResponse::Data::List::SubscribedOnData]
           #   @param subscribed_on_duration [String]
@@ -581,7 +581,7 @@ module Onlyfansapi
             # @!attribute discount_finished_at
             #
             #   @return [String, nil]
-            optional :discount_finished_at, String, api_name: :discountFinishedAt
+            optional :discount_finished_at, String, api_name: :discountFinishedAt, nil?: true
 
             # @!attribute discount_percent
             #
@@ -596,7 +596,7 @@ module Onlyfansapi
             # @!attribute discount_started_at
             #
             #   @return [String, nil]
-            optional :discount_started_at, String, api_name: :discountStartedAt
+            optional :discount_started_at, String, api_name: :discountStartedAt, nil?: true
 
             # @!attribute duration
             #
@@ -658,7 +658,7 @@ module Onlyfansapi
             # @!attribute renewed_at
             #
             #   @return [String, nil]
-            optional :renewed_at, String, api_name: :renewedAt
+            optional :renewed_at, String, api_name: :renewedAt, nil?: true
 
             # @!attribute status
             #
@@ -707,10 +707,10 @@ module Onlyfansapi
             optional :unsubscribe_reason, String, api_name: :unsubscribeReason
 
             # @!method initialize(discount_finished_at: nil, discount_percent: nil, discount_period: nil, discount_started_at: nil, duration: nil, expired_at: nil, has_active_paid_subscriptions: nil, is_muted: nil, last_activity: nil, messages_summ: nil, new_price: nil, posts_summ: nil, price: nil, recommendations: nil, regular_price: nil, renewed_at: nil, status: nil, streams_summ: nil, subscribe_at: nil, subscribe_price: nil, subscribes: nil, subscribes_summ: nil, tips_summ: nil, total_summ: nil, unsubscribe_reason: nil)
-            #   @param discount_finished_at [String]
+            #   @param discount_finished_at [String, nil]
             #   @param discount_percent [Integer]
             #   @param discount_period [Integer]
-            #   @param discount_started_at [String]
+            #   @param discount_started_at [String, nil]
             #   @param duration [String]
             #   @param expired_at [String]
             #   @param has_active_paid_subscriptions [Boolean]
@@ -722,7 +722,7 @@ module Onlyfansapi
             #   @param price [Integer]
             #   @param recommendations [Integer]
             #   @param regular_price [Integer]
-            #   @param renewed_at [String]
+            #   @param renewed_at [String, nil]
             #   @param status [String]
             #   @param streams_summ [Integer]
             #   @param subscribe_at [String]
@@ -747,7 +747,7 @@ module Onlyfansapi
               # @!attribute cancel_date
               #
               #   @return [String, nil]
-              optional :cancel_date, String, api_name: :cancelDate
+              optional :cancel_date, String, api_name: :cancelDate, nil?: true
 
               # @!attribute date
               #
@@ -822,7 +822,7 @@ module Onlyfansapi
               # @!method initialize(id: nil, action: nil, cancel_date: nil, date: nil, discount: nil, duration: nil, earning_id: nil, expire_date: nil, is_current: nil, offer_end: nil, offer_start: nil, price: nil, regular_price: nil, start_date: nil, subscriber_id: nil, type: nil, user_id: nil)
               #   @param id [Integer]
               #   @param action [String]
-              #   @param cancel_date [String]
+              #   @param cancel_date [String, nil]
               #   @param date [String]
               #   @param discount [Integer]
               #   @param duration [Integer]

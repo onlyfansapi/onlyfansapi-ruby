@@ -18,11 +18,12 @@ module Onlyfansapi
         #   @return [String]
         required :chat_id, String
 
-        # @!attribute text
-        #   The message text content
+        # @!attribute giphy_id
+        #   The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+        #   endpoints (`/giphy/trending`, `/giphy/search`).
         #
-        #   @return [String]
-        required :text, String
+        #   @return [String, nil]
+        optional :giphy_id, String, api_name: :giphyId
 
         # @!attribute locked_text
         #   Whether the text should be shown or hidden
@@ -31,19 +32,21 @@ module Onlyfansapi
         optional :locked_text, Onlyfansapi::Internal::Type::Boolean, api_name: :lockedText
 
         # @!attribute media_files
-        #   Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        #   not 0). Will be hidden if `price` is provided.
+        #   Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden
+        #   if `price` is provided.
         #
-        #   @return [Array<String>, nil]
-        optional :media_files, Onlyfansapi::Internal::Type::ArrayOf[String], api_name: :mediaFiles
+        #   @return [Array<Object>, nil]
+        optional :media_files,
+                 Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Internal::Type::Unknown],
+                 api_name: :mediaFiles
 
         # @!attribute previews
-        #   Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        #   not 0). Will be shown if `price` is provided. All `previews` values must also
-        #   exist in the `mediaFiles` array.
+        #   Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+        #   referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+        #   provided.
         #
-        #   @return [Array<String>, nil]
-        optional :previews, Onlyfansapi::Internal::Type::ArrayOf[String]
+        #   @return [Array<Object>, nil]
+        optional :previews, Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Internal::Type::Unknown]
 
         # @!attribute price
         #   Price for paid content (0 or between 3-200). In case this is not zero,
@@ -52,7 +55,38 @@ module Onlyfansapi
         #   @return [Integer, nil]
         optional :price, Integer
 
-        # @!method initialize(account:, chat_id:, text:, locked_text: nil, media_files: nil, previews: nil, price: nil, request_options: {})
+        # @!attribute reply_to_message_id
+        #   Mark this message as a reply to another (can be either your own, or the
+        #   recipient's)
+        #
+        #   @return [Integer, nil]
+        optional :reply_to_message_id, Integer, api_name: :replyToMessageId
+
+        # @!attribute rf_guest
+        #   Array of OnlyFans Release Form Guest IDs to tag in your message
+        #
+        #   @return [String, nil]
+        optional :rf_guest, String, api_name: :rfGuest
+
+        # @!attribute rf_partner
+        #   Array of OnlyFans Release Form Partners IDs to tag in your message
+        #
+        #   @return [String, nil]
+        optional :rf_partner, String, api_name: :rfPartner
+
+        # @!attribute rf_tag
+        #   Array of OnlyFans Creator User IDs to tag in your message
+        #
+        #   @return [String, nil]
+        optional :rf_tag, String, api_name: :rfTag
+
+        # @!attribute text
+        #   The message text content. Required unless a media file is present.
+        #
+        #   @return [String, nil]
+        optional :text, String
+
+        # @!method initialize(account:, chat_id:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Onlyfansapi::Models::Chats::MessageSendParams} for more details.
         #
@@ -60,16 +94,26 @@ module Onlyfansapi
         #
         #   @param chat_id [String]
         #
-        #   @param text [String] The message text content
+        #   @param giphy_id [String] The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
         #
         #   @param locked_text [Boolean] Whether the text should be shown or hidden
         #
-        #   @param media_files [Array<String>] Array of media file upload prefixed_ids, or OF media IDs (required if price is n
+        #   @param media_files [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden i
         #
-        #   @param previews [Array<String>] Array of media file upload prefixed_ids, or OF media IDs (required if price is n
+        #   @param previews [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
         #
         #   @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
         #   \*\*mediaFi
+        #
+        #   @param reply_to_message_id [Integer] Mark this message as a reply to another (can be either your own, or the recipien
+        #
+        #   @param rf_guest [String] Array of OnlyFans Release Form Guest IDs to tag in your message
+        #
+        #   @param rf_partner [String] Array of OnlyFans Release Form Partners IDs to tag in your message
+        #
+        #   @param rf_tag [String] Array of OnlyFans Creator User IDs to tag in your message
+        #
+        #   @param text [String] The message text content. Required unless a media file is present.
         #
         #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
       end

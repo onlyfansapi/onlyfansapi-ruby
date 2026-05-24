@@ -5,11 +5,12 @@ module Onlyfansapi
 
       def list: (
         String account,
+        ?filter: Onlyfansapi::Models::ChatListParams::filter,
         ?limit: String,
         ?offset: String,
-        ?order: String,
+        ?order: Onlyfansapi::Models::ChatListParams::order,
         ?query: String,
-        ?skip_users: String,
+        ?skip_users: Onlyfansapi::Models::ChatListParams::skip_users,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::ChatListResponse
 

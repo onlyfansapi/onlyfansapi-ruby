@@ -38,16 +38,6 @@ module Onlyfansapi
 
         US = :us
         UK = :uk
-        DE = :de
-        ES = :es
-        FR = :fr
-        IT = :it
-        UA = :ua
-        PL = :pl
-        RO = :ro
-        CZ = :cz
-        HU = :hu
-        SK = :sk
 
         # @!method self.values
         #   @return [Array<Symbol>]

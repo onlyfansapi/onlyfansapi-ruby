@@ -195,7 +195,7 @@ module Onlyfansapi
             # @!attribute giphy_id
             #
             #   @return [String, nil]
-            optional :giphy_id, String, api_name: :giphyId
+            optional :giphy_id, String, api_name: :giphyId, nil?: true
 
             # @!attribute is_free
             #
@@ -323,7 +323,7 @@ module Onlyfansapi
             #   @param can_unsend_queue [Boolean]
             #   @param changed_at [String]
             #   @param created_at [String]
-            #   @param giphy_id [String]
+            #   @param giphy_id [String, nil]
             #   @param is_free [Boolean]
             #   @param is_from_queue [Boolean]
             #   @param is_liked [Boolean]

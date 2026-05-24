@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::UserListsTest < Onlyfansapi::Test::ResourceT
   def test_create_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.user_lists.create("acct_XXXXXXXXXXXXXXX", name: "scyfotubmi")
+    response = @onlyfansapi.user_lists.create("acct_XXXXXXXXXXXXXXX", name: "iaxxxx")
 
     assert_pattern do
       response => Onlyfansapi::Models::UserListCreateResponse
@@ -24,7 +24,11 @@ class Onlyfansapi::Test::Resources::UserListsTest < Onlyfansapi::Test::ResourceT
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.user_lists.update(1_224_114_714, account: "acct_XXXXXXXXXXXXXXX", name: "jqnoventcce")
+      @onlyfansapi.user_lists.update(
+        "userListId",
+        account: "acct_XXXXXXXXXXXXXXX",
+        name: "My Updated List Name"
+      )
 
     assert_pattern do
       response => Onlyfansapi::Models::UserListUpdateResponse
@@ -58,7 +62,7 @@ class Onlyfansapi::Test::Resources::UserListsTest < Onlyfansapi::Test::ResourceT
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.user_lists.delete(1_224_114_714, account: "acct_XXXXXXXXXXXXXXX")
+    response = @onlyfansapi.user_lists.delete("userListId", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::UserListDeleteResponse

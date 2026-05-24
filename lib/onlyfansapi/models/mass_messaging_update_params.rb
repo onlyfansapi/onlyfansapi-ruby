@@ -23,6 +23,13 @@ module Onlyfansapi
       #   @return [String]
       required :text, String
 
+      # @!attribute giphy_id
+      #   The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+      #   endpoints (`/giphy/trending`, `/giphy/search`).
+      #
+      #   @return [String, nil]
+      optional :giphy_id, String, api_name: :giphyId
+
       # @!attribute locked_text
       #   Whether the text should be shown or hidden
       #
@@ -69,7 +76,7 @@ module Onlyfansapi
       #   @return [Array<String>, nil]
       optional :user_lists, Onlyfansapi::Internal::Type::ArrayOf[String], api_name: :userLists
 
-      # @!method initialize(account:, id:, text:, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @!method initialize(account:, id:, text:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfansapi::Models::MassMessagingUpdateParams} for more details.
       #
@@ -78,6 +85,8 @@ module Onlyfansapi
       #   @param id [String]
       #
       #   @param text [String] The message text content
+      #
+      #   @param giphy_id [String] The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
       #
       #   @param locked_text [Boolean] Whether the text should be shown or hidden
       #

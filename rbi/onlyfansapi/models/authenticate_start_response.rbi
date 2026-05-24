@@ -2,49 +2,136 @@
 
 module Onlyfansapi
   module Models
-    class AuthenticateStartResponse < Onlyfansapi::Internal::Type::BaseModel
-      OrHash =
+    # For email_password or raw_data auth types
+    module AuthenticateStartResponse
+      extend Onlyfansapi::Internal::Type::Union
+
+      Variants =
         T.type_alias do
           T.any(
-            Onlyfansapi::Models::AuthenticateStartResponse,
-            Onlyfansapi::Internal::AnyHash
+            Onlyfansapi::Models::AuthenticateStartResponse::UnionMember0,
+            Onlyfansapi::Models::AuthenticateStartResponse::UnionMember1
           )
         end
 
-      sig { returns(T.nilable(String)) }
-      attr_reader :attempt_id
+      class UnionMember0 < Onlyfansapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Onlyfansapi::Models::AuthenticateStartResponse::UnionMember0,
+              Onlyfansapi::Internal::AnyHash
+            )
+          end
 
-      sig { params(attempt_id: String).void }
-      attr_writer :attempt_id
+        sig { returns(T.nilable(String)) }
+        attr_reader :attempt_id
 
-      sig { returns(T.nilable(String)) }
-      attr_reader :message
+        sig { params(attempt_id: String).void }
+        attr_writer :attempt_id
 
-      sig { params(message: String).void }
-      attr_writer :message
+        sig { returns(T.nilable(String)) }
+        attr_reader :message
 
-      sig { returns(T.nilable(String)) }
-      attr_reader :polling_url
+        sig { params(message: String).void }
+        attr_writer :message
 
-      sig { params(polling_url: String).void }
-      attr_writer :polling_url
+        sig { returns(T.nilable(String)) }
+        attr_reader :polling_url
 
-      sig do
-        params(
-          attempt_id: String,
-          message: String,
-          polling_url: String
-        ).returns(T.attached_class)
+        sig { params(polling_url: String).void }
+        attr_writer :polling_url
+
+        # For email_password or raw_data auth types
+        sig do
+          params(
+            attempt_id: String,
+            message: String,
+            polling_url: String
+          ).returns(T.attached_class)
+        end
+        def self.new(attempt_id: nil, message: nil, polling_url: nil)
+        end
+
+        sig do
+          override.returns(
+            { attempt_id: String, message: String, polling_url: String }
+          )
+        end
+        def to_hash
+        end
       end
-      def self.new(attempt_id: nil, message: nil, polling_url: nil)
+
+      class UnionMember1 < Onlyfansapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Onlyfansapi::Models::AuthenticateStartResponse::UnionMember1,
+              Onlyfansapi::Internal::AnyHash
+            )
+          end
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :attempt_id
+
+        sig { params(attempt_id: String).void }
+        attr_writer :attempt_id
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :message
+
+        sig { params(message: String).void }
+        attr_writer :message
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :mobile_auth_session_deeplink
+
+        sig { params(mobile_auth_session_deeplink: String).void }
+        attr_writer :mobile_auth_session_deeplink
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :polling_url
+
+        sig { params(polling_url: String).void }
+        attr_writer :polling_url
+
+        # For mobile_app auth type — includes the session code to scan with the FansAPI
+        # Auth+ app
+        sig do
+          params(
+            attempt_id: String,
+            message: String,
+            mobile_auth_session_deeplink: String,
+            polling_url: String
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          attempt_id: nil,
+          message: nil,
+          mobile_auth_session_deeplink: nil,
+          polling_url: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              attempt_id: String,
+              message: String,
+              mobile_auth_session_deeplink: String,
+              polling_url: String
+            }
+          )
+        end
+        def to_hash
+        end
       end
 
       sig do
         override.returns(
-          { attempt_id: String, message: String, polling_url: String }
+          T::Array[Onlyfansapi::Models::AuthenticateStartResponse::Variants]
         )
       end
-      def to_hash
+      def self.variants
       end
     end
   end

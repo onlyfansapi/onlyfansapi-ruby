@@ -169,7 +169,7 @@ module Onlyfansapi
           can_report: bool,
           can_restrict: bool,
           can_trial_send: bool,
-          current_subscribe_price: String,
+          current_subscribe_price: String?,
           favorited_count: Integer,
           favorites_count: Integer,
           first_published_post_date: String,
@@ -197,9 +197,11 @@ module Onlyfansapi
           is_verified: bool,
           join_date: String,
           last_seen: String,
-          location: String,
+          location: String?,
           medias_count: Integer,
           name: String,
+          ofapi_gender: String,
+          ofapi_gender_confidence: Float,
           photos_count: Integer,
           posts_count: Integer,
           private_archived_posts_count: Integer,
@@ -208,17 +210,17 @@ module Onlyfansapi
           show_posts_in_feed: bool,
           show_subscribers_count: bool,
           subscribed_by: bool,
-          subscribed_by_autoprolong: String,
-          subscribed_by_data: String,
-          subscribed_by_expire: String,
-          subscribed_by_expire_date: String,
-          subscribed_is_expired_now: String,
+          subscribed_by_autoprolong: String?,
+          subscribed_by_data: String?,
+          subscribed_by_expire: String?,
+          subscribed_by_expire_date: String?,
+          subscribed_is_expired_now: String?,
           subscribed_on: bool,
-          subscribed_on_data: String,
-          subscribed_on_duration: String,
-          subscribed_on_expired_now: String,
+          subscribed_on_data: String?,
+          subscribed_on_duration: String?,
+          subscribed_on_expired_now: String?,
           subscribe_price: Integer,
-          subscribers_count: String,
+          subscribers_count: String?,
           tips_enabled: bool,
           tips_max: Integer,
           tips_min: Integer,
@@ -228,7 +230,7 @@ module Onlyfansapi
           videos_count: Integer,
           view: String,
           website: String,
-          wishlist: String
+          wishlist: String?
         }
 
       class Data < Onlyfansapi::Internal::Type::BaseModel
@@ -310,9 +312,7 @@ module Onlyfansapi
 
         def can_trial_send=: (bool) -> bool
 
-        attr_reader current_subscribe_price: String?
-
-        def current_subscribe_price=: (String) -> String
+        attr_accessor current_subscribe_price: String?
 
         attr_reader favorited_count: Integer?
 
@@ -426,9 +426,7 @@ module Onlyfansapi
 
         def last_seen=: (String) -> String
 
-        attr_reader location: String?
-
-        def location=: (String) -> String
+        attr_accessor location: String?
 
         attr_reader medias_count: Integer?
 
@@ -437,6 +435,14 @@ module Onlyfansapi
         attr_reader name: String?
 
         def name=: (String) -> String
+
+        attr_reader ofapi_gender: String?
+
+        def ofapi_gender=: (String) -> String
+
+        attr_reader ofapi_gender_confidence: Float?
+
+        def ofapi_gender_confidence=: (Float) -> Float
 
         attr_reader photos_count: Integer?
 
@@ -470,49 +476,31 @@ module Onlyfansapi
 
         def subscribed_by=: (bool) -> bool
 
-        attr_reader subscribed_by_autoprolong: String?
+        attr_accessor subscribed_by_autoprolong: String?
 
-        def subscribed_by_autoprolong=: (String) -> String
+        attr_accessor subscribed_by_data: String?
 
-        attr_reader subscribed_by_data: String?
+        attr_accessor subscribed_by_expire: String?
 
-        def subscribed_by_data=: (String) -> String
+        attr_accessor subscribed_by_expire_date: String?
 
-        attr_reader subscribed_by_expire: String?
-
-        def subscribed_by_expire=: (String) -> String
-
-        attr_reader subscribed_by_expire_date: String?
-
-        def subscribed_by_expire_date=: (String) -> String
-
-        attr_reader subscribed_is_expired_now: String?
-
-        def subscribed_is_expired_now=: (String) -> String
+        attr_accessor subscribed_is_expired_now: String?
 
         attr_reader subscribed_on: bool?
 
         def subscribed_on=: (bool) -> bool
 
-        attr_reader subscribed_on_data: String?
+        attr_accessor subscribed_on_data: String?
 
-        def subscribed_on_data=: (String) -> String
+        attr_accessor subscribed_on_duration: String?
 
-        attr_reader subscribed_on_duration: String?
-
-        def subscribed_on_duration=: (String) -> String
-
-        attr_reader subscribed_on_expired_now: String?
-
-        def subscribed_on_expired_now=: (String) -> String
+        attr_accessor subscribed_on_expired_now: String?
 
         attr_reader subscribe_price: Integer?
 
         def subscribe_price=: (Integer) -> Integer
 
-        attr_reader subscribers_count: String?
-
-        def subscribers_count=: (String) -> String
+        attr_accessor subscribers_count: String?
 
         attr_reader tips_enabled: bool?
 
@@ -550,9 +538,7 @@ module Onlyfansapi
 
         def website=: (String) -> String
 
-        attr_reader wishlist: String?
-
-        def wishlist=: (String) -> String
+        attr_accessor wishlist: String?
 
         def initialize: (
           ?id: Integer,
@@ -574,7 +560,7 @@ module Onlyfansapi
           ?can_report: bool,
           ?can_restrict: bool,
           ?can_trial_send: bool,
-          ?current_subscribe_price: String,
+          ?current_subscribe_price: String?,
           ?favorited_count: Integer,
           ?favorites_count: Integer,
           ?first_published_post_date: String,
@@ -602,9 +588,11 @@ module Onlyfansapi
           ?is_verified: bool,
           ?join_date: String,
           ?last_seen: String,
-          ?location: String,
+          ?location: String?,
           ?medias_count: Integer,
           ?name: String,
+          ?ofapi_gender: String,
+          ?ofapi_gender_confidence: Float,
           ?photos_count: Integer,
           ?posts_count: Integer,
           ?private_archived_posts_count: Integer,
@@ -613,17 +601,17 @@ module Onlyfansapi
           ?show_posts_in_feed: bool,
           ?show_subscribers_count: bool,
           ?subscribed_by: bool,
-          ?subscribed_by_autoprolong: String,
-          ?subscribed_by_data: String,
-          ?subscribed_by_expire: String,
-          ?subscribed_by_expire_date: String,
-          ?subscribed_is_expired_now: String,
+          ?subscribed_by_autoprolong: String?,
+          ?subscribed_by_data: String?,
+          ?subscribed_by_expire: String?,
+          ?subscribed_by_expire_date: String?,
+          ?subscribed_is_expired_now: String?,
           ?subscribed_on: bool,
-          ?subscribed_on_data: String,
-          ?subscribed_on_duration: String,
-          ?subscribed_on_expired_now: String,
+          ?subscribed_on_data: String?,
+          ?subscribed_on_duration: String?,
+          ?subscribed_on_expired_now: String?,
           ?subscribe_price: Integer,
-          ?subscribers_count: String,
+          ?subscribers_count: String?,
           ?tips_enabled: bool,
           ?tips_max: Integer,
           ?tips_min: Integer,
@@ -633,7 +621,7 @@ module Onlyfansapi
           ?videos_count: Integer,
           ?view: String,
           ?website: String,
-          ?wishlist: String
+          ?wishlist: String?
         ) -> void
 
         def to_hash: -> {
@@ -656,7 +644,7 @@ module Onlyfansapi
           can_report: bool,
           can_restrict: bool,
           can_trial_send: bool,
-          current_subscribe_price: String,
+          current_subscribe_price: String?,
           favorited_count: Integer,
           favorites_count: Integer,
           first_published_post_date: String,
@@ -684,9 +672,11 @@ module Onlyfansapi
           is_verified: bool,
           join_date: String,
           last_seen: String,
-          location: String,
+          location: String?,
           medias_count: Integer,
           name: String,
+          ofapi_gender: String,
+          ofapi_gender_confidence: Float,
           photos_count: Integer,
           posts_count: Integer,
           private_archived_posts_count: Integer,
@@ -695,17 +685,17 @@ module Onlyfansapi
           show_posts_in_feed: bool,
           show_subscribers_count: bool,
           subscribed_by: bool,
-          subscribed_by_autoprolong: String,
-          subscribed_by_data: String,
-          subscribed_by_expire: String,
-          subscribed_by_expire_date: String,
-          subscribed_is_expired_now: String,
+          subscribed_by_autoprolong: String?,
+          subscribed_by_data: String?,
+          subscribed_by_expire: String?,
+          subscribed_by_expire_date: String?,
+          subscribed_is_expired_now: String?,
           subscribed_on: bool,
-          subscribed_on_data: String,
-          subscribed_on_duration: String,
-          subscribed_on_expired_now: String,
+          subscribed_on_data: String?,
+          subscribed_on_duration: String?,
+          subscribed_on_expired_now: String?,
           subscribe_price: Integer,
-          subscribers_count: String,
+          subscribers_count: String?,
           tips_enabled: bool,
           tips_max: Integer,
           tips_min: Integer,
@@ -715,7 +705,7 @@ module Onlyfansapi
           videos_count: Integer,
           view: String,
           website: String,
-          wishlist: String
+          wishlist: String?
         }
 
         type avatar_thumbs = { :c144 => String, :c50 => String }

@@ -468,6 +468,12 @@ module Onlyfansapi
           sig { params(tax_amount: Integer).void }
           attr_writer :tax_amount
 
+          sig { returns(T.nilable(String)) }
+          attr_reader :type
+
+          sig { params(type: String).void }
+          attr_writer :type
+
           sig do
             returns(
               T.nilable(
@@ -503,6 +509,7 @@ module Onlyfansapi
               payout_pending_days: Integer,
               status: String,
               tax_amount: Integer,
+              type: String,
               user:
                 Onlyfansapi::Models::TransactionListResponse::Data::List::User::OrHash,
               vat_amount: Integer
@@ -519,6 +526,7 @@ module Onlyfansapi
             payout_pending_days: nil,
             status: nil,
             tax_amount: nil,
+            type: nil,
             user: nil,
             vat_amount: nil
           )
@@ -537,6 +545,7 @@ module Onlyfansapi
                 payout_pending_days: Integer,
                 status: String,
                 tax_amount: Integer,
+                type: String,
                 user:
                   Onlyfansapi::Models::TransactionListResponse::Data::List::User,
                 vat_amount: Integer

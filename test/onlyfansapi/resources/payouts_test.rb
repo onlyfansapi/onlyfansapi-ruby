@@ -20,23 +20,6 @@ class Onlyfansapi::Test::Resources::PayoutsTest < Onlyfansapi::Test::ResourceTes
     end
   end
 
-  def test_list_transactions
-    skip("Mock server tests are disabled")
-
-    response = @onlyfansapi.payouts.list_transactions("acct_XXXXXXXXXXXXXXX")
-
-    assert_pattern do
-      response => Onlyfansapi::Models::PayoutListTransactionsResponse
-    end
-
-    assert_pattern do
-      response => {
-        _meta: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta | nil,
-        data: Onlyfansapi::Models::PayoutListTransactionsResponse::Data | nil
-      }
-    end
-  end
-
   def test_request_manual_withdrawal_required_params
     skip("Mock server tests are disabled")
 

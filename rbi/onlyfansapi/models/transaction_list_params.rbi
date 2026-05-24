@@ -38,12 +38,30 @@ module Onlyfansapi
       sig { params(start_date: String).void }
       attr_writer :start_date
 
+      # Filter tips by source. Only applies when `type=tips`. Options: `profile`,
+      # `post_all`, `chat`, `stream`, `story`
+      sig { returns(T.nilable(String)) }
+      attr_reader :tips_source
+
+      sig { params(tips_source: String).void }
+      attr_writer :tips_source
+
+      # Filter by transaction type. Options: `subscribes`, `tips`, `post`,
+      # `chat_messages`, `stream`
+      sig { returns(T.nilable(String)) }
+      attr_reader :type
+
+      sig { params(type: String).void }
+      attr_writer :type
+
       sig do
         params(
           account: String,
           limit: String,
           marker: String,
           start_date: String,
+          tips_source: String,
+          type: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -55,6 +73,12 @@ module Onlyfansapi
         marker: nil,
         # The start date for transactions list. Default: `-30days`
         start_date: nil,
+        # Filter tips by source. Only applies when `type=tips`. Options: `profile`,
+        # `post_all`, `chat`, `stream`, `story`
+        tips_source: nil,
+        # Filter by transaction type. Options: `subscribes`, `tips`, `post`,
+        # `chat_messages`, `stream`
+        type: nil,
         request_options: {}
       )
       end
@@ -66,6 +90,8 @@ module Onlyfansapi
             limit: String,
             marker: String,
             start_date: String,
+            tips_source: String,
+            type: String,
             request_options: Onlyfansapi::RequestOptions
           }
         )

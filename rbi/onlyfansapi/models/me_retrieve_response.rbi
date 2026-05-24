@@ -950,10 +950,7 @@ module Onlyfansapi
         attr_writer :iv_country
 
         sig { returns(T.nilable(String)) }
-        attr_reader :iv_fail_reason
-
-        sig { params(iv_fail_reason: String).void }
-        attr_writer :iv_fail_reason
+        attr_accessor :iv_fail_reason
 
         sig { returns(T.nilable(String)) }
         attr_reader :iv_flow
@@ -986,10 +983,7 @@ module Onlyfansapi
         attr_writer :last_seen
 
         sig { returns(T.nilable(String)) }
-        attr_reader :location
-
-        sig { params(location: String).void }
-        attr_writer :location
+        attr_accessor :location
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :max_fund_raising_target
@@ -1124,16 +1118,10 @@ module Onlyfansapi
         attr_writer :show_subscribers_count
 
         sig { returns(T.nilable(String)) }
-        attr_reader :subscribed_by_data
-
-        sig { params(subscribed_by_data: String).void }
-        attr_writer :subscribed_by_data
+        attr_accessor :subscribed_by_data
 
         sig { returns(T.nilable(String)) }
-        attr_reader :subscribed_on_data
-
-        sig { params(subscribed_on_data: String).void }
-        attr_writer :subscribed_on_data
+        attr_accessor :subscribed_on_data
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :subscribe_max_price
@@ -1301,10 +1289,7 @@ module Onlyfansapi
         attr_writer :website
 
         sig { returns(T.nilable(String)) }
-        attr_reader :wishlist
-
-        sig { params(wishlist: String).void }
-        attr_writer :wishlist
+        attr_accessor :wishlist
 
         sig { returns(T.nilable(String)) }
         attr_reader :ws_auth_token
@@ -1429,13 +1414,13 @@ module Onlyfansapi
             is_wallet_autorecharge: T::Boolean,
             is_want_comments: T::Boolean,
             iv_country: String,
-            iv_fail_reason: String,
+            iv_fail_reason: T.nilable(String),
             iv_flow: String,
             iv_hide_for_performers: T::Boolean,
             iv_status: String,
             join_date: String,
             last_seen: String,
-            location: String,
+            location: T.nilable(String),
             max_fund_raising_target: Integer,
             max_pinned_posts_count: Integer,
             medias_count: Integer,
@@ -1458,8 +1443,8 @@ module Onlyfansapi
             show_media_count: T::Boolean,
             show_posts_in_feed: T::Boolean,
             show_subscribers_count: T::Boolean,
-            subscribed_by_data: String,
-            subscribed_on_data: String,
+            subscribed_by_data: T.nilable(String),
+            subscribed_on_data: T.nilable(String),
             subscribe_max_price: Integer,
             subscribe_min_price: Float,
             subscribe_price: Integer,
@@ -1487,7 +1472,7 @@ module Onlyfansapi
             watermark_position: String,
             watermark_text: String,
             website: String,
-            wishlist: String,
+            wishlist: T.nilable(String),
             ws_auth_token: String,
             ws_url: String
           ).returns(T.attached_class)
@@ -1773,13 +1758,13 @@ module Onlyfansapi
               is_wallet_autorecharge: T::Boolean,
               is_want_comments: T::Boolean,
               iv_country: String,
-              iv_fail_reason: String,
+              iv_fail_reason: T.nilable(String),
               iv_flow: String,
               iv_hide_for_performers: T::Boolean,
               iv_status: String,
               join_date: String,
               last_seen: String,
-              location: String,
+              location: T.nilable(String),
               max_fund_raising_target: Integer,
               max_pinned_posts_count: Integer,
               medias_count: Integer,
@@ -1802,8 +1787,8 @@ module Onlyfansapi
               show_media_count: T::Boolean,
               show_posts_in_feed: T::Boolean,
               show_subscribers_count: T::Boolean,
-              subscribed_by_data: String,
-              subscribed_on_data: String,
+              subscribed_by_data: T.nilable(String),
+              subscribed_on_data: T.nilable(String),
               subscribe_max_price: Integer,
               subscribe_min_price: Float,
               subscribe_price: Integer,
@@ -1830,7 +1815,7 @@ module Onlyfansapi
               watermark_position: String,
               watermark_text: String,
               website: String,
-              wishlist: String,
+              wishlist: T.nilable(String),
               ws_auth_token: String,
               ws_url: String
             }

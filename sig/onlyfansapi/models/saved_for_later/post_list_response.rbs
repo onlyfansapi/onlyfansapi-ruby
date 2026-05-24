@@ -188,7 +188,7 @@ module Onlyfansapi
               id: Integer,
               created_date_time: String,
               entity: Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity,
-              publish_date_time: String,
+              publish_date_time: String?,
               type: String
             }
 
@@ -207,9 +207,7 @@ module Onlyfansapi
               Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity
             ) -> Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity
 
-            attr_reader publish_date_time: String?
-
-            def publish_date_time=: (String) -> String
+            attr_accessor publish_date_time: String?
 
             attr_reader type: String?
 
@@ -219,7 +217,7 @@ module Onlyfansapi
               ?id: Integer,
               ?created_date_time: String,
               ?entity: Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity,
-              ?publish_date_time: String,
+              ?publish_date_time: String?,
               ?type: String
             ) -> void
 
@@ -227,7 +225,7 @@ module Onlyfansapi
               id: Integer,
               created_date_time: String,
               entity: Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity,
-              publish_date_time: String,
+              publish_date_time: String?,
               type: String
             }
 

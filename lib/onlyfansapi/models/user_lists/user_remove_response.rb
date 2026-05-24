@@ -319,7 +319,7 @@ module Onlyfansapi
             # @!attribute cannot_add_user_reason
             #
             #   @return [String, nil]
-            optional :cannot_add_user_reason, String, api_name: :cannotAddUserReason
+            optional :cannot_add_user_reason, String, api_name: :cannotAddUserReason, nil?: true
 
             # @!attribute has_user
             #
@@ -339,7 +339,7 @@ module Onlyfansapi
             # @!method initialize(id: nil, can_add_user: nil, cannot_add_user_reason: nil, has_user: nil, name: nil, type: nil)
             #   @param id [Integer]
             #   @param can_add_user [Boolean]
-            #   @param cannot_add_user_reason [String]
+            #   @param cannot_add_user_reason [String, nil]
             #   @param has_user [Boolean]
             #   @param name [String]
             #   @param type [String]

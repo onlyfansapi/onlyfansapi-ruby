@@ -24,6 +24,11 @@ module Onlyfansapi
       #   @return [String, nil]
       optional :host, String
 
+      # @!attribute note
+      #
+      #   @return [String, nil]
+      optional :note, String
+
       # @!attribute prefixed_id
       #
       #   @return [String, nil]
@@ -45,11 +50,12 @@ module Onlyfansapi
       optional :thumbs,
                -> { Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Models::MediaUploadResponse::Thumb] }
 
-      # @!method initialize(additional: nil, extra: nil, file_name: nil, host: nil, prefixed_id: nil, process_id: nil, source_url: nil, thumbs: nil)
+      # @!method initialize(additional: nil, extra: nil, file_name: nil, host: nil, note: nil, prefixed_id: nil, process_id: nil, source_url: nil, thumbs: nil)
       #   @param additional [Onlyfansapi::Models::MediaUploadResponse::Additional]
       #   @param extra [String]
       #   @param file_name [String]
       #   @param host [String]
+      #   @param note [String]
       #   @param prefixed_id [String]
       #   @param process_id [String]
       #   @param source_url [String]

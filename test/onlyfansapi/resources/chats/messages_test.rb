@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::Chats::MessagesTest < Onlyfansapi::Test::Res
   def test_list_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.chats.messages.list("458485726", account: "acct_XXXXXXXXXXXXXXX")
+    response = @onlyfansapi.chats.messages.list("123", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Chats::MessageListResponse
@@ -25,7 +25,7 @@ class Onlyfansapi::Test::Resources::Chats::MessagesTest < Onlyfansapi::Test::Res
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.chats.messages.delete("123456789", account: "acct_XXXXXXXXXXXXXXX", chat_id: "458485726")
+      @onlyfansapi.chats.messages.delete("69696969", account: "acct_XXXXXXXXXXXXXXX", chat_id: "123")
 
     assert_pattern do
       response => Onlyfansapi::Models::Chats::MessageDeleteResponse
@@ -42,8 +42,7 @@ class Onlyfansapi::Test::Resources::Chats::MessagesTest < Onlyfansapi::Test::Res
   def test_send__required_params
     skip("Mock server tests are disabled")
 
-    response =
-      @onlyfansapi.chats.messages.send_("458485726", account: "acct_XXXXXXXXXXXXXXX", text: "Hello!")
+    response = @onlyfansapi.chats.messages.send_("123", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Chats::MessageSendResponse

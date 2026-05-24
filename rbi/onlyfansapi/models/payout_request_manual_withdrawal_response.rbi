@@ -374,10 +374,7 @@ module Onlyfansapi
               end
 
             sig { returns(T.nilable(String)) }
-            attr_reader :reject_reason
-
-            sig { params(reject_reason: String).void }
-            attr_writer :reject_reason
+            attr_accessor :reject_reason
 
             sig { returns(T.nilable(String)) }
             attr_reader :state
@@ -386,14 +383,18 @@ module Onlyfansapi
             attr_writer :state
 
             sig do
-              params(reject_reason: String, state: String).returns(
+              params(reject_reason: T.nilable(String), state: String).returns(
                 T.attached_class
               )
             end
             def self.new(reject_reason: nil, state: nil)
             end
 
-            sig { override.returns({ reject_reason: String, state: String }) }
+            sig do
+              override.returns(
+                { reject_reason: T.nilable(String), state: String }
+              )
+            end
             def to_hash
             end
           end
@@ -761,10 +762,7 @@ module Onlyfansapi
               end
 
             sig { returns(T.nilable(String)) }
-            attr_reader :reject_reason
-
-            sig { params(reject_reason: String).void }
-            attr_writer :reject_reason
+            attr_accessor :reject_reason
 
             sig { returns(T.nilable(String)) }
             attr_reader :state
@@ -773,14 +771,18 @@ module Onlyfansapi
             attr_writer :state
 
             sig do
-              params(reject_reason: String, state: String).returns(
+              params(reject_reason: T.nilable(String), state: String).returns(
                 T.attached_class
               )
             end
             def self.new(reject_reason: nil, state: nil)
             end
 
-            sig { override.returns({ reject_reason: String, state: String }) }
+            sig do
+              override.returns(
+                { reject_reason: T.nilable(String), state: String }
+              )
+            end
             def to_hash
             end
           end

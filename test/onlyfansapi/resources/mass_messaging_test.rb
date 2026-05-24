@@ -71,23 +71,6 @@ class Onlyfansapi::Test::Resources::MassMessagingTest < Onlyfansapi::Test::Resou
     end
   end
 
-  def test_list_statistics
-    skip("Mock server tests are disabled")
-
-    response = @onlyfansapi.mass_messaging.list_statistics("acct_XXXXXXXXXXXXXXX")
-
-    assert_pattern do
-      response => Onlyfansapi::Models::MassMessagingListStatisticsResponse
-    end
-
-    assert_pattern do
-      response => {
-        _meta: Onlyfansapi::Models::MassMessagingListStatisticsResponse::Meta | nil,
-        data: Onlyfansapi::Models::MassMessagingListStatisticsResponse::Data | nil
-      }
-    end
-  end
-
   def test_send__required_params
     skip("Mock server tests are disabled")
 

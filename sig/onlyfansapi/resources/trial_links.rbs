@@ -7,6 +7,7 @@ module Onlyfansapi
         offer_expiration: Integer,
         offer_limit: Onlyfansapi::Models::TrialLinkCreateParams::offer_limit,
         ?name: String?,
+        ?tags: ::Array[String],
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TrialLinkCreateResponse
 
@@ -21,7 +22,7 @@ module Onlyfansapi
       ) -> Onlyfansapi::Models::TrialLinkListResponse
 
       def delete: (
-        Integer trial_link_id,
+        String trial_link_id,
         account: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TrialLinkDeleteResponse

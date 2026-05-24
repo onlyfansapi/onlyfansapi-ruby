@@ -8,8 +8,8 @@ module Onlyfansapi
         fund_raising_target_amount: Integer,
         fund_raising_tips_presets: ::Array[String],
         label_ids: String,
-        media_files: String,
-        previews: ::Array[String],
+        media_files: ::Array[top],
+        previews: ::Array[top],
         rf_tag: String,
         save_for_later: bool,
         scheduled_date: String,
@@ -44,13 +44,13 @@ module Onlyfansapi
 
       def label_ids=: (String) -> String
 
-      attr_reader media_files: String?
+      attr_reader media_files: ::Array[top]?
 
-      def media_files=: (String) -> String
+      def media_files=: (::Array[top]) -> ::Array[top]
 
-      attr_reader previews: ::Array[String]?
+      attr_reader previews: ::Array[top]?
 
-      def previews=: (::Array[String]) -> ::Array[String]
+      def previews=: (::Array[top]) -> ::Array[top]
 
       attr_reader rf_tag: String?
 
@@ -89,8 +89,8 @@ module Onlyfansapi
         ?fund_raising_target_amount: Integer,
         ?fund_raising_tips_presets: ::Array[String],
         ?label_ids: String,
-        ?media_files: String,
-        ?previews: ::Array[String],
+        ?media_files: ::Array[top],
+        ?previews: ::Array[top],
         ?rf_tag: String,
         ?save_for_later: bool,
         ?scheduled_date: String,
@@ -108,8 +108,8 @@ module Onlyfansapi
         fund_raising_target_amount: Integer,
         fund_raising_tips_presets: ::Array[String],
         label_ids: String,
-        media_files: String,
-        previews: ::Array[String],
+        media_files: ::Array[top],
+        previews: ::Array[top],
         rf_tag: String,
         save_for_later: bool,
         scheduled_date: String,

@@ -163,7 +163,7 @@ module Onlyfansapi
           # @!attribute iv_fail_reason
           #
           #   @return [String, nil]
-          optional :iv_fail_reason, String, api_name: :ivFailReason
+          optional :iv_fail_reason, String, api_name: :ivFailReason, nil?: true
 
           # @!attribute iv_status
           #
@@ -178,7 +178,10 @@ module Onlyfansapi
           # @!attribute payout_legal_approve_reject_reason
           #
           #   @return [String, nil]
-          optional :payout_legal_approve_reject_reason, String, api_name: :payoutLegalApproveRejectReason
+          optional :payout_legal_approve_reject_reason,
+                   String,
+                   api_name: :payoutLegalApproveRejectReason,
+                   nil?: true
 
           # @!attribute show_iv_button
           #
@@ -199,10 +202,10 @@ module Onlyfansapi
           #   @param is_w9_exist [Boolean]
           #   @param is_w9_required [Boolean]
           #   @param is_xxx [Boolean]
-          #   @param iv_fail_reason [String]
+          #   @param iv_fail_reason [String, nil]
           #   @param iv_status [String]
           #   @param need_show_edit_w9 [Boolean]
-          #   @param payout_legal_approve_reject_reason [String]
+          #   @param payout_legal_approve_reject_reason [String, nil]
           #   @param show_iv_button [Boolean]
           #   @param tax [Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax]
 
@@ -216,7 +219,7 @@ module Onlyfansapi
             # @!attribute error
             #
             #   @return [String, nil]
-            optional :error, String
+            optional :error, String, nil?: true
 
             # @!attribute required
             #
@@ -235,7 +238,7 @@ module Onlyfansapi
 
             # @!method initialize(country_ids: nil, error: nil, required: nil, state: nil, type: nil)
             #   @param country_ids [Array<Integer>]
-            #   @param error [String]
+            #   @param error [String, nil]
             #   @param required [Boolean]
             #   @param state [String]
             #   @param type [String]

@@ -6,6 +6,8 @@ module Onlyfansapi
         ?limit: String,
         ?marker: String,
         ?start_date: String,
+        ?tips_source: String,
+        ?type: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TransactionListResponse
 

@@ -181,7 +181,7 @@ module Onlyfansapi
             created_at: String,
             currency: String,
             invoice_id: String,
-            reject_reason: String,
+            reject_reason: String?,
             state: String
           }
 
@@ -202,9 +202,7 @@ module Onlyfansapi
 
           def invoice_id=: (String) -> String
 
-          attr_reader reject_reason: String?
-
-          def reject_reason=: (String) -> String
+          attr_accessor reject_reason: String?
 
           attr_reader state: String?
 
@@ -215,7 +213,7 @@ module Onlyfansapi
             ?created_at: String,
             ?currency: String,
             ?invoice_id: String,
-            ?reject_reason: String,
+            ?reject_reason: String?,
             ?state: String
           ) -> void
 
@@ -224,7 +222,7 @@ module Onlyfansapi
             created_at: String,
             currency: String,
             invoice_id: String,
-            reject_reason: String,
+            reject_reason: String?,
             state: String
           }
         end

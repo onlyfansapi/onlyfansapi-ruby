@@ -8,7 +8,7 @@ module Onlyfansapi
         #
         # @overload add(user_list_id, account:, ids:, request_options: {})
         #
-        # @param user_list_id [Integer] Path param: OnlyFans User List ID
+        # @param user_list_id [String] Path param: OnlyFans User List ID, or a default list name like `tagged`
         #
         # @param account [String] Path param: The Account ID
         #
@@ -42,7 +42,7 @@ module Onlyfansapi
         #
         # @param account [String] The Account ID
         #
-        # @param user_list_id [Integer] OnlyFans User List ID
+        # @param user_list_id [String] OnlyFans User List ID
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

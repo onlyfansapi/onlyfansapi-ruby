@@ -24,7 +24,7 @@ class Onlyfansapi::Test::Resources::ChatsTest < Onlyfansapi::Test::ResourceTest
   def test_start_typing_indicator_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.chats.start_typing_indicator("458485726", account: "acct_XXXXXXXXXXXXXXX")
+    response = @onlyfansapi.chats.start_typing_indicator("123", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::ChatStartTypingIndicatorResponse

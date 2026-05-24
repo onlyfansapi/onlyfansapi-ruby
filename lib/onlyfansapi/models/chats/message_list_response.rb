@@ -180,7 +180,7 @@ module Onlyfansapi
           # @!attribute giphy_id
           #
           #   @return [String, nil]
-          optional :giphy_id, String, api_name: :giphyId
+          optional :giphy_id, String, api_name: :giphyId, nil?: true
 
           # @!attribute is_couple_people_media
           #
@@ -301,7 +301,7 @@ module Onlyfansapi
           #   @param changed_at [String]
           #   @param created_at [String]
           #   @param from_user [Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser]
-          #   @param giphy_id [String]
+          #   @param giphy_id [String, nil]
           #   @param is_couple_people_media [Boolean]
           #   @param is_free [Boolean]
           #   @param is_from_queue [Boolean]

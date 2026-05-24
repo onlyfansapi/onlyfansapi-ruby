@@ -43,7 +43,13 @@ module Onlyfansapi
       #   @return [String, nil]
       optional :name, String, nil?: true
 
-      # @!method initialize(account:, duration:, offer_expiration:, offer_limit:, name: nil, request_options: {})
+      # @!attribute tags
+      #   Array of tag names to add to the trial link.
+      #
+      #   @return [Array<String>, nil]
+      optional :tags, Onlyfansapi::Internal::Type::ArrayOf[String]
+
+      # @!method initialize(account:, duration:, offer_expiration:, offer_limit:, name: nil, tags: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfansapi::Models::TrialLinkCreateParams} for more details.
       #
@@ -56,6 +62,8 @@ module Onlyfansapi
       #   @param offer_limit [Integer, Onlyfansapi::Models::TrialLinkCreateParams::OfferLimit] How many people can use this offer. Must either be **0** (for no limit), or a nu
       #
       #   @param name [String, nil] The name of the trail link (optional). Cannot be longer than 64 characters.
+      #
+      #   @param tags [Array<String>] Array of tag names to add to the trial link.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
 

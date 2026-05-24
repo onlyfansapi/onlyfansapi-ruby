@@ -180,11 +180,11 @@ module Onlyfansapi
             id: Integer,
             can_unsend: bool,
             date: String,
-            giphy_id: String,
+            giphy_id: String?,
             has_error: bool,
             is_canceled: bool,
             is_free: bool,
-            media_types: String,
+            media_types: String?,
             release_forms: ::Array[top],
             sent_count: Integer,
             text: String,
@@ -206,9 +206,7 @@ module Onlyfansapi
 
           def date=: (String) -> String
 
-          attr_reader giphy_id: String?
-
-          def giphy_id=: (String) -> String
+          attr_accessor giphy_id: String?
 
           attr_reader has_error: bool?
 
@@ -222,9 +220,7 @@ module Onlyfansapi
 
           def is_free=: (bool) -> bool
 
-          attr_reader media_types: String?
-
-          def media_types=: (String) -> String
+          attr_accessor media_types: String?
 
           attr_reader release_forms: ::Array[top]?
 
@@ -254,11 +250,11 @@ module Onlyfansapi
             ?id: Integer,
             ?can_unsend: bool,
             ?date: String,
-            ?giphy_id: String,
+            ?giphy_id: String?,
             ?has_error: bool,
             ?is_canceled: bool,
             ?is_free: bool,
-            ?media_types: String,
+            ?media_types: String?,
             ?release_forms: ::Array[top],
             ?sent_count: Integer,
             ?text: String,
@@ -271,11 +267,11 @@ module Onlyfansapi
             id: Integer,
             can_unsend: bool,
             date: String,
-            giphy_id: String,
+            giphy_id: String?,
             has_error: bool,
             is_canceled: bool,
             is_free: bool,
-            media_types: String,
+            media_types: String?,
             release_forms: ::Array[top],
             sent_count: Integer,
             text: String,

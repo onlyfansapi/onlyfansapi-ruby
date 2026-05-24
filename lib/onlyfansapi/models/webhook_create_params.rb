@@ -7,6 +7,13 @@ module Onlyfansapi
       extend Onlyfansapi::Internal::Type::RequestParameters::Converter
       include Onlyfansapi::Internal::Type::RequestParameters
 
+      # @!attribute account_scope
+      #   The account scope for the webhook. Use "global" for all accounts, "inclusive"
+      #   for only selected accounts, or "exclusive" for all except selected accounts.
+      #
+      #   @return [String]
+      required :account_scope, String
+
       # @!attribute endpoint_url
       #   The URL of your webhook endpoint.
       #
@@ -14,14 +21,18 @@ module Onlyfansapi
       required :endpoint_url, String
 
       # @!attribute events
-      #   An array of webhook events to subscribe to. Options: `messages.received`,
-      #   `messages.sent`, `messages.ppv.unlocked`, `subscriptions.new`, `users.typing`,
-      #   `posts.liked`, `accounts.connected`, `accounts.reconnected`,
-      #   `accounts.session_expired`, `accounts.authentication_failed`,
-      #   `accounts.otp_code_required`, `accounts.face_otp_required`
+      #   An array of webhook events to subscribe to. For all options, refer to our **List
+      #   Available Events** endpoint.
       #
       #   @return [Array<String>]
       required :events, Onlyfansapi::Internal::Type::ArrayOf[String]
+
+      # @!attribute account_ids
+      #   An array of account IDs to apply the scope to. Required unless account_scope is
+      #   "global".
+      #
+      #   @return [Array<String>, nil]
+      optional :account_ids, Onlyfansapi::Internal::Type::ArrayOf[String]
 
       # @!attribute signing_secret
       #   Optionally, add a signing secret to protect your webhook.
@@ -29,13 +40,18 @@ module Onlyfansapi
       #   @return [String, nil]
       optional :signing_secret, String, nil?: true
 
-      # @!method initialize(endpoint_url:, events:, signing_secret: nil, request_options: {})
+      # @!method initialize(account_scope:, endpoint_url:, events:, account_ids: nil, signing_secret: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfansapi::Models::WebhookCreateParams} for more details.
       #
+      #   @param account_scope [String] The account scope for the webhook. Use "global" for all accounts, "inclusive" fo
+      #
       #   @param endpoint_url [String] The URL of your webhook endpoint.
       #
-      #   @param events [Array<String>] An array of webhook events to subscribe to. Options: `messages.received`, `messa
+      #   @param events [Array<String>] An array of webhook events to subscribe to. For all options, refer to our
+      #   \*\*List
+      #
+      #   @param account_ids [Array<String>] An array of account IDs to apply the scope to. Required unless account_scope is
       #
       #   @param signing_secret [String, nil] Optionally, add a signing secret to protect your webhook.
       #

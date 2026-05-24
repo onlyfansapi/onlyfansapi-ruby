@@ -33,7 +33,7 @@ module Onlyfansapi
         end
         attr_writer :field
 
-        # Number of media to return per page. Default: `24`
+        # Number of media to return per page (10 - 100). Default: `24`
         sig { returns(T.nilable(Integer)) }
         attr_reader :limit
 
@@ -57,10 +57,7 @@ module Onlyfansapi
 
         # Optionally, search for a text query.
         sig { returns(T.nilable(String)) }
-        attr_reader :query
-
-        sig { params(query: String).void }
-        attr_writer :query
+        attr_accessor :query
 
         # Sort the results. Default `desc`
         sig do
@@ -95,7 +92,7 @@ module Onlyfansapi
             limit: Integer,
             list: Integer,
             offset: Integer,
-            query: String,
+            query: T.nilable(String),
             sort: Onlyfansapi::Media::VaultListParams::Sort::OrSymbol,
             type: Onlyfansapi::Media::VaultListParams::Type::OrSymbol,
             request_options: Onlyfansapi::RequestOptions::OrHash
@@ -105,7 +102,7 @@ module Onlyfansapi
           account:,
           # Sort the results by a field. Default `recent`
           field: nil,
-          # Number of media to return per page. Default: `24`
+          # Number of media to return per page (10 - 100). Default: `24`
           limit: nil,
           # Only show media items from a specific list (category). **Refer to our Media
           # Vault Lists endpoints.**
@@ -130,7 +127,7 @@ module Onlyfansapi
               limit: Integer,
               list: Integer,
               offset: Integer,
-              query: String,
+              query: T.nilable(String),
               sort: Onlyfansapi::Media::VaultListParams::Sort::OrSymbol,
               type: Onlyfansapi::Media::VaultListParams::Type::OrSymbol,
               request_options: Onlyfansapi::RequestOptions

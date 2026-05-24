@@ -216,7 +216,7 @@ module Onlyfansapi
         # @!attribute current_subscribe_price
         #
         #   @return [String, nil]
-        optional :current_subscribe_price, String, api_name: :currentSubscribePrice
+        optional :current_subscribe_price, String, api_name: :currentSubscribePrice, nil?: true
 
         # @!attribute favorited_count
         #
@@ -364,7 +364,7 @@ module Onlyfansapi
         # @!attribute location
         #
         #   @return [String, nil]
-        optional :location, String
+        optional :location, String, nil?: true
 
         # @!attribute medias_count
         #
@@ -375,6 +375,16 @@ module Onlyfansapi
         #
         #   @return [String, nil]
         optional :name, String
+
+        # @!attribute ofapi_gender
+        #
+        #   @return [String, nil]
+        optional :ofapi_gender, String
+
+        # @!attribute ofapi_gender_confidence
+        #
+        #   @return [Float, nil]
+        optional :ofapi_gender_confidence, Float
 
         # @!attribute photos_count
         #
@@ -421,27 +431,27 @@ module Onlyfansapi
         # @!attribute subscribed_by_autoprolong
         #
         #   @return [String, nil]
-        optional :subscribed_by_autoprolong, String, api_name: :subscribedByAutoprolong
+        optional :subscribed_by_autoprolong, String, api_name: :subscribedByAutoprolong, nil?: true
 
         # @!attribute subscribed_by_data
         #
         #   @return [String, nil]
-        optional :subscribed_by_data, String, api_name: :subscribedByData
+        optional :subscribed_by_data, String, api_name: :subscribedByData, nil?: true
 
         # @!attribute subscribed_by_expire
         #
         #   @return [String, nil]
-        optional :subscribed_by_expire, String, api_name: :subscribedByExpire
+        optional :subscribed_by_expire, String, api_name: :subscribedByExpire, nil?: true
 
         # @!attribute subscribed_by_expire_date
         #
         #   @return [String, nil]
-        optional :subscribed_by_expire_date, String, api_name: :subscribedByExpireDate
+        optional :subscribed_by_expire_date, String, api_name: :subscribedByExpireDate, nil?: true
 
         # @!attribute subscribed_is_expired_now
         #
         #   @return [String, nil]
-        optional :subscribed_is_expired_now, String, api_name: :subscribedIsExpiredNow
+        optional :subscribed_is_expired_now, String, api_name: :subscribedIsExpiredNow, nil?: true
 
         # @!attribute subscribed_on
         #
@@ -451,17 +461,17 @@ module Onlyfansapi
         # @!attribute subscribed_on_data
         #
         #   @return [String, nil]
-        optional :subscribed_on_data, String, api_name: :subscribedOnData
+        optional :subscribed_on_data, String, api_name: :subscribedOnData, nil?: true
 
         # @!attribute subscribed_on_duration
         #
         #   @return [String, nil]
-        optional :subscribed_on_duration, String, api_name: :subscribedOnDuration
+        optional :subscribed_on_duration, String, api_name: :subscribedOnDuration, nil?: true
 
         # @!attribute subscribed_on_expired_now
         #
         #   @return [String, nil]
-        optional :subscribed_on_expired_now, String, api_name: :subscribedOnExpiredNow
+        optional :subscribed_on_expired_now, String, api_name: :subscribedOnExpiredNow, nil?: true
 
         # @!attribute subscribe_price
         #
@@ -471,7 +481,7 @@ module Onlyfansapi
         # @!attribute subscribers_count
         #
         #   @return [String, nil]
-        optional :subscribers_count, String, api_name: :subscribersCount
+        optional :subscribers_count, String, api_name: :subscribersCount, nil?: true
 
         # @!attribute tips_enabled
         #
@@ -521,9 +531,9 @@ module Onlyfansapi
         # @!attribute wishlist
         #
         #   @return [String, nil]
-        optional :wishlist, String
+        optional :wishlist, String, nil?: true
 
-        # @!method initialize(id: nil, about: nil, archived_posts_count: nil, audios_count: nil, avatar: nil, avatar_header_converter_upload: nil, avatar_thumbs: nil, can_add_subscriber: nil, can_chat: nil, can_comment_story: nil, can_create_promotion: nil, can_create_trial: nil, can_earn: nil, can_look_story: nil, can_pay_internal: nil, can_receive_chat_message: nil, can_report: nil, can_restrict: nil, can_trial_send: nil, current_subscribe_price: nil, favorited_count: nil, favorites_count: nil, first_published_post_date: nil, has_labels: nil, has_links: nil, has_not_viewed_story: nil, has_pinned_posts: nil, has_scheduled_stream: nil, has_stories: nil, has_stream: nil, header: nil, header_size: nil, header_thumbs: nil, is_adult_content: nil, is_blocked: nil, is_friend: nil, is_markdown_disabled_for_about: nil, is_performer: nil, is_private_restriction: nil, is_real_performer: nil, is_referrer_allowed: nil, is_restricted: nil, is_spotify_connected: nil, is_spring_connected: nil, is_verified: nil, join_date: nil, last_seen: nil, location: nil, medias_count: nil, name: nil, photos_count: nil, posts_count: nil, private_archived_posts_count: nil, referal_bonus_summ_for_referer: nil, show_media_count: nil, show_posts_in_feed: nil, show_subscribers_count: nil, subscribed_by: nil, subscribed_by_autoprolong: nil, subscribed_by_data: nil, subscribed_by_expire: nil, subscribed_by_expire_date: nil, subscribed_is_expired_now: nil, subscribed_on: nil, subscribed_on_data: nil, subscribed_on_duration: nil, subscribed_on_expired_now: nil, subscribe_price: nil, subscribers_count: nil, tips_enabled: nil, tips_max: nil, tips_min: nil, tips_min_internal: nil, tips_text_enabled: nil, username: nil, videos_count: nil, view: nil, website: nil, wishlist: nil)
+        # @!method initialize(id: nil, about: nil, archived_posts_count: nil, audios_count: nil, avatar: nil, avatar_header_converter_upload: nil, avatar_thumbs: nil, can_add_subscriber: nil, can_chat: nil, can_comment_story: nil, can_create_promotion: nil, can_create_trial: nil, can_earn: nil, can_look_story: nil, can_pay_internal: nil, can_receive_chat_message: nil, can_report: nil, can_restrict: nil, can_trial_send: nil, current_subscribe_price: nil, favorited_count: nil, favorites_count: nil, first_published_post_date: nil, has_labels: nil, has_links: nil, has_not_viewed_story: nil, has_pinned_posts: nil, has_scheduled_stream: nil, has_stories: nil, has_stream: nil, header: nil, header_size: nil, header_thumbs: nil, is_adult_content: nil, is_blocked: nil, is_friend: nil, is_markdown_disabled_for_about: nil, is_performer: nil, is_private_restriction: nil, is_real_performer: nil, is_referrer_allowed: nil, is_restricted: nil, is_spotify_connected: nil, is_spring_connected: nil, is_verified: nil, join_date: nil, last_seen: nil, location: nil, medias_count: nil, name: nil, ofapi_gender: nil, ofapi_gender_confidence: nil, photos_count: nil, posts_count: nil, private_archived_posts_count: nil, referal_bonus_summ_for_referer: nil, show_media_count: nil, show_posts_in_feed: nil, show_subscribers_count: nil, subscribed_by: nil, subscribed_by_autoprolong: nil, subscribed_by_data: nil, subscribed_by_expire: nil, subscribed_by_expire_date: nil, subscribed_is_expired_now: nil, subscribed_on: nil, subscribed_on_data: nil, subscribed_on_duration: nil, subscribed_on_expired_now: nil, subscribe_price: nil, subscribers_count: nil, tips_enabled: nil, tips_max: nil, tips_min: nil, tips_min_internal: nil, tips_text_enabled: nil, username: nil, videos_count: nil, view: nil, website: nil, wishlist: nil)
         #   @param id [Integer]
         #   @param about [String]
         #   @param archived_posts_count [Integer]
@@ -543,7 +553,7 @@ module Onlyfansapi
         #   @param can_report [Boolean]
         #   @param can_restrict [Boolean]
         #   @param can_trial_send [Boolean]
-        #   @param current_subscribe_price [String]
+        #   @param current_subscribe_price [String, nil]
         #   @param favorited_count [Integer]
         #   @param favorites_count [Integer]
         #   @param first_published_post_date [String]
@@ -571,9 +581,11 @@ module Onlyfansapi
         #   @param is_verified [Boolean]
         #   @param join_date [String]
         #   @param last_seen [String]
-        #   @param location [String]
+        #   @param location [String, nil]
         #   @param medias_count [Integer]
         #   @param name [String]
+        #   @param ofapi_gender [String]
+        #   @param ofapi_gender_confidence [Float]
         #   @param photos_count [Integer]
         #   @param posts_count [Integer]
         #   @param private_archived_posts_count [Integer]
@@ -582,17 +594,17 @@ module Onlyfansapi
         #   @param show_posts_in_feed [Boolean]
         #   @param show_subscribers_count [Boolean]
         #   @param subscribed_by [Boolean]
-        #   @param subscribed_by_autoprolong [String]
-        #   @param subscribed_by_data [String]
-        #   @param subscribed_by_expire [String]
-        #   @param subscribed_by_expire_date [String]
-        #   @param subscribed_is_expired_now [String]
+        #   @param subscribed_by_autoprolong [String, nil]
+        #   @param subscribed_by_data [String, nil]
+        #   @param subscribed_by_expire [String, nil]
+        #   @param subscribed_by_expire_date [String, nil]
+        #   @param subscribed_is_expired_now [String, nil]
         #   @param subscribed_on [Boolean]
-        #   @param subscribed_on_data [String]
-        #   @param subscribed_on_duration [String]
-        #   @param subscribed_on_expired_now [String]
+        #   @param subscribed_on_data [String, nil]
+        #   @param subscribed_on_duration [String, nil]
+        #   @param subscribed_on_expired_now [String, nil]
         #   @param subscribe_price [Integer]
-        #   @param subscribers_count [String]
+        #   @param subscribers_count [String, nil]
         #   @param tips_enabled [Boolean]
         #   @param tips_max [Integer]
         #   @param tips_min [Integer]
@@ -602,7 +614,7 @@ module Onlyfansapi
         #   @param videos_count [Integer]
         #   @param view [String]
         #   @param website [String]
-        #   @param wishlist [String]
+        #   @param wishlist [String, nil]
 
         # @see Onlyfansapi::Models::ProfileRetrieveResponse::Data#avatar_thumbs
         class AvatarThumbs < Onlyfansapi::Internal::Type::BaseModel

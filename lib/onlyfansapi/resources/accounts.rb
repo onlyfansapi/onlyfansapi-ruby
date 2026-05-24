@@ -16,7 +16,7 @@ module Onlyfansapi
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Array<Object>]
+      # @return [Array<Onlyfansapi::Models::AccountListResponseItem>]
       #
       # @see Onlyfansapi::Models::AccountListParams
       def list(params = {})
@@ -26,7 +26,7 @@ module Onlyfansapi
           method: :get,
           path: "api/accounts",
           query: query,
-          model: Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Internal::Type::Unknown],
+          model: Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Models::AccountListResponseItem],
           options: options
         )
       end

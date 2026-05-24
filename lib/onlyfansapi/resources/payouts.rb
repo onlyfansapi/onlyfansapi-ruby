@@ -30,33 +30,6 @@ module Onlyfansapi
         )
       end
 
-      # List all transactions for the account.
-      #
-      # @overload list_transactions(account, limit: nil, marker: nil, request_options: {})
-      #
-      # @param account [String] The Account ID
-      #
-      # @param limit [String] Number of transactions to return
-      #
-      # @param marker [String] The marker used for pagination. Default: `null`
-      #
-      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [Onlyfansapi::Models::PayoutListTransactionsResponse]
-      #
-      # @see Onlyfansapi::Models::PayoutListTransactionsParams
-      def list_transactions(account, params = {})
-        parsed, options = Onlyfansapi::PayoutListTransactionsParams.dump_request(params)
-        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
-        @client.request(
-          method: :get,
-          path: ["api/%1$s/payouts/transactions", account],
-          query: query,
-          model: Onlyfansapi::Models::PayoutListTransactionsResponse,
-          options: options
-        )
-      end
-
       # Request a payout withdrawal, if the frequency is set to manual. Refer to our
       # `/payouts/balances` endpoint to retrieve the minimum and maximum withdrawal
       # amounts.

@@ -207,6 +207,11 @@ module Onlyfansapi
           #   @return [Integer, nil]
           optional :tax_amount, Integer, api_name: :taxAmount
 
+          # @!attribute type
+          #
+          #   @return [String, nil]
+          optional :type, String
+
           # @!attribute user
           #
           #   @return [Onlyfansapi::Models::TransactionListResponse::Data::List::User, nil]
@@ -217,7 +222,7 @@ module Onlyfansapi
           #   @return [Integer, nil]
           optional :vat_amount, Integer, api_name: :vatAmount
 
-          # @!method initialize(id: nil, amount: nil, created_at: nil, currency: nil, description: nil, fee: nil, net: nil, payout_pending_days: nil, status: nil, tax_amount: nil, user: nil, vat_amount: nil)
+          # @!method initialize(id: nil, amount: nil, created_at: nil, currency: nil, description: nil, fee: nil, net: nil, payout_pending_days: nil, status: nil, tax_amount: nil, type: nil, user: nil, vat_amount: nil)
           #   @param id [String]
           #   @param amount [Float]
           #   @param created_at [String]
@@ -228,6 +233,7 @@ module Onlyfansapi
           #   @param payout_pending_days [Integer]
           #   @param status [String]
           #   @param tax_amount [Integer]
+          #   @param type [String]
           #   @param user [Onlyfansapi::Models::TransactionListResponse::Data::List::User]
           #   @param vat_amount [Integer]
 

@@ -1,7 +1,14 @@
 module Onlyfansapi
   module Models
     type transaction_list_params =
-      { account: String, limit: String, marker: String, start_date: String }
+      {
+        account: String,
+        limit: String,
+        marker: String,
+        start_date: String,
+        tips_source: String,
+        type: String
+      }
       & Onlyfansapi::Internal::Type::request_parameters
 
     class TransactionListParams < Onlyfansapi::Internal::Type::BaseModel
@@ -22,11 +29,21 @@ module Onlyfansapi
 
       def start_date=: (String) -> String
 
+      attr_reader tips_source: String?
+
+      def tips_source=: (String) -> String
+
+      attr_reader type: String?
+
+      def type=: (String) -> String
+
       def initialize: (
         account: String,
         ?limit: String,
         ?marker: String,
         ?start_date: String,
+        ?tips_source: String,
+        ?type: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
@@ -35,6 +52,8 @@ module Onlyfansapi
         limit: String,
         marker: String,
         start_date: String,
+        tips_source: String,
+        type: String,
         request_options: Onlyfansapi::RequestOptions
       }
     end

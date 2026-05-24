@@ -5,7 +5,8 @@ module Onlyfansapi
         account: String,
         filter: Onlyfansapi::FollowingListAllParams::Filter,
         limit: Integer,
-        offset: Integer
+        offset: Integer,
+        query: String?
       }
       & Onlyfansapi::Internal::Type::request_parameters
 
@@ -29,11 +30,14 @@ module Onlyfansapi
 
       def offset=: (Integer) -> Integer
 
+      attr_accessor query: String?
+
       def initialize: (
         account: String,
         ?filter: Onlyfansapi::FollowingListAllParams::Filter,
         ?limit: Integer,
         ?offset: Integer,
+        ?query: String?,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
@@ -42,6 +46,7 @@ module Onlyfansapi
         filter: Onlyfansapi::FollowingListAllParams::Filter,
         limit: Integer,
         offset: Integer,
+        query: String?,
         request_options: Onlyfansapi::RequestOptions
       }
 
@@ -66,18 +71,24 @@ module Onlyfansapi
           paid: Onlyfansapi::Models::FollowingListAllParams::Filter::paid?
         }
 
-        type online = nil
+        type online = 1 | 0
 
         module Online
           extend Onlyfansapi::Internal::Type::Enum
 
+          ONLINE_1: 1
+          ONLINE_0: 0
+
           def self?.values: -> ::Array[Onlyfansapi::Models::FollowingListAllParams::Filter::online]
         end
 
-        type paid = nil
+        type paid = 1 | 0
 
         module Paid
           extend Onlyfansapi::Internal::Type::Enum
+
+          PAID_1: 1
+          PAID_0: 0
 
           def self?.values: -> ::Array[Onlyfansapi::Models::FollowingListAllParams::Filter::paid]
         end

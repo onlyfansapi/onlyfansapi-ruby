@@ -19,14 +19,14 @@ module Onlyfansapi
         #
         # @param field [Symbol, Onlyfansapi::Models::Media::VaultListParams::Field] Sort the results by a field. Default `recent`
         #
-        # @param limit [Integer] Number of media to return per page. Default: `24`
+        # @param limit [Integer] Number of media to return per page (10 - 100). Default: `24`
         #
         # @param list [Integer] Only show media items from a specific list (category). \*\*Refer to our Media
         # Vaul
         #
         # @param offset [Integer] The offset used for pagination. Default `0`
         #
-        # @param query [String] Optionally, search for a text query.
+        # @param query [String, nil] Optionally, search for a text query.
         #
         # @param sort [Symbol, Onlyfansapi::Models::Media::VaultListParams::Sort] Sort the results. Default `desc`
         #

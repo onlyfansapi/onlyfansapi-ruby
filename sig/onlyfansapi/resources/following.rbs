@@ -6,24 +6,27 @@ module Onlyfansapi
         ?filter: Onlyfansapi::FollowingListActiveParams::Filter,
         ?limit: Integer,
         ?offset: Integer,
+        ?query: String?,
         ?request_options: Onlyfansapi::request_opts
-      ) -> nil
+      ) -> Onlyfansapi::Models::FollowingListActiveResponse
 
       def list_all: (
         String account,
         ?filter: Onlyfansapi::FollowingListAllParams::Filter,
         ?limit: Integer,
         ?offset: Integer,
+        ?query: String?,
         ?request_options: Onlyfansapi::request_opts
-      ) -> nil
+      ) -> Onlyfansapi::Models::FollowingListAllResponse
 
       def list_expired: (
         String account,
         ?filter: Onlyfansapi::FollowingListExpiredParams::Filter,
         ?limit: Integer,
         ?offset: Integer,
+        ?query: String?,
         ?request_options: Onlyfansapi::request_opts
-      ) -> nil
+      ) -> Onlyfansapi::Models::FollowingListExpiredResponse
 
       def initialize: (client: Onlyfansapi::Client) -> void
     end

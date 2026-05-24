@@ -13,17 +13,38 @@ module Onlyfansapi
       required :attempt_id, String
 
       # @!attribute code
-      #   The 2FA code you received on your phone
+      #   The 2FA code you received on your phone. Must be empty if
+      #   `selfie_verification_completed` is `true`.
       #
-      #   @return [String]
-      required :code, String
+      #   @return [String, nil]
+      optional :code, String
 
-      # @!method initialize(attempt_id:, code:, request_options: {})
+      # @!attribute selfie_verification_completed
+      #   This field is required when <code>code</code> is not present.
+      #
+      #   @return [Boolean, Onlyfansapi::Models::AuthenticateSubmit2faParams::SelfieVerificationCompleted, nil]
+      optional :selfie_verification_completed,
+               enum: -> { Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted }
+
+      # @!method initialize(attempt_id:, code: nil, selfie_verification_completed: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfansapi::Models::AuthenticateSubmit2faParams} for more details.
+      #
       #   @param attempt_id [String]
       #
-      #   @param code [String] The 2FA code you received on your phone
+      #   @param code [String] The 2FA code you received on your phone. Must be empty if `selfie_verification_c
+      #
+      #   @param selfie_verification_completed [Boolean, Onlyfansapi::Models::AuthenticateSubmit2faParams::SelfieVerificationCompleted] This field is required when <code>code</code> is not present.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
+
+      # This field is required when <code>code</code> is not present.
+      module SelfieVerificationCompleted
+        extend Onlyfansapi::Internal::Type::Enum
+
+        # @!method self.values
+        #   @return [Array<Boolean>]
+      end
     end
   end
 end

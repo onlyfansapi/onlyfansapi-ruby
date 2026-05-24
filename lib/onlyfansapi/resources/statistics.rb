@@ -36,15 +36,18 @@ module Onlyfansapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::StatisticGetOverviewParams} for more details.
+      #
       # Get an overview of statistics for fans, visitors, posts, or general.
       #
-      # @overload get_overview(account, end_date:, start_date:, type: nil, request_options: {})
+      # @overload get_overview(account, end_date: nil, start_date: nil, type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
-      # @param end_date [String] The end date for the statistics.
+      # @param end_date [String] The end date for the statistics. Keep empty to retrieve until now.
       #
-      # @param start_date [String] The start date for the statistics.
+      # @param start_date [String] The start date for the statistics. Keep empty to retrieve from the model's start
       #
       # @param type [Symbol, Onlyfansapi::Models::StatisticGetOverviewParams::Type, nil] The type of statistics to retrieve (default = empty)
       #
@@ -53,7 +56,7 @@ module Onlyfansapi
       # @return [Onlyfansapi::Models::StatisticGetOverviewResponse]
       #
       # @see Onlyfansapi::Models::StatisticGetOverviewParams
-      def get_overview(account, params)
+      def get_overview(account, params = {})
         parsed, options = Onlyfansapi::StatisticGetOverviewParams.dump_request(params)
         query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
         @client.request(

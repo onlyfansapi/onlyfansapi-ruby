@@ -188,7 +188,7 @@ module Onlyfansapi
               id: Integer,
               created_date_time: String,
               entity: Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity,
-              publish_date_time: String,
+              publish_date_time: String?,
               type: String
             }
 
@@ -207,9 +207,7 @@ module Onlyfansapi
               Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity
             ) -> Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity
 
-            attr_reader publish_date_time: String?
-
-            def publish_date_time=: (String) -> String
+            attr_accessor publish_date_time: String?
 
             attr_reader type: String?
 
@@ -219,7 +217,7 @@ module Onlyfansapi
               ?id: Integer,
               ?created_date_time: String,
               ?entity: Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity,
-              ?publish_date_time: String,
+              ?publish_date_time: String?,
               ?type: String
             ) -> void
 
@@ -227,7 +225,7 @@ module Onlyfansapi
               id: Integer,
               created_date_time: String,
               entity: Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity,
-              publish_date_time: String,
+              publish_date_time: String?,
               type: String
             }
 
@@ -239,7 +237,7 @@ module Onlyfansapi
                 can_unsend_queue: bool,
                 changed_at: String,
                 created_at: String,
-                giphy_id: String,
+                giphy_id: String?,
                 is_free: bool,
                 is_from_queue: bool,
                 is_liked: bool,
@@ -257,7 +255,7 @@ module Onlyfansapi
                 raw_text: String,
                 release_forms: ::Array[top],
                 response_type: String,
-                scheduled_at: String,
+                scheduled_at: String?,
                 sent_rules_extra: String,
                 sent_rules_type: String,
                 text: String,
@@ -290,9 +288,7 @@ module Onlyfansapi
 
               def created_at=: (String) -> String
 
-              attr_reader giphy_id: String?
-
-              def giphy_id=: (String) -> String
+              attr_accessor giphy_id: String?
 
               attr_reader is_free: bool?
 
@@ -362,9 +358,7 @@ module Onlyfansapi
 
               def response_type=: (String) -> String
 
-              attr_reader scheduled_at: String?
-
-              def scheduled_at=: (String) -> String
+              attr_accessor scheduled_at: String?
 
               attr_reader sent_rules_extra: String?
 
@@ -393,7 +387,7 @@ module Onlyfansapi
                 ?can_unsend_queue: bool,
                 ?changed_at: String,
                 ?created_at: String,
-                ?giphy_id: String,
+                ?giphy_id: String?,
                 ?is_free: bool,
                 ?is_from_queue: bool,
                 ?is_liked: bool,
@@ -411,7 +405,7 @@ module Onlyfansapi
                 ?raw_text: String,
                 ?release_forms: ::Array[top],
                 ?response_type: String,
-                ?scheduled_at: String,
+                ?scheduled_at: String?,
                 ?sent_rules_extra: String,
                 ?sent_rules_type: String,
                 ?text: String,
@@ -426,7 +420,7 @@ module Onlyfansapi
                 can_unsend_queue: bool,
                 changed_at: String,
                 created_at: String,
-                giphy_id: String,
+                giphy_id: String?,
                 is_free: bool,
                 is_from_queue: bool,
                 is_liked: bool,
@@ -444,7 +438,7 @@ module Onlyfansapi
                 raw_text: String,
                 release_forms: ::Array[top],
                 response_type: String,
-                scheduled_at: String,
+                scheduled_at: String?,
                 sent_rules_extra: String,
                 sent_rules_type: String,
                 text: String,

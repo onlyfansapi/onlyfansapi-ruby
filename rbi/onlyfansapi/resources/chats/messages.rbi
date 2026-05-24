@@ -3,14 +3,16 @@
 module Onlyfansapi
   module Resources
     class Chats
-      # APIs for managing OnlyFans chats
       class Messages
         # Get messages from a specific chat.
         sig do
           params(
             chat_id: String,
             account: String,
-            id: String,
+            filter: Onlyfansapi::Chats::MessageListParams::Filter::OrSymbol,
+            first_id: T.nilable(String),
+            last_id: T.nilable(String),
+            limit: String,
             order: String,
             skip_users: String,
             request_options: Onlyfansapi::RequestOptions::OrHash
@@ -21,8 +23,19 @@ module Onlyfansapi
           chat_id,
           # Path param: The Account ID
           account:,
-          # Query param: ID of the last message from previous page. Used for pagination
-          id: nil,
+          # Query param: Filter by certain messages. Currently, only pins are filterable.
+          filter: nil,
+          # Query param: Use for pagination when `order=desc` (newest to oldest). Include
+          # this message ID as the first message in the results. Used to retrieve messages
+          # from e.g. the Search Chat Messages endpoint IDs.
+          first_id: nil,
+          # Query param: Use for pagination when `order=asc` (oldest to newest). Include
+          # this message ID as the first message in the results. WARNING! The response list
+          # of messages will also be inverted (oldest messages will be first, opposite to
+          # default where `order=desc`).
+          last_id: nil,
+          # Query param: The number of messages to return (default = 10, max = 100)
+          limit: nil,
           # Query param: Sort order for messages (desc or asc)
           order: nil,
           # Query param: Whether to skip user details (all or none)
@@ -42,11 +55,11 @@ module Onlyfansapi
           ).returns(Onlyfansapi::Models::Chats::MessageDeleteResponse)
         end
         def delete(
-          # The ID of the message to delete
+          # The ID of the message to retrieve
           message_id,
           # The Account ID
           account:,
-          # The ID of the chat, usually a fan's OnlyFans User ID
+          # The ID of the chat (usually a fan's OnlyFans User ID)
           chat_id:,
           request_options: {}
         )
@@ -57,11 +70,16 @@ module Onlyfansapi
           params(
             chat_id: String,
             account: String,
-            text: String,
+            giphy_id: String,
             locked_text: T::Boolean,
-            media_files: T::Array[String],
-            previews: T::Array[String],
+            media_files: T::Array[T.anything],
+            previews: T::Array[T.anything],
             price: Integer,
+            reply_to_message_id: Integer,
+            rf_guest: String,
+            rf_partner: String,
+            rf_tag: String,
+            text: String,
             request_options: Onlyfansapi::RequestOptions::OrHash
           ).returns(Onlyfansapi::Models::Chats::MessageSendResponse)
         end
@@ -70,20 +88,32 @@ module Onlyfansapi
           chat_id,
           # Path param: The Account ID
           account:,
-          # Body param: The message text content
-          text:,
+          # Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the
+          # Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
+          giphy_id: nil,
           # Body param: Whether the text should be shown or hidden
           locked_text: nil,
-          # Body param: Array of media file upload prefixed_ids, or OF media IDs (required
-          # if price is not 0). Will be hidden if `price` is provided.
+          # Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will
+          # be hidden if `price` is provided.
           media_files: nil,
-          # Body param: Array of media file upload prefixed_ids, or OF media IDs (required
-          # if price is not 0). Will be shown if `price` is provided. All `previews` values
-          # must also exist in the `mediaFiles` array.
+          # Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or
+          # integer indices referencing uploaded files in `mediaFiles`. Will be shown if
+          # `price` is provided.
           previews: nil,
           # Body param: Price for paid content (0 or between 3-200). In case this is not
           # zero, **mediaFiles** is required
           price: nil,
+          # Body param: Mark this message as a reply to another (can be either your own, or
+          # the recipient's)
+          reply_to_message_id: nil,
+          # Body param: Array of OnlyFans Release Form Guest IDs to tag in your message
+          rf_guest: nil,
+          # Body param: Array of OnlyFans Release Form Partners IDs to tag in your message
+          rf_partner: nil,
+          # Body param: Array of OnlyFans Creator User IDs to tag in your message
+          rf_tag: nil,
+          # Body param: The message text content. Required unless a media file is present.
+          text: nil,
           request_options: {}
         )
         end

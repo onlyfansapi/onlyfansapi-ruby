@@ -178,7 +178,7 @@ module Onlyfansapi
           # @!attribute end_date
           #
           #   @return [String, nil]
-          optional :end_date, String, api_name: :endDate
+          optional :end_date, String, api_name: :endDate, nil?: true
 
           # @!attribute links
           #
@@ -195,17 +195,23 @@ module Onlyfansapi
           #   @return [Integer, nil]
           optional :subscribers_count, Integer, api_name: :subscribersCount
 
-          # @!method initialize(id: nil, campaign_code: nil, campaign_name: nil, campaign_url: nil, clicks_count: nil, created_at: nil, end_date: nil, links: nil, revenue: nil, subscribers_count: nil)
+          # @!attribute tags
+          #
+          #   @return [Array<String>, nil]
+          optional :tags, Onlyfansapi::Internal::Type::ArrayOf[String]
+
+          # @!method initialize(id: nil, campaign_code: nil, campaign_name: nil, campaign_url: nil, clicks_count: nil, created_at: nil, end_date: nil, links: nil, revenue: nil, subscribers_count: nil, tags: nil)
           #   @param id [Integer]
           #   @param campaign_code [Integer]
           #   @param campaign_name [String]
           #   @param campaign_url [String]
           #   @param clicks_count [Integer]
           #   @param created_at [String]
-          #   @param end_date [String]
+          #   @param end_date [String, nil]
           #   @param links [Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Links]
           #   @param revenue [Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Revenue]
           #   @param subscribers_count [Integer]
+          #   @param tags [Array<String>]
 
           # @see Onlyfansapi::Models::TrackingLinkListResponse::Data::List#links
           class Links < Onlyfansapi::Internal::Type::BaseModel
@@ -243,8 +249,8 @@ module Onlyfansapi
 
             # @!attribute revenue_per_click
             #
-            #   @return [Integer, nil]
-            optional :revenue_per_click, Integer, api_name: :revenuePerClick
+            #   @return [Float, nil]
+            optional :revenue_per_click, Float, api_name: :revenuePerClick
 
             # @!attribute revenue_per_subscriber
             #
@@ -264,7 +270,7 @@ module Onlyfansapi
             # @!method initialize(calculated_at: nil, is_loading: nil, revenue_per_click: nil, revenue_per_subscriber: nil, spenders_count: nil, total: nil)
             #   @param calculated_at [String]
             #   @param is_loading [Boolean]
-            #   @param revenue_per_click [Integer]
+            #   @param revenue_per_click [Float]
             #   @param revenue_per_subscriber [Integer]
             #   @param spenders_count [Integer]
             #   @param total [Integer]

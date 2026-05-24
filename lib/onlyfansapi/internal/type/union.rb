@@ -6,14 +6,14 @@ module Onlyfansapi
       # @api private
       #
       # @example
-      #   # `payout_request_manual_withdrawal_response` is a `Onlyfansapi::Models::PayoutRequestManualWithdrawalResponse`
-      #   case payout_request_manual_withdrawal_response
-      #   when Onlyfansapi::Models::PayoutRequestManualWithdrawalResponse::UnionMember0
-      #     puts(payout_request_manual_withdrawal_response._meta)
-      #   when Onlyfansapi::Models::PayoutRequestManualWithdrawalResponse::UnionMember1
-      #     puts(payout_request_manual_withdrawal_response.data)
+      #   # `authenticate_start_response` is a `Onlyfansapi::Models::AuthenticateStartResponse`
+      #   case authenticate_start_response
+      #   when Onlyfansapi::Models::AuthenticateStartResponse::UnionMember0
+      #     puts(authenticate_start_response.attempt_id)
+      #   when Onlyfansapi::Models::AuthenticateStartResponse::UnionMember1
+      #     puts(authenticate_start_response.message)
       #   else
-      #     puts(payout_request_manual_withdrawal_response)
+      #     puts(authenticate_start_response)
       #   end
       module Union
         include Onlyfansapi::Internal::Type::Converter

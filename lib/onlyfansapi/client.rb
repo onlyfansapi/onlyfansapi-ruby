@@ -35,7 +35,6 @@ module Onlyfansapi
     # @return [Onlyfansapi::Resources::Banking]
     attr_reader :banking
 
-    # APIs for managing OnlyFans chats
     # @return [Onlyfansapi::Resources::Chats]
     attr_reader :chats
 
@@ -92,7 +91,6 @@ module Onlyfansapi
     # @return [Onlyfansapi::Resources::SavedForLater]
     attr_reader :saved_for_later
 
-    # Operations related to user account settings.
     # @return [Onlyfansapi::Resources::Settings]
     attr_reader :settings
 

@@ -50,9 +50,6 @@ module Onlyfansapi
   MassMessagingListQueueParams =
     Onlyfansapi::Models::MassMessagingListQueueParams
 
-  MassMessagingListStatisticsParams =
-    Onlyfansapi::Models::MassMessagingListStatisticsParams
-
   MassMessagingRetrieveParams = Onlyfansapi::Models::MassMessagingRetrieveParams
 
   MassMessagingSendParams = Onlyfansapi::Models::MassMessagingSendParams
@@ -83,9 +80,6 @@ module Onlyfansapi
 
   PayoutListPayoutRequestsParams =
     Onlyfansapi::Models::PayoutListPayoutRequestsParams
-
-  PayoutListTransactionsParams =
-    Onlyfansapi::Models::PayoutListTransactionsParams
 
   PayoutRequestManualWithdrawalParams =
     Onlyfansapi::Models::PayoutRequestManualWithdrawalParams
@@ -196,6 +190,4 @@ module Onlyfansapi
   WebhookDeleteParams = Onlyfansapi::Models::WebhookDeleteParams
 
   WhoamiRetrieveParams = Onlyfansapi::Models::WhoamiRetrieveParams
-
-  Workflows = Onlyfansapi::Models::Workflows
 end

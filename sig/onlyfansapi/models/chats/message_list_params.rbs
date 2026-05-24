@@ -5,7 +5,10 @@ module Onlyfansapi
         {
           account: String,
           chat_id: String,
-          id: String,
+          filter: Onlyfansapi::Models::Chats::MessageListParams::filter,
+          first_id: String?,
+          last_id: String?,
+          limit: String,
           order: String,
           skip_users: String
         }
@@ -19,9 +22,19 @@ module Onlyfansapi
 
         attr_accessor chat_id: String
 
-        attr_reader id: String?
+        attr_reader filter: Onlyfansapi::Models::Chats::MessageListParams::filter?
 
-        def id=: (String) -> String
+        def filter=: (
+          Onlyfansapi::Models::Chats::MessageListParams::filter
+        ) -> Onlyfansapi::Models::Chats::MessageListParams::filter
+
+        attr_accessor first_id: String?
+
+        attr_accessor last_id: String?
+
+        attr_reader limit: String?
+
+        def limit=: (String) -> String
 
         attr_reader order: String?
 
@@ -34,7 +47,10 @@ module Onlyfansapi
         def initialize: (
           account: String,
           chat_id: String,
-          ?id: String,
+          ?filter: Onlyfansapi::Models::Chats::MessageListParams::filter,
+          ?first_id: String?,
+          ?last_id: String?,
+          ?limit: String,
           ?order: String,
           ?skip_users: String,
           ?request_options: Onlyfansapi::request_opts
@@ -43,11 +59,24 @@ module Onlyfansapi
         def to_hash: -> {
           account: String,
           chat_id: String,
-          id: String,
+          filter: Onlyfansapi::Models::Chats::MessageListParams::filter,
+          first_id: String?,
+          last_id: String?,
+          limit: String,
           order: String,
           skip_users: String,
           request_options: Onlyfansapi::RequestOptions
         }
+
+        type filter = :pinned
+
+        module Filter
+          extend Onlyfansapi::Internal::Type::Enum
+
+          PINNED: :pinned
+
+          def self?.values: -> ::Array[Onlyfansapi::Models::Chats::MessageListParams::filter]
+        end
       end
     end
   end

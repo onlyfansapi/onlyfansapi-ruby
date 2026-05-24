@@ -5,8 +5,8 @@ module Onlyfansapi
     # APIs for fetching OnlyFans users
     class Users
       # Get OnlyFans Profile details for a given username. User details are retrieved
-      # using the current current `{account}` so fields like `subscribedOnData` which
-      # include potential subscription details will be included.
+      # using the current `{account}` so fields like `subscribedOnData` which include
+      # potential subscription details will be included.
       sig do
         params(
           username: String,
@@ -15,6 +15,7 @@ module Onlyfansapi
         ).returns(Onlyfansapi::Models::UserRetrieveResponse)
       end
       def retrieve(
+        # The OnlyFans username of the user to retrieve details for.
         username,
         # The Account ID
         account:,

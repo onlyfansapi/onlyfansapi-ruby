@@ -316,16 +316,10 @@ module Onlyfansapi
         attr_writer :id
 
         sig { returns(T.nilable(String)) }
-        attr_reader :avatar
-
-        sig { params(avatar: String).void }
-        attr_writer :avatar
+        attr_accessor :avatar
 
         sig { returns(T.nilable(String)) }
-        attr_reader :avatar_thumbs
-
-        sig { params(avatar_thumbs: String).void }
-        attr_writer :avatar_thumbs
+        attr_accessor :avatar_thumbs
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :can_add_subscriber
@@ -424,22 +418,13 @@ module Onlyfansapi
         attr_writer :has_stream
 
         sig { returns(T.nilable(String)) }
-        attr_reader :header
-
-        sig { params(header: String).void }
-        attr_writer :header
+        attr_accessor :header
 
         sig { returns(T.nilable(String)) }
-        attr_reader :header_size
-
-        sig { params(header_size: String).void }
-        attr_writer :header_size
+        attr_accessor :header_size
 
         sig { returns(T.nilable(String)) }
-        attr_reader :header_thumbs
-
-        sig { params(header_thumbs: String).void }
-        attr_writer :header_thumbs
+        attr_accessor :header_thumbs
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :hide_chat
@@ -661,8 +646,8 @@ module Onlyfansapi
         sig do
           params(
             id: Integer,
-            avatar: String,
-            avatar_thumbs: String,
+            avatar: T.nilable(String),
+            avatar_thumbs: T.nilable(String),
             can_add_subscriber: T::Boolean,
             can_comment_story: T::Boolean,
             can_earn: T::Boolean,
@@ -679,9 +664,9 @@ module Onlyfansapi
             has_scheduled_stream: T::Boolean,
             has_stories: T::Boolean,
             has_stream: T::Boolean,
-            header: String,
-            header_size: String,
-            header_thumbs: String,
+            header: T.nilable(String),
+            header_size: T.nilable(String),
+            header_thumbs: T.nilable(String),
             hide_chat: T::Boolean,
             is_blocked: T::Boolean,
             is_pending_autoprolong: T::Boolean,
@@ -779,8 +764,8 @@ module Onlyfansapi
           override.returns(
             {
               id: Integer,
-              avatar: String,
-              avatar_thumbs: String,
+              avatar: T.nilable(String),
+              avatar_thumbs: T.nilable(String),
               can_add_subscriber: T::Boolean,
               can_comment_story: T::Boolean,
               can_earn: T::Boolean,
@@ -797,9 +782,9 @@ module Onlyfansapi
               has_scheduled_stream: T::Boolean,
               has_stories: T::Boolean,
               has_stream: T::Boolean,
-              header: String,
-              header_size: String,
-              header_thumbs: String,
+              header: T.nilable(String),
+              header_size: T.nilable(String),
+              header_thumbs: T.nilable(String),
               hide_chat: T::Boolean,
               is_blocked: T::Boolean,
               is_pending_autoprolong: T::Boolean,
@@ -932,10 +917,7 @@ module Onlyfansapi
             end
 
           sig { returns(T.nilable(String)) }
-          attr_reader :discount_finished_at
-
-          sig { params(discount_finished_at: String).void }
-          attr_writer :discount_finished_at
+          attr_accessor :discount_finished_at
 
           sig { returns(T.nilable(Integer)) }
           attr_reader :discount_percent
@@ -950,10 +932,7 @@ module Onlyfansapi
           attr_writer :discount_period
 
           sig { returns(T.nilable(String)) }
-          attr_reader :discount_started_at
-
-          sig { params(discount_started_at: String).void }
-          attr_writer :discount_started_at
+          attr_accessor :discount_started_at
 
           sig { returns(T.nilable(String)) }
           attr_reader :duration
@@ -1010,10 +989,7 @@ module Onlyfansapi
           attr_writer :show_posts_in_feed
 
           sig { returns(T.nilable(String)) }
-          attr_reader :status
-
-          sig { params(status: String).void }
-          attr_writer :status
+          attr_accessor :status
 
           sig { returns(T.nilable(String)) }
           attr_reader :subscribe_at
@@ -1056,10 +1032,10 @@ module Onlyfansapi
 
           sig do
             params(
-              discount_finished_at: String,
+              discount_finished_at: T.nilable(String),
               discount_percent: Integer,
               discount_period: Integer,
-              discount_started_at: String,
+              discount_started_at: T.nilable(String),
               duration: String,
               expired_at: String,
               has_active_paid_subscriptions: T::Boolean,
@@ -1069,7 +1045,7 @@ module Onlyfansapi
               regular_price: Integer,
               renewed_at: String,
               show_posts_in_feed: T::Boolean,
-              status: String,
+              status: T.nilable(String),
               subscribe_at: String,
               subscribe_price: Integer,
               subscribes:
@@ -1104,10 +1080,10 @@ module Onlyfansapi
           sig do
             override.returns(
               {
-                discount_finished_at: String,
+                discount_finished_at: T.nilable(String),
                 discount_percent: Integer,
                 discount_period: Integer,
-                discount_started_at: String,
+                discount_started_at: T.nilable(String),
                 duration: String,
                 expired_at: String,
                 has_active_paid_subscriptions: T::Boolean,
@@ -1117,7 +1093,7 @@ module Onlyfansapi
                 regular_price: Integer,
                 renewed_at: String,
                 show_posts_in_feed: T::Boolean,
-                status: String,
+                status: T.nilable(String),
                 subscribe_at: String,
                 subscribe_price: Integer,
                 subscribes:
@@ -1153,10 +1129,7 @@ module Onlyfansapi
             attr_writer :action
 
             sig { returns(T.nilable(String)) }
-            attr_reader :cancel_date
-
-            sig { params(cancel_date: String).void }
-            attr_writer :cancel_date
+            attr_accessor :cancel_date
 
             sig { returns(T.nilable(String)) }
             attr_reader :date
@@ -1195,16 +1168,10 @@ module Onlyfansapi
             attr_writer :is_current
 
             sig { returns(T.nilable(String)) }
-            attr_reader :offer_end
-
-            sig { params(offer_end: String).void }
-            attr_writer :offer_end
+            attr_accessor :offer_end
 
             sig { returns(T.nilable(String)) }
-            attr_reader :offer_start
-
-            sig { params(offer_start: String).void }
-            attr_writer :offer_start
+            attr_accessor :offer_start
 
             sig { returns(T.nilable(Integer)) }
             attr_reader :price
@@ -1246,15 +1213,15 @@ module Onlyfansapi
               params(
                 id: Integer,
                 action: String,
-                cancel_date: String,
+                cancel_date: T.nilable(String),
                 date: String,
                 discount: Integer,
                 duration: Integer,
                 earning_id: Integer,
                 expire_date: String,
                 is_current: T::Boolean,
-                offer_end: String,
-                offer_start: String,
+                offer_end: T.nilable(String),
+                offer_start: T.nilable(String),
                 price: Integer,
                 regular_price: Integer,
                 start_date: String,
@@ -1289,15 +1256,15 @@ module Onlyfansapi
                 {
                   id: Integer,
                   action: String,
-                  cancel_date: String,
+                  cancel_date: T.nilable(String),
                   date: String,
                   discount: Integer,
                   duration: Integer,
                   earning_id: Integer,
                   expire_date: String,
                   is_current: T::Boolean,
-                  offer_end: String,
-                  offer_start: String,
+                  offer_end: T.nilable(String),
+                  offer_start: T.nilable(String),
                   price: Integer,
                   regular_price: Integer,
                   start_date: String,
@@ -1322,10 +1289,7 @@ module Onlyfansapi
             end
 
           sig { returns(T.nilable(String)) }
-          attr_reader :discount_finished_at
-
-          sig { params(discount_finished_at: String).void }
-          attr_writer :discount_finished_at
+          attr_accessor :discount_finished_at
 
           sig { returns(T.nilable(Integer)) }
           attr_reader :discount_percent
@@ -1340,10 +1304,7 @@ module Onlyfansapi
           attr_writer :discount_period
 
           sig { returns(T.nilable(String)) }
-          attr_reader :discount_started_at
-
-          sig { params(discount_started_at: String).void }
-          attr_writer :discount_started_at
+          attr_accessor :discount_started_at
 
           sig { returns(T.nilable(String)) }
           attr_reader :duration
@@ -1418,10 +1379,7 @@ module Onlyfansapi
           attr_writer :renewed_at
 
           sig { returns(T.nilable(String)) }
-          attr_reader :status
-
-          sig { params(status: String).void }
-          attr_writer :status
+          attr_accessor :status
 
           sig { returns(T.nilable(Integer)) }
           attr_reader :streams_summ
@@ -1488,10 +1446,10 @@ module Onlyfansapi
 
           sig do
             params(
-              discount_finished_at: String,
+              discount_finished_at: T.nilable(String),
               discount_percent: Integer,
               discount_period: Integer,
-              discount_started_at: String,
+              discount_started_at: T.nilable(String),
               duration: String,
               expired_at: String,
               has_active_paid_subscriptions: T::Boolean,
@@ -1504,7 +1462,7 @@ module Onlyfansapi
               recommendations: Integer,
               regular_price: Integer,
               renewed_at: String,
-              status: String,
+              status: T.nilable(String),
               streams_summ: Integer,
               subscribe_at: String,
               subscribe_price: Integer,
@@ -1550,10 +1508,10 @@ module Onlyfansapi
           sig do
             override.returns(
               {
-                discount_finished_at: String,
+                discount_finished_at: T.nilable(String),
                 discount_percent: Integer,
                 discount_period: Integer,
-                discount_started_at: String,
+                discount_started_at: T.nilable(String),
                 duration: String,
                 expired_at: String,
                 has_active_paid_subscriptions: T::Boolean,
@@ -1566,7 +1524,7 @@ module Onlyfansapi
                 recommendations: Integer,
                 regular_price: Integer,
                 renewed_at: String,
-                status: String,
+                status: T.nilable(String),
                 streams_summ: Integer,
                 subscribe_at: String,
                 subscribe_price: Integer,
@@ -1606,10 +1564,7 @@ module Onlyfansapi
             attr_writer :action
 
             sig { returns(T.nilable(String)) }
-            attr_reader :cancel_date
-
-            sig { params(cancel_date: String).void }
-            attr_writer :cancel_date
+            attr_accessor :cancel_date
 
             sig { returns(T.nilable(String)) }
             attr_reader :date
@@ -1699,7 +1654,7 @@ module Onlyfansapi
               params(
                 id: Integer,
                 action: String,
-                cancel_date: String,
+                cancel_date: T.nilable(String),
                 date: String,
                 discount: Integer,
                 duration: Integer,
@@ -1742,7 +1697,7 @@ module Onlyfansapi
                 {
                   id: Integer,
                   action: String,
-                  cancel_date: String,
+                  cancel_date: T.nilable(String),
                   date: String,
                   discount: Integer,
                   duration: Integer,

@@ -453,10 +453,7 @@ module Onlyfansapi
             attr_writer :created_at
 
             sig { returns(T.nilable(String)) }
-            attr_reader :giphy_id
-
-            sig { params(giphy_id: String).void }
-            attr_writer :giphy_id
+            attr_accessor :giphy_id
 
             sig { returns(T.nilable(T::Boolean)) }
             attr_reader :is_free
@@ -604,7 +601,7 @@ module Onlyfansapi
                 can_unsend_queue: T::Boolean,
                 changed_at: String,
                 created_at: String,
-                giphy_id: String,
+                giphy_id: T.nilable(String),
                 is_free: T::Boolean,
                 is_from_queue: T::Boolean,
                 is_liked: T::Boolean,
@@ -673,7 +670,7 @@ module Onlyfansapi
                   can_unsend_queue: T::Boolean,
                   changed_at: String,
                   created_at: String,
-                  giphy_id: String,
+                  giphy_id: T.nilable(String),
                   is_free: T::Boolean,
                   is_from_queue: T::Boolean,
                   is_liked: T::Boolean,

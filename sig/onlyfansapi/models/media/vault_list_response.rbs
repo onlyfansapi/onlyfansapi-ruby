@@ -322,9 +322,9 @@ module Onlyfansapi
             type files =
               {
                 full: Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full,
-                preview: String,
-                square_preview: String,
-                thumb: String
+                preview: String?,
+                square_preview: String?,
+                thumb: String?
               }
 
             class Files < Onlyfansapi::Internal::Type::BaseModel
@@ -334,30 +334,24 @@ module Onlyfansapi
                 Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full
               ) -> Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full
 
-              attr_reader preview: String?
+              attr_accessor preview: String?
 
-              def preview=: (String) -> String
+              attr_accessor square_preview: String?
 
-              attr_reader square_preview: String?
-
-              def square_preview=: (String) -> String
-
-              attr_reader thumb: String?
-
-              def thumb=: (String) -> String
+              attr_accessor thumb: String?
 
               def initialize: (
                 ?full: Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full,
-                ?preview: String,
-                ?square_preview: String,
-                ?thumb: String
+                ?preview: String?,
+                ?square_preview: String?,
+                ?thumb: String?
               ) -> void
 
               def to_hash: -> {
                 full: Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full,
-                preview: String,
-                square_preview: String,
-                thumb: String
+                preview: String?,
+                square_preview: String?,
+                thumb: String?
               }
 
               type full =
@@ -456,20 +450,19 @@ module Onlyfansapi
             end
 
             type video_sources =
-              { :number_240 => String, :number_720 => String }
+              { :number_240 => String?, :number_720 => String? }
 
             class VideoSources < Onlyfansapi::Internal::Type::BaseModel
-              attr_reader number_240: String?
+              attr_accessor number_240: String?
 
-              def number_240=: (String) -> String
+              attr_accessor number_720: String?
 
-              attr_reader number_720: String?
+              def initialize: (
+                ?number_240: String?,
+                ?number_720: String?
+              ) -> void
 
-              def number_720=: (String) -> String
-
-              def initialize: (?number_240: String, ?number_720: String) -> void
-
-              def to_hash: -> { :number_240 => String, :number_720 => String }
+              def to_hash: -> { :number_240 => String?, :number_720 => String? }
             end
           end
         end

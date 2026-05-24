@@ -31,6 +31,29 @@ whoami = onlyfansapi.whoami.retrieve
 puts(whoami.api_key)
 ```
 
+### File uploads
+
+Request parameters that correspond to file uploads can be passed as raw contents, a [`Pathname`](https://rubyapi.org/3.2/o/pathname) instance, [`StringIO`](https://rubyapi.org/3.2/o/stringio), or more.
+
+```ruby
+require "pathname"
+
+# Use `Pathname` to send the filename and/or avoid paging a large file into memory:
+response = onlyfansapi.media.upload(file: Pathname("/path/to/file"))
+
+# Alternatively, pass file contents or a `StringIO` directly:
+response = onlyfansapi.media.upload(file: File.read("/path/to/file"))
+
+# Or, to control the filename and/or content type:
+file =
+  Onlyfansapi::FilePart.new(File.read("/path/to/file"), filename: "/path/to/file", content_type: "…")
+response = onlyfansapi.media.upload(file: file)
+
+puts(response.prefixed_id)
+```
+
+Note that you can also pass a raw `IO` descriptor, but this disables retries, as the library can't be sure if the descriptor is a file or pipe (which cannot be rewound).
+
 ### Handling errors
 
 When the library is unable to connect to the API, or if the API returns a non-success status code (i.e., 4xx or 5xx response), a subclass of `Onlyfansapi::Errors::APIError` will be thrown:
@@ -190,25 +213,25 @@ onlyfansapi.whoami.retrieve(**params)
 Since this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:
 
 ```ruby
-# :us
-puts(Onlyfansapi::ClientSessionCreateParams::ProxyCountry::US)
+# :pinned
+puts(Onlyfansapi::ChatListParams::Filter::PINNED)
 
-# Revealed type: `T.all(Onlyfansapi::ClientSessionCreateParams::ProxyCountry, Symbol)`
-T.reveal_type(Onlyfansapi::ClientSessionCreateParams::ProxyCountry::US)
+# Revealed type: `T.all(Onlyfansapi::ChatListParams::Filter, Symbol)`
+T.reveal_type(Onlyfansapi::ChatListParams::Filter::PINNED)
 ```
 
 Enum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:
 
 ```ruby
 # Using the enum constants preserves the tagged type information:
-onlyfansapi.client_sessions.create(
-  proxy_country: Onlyfansapi::ClientSessionCreateParams::ProxyCountry::US,
+onlyfansapi.chats.list(
+  filter: Onlyfansapi::ChatListParams::Filter::PINNED,
   # …
 )
 
 # Literal values are also permissible:
-onlyfansapi.client_sessions.create(
-  proxy_country: :us,
+onlyfansapi.chats.list(
+  filter: :pinned,
   # …
 )
 ```

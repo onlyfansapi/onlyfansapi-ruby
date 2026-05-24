@@ -10,7 +10,7 @@ module Onlyfansapi
           ?limit: Integer,
           ?list: Integer,
           ?offset: Integer,
-          ?query: String,
+          ?query: String?,
           ?sort: Onlyfansapi::Models::Media::VaultListParams::sort,
           ?type: Onlyfansapi::Models::Media::VaultListParams::type_,
           ?request_options: Onlyfansapi::request_opts

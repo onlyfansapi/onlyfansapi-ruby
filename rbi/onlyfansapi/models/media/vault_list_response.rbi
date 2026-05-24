@@ -636,30 +636,21 @@ module Onlyfansapi
               attr_writer :full
 
               sig { returns(T.nilable(String)) }
-              attr_reader :preview
-
-              sig { params(preview: String).void }
-              attr_writer :preview
+              attr_accessor :preview
 
               sig { returns(T.nilable(String)) }
-              attr_reader :square_preview
-
-              sig { params(square_preview: String).void }
-              attr_writer :square_preview
+              attr_accessor :square_preview
 
               sig { returns(T.nilable(String)) }
-              attr_reader :thumb
-
-              sig { params(thumb: String).void }
-              attr_writer :thumb
+              attr_accessor :thumb
 
               sig do
                 params(
                   full:
                     Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full::OrHash,
-                  preview: String,
-                  square_preview: String,
-                  thumb: String
+                  preview: T.nilable(String),
+                  square_preview: T.nilable(String),
+                  thumb: T.nilable(String)
                 ).returns(T.attached_class)
               end
               def self.new(
@@ -675,9 +666,9 @@ module Onlyfansapi
                   {
                     full:
                       Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full,
-                    preview: String,
-                    square_preview: String,
-                    thumb: String
+                    preview: T.nilable(String),
+                    square_preview: T.nilable(String),
+                    thumb: T.nilable(String)
                   }
                 )
               end
@@ -839,27 +830,27 @@ module Onlyfansapi
                 end
 
               sig { returns(T.nilable(String)) }
-              attr_reader :number_240
-
-              sig { params(number_240: String).void }
-              attr_writer :number_240
+              attr_accessor :number_240
 
               sig { returns(T.nilable(String)) }
-              attr_reader :number_720
-
-              sig { params(number_720: String).void }
-              attr_writer :number_720
+              attr_accessor :number_720
 
               sig do
-                params(number_240: String, number_720: String).returns(
-                  T.attached_class
-                )
+                params(
+                  number_240: T.nilable(String),
+                  number_720: T.nilable(String)
+                ).returns(T.attached_class)
               end
               def self.new(number_240: nil, number_720: nil)
               end
 
               sig do
-                override.returns({ number_240: String, number_720: String })
+                override.returns(
+                  {
+                    number_240: T.nilable(String),
+                    number_720: T.nilable(String)
+                  }
+                )
               end
               def to_hash
               end

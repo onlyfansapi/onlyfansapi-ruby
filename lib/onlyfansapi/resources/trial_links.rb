@@ -9,7 +9,7 @@ module Onlyfansapi
       #
       # Create a new free trial link for the account
       #
-      # @overload create(account, duration:, offer_expiration:, offer_limit:, name: nil, request_options: {})
+      # @overload create(account, duration:, offer_expiration:, offer_limit:, name: nil, tags: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -20,6 +20,8 @@ module Onlyfansapi
       # @param offer_limit [Integer, Onlyfansapi::Models::TrialLinkCreateParams::OfferLimit] How many people can use this offer. Must either be **0** (for no limit), or a nu
       #
       # @param name [String, nil] The name of the trail link (optional). Cannot be longer than 64 characters.
+      #
+      # @param tags [Array<String>] Array of tag names to add to the trial link.
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -77,7 +79,7 @@ module Onlyfansapi
       #
       # @overload delete(trial_link_id, account:, request_options: {})
       #
-      # @param trial_link_id [Integer] The ID of the trial link to delete
+      # @param trial_link_id [String] The ID of the trial link.
       #
       # @param account [String] The Account ID
       #

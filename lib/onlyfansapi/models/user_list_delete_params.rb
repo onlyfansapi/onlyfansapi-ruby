@@ -14,12 +14,12 @@ module Onlyfansapi
 
       # @!attribute user_list_id
       #
-      #   @return [Integer]
-      required :user_list_id, Integer
+      #   @return [String]
+      required :user_list_id, String
 
       # @!method initialize(account:, user_list_id:, request_options: {})
       #   @param account [String]
-      #   @param user_list_id [Integer]
+      #   @param user_list_id [String]
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
     end
   end

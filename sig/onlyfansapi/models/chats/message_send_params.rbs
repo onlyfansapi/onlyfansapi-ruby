@@ -5,11 +5,16 @@ module Onlyfansapi
         {
           account: String,
           chat_id: String,
-          text: String,
+          giphy_id: String,
           locked_text: bool,
-          media_files: ::Array[String],
-          previews: ::Array[String],
-          price: Integer
+          media_files: ::Array[top],
+          previews: ::Array[top],
+          price: Integer,
+          reply_to_message_id: Integer,
+          rf_guest: String,
+          rf_partner: String,
+          rf_tag: String,
+          text: String
         }
         & Onlyfansapi::Internal::Type::request_parameters
 
@@ -21,43 +26,75 @@ module Onlyfansapi
 
         attr_accessor chat_id: String
 
-        attr_accessor text: String
+        attr_reader giphy_id: String?
+
+        def giphy_id=: (String) -> String
 
         attr_reader locked_text: bool?
 
         def locked_text=: (bool) -> bool
 
-        attr_reader media_files: ::Array[String]?
+        attr_reader media_files: ::Array[top]?
 
-        def media_files=: (::Array[String]) -> ::Array[String]
+        def media_files=: (::Array[top]) -> ::Array[top]
 
-        attr_reader previews: ::Array[String]?
+        attr_reader previews: ::Array[top]?
 
-        def previews=: (::Array[String]) -> ::Array[String]
+        def previews=: (::Array[top]) -> ::Array[top]
 
         attr_reader price: Integer?
 
         def price=: (Integer) -> Integer
 
+        attr_reader reply_to_message_id: Integer?
+
+        def reply_to_message_id=: (Integer) -> Integer
+
+        attr_reader rf_guest: String?
+
+        def rf_guest=: (String) -> String
+
+        attr_reader rf_partner: String?
+
+        def rf_partner=: (String) -> String
+
+        attr_reader rf_tag: String?
+
+        def rf_tag=: (String) -> String
+
+        attr_reader text: String?
+
+        def text=: (String) -> String
+
         def initialize: (
           account: String,
           chat_id: String,
-          text: String,
+          ?giphy_id: String,
           ?locked_text: bool,
-          ?media_files: ::Array[String],
-          ?previews: ::Array[String],
+          ?media_files: ::Array[top],
+          ?previews: ::Array[top],
           ?price: Integer,
+          ?reply_to_message_id: Integer,
+          ?rf_guest: String,
+          ?rf_partner: String,
+          ?rf_tag: String,
+          ?text: String,
           ?request_options: Onlyfansapi::request_opts
         ) -> void
 
         def to_hash: -> {
           account: String,
           chat_id: String,
-          text: String,
+          giphy_id: String,
           locked_text: bool,
-          media_files: ::Array[String],
-          previews: ::Array[String],
+          media_files: ::Array[top],
+          previews: ::Array[top],
           price: Integer,
+          reply_to_message_id: Integer,
+          rf_guest: String,
+          rf_partner: String,
+          rf_tag: String,
+          text: String,
           request_options: Onlyfansapi::RequestOptions
         }
       end

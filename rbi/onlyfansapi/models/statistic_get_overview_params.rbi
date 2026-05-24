@@ -17,13 +17,20 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :account
 
-      # The end date for the statistics.
-      sig { returns(String) }
-      attr_accessor :end_date
+      # The end date for the statistics. Keep empty to retrieve until now.
+      sig { returns(T.nilable(String)) }
+      attr_reader :end_date
 
-      # The start date for the statistics.
-      sig { returns(String) }
-      attr_accessor :start_date
+      sig { params(end_date: String).void }
+      attr_writer :end_date
+
+      # The start date for the statistics. Keep empty to retrieve from the model's start
+      # date.
+      sig { returns(T.nilable(String)) }
+      attr_reader :start_date
+
+      sig { params(start_date: String).void }
+      attr_writer :start_date
 
       # The type of statistics to retrieve (default = empty)
       sig do
@@ -45,10 +52,11 @@ module Onlyfansapi
       end
       def self.new(
         account:,
-        # The end date for the statistics.
-        end_date:,
-        # The start date for the statistics.
-        start_date:,
+        # The end date for the statistics. Keep empty to retrieve until now.
+        end_date: nil,
+        # The start date for the statistics. Keep empty to retrieve from the model's start
+        # date.
+        start_date: nil,
         # The type of statistics to retrieve (default = empty)
         type: nil,
         request_options: {}
@@ -95,6 +103,11 @@ module Onlyfansapi
         POSTS =
           T.let(
             :posts,
+            Onlyfansapi::StatisticGetOverviewParams::Type::TaggedSymbol
+          )
+        MESSAGES =
+          T.let(
+            :messages,
             Onlyfansapi::StatisticGetOverviewParams::Type::TaggedSymbol
           )
 

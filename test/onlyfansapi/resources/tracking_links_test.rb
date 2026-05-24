@@ -41,7 +41,7 @@ class Onlyfansapi::Test::Resources::TrackingLinksTest < Onlyfansapi::Test::Resou
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.tracking_links.delete("tracking_link_id", account: "acct_XXXXXXXXXXXXXXX")
+    response = @onlyfansapi.tracking_links.delete("incidunt", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::TrackingLinkDeleteResponse

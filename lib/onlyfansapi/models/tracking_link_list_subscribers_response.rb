@@ -189,7 +189,7 @@ module Onlyfansapi
           # @!attribute current_subscribe_price
           #
           #   @return [String, nil]
-          optional :current_subscribe_price, String, api_name: :currentSubscribePrice
+          optional :current_subscribe_price, String, api_name: :currentSubscribePrice, nil?: true
 
           # @!attribute display_name
           #
@@ -219,17 +219,17 @@ module Onlyfansapi
           # @!attribute header
           #
           #   @return [String, nil]
-          optional :header, String
+          optional :header, String, nil?: true
 
           # @!attribute header_size
           #
           #   @return [String, nil]
-          optional :header_size, String, api_name: :headerSize
+          optional :header_size, String, api_name: :headerSize, nil?: true
 
           # @!attribute header_thumbs
           #
           #   @return [String, nil]
-          optional :header_thumbs, String, api_name: :headerThumbs
+          optional :header_thumbs, String, api_name: :headerThumbs, nil?: true
 
           # @!attribute is_restricted
           #
@@ -244,7 +244,7 @@ module Onlyfansapi
           # @!attribute last_seen
           #
           #   @return [String, nil]
-          optional :last_seen, String, api_name: :lastSeen
+          optional :last_seen, String, api_name: :lastSeen, nil?: true
 
           # @!attribute name
           #
@@ -264,22 +264,22 @@ module Onlyfansapi
           # @!attribute subscribed_by_autoprolong
           #
           #   @return [String, nil]
-          optional :subscribed_by_autoprolong, String, api_name: :subscribedByAutoprolong
+          optional :subscribed_by_autoprolong, String, api_name: :subscribedByAutoprolong, nil?: true
 
           # @!attribute subscribed_by_expire
           #
           #   @return [String, nil]
-          optional :subscribed_by_expire, String, api_name: :subscribedByExpire
+          optional :subscribed_by_expire, String, api_name: :subscribedByExpire, nil?: true
 
           # @!attribute subscribed_by_expire_date
           #
           #   @return [String, nil]
-          optional :subscribed_by_expire_date, String, api_name: :subscribedByExpireDate
+          optional :subscribed_by_expire_date, String, api_name: :subscribedByExpireDate, nil?: true
 
           # @!attribute subscribed_is_expired_now
           #
           #   @return [String, nil]
-          optional :subscribed_is_expired_now, String, api_name: :subscribedIsExpiredNow
+          optional :subscribed_is_expired_now, String, api_name: :subscribedIsExpiredNow, nil?: true
 
           # @!attribute subscribed_on
           #
@@ -349,25 +349,25 @@ module Onlyfansapi
           #   @param can_pay_internal [Boolean]
           #   @param can_report [Boolean]
           #   @param can_restrict [Boolean]
-          #   @param current_subscribe_price [String]
+          #   @param current_subscribe_price [String, nil]
           #   @param display_name [String]
           #   @param has_not_viewed_story [Boolean]
           #   @param has_scheduled_stream [Boolean]
           #   @param has_stories [Boolean]
           #   @param has_stream [Boolean]
-          #   @param header [String]
-          #   @param header_size [String]
-          #   @param header_thumbs [String]
+          #   @param header [String, nil]
+          #   @param header_size [String, nil]
+          #   @param header_thumbs [String, nil]
           #   @param is_restricted [Boolean]
           #   @param is_verified [Boolean]
-          #   @param last_seen [String]
+          #   @param last_seen [String, nil]
           #   @param name [String]
           #   @param notice [String]
           #   @param subscribed_by [Boolean]
-          #   @param subscribed_by_autoprolong [String]
-          #   @param subscribed_by_expire [String]
-          #   @param subscribed_by_expire_date [String]
-          #   @param subscribed_is_expired_now [String]
+          #   @param subscribed_by_autoprolong [String, nil]
+          #   @param subscribed_by_expire [String, nil]
+          #   @param subscribed_by_expire_date [String, nil]
+          #   @param subscribed_is_expired_now [String, nil]
           #   @param subscribed_on [Boolean]
           #   @param subscribed_on_duration [String]
           #   @param subscribed_on_expired_now [Boolean]

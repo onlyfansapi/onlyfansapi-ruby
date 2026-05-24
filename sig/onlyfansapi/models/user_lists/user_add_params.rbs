@@ -2,7 +2,7 @@ module Onlyfansapi
   module Models
     module UserLists
       type user_add_params =
-        { account: String, user_list_id: Integer, ids: ::Array[String] }
+        { account: String, user_list_id: String, ids: ::Array[String] }
         & Onlyfansapi::Internal::Type::request_parameters
 
       class UserAddParams < Onlyfansapi::Internal::Type::BaseModel
@@ -11,20 +11,20 @@ module Onlyfansapi
 
         attr_accessor account: String
 
-        attr_accessor user_list_id: Integer
+        attr_accessor user_list_id: String
 
         attr_accessor ids: ::Array[String]
 
         def initialize: (
           account: String,
-          user_list_id: Integer,
+          user_list_id: String,
           ids: ::Array[String],
           ?request_options: Onlyfansapi::request_opts
         ) -> void
 
         def to_hash: -> {
           account: String,
-          user_list_id: Integer,
+          user_list_id: String,
           ids: ::Array[String],
           request_options: Onlyfansapi::RequestOptions
         }

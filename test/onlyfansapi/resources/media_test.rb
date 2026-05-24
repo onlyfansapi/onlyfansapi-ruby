@@ -3,14 +3,10 @@
 require_relative "../test_helper"
 
 class Onlyfansapi::Test::Resources::MediaTest < Onlyfansapi::Test::ResourceTest
-  def test_scrape_required_params
+  def test_scrape
     skip("Mock server tests are disabled")
 
-    response =
-      @onlyfansapi.media.scrape(
-        "acct_XXXXXXXXXXXXXXX",
-        url: "https://cdn2.onlyfans.com/files/e/e5/123/600x400_123.jpg?Tag=2&u=123&Policy=123&Signature=signature&Key-Pair-Id=123"
-      )
+    response = @onlyfansapi.media.scrape("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MediaScrapeResponse
@@ -24,10 +20,10 @@ class Onlyfansapi::Test::Resources::MediaTest < Onlyfansapi::Test::ResourceTest
     end
   end
 
-  def test_upload_required_params
+  def test_upload
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.upload("acct_XXXXXXXXXXXXXXX", file: "file.jpg")
+    response = @onlyfansapi.media.upload("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MediaUploadResponse
@@ -39,6 +35,7 @@ class Onlyfansapi::Test::Resources::MediaTest < Onlyfansapi::Test::ResourceTest
         extra: String | nil,
         file_name: String | nil,
         host: String | nil,
+        note: String | nil,
         prefixed_id: String | nil,
         process_id: String | nil,
         source_url: String | nil,

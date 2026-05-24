@@ -1,7 +1,14 @@
 module Onlyfansapi
   module Models
     type media_scrape_params =
-      { account: String, url: String, expiration_date: String? }
+      {
+        account: String,
+        expiration_date: String?,
+        file_type: Onlyfansapi::Models::MediaScrapeParams::file_type?,
+        media_id: Integer?,
+        public: bool?,
+        url: String?
+      }
       & Onlyfansapi::Internal::Type::request_parameters
 
     class MediaScrapeParams < Onlyfansapi::Internal::Type::BaseModel
@@ -10,23 +17,48 @@ module Onlyfansapi
 
       attr_accessor account: String
 
-      attr_accessor url: String
-
       attr_accessor expiration_date: String?
+
+      attr_accessor file_type: Onlyfansapi::Models::MediaScrapeParams::file_type?
+
+      attr_accessor media_id: Integer?
+
+      attr_accessor public: bool?
+
+      attr_accessor url: String?
 
       def initialize: (
         account: String,
-        url: String,
         ?expiration_date: String?,
+        ?file_type: Onlyfansapi::Models::MediaScrapeParams::file_type?,
+        ?media_id: Integer?,
+        ?public: bool?,
+        ?url: String?,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
-        url: String,
         expiration_date: String?,
+        file_type: Onlyfansapi::Models::MediaScrapeParams::file_type?,
+        media_id: Integer?,
+        public: bool?,
+        url: String?,
         request_options: Onlyfansapi::RequestOptions
       }
+
+      type file_type = :full | :thumb | :preview | :squarePreview
+
+      module FileType
+        extend Onlyfansapi::Internal::Type::Enum
+
+        FULL: :full
+        THUMB: :thumb
+        PREVIEW: :preview
+        SQUARE_PREVIEW: :squarePreview
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::MediaScrapeParams::file_type]
+      end
     end
   end
 end

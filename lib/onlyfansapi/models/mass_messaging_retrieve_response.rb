@@ -146,7 +146,7 @@ module Onlyfansapi
           # @!attribute giphy_id
           #
           #   @return [String, nil]
-          optional :giphy_id, String, api_name: :giphyId
+          optional :giphy_id, String, api_name: :giphyId, nil?: true
 
           # @!attribute has_error
           #
@@ -166,7 +166,7 @@ module Onlyfansapi
           # @!attribute media_types
           #
           #   @return [String, nil]
-          optional :media_types, String, api_name: :mediaTypes
+          optional :media_types, String, api_name: :mediaTypes, nil?: true
 
           # @!attribute release_forms
           #
@@ -204,11 +204,11 @@ module Onlyfansapi
           #   @param id [Integer]
           #   @param can_unsend [Boolean]
           #   @param date [String]
-          #   @param giphy_id [String]
+          #   @param giphy_id [String, nil]
           #   @param has_error [Boolean]
           #   @param is_canceled [Boolean]
           #   @param is_free [Boolean]
-          #   @param media_types [String]
+          #   @param media_types [String, nil]
           #   @param release_forms [Array<Object>]
           #   @param sent_count [Integer]
           #   @param text [String]

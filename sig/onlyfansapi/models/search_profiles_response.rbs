@@ -157,9 +157,14 @@ module Onlyfansapi
         end
       end
 
-      type pagination = { next_page_url: String, total_results: Integer }
+      type pagination =
+        { next_cursor: String, next_page_url: String, total_results: Integer }
 
       class Pagination < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader next_cursor: String?
+
+        def next_cursor=: (String) -> String
+
         attr_reader next_page_url: String?
 
         def next_page_url=: (String) -> String
@@ -169,61 +174,59 @@ module Onlyfansapi
         def total_results=: (Integer) -> Integer
 
         def initialize: (
+          ?next_cursor: String,
           ?next_page_url: String,
           ?total_results: Integer
         ) -> void
 
-        def to_hash: -> { next_page_url: String, total_results: Integer }
+        def to_hash: -> {
+          next_cursor: String,
+          next_page_url: String,
+          total_results: Integer
+        }
       end
 
       type data =
         {
-          id: Integer,
           about: String,
           audios_count: Integer,
           avatar_url: String,
-          browsable: bool,
-          bundles: String,
-          created_at: String,
-          facebook: String,
-          fansly: String,
+          bundles: String?,
+          facebook: String?,
+          fansly: String?,
           favorited_count: Integer,
           favorites_count: Integer,
-          gender: String,
           header_url: String,
-          instagram: String,
+          instagram: String?,
           is_adult_content: bool,
           is_performer: bool,
           is_real_performer: bool,
           is_verified: bool,
           join_date: String,
-          last_seen_at: String,
+          last_seen_at: String?,
           location: String,
-          manyvids: String,
+          manyvids: String?,
           min_subscribe_price: Integer,
           name: String,
-          onlyfans_id: String,
+          ofapi_gender: String,
+          ofapi_gender_confidence: Float,
+          onlyfans_id: Integer,
           photos_count: Integer,
-          pornhub: String,
+          pornhub: String?,
           posts_count: Integer,
-          promotions: String,
+          promotions: String?,
           stats_updated_at: String,
           subscribe_price: Integer,
-          subscribers_count: String,
-          tiktok: String,
-          twitter: String,
-          updated_at: String,
+          subscribers_count: String?,
+          tiktok: String?,
+          twitter: String?,
           username: String,
           videos_count: Integer,
           website: String,
-          wishlist: String
+          wishlist: String?
         }
 
       class Data < Onlyfansapi::Internal::Type::BaseModel
-        attr_reader id: Integer?
-
-        def id=: (Integer) -> Integer
-
         attr_reader about: String?
 
         def about=: (String) -> String
@@ -236,25 +239,11 @@ module Onlyfansapi
 
         def avatar_url=: (String) -> String
 
-        attr_reader browsable: bool?
+        attr_accessor bundles: String?
 
-        def browsable=: (bool) -> bool
+        attr_accessor facebook: String?
 
-        attr_reader bundles: String?
-
-        def bundles=: (String) -> String
-
-        attr_reader created_at: String?
-
-        def created_at=: (String) -> String
-
-        attr_reader facebook: String?
-
-        def facebook=: (String) -> String
-
-        attr_reader fansly: String?
-
-        def fansly=: (String) -> String
+        attr_accessor fansly: String?
 
         attr_reader favorited_count: Integer?
 
@@ -264,17 +253,11 @@ module Onlyfansapi
 
         def favorites_count=: (Integer) -> Integer
 
-        attr_reader gender: String?
-
-        def gender=: (String) -> String
-
         attr_reader header_url: String?
 
         def header_url=: (String) -> String
 
-        attr_reader instagram: String?
-
-        def instagram=: (String) -> String
+        attr_accessor instagram: String?
 
         attr_reader is_adult_content: bool?
 
@@ -296,17 +279,13 @@ module Onlyfansapi
 
         def join_date=: (String) -> String
 
-        attr_reader last_seen_at: String?
-
-        def last_seen_at=: (String) -> String
+        attr_accessor last_seen_at: String?
 
         attr_reader location: String?
 
         def location=: (String) -> String
 
-        attr_reader manyvids: String?
-
-        def manyvids=: (String) -> String
+        attr_accessor manyvids: String?
 
         attr_reader min_subscribe_price: Integer?
 
@@ -316,25 +295,29 @@ module Onlyfansapi
 
         def name=: (String) -> String
 
-        attr_reader onlyfans_id: String?
+        attr_reader ofapi_gender: String?
 
-        def onlyfans_id=: (String) -> String
+        def ofapi_gender=: (String) -> String
+
+        attr_reader ofapi_gender_confidence: Float?
+
+        def ofapi_gender_confidence=: (Float) -> Float
+
+        attr_reader onlyfans_id: Integer?
+
+        def onlyfans_id=: (Integer) -> Integer
 
         attr_reader photos_count: Integer?
 
         def photos_count=: (Integer) -> Integer
 
-        attr_reader pornhub: String?
-
-        def pornhub=: (String) -> String
+        attr_accessor pornhub: String?
 
         attr_reader posts_count: Integer?
 
         def posts_count=: (Integer) -> Integer
 
-        attr_reader promotions: String?
-
-        def promotions=: (String) -> String
+        attr_accessor promotions: String?
 
         attr_reader stats_updated_at: String?
 
@@ -344,21 +327,11 @@ module Onlyfansapi
 
         def subscribe_price=: (Integer) -> Integer
 
-        attr_reader subscribers_count: String?
+        attr_accessor subscribers_count: String?
 
-        def subscribers_count=: (String) -> String
+        attr_accessor tiktok: String?
 
-        attr_reader tiktok: String?
-
-        def tiktok=: (String) -> String
-
-        attr_reader twitter: String?
-
-        def twitter=: (String) -> String
-
-        attr_reader updated_at: String?
-
-        def updated_at=: (String) -> String
+        attr_accessor twitter: String?
 
         attr_reader username: String?
 
@@ -372,92 +345,84 @@ module Onlyfansapi
 
         def website=: (String) -> String
 
-        attr_reader wishlist: String?
-
-        def wishlist=: (String) -> String
+        attr_accessor wishlist: String?
 
         def initialize: (
-          ?id: Integer,
           ?about: String,
           ?audios_count: Integer,
           ?avatar_url: String,
-          ?browsable: bool,
-          ?bundles: String,
-          ?created_at: String,
-          ?facebook: String,
-          ?fansly: String,
+          ?bundles: String?,
+          ?facebook: String?,
+          ?fansly: String?,
           ?favorited_count: Integer,
           ?favorites_count: Integer,
-          ?gender: String,
           ?header_url: String,
-          ?instagram: String,
+          ?instagram: String?,
           ?is_adult_content: bool,
           ?is_performer: bool,
           ?is_real_performer: bool,
           ?is_verified: bool,
           ?join_date: String,
-          ?last_seen_at: String,
+          ?last_seen_at: String?,
           ?location: String,
-          ?manyvids: String,
+          ?manyvids: String?,
           ?min_subscribe_price: Integer,
           ?name: String,
-          ?onlyfans_id: String,
+          ?ofapi_gender: String,
+          ?ofapi_gender_confidence: Float,
+          ?onlyfans_id: Integer,
           ?photos_count: Integer,
-          ?pornhub: String,
+          ?pornhub: String?,
           ?posts_count: Integer,
-          ?promotions: String,
+          ?promotions: String?,
           ?stats_updated_at: String,
           ?subscribe_price: Integer,
-          ?subscribers_count: String,
-          ?tiktok: String,
-          ?twitter: String,
-          ?updated_at: String,
+          ?subscribers_count: String?,
+          ?tiktok: String?,
+          ?twitter: String?,
           ?username: String,
           ?videos_count: Integer,
           ?website: String,
-          ?wishlist: String
+          ?wishlist: String?
         ) -> void
 
         def to_hash: -> {
-          id: Integer,
           about: String,
           audios_count: Integer,
           avatar_url: String,
-          browsable: bool,
-          bundles: String,
-          created_at: String,
-          facebook: String,
-          fansly: String,
+          bundles: String?,
+          facebook: String?,
+          fansly: String?,
           favorited_count: Integer,
           favorites_count: Integer,
-          gender: String,
           header_url: String,
-          instagram: String,
+          instagram: String?,
           is_adult_content: bool,
           is_performer: bool,
           is_real_performer: bool,
           is_verified: bool,
           join_date: String,
-          last_seen_at: String,
+          last_seen_at: String?,
           location: String,
-          manyvids: String,
+          manyvids: String?,
           min_subscribe_price: Integer,
           name: String,
-          onlyfans_id: String,
+          ofapi_gender: String,
+          ofapi_gender_confidence: Float,
+          onlyfans_id: Integer,
           photos_count: Integer,
-          pornhub: String,
+          pornhub: String?,
           posts_count: Integer,
-          promotions: String,
+          promotions: String?,
           stats_updated_at: String,
           subscribe_price: Integer,
-          subscribers_count: String,
-          tiktok: String,
-          twitter: String,
-          updated_at: String,
+          subscribers_count: String?,
+          tiktok: String?,
+          twitter: String?,
           username: String,
           videos_count: Integer,
           website: String,
-          wishlist: String
+          wishlist: String?
         }
       end
     end

@@ -7,26 +7,50 @@ module Onlyfansapi
       # media count and more.
       sig do
         params(
-          query: String,
-          limit: String,
+          cursor: T.nilable(String),
+          filter: Onlyfansapi::SearchProfilesParams::Filter::OrHash,
+          instagram: String,
+          limit: Integer,
           location: String,
-          max_subscribe_price: String,
-          min_subscribe_price: String,
+          max_subscribe_price: Float,
+          min_subscribe_price: Float,
+          query: String,
+          sort: Onlyfansapi::SearchProfilesParams::Sort::OrSymbol,
+          sort_direction:
+            Onlyfansapi::SearchProfilesParams::SortDirection::OrSymbol,
+          tiktok: String,
+          website: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::SearchProfilesResponse)
       end
       def profiles(
-        # Query for full text search in username, display name, bio
-        query:,
+        # Cursor for pagination. Use the `next_cursor` from the previous response to get
+        # the next page of results.
+        cursor: nil,
+        filter: nil,
+        # Filter by Instagram username.
+        instagram: nil,
         # The number of profiles to return. For each returned profile we charge your
-        # account 1 credit. Default: `10`
+        # account 1 credit. Default: `10`. Must be at least 1. Must not be greater
+        # than 100.
         limit: nil,
-        # Location
+        # Filter by location.
         location: nil,
-        # Maximum subscribe price
+        # Filter by maximum subscribe price. Must be at least 0.00.
         max_subscribe_price: nil,
-        # Minimum subscribe price
+        # Filter by minimum subscribe price. Must be at least 0.00.
         min_subscribe_price: nil,
+        # Query for full text search in username, display name, bio. Must be at least 3
+        # characters.
+        query: nil,
+        # Field to sort by. ⭐️ Only available on the Pro and Enterprise plan.
+        sort: nil,
+        # Direction for sorting. `desc` - highest value first. `asc` - lowest value first.
+        sort_direction: nil,
+        # Filter by TikTok username.
+        tiktok: nil,
+        # Filter by website.
+        website: nil,
         request_options: {}
       )
       end

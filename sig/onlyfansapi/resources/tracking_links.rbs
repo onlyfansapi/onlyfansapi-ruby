@@ -4,6 +4,7 @@ module Onlyfansapi
       def create: (
         String account,
         name: String,
+        ?tags: ::Array[String],
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TrackingLinkCreateResponse
 

@@ -231,7 +231,7 @@ module Onlyfansapi
               can_unsend_queue: bool,
               changed_at: String,
               created_at: String,
-              giphy_id: String,
+              giphy_id: String?,
               is_free: bool,
               is_from_queue: bool,
               is_liked: bool,
@@ -282,9 +282,7 @@ module Onlyfansapi
 
             def created_at=: (String) -> String
 
-            attr_reader giphy_id: String?
-
-            def giphy_id=: (String) -> String
+            attr_accessor giphy_id: String?
 
             attr_reader is_free: bool?
 
@@ -385,7 +383,7 @@ module Onlyfansapi
               ?can_unsend_queue: bool,
               ?changed_at: String,
               ?created_at: String,
-              ?giphy_id: String,
+              ?giphy_id: String?,
               ?is_free: bool,
               ?is_from_queue: bool,
               ?is_liked: bool,
@@ -418,7 +416,7 @@ module Onlyfansapi
               can_unsend_queue: bool,
               changed_at: String,
               created_at: String,
-              giphy_id: String,
+              giphy_id: String?,
               is_free: bool,
               is_from_queue: bool,
               is_liked: bool,

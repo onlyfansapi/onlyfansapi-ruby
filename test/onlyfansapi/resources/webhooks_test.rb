@@ -8,6 +8,7 @@ class Onlyfansapi::Test::Resources::WebhooksTest < Onlyfansapi::Test::ResourceTe
 
     response =
       @onlyfansapi.webhooks.create(
+        account_scope: "global",
         endpoint_url: "https://example.com",
         events: ["accounts.connected", "subscriptions.new"]
       )
@@ -18,11 +19,8 @@ class Onlyfansapi::Test::Resources::WebhooksTest < Onlyfansapi::Test::ResourceTe
 
     assert_pattern do
       response => {
-        id: String | nil,
-        created_at: String | nil,
-        events: ^(Onlyfansapi::Internal::Type::ArrayOf[String]) | nil,
-        has_signing_secret: Onlyfansapi::Internal::Type::Boolean | nil,
-        url: String | nil
+        _meta: Onlyfansapi::Models::WebhookCreateResponse::Meta | nil,
+        data: Onlyfansapi::Models::WebhookCreateResponse::Data | nil
       }
     end
   end

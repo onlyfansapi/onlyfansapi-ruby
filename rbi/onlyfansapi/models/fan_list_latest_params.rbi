@@ -21,7 +21,7 @@ module Onlyfansapi
       sig { returns(T.nilable(String)) }
       attr_accessor :end_date
 
-      # Number of fans to return (1-100)
+      # Number of fans to return (1-50)
       sig { returns(T.nilable(String)) }
       attr_accessor :limit
 
@@ -52,7 +52,7 @@ module Onlyfansapi
         account:,
         # End date for filtering (required with start_date)
         end_date: nil,
-        # Number of fans to return (1-100)
+        # Number of fans to return (1-50)
         limit: nil,
         # Number of fans to skip
         offset: nil,

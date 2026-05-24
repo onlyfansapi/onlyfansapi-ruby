@@ -18,7 +18,7 @@ module Onlyfansapi
         sig { returns(String) }
         attr_accessor :account
 
-        sig { returns(Integer) }
+        sig { returns(String) }
         attr_accessor :user_list_id
 
         # Array of OnlyFans User IDs to be added into the list
@@ -28,7 +28,7 @@ module Onlyfansapi
         sig do
           params(
             account: String,
-            user_list_id: Integer,
+            user_list_id: String,
             ids: T::Array[String],
             request_options: Onlyfansapi::RequestOptions::OrHash
           ).returns(T.attached_class)
@@ -46,7 +46,7 @@ module Onlyfansapi
           override.returns(
             {
               account: String,
-              user_list_id: Integer,
+              user_list_id: String,
               ids: T::Array[String],
               request_options: Onlyfansapi::RequestOptions
             }

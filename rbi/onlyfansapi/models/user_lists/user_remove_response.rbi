@@ -719,10 +719,7 @@ module Onlyfansapi
             attr_writer :can_add_user
 
             sig { returns(T.nilable(String)) }
-            attr_reader :cannot_add_user_reason
-
-            sig { params(cannot_add_user_reason: String).void }
-            attr_writer :cannot_add_user_reason
+            attr_accessor :cannot_add_user_reason
 
             sig { returns(T.nilable(T::Boolean)) }
             attr_reader :has_user
@@ -746,7 +743,7 @@ module Onlyfansapi
               params(
                 id: Integer,
                 can_add_user: T::Boolean,
-                cannot_add_user_reason: String,
+                cannot_add_user_reason: T.nilable(String),
                 has_user: T::Boolean,
                 name: String,
                 type: String
@@ -767,7 +764,7 @@ module Onlyfansapi
                 {
                   id: Integer,
                   can_add_user: T::Boolean,
-                  cannot_add_user_reason: String,
+                  cannot_add_user_reason: T.nilable(String),
                   has_user: T::Boolean,
                   name: String,
                   type: String

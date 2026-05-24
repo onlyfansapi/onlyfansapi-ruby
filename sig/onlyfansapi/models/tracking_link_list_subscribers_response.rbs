@@ -194,25 +194,25 @@ module Onlyfansapi
             can_pay_internal: bool,
             can_report: bool,
             can_restrict: bool,
-            current_subscribe_price: String,
+            current_subscribe_price: String?,
             display_name: String,
             has_not_viewed_story: bool,
             has_scheduled_stream: bool,
             has_stories: bool,
             has_stream: bool,
-            header: String,
-            header_size: String,
-            header_thumbs: String,
+            header: String?,
+            header_size: String?,
+            header_thumbs: String?,
             is_restricted: bool,
             is_verified: bool,
-            last_seen: String,
+            last_seen: String?,
             name: String,
             notice: String,
             subscribed_by: bool,
-            subscribed_by_autoprolong: String,
-            subscribed_by_expire: String,
-            subscribed_by_expire_date: String,
-            subscribed_is_expired_now: String,
+            subscribed_by_autoprolong: String?,
+            subscribed_by_expire: String?,
+            subscribed_by_expire_date: String?,
+            subscribed_is_expired_now: String?,
             subscribed_on: bool,
             subscribed_on_duration: String,
             subscribed_on_expired_now: bool,
@@ -269,9 +269,7 @@ module Onlyfansapi
 
           def can_restrict=: (bool) -> bool
 
-          attr_reader current_subscribe_price: String?
-
-          def current_subscribe_price=: (String) -> String
+          attr_accessor current_subscribe_price: String?
 
           attr_reader display_name: String?
 
@@ -293,17 +291,11 @@ module Onlyfansapi
 
           def has_stream=: (bool) -> bool
 
-          attr_reader header: String?
+          attr_accessor header: String?
 
-          def header=: (String) -> String
+          attr_accessor header_size: String?
 
-          attr_reader header_size: String?
-
-          def header_size=: (String) -> String
-
-          attr_reader header_thumbs: String?
-
-          def header_thumbs=: (String) -> String
+          attr_accessor header_thumbs: String?
 
           attr_reader is_restricted: bool?
 
@@ -313,9 +305,7 @@ module Onlyfansapi
 
           def is_verified=: (bool) -> bool
 
-          attr_reader last_seen: String?
-
-          def last_seen=: (String) -> String
+          attr_accessor last_seen: String?
 
           attr_reader name: String?
 
@@ -329,21 +319,13 @@ module Onlyfansapi
 
           def subscribed_by=: (bool) -> bool
 
-          attr_reader subscribed_by_autoprolong: String?
+          attr_accessor subscribed_by_autoprolong: String?
 
-          def subscribed_by_autoprolong=: (String) -> String
+          attr_accessor subscribed_by_expire: String?
 
-          attr_reader subscribed_by_expire: String?
+          attr_accessor subscribed_by_expire_date: String?
 
-          def subscribed_by_expire=: (String) -> String
-
-          attr_reader subscribed_by_expire_date: String?
-
-          def subscribed_by_expire_date=: (String) -> String
-
-          attr_reader subscribed_is_expired_now: String?
-
-          def subscribed_is_expired_now=: (String) -> String
+          attr_accessor subscribed_is_expired_now: String?
 
           attr_reader subscribed_on: bool?
 
@@ -400,25 +382,25 @@ module Onlyfansapi
             ?can_pay_internal: bool,
             ?can_report: bool,
             ?can_restrict: bool,
-            ?current_subscribe_price: String,
+            ?current_subscribe_price: String?,
             ?display_name: String,
             ?has_not_viewed_story: bool,
             ?has_scheduled_stream: bool,
             ?has_stories: bool,
             ?has_stream: bool,
-            ?header: String,
-            ?header_size: String,
-            ?header_thumbs: String,
+            ?header: String?,
+            ?header_size: String?,
+            ?header_thumbs: String?,
             ?is_restricted: bool,
             ?is_verified: bool,
-            ?last_seen: String,
+            ?last_seen: String?,
             ?name: String,
             ?notice: String,
             ?subscribed_by: bool,
-            ?subscribed_by_autoprolong: String,
-            ?subscribed_by_expire: String,
-            ?subscribed_by_expire_date: String,
-            ?subscribed_is_expired_now: String,
+            ?subscribed_by_autoprolong: String?,
+            ?subscribed_by_expire: String?,
+            ?subscribed_by_expire_date: String?,
+            ?subscribed_is_expired_now: String?,
             ?subscribed_on: bool,
             ?subscribed_on_duration: String,
             ?subscribed_on_expired_now: bool,
@@ -443,25 +425,25 @@ module Onlyfansapi
             can_pay_internal: bool,
             can_report: bool,
             can_restrict: bool,
-            current_subscribe_price: String,
+            current_subscribe_price: String?,
             display_name: String,
             has_not_viewed_story: bool,
             has_scheduled_stream: bool,
             has_stories: bool,
             has_stream: bool,
-            header: String,
-            header_size: String,
-            header_thumbs: String,
+            header: String?,
+            header_size: String?,
+            header_thumbs: String?,
             is_restricted: bool,
             is_verified: bool,
-            last_seen: String,
+            last_seen: String?,
             name: String,
             notice: String,
             subscribed_by: bool,
-            subscribed_by_autoprolong: String,
-            subscribed_by_expire: String,
-            subscribed_by_expire_date: String,
-            subscribed_is_expired_now: String,
+            subscribed_by_autoprolong: String?,
+            subscribed_by_expire: String?,
+            subscribed_by_expire_date: String?,
+            subscribed_is_expired_now: String?,
             subscribed_on: bool,
             subscribed_on_duration: String,
             subscribed_on_expired_now: bool,
