@@ -16,7 +16,7 @@ class Onlyfansapi::Test::Resources::AccountsTest < Onlyfansapi::Test::ResourceTe
   def test_disconnect
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.accounts.disconnect("laboriosam")
+    response = @only_fans_api.accounts.disconnect("quae")
 
     assert_pattern do
       response => ^(Onlyfansapi::Internal::Type::HashOf[Onlyfansapi::Internal::Type::Unknown])
