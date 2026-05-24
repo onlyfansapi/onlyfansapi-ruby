@@ -12,54 +12,63 @@ module Onlyfansapi
       #   @return [String]
       required :account, String
 
-      # @!attribute filter_include_smart_links
-      #   Include tracking links created by Smart Links. Default `false`
+      # @!attribute filter
       #
-      #   @return [Boolean, nil]
-      optional :filter_include_smart_links, Onlyfansapi::Internal::Type::Boolean
-
-      # @!attribute filter_search
-      #   Search campaign name, creator username, or a pasted OnlyFans tracking link URL.
-      #
-      #   @return [String, nil]
-      optional :filter_search, String
-
-      # @!attribute filter_tags
-      #   Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-      #   (`filter[tags][]=...`) and matches any tag.
-      #
-      #   @return [String, nil]
-      optional :filter_tags, String
+      #   @return [Onlyfansapi::Models::StoredListTrackingLinksParams::Filter, nil]
+      optional :filter, -> { Onlyfansapi::StoredListTrackingLinksParams::Filter }
 
       # @!attribute limit
-      #   The number of tracking links to return. Default `10`
+      #   The number of tracking links to return. Default `10`. Must be at least 1. Must
+      #   not be greater than 1000.
       #
       #   @return [Integer, nil]
       optional :limit, Integer
 
       # @!attribute offset
-      #   The offset used for pagination. Default `0`
+      #   The offset used for pagination. Default `0`. Must be at least 0.
       #
       #   @return [Integer, nil]
       optional :offset, Integer
 
-      # @!method initialize(account:, filter_include_smart_links: nil, filter_search: nil, filter_tags: nil, limit: nil, offset: nil, request_options: {})
+      # @!method initialize(account:, filter: nil, limit: nil, offset: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfansapi::Models::StoredListTrackingLinksParams} for more details.
       #
       #   @param account [String]
       #
-      #   @param filter_include_smart_links [Boolean] Include tracking links created by Smart Links. Default `false`
+      #   @param filter [Onlyfansapi::Models::StoredListTrackingLinksParams::Filter]
       #
-      #   @param filter_search [String] Search campaign name, creator username, or a pasted OnlyFans tracking link URL.
+      #   @param limit [Integer] The number of tracking links to return. Default `10`. Must be at least 1. Must n
       #
-      #   @param filter_tags [String] Filter by one or more tag names or slugs. Accepts CSV or repeated array values (
-      #
-      #   @param limit [Integer] The number of tracking links to return. Default `10`
-      #
-      #   @param offset [Integer] The offset used for pagination. Default `0`
+      #   @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
+
+      class Filter < Onlyfansapi::Internal::Type::BaseModel
+        # @!attribute include_smart_links
+        #
+        #   @return [Boolean, nil]
+        optional :include_smart_links, Onlyfansapi::Internal::Type::Boolean
+
+        # @!attribute search
+        #   Must not be greater than 255 characters.
+        #
+        #   @return [String, nil]
+        optional :search, String, nil?: true
+
+        # @!attribute tags
+        #   Must not be greater than 50 characters.
+        #
+        #   @return [Array<String>, nil]
+        optional :tags, Onlyfansapi::Internal::Type::ArrayOf[String]
+
+        # @!method initialize(include_smart_links: nil, search: nil, tags: nil)
+        #   @param include_smart_links [Boolean]
+        #
+        #   @param search [String, nil] Must not be greater than 255 characters.
+        #
+        #   @param tags [Array<String>] Must not be greater than 50 characters.
+      end
     end
   end
 end

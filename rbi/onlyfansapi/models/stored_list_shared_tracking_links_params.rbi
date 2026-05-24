@@ -17,30 +17,30 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :account
 
-      # Search campaign name, owner username, or a pasted OnlyFans tracking link URL.
-      sig { returns(T.nilable(String)) }
-      attr_reader :filter_search
+      sig do
+        returns(
+          T.nilable(Onlyfansapi::StoredListSharedTrackingLinksParams::Filter)
+        )
+      end
+      attr_reader :filter
 
-      sig { params(filter_search: String).void }
-      attr_writer :filter_search
+      sig do
+        params(
+          filter:
+            Onlyfansapi::StoredListSharedTrackingLinksParams::Filter::OrHash
+        ).void
+      end
+      attr_writer :filter
 
-      # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-      # (`filter[tags][]=...`) and matches any tag. Tag namespace is shared with owned
-      # Tracking Links.
-      sig { returns(T.nilable(String)) }
-      attr_reader :filter_tags
-
-      sig { params(filter_tags: String).void }
-      attr_writer :filter_tags
-
-      # The number of shared tracking links to return. Default `10`
+      # The number of shared tracking links to return. Default `10`. Must be at least 1.
+      # Must not be greater than 1000.
       sig { returns(T.nilable(Integer)) }
       attr_reader :limit
 
       sig { params(limit: Integer).void }
       attr_writer :limit
 
-      # The offset used for pagination. Default `0`
+      # The offset used for pagination. Default `0`. Must be at least 0.
       sig { returns(T.nilable(Integer)) }
       attr_reader :offset
 
@@ -50,8 +50,8 @@ module Onlyfansapi
       sig do
         params(
           account: String,
-          filter_search: String,
-          filter_tags: String,
+          filter:
+            Onlyfansapi::StoredListSharedTrackingLinksParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
@@ -59,15 +59,11 @@ module Onlyfansapi
       end
       def self.new(
         account:,
-        # Search campaign name, owner username, or a pasted OnlyFans tracking link URL.
-        filter_search: nil,
-        # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-        # (`filter[tags][]=...`) and matches any tag. Tag namespace is shared with owned
-        # Tracking Links.
-        filter_tags: nil,
-        # The number of shared tracking links to return. Default `10`
+        filter: nil,
+        # The number of shared tracking links to return. Default `10`. Must be at least 1.
+        # Must not be greater than 1000.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )
@@ -77,8 +73,7 @@ module Onlyfansapi
         override.returns(
           {
             account: String,
-            filter_search: String,
-            filter_tags: String,
+            filter: Onlyfansapi::StoredListSharedTrackingLinksParams::Filter,
             limit: Integer,
             offset: Integer,
             request_options: Onlyfansapi::RequestOptions
@@ -86,6 +81,48 @@ module Onlyfansapi
         )
       end
       def to_hash
+      end
+
+      class Filter < Onlyfansapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Onlyfansapi::StoredListSharedTrackingLinksParams::Filter,
+              Onlyfansapi::Internal::AnyHash
+            )
+          end
+
+        # Must not be greater than 255 characters.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :search
+
+        # Must not be greater than 50 characters.
+        sig { returns(T.nilable(T::Array[String])) }
+        attr_reader :tags
+
+        sig { params(tags: T::Array[String]).void }
+        attr_writer :tags
+
+        sig do
+          params(search: T.nilable(String), tags: T::Array[String]).returns(
+            T.attached_class
+          )
+        end
+        def self.new(
+          # Must not be greater than 255 characters.
+          search: nil,
+          # Must not be greater than 50 characters.
+          tags: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            { search: T.nilable(String), tags: T::Array[String] }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

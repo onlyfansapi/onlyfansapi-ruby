@@ -19,7 +19,7 @@ module Onlyfansapi
         required :chat_id, String
 
         # @!attribute query
-        #   The query search in messages
+        #   The query search in messages.
         #
         #   @return [String]
         required :query, String
@@ -29,7 +29,7 @@ module Onlyfansapi
         #
         #   @param chat_id [String]
         #
-        #   @param query [String] The query search in messages
+        #   @param query [String] The query search in messages.
         #
         #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
       end

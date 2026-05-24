@@ -5,6 +5,7 @@ module Onlyfansapi
         class Profitability
           def get_history: (
             String account,
+            account_prefixed_id: String,
             ?months: Integer,
             ?request_options: Onlyfansapi::request_opts
           ) -> Onlyfansapi::Models::Analytics::Financial::profitability_get_history_response

@@ -3,10 +3,14 @@
 require_relative "../../../test_helper"
 
 class Onlyfansapi::Test::Resources::Analytics::Financial::ProfitabilityTest < Onlyfansapi::Test::ResourceTest
-  def test_get_history
+  def test_get_history_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.analytics.financial.profitability.get_history("acct_XXXXXXXXXXXXXXX")
+    response =
+      @only_fans_api.analytics.financial.profitability.get_history(
+        "acct_XXXXXXXXXXXXXXX",
+        account_prefixed_id: "acct_abc123"
+      )
 
     assert_pattern do
       response => ^(Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Models::Analytics::Financial::ProfitabilityGetHistoryResponseItem])

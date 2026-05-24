@@ -123,25 +123,28 @@ module Onlyfansapi
         params(
           account: String,
           end_date: T.nilable(String),
-          limit: T.nilable(String),
-          offset: T.nilable(String),
+          limit: Integer,
+          offset: Integer,
           start_date: T.nilable(String),
-          type: T.nilable(String),
+          type: T.nilable(Onlyfansapi::FanListLatestParams::Type::OrSymbol),
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::FanListLatestResponse)
       end
       def list_latest(
         # The Account ID
         account,
-        # End date for filtering (required with start_date)
+        # End date for filtering (required with start_date). This field is required when
+        # <code>start_date</code> is present.
         end_date: nil,
-        # Number of fans to return (1-50)
+        # Number of fans to return (1-50). Must be at least 1. Must not be greater
+        # than 100.
         limit: nil,
-        # Number of fans to skip
+        # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Start date for filtering (required with end_date)
+        # Start date for filtering (required with end_date). This field is required when
+        # <code>end_date</code> is present.
         start_date: nil,
-        # Filter by type: total, renew, or new
+        # Filter by type: total, renew, or new.
         type: nil,
         request_options: {}
       )

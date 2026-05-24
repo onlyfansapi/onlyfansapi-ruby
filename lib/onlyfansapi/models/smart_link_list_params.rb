@@ -11,10 +11,11 @@ module Onlyfansapi
       #   Comma-separated account prefixed IDs to include.
       #
       #   @return [String, nil]
-      optional :account_ids, String
+      optional :account_ids, String, nil?: true
 
       # @!attribute limit
-      #   The number of Smart Links to return. Default `50`
+      #   The number of Smart Links to return. Default `50`. Must be at least 1. Must not
+      #   be greater than 1000.
       #
       #   @return [Integer, nil]
       optional :limit, Integer
@@ -23,30 +24,33 @@ module Onlyfansapi
       #   Comma-separated Meta Pixel IDs to include.
       #
       #   @return [String, nil]
-      optional :meta_pixel_ids, String
+      optional :meta_pixel_ids, String, nil?: true
 
       # @!attribute name
-      #   Filter Smart Links by name.
+      #   Filter Smart Links by name. Must not be greater than 255 characters.
       #
       #   @return [String, nil]
-      optional :name, String
+      optional :name, String, nil?: true
 
       # @!attribute offset
-      #   The offset used for pagination. Default `0`
+      #   The offset used for pagination. Default `0`. Must be at least 0.
       #
       #   @return [Integer, nil]
       optional :offset, Integer
 
       # @!method initialize(account_ids: nil, limit: nil, meta_pixel_ids: nil, name: nil, offset: nil, request_options: {})
-      #   @param account_ids [String] Comma-separated account prefixed IDs to include.
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfansapi::Models::SmartLinkListParams} for more details.
       #
-      #   @param limit [Integer] The number of Smart Links to return. Default `50`
+      #   @param account_ids [String, nil] Comma-separated account prefixed IDs to include.
       #
-      #   @param meta_pixel_ids [String] Comma-separated Meta Pixel IDs to include.
+      #   @param limit [Integer] The number of Smart Links to return. Default `50`. Must be at least 1. Must not
       #
-      #   @param name [String] Filter Smart Links by name.
+      #   @param meta_pixel_ids [String, nil] Comma-separated Meta Pixel IDs to include.
       #
-      #   @param offset [Integer] The offset used for pagination. Default `0`
+      #   @param name [String, nil] Filter Smart Links by name. Must not be greater than 255 characters.
+      #
+      #   @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
     end

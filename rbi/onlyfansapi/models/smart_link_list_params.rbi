@@ -16,12 +16,10 @@ module Onlyfansapi
 
       # Comma-separated account prefixed IDs to include.
       sig { returns(T.nilable(String)) }
-      attr_reader :account_ids
+      attr_accessor :account_ids
 
-      sig { params(account_ids: String).void }
-      attr_writer :account_ids
-
-      # The number of Smart Links to return. Default `50`
+      # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
+      # be greater than 1000.
       sig { returns(T.nilable(Integer)) }
       attr_reader :limit
 
@@ -30,19 +28,13 @@ module Onlyfansapi
 
       # Comma-separated Meta Pixel IDs to include.
       sig { returns(T.nilable(String)) }
-      attr_reader :meta_pixel_ids
+      attr_accessor :meta_pixel_ids
 
-      sig { params(meta_pixel_ids: String).void }
-      attr_writer :meta_pixel_ids
-
-      # Filter Smart Links by name.
+      # Filter Smart Links by name. Must not be greater than 255 characters.
       sig { returns(T.nilable(String)) }
-      attr_reader :name
+      attr_accessor :name
 
-      sig { params(name: String).void }
-      attr_writer :name
-
-      # The offset used for pagination. Default `0`
+      # The offset used for pagination. Default `0`. Must be at least 0.
       sig { returns(T.nilable(Integer)) }
       attr_reader :offset
 
@@ -51,10 +43,10 @@ module Onlyfansapi
 
       sig do
         params(
-          account_ids: String,
+          account_ids: T.nilable(String),
           limit: Integer,
-          meta_pixel_ids: String,
-          name: String,
+          meta_pixel_ids: T.nilable(String),
+          name: T.nilable(String),
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -62,13 +54,14 @@ module Onlyfansapi
       def self.new(
         # Comma-separated account prefixed IDs to include.
         account_ids: nil,
-        # The number of Smart Links to return. Default `50`
+        # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
+        # be greater than 1000.
         limit: nil,
         # Comma-separated Meta Pixel IDs to include.
         meta_pixel_ids: nil,
-        # Filter Smart Links by name.
+        # Filter Smart Links by name. Must not be greater than 255 characters.
         name: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )
@@ -77,10 +70,10 @@ module Onlyfansapi
       sig do
         override.returns(
           {
-            account_ids: String,
+            account_ids: T.nilable(String),
             limit: Integer,
-            meta_pixel_ids: String,
-            name: String,
+            meta_pixel_ids: T.nilable(String),
+            name: T.nilable(String),
             offset: Integer,
             request_options: Onlyfansapi::RequestOptions
           }

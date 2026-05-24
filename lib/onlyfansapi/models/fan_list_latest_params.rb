@@ -13,49 +13,67 @@ module Onlyfansapi
       required :account, String
 
       # @!attribute end_date
-      #   End date for filtering (required with start_date)
+      #   End date for filtering (required with start_date). This field is required when
+      #   <code>start_date</code> is present.
       #
       #   @return [String, nil]
       optional :end_date, String, nil?: true
 
       # @!attribute limit
-      #   Number of fans to return (1-50)
+      #   Number of fans to return (1-50). Must be at least 1. Must not be greater
+      #   than 100.
       #
-      #   @return [String, nil]
-      optional :limit, String, nil?: true
+      #   @return [Integer, nil]
+      optional :limit, Integer
 
       # @!attribute offset
-      #   Number of fans to skip
+      #   Number of fans to skip. Must be at least 0.
       #
-      #   @return [String, nil]
-      optional :offset, String, nil?: true
+      #   @return [Integer, nil]
+      optional :offset, Integer
 
       # @!attribute start_date
-      #   Start date for filtering (required with end_date)
+      #   Start date for filtering (required with end_date). This field is required when
+      #   <code>end_date</code> is present.
       #
       #   @return [String, nil]
       optional :start_date, String, nil?: true
 
       # @!attribute type
-      #   Filter by type: total, renew, or new
+      #   Filter by type: total, renew, or new.
       #
-      #   @return [String, nil]
-      optional :type, String, nil?: true
+      #   @return [Symbol, Onlyfansapi::Models::FanListLatestParams::Type, nil]
+      optional :type, enum: -> { Onlyfansapi::FanListLatestParams::Type }, nil?: true
 
       # @!method initialize(account:, end_date: nil, limit: nil, offset: nil, start_date: nil, type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfansapi::Models::FanListLatestParams} for more details.
+      #
       #   @param account [String]
       #
-      #   @param end_date [String, nil] End date for filtering (required with start_date)
+      #   @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
       #
-      #   @param limit [String, nil] Number of fans to return (1-50)
+      #   @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 10
       #
-      #   @param offset [String, nil] Number of fans to skip
+      #   @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      #   @param start_date [String, nil] Start date for filtering (required with end_date)
+      #   @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
       #
-      #   @param type [String, nil] Filter by type: total, renew, or new
+      #   @param type [Symbol, Onlyfansapi::Models::FanListLatestParams::Type, nil] Filter by type: total, renew, or new.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
+
+      # Filter by type: total, renew, or new.
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        TOTAL = :total
+        RENEW = :renew
+        NEW = :new
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
     end
   end
 end
