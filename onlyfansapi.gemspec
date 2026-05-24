@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = "hello@onlyfansapi.com"
   s.homepage = "https://gemdocs.org/gems/onlyfansapi"
   s.metadata["homepage_uri"] = s.homepage
-  s.metadata["source_code_uri"] = "https://github.com/stainless-sdks/onlyfansapi-ruby"
+  s.metadata["source_code_uri"] = "https://github.com/onlyfansapi/onlyfansapi-ruby"
   s.metadata["rubygems_mfa_required"] = false.to_s
   s.required_ruby_version = ">= 3.2.0"
 

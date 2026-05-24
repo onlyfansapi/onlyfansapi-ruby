@@ -43,13 +43,13 @@ If you’d like to use the repository from source, you can either install from g
 To install via git in your `Gemfile`:
 
 ```ruby
-gem "onlyfansapi", git: "https://github.com/stainless-sdks/onlyfansapi-ruby"
+gem "onlyfansapi", git: "https://github.com/onlyfansapi/onlyfansapi-ruby"
 ```
 
 Alternatively, reference local copy of the repo:
 
 ```bash
-$ git clone -- 'https://github.com/stainless-sdks/onlyfansapi-ruby' '<path-to-repo>'
+$ git clone -- 'https://github.com/onlyfansapi/onlyfansapi-ruby' '<path-to-repo>'
 ```
 
 ```ruby
