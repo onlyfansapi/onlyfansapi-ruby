@@ -153,7 +153,7 @@ module Onlyfansapi
             # @!attribute publish_date_time
             #
             #   @return [String, nil]
-            optional :publish_date_time, String, api_name: :publishDateTime
+            optional :publish_date_time, String, api_name: :publishDateTime, nil?: true
 
             # @!attribute type
             #
@@ -164,7 +164,7 @@ module Onlyfansapi
             #   @param id [Integer]
             #   @param created_date_time [String]
             #   @param entity [Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity]
-            #   @param publish_date_time [String]
+            #   @param publish_date_time [String, nil]
             #   @param type [String]
 
             # @see Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List#entity

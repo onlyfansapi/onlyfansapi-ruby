@@ -18,69 +18,106 @@ module Onlyfansapi
       optional :filter, -> { Onlyfansapi::FanListAllParams::Filter }
 
       # @!attribute limit
-      #   Number of fans to return (1-50)
+      #   Number of fans to return (1-50). Must be at least 1. Must not be greater
+      #   than 20.
       #
-      #   @return [String, nil]
-      optional :limit, String, nil?: true
+      #   @return [Integer, nil]
+      optional :limit, Integer
 
       # @!attribute offset
-      #   Number of fans to skip
+      #   Number of fans to skip. Must be at least 0.
+      #
+      #   @return [Integer, nil]
+      optional :offset, Integer
+
+      # @!attribute query
+      #   Search within fan name/username.
       #
       #   @return [String, nil]
-      optional :offset, String, nil?: true
+      optional :query, String, nil?: true
 
       # @!attribute type
-      #   Filter by fan type
+      #   Filter by fan type.
       #
-      #   @return [String, nil]
-      optional :type, String, nil?: true
+      #   @return [Symbol, Onlyfansapi::Models::FanListAllParams::Type, nil]
+      optional :type, enum: -> { Onlyfansapi::FanListAllParams::Type }
 
-      # @!method initialize(account:, filter: nil, limit: nil, offset: nil, type: nil, request_options: {})
+      # @!method initialize(account:, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfansapi::Models::FanListAllParams} for more details.
+      #
       #   @param account [String]
       #
       #   @param filter [Onlyfansapi::Models::FanListAllParams::Filter]
       #
-      #   @param limit [String, nil] Number of fans to return (1-50)
+      #   @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
       #
-      #   @param offset [String, nil] Number of fans to skip
+      #   @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      #   @param type [String, nil] Filter by fan type
+      #   @param query [String, nil] Search within fan name/username.
+      #
+      #   @param type [Symbol, Onlyfansapi::Models::FanListAllParams::Type] Filter by fan type.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
 
       class Filter < Onlyfansapi::Internal::Type::BaseModel
         # @!attribute duration
-        #   Filter by minimum subscription duration (days)
+        #   Filter by minimum subscription duration in months. Must be at least 0.
         #
-        #   @return [String, nil]
-        optional :duration, String, nil?: true
+        #   @return [Integer, nil]
+        optional :duration, Integer
 
         # @!attribute online
-        #   Filter by online status (1 for online)
+        #   Filter by online status (`1` for online fans).
         #
-        #   @return [String, nil]
-        optional :online, String, nil?: true
+        #   @return [Integer, Onlyfansapi::Models::FanListAllParams::Filter::Online, nil]
+        optional :online, enum: -> { Onlyfansapi::FanListAllParams::Filter::Online }, nil?: true
 
         # @!attribute tips
-        #   Filter by minimum tips
+        #   Filter by minimum tips. Must be at least 0.
         #
-        #   @return [String, nil]
-        optional :tips, String, nil?: true
+        #   @return [Integer, nil]
+        optional :tips, Integer
 
         # @!attribute total_spent
-        #   Filter by minimum total spent
+        #   Filter by minimum amount total spent by a fan. Must be at least 0.
         #
-        #   @return [String, nil]
-        optional :total_spent, String, nil?: true
+        #   @return [Integer, nil]
+        optional :total_spent, Integer
 
         # @!method initialize(duration: nil, online: nil, tips: nil, total_spent: nil)
-        #   @param duration [String, nil] Filter by minimum subscription duration (days)
+        #   @param duration [Integer] Filter by minimum subscription duration in months. Must be at least 0.
         #
-        #   @param online [String, nil] Filter by online status (1 for online)
+        #   @param online [Integer, Onlyfansapi::Models::FanListAllParams::Filter::Online, nil] Filter by online status (`1` for online fans).
         #
-        #   @param tips [String, nil] Filter by minimum tips
+        #   @param tips [Integer] Filter by minimum tips. Must be at least 0.
         #
-        #   @param total_spent [String, nil] Filter by minimum total spent
+        #   @param total_spent [Integer] Filter by minimum amount total spent by a fan. Must be at least 0.
+
+        # Filter by online status (`1` for online fans).
+        #
+        # @see Onlyfansapi::Models::FanListAllParams::Filter#online
+        module Online
+          extend Onlyfansapi::Internal::Type::Enum
+
+          ONLINE_1 = 1
+          ONLINE_0 = 0
+
+          # @!method self.values
+          #   @return [Array<Integer>]
+        end
+      end
+
+      # Filter by fan type.
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        ACTIVE = :active
+        EXPIRED = :expired
+        ALL = :all
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
       end
     end
   end

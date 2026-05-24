@@ -26,19 +26,23 @@ module Onlyfansapi
       # Update a OnlyFans User List
       sig do
         params(
-          user_list_id: Integer,
+          user_list_id: String,
           account: String,
           name: String,
+          is_pinned_to_feed: T.nilable(T::Boolean),
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::UserListUpdateResponse)
       end
       def update(
-        # Path param: OnlyFans User List ID
+        # Path param: OnlyFans User List ID, or a default list name like `tagged`
         user_list_id,
         # Path param: The Account ID
         account:,
-        # Body param: Must not be greater than 64 characters.
+        # Body param: The new name for the User List.
         name:,
+        # Body param: Whether to pin the User List to feed to the OnlyFans homepage or
+        # not.
+        is_pinned_to_feed: nil,
         request_options: {}
       )
       end
@@ -67,13 +71,13 @@ module Onlyfansapi
       # Delete a OnlyFans User List
       sig do
         params(
-          user_list_id: Integer,
+          user_list_id: String,
           account: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::UserListDeleteResponse)
       end
       def delete(
-        # OnlyFans User List ID
+        # OnlyFans User List ID, or a default list name like `tagged`
         user_list_id,
         # The Account ID
         account:,

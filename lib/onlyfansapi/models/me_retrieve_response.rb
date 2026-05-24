@@ -690,7 +690,7 @@ module Onlyfansapi
         # @!attribute iv_fail_reason
         #
         #   @return [String, nil]
-        optional :iv_fail_reason, String, api_name: :ivFailReason
+        optional :iv_fail_reason, String, api_name: :ivFailReason, nil?: true
 
         # @!attribute iv_flow
         #
@@ -720,7 +720,7 @@ module Onlyfansapi
         # @!attribute location
         #
         #   @return [String, nil]
-        optional :location, String
+        optional :location, String, nil?: true
 
         # @!attribute max_fund_raising_target
         #
@@ -837,12 +837,12 @@ module Onlyfansapi
         # @!attribute subscribed_by_data
         #
         #   @return [String, nil]
-        optional :subscribed_by_data, String, api_name: :subscribedByData
+        optional :subscribed_by_data, String, api_name: :subscribedByData, nil?: true
 
         # @!attribute subscribed_on_data
         #
         #   @return [String, nil]
-        optional :subscribed_on_data, String, api_name: :subscribedOnData
+        optional :subscribed_on_data, String, api_name: :subscribedOnData, nil?: true
 
         # @!attribute subscribe_max_price
         #
@@ -979,7 +979,7 @@ module Onlyfansapi
         # @!attribute wishlist
         #
         #   @return [String, nil]
-        optional :wishlist, String
+        optional :wishlist, String, nil?: true
 
         # @!attribute ws_auth_token
         #
@@ -1097,13 +1097,13 @@ module Onlyfansapi
         #   @param is_wallet_autorecharge [Boolean]
         #   @param is_want_comments [Boolean]
         #   @param iv_country [String]
-        #   @param iv_fail_reason [String]
+        #   @param iv_fail_reason [String, nil]
         #   @param iv_flow [String]
         #   @param iv_hide_for_performers [Boolean]
         #   @param iv_status [String]
         #   @param join_date [String]
         #   @param last_seen [String]
-        #   @param location [String]
+        #   @param location [String, nil]
         #   @param max_fund_raising_target [Integer]
         #   @param max_pinned_posts_count [Integer]
         #   @param medias_count [Integer]
@@ -1126,8 +1126,8 @@ module Onlyfansapi
         #   @param show_media_count [Boolean]
         #   @param show_posts_in_feed [Boolean]
         #   @param show_subscribers_count [Boolean]
-        #   @param subscribed_by_data [String]
-        #   @param subscribed_on_data [String]
+        #   @param subscribed_by_data [String, nil]
+        #   @param subscribed_on_data [String, nil]
         #   @param subscribe_max_price [Integer]
         #   @param subscribe_min_price [Float]
         #   @param subscribe_price [Integer]
@@ -1154,7 +1154,7 @@ module Onlyfansapi
         #   @param watermark_position [String]
         #   @param watermark_text [String]
         #   @param website [String]
-        #   @param wishlist [String]
+        #   @param wishlist [String, nil]
         #   @param ws_auth_token [String]
         #   @param ws_url [String]
 

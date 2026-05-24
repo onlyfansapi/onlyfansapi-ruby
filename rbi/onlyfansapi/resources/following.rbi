@@ -11,8 +11,9 @@ module Onlyfansapi
           filter: Onlyfansapi::FollowingListActiveParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
+          query: T.nilable(String),
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).void
+        ).returns(Onlyfansapi::Models::FollowingListActiveResponse)
       end
       def list_active(
         # The Account ID
@@ -23,6 +24,8 @@ module Onlyfansapi
         limit: nil,
         # Pagination offset. Must be at least 0.
         offset: nil,
+        # Search within following name/username.
+        query: nil,
         request_options: {}
       )
       end
@@ -34,8 +37,9 @@ module Onlyfansapi
           filter: Onlyfansapi::FollowingListAllParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
+          query: T.nilable(String),
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).void
+        ).returns(Onlyfansapi::Models::FollowingListAllResponse)
       end
       def list_all(
         # The Account ID
@@ -46,6 +50,8 @@ module Onlyfansapi
         limit: nil,
         # Pagination offset. Must be at least 0.
         offset: nil,
+        # Search within following name/username.
+        query: nil,
         request_options: {}
       )
       end
@@ -58,8 +64,9 @@ module Onlyfansapi
           filter: Onlyfansapi::FollowingListExpiredParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
+          query: T.nilable(String),
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).void
+        ).returns(Onlyfansapi::Models::FollowingListExpiredResponse)
       end
       def list_expired(
         # The Account ID
@@ -70,6 +77,8 @@ module Onlyfansapi
         limit: nil,
         # Pagination offset. Must be at least 0.
         offset: nil,
+        # Search within following name/username.
+        query: nil,
         request_options: {}
       )
       end

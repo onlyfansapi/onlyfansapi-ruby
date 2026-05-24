@@ -14,9 +14,29 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :account
 
-      # The file to upload.
-      sig { returns(String) }
-      attr_accessor :file
+      # Set to `true` to process uploads in the background. Returns a `polling_url` to
+      # check status. Recommended for large files.
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :async
+
+      sig { params(async: T::Boolean).void }
+      attr_writer :async
+
+      # The file to upload. Required if `file_url` is not provided. Maximum file size:
+      # 100 MB (limited by Cloudflare).
+      sig { returns(T.nilable(Onlyfansapi::Internal::FileInput)) }
+      attr_reader :file
+
+      sig { params(file: Onlyfansapi::Internal::FileInput).void }
+      attr_writer :file
+
+      # A URL to download the file from. Required if `file` is not provided. Maximum
+      # file size depends on the subscription configuration.
+      sig { returns(T.nilable(String)) }
+      attr_reader :file_url
+
+      sig { params(file_url: String).void }
+      attr_writer :file_url
 
       # Set to `avatar` if this file will be used as a profile picture, `header` for a
       # profile banner, or keep empty if this file will be for anything else.
@@ -29,15 +49,24 @@ module Onlyfansapi
       sig do
         params(
           account: String,
-          file: String,
+          async: T::Boolean,
+          file: Onlyfansapi::Internal::FileInput,
+          file_url: String,
           type: Onlyfansapi::MediaUploadParams::Type::OrSymbol,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
         account:,
-        # The file to upload.
-        file:,
+        # Set to `true` to process uploads in the background. Returns a `polling_url` to
+        # check status. Recommended for large files.
+        async: nil,
+        # The file to upload. Required if `file_url` is not provided. Maximum file size:
+        # 100 MB (limited by Cloudflare).
+        file: nil,
+        # A URL to download the file from. Required if `file` is not provided. Maximum
+        # file size depends on the subscription configuration.
+        file_url: nil,
         # Set to `avatar` if this file will be used as a profile picture, `header` for a
         # profile banner, or keep empty if this file will be for anything else.
         type: nil,
@@ -49,7 +78,9 @@ module Onlyfansapi
         override.returns(
           {
             account: String,
-            file: String,
+            async: T::Boolean,
+            file: Onlyfansapi::Internal::FileInput,
+            file_url: String,
             type: Onlyfansapi::MediaUploadParams::Type::OrSymbol,
             request_options: Onlyfansapi::RequestOptions
           }

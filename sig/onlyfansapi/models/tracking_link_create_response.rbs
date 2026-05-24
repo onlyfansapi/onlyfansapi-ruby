@@ -156,7 +156,7 @@ module Onlyfansapi
           count_subscribers: Integer,
           count_transitions: Integer,
           created_at: String,
-          end_date: String
+          end_date: String?
         }
 
       class Data < Onlyfansapi::Internal::Type::BaseModel
@@ -184,9 +184,7 @@ module Onlyfansapi
 
         def created_at=: (String) -> String
 
-        attr_reader end_date: String?
-
-        def end_date=: (String) -> String
+        attr_accessor end_date: String?
 
         def initialize: (
           ?id: Integer,
@@ -195,7 +193,7 @@ module Onlyfansapi
           ?count_subscribers: Integer,
           ?count_transitions: Integer,
           ?created_at: String,
-          ?end_date: String
+          ?end_date: String?
         ) -> void
 
         def to_hash: -> {
@@ -205,7 +203,7 @@ module Onlyfansapi
           count_subscribers: Integer,
           count_transitions: Integer,
           created_at: String,
-          end_date: String
+          end_date: String?
         }
       end
     end

@@ -9,18 +9,27 @@ module Onlyfansapi
       def reauthenticate: (
         String account_id,
         ?request_options: Onlyfansapi::request_opts
-      ) -> nil
+      ) -> Onlyfansapi::Models::AuthenticateReauthenticateResponse
 
       def start: (
-        email: String,
-        password: String,
-        proxy_country: Onlyfansapi::Models::AuthenticateStartParams::proxy_country,
+        ?auth_id: String,
+        ?auth_type: Onlyfansapi::Models::AuthenticateStartParams::auth_type,
+        ?cookies: String,
+        ?custom_proxy: Onlyfansapi::AuthenticateStartParams::CustomProxy,
+        ?email: String,
+        ?force_connect: bool,
+        ?name: String,
+        ?password: String,
+        ?proxy_country: Onlyfansapi::Models::AuthenticateStartParams::proxy_country,
+        ?user_agent: String,
+        ?xbc: String,
         ?request_options: Onlyfansapi::request_opts
-      ) -> Onlyfansapi::Models::AuthenticateStartResponse
+      ) -> Onlyfansapi::Models::authenticate_start_response
 
       def submit_2fa: (
         String attempt_id,
-        code: String,
+        ?code: String,
+        ?selfie_verification_completed: Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::AuthenticateSubmit2faResponse
 

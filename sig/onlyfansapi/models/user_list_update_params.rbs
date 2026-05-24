@@ -1,7 +1,12 @@
 module Onlyfansapi
   module Models
     type user_list_update_params =
-      { account: String, user_list_id: Integer, name: String }
+      {
+        account: String,
+        user_list_id: String,
+        name: String,
+        is_pinned_to_feed: bool?
+      }
       & Onlyfansapi::Internal::Type::request_parameters
 
     class UserListUpdateParams < Onlyfansapi::Internal::Type::BaseModel
@@ -10,21 +15,25 @@ module Onlyfansapi
 
       attr_accessor account: String
 
-      attr_accessor user_list_id: Integer
+      attr_accessor user_list_id: String
 
       attr_accessor name: String
 
+      attr_accessor is_pinned_to_feed: bool?
+
       def initialize: (
         account: String,
-        user_list_id: Integer,
+        user_list_id: String,
         name: String,
+        ?is_pinned_to_feed: bool?,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
-        user_list_id: Integer,
+        user_list_id: String,
         name: String,
+        is_pinned_to_feed: bool?,
         request_options: Onlyfansapi::RequestOptions
       }
     end

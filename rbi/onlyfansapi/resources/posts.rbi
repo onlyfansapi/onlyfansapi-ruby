@@ -20,8 +20,8 @@ module Onlyfansapi
           fund_raising_target_amount: Integer,
           fund_raising_tips_presets: T::Array[String],
           label_ids: String,
-          media_files: String,
-          previews: T::Array[String],
+          media_files: T::Array[T.anything],
+          previews: T::Array[T.anything],
           rf_tag: String,
           save_for_later: T::Boolean,
           scheduled_date: String,
@@ -37,7 +37,7 @@ module Onlyfansapi
         account,
         # The post text content
         text:,
-        # Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+        # Number of days after which the post will expire. Between 1 and 30 days. Keep
         # empty for no expiration.
         expire_days: nil,
         # Add a fundraising target to your post. If present, value must be at least 10.
@@ -48,11 +48,11 @@ module Onlyfansapi
         fund_raising_tips_presets: nil,
         # Array of OF label IDs. Refer to our `/posts/labels` endpoint.
         label_ids: nil,
-        # Array of OFAPI `ofapi_media_` IDs, or OF media IDs
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs.
         media_files: nil,
-        # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        # not 0). Will be shown if `price` is provided. All `previews` values must also
-        # exist in the `mediaFiles` array.
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+        # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+        # provided.
         previews: nil,
         # Array OnlyFans creator user IDs to tag in your post
         rf_tag: nil,
@@ -120,8 +120,8 @@ module Onlyfansapi
         account:,
         # Body param: The post text content
         text:,
-        # Body param: Number of days after which the post will expire. Can be 1, 3, 7 or
-        # 30 days. Keep empty for no expiration.
+        # Body param: Number of days after which the post will expire. Between 1 and 30
+        # days. Keep empty for no expiration.
         expire_days: nil,
         # Body param: Add a fundraising target to your post. If present, value must be at
         # least 10.

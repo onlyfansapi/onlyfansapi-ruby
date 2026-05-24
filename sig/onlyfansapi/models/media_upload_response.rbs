@@ -6,6 +6,7 @@ module Onlyfansapi
         extra: String,
         file_name: String,
         host: String,
+        note: String,
         prefixed_id: String,
         process_id: String,
         source_url: String,
@@ -31,6 +32,10 @@ module Onlyfansapi
 
       def host=: (String) -> String
 
+      attr_reader note: String?
+
+      def note=: (String) -> String
+
       attr_reader prefixed_id: String?
 
       def prefixed_id=: (String) -> String
@@ -54,6 +59,7 @@ module Onlyfansapi
         ?extra: String,
         ?file_name: String,
         ?host: String,
+        ?note: String,
         ?prefixed_id: String,
         ?process_id: String,
         ?source_url: String,
@@ -65,6 +71,7 @@ module Onlyfansapi
         extra: String,
         file_name: String,
         host: String,
+        note: String,
         prefixed_id: String,
         process_id: String,
         source_url: String,

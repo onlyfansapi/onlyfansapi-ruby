@@ -13,6 +13,7 @@ module Onlyfansapi
           offer_limit:
             Onlyfansapi::TrialLinkCreateParams::OfferLimit::OrInteger,
           name: T.nilable(String),
+          tags: T::Array[String],
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::TrialLinkCreateResponse)
       end
@@ -30,6 +31,8 @@ module Onlyfansapi
         offer_limit:,
         # The name of the trail link (optional). Cannot be longer than 64 characters.
         name: nil,
+        # Array of tag names to add to the trial link.
+        tags: nil,
         request_options: {}
       )
       end
@@ -68,13 +71,13 @@ module Onlyfansapi
       # Delete a free trial link by its ID
       sig do
         params(
-          trial_link_id: Integer,
+          trial_link_id: String,
           account: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::TrialLinkDeleteResponse)
       end
       def delete(
-        # The ID of the trial link to delete
+        # The ID of the trial link.
         trial_link_id,
         # The Account ID
         account:,

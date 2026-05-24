@@ -21,12 +21,40 @@ module Onlyfansapi
         sig { returns(String) }
         attr_accessor :chat_id
 
-        # ID of the last message from previous page. Used for pagination
-        sig { returns(T.nilable(String)) }
-        attr_reader :id
+        # Filter by certain messages. Currently, only pins are filterable.
+        sig do
+          returns(
+            T.nilable(Onlyfansapi::Chats::MessageListParams::Filter::OrSymbol)
+          )
+        end
+        attr_reader :filter
 
-        sig { params(id: String).void }
-        attr_writer :id
+        sig do
+          params(
+            filter: Onlyfansapi::Chats::MessageListParams::Filter::OrSymbol
+          ).void
+        end
+        attr_writer :filter
+
+        # Use for pagination when `order=desc` (newest to oldest). Include this message ID
+        # as the first message in the results. Used to retrieve messages from e.g. the
+        # Search Chat Messages endpoint IDs.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :first_id
+
+        # Use for pagination when `order=asc` (oldest to newest). Include this message ID
+        # as the first message in the results. WARNING! The response list of messages will
+        # also be inverted (oldest messages will be first, opposite to default where
+        # `order=desc`).
+        sig { returns(T.nilable(String)) }
+        attr_accessor :last_id
+
+        # The number of messages to return (default = 10, max = 100)
+        sig { returns(T.nilable(String)) }
+        attr_reader :limit
+
+        sig { params(limit: String).void }
+        attr_writer :limit
 
         # Sort order for messages (desc or asc)
         sig { returns(T.nilable(String)) }
@@ -46,7 +74,10 @@ module Onlyfansapi
           params(
             account: String,
             chat_id: String,
-            id: String,
+            filter: Onlyfansapi::Chats::MessageListParams::Filter::OrSymbol,
+            first_id: T.nilable(String),
+            last_id: T.nilable(String),
+            limit: String,
             order: String,
             skip_users: String,
             request_options: Onlyfansapi::RequestOptions::OrHash
@@ -55,8 +86,19 @@ module Onlyfansapi
         def self.new(
           account:,
           chat_id:,
-          # ID of the last message from previous page. Used for pagination
-          id: nil,
+          # Filter by certain messages. Currently, only pins are filterable.
+          filter: nil,
+          # Use for pagination when `order=desc` (newest to oldest). Include this message ID
+          # as the first message in the results. Used to retrieve messages from e.g. the
+          # Search Chat Messages endpoint IDs.
+          first_id: nil,
+          # Use for pagination when `order=asc` (oldest to newest). Include this message ID
+          # as the first message in the results. WARNING! The response list of messages will
+          # also be inverted (oldest messages will be first, opposite to default where
+          # `order=desc`).
+          last_id: nil,
+          # The number of messages to return (default = 10, max = 100)
+          limit: nil,
           # Sort order for messages (desc or asc)
           order: nil,
           # Whether to skip user details (all or none)
@@ -70,7 +112,10 @@ module Onlyfansapi
             {
               account: String,
               chat_id: String,
-              id: String,
+              filter: Onlyfansapi::Chats::MessageListParams::Filter::OrSymbol,
+              first_id: T.nilable(String),
+              last_id: T.nilable(String),
+              limit: String,
               order: String,
               skip_users: String,
               request_options: Onlyfansapi::RequestOptions
@@ -78,6 +123,33 @@ module Onlyfansapi
           )
         end
         def to_hash
+        end
+
+        # Filter by certain messages. Currently, only pins are filterable.
+        module Filter
+          extend Onlyfansapi::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(Symbol, Onlyfansapi::Chats::MessageListParams::Filter)
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          PINNED =
+            T.let(
+              :pinned,
+              Onlyfansapi::Chats::MessageListParams::Filter::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Onlyfansapi::Chats::MessageListParams::Filter::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

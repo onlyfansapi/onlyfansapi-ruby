@@ -23,26 +23,6 @@ module Onlyfansapi
       )
       end
 
-      # List all transactions for the account.
-      sig do
-        params(
-          account: String,
-          limit: String,
-          marker: String,
-          request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(Onlyfansapi::Models::PayoutListTransactionsResponse)
-      end
-      def list_transactions(
-        # The Account ID
-        account,
-        # Number of transactions to return
-        limit: nil,
-        # The marker used for pagination. Default: `null`
-        marker: nil,
-        request_options: {}
-      )
-      end
-
       # Request a payout withdrawal, if the frequency is set to manual. Refer to our
       # `/payouts/balances` endpoint to retrieve the minimum and maximum withdrawal
       # amounts.

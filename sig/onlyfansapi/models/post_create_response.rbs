@@ -700,9 +700,9 @@ module Onlyfansapi
           type files =
             {
               full: Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full,
-              preview: String,
-              square_preview: String,
-              thumb: String
+              preview: String?,
+              square_preview: String?,
+              thumb: String?
             }
 
           class Files < Onlyfansapi::Internal::Type::BaseModel
@@ -712,30 +712,24 @@ module Onlyfansapi
               Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full
             ) -> Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full
 
-            attr_reader preview: String?
+            attr_accessor preview: String?
 
-            def preview=: (String) -> String
+            attr_accessor square_preview: String?
 
-            attr_reader square_preview: String?
-
-            def square_preview=: (String) -> String
-
-            attr_reader thumb: String?
-
-            def thumb=: (String) -> String
+            attr_accessor thumb: String?
 
             def initialize: (
               ?full: Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full,
-              ?preview: String,
-              ?square_preview: String,
-              ?thumb: String
+              ?preview: String?,
+              ?square_preview: String?,
+              ?thumb: String?
             ) -> void
 
             def to_hash: -> {
               full: Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full,
-              preview: String,
-              square_preview: String,
-              thumb: String
+              preview: String?,
+              square_preview: String?,
+              thumb: String?
             }
 
             type full =
@@ -743,7 +737,7 @@ module Onlyfansapi
                 height: Integer,
                 size: Integer,
                 sources: ::Array[top],
-                url: String,
+                url: String?,
                 width: Integer
               }
 
@@ -760,9 +754,7 @@ module Onlyfansapi
 
               def sources=: (::Array[top]) -> ::Array[top]
 
-              attr_reader url: String?
-
-              def url=: (String) -> String
+              attr_accessor url: String?
 
               attr_reader width: Integer?
 
@@ -772,7 +764,7 @@ module Onlyfansapi
                 ?height: Integer,
                 ?size: Integer,
                 ?sources: ::Array[top],
-                ?url: String,
+                ?url: String?,
                 ?width: Integer
               ) -> void
 
@@ -780,7 +772,7 @@ module Onlyfansapi
                 height: Integer,
                 size: Integer,
                 sources: ::Array[top],
-                url: String,
+                url: String?,
                 width: Integer
               }
             end

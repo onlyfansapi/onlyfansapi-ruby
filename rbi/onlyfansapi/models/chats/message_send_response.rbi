@@ -411,10 +411,7 @@ module Onlyfansapi
           attr_writer :from_user
 
           sig { returns(T.nilable(String)) }
-          attr_reader :giphy_id
-
-          sig { params(giphy_id: String).void }
-          attr_writer :giphy_id
+          attr_accessor :giphy_id
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :is_couple_people_media
@@ -548,7 +545,7 @@ module Onlyfansapi
               created_at: String,
               from_user:
                 Onlyfansapi::Models::Chats::MessageSendResponse::Data::FromUser::OrHash,
-              giphy_id: String,
+              giphy_id: T.nilable(String),
               is_couple_people_media: T::Boolean,
               is_free: T::Boolean,
               is_from_queue: T::Boolean,
@@ -618,7 +615,7 @@ module Onlyfansapi
                 created_at: String,
                 from_user:
                   Onlyfansapi::Models::Chats::MessageSendResponse::Data::FromUser,
-                giphy_id: String,
+                giphy_id: T.nilable(String),
                 is_couple_people_media: T::Boolean,
                 is_free: T::Boolean,
                 is_from_queue: T::Boolean,

@@ -584,23 +584,23 @@ module Onlyfansapi
             # @!attribute preview
             #
             #   @return [String, nil]
-            optional :preview, String
+            optional :preview, String, nil?: true
 
             # @!attribute square_preview
             #
             #   @return [String, nil]
-            optional :square_preview, String, api_name: :squarePreview
+            optional :square_preview, String, api_name: :squarePreview, nil?: true
 
             # @!attribute thumb
             #
             #   @return [String, nil]
-            optional :thumb, String
+            optional :thumb, String, nil?: true
 
             # @!method initialize(full: nil, preview: nil, square_preview: nil, thumb: nil)
             #   @param full [Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full]
-            #   @param preview [String]
-            #   @param square_preview [String]
-            #   @param thumb [String]
+            #   @param preview [String, nil]
+            #   @param square_preview [String, nil]
+            #   @param thumb [String, nil]
 
             # @see Onlyfansapi::Models::PostCreateResponse::Data::Media::Files#full
             class Full < Onlyfansapi::Internal::Type::BaseModel
@@ -622,7 +622,7 @@ module Onlyfansapi
               # @!attribute url
               #
               #   @return [String, nil]
-              optional :url, String
+              optional :url, String, nil?: true
 
               # @!attribute width
               #
@@ -633,7 +633,7 @@ module Onlyfansapi
               #   @param height [Integer]
               #   @param size [Integer]
               #   @param sources [Array<Object>]
-              #   @param url [String]
+              #   @param url [String, nil]
               #   @param width [Integer]
             end
           end

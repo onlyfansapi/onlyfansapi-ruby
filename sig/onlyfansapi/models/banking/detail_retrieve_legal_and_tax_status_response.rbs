@@ -159,10 +159,10 @@ module Onlyfansapi
             :is_w9_exist => bool,
             :is_w9_required => bool,
             is_xxx: bool,
-            iv_fail_reason: String,
+            iv_fail_reason: String?,
             iv_status: String,
             :need_show_edit_w9 => bool,
-            payout_legal_approve_reject_reason: String,
+            payout_legal_approve_reject_reason: String?,
             show_iv_button: bool,
             tax: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
           }
@@ -202,9 +202,7 @@ module Onlyfansapi
 
           def is_xxx=: (bool) -> bool
 
-          attr_reader iv_fail_reason: String?
-
-          def iv_fail_reason=: (String) -> String
+          attr_accessor iv_fail_reason: String?
 
           attr_reader iv_status: String?
 
@@ -214,9 +212,7 @@ module Onlyfansapi
 
           def need_show_edit_w9=: (bool) -> bool
 
-          attr_reader payout_legal_approve_reject_reason: String?
-
-          def payout_legal_approve_reject_reason=: (String) -> String
+          attr_accessor payout_legal_approve_reject_reason: String?
 
           attr_reader show_iv_button: bool?
 
@@ -237,10 +233,10 @@ module Onlyfansapi
             ?is_w9_exist: bool,
             ?is_w9_required: bool,
             ?is_xxx: bool,
-            ?iv_fail_reason: String,
+            ?iv_fail_reason: String?,
             ?iv_status: String,
             ?need_show_edit_w9: bool,
-            ?payout_legal_approve_reject_reason: String,
+            ?payout_legal_approve_reject_reason: String?,
             ?show_iv_button: bool,
             ?tax: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
           ) -> void
@@ -254,10 +250,10 @@ module Onlyfansapi
             :is_w9_exist => bool,
             :is_w9_required => bool,
             is_xxx: bool,
-            iv_fail_reason: String,
+            iv_fail_reason: String?,
             iv_status: String,
             :need_show_edit_w9 => bool,
-            payout_legal_approve_reject_reason: String,
+            payout_legal_approve_reject_reason: String?,
             show_iv_button: bool,
             tax: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
           }
@@ -265,7 +261,7 @@ module Onlyfansapi
           type dac7 =
             {
               country_ids: ::Array[Integer],
-              error: String,
+              error: String?,
               required: bool,
               state: String,
               type: String
@@ -276,9 +272,7 @@ module Onlyfansapi
 
             def country_ids=: (::Array[Integer]) -> ::Array[Integer]
 
-            attr_reader error: String?
-
-            def error=: (String) -> String
+            attr_accessor error: String?
 
             attr_reader required: bool?
 
@@ -294,7 +288,7 @@ module Onlyfansapi
 
             def initialize: (
               ?country_ids: ::Array[Integer],
-              ?error: String,
+              ?error: String?,
               ?required: bool,
               ?state: String,
               ?type: String
@@ -302,7 +296,7 @@ module Onlyfansapi
 
             def to_hash: -> {
               country_ids: ::Array[Integer],
-              error: String,
+              error: String?,
               required: bool,
               state: String,
               type: String

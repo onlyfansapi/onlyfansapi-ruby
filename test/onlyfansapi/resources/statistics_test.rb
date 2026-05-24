@@ -25,15 +25,10 @@ class Onlyfansapi::Test::Resources::StatisticsTest < Onlyfansapi::Test::Resource
     end
   end
 
-  def test_get_overview_required_params
+  def test_get_overview
     skip("Mock server tests are disabled")
 
-    response =
-      @onlyfansapi.statistics.get_overview(
-        "acct_XXXXXXXXXXXXXXX",
-        end_date: "2025-03-31 23:59:59",
-        start_date: "2025-01-01 00:00:00"
-      )
+    response = @onlyfansapi.statistics.get_overview("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::StatisticGetOverviewResponse

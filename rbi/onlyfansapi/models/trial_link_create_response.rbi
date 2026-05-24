@@ -309,16 +309,13 @@ module Onlyfansapi
           end
 
         sig { returns(T.nilable(String)) }
-        attr_reader :next_page
+        attr_accessor :next_page
 
-        sig { params(next_page: String).void }
-        attr_writer :next_page
-
-        sig { params(next_page: String).returns(T.attached_class) }
+        sig { params(next_page: T.nilable(String)).returns(T.attached_class) }
         def self.new(next_page: nil)
         end
 
-        sig { override.returns({ next_page: String }) }
+        sig { override.returns({ next_page: T.nilable(String) }) }
         def to_hash
         end
       end

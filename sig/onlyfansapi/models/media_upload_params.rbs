@@ -3,7 +3,9 @@ module Onlyfansapi
     type media_upload_params =
       {
         account: String,
-        file: String,
+        async: bool,
+        file: Onlyfansapi::Internal::file_input,
+        file_url: String,
         type: Onlyfansapi::Models::MediaUploadParams::type_
       }
       & Onlyfansapi::Internal::Type::request_parameters
@@ -14,7 +16,19 @@ module Onlyfansapi
 
       attr_accessor account: String
 
-      attr_accessor file: String
+      attr_reader async: bool?
+
+      def async=: (bool) -> bool
+
+      attr_reader file: Onlyfansapi::Internal::file_input?
+
+      def file=: (
+        Onlyfansapi::Internal::file_input
+      ) -> Onlyfansapi::Internal::file_input
+
+      attr_reader file_url: String?
+
+      def file_url=: (String) -> String
 
       attr_reader type: Onlyfansapi::Models::MediaUploadParams::type_?
 
@@ -24,14 +38,18 @@ module Onlyfansapi
 
       def initialize: (
         account: String,
-        file: String,
+        ?async: bool,
+        ?file: Onlyfansapi::Internal::file_input,
+        ?file_url: String,
         ?type: Onlyfansapi::Models::MediaUploadParams::type_,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
-        file: String,
+        async: bool,
+        file: Onlyfansapi::Internal::file_input,
+        file_url: String,
         type: Onlyfansapi::Models::MediaUploadParams::type_,
         request_options: Onlyfansapi::RequestOptions
       }

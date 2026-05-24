@@ -14,8 +14,8 @@ module Onlyfansapi
 
       def get_overview: (
         String account,
-        end_date: String,
-        start_date: String,
+        ?end_date: String,
+        ?start_date: String,
         ?type: Onlyfansapi::Models::StatisticGetOverviewParams::type_?,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::StatisticGetOverviewResponse

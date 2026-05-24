@@ -119,6 +119,11 @@ module Onlyfansapi
 
       # @see Onlyfansapi::Models::SearchProfilesResponse#_pagination
       class Pagination < Onlyfansapi::Internal::Type::BaseModel
+        # @!attribute next_cursor
+        #
+        #   @return [String, nil]
+        optional :next_cursor, String
+
         # @!attribute next_page_url
         #
         #   @return [String, nil]
@@ -129,17 +134,13 @@ module Onlyfansapi
         #   @return [Integer, nil]
         optional :total_results, Integer
 
-        # @!method initialize(next_page_url: nil, total_results: nil)
+        # @!method initialize(next_cursor: nil, next_page_url: nil, total_results: nil)
+        #   @param next_cursor [String]
         #   @param next_page_url [String]
         #   @param total_results [Integer]
       end
 
       class Data < Onlyfansapi::Internal::Type::BaseModel
-        # @!attribute id
-        #
-        #   @return [Integer, nil]
-        optional :id, Integer
-
         # @!attribute about
         #
         #   @return [String, nil]
@@ -155,30 +156,20 @@ module Onlyfansapi
         #   @return [String, nil]
         optional :avatar_url, String
 
-        # @!attribute browsable
-        #
-        #   @return [Boolean, nil]
-        optional :browsable, Onlyfansapi::Internal::Type::Boolean
-
         # @!attribute bundles
         #
         #   @return [String, nil]
-        optional :bundles, String
-
-        # @!attribute created_at
-        #
-        #   @return [String, nil]
-        optional :created_at, String
+        optional :bundles, String, nil?: true
 
         # @!attribute facebook
         #
         #   @return [String, nil]
-        optional :facebook, String
+        optional :facebook, String, nil?: true
 
         # @!attribute fansly
         #
         #   @return [String, nil]
-        optional :fansly, String
+        optional :fansly, String, nil?: true
 
         # @!attribute favorited_count
         #
@@ -190,11 +181,6 @@ module Onlyfansapi
         #   @return [Integer, nil]
         optional :favorites_count, Integer
 
-        # @!attribute gender
-        #
-        #   @return [String, nil]
-        optional :gender, String
-
         # @!attribute header_url
         #
         #   @return [String, nil]
@@ -203,7 +189,7 @@ module Onlyfansapi
         # @!attribute instagram
         #
         #   @return [String, nil]
-        optional :instagram, String
+        optional :instagram, String, nil?: true
 
         # @!attribute is_adult_content
         #
@@ -233,7 +219,7 @@ module Onlyfansapi
         # @!attribute last_seen_at
         #
         #   @return [String, nil]
-        optional :last_seen_at, String
+        optional :last_seen_at, String, nil?: true
 
         # @!attribute location
         #
@@ -243,7 +229,7 @@ module Onlyfansapi
         # @!attribute manyvids
         #
         #   @return [String, nil]
-        optional :manyvids, String
+        optional :manyvids, String, nil?: true
 
         # @!attribute min_subscribe_price
         #
@@ -255,10 +241,20 @@ module Onlyfansapi
         #   @return [String, nil]
         optional :name, String
 
-        # @!attribute onlyfans_id
+        # @!attribute ofapi_gender
         #
         #   @return [String, nil]
-        optional :onlyfans_id, String
+        optional :ofapi_gender, String
+
+        # @!attribute ofapi_gender_confidence
+        #
+        #   @return [Float, nil]
+        optional :ofapi_gender_confidence, Float
+
+        # @!attribute onlyfans_id
+        #
+        #   @return [Integer, nil]
+        optional :onlyfans_id, Integer
 
         # @!attribute photos_count
         #
@@ -268,7 +264,7 @@ module Onlyfansapi
         # @!attribute pornhub
         #
         #   @return [String, nil]
-        optional :pornhub, String
+        optional :pornhub, String, nil?: true
 
         # @!attribute posts_count
         #
@@ -278,7 +274,7 @@ module Onlyfansapi
         # @!attribute promotions
         #
         #   @return [String, nil]
-        optional :promotions, String
+        optional :promotions, String, nil?: true
 
         # @!attribute stats_updated_at
         #
@@ -293,22 +289,17 @@ module Onlyfansapi
         # @!attribute subscribers_count
         #
         #   @return [String, nil]
-        optional :subscribers_count, String
+        optional :subscribers_count, String, nil?: true
 
         # @!attribute tiktok
         #
         #   @return [String, nil]
-        optional :tiktok, String
+        optional :tiktok, String, nil?: true
 
         # @!attribute twitter
         #
         #   @return [String, nil]
-        optional :twitter, String
-
-        # @!attribute updated_at
-        #
-        #   @return [String, nil]
-        optional :updated_at, String
+        optional :twitter, String, nil?: true
 
         # @!attribute username
         #
@@ -328,48 +319,45 @@ module Onlyfansapi
         # @!attribute wishlist
         #
         #   @return [String, nil]
-        optional :wishlist, String
+        optional :wishlist, String, nil?: true
 
-        # @!method initialize(id: nil, about: nil, audios_count: nil, avatar_url: nil, browsable: nil, bundles: nil, created_at: nil, facebook: nil, fansly: nil, favorited_count: nil, favorites_count: nil, gender: nil, header_url: nil, instagram: nil, is_adult_content: nil, is_performer: nil, is_real_performer: nil, is_verified: nil, join_date: nil, last_seen_at: nil, location: nil, manyvids: nil, min_subscribe_price: nil, name: nil, onlyfans_id: nil, photos_count: nil, pornhub: nil, posts_count: nil, promotions: nil, stats_updated_at: nil, subscribe_price: nil, subscribers_count: nil, tiktok: nil, twitter: nil, updated_at: nil, username: nil, videos_count: nil, website: nil, wishlist: nil)
-        #   @param id [Integer]
+        # @!method initialize(about: nil, audios_count: nil, avatar_url: nil, bundles: nil, facebook: nil, fansly: nil, favorited_count: nil, favorites_count: nil, header_url: nil, instagram: nil, is_adult_content: nil, is_performer: nil, is_real_performer: nil, is_verified: nil, join_date: nil, last_seen_at: nil, location: nil, manyvids: nil, min_subscribe_price: nil, name: nil, ofapi_gender: nil, ofapi_gender_confidence: nil, onlyfans_id: nil, photos_count: nil, pornhub: nil, posts_count: nil, promotions: nil, stats_updated_at: nil, subscribe_price: nil, subscribers_count: nil, tiktok: nil, twitter: nil, username: nil, videos_count: nil, website: nil, wishlist: nil)
         #   @param about [String]
         #   @param audios_count [Integer]
         #   @param avatar_url [String]
-        #   @param browsable [Boolean]
-        #   @param bundles [String]
-        #   @param created_at [String]
-        #   @param facebook [String]
-        #   @param fansly [String]
+        #   @param bundles [String, nil]
+        #   @param facebook [String, nil]
+        #   @param fansly [String, nil]
         #   @param favorited_count [Integer]
         #   @param favorites_count [Integer]
-        #   @param gender [String]
         #   @param header_url [String]
-        #   @param instagram [String]
+        #   @param instagram [String, nil]
         #   @param is_adult_content [Boolean]
         #   @param is_performer [Boolean]
         #   @param is_real_performer [Boolean]
         #   @param is_verified [Boolean]
         #   @param join_date [String]
-        #   @param last_seen_at [String]
+        #   @param last_seen_at [String, nil]
         #   @param location [String]
-        #   @param manyvids [String]
+        #   @param manyvids [String, nil]
         #   @param min_subscribe_price [Integer]
         #   @param name [String]
-        #   @param onlyfans_id [String]
+        #   @param ofapi_gender [String]
+        #   @param ofapi_gender_confidence [Float]
+        #   @param onlyfans_id [Integer]
         #   @param photos_count [Integer]
-        #   @param pornhub [String]
+        #   @param pornhub [String, nil]
         #   @param posts_count [Integer]
-        #   @param promotions [String]
+        #   @param promotions [String, nil]
         #   @param stats_updated_at [String]
         #   @param subscribe_price [Integer]
-        #   @param subscribers_count [String]
-        #   @param tiktok [String]
-        #   @param twitter [String]
-        #   @param updated_at [String]
+        #   @param subscribers_count [String, nil]
+        #   @param tiktok [String, nil]
+        #   @param twitter [String, nil]
         #   @param username [String]
         #   @param videos_count [Integer]
         #   @param website [String]
-        #   @param wishlist [String]
+        #   @param wishlist [String, nil]
       end
     end
   end

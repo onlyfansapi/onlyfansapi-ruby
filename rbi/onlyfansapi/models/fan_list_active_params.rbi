@@ -25,36 +25,58 @@ module Onlyfansapi
       end
       attr_writer :filter
 
-      # Number of fans to return (1-50)
-      sig { returns(T.nilable(String)) }
-      attr_accessor :limit
+      # Number of fans to return (1-50). Must be at least 1. Must not be greater
+      # than 20.
+      sig { returns(T.nilable(Integer)) }
+      attr_reader :limit
 
-      # Number of fans to skip
-      sig { returns(T.nilable(String)) }
-      attr_accessor :offset
+      sig { params(limit: Integer).void }
+      attr_writer :limit
 
-      # Filter by fan type
+      # Number of fans to skip. Must be at least 0.
+      sig { returns(T.nilable(Integer)) }
+      attr_reader :offset
+
+      sig { params(offset: Integer).void }
+      attr_writer :offset
+
+      # Search within fan name/username.
       sig { returns(T.nilable(String)) }
-      attr_accessor :type
+      attr_accessor :query
+
+      # Filter by fan type.
+      sig do
+        returns(T.nilable(Onlyfansapi::FanListActiveParams::Type::OrSymbol))
+      end
+      attr_reader :type
+
+      sig do
+        params(type: Onlyfansapi::FanListActiveParams::Type::OrSymbol).void
+      end
+      attr_writer :type
 
       sig do
         params(
           account: String,
           filter: Onlyfansapi::FanListActiveParams::Filter::OrHash,
-          limit: T.nilable(String),
-          offset: T.nilable(String),
-          type: T.nilable(String),
+          limit: Integer,
+          offset: Integer,
+          query: T.nilable(String),
+          type: Onlyfansapi::FanListActiveParams::Type::OrSymbol,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
         account:,
         filter: nil,
-        # Number of fans to return (1-50)
+        # Number of fans to return (1-50). Must be at least 1. Must not be greater
+        # than 20.
         limit: nil,
-        # Number of fans to skip
+        # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Filter by fan type
+        # Search within fan name/username.
+        query: nil,
+        # Filter by fan type.
         type: nil,
         request_options: {}
       )
@@ -65,9 +87,10 @@ module Onlyfansapi
           {
             account: String,
             filter: Onlyfansapi::FanListActiveParams::Filter,
-            limit: T.nilable(String),
-            offset: T.nilable(String),
-            type: T.nilable(String),
+            limit: Integer,
+            offset: Integer,
+            query: T.nilable(String),
+            type: Onlyfansapi::FanListActiveParams::Type::OrSymbol,
             request_options: Onlyfansapi::RequestOptions
           }
         )
@@ -84,38 +107,56 @@ module Onlyfansapi
             )
           end
 
-        # Filter by minimum subscription duration (days)
-        sig { returns(T.nilable(String)) }
-        attr_accessor :duration
+        # Filter by minimum subscription duration in months. Must be at least 0.
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :duration
 
-        # Filter by online status (1 for online)
-        sig { returns(T.nilable(String)) }
+        sig { params(duration: Integer).void }
+        attr_writer :duration
+
+        # Filter by online status (`1` for online fans).
+        sig do
+          returns(
+            T.nilable(
+              Onlyfansapi::FanListActiveParams::Filter::Online::OrInteger
+            )
+          )
+        end
         attr_accessor :online
 
-        # Filter by minimum tips
-        sig { returns(T.nilable(String)) }
-        attr_accessor :tips
+        # Filter by minimum tips. Must be at least 0.
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :tips
 
-        # Filter by minimum total spent
-        sig { returns(T.nilable(String)) }
-        attr_accessor :total_spent
+        sig { params(tips: Integer).void }
+        attr_writer :tips
+
+        # Filter by minimum amount total spent by a fan. Must be at least 0.
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :total_spent
+
+        sig { params(total_spent: Integer).void }
+        attr_writer :total_spent
 
         sig do
           params(
-            duration: T.nilable(String),
-            online: T.nilable(String),
-            tips: T.nilable(String),
-            total_spent: T.nilable(String)
+            duration: Integer,
+            online:
+              T.nilable(
+                Onlyfansapi::FanListActiveParams::Filter::Online::OrInteger
+              ),
+            tips: Integer,
+            total_spent: Integer
           ).returns(T.attached_class)
         end
         def self.new(
-          # Filter by minimum subscription duration (days)
+          # Filter by minimum subscription duration in months. Must be at least 0.
           duration: nil,
-          # Filter by online status (1 for online)
+          # Filter by online status (`1` for online fans).
           online: nil,
-          # Filter by minimum tips
+          # Filter by minimum tips. Must be at least 0.
           tips: nil,
-          # Filter by minimum total spent
+          # Filter by minimum amount total spent by a fan. Must be at least 0.
           total_spent: nil
         )
         end
@@ -123,14 +164,72 @@ module Onlyfansapi
         sig do
           override.returns(
             {
-              duration: T.nilable(String),
-              online: T.nilable(String),
-              tips: T.nilable(String),
-              total_spent: T.nilable(String)
+              duration: Integer,
+              online:
+                T.nilable(
+                  Onlyfansapi::FanListActiveParams::Filter::Online::OrInteger
+                ),
+              tips: Integer,
+              total_spent: Integer
             }
           )
         end
         def to_hash
+        end
+
+        # Filter by online status (`1` for online fans).
+        module Online
+          extend Onlyfansapi::Internal::Type::Enum
+
+          TaggedInteger =
+            T.type_alias do
+              T.all(Integer, Onlyfansapi::FanListActiveParams::Filter::Online)
+            end
+          OrInteger = T.type_alias { Integer }
+
+          ONLINE_1 =
+            T.let(
+              1,
+              Onlyfansapi::FanListActiveParams::Filter::Online::TaggedInteger
+            )
+          ONLINE_0 =
+            T.let(
+              0,
+              Onlyfansapi::FanListActiveParams::Filter::Online::TaggedInteger
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Onlyfansapi::FanListActiveParams::Filter::Online::TaggedInteger
+              ]
+            )
+          end
+          def self.values
+          end
+        end
+      end
+
+      # Filter by fan type.
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, Onlyfansapi::FanListActiveParams::Type) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        ACTIVE =
+          T.let(:active, Onlyfansapi::FanListActiveParams::Type::TaggedSymbol)
+        EXPIRED =
+          T.let(:expired, Onlyfansapi::FanListActiveParams::Type::TaggedSymbol)
+        ALL = T.let(:all, Onlyfansapi::FanListActiveParams::Type::TaggedSymbol)
+
+        sig do
+          override.returns(
+            T::Array[Onlyfansapi::FanListActiveParams::Type::TaggedSymbol]
+          )
+        end
+        def self.values
         end
       end
     end

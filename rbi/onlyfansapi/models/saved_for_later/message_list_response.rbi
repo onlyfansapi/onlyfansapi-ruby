@@ -409,10 +409,7 @@ module Onlyfansapi
             attr_writer :entity
 
             sig { returns(T.nilable(String)) }
-            attr_reader :publish_date_time
-
-            sig { params(publish_date_time: String).void }
-            attr_writer :publish_date_time
+            attr_accessor :publish_date_time
 
             sig { returns(T.nilable(String)) }
             attr_reader :type
@@ -426,7 +423,7 @@ module Onlyfansapi
                 created_date_time: String,
                 entity:
                   Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity::OrHash,
-                publish_date_time: String,
+                publish_date_time: T.nilable(String),
                 type: String
               ).returns(T.attached_class)
             end
@@ -446,7 +443,7 @@ module Onlyfansapi
                   created_date_time: String,
                   entity:
                     Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity,
-                  publish_date_time: String,
+                  publish_date_time: T.nilable(String),
                   type: String
                 }
               )
@@ -500,10 +497,7 @@ module Onlyfansapi
               attr_writer :created_at
 
               sig { returns(T.nilable(String)) }
-              attr_reader :giphy_id
-
-              sig { params(giphy_id: String).void }
-              attr_writer :giphy_id
+              attr_accessor :giphy_id
 
               sig { returns(T.nilable(T::Boolean)) }
               attr_reader :is_free
@@ -608,10 +602,7 @@ module Onlyfansapi
               attr_writer :response_type
 
               sig { returns(T.nilable(String)) }
-              attr_reader :scheduled_at
-
-              sig { params(scheduled_at: String).void }
-              attr_writer :scheduled_at
+              attr_accessor :scheduled_at
 
               sig { returns(T.nilable(String)) }
               attr_reader :sent_rules_extra
@@ -651,7 +642,7 @@ module Onlyfansapi
                   can_unsend_queue: T::Boolean,
                   changed_at: String,
                   created_at: String,
-                  giphy_id: String,
+                  giphy_id: T.nilable(String),
                   is_free: T::Boolean,
                   is_from_queue: T::Boolean,
                   is_liked: T::Boolean,
@@ -669,7 +660,7 @@ module Onlyfansapi
                   raw_text: String,
                   release_forms: T::Array[T.anything],
                   response_type: String,
-                  scheduled_at: String,
+                  scheduled_at: T.nilable(String),
                   sent_rules_extra: String,
                   sent_rules_type: String,
                   text: String,
@@ -720,7 +711,7 @@ module Onlyfansapi
                     can_unsend_queue: T::Boolean,
                     changed_at: String,
                     created_at: String,
-                    giphy_id: String,
+                    giphy_id: T.nilable(String),
                     is_free: T::Boolean,
                     is_from_queue: T::Boolean,
                     is_liked: T::Boolean,
@@ -738,7 +729,7 @@ module Onlyfansapi
                     raw_text: String,
                     release_forms: T::Array[T.anything],
                     response_type: String,
-                    scheduled_at: String,
+                    scheduled_at: T.nilable(String),
                     sent_rules_extra: String,
                     sent_rules_type: String,
                     text: String,

@@ -8,7 +8,7 @@ module Onlyfansapi
           limit: Integer,
           list: Integer,
           offset: Integer,
-          query: String,
+          query: String?,
           sort: Onlyfansapi::Models::Media::VaultListParams::sort,
           type: Onlyfansapi::Models::Media::VaultListParams::type_
         }
@@ -38,9 +38,7 @@ module Onlyfansapi
 
         def offset=: (Integer) -> Integer
 
-        attr_reader query: String?
-
-        def query=: (String) -> String
+        attr_accessor query: String?
 
         attr_reader sort: Onlyfansapi::Models::Media::VaultListParams::sort?
 
@@ -60,7 +58,7 @@ module Onlyfansapi
           ?limit: Integer,
           ?list: Integer,
           ?offset: Integer,
-          ?query: String,
+          ?query: String?,
           ?sort: Onlyfansapi::Models::Media::VaultListParams::sort,
           ?type: Onlyfansapi::Models::Media::VaultListParams::type_,
           ?request_options: Onlyfansapi::request_opts
@@ -72,7 +70,7 @@ module Onlyfansapi
           limit: Integer,
           list: Integer,
           offset: Integer,
-          query: String,
+          query: String?,
           sort: Onlyfansapi::Models::Media::VaultListParams::sort,
           type: Onlyfansapi::Models::Media::VaultListParams::type_,
           request_options: Onlyfansapi::RequestOptions

@@ -4,9 +4,10 @@ module Onlyfansapi
       {
         account: String,
         filter: Onlyfansapi::FanListActiveParams::Filter,
-        limit: String?,
-        offset: String?,
-        type: String?
+        limit: Integer,
+        offset: Integer,
+        query: String?,
+        type: Onlyfansapi::Models::FanListActiveParams::type_
       }
       & Onlyfansapi::Internal::Type::request_parameters
 
@@ -22,60 +23,101 @@ module Onlyfansapi
         Onlyfansapi::FanListActiveParams::Filter
       ) -> Onlyfansapi::FanListActiveParams::Filter
 
-      attr_accessor limit: String?
+      attr_reader limit: Integer?
 
-      attr_accessor offset: String?
+      def limit=: (Integer) -> Integer
 
-      attr_accessor type: String?
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_accessor query: String?
+
+      attr_reader type: Onlyfansapi::Models::FanListActiveParams::type_?
+
+      def type=: (
+        Onlyfansapi::Models::FanListActiveParams::type_
+      ) -> Onlyfansapi::Models::FanListActiveParams::type_
 
       def initialize: (
         account: String,
         ?filter: Onlyfansapi::FanListActiveParams::Filter,
-        ?limit: String?,
-        ?offset: String?,
-        ?type: String?,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfansapi::Models::FanListActiveParams::type_,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
         filter: Onlyfansapi::FanListActiveParams::Filter,
-        limit: String?,
-        offset: String?,
-        type: String?,
+        limit: Integer,
+        offset: Integer,
+        query: String?,
+        type: Onlyfansapi::Models::FanListActiveParams::type_,
         request_options: Onlyfansapi::RequestOptions
       }
 
       type filter =
         {
-          duration: String?,
-          online: String?,
-          tips: String?,
-          total_spent: String?
+          duration: Integer,
+          online: Onlyfansapi::Models::FanListActiveParams::Filter::online?,
+          tips: Integer,
+          total_spent: Integer
         }
 
       class Filter < Onlyfansapi::Internal::Type::BaseModel
-        attr_accessor duration: String?
+        attr_reader duration: Integer?
 
-        attr_accessor online: String?
+        def duration=: (Integer) -> Integer
 
-        attr_accessor tips: String?
+        attr_accessor online: Onlyfansapi::Models::FanListActiveParams::Filter::online?
 
-        attr_accessor total_spent: String?
+        attr_reader tips: Integer?
+
+        def tips=: (Integer) -> Integer
+
+        attr_reader total_spent: Integer?
+
+        def total_spent=: (Integer) -> Integer
 
         def initialize: (
-          ?duration: String?,
-          ?online: String?,
-          ?tips: String?,
-          ?total_spent: String?
+          ?duration: Integer,
+          ?online: Onlyfansapi::Models::FanListActiveParams::Filter::online?,
+          ?tips: Integer,
+          ?total_spent: Integer
         ) -> void
 
         def to_hash: -> {
-          duration: String?,
-          online: String?,
-          tips: String?,
-          total_spent: String?
+          duration: Integer,
+          online: Onlyfansapi::Models::FanListActiveParams::Filter::online?,
+          tips: Integer,
+          total_spent: Integer
         }
+
+        type online = 1 | 0
+
+        module Online
+          extend Onlyfansapi::Internal::Type::Enum
+
+          ONLINE_1: 1
+          ONLINE_0: 0
+
+          def self?.values: -> ::Array[Onlyfansapi::Models::FanListActiveParams::Filter::online]
+        end
+      end
+
+      type type_ = :active | :expired | :all
+
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        ACTIVE: :active
+        EXPIRED: :expired
+        ALL: :all
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::FanListActiveParams::type_]
       end
     end
   end

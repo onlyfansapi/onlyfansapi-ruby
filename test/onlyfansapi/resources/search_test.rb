@@ -3,10 +3,10 @@
 require_relative "../test_helper"
 
 class Onlyfansapi::Test::Resources::SearchTest < Onlyfansapi::Test::ResourceTest
-  def test_profiles_required_params
+  def test_profiles
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.search.profiles(query: "milf")
+    response = @onlyfansapi.search.profiles
 
     assert_pattern do
       response => Onlyfansapi::Models::SearchProfilesResponse

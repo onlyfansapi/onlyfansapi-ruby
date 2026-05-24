@@ -189,7 +189,7 @@ module Onlyfansapi
               author: Onlyfansapi::Models::Posts::CommentListResponse::Data::List::Author,
               can_like: bool,
               changed_at: String,
-              giphy_id: String,
+              giphy_id: String?,
               is_liked: bool,
               is_liked_by_author: bool,
               is_pinned: bool,
@@ -217,9 +217,7 @@ module Onlyfansapi
 
             def changed_at=: (String) -> String
 
-            attr_reader giphy_id: String?
-
-            def giphy_id=: (String) -> String
+            attr_accessor giphy_id: String?
 
             attr_reader is_liked: bool?
 
@@ -250,7 +248,7 @@ module Onlyfansapi
               ?author: Onlyfansapi::Models::Posts::CommentListResponse::Data::List::Author,
               ?can_like: bool,
               ?changed_at: String,
-              ?giphy_id: String,
+              ?giphy_id: String?,
               ?is_liked: bool,
               ?is_liked_by_author: bool,
               ?is_pinned: bool,
@@ -264,7 +262,7 @@ module Onlyfansapi
               author: Onlyfansapi::Models::Posts::CommentListResponse::Data::List::Author,
               can_like: bool,
               changed_at: String,
-              giphy_id: String,
+              giphy_id: String?,
               is_liked: bool,
               is_liked_by_author: bool,
               is_pinned: bool,

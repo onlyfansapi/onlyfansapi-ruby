@@ -1,7 +1,7 @@
 module Onlyfansapi
   module Models
     type tracking_link_create_params =
-      { account: String, name: String }
+      { account: String, name: String, tags: ::Array[String] }
       & Onlyfansapi::Internal::Type::request_parameters
 
     class TrackingLinkCreateParams < Onlyfansapi::Internal::Type::BaseModel
@@ -12,15 +12,21 @@ module Onlyfansapi
 
       attr_accessor name: String
 
+      attr_reader tags: ::Array[String]?
+
+      def tags=: (::Array[String]) -> ::Array[String]
+
       def initialize: (
         account: String,
         name: String,
+        ?tags: ::Array[String],
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
         name: String,
+        tags: ::Array[String],
         request_options: Onlyfansapi::RequestOptions
       }
     end

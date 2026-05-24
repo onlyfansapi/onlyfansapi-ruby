@@ -434,10 +434,7 @@ module Onlyfansapi
           attr_writer :created_at
 
           sig { returns(T.nilable(String)) }
-          attr_reader :end_date
-
-          sig { params(end_date: String).void }
-          attr_writer :end_date
+          attr_accessor :end_date
 
           sig do
             returns(
@@ -479,6 +476,12 @@ module Onlyfansapi
           sig { params(subscribers_count: Integer).void }
           attr_writer :subscribers_count
 
+          sig { returns(T.nilable(T::Array[String])) }
+          attr_reader :tags
+
+          sig { params(tags: T::Array[String]).void }
+          attr_writer :tags
+
           sig do
             params(
               id: Integer,
@@ -487,12 +490,13 @@ module Onlyfansapi
               campaign_url: String,
               clicks_count: Integer,
               created_at: String,
-              end_date: String,
+              end_date: T.nilable(String),
               links:
                 Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Links::OrHash,
               revenue:
                 Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Revenue::OrHash,
-              subscribers_count: Integer
+              subscribers_count: Integer,
+              tags: T::Array[String]
             ).returns(T.attached_class)
           end
           def self.new(
@@ -505,7 +509,8 @@ module Onlyfansapi
             end_date: nil,
             links: nil,
             revenue: nil,
-            subscribers_count: nil
+            subscribers_count: nil,
+            tags: nil
           )
           end
 
@@ -518,12 +523,13 @@ module Onlyfansapi
                 campaign_url: String,
                 clicks_count: Integer,
                 created_at: String,
-                end_date: String,
+                end_date: T.nilable(String),
                 links:
                   Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Links,
                 revenue:
                   Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Revenue,
-                subscribers_count: Integer
+                subscribers_count: Integer,
+                tags: T::Array[String]
               }
             )
           end
@@ -622,10 +628,10 @@ module Onlyfansapi
             sig { params(is_loading: T::Boolean).void }
             attr_writer :is_loading
 
-            sig { returns(T.nilable(Integer)) }
+            sig { returns(T.nilable(Float)) }
             attr_reader :revenue_per_click
 
-            sig { params(revenue_per_click: Integer).void }
+            sig { params(revenue_per_click: Float).void }
             attr_writer :revenue_per_click
 
             sig { returns(T.nilable(Integer)) }
@@ -650,7 +656,7 @@ module Onlyfansapi
               params(
                 calculated_at: String,
                 is_loading: T::Boolean,
-                revenue_per_click: Integer,
+                revenue_per_click: Float,
                 revenue_per_subscriber: Integer,
                 spenders_count: Integer,
                 total: Integer
@@ -671,7 +677,7 @@ module Onlyfansapi
                 {
                   calculated_at: String,
                   is_loading: T::Boolean,
-                  revenue_per_click: Integer,
+                  revenue_per_click: Float,
                   revenue_per_subscriber: Integer,
                   spenders_count: Integer,
                   total: Integer

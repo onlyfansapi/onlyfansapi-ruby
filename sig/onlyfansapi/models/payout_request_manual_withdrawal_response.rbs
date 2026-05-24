@@ -175,20 +175,18 @@ module Onlyfansapi
             list: ::Array[Onlyfansapi::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data::List]
           }
 
-          type list = { reject_reason: String, state: String }
+          type list = { reject_reason: String?, state: String }
 
           class List < Onlyfansapi::Internal::Type::BaseModel
-            attr_reader reject_reason: String?
-
-            def reject_reason=: (String) -> String
+            attr_accessor reject_reason: String?
 
             attr_reader state: String?
 
             def state=: (String) -> String
 
-            def initialize: (?reject_reason: String, ?state: String) -> void
+            def initialize: (?reject_reason: String?, ?state: String) -> void
 
-            def to_hash: -> { reject_reason: String, state: String }
+            def to_hash: -> { reject_reason: String?, state: String }
           end
         end
       end
@@ -361,20 +359,18 @@ module Onlyfansapi
             list: ::Array[Onlyfansapi::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data::List]
           }
 
-          type list = { reject_reason: String, state: String }
+          type list = { reject_reason: String?, state: String }
 
           class List < Onlyfansapi::Internal::Type::BaseModel
-            attr_reader reject_reason: String?
-
-            def reject_reason=: (String) -> String
+            attr_accessor reject_reason: String?
 
             attr_reader state: String?
 
             def state=: (String) -> String
 
-            def initialize: (?reject_reason: String, ?state: String) -> void
+            def initialize: (?reject_reason: String?, ?state: String) -> void
 
-            def to_hash: -> { reject_reason: String, state: String }
+            def to_hash: -> { reject_reason: String?, state: String }
           end
         end
       end

@@ -136,7 +136,7 @@ module Onlyfansapi
           # @!attribute giphy_id
           #
           #   @return [String, nil]
-          optional :giphy_id, String, api_name: :giphyId
+          optional :giphy_id, String, api_name: :giphyId, nil?: true
 
           # @!attribute is_liked
           #
@@ -173,7 +173,7 @@ module Onlyfansapi
           #   @param author [Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author]
           #   @param can_like [Boolean]
           #   @param changed_at [String]
-          #   @param giphy_id [String]
+          #   @param giphy_id [String, nil]
           #   @param is_liked [Boolean]
           #   @param is_liked_by_author [Boolean]
           #   @param is_pinned [Boolean]
@@ -334,7 +334,7 @@ module Onlyfansapi
             # @!attribute subscribed_on
             #
             #   @return [String, nil]
-            optional :subscribed_on, String, api_name: :subscribedOn
+            optional :subscribed_on, String, api_name: :subscribedOn, nil?: true
 
             # @!attribute subscribe_price
             #
@@ -412,7 +412,7 @@ module Onlyfansapi
             #   @param last_seen [String]
             #   @param name [String]
             #   @param show_media_count [Boolean]
-            #   @param subscribed_on [String]
+            #   @param subscribed_on [String, nil]
             #   @param subscribe_price [Float]
             #   @param subscription_bundles [Array<Object>]
             #   @param tips_enabled [Boolean]

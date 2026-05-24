@@ -64,7 +64,7 @@ module Onlyfansapi
           # @!attribute about
           #
           #   @return [String, nil]
-          optional :about, String
+          optional :about, String, nil?: true
 
           # @!attribute adv_block
           #
@@ -98,7 +98,7 @@ module Onlyfansapi
           # @!attribute avatar
           #
           #   @return [String, nil]
-          optional :avatar, String
+          optional :avatar, String, nil?: true
 
           # @!attribute avatar_header_converter_upload
           #
@@ -110,7 +110,7 @@ module Onlyfansapi
           # @!attribute avatar_thumbs
           #
           #   @return [String, nil]
-          optional :avatar_thumbs, String, api_name: :avatarThumbs
+          optional :avatar_thumbs, String, api_name: :avatarThumbs, nil?: true
 
           # @!attribute can_add_card
           #
@@ -325,17 +325,17 @@ module Onlyfansapi
           # @!attribute header
           #
           #   @return [String, nil]
-          optional :header, String
+          optional :header, String, nil?: true
 
           # @!attribute header_size
           #
           #   @return [String, nil]
-          optional :header_size, String, api_name: :headerSize
+          optional :header_size, String, api_name: :headerSize, nil?: true
 
           # @!attribute header_thumbs
           #
           #   @return [String, nil]
-          optional :header_thumbs, String, api_name: :headerThumbs
+          optional :header_thumbs, String, api_name: :headerThumbs, nil?: true
 
           # @!attribute ip
           #
@@ -470,7 +470,7 @@ module Onlyfansapi
           # @!attribute iv_country
           #
           #   @return [String, nil]
-          optional :iv_country, String, api_name: :ivCountry
+          optional :iv_country, String, api_name: :ivCountry, nil?: true
 
           # @!attribute iv_fail_reason
           #
@@ -485,7 +485,7 @@ module Onlyfansapi
           # @!attribute iv_status
           #
           #   @return [String, nil]
-          optional :iv_status, String, api_name: :ivStatus
+          optional :iv_status, String, api_name: :ivStatus, nil?: true
 
           # @!attribute join_date
           #
@@ -500,7 +500,7 @@ module Onlyfansapi
           # @!attribute location
           #
           #   @return [String, nil]
-          optional :location, String
+          optional :location, String, nil?: true
 
           # @!attribute max_pinned_posts_count
           #
@@ -580,7 +580,7 @@ module Onlyfansapi
           # @!attribute twitter_username
           #
           #   @return [String, nil]
-          optional :twitter_username, String, api_name: :twitterUsername
+          optional :twitter_username, String, api_name: :twitterUsername, nil?: true
 
           # @!attribute upload
           #
@@ -631,12 +631,12 @@ module Onlyfansapi
           # @!attribute website
           #
           #   @return [String, nil]
-          optional :website, String
+          optional :website, String, nil?: true
 
           # @!attribute wishlist
           #
           #   @return [String, nil]
-          optional :wishlist, String
+          optional :wishlist, String, nil?: true
 
           # @!attribute ws_auth_token
           #
@@ -650,15 +650,15 @@ module Onlyfansapi
 
           # @!method initialize(id: nil, about: nil, adv_block: nil, age_verification_required: nil, age_verification_session: nil, archived_posts_count: nil, audios_count: nil, avatar: nil, avatar_header_converter_upload: nil, avatar_thumbs: nil, can_add_card: nil, can_alternative_wallet_top_up: nil, can_chat: nil, can_comment_story: nil, can_connect_of_account: nil, can_create_lists: nil, can_look_story: nil, can_pay_internal: nil, can_pin_post: nil, can_receive_chat_message: nil, can_send_chat_to_all: nil, chat_messages_count: nil, connected_of_accounts: nil, count_pinned_chat: nil, count_priority_chat: nil, credit_balance: nil, credits_max: nil, credits_min: nil, csrf: nil, email: nil, enabled_image_editor_for_chat: nil, face_id_regular: nil, favorited_count: nil, favorites_count: nil, has_internal_payments: nil, has_labels: nil, has_new_alerts: nil, has_new_changed_price_subscriptions: nil, has_new_hints: nil, has_new_ticket_replies: nil, has_not_viewed_story: nil, has_pinned_posts: nil, has_purchased_posts: nil, has_scenario: nil, has_system_notifications: nil, has_tags: nil, has_watermark_photo: nil, has_watermark_video: nil, header: nil, header_size: nil, header_thumbs: nil, ip: nil, is_age_verified: nil, is_allow_tweets: nil, is_auth: nil, is_credits_enabled: nil, is_delete_initiated: nil, is_email_checked: nil, is_email_required: nil, is_legal_approved_allowed: nil, is_make_payment: nil, is_markdown_disabled_for_about: nil, is_otp_enabled: nil, is_payment_card_connected: nil, is_paywall_passed: nil, is_performer: nil, is_real_card_connected: nil, is_real_performer: nil, is_referrer_allowed: nil, is_spotify_connected: nil, is_twitter_connected: nil, is_verified: nil, is_visible_online: nil, is_wallet_autorecharge: nil, is_want_comments: nil, iv_country: nil, iv_fail_reason: nil, iv_flow: nil, iv_status: nil, join_date: nil, last_seen: nil, location: nil, max_pinned_posts_count: nil, medias_count: nil, name: nil, need_iv_approve: nil, new_tags_count: nil, notifications_count: nil, paid_feed: nil, payout_legal_approve_state: nil, photos_count: nil, pinned_posts_count: nil, posts_count: nil, private_archived_posts_count: nil, show_posts_in_feed: nil, subscribers_count: nil, subscribes_count: nil, twitter_username: nil, upload: nil, username: nil, videos_count: nil, view: nil, wallet_autorecharge_amount: nil, wallet_autorecharge_min: nil, wallet_first_rebills: nil, watermark_position: nil, watermark_text: nil, website: nil, wishlist: nil, ws_auth_token: nil, ws_url: nil)
           #   @param id [Integer]
-          #   @param about [String]
+          #   @param about [String, nil]
           #   @param adv_block [Array<String>]
           #   @param age_verification_required [Boolean]
           #   @param age_verification_session [Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::AgeVerificationSession]
           #   @param archived_posts_count [Integer]
           #   @param audios_count [Integer]
-          #   @param avatar [String]
+          #   @param avatar [String, nil]
           #   @param avatar_header_converter_upload [Boolean]
-          #   @param avatar_thumbs [String]
+          #   @param avatar_thumbs [String, nil]
           #   @param can_add_card [Boolean]
           #   @param can_alternative_wallet_top_up [Boolean]
           #   @param can_chat [Boolean]
@@ -697,9 +697,9 @@ module Onlyfansapi
           #   @param has_tags [Boolean]
           #   @param has_watermark_photo [Boolean]
           #   @param has_watermark_video [Boolean]
-          #   @param header [String]
-          #   @param header_size [String]
-          #   @param header_thumbs [String]
+          #   @param header [String, nil]
+          #   @param header_size [String, nil]
+          #   @param header_thumbs [String, nil]
           #   @param ip [String]
           #   @param is_age_verified [Boolean]
           #   @param is_allow_tweets [Boolean]
@@ -724,13 +724,13 @@ module Onlyfansapi
           #   @param is_visible_online [Boolean]
           #   @param is_wallet_autorecharge [Boolean]
           #   @param is_want_comments [Boolean]
-          #   @param iv_country [String]
+          #   @param iv_country [String, nil]
           #   @param iv_fail_reason [String]
           #   @param iv_flow [String]
-          #   @param iv_status [String]
+          #   @param iv_status [String, nil]
           #   @param join_date [String]
           #   @param last_seen [String]
-          #   @param location [String]
+          #   @param location [String, nil]
           #   @param max_pinned_posts_count [Integer]
           #   @param medias_count [Integer]
           #   @param name [String]
@@ -746,7 +746,7 @@ module Onlyfansapi
           #   @param show_posts_in_feed [Boolean]
           #   @param subscribers_count [Integer]
           #   @param subscribes_count [Integer]
-          #   @param twitter_username [String]
+          #   @param twitter_username [String, nil]
           #   @param upload [Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::Upload]
           #   @param username [String]
           #   @param videos_count [Integer]
@@ -756,8 +756,8 @@ module Onlyfansapi
           #   @param wallet_first_rebills [Boolean]
           #   @param watermark_position [String]
           #   @param watermark_text [String]
-          #   @param website [String]
-          #   @param wishlist [String]
+          #   @param website [String, nil]
+          #   @param wishlist [String, nil]
           #   @param ws_auth_token [String]
           #   @param ws_url [String]
 
@@ -888,10 +888,15 @@ module Onlyfansapi
         #   @return [String, nil]
         optional :completed_at, String
 
+        # @!attribute error_code
+        #
+        #   @return [String, nil]
+        optional :error_code, String, nil?: true
+
         # @!attribute error_message
         #
         #   @return [String, nil]
-        optional :error_message, String
+        optional :error_message, String, nil?: true
 
         # @!attribute needs_otp
         #
@@ -901,7 +906,7 @@ module Onlyfansapi
         # @!attribute otp_phone_ending
         #
         #   @return [String, nil]
-        optional :otp_phone_ending, String
+        optional :otp_phone_ending, String, nil?: true
 
         # @!attribute started_at
         #
@@ -913,11 +918,12 @@ module Onlyfansapi
         #   @return [Boolean, nil]
         optional :success, Onlyfansapi::Internal::Type::Boolean
 
-        # @!method initialize(completed_at: nil, error_message: nil, needs_otp: nil, otp_phone_ending: nil, started_at: nil, success: nil)
+        # @!method initialize(completed_at: nil, error_code: nil, error_message: nil, needs_otp: nil, otp_phone_ending: nil, started_at: nil, success: nil)
         #   @param completed_at [String]
-        #   @param error_message [String]
+        #   @param error_code [String, nil]
+        #   @param error_message [String, nil]
         #   @param needs_otp [Boolean]
-        #   @param otp_phone_ending [String]
+        #   @param otp_phone_ending [String, nil]
         #   @param started_at [String]
         #   @param success [Boolean]
       end

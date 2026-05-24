@@ -163,7 +163,7 @@ module Onlyfansapi
           can_add_subscriber_by_bundle: Onlyfansapi::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle,
           can_make_profile_links: bool,
           can_socials_connect: bool,
-          change_email_step: String,
+          change_email_step: String?,
           changelog_updates: Integer,
           comments_only_for_payers: bool,
           confirm_email_sent_at: String,
@@ -188,17 +188,17 @@ module Onlyfansapi
           is_private: bool,
           is_suggestions_opt_out: bool,
           is_telegram_connected: bool,
-          last_subscription_expired_at: String,
-          life_time_email_code: String,
+          last_subscription_expired_at: String?,
+          life_time_email_code: String?,
           mute_tags_in_chats: bool,
           mute_tags_in_posts: bool,
           mute_tags_in_stories: bool,
           mute_tags_in_streams: bool,
-          new_email: String,
+          new_email: String?,
           notify_on_all_mentions: bool,
-          :phone_last4 => String,
+          :phone_last4 => String?,
           phone_otp: bool,
-          recommender_reward: String,
+          recommender_reward: String?,
           reply_on_subscribe: bool,
           :send_awards_top1 => bool,
           :send_awards_top5 => bool,
@@ -208,8 +208,8 @@ module Onlyfansapi
           show_posts_tips: bool,
           show_subscribes_offers: bool,
           socials_connects: ::Array[top],
-          streaming_mux_key: String,
-          streaming_mux_key_expired_at: String,
+          streaming_mux_key: String?,
+          streaming_mux_key_expired_at: String?,
           streaming_mux_server: String,
           streaming_obs_key: String,
           streaming_obs_server: String,
@@ -274,9 +274,7 @@ module Onlyfansapi
 
         def can_socials_connect=: (bool) -> bool
 
-        attr_reader change_email_step: String?
-
-        def change_email_step=: (String) -> String
+        attr_accessor change_email_step: String?
 
         attr_reader changelog_updates: Integer?
 
@@ -374,13 +372,9 @@ module Onlyfansapi
 
         def is_telegram_connected=: (bool) -> bool
 
-        attr_reader last_subscription_expired_at: String?
+        attr_accessor last_subscription_expired_at: String?
 
-        def last_subscription_expired_at=: (String) -> String
-
-        attr_reader life_time_email_code: String?
-
-        def life_time_email_code=: (String) -> String
+        attr_accessor life_time_email_code: String?
 
         attr_reader mute_tags_in_chats: bool?
 
@@ -398,25 +392,19 @@ module Onlyfansapi
 
         def mute_tags_in_streams=: (bool) -> bool
 
-        attr_reader new_email: String?
-
-        def new_email=: (String) -> String
+        attr_accessor new_email: String?
 
         attr_reader notify_on_all_mentions: bool?
 
         def notify_on_all_mentions=: (bool) -> bool
 
-        attr_reader phone_last4: String?
-
-        def phone_last4=: (String) -> String
+        attr_accessor phone_last4: String?
 
         attr_reader phone_otp: bool?
 
         def phone_otp=: (bool) -> bool
 
-        attr_reader recommender_reward: String?
-
-        def recommender_reward=: (String) -> String
+        attr_accessor recommender_reward: String?
 
         attr_reader reply_on_subscribe: bool?
 
@@ -454,13 +442,9 @@ module Onlyfansapi
 
         def socials_connects=: (::Array[top]) -> ::Array[top]
 
-        attr_reader streaming_mux_key: String?
+        attr_accessor streaming_mux_key: String?
 
-        def streaming_mux_key=: (String) -> String
-
-        attr_reader streaming_mux_key_expired_at: String?
-
-        def streaming_mux_key_expired_at=: (String) -> String
+        attr_accessor streaming_mux_key_expired_at: String?
 
         attr_reader streaming_mux_server: String?
 
@@ -504,7 +488,7 @@ module Onlyfansapi
           ?can_add_subscriber_by_bundle: Onlyfansapi::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle,
           ?can_make_profile_links: bool,
           ?can_socials_connect: bool,
-          ?change_email_step: String,
+          ?change_email_step: String?,
           ?changelog_updates: Integer,
           ?comments_only_for_payers: bool,
           ?confirm_email_sent_at: String,
@@ -529,17 +513,17 @@ module Onlyfansapi
           ?is_private: bool,
           ?is_suggestions_opt_out: bool,
           ?is_telegram_connected: bool,
-          ?last_subscription_expired_at: String,
-          ?life_time_email_code: String,
+          ?last_subscription_expired_at: String?,
+          ?life_time_email_code: String?,
           ?mute_tags_in_chats: bool,
           ?mute_tags_in_posts: bool,
           ?mute_tags_in_stories: bool,
           ?mute_tags_in_streams: bool,
-          ?new_email: String,
+          ?new_email: String?,
           ?notify_on_all_mentions: bool,
-          ?phone_last4: String,
+          ?phone_last4: String?,
           ?phone_otp: bool,
-          ?recommender_reward: String,
+          ?recommender_reward: String?,
           ?reply_on_subscribe: bool,
           ?send_awards_top1: bool,
           ?send_awards_top5: bool,
@@ -549,8 +533,8 @@ module Onlyfansapi
           ?show_posts_tips: bool,
           ?show_subscribes_offers: bool,
           ?socials_connects: ::Array[top],
-          ?streaming_mux_key: String,
-          ?streaming_mux_key_expired_at: String,
+          ?streaming_mux_key: String?,
+          ?streaming_mux_key_expired_at: String?,
           ?streaming_mux_server: String,
           ?streaming_obs_key: String,
           ?streaming_obs_server: String,
@@ -574,7 +558,7 @@ module Onlyfansapi
           can_add_subscriber_by_bundle: Onlyfansapi::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle,
           can_make_profile_links: bool,
           can_socials_connect: bool,
-          change_email_step: String,
+          change_email_step: String?,
           changelog_updates: Integer,
           comments_only_for_payers: bool,
           confirm_email_sent_at: String,
@@ -599,17 +583,17 @@ module Onlyfansapi
           is_private: bool,
           is_suggestions_opt_out: bool,
           is_telegram_connected: bool,
-          last_subscription_expired_at: String,
-          life_time_email_code: String,
+          last_subscription_expired_at: String?,
+          life_time_email_code: String?,
           mute_tags_in_chats: bool,
           mute_tags_in_posts: bool,
           mute_tags_in_stories: bool,
           mute_tags_in_streams: bool,
-          new_email: String,
+          new_email: String?,
           notify_on_all_mentions: bool,
-          :phone_last4 => String,
+          :phone_last4 => String?,
           phone_otp: bool,
-          recommender_reward: String,
+          recommender_reward: String?,
           reply_on_subscribe: bool,
           :send_awards_top1 => bool,
           :send_awards_top5 => bool,
@@ -619,8 +603,8 @@ module Onlyfansapi
           show_posts_tips: bool,
           show_subscribes_offers: bool,
           socials_connects: ::Array[top],
-          streaming_mux_key: String,
-          streaming_mux_key_expired_at: String,
+          streaming_mux_key: String?,
+          streaming_mux_key_expired_at: String?,
           streaming_mux_server: String,
           streaming_obs_key: String,
           streaming_obs_server: String,

@@ -10,9 +10,10 @@ module Onlyfansapi
       ) -> Onlyfansapi::Models::UserListCreateResponse
 
       def update: (
-        Integer user_list_id,
+        String user_list_id,
         account: String,
         name: String,
+        ?is_pinned_to_feed: bool?,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::UserListUpdateResponse
 
@@ -24,7 +25,7 @@ module Onlyfansapi
       ) -> Onlyfansapi::Models::UserListListResponse
 
       def delete: (
-        Integer user_list_id,
+        String user_list_id,
         account: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::UserListDeleteResponse

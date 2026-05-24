@@ -30,7 +30,13 @@ module Onlyfansapi
       #   @return [Integer, nil]
       optional :offset, Integer
 
-      # @!method initialize(account:, filter: nil, limit: nil, offset: nil, request_options: {})
+      # @!attribute query
+      #   Search within following name/username.
+      #
+      #   @return [String, nil]
+      optional :query, String, nil?: true
+
+      # @!method initialize(account:, filter: nil, limit: nil, offset: nil, query: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfansapi::Models::FollowingListActiveParams} for more details.
       #
@@ -41,6 +47,8 @@ module Onlyfansapi
       #   @param limit [Integer] Number of followings to return (1-50). Must be at least 1. Must not be greater t
       #
       #   @param offset [Integer] Pagination offset. Must be at least 0.
+      #
+      #   @param query [String, nil] Search within following name/username.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
 
@@ -68,6 +76,9 @@ module Onlyfansapi
         module Online
           extend Onlyfansapi::Internal::Type::Enum
 
+          ONLINE_1 = 1
+          ONLINE_0 = 0
+
           # @!method self.values
           #   @return [Array<Integer>]
         end
@@ -77,6 +88,9 @@ module Onlyfansapi
         # @see Onlyfansapi::Models::FollowingListActiveParams::Filter#paid
         module Paid
           extend Onlyfansapi::Internal::Type::Enum
+
+          PAID_1 = 1
+          PAID_0 = 0
 
           # @!method self.values
           #   @return [Array<Integer>]

@@ -34,24 +34,13 @@ module Onlyfansapi
         request_options: Onlyfansapi::RequestOptions
       }
 
-      type proxy_country =
-        :us | :uk | :de | :es | :fr | :it | :ua | :pl | :ro | :cz | :hu | :sk
+      type proxy_country = :us | :uk
 
       module ProxyCountry
         extend Onlyfansapi::Internal::Type::Enum
 
         US: :us
         UK: :uk
-        DE: :de
-        ES: :es
-        FR: :fr
-        IT: :it
-        UA: :ua
-        PL: :pl
-        RO: :ro
-        CZ: :cz
-        HU: :hu
-        SK: :sk
 
         def self?.values: -> ::Array[Onlyfansapi::Models::ClientSessionCreateParams::proxy_country]
       end

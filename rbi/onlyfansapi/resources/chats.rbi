@@ -2,9 +2,7 @@
 
 module Onlyfansapi
   module Resources
-    # APIs for managing OnlyFans chats
     class Chats
-      # APIs for managing OnlyFans chats
       sig { returns(Onlyfansapi::Resources::Chats::Messages) }
       attr_reader :messages
 
@@ -12,26 +10,29 @@ module Onlyfansapi
       sig do
         params(
           account: String,
+          filter: Onlyfansapi::ChatListParams::Filter::OrSymbol,
           limit: String,
           offset: String,
-          order: String,
+          order: Onlyfansapi::ChatListParams::Order::OrSymbol,
           query: String,
-          skip_users: String,
+          skip_users: Onlyfansapi::ChatListParams::SkipUsers::OrSymbol,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::ChatListResponse)
       end
       def list(
         # The Account ID
         account,
-        # Number of chats to return (10, 20, or 30)
+        # Optionally, filter the chats by type.
+        filter: nil,
+        # Number of chats to return (1 - 100). Default = 10
         limit: nil,
         # Number of chats to skip for pagination
         offset: nil,
-        # Sort order for chats (recent or old)
+        # Sort order for chats (recent or old). Default = recent
         order: nil,
         # Search query to filter chats
         query: nil,
-        # Whether to skip user details in response (all or none)
+        # Whether to skip user details in response (all or none). Default = all
         skip_users: nil,
         request_options: {}
       )

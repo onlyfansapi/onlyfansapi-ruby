@@ -369,10 +369,7 @@ module Onlyfansapi
           attr_writer :is_xxx
 
           sig { returns(T.nilable(String)) }
-          attr_reader :iv_fail_reason
-
-          sig { params(iv_fail_reason: String).void }
-          attr_writer :iv_fail_reason
+          attr_accessor :iv_fail_reason
 
           sig { returns(T.nilable(String)) }
           attr_reader :iv_status
@@ -387,10 +384,7 @@ module Onlyfansapi
           attr_writer :need_show_edit_w9
 
           sig { returns(T.nilable(String)) }
-          attr_reader :payout_legal_approve_reject_reason
-
-          sig { params(payout_legal_approve_reject_reason: String).void }
-          attr_writer :payout_legal_approve_reject_reason
+          attr_accessor :payout_legal_approve_reject_reason
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :show_iv_button
@@ -426,10 +420,10 @@ module Onlyfansapi
               is_w9_exist: T::Boolean,
               is_w9_required: T::Boolean,
               is_xxx: T::Boolean,
-              iv_fail_reason: String,
+              iv_fail_reason: T.nilable(String),
               iv_status: String,
               need_show_edit_w9: T::Boolean,
-              payout_legal_approve_reject_reason: String,
+              payout_legal_approve_reject_reason: T.nilable(String),
               show_iv_button: T::Boolean,
               tax:
                 Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax::OrHash
@@ -465,10 +459,10 @@ module Onlyfansapi
                 is_w9_exist: T::Boolean,
                 is_w9_required: T::Boolean,
                 is_xxx: T::Boolean,
-                iv_fail_reason: String,
+                iv_fail_reason: T.nilable(String),
                 iv_status: String,
                 need_show_edit_w9: T::Boolean,
-                payout_legal_approve_reject_reason: String,
+                payout_legal_approve_reject_reason: T.nilable(String),
                 show_iv_button: T::Boolean,
                 tax:
                   Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
@@ -494,10 +488,7 @@ module Onlyfansapi
             attr_writer :country_ids
 
             sig { returns(T.nilable(String)) }
-            attr_reader :error
-
-            sig { params(error: String).void }
-            attr_writer :error
+            attr_accessor :error
 
             sig { returns(T.nilable(T::Boolean)) }
             attr_reader :required
@@ -520,7 +511,7 @@ module Onlyfansapi
             sig do
               params(
                 country_ids: T::Array[Integer],
-                error: String,
+                error: T.nilable(String),
                 required: T::Boolean,
                 state: String,
                 type: String
@@ -539,7 +530,7 @@ module Onlyfansapi
               override.returns(
                 {
                   country_ids: T::Array[Integer],
-                  error: String,
+                  error: T.nilable(String),
                   required: T::Boolean,
                   state: String,
                   type: String

@@ -80,15 +80,15 @@ module Onlyfansapi
         type onlyfans_data =
           {
             id: Integer,
-            about: String,
+            about: String?,
             adv_block: ::Array[String],
             age_verification_required: bool,
             age_verification_session: Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::AgeVerificationSession,
             archived_posts_count: Integer,
             audios_count: Integer,
-            avatar: String,
+            avatar: String?,
             avatar_header_converter_upload: bool,
-            avatar_thumbs: String,
+            avatar_thumbs: String?,
             can_add_card: bool,
             can_alternative_wallet_top_up: bool,
             can_chat: bool,
@@ -127,9 +127,9 @@ module Onlyfansapi
             has_tags: bool,
             has_watermark_photo: bool,
             has_watermark_video: bool,
-            header: String,
-            header_size: String,
-            header_thumbs: String,
+            header: String?,
+            header_size: String?,
+            header_thumbs: String?,
             ip: String,
             is_age_verified: bool,
             is_allow_tweets: bool,
@@ -154,13 +154,13 @@ module Onlyfansapi
             is_visible_online: bool,
             is_wallet_autorecharge: bool,
             is_want_comments: bool,
-            iv_country: String,
+            iv_country: String?,
             iv_fail_reason: String,
             iv_flow: String,
-            iv_status: String,
+            iv_status: String?,
             join_date: String,
             last_seen: String,
-            location: String,
+            location: String?,
             max_pinned_posts_count: Integer,
             medias_count: Integer,
             name: String,
@@ -176,7 +176,7 @@ module Onlyfansapi
             show_posts_in_feed: bool,
             subscribers_count: Integer,
             subscribes_count: Integer,
-            twitter_username: String,
+            twitter_username: String?,
             upload: Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::Upload,
             username: String,
             videos_count: Integer,
@@ -186,8 +186,8 @@ module Onlyfansapi
             wallet_first_rebills: bool,
             watermark_position: String,
             watermark_text: String,
-            website: String,
-            wishlist: String,
+            website: String?,
+            wishlist: String?,
             ws_auth_token: String,
             ws_url: String
           }
@@ -197,9 +197,7 @@ module Onlyfansapi
 
           def id=: (Integer) -> Integer
 
-          attr_reader about: String?
-
-          def about=: (String) -> String
+          attr_accessor about: String?
 
           attr_reader adv_block: ::Array[String]?
 
@@ -223,17 +221,13 @@ module Onlyfansapi
 
           def audios_count=: (Integer) -> Integer
 
-          attr_reader avatar: String?
-
-          def avatar=: (String) -> String
+          attr_accessor avatar: String?
 
           attr_reader avatar_header_converter_upload: bool?
 
           def avatar_header_converter_upload=: (bool) -> bool
 
-          attr_reader avatar_thumbs: String?
-
-          def avatar_thumbs=: (String) -> String
+          attr_accessor avatar_thumbs: String?
 
           attr_reader can_add_card: bool?
 
@@ -389,17 +383,11 @@ module Onlyfansapi
 
           def has_watermark_video=: (bool) -> bool
 
-          attr_reader header: String?
+          attr_accessor header: String?
 
-          def header=: (String) -> String
+          attr_accessor header_size: String?
 
-          attr_reader header_size: String?
-
-          def header_size=: (String) -> String
-
-          attr_reader header_thumbs: String?
-
-          def header_thumbs=: (String) -> String
+          attr_accessor header_thumbs: String?
 
           attr_reader ip: String?
 
@@ -497,9 +485,7 @@ module Onlyfansapi
 
           def is_want_comments=: (bool) -> bool
 
-          attr_reader iv_country: String?
-
-          def iv_country=: (String) -> String
+          attr_accessor iv_country: String?
 
           attr_reader iv_fail_reason: String?
 
@@ -509,9 +495,7 @@ module Onlyfansapi
 
           def iv_flow=: (String) -> String
 
-          attr_reader iv_status: String?
-
-          def iv_status=: (String) -> String
+          attr_accessor iv_status: String?
 
           attr_reader join_date: String?
 
@@ -521,9 +505,7 @@ module Onlyfansapi
 
           def last_seen=: (String) -> String
 
-          attr_reader location: String?
-
-          def location=: (String) -> String
+          attr_accessor location: String?
 
           attr_reader max_pinned_posts_count: Integer?
 
@@ -585,9 +567,7 @@ module Onlyfansapi
 
           def subscribes_count=: (Integer) -> Integer
 
-          attr_reader twitter_username: String?
-
-          def twitter_username=: (String) -> String
+          attr_accessor twitter_username: String?
 
           attr_reader upload: Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::Upload?
 
@@ -627,13 +607,9 @@ module Onlyfansapi
 
           def watermark_text=: (String) -> String
 
-          attr_reader website: String?
+          attr_accessor website: String?
 
-          def website=: (String) -> String
-
-          attr_reader wishlist: String?
-
-          def wishlist=: (String) -> String
+          attr_accessor wishlist: String?
 
           attr_reader ws_auth_token: String?
 
@@ -645,15 +621,15 @@ module Onlyfansapi
 
           def initialize: (
             ?id: Integer,
-            ?about: String,
+            ?about: String?,
             ?adv_block: ::Array[String],
             ?age_verification_required: bool,
             ?age_verification_session: Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::AgeVerificationSession,
             ?archived_posts_count: Integer,
             ?audios_count: Integer,
-            ?avatar: String,
+            ?avatar: String?,
             ?avatar_header_converter_upload: bool,
-            ?avatar_thumbs: String,
+            ?avatar_thumbs: String?,
             ?can_add_card: bool,
             ?can_alternative_wallet_top_up: bool,
             ?can_chat: bool,
@@ -692,9 +668,9 @@ module Onlyfansapi
             ?has_tags: bool,
             ?has_watermark_photo: bool,
             ?has_watermark_video: bool,
-            ?header: String,
-            ?header_size: String,
-            ?header_thumbs: String,
+            ?header: String?,
+            ?header_size: String?,
+            ?header_thumbs: String?,
             ?ip: String,
             ?is_age_verified: bool,
             ?is_allow_tweets: bool,
@@ -719,13 +695,13 @@ module Onlyfansapi
             ?is_visible_online: bool,
             ?is_wallet_autorecharge: bool,
             ?is_want_comments: bool,
-            ?iv_country: String,
+            ?iv_country: String?,
             ?iv_fail_reason: String,
             ?iv_flow: String,
-            ?iv_status: String,
+            ?iv_status: String?,
             ?join_date: String,
             ?last_seen: String,
-            ?location: String,
+            ?location: String?,
             ?max_pinned_posts_count: Integer,
             ?medias_count: Integer,
             ?name: String,
@@ -741,7 +717,7 @@ module Onlyfansapi
             ?show_posts_in_feed: bool,
             ?subscribers_count: Integer,
             ?subscribes_count: Integer,
-            ?twitter_username: String,
+            ?twitter_username: String?,
             ?upload: Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::Upload,
             ?username: String,
             ?videos_count: Integer,
@@ -751,23 +727,23 @@ module Onlyfansapi
             ?wallet_first_rebills: bool,
             ?watermark_position: String,
             ?watermark_text: String,
-            ?website: String,
-            ?wishlist: String,
+            ?website: String?,
+            ?wishlist: String?,
             ?ws_auth_token: String,
             ?ws_url: String
           ) -> void
 
           def to_hash: -> {
             id: Integer,
-            about: String,
+            about: String?,
             adv_block: ::Array[String],
             age_verification_required: bool,
             age_verification_session: Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::AgeVerificationSession,
             archived_posts_count: Integer,
             audios_count: Integer,
-            avatar: String,
+            avatar: String?,
             avatar_header_converter_upload: bool,
-            avatar_thumbs: String,
+            avatar_thumbs: String?,
             can_add_card: bool,
             can_alternative_wallet_top_up: bool,
             can_chat: bool,
@@ -806,9 +782,9 @@ module Onlyfansapi
             has_tags: bool,
             has_watermark_photo: bool,
             has_watermark_video: bool,
-            header: String,
-            header_size: String,
-            header_thumbs: String,
+            header: String?,
+            header_size: String?,
+            header_thumbs: String?,
             ip: String,
             is_age_verified: bool,
             is_allow_tweets: bool,
@@ -833,13 +809,13 @@ module Onlyfansapi
             is_visible_online: bool,
             is_wallet_autorecharge: bool,
             is_want_comments: bool,
-            iv_country: String,
+            iv_country: String?,
             iv_fail_reason: String,
             iv_flow: String,
-            iv_status: String,
+            iv_status: String?,
             join_date: String,
             last_seen: String,
-            location: String,
+            location: String?,
             max_pinned_posts_count: Integer,
             medias_count: Integer,
             name: String,
@@ -855,7 +831,7 @@ module Onlyfansapi
             show_posts_in_feed: bool,
             subscribers_count: Integer,
             subscribes_count: Integer,
-            twitter_username: String,
+            twitter_username: String?,
             upload: Onlyfansapi::Models::AuthenticatePollStatusResponse::Account::OnlyfansData::Upload,
             username: String,
             videos_count: Integer,
@@ -865,8 +841,8 @@ module Onlyfansapi
             wallet_first_rebills: bool,
             watermark_position: String,
             watermark_text: String,
-            website: String,
-            wishlist: String,
+            website: String?,
+            wishlist: String?,
             ws_auth_token: String,
             ws_url: String
           }
@@ -1026,9 +1002,10 @@ module Onlyfansapi
       type last_attempt =
         {
           completed_at: String,
-          error_message: String,
+          error_code: String?,
+          error_message: String?,
           needs_otp: bool,
-          otp_phone_ending: String,
+          otp_phone_ending: String?,
           started_at: String,
           success: bool
         }
@@ -1038,17 +1015,15 @@ module Onlyfansapi
 
         def completed_at=: (String) -> String
 
-        attr_reader error_message: String?
+        attr_accessor error_code: String?
 
-        def error_message=: (String) -> String
+        attr_accessor error_message: String?
 
         attr_reader needs_otp: bool?
 
         def needs_otp=: (bool) -> bool
 
-        attr_reader otp_phone_ending: String?
-
-        def otp_phone_ending=: (String) -> String
+        attr_accessor otp_phone_ending: String?
 
         attr_reader started_at: String?
 
@@ -1060,18 +1035,20 @@ module Onlyfansapi
 
         def initialize: (
           ?completed_at: String,
-          ?error_message: String,
+          ?error_code: String?,
+          ?error_message: String?,
           ?needs_otp: bool,
-          ?otp_phone_ending: String,
+          ?otp_phone_ending: String?,
           ?started_at: String,
           ?success: bool
         ) -> void
 
         def to_hash: -> {
           completed_at: String,
-          error_message: String,
+          error_code: String?,
+          error_message: String?,
           needs_otp: bool,
-          otp_phone_ending: String,
+          otp_phone_ending: String?,
           started_at: String,
           success: bool
         }

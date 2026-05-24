@@ -204,10 +204,11 @@ module Onlyfansapi
             campaign_url: String,
             clicks_count: Integer,
             created_at: String,
-            end_date: String,
+            end_date: String?,
             links: Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Links,
             revenue: Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Revenue,
-            subscribers_count: Integer
+            subscribers_count: Integer,
+            tags: ::Array[String]
           }
 
         class List < Onlyfansapi::Internal::Type::BaseModel
@@ -235,9 +236,7 @@ module Onlyfansapi
 
           def created_at=: (String) -> String
 
-          attr_reader end_date: String?
-
-          def end_date=: (String) -> String
+          attr_accessor end_date: String?
 
           attr_reader links: Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Links?
 
@@ -255,6 +254,10 @@ module Onlyfansapi
 
           def subscribers_count=: (Integer) -> Integer
 
+          attr_reader tags: ::Array[String]?
+
+          def tags=: (::Array[String]) -> ::Array[String]
+
           def initialize: (
             ?id: Integer,
             ?campaign_code: Integer,
@@ -262,10 +265,11 @@ module Onlyfansapi
             ?campaign_url: String,
             ?clicks_count: Integer,
             ?created_at: String,
-            ?end_date: String,
+            ?end_date: String?,
             ?links: Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Links,
             ?revenue: Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Revenue,
-            ?subscribers_count: Integer
+            ?subscribers_count: Integer,
+            ?tags: ::Array[String]
           ) -> void
 
           def to_hash: -> {
@@ -275,10 +279,11 @@ module Onlyfansapi
             campaign_url: String,
             clicks_count: Integer,
             created_at: String,
-            end_date: String,
+            end_date: String?,
             links: Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Links,
             revenue: Onlyfansapi::Models::TrackingLinkListResponse::Data::List::Revenue,
-            subscribers_count: Integer
+            subscribers_count: Integer,
+            tags: ::Array[String]
           }
 
           type links =
@@ -318,7 +323,7 @@ module Onlyfansapi
             {
               calculated_at: String,
               is_loading: bool,
-              revenue_per_click: Integer,
+              revenue_per_click: Float,
               revenue_per_subscriber: Integer,
               spenders_count: Integer,
               total: Integer
@@ -333,9 +338,9 @@ module Onlyfansapi
 
             def is_loading=: (bool) -> bool
 
-            attr_reader revenue_per_click: Integer?
+            attr_reader revenue_per_click: Float?
 
-            def revenue_per_click=: (Integer) -> Integer
+            def revenue_per_click=: (Float) -> Float
 
             attr_reader revenue_per_subscriber: Integer?
 
@@ -352,7 +357,7 @@ module Onlyfansapi
             def initialize: (
               ?calculated_at: String,
               ?is_loading: bool,
-              ?revenue_per_click: Integer,
+              ?revenue_per_click: Float,
               ?revenue_per_subscriber: Integer,
               ?spenders_count: Integer,
               ?total: Integer
@@ -361,7 +366,7 @@ module Onlyfansapi
             def to_hash: -> {
               calculated_at: String,
               is_loading: bool,
-              revenue_per_click: Integer,
+              revenue_per_click: Float,
               revenue_per_subscriber: Integer,
               spenders_count: Integer,
               total: Integer

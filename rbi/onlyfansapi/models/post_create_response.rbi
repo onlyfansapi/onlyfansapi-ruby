@@ -1130,30 +1130,21 @@ module Onlyfansapi
             attr_writer :full
 
             sig { returns(T.nilable(String)) }
-            attr_reader :preview
-
-            sig { params(preview: String).void }
-            attr_writer :preview
+            attr_accessor :preview
 
             sig { returns(T.nilable(String)) }
-            attr_reader :square_preview
-
-            sig { params(square_preview: String).void }
-            attr_writer :square_preview
+            attr_accessor :square_preview
 
             sig { returns(T.nilable(String)) }
-            attr_reader :thumb
-
-            sig { params(thumb: String).void }
-            attr_writer :thumb
+            attr_accessor :thumb
 
             sig do
               params(
                 full:
                   Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full::OrHash,
-                preview: String,
-                square_preview: String,
-                thumb: String
+                preview: T.nilable(String),
+                square_preview: T.nilable(String),
+                thumb: T.nilable(String)
               ).returns(T.attached_class)
             end
             def self.new(
@@ -1169,9 +1160,9 @@ module Onlyfansapi
                 {
                   full:
                     Onlyfansapi::Models::PostCreateResponse::Data::Media::Files::Full,
-                  preview: String,
-                  square_preview: String,
-                  thumb: String
+                  preview: T.nilable(String),
+                  square_preview: T.nilable(String),
+                  thumb: T.nilable(String)
                 }
               )
             end
@@ -1206,10 +1197,7 @@ module Onlyfansapi
               attr_writer :sources
 
               sig { returns(T.nilable(String)) }
-              attr_reader :url
-
-              sig { params(url: String).void }
-              attr_writer :url
+              attr_accessor :url
 
               sig { returns(T.nilable(Integer)) }
               attr_reader :width
@@ -1222,7 +1210,7 @@ module Onlyfansapi
                   height: Integer,
                   size: Integer,
                   sources: T::Array[T.anything],
-                  url: String,
+                  url: T.nilable(String),
                   width: Integer
                 ).returns(T.attached_class)
               end
@@ -1241,7 +1229,7 @@ module Onlyfansapi
                     height: Integer,
                     size: Integer,
                     sources: T::Array[T.anything],
-                    url: String,
+                    url: T.nilable(String),
                     width: Integer
                   }
                 )

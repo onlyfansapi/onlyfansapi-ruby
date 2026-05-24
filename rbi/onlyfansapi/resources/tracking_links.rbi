@@ -9,6 +9,7 @@ module Onlyfansapi
         params(
           account: String,
           name: String,
+          tags: T::Array[String],
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::TrackingLinkCreateResponse)
       end
@@ -17,6 +18,8 @@ module Onlyfansapi
         account,
         # The name of the Tracking Link
         name:,
+        # Array of tag names to add to the tracking link.
+        tags: nil,
         request_options: {}
       )
       end
@@ -72,8 +75,7 @@ module Onlyfansapi
         ).returns(Onlyfansapi::Models::TrackingLinkDeleteResponse)
       end
       def delete(
-        # The ID of the Tracking Link. Can be retrieved from the above store and list
-        # endpoints.
+        # The ID of the tracking link.
         tracking_link_id,
         # The Account ID
         account:,

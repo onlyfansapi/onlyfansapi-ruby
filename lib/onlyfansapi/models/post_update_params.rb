@@ -24,7 +24,7 @@ module Onlyfansapi
       required :text, String
 
       # @!attribute expire_days
-      #   Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+      #   Number of days after which the post will expire. Between 1 and 30 days. Keep
       #   empty for no expiration.
       #
       #   @return [Integer, nil]
@@ -119,7 +119,7 @@ module Onlyfansapi
       #
       #   @param text [String] The post text content
       #
-      #   @param expire_days [Integer] Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+      #   @param expire_days [Integer] Number of days after which the post will expire. Between 1 and 30 days. Keep emp
       #
       #   @param fund_raising_target_amount [Integer] Add a fundraising target to your post. If present, value must be at least 10.
       #

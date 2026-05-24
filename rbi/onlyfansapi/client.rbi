@@ -30,7 +30,6 @@ module Onlyfansapi
     sig { returns(Onlyfansapi::Resources::Banking) }
     attr_reader :banking
 
-    # APIs for managing OnlyFans chats
     sig { returns(Onlyfansapi::Resources::Chats) }
     attr_reader :chats
 
@@ -87,7 +86,6 @@ module Onlyfansapi
     sig { returns(Onlyfansapi::Resources::SavedForLater) }
     attr_reader :saved_for_later
 
-    # Operations related to user account settings.
     sig { returns(Onlyfansapi::Resources::Settings) }
     attr_reader :settings
 

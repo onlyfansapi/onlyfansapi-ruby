@@ -155,7 +155,7 @@ module Onlyfansapi
             author: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author,
             can_like: bool,
             changed_at: String,
-            giphy_id: String,
+            giphy_id: String?,
             is_liked: bool,
             is_liked_by_author: bool,
             is_pinned: bool,
@@ -183,9 +183,7 @@ module Onlyfansapi
 
           def changed_at=: (String) -> String
 
-          attr_reader giphy_id: String?
-
-          def giphy_id=: (String) -> String
+          attr_accessor giphy_id: String?
 
           attr_reader is_liked: bool?
 
@@ -216,7 +214,7 @@ module Onlyfansapi
             ?author: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author,
             ?can_like: bool,
             ?changed_at: String,
-            ?giphy_id: String,
+            ?giphy_id: String?,
             ?is_liked: bool,
             ?is_liked_by_author: bool,
             ?is_pinned: bool,
@@ -230,7 +228,7 @@ module Onlyfansapi
             author: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author,
             can_like: bool,
             changed_at: String,
-            giphy_id: String,
+            giphy_id: String?,
             is_liked: bool,
             is_liked_by_author: bool,
             is_pinned: bool,
@@ -269,7 +267,7 @@ module Onlyfansapi
               last_seen: String,
               name: String,
               show_media_count: bool,
-              subscribed_on: String,
+              subscribed_on: String?,
               subscribe_price: Float,
               subscription_bundles: ::Array[top],
               tips_enabled: bool,
@@ -400,9 +398,7 @@ module Onlyfansapi
 
             def show_media_count=: (bool) -> bool
 
-            attr_reader subscribed_on: String?
-
-            def subscribed_on=: (String) -> String
+            attr_accessor subscribed_on: String?
 
             attr_reader subscribe_price: Float?
 
@@ -469,7 +465,7 @@ module Onlyfansapi
               ?last_seen: String,
               ?name: String,
               ?show_media_count: bool,
-              ?subscribed_on: String,
+              ?subscribed_on: String?,
               ?subscribe_price: Float,
               ?subscription_bundles: ::Array[top],
               ?tips_enabled: bool,
@@ -510,7 +506,7 @@ module Onlyfansapi
               last_seen: String,
               name: String,
               show_media_count: bool,
-              subscribed_on: String,
+              subscribed_on: String?,
               subscribe_price: Float,
               subscription_bundles: ::Array[top],
               tips_enabled: bool,

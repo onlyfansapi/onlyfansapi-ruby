@@ -8,7 +8,7 @@ class Onlyfansapi::Test::Resources::UserLists::UsersTest < Onlyfansapi::Test::Re
 
     response =
       @onlyfansapi.user_lists.users.add(
-        1_224_114_714,
+        "userListId",
         account: "acct_XXXXXXXXXXXXXXX",
         ids: %w[string string string]
       )
@@ -32,7 +32,7 @@ class Onlyfansapi::Test::Resources::UserLists::UsersTest < Onlyfansapi::Test::Re
       @onlyfansapi.user_lists.users.remove(
         123_456,
         account: "acct_XXXXXXXXXXXXXXX",
-        user_list_id: 1_224_114_714
+        user_list_id: "userListId"
       )
 
     assert_pattern do

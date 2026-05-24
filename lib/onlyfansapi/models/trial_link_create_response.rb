@@ -121,10 +121,10 @@ module Onlyfansapi
         # @!attribute next_page
         #
         #   @return [String, nil]
-        optional :next_page, String
+        optional :next_page, String, nil?: true
 
         # @!method initialize(next_page: nil)
-        #   @param next_page [String]
+        #   @param next_page [String, nil]
       end
 
       # @see Onlyfansapi::Models::TrialLinkCreateResponse#data

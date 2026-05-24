@@ -313,6 +313,12 @@ module Onlyfansapi
           end
 
         sig { returns(T.nilable(String)) }
+        attr_reader :next_cursor
+
+        sig { params(next_cursor: String).void }
+        attr_writer :next_cursor
+
+        sig { returns(T.nilable(String)) }
         attr_reader :next_page_url
 
         sig { params(next_page_url: String).void }
@@ -325,15 +331,23 @@ module Onlyfansapi
         attr_writer :total_results
 
         sig do
-          params(next_page_url: String, total_results: Integer).returns(
-            T.attached_class
-          )
+          params(
+            next_cursor: String,
+            next_page_url: String,
+            total_results: Integer
+          ).returns(T.attached_class)
         end
-        def self.new(next_page_url: nil, total_results: nil)
+        def self.new(next_cursor: nil, next_page_url: nil, total_results: nil)
         end
 
         sig do
-          override.returns({ next_page_url: String, total_results: Integer })
+          override.returns(
+            {
+              next_cursor: String,
+              next_page_url: String,
+              total_results: Integer
+            }
+          )
         end
         def to_hash
         end
@@ -347,12 +361,6 @@ module Onlyfansapi
               Onlyfansapi::Internal::AnyHash
             )
           end
-
-        sig { returns(T.nilable(Integer)) }
-        attr_reader :id
-
-        sig { params(id: Integer).void }
-        attr_writer :id
 
         sig { returns(T.nilable(String)) }
         attr_reader :about
@@ -372,35 +380,14 @@ module Onlyfansapi
         sig { params(avatar_url: String).void }
         attr_writer :avatar_url
 
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_reader :browsable
-
-        sig { params(browsable: T::Boolean).void }
-        attr_writer :browsable
+        sig { returns(T.nilable(String)) }
+        attr_accessor :bundles
 
         sig { returns(T.nilable(String)) }
-        attr_reader :bundles
-
-        sig { params(bundles: String).void }
-        attr_writer :bundles
+        attr_accessor :facebook
 
         sig { returns(T.nilable(String)) }
-        attr_reader :created_at
-
-        sig { params(created_at: String).void }
-        attr_writer :created_at
-
-        sig { returns(T.nilable(String)) }
-        attr_reader :facebook
-
-        sig { params(facebook: String).void }
-        attr_writer :facebook
-
-        sig { returns(T.nilable(String)) }
-        attr_reader :fansly
-
-        sig { params(fansly: String).void }
-        attr_writer :fansly
+        attr_accessor :fansly
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :favorited_count
@@ -415,22 +402,13 @@ module Onlyfansapi
         attr_writer :favorites_count
 
         sig { returns(T.nilable(String)) }
-        attr_reader :gender
-
-        sig { params(gender: String).void }
-        attr_writer :gender
-
-        sig { returns(T.nilable(String)) }
         attr_reader :header_url
 
         sig { params(header_url: String).void }
         attr_writer :header_url
 
         sig { returns(T.nilable(String)) }
-        attr_reader :instagram
-
-        sig { params(instagram: String).void }
-        attr_writer :instagram
+        attr_accessor :instagram
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :is_adult_content
@@ -463,10 +441,7 @@ module Onlyfansapi
         attr_writer :join_date
 
         sig { returns(T.nilable(String)) }
-        attr_reader :last_seen_at
-
-        sig { params(last_seen_at: String).void }
-        attr_writer :last_seen_at
+        attr_accessor :last_seen_at
 
         sig { returns(T.nilable(String)) }
         attr_reader :location
@@ -475,10 +450,7 @@ module Onlyfansapi
         attr_writer :location
 
         sig { returns(T.nilable(String)) }
-        attr_reader :manyvids
-
-        sig { params(manyvids: String).void }
-        attr_writer :manyvids
+        attr_accessor :manyvids
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :min_subscribe_price
@@ -493,9 +465,21 @@ module Onlyfansapi
         attr_writer :name
 
         sig { returns(T.nilable(String)) }
+        attr_reader :ofapi_gender
+
+        sig { params(ofapi_gender: String).void }
+        attr_writer :ofapi_gender
+
+        sig { returns(T.nilable(Float)) }
+        attr_reader :ofapi_gender_confidence
+
+        sig { params(ofapi_gender_confidence: Float).void }
+        attr_writer :ofapi_gender_confidence
+
+        sig { returns(T.nilable(Integer)) }
         attr_reader :onlyfans_id
 
-        sig { params(onlyfans_id: String).void }
+        sig { params(onlyfans_id: Integer).void }
         attr_writer :onlyfans_id
 
         sig { returns(T.nilable(Integer)) }
@@ -505,10 +489,7 @@ module Onlyfansapi
         attr_writer :photos_count
 
         sig { returns(T.nilable(String)) }
-        attr_reader :pornhub
-
-        sig { params(pornhub: String).void }
-        attr_writer :pornhub
+        attr_accessor :pornhub
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :posts_count
@@ -517,10 +498,7 @@ module Onlyfansapi
         attr_writer :posts_count
 
         sig { returns(T.nilable(String)) }
-        attr_reader :promotions
-
-        sig { params(promotions: String).void }
-        attr_writer :promotions
+        attr_accessor :promotions
 
         sig { returns(T.nilable(String)) }
         attr_reader :stats_updated_at
@@ -535,28 +513,13 @@ module Onlyfansapi
         attr_writer :subscribe_price
 
         sig { returns(T.nilable(String)) }
-        attr_reader :subscribers_count
-
-        sig { params(subscribers_count: String).void }
-        attr_writer :subscribers_count
+        attr_accessor :subscribers_count
 
         sig { returns(T.nilable(String)) }
-        attr_reader :tiktok
-
-        sig { params(tiktok: String).void }
-        attr_writer :tiktok
+        attr_accessor :tiktok
 
         sig { returns(T.nilable(String)) }
-        attr_reader :twitter
-
-        sig { params(twitter: String).void }
-        attr_writer :twitter
-
-        sig { returns(T.nilable(String)) }
-        attr_reader :updated_at
-
-        sig { params(updated_at: String).void }
-        attr_writer :updated_at
+        attr_accessor :twitter
 
         sig { returns(T.nilable(String)) }
         attr_reader :username
@@ -577,67 +540,57 @@ module Onlyfansapi
         attr_writer :website
 
         sig { returns(T.nilable(String)) }
-        attr_reader :wishlist
-
-        sig { params(wishlist: String).void }
-        attr_writer :wishlist
+        attr_accessor :wishlist
 
         sig do
           params(
-            id: Integer,
             about: String,
             audios_count: Integer,
             avatar_url: String,
-            browsable: T::Boolean,
-            bundles: String,
-            created_at: String,
-            facebook: String,
-            fansly: String,
+            bundles: T.nilable(String),
+            facebook: T.nilable(String),
+            fansly: T.nilable(String),
             favorited_count: Integer,
             favorites_count: Integer,
-            gender: String,
             header_url: String,
-            instagram: String,
+            instagram: T.nilable(String),
             is_adult_content: T::Boolean,
             is_performer: T::Boolean,
             is_real_performer: T::Boolean,
             is_verified: T::Boolean,
             join_date: String,
-            last_seen_at: String,
+            last_seen_at: T.nilable(String),
             location: String,
-            manyvids: String,
+            manyvids: T.nilable(String),
             min_subscribe_price: Integer,
             name: String,
-            onlyfans_id: String,
+            ofapi_gender: String,
+            ofapi_gender_confidence: Float,
+            onlyfans_id: Integer,
             photos_count: Integer,
-            pornhub: String,
+            pornhub: T.nilable(String),
             posts_count: Integer,
-            promotions: String,
+            promotions: T.nilable(String),
             stats_updated_at: String,
             subscribe_price: Integer,
-            subscribers_count: String,
-            tiktok: String,
-            twitter: String,
-            updated_at: String,
+            subscribers_count: T.nilable(String),
+            tiktok: T.nilable(String),
+            twitter: T.nilable(String),
             username: String,
             videos_count: Integer,
             website: String,
-            wishlist: String
+            wishlist: T.nilable(String)
           ).returns(T.attached_class)
         end
         def self.new(
-          id: nil,
           about: nil,
           audios_count: nil,
           avatar_url: nil,
-          browsable: nil,
           bundles: nil,
-          created_at: nil,
           facebook: nil,
           fansly: nil,
           favorited_count: nil,
           favorites_count: nil,
-          gender: nil,
           header_url: nil,
           instagram: nil,
           is_adult_content: nil,
@@ -650,6 +603,8 @@ module Onlyfansapi
           manyvids: nil,
           min_subscribe_price: nil,
           name: nil,
+          ofapi_gender: nil,
+          ofapi_gender_confidence: nil,
           onlyfans_id: nil,
           photos_count: nil,
           pornhub: nil,
@@ -660,7 +615,6 @@ module Onlyfansapi
           subscribers_count: nil,
           tiktok: nil,
           twitter: nil,
-          updated_at: nil,
           username: nil,
           videos_count: nil,
           website: nil,
@@ -671,45 +625,42 @@ module Onlyfansapi
         sig do
           override.returns(
             {
-              id: Integer,
               about: String,
               audios_count: Integer,
               avatar_url: String,
-              browsable: T::Boolean,
-              bundles: String,
-              created_at: String,
-              facebook: String,
-              fansly: String,
+              bundles: T.nilable(String),
+              facebook: T.nilable(String),
+              fansly: T.nilable(String),
               favorited_count: Integer,
               favorites_count: Integer,
-              gender: String,
               header_url: String,
-              instagram: String,
+              instagram: T.nilable(String),
               is_adult_content: T::Boolean,
               is_performer: T::Boolean,
               is_real_performer: T::Boolean,
               is_verified: T::Boolean,
               join_date: String,
-              last_seen_at: String,
+              last_seen_at: T.nilable(String),
               location: String,
-              manyvids: String,
+              manyvids: T.nilable(String),
               min_subscribe_price: Integer,
               name: String,
-              onlyfans_id: String,
+              ofapi_gender: String,
+              ofapi_gender_confidence: Float,
+              onlyfans_id: Integer,
               photos_count: Integer,
-              pornhub: String,
+              pornhub: T.nilable(String),
               posts_count: Integer,
-              promotions: String,
+              promotions: T.nilable(String),
               stats_updated_at: String,
               subscribe_price: Integer,
-              subscribers_count: String,
-              tiktok: String,
-              twitter: String,
-              updated_at: String,
+              subscribers_count: T.nilable(String),
+              tiktok: T.nilable(String),
+              twitter: T.nilable(String),
               username: String,
               videos_count: Integer,
               website: String,
-              wishlist: String
+              wishlist: T.nilable(String)
             }
           )
         end

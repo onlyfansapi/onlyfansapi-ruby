@@ -16,7 +16,7 @@ module Onlyfansapi
             limit: Integer,
             list: Integer,
             offset: Integer,
-            query: String,
+            query: T.nilable(String),
             sort: Onlyfansapi::Media::VaultListParams::Sort::OrSymbol,
             type: Onlyfansapi::Media::VaultListParams::Type::OrSymbol,
             request_options: Onlyfansapi::RequestOptions::OrHash
@@ -27,7 +27,7 @@ module Onlyfansapi
           account,
           # Sort the results by a field. Default `recent`
           field: nil,
-          # Number of media to return per page. Default: `24`
+          # Number of media to return per page (10 - 100). Default: `24`
           limit: nil,
           # Only show media items from a specific list (category). **Refer to our Media
           # Vault Lists endpoints.**

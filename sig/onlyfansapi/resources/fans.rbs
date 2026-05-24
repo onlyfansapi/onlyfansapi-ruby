@@ -4,27 +4,30 @@ module Onlyfansapi
       def list_active: (
         String account,
         ?filter: Onlyfansapi::FanListActiveParams::Filter,
-        ?limit: String?,
-        ?offset: String?,
-        ?type: String?,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfansapi::Models::FanListActiveParams::type_,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::FanListActiveResponse
 
       def list_all: (
         String account,
         ?filter: Onlyfansapi::FanListAllParams::Filter,
-        ?limit: String?,
-        ?offset: String?,
-        ?type: String?,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfansapi::Models::FanListAllParams::type_,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::FanListAllResponse
 
       def list_expired: (
         String account,
         ?filter: Onlyfansapi::FanListExpiredParams::Filter,
-        ?limit: String?,
-        ?offset: String?,
-        ?type: String?,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfansapi::Models::FanListExpiredParams::type_,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::FanListExpiredResponse
 

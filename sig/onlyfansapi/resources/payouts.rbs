@@ -8,13 +8,6 @@ module Onlyfansapi
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::PayoutListPayoutRequestsResponse
 
-      def list_transactions: (
-        String account,
-        ?limit: String,
-        ?marker: String,
-        ?request_options: Onlyfansapi::request_opts
-      ) -> Onlyfansapi::Models::PayoutListTransactionsResponse
-
       def request_manual_withdrawal: (
         String account,
         amount: Integer,

@@ -447,10 +447,7 @@ module Onlyfansapi
           attr_writer :can_restrict
 
           sig { returns(T.nilable(String)) }
-          attr_reader :current_subscribe_price
-
-          sig { params(current_subscribe_price: String).void }
-          attr_writer :current_subscribe_price
+          attr_accessor :current_subscribe_price
 
           sig { returns(T.nilable(String)) }
           attr_reader :display_name
@@ -483,22 +480,13 @@ module Onlyfansapi
           attr_writer :has_stream
 
           sig { returns(T.nilable(String)) }
-          attr_reader :header
-
-          sig { params(header: String).void }
-          attr_writer :header
+          attr_accessor :header
 
           sig { returns(T.nilable(String)) }
-          attr_reader :header_size
-
-          sig { params(header_size: String).void }
-          attr_writer :header_size
+          attr_accessor :header_size
 
           sig { returns(T.nilable(String)) }
-          attr_reader :header_thumbs
-
-          sig { params(header_thumbs: String).void }
-          attr_writer :header_thumbs
+          attr_accessor :header_thumbs
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :is_restricted
@@ -513,10 +501,7 @@ module Onlyfansapi
           attr_writer :is_verified
 
           sig { returns(T.nilable(String)) }
-          attr_reader :last_seen
-
-          sig { params(last_seen: String).void }
-          attr_writer :last_seen
+          attr_accessor :last_seen
 
           sig { returns(T.nilable(String)) }
           attr_reader :name
@@ -537,28 +522,16 @@ module Onlyfansapi
           attr_writer :subscribed_by
 
           sig { returns(T.nilable(String)) }
-          attr_reader :subscribed_by_autoprolong
-
-          sig { params(subscribed_by_autoprolong: String).void }
-          attr_writer :subscribed_by_autoprolong
+          attr_accessor :subscribed_by_autoprolong
 
           sig { returns(T.nilable(String)) }
-          attr_reader :subscribed_by_expire
-
-          sig { params(subscribed_by_expire: String).void }
-          attr_writer :subscribed_by_expire
+          attr_accessor :subscribed_by_expire
 
           sig { returns(T.nilable(String)) }
-          attr_reader :subscribed_by_expire_date
-
-          sig { params(subscribed_by_expire_date: String).void }
-          attr_writer :subscribed_by_expire_date
+          attr_accessor :subscribed_by_expire_date
 
           sig { returns(T.nilable(String)) }
-          attr_reader :subscribed_is_expired_now
-
-          sig { params(subscribed_is_expired_now: String).void }
-          attr_writer :subscribed_is_expired_now
+          attr_accessor :subscribed_is_expired_now
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :subscribed_on
@@ -639,25 +612,25 @@ module Onlyfansapi
               can_pay_internal: T::Boolean,
               can_report: T::Boolean,
               can_restrict: T::Boolean,
-              current_subscribe_price: String,
+              current_subscribe_price: T.nilable(String),
               display_name: String,
               has_not_viewed_story: T::Boolean,
               has_scheduled_stream: T::Boolean,
               has_stories: T::Boolean,
               has_stream: T::Boolean,
-              header: String,
-              header_size: String,
-              header_thumbs: String,
+              header: T.nilable(String),
+              header_size: T.nilable(String),
+              header_thumbs: T.nilable(String),
               is_restricted: T::Boolean,
               is_verified: T::Boolean,
-              last_seen: String,
+              last_seen: T.nilable(String),
               name: String,
               notice: String,
               subscribed_by: T::Boolean,
-              subscribed_by_autoprolong: String,
-              subscribed_by_expire: String,
-              subscribed_by_expire_date: String,
-              subscribed_is_expired_now: String,
+              subscribed_by_autoprolong: T.nilable(String),
+              subscribed_by_expire: T.nilable(String),
+              subscribed_by_expire_date: T.nilable(String),
+              subscribed_is_expired_now: T.nilable(String),
               subscribed_on: T::Boolean,
               subscribed_on_duration: String,
               subscribed_on_expired_now: T::Boolean,
@@ -729,25 +702,25 @@ module Onlyfansapi
                 can_pay_internal: T::Boolean,
                 can_report: T::Boolean,
                 can_restrict: T::Boolean,
-                current_subscribe_price: String,
+                current_subscribe_price: T.nilable(String),
                 display_name: String,
                 has_not_viewed_story: T::Boolean,
                 has_scheduled_stream: T::Boolean,
                 has_stories: T::Boolean,
                 has_stream: T::Boolean,
-                header: String,
-                header_size: String,
-                header_thumbs: String,
+                header: T.nilable(String),
+                header_size: T.nilable(String),
+                header_thumbs: T.nilable(String),
                 is_restricted: T::Boolean,
                 is_verified: T::Boolean,
-                last_seen: String,
+                last_seen: T.nilable(String),
                 name: String,
                 notice: String,
                 subscribed_by: T::Boolean,
-                subscribed_by_autoprolong: String,
-                subscribed_by_expire: String,
-                subscribed_by_expire_date: String,
-                subscribed_is_expired_now: String,
+                subscribed_by_autoprolong: T.nilable(String),
+                subscribed_by_expire: T.nilable(String),
+                subscribed_by_expire_date: T.nilable(String),
+                subscribed_is_expired_now: T.nilable(String),
                 subscribed_on: T::Boolean,
                 subscribed_on_duration: String,
                 subscribed_on_expired_now: T::Boolean,

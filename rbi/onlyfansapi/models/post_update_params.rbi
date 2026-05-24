@@ -21,7 +21,7 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :text
 
-      # Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+      # Number of days after which the post will expire. Between 1 and 30 days. Keep
       # empty for no expiration.
       sig { returns(T.nilable(Integer)) }
       attr_reader :expire_days
@@ -150,7 +150,7 @@ module Onlyfansapi
         post_id:,
         # The post text content
         text:,
-        # Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+        # Number of days after which the post will expire. Between 1 and 30 days. Keep
         # empty for no expiration.
         expire_days: nil,
         # Add a fundraising target to your post. If present, value must be at least 10.

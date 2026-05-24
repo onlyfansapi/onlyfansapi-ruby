@@ -222,6 +222,7 @@ module Onlyfansapi
             payout_pending_days: Integer,
             status: String,
             tax_amount: Integer,
+            type: String,
             user: Onlyfansapi::Models::TransactionListResponse::Data::List::User,
             vat_amount: Integer
           }
@@ -267,6 +268,10 @@ module Onlyfansapi
 
           def tax_amount=: (Integer) -> Integer
 
+          attr_reader type: String?
+
+          def type=: (String) -> String
+
           attr_reader user: Onlyfansapi::Models::TransactionListResponse::Data::List::User?
 
           def user=: (
@@ -288,6 +293,7 @@ module Onlyfansapi
             ?payout_pending_days: Integer,
             ?status: String,
             ?tax_amount: Integer,
+            ?type: String,
             ?user: Onlyfansapi::Models::TransactionListResponse::Data::List::User,
             ?vat_amount: Integer
           ) -> void
@@ -303,6 +309,7 @@ module Onlyfansapi
             payout_pending_days: Integer,
             status: String,
             tax_amount: Integer,
+            type: String,
             user: Onlyfansapi::Models::TransactionListResponse::Data::List::User,
             vat_amount: Integer
           }

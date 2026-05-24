@@ -27,6 +27,7 @@ module Onlyfansapi
           id: String,
           account: String,
           text: String,
+          giphy_id: String,
           locked_text: T::Boolean,
           media_files: T::Array[String],
           previews: T::Array[String],
@@ -45,6 +46,9 @@ module Onlyfansapi
         account:,
         # Body param: The message text content
         text:,
+        # Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the
+        # Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
+        giphy_id: nil,
         # Body param: Whether the text should be shown or hidden
         locked_text: nil,
         # Body param: Array of media file upload prefixed_ids, or OF media IDs (required
@@ -100,32 +104,6 @@ module Onlyfansapi
       )
       end
 
-      # List mass messaging statistics, showing the send count and view count.
-      sig do
-        params(
-          account: String,
-          limit: Integer,
-          offset: Integer,
-          query: String,
-          type: Onlyfansapi::MassMessagingListStatisticsParams::Type::OrSymbol,
-          request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(Onlyfansapi::Models::MassMessagingListStatisticsResponse)
-      end
-      def list_statistics(
-        # The Account ID
-        account,
-        # Number of mass messages to return (default = 20)
-        limit: nil,
-        # Number of mass messages to skip for pagination
-        offset: nil,
-        # Optionally, find a mass message by the message text.
-        query: nil,
-        # Filter by sent / scheduled / unsent (default = sent)
-        type: nil,
-        request_options: {}
-      )
-      end
-
       # Send a mass message to lists and/or users. You may use both the `userLists` and
       # `userIds` parameters to send the same message to both lists and individual
       # users.
@@ -133,10 +111,15 @@ module Onlyfansapi
         params(
           account: String,
           text: String,
+          excluded_lists: T::Array[String],
+          giphy_id: String,
           locked_text: T::Boolean,
-          media_files: T::Array[String],
-          previews: T::Array[String],
+          media_files: T::Array[T.anything],
+          previews: T::Array[T.anything],
           price: Integer,
+          rf_guest: String,
+          rf_partner: String,
+          rf_tag: String,
           save_for_later: T::Boolean,
           scheduled_date: String,
           user_ids: T::Array[String],
@@ -149,18 +132,29 @@ module Onlyfansapi
         account,
         # The message text content
         text:,
+        # Array of user list IDs that the mass message will NOT be sent to.
+        excluded_lists: nil,
+        # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+        # endpoints (`/giphy/trending`, `/giphy/search`).
+        giphy_id: nil,
         # Whether the text should be shown or hidden
         locked_text: nil,
-        # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        # not 0). Will be hidden if `price` is provided.
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden
+        # if `price` is provided.
         media_files: nil,
-        # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        # not 0). Will be shown if `price` is provided. All `previews` values must also
-        # exist in the `mediaFiles` array.
+        # Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+        # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+        # provided.
         previews: nil,
         # Price for paid content (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
         price: nil,
+        # Array of OnlyFans Release Form Guest IDs to tag in your mass message
+        rf_guest: nil,
+        # Array of OnlyFans Release Form Partners IDs to tag in your mass message
+        rf_partner: nil,
+        # Array of OnlyFans Creator User IDs to tag in your mass message
+        rf_tag: nil,
         # Add your message to the "Saved for later" queue.
         save_for_later: nil,
         # Schedule the chat message in the future (UTC timezone).

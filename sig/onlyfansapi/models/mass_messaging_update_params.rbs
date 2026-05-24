@@ -5,6 +5,7 @@ module Onlyfansapi
         account: String,
         id: String,
         text: String,
+        giphy_id: String,
         locked_text: bool,
         media_files: ::Array[String],
         previews: ::Array[String],
@@ -24,6 +25,10 @@ module Onlyfansapi
       attr_accessor id: String
 
       attr_accessor text: String
+
+      attr_reader giphy_id: String?
+
+      def giphy_id=: (String) -> String
 
       attr_reader locked_text: bool?
 
@@ -57,6 +62,7 @@ module Onlyfansapi
         account: String,
         id: String,
         text: String,
+        ?giphy_id: String,
         ?locked_text: bool,
         ?media_files: ::Array[String],
         ?previews: ::Array[String],
@@ -71,6 +77,7 @@ module Onlyfansapi
         account: String,
         id: String,
         text: String,
+        giphy_id: String,
         locked_text: bool,
         media_files: ::Array[String],
         previews: ::Array[String],

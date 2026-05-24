@@ -153,7 +153,7 @@ module Onlyfansapi
             # @!attribute publish_date_time
             #
             #   @return [String, nil]
-            optional :publish_date_time, String, api_name: :publishDateTime
+            optional :publish_date_time, String, api_name: :publishDateTime, nil?: true
 
             # @!attribute type
             #
@@ -164,7 +164,7 @@ module Onlyfansapi
             #   @param id [Integer]
             #   @param created_date_time [String]
             #   @param entity [Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List::Entity]
-            #   @param publish_date_time [String]
+            #   @param publish_date_time [String, nil]
             #   @param type [String]
 
             # @see Onlyfansapi::Models::SavedForLater::MessageListResponse::Data::List#entity
@@ -202,7 +202,7 @@ module Onlyfansapi
               # @!attribute giphy_id
               #
               #   @return [String, nil]
-              optional :giphy_id, String, api_name: :giphyId
+              optional :giphy_id, String, api_name: :giphyId, nil?: true
 
               # @!attribute is_free
               #
@@ -296,7 +296,7 @@ module Onlyfansapi
               # @!attribute scheduled_at
               #
               #   @return [String, nil]
-              optional :scheduled_at, String, api_name: :scheduledAt
+              optional :scheduled_at, String, api_name: :scheduledAt, nil?: true
 
               # @!attribute sent_rules_extra
               #
@@ -330,7 +330,7 @@ module Onlyfansapi
               #   @param can_unsend_queue [Boolean]
               #   @param changed_at [String]
               #   @param created_at [String]
-              #   @param giphy_id [String]
+              #   @param giphy_id [String, nil]
               #   @param is_free [Boolean]
               #   @param is_from_queue [Boolean]
               #   @param is_liked [Boolean]
@@ -348,7 +348,7 @@ module Onlyfansapi
               #   @param raw_text [String]
               #   @param release_forms [Array<Object>]
               #   @param response_type [String]
-              #   @param scheduled_at [String]
+              #   @param scheduled_at [String, nil]
               #   @param sent_rules_extra [String]
               #   @param sent_rules_type [String]
               #   @param text [String]

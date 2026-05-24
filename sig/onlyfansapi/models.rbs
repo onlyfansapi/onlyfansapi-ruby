@@ -43,8 +43,6 @@ module Onlyfansapi
 
   class MassMessagingListQueueParams = Onlyfansapi::Models::MassMessagingListQueueParams
 
-  class MassMessagingListStatisticsParams = Onlyfansapi::Models::MassMessagingListStatisticsParams
-
   class MassMessagingRetrieveParams = Onlyfansapi::Models::MassMessagingRetrieveParams
 
   class MassMessagingSendParams = Onlyfansapi::Models::MassMessagingSendParams
@@ -72,8 +70,6 @@ module Onlyfansapi
   class NotificationSearchUsersParams = Onlyfansapi::Models::NotificationSearchUsersParams
 
   class PayoutListPayoutRequestsParams = Onlyfansapi::Models::PayoutListPayoutRequestsParams
-
-  class PayoutListTransactionsParams = Onlyfansapi::Models::PayoutListTransactionsParams
 
   class PayoutRequestManualWithdrawalParams = Onlyfansapi::Models::PayoutRequestManualWithdrawalParams
 
@@ -172,6 +168,4 @@ module Onlyfansapi
   class WebhookDeleteParams = Onlyfansapi::Models::WebhookDeleteParams
 
   class WhoamiRetrieveParams = Onlyfansapi::Models::WhoamiRetrieveParams
-
-  module Workflows = Onlyfansapi::Models::Workflows
 end

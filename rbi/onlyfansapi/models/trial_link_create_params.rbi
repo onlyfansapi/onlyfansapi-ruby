@@ -36,6 +36,13 @@ module Onlyfansapi
       sig { returns(T.nilable(String)) }
       attr_accessor :name
 
+      # Array of tag names to add to the trial link.
+      sig { returns(T.nilable(T::Array[String])) }
+      attr_reader :tags
+
+      sig { params(tags: T::Array[String]).void }
+      attr_writer :tags
+
       sig do
         params(
           account: String,
@@ -44,6 +51,7 @@ module Onlyfansapi
           offer_limit:
             Onlyfansapi::TrialLinkCreateParams::OfferLimit::OrInteger,
           name: T.nilable(String),
+          tags: T::Array[String],
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -60,6 +68,8 @@ module Onlyfansapi
         offer_limit:,
         # The name of the trail link (optional). Cannot be longer than 64 characters.
         name: nil,
+        # Array of tag names to add to the trial link.
+        tags: nil,
         request_options: {}
       )
       end
@@ -73,6 +83,7 @@ module Onlyfansapi
             offer_limit:
               Onlyfansapi::TrialLinkCreateParams::OfferLimit::OrInteger,
             name: T.nilable(String),
+            tags: T::Array[String],
             request_options: Onlyfansapi::RequestOptions
           }
         )

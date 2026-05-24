@@ -151,7 +151,7 @@ module Onlyfansapi
           # @!attribute reject_reason
           #
           #   @return [String, nil]
-          optional :reject_reason, String, api_name: :rejectReason
+          optional :reject_reason, String, api_name: :rejectReason, nil?: true
 
           # @!attribute state
           #
@@ -163,7 +163,7 @@ module Onlyfansapi
           #   @param created_at [String]
           #   @param currency [String]
           #   @param invoice_id [String]
-          #   @param reject_reason [String]
+          #   @param reject_reason [String, nil]
           #   @param state [String]
         end
       end

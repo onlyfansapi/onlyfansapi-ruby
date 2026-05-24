@@ -5,12 +5,12 @@ module Onlyfansapi
     # APIs for fetching OnlyFans users
     class Users
       # Get OnlyFans Profile details for a given username. User details are retrieved
-      # using the current current `{account}` so fields like `subscribedOnData` which
-      # include potential subscription details will be included.
+      # using the current `{account}` so fields like `subscribedOnData` which include
+      # potential subscription details will be included.
       #
       # @overload retrieve(username, account:, request_options: {})
       #
-      # @param username [String]
+      # @param username [String] The OnlyFans username of the user to retrieve details for.
       #
       # @param account [String] The Account ID
       #

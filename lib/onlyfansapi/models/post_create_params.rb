@@ -19,7 +19,7 @@ module Onlyfansapi
       required :text, String
 
       # @!attribute expire_days
-      #   Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+      #   Number of days after which the post will expire. Between 1 and 30 days. Keep
       #   empty for no expiration.
       #
       #   @return [Integer, nil]
@@ -48,18 +48,20 @@ module Onlyfansapi
       optional :label_ids, String, api_name: :labelIds
 
       # @!attribute media_files
-      #   Array of OFAPI `ofapi_media_` IDs, or OF media IDs
+      #   Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs.
       #
-      #   @return [String, nil]
-      optional :media_files, String, api_name: :mediaFiles
+      #   @return [Array<Object>, nil]
+      optional :media_files,
+               Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Internal::Type::Unknown],
+               api_name: :mediaFiles
 
       # @!attribute previews
-      #   Array of media file upload prefixed_ids, or OF media IDs (required if price is
-      #   not 0). Will be shown if `price` is provided. All `previews` values must also
-      #   exist in the `mediaFiles` array.
+      #   Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
+      #   referencing uploaded files in `mediaFiles`. Will be shown if `price` is
+      #   provided.
       #
-      #   @return [Array<String>, nil]
-      optional :previews, Onlyfansapi::Internal::Type::ArrayOf[String]
+      #   @return [Array<Object>, nil]
+      optional :previews, Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Internal::Type::Unknown]
 
       # @!attribute rf_tag
       #   Array OnlyFans creator user IDs to tag in your post
@@ -113,7 +115,7 @@ module Onlyfansapi
       #
       #   @param text [String] The post text content
       #
-      #   @param expire_days [Integer] Number of days after which the post will expire. Can be 1, 3, 7 or 30 days. Keep
+      #   @param expire_days [Integer] Number of days after which the post will expire. Between 1 and 30 days. Keep emp
       #
       #   @param fund_raising_target_amount [Integer] Add a fundraising target to your post. If present, value must be at least 10.
       #
@@ -121,9 +123,9 @@ module Onlyfansapi
       #
       #   @param label_ids [String] Array of OF label IDs. Refer to our `/posts/labels` endpoint.
       #
-      #   @param media_files [String] Array of OFAPI `ofapi_media_` IDs, or OF media IDs
+      #   @param media_files [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs.
       #
-      #   @param previews [Array<String>] Array of media file upload prefixed_ids, or OF media IDs (required if price is n
+      #   @param previews [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
       #
       #   @param rf_tag [String] Array OnlyFans creator user IDs to tag in your post
       #

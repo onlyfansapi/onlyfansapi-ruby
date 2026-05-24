@@ -194,7 +194,7 @@ module Onlyfansapi
         # @!attribute change_email_step
         #
         #   @return [String, nil]
-        optional :change_email_step, String, api_name: :changeEmailStep
+        optional :change_email_step, String, api_name: :changeEmailStep, nil?: true
 
         # @!attribute changelog_updates
         #
@@ -335,12 +335,12 @@ module Onlyfansapi
         # @!attribute last_subscription_expired_at
         #
         #   @return [String, nil]
-        optional :last_subscription_expired_at, String, api_name: :lastSubscriptionExpiredAt
+        optional :last_subscription_expired_at, String, api_name: :lastSubscriptionExpiredAt, nil?: true
 
         # @!attribute life_time_email_code
         #
         #   @return [String, nil]
-        optional :life_time_email_code, String, api_name: :lifeTimeEmailCode
+        optional :life_time_email_code, String, api_name: :lifeTimeEmailCode, nil?: true
 
         # @!attribute mute_tags_in_chats
         #
@@ -365,7 +365,7 @@ module Onlyfansapi
         # @!attribute new_email
         #
         #   @return [String, nil]
-        optional :new_email, String, api_name: :newEmail
+        optional :new_email, String, api_name: :newEmail, nil?: true
 
         # @!attribute notify_on_all_mentions
         #
@@ -375,7 +375,7 @@ module Onlyfansapi
         # @!attribute phone_last4
         #
         #   @return [String, nil]
-        optional :phone_last4, String, api_name: :phoneLast4
+        optional :phone_last4, String, api_name: :phoneLast4, nil?: true
 
         # @!attribute phone_otp
         #
@@ -385,7 +385,7 @@ module Onlyfansapi
         # @!attribute recommender_reward
         #
         #   @return [String, nil]
-        optional :recommender_reward, String, api_name: :recommenderReward
+        optional :recommender_reward, String, api_name: :recommenderReward, nil?: true
 
         # @!attribute reply_on_subscribe
         #
@@ -445,12 +445,12 @@ module Onlyfansapi
         # @!attribute streaming_mux_key
         #
         #   @return [String, nil]
-        optional :streaming_mux_key, String, api_name: :streamingMuxKey
+        optional :streaming_mux_key, String, api_name: :streamingMuxKey, nil?: true
 
         # @!attribute streaming_mux_key_expired_at
         #
         #   @return [String, nil]
-        optional :streaming_mux_key_expired_at, String, api_name: :streamingMuxKeyExpiredAt
+        optional :streaming_mux_key_expired_at, String, api_name: :streamingMuxKeyExpiredAt, nil?: true
 
         # @!attribute streaming_mux_server
         #
@@ -503,7 +503,7 @@ module Onlyfansapi
         #   @param can_add_subscriber_by_bundle [Onlyfansapi::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle]
         #   @param can_make_profile_links [Boolean]
         #   @param can_socials_connect [Boolean]
-        #   @param change_email_step [String]
+        #   @param change_email_step [String, nil]
         #   @param changelog_updates [Integer]
         #   @param comments_only_for_payers [Boolean]
         #   @param confirm_email_sent_at [String]
@@ -528,17 +528,17 @@ module Onlyfansapi
         #   @param is_private [Boolean]
         #   @param is_suggestions_opt_out [Boolean]
         #   @param is_telegram_connected [Boolean]
-        #   @param last_subscription_expired_at [String]
-        #   @param life_time_email_code [String]
+        #   @param last_subscription_expired_at [String, nil]
+        #   @param life_time_email_code [String, nil]
         #   @param mute_tags_in_chats [Boolean]
         #   @param mute_tags_in_posts [Boolean]
         #   @param mute_tags_in_stories [Boolean]
         #   @param mute_tags_in_streams [Boolean]
-        #   @param new_email [String]
+        #   @param new_email [String, nil]
         #   @param notify_on_all_mentions [Boolean]
-        #   @param phone_last4 [String]
+        #   @param phone_last4 [String, nil]
         #   @param phone_otp [Boolean]
-        #   @param recommender_reward [String]
+        #   @param recommender_reward [String, nil]
         #   @param reply_on_subscribe [Boolean]
         #   @param send_awards_top1 [Boolean]
         #   @param send_awards_top5 [Boolean]
@@ -548,8 +548,8 @@ module Onlyfansapi
         #   @param show_posts_tips [Boolean]
         #   @param show_subscribes_offers [Boolean]
         #   @param socials_connects [Array<Object>]
-        #   @param streaming_mux_key [String]
-        #   @param streaming_mux_key_expired_at [String]
+        #   @param streaming_mux_key [String, nil]
+        #   @param streaming_mux_key_expired_at [String, nil]
         #   @param streaming_mux_server [String]
         #   @param streaming_obs_key [String]
         #   @param streaming_obs_server [String]

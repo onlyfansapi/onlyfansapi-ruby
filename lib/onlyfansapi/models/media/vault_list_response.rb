@@ -254,23 +254,23 @@ module Onlyfansapi
               # @!attribute preview
               #
               #   @return [String, nil]
-              optional :preview, String
+              optional :preview, String, nil?: true
 
               # @!attribute square_preview
               #
               #   @return [String, nil]
-              optional :square_preview, String, api_name: :squarePreview
+              optional :square_preview, String, api_name: :squarePreview, nil?: true
 
               # @!attribute thumb
               #
               #   @return [String, nil]
-              optional :thumb, String
+              optional :thumb, String, nil?: true
 
               # @!method initialize(full: nil, preview: nil, square_preview: nil, thumb: nil)
               #   @param full [Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files::Full]
-              #   @param preview [String]
-              #   @param square_preview [String]
-              #   @param thumb [String]
+              #   @param preview [String, nil]
+              #   @param square_preview [String, nil]
+              #   @param thumb [String, nil]
 
               # @see Onlyfansapi::Models::Media::VaultListResponse::Data::List::Files#full
               class Full < Onlyfansapi::Internal::Type::BaseModel
@@ -347,16 +347,16 @@ module Onlyfansapi
               # @!attribute number_240
               #
               #   @return [String, nil]
-              optional :number_240, String, api_name: :"240"
+              optional :number_240, String, api_name: :"240", nil?: true
 
               # @!attribute number_720
               #
               #   @return [String, nil]
-              optional :number_720, String, api_name: :"720"
+              optional :number_720, String, api_name: :"720", nil?: true
 
               # @!method initialize(number_240: nil, number_720: nil)
-              #   @param number_240 [String]
-              #   @param number_720 [String]
+              #   @param number_240 [String, nil]
+              #   @param number_720 [String, nil]
             end
           end
         end

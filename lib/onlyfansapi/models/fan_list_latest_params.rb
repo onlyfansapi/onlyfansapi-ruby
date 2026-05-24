@@ -19,7 +19,7 @@ module Onlyfansapi
       optional :end_date, String, nil?: true
 
       # @!attribute limit
-      #   Number of fans to return (1-100)
+      #   Number of fans to return (1-50)
       #
       #   @return [String, nil]
       optional :limit, String, nil?: true
@@ -47,7 +47,7 @@ module Onlyfansapi
       #
       #   @param end_date [String, nil] End date for filtering (required with start_date)
       #
-      #   @param limit [String, nil] Number of fans to return (1-100)
+      #   @param limit [String, nil] Number of fans to return (1-50)
       #
       #   @param offset [String, nil] Number of fans to skip
       #

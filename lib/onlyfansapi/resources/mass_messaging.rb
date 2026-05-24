@@ -38,13 +38,15 @@ module Onlyfansapi
       #
       # Update a mass message.
       #
-      # @overload update(id, account:, text:, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @overload update(id, account:, text:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
       # @param id [String] Path param: The ID of the message queue item. Can be retrieved from the above st
       #
       # @param account [String] Path param: The Account ID
       #
       # @param text [String] Body param: The message text content
+      #
+      # @param giphy_id [String] Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the G
       #
       # @param locked_text [Boolean] Body param: Whether the text should be shown or hidden
       #
@@ -131,37 +133,6 @@ module Onlyfansapi
         )
       end
 
-      # List mass messaging statistics, showing the send count and view count.
-      #
-      # @overload list_statistics(account, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
-      #
-      # @param account [String] The Account ID
-      #
-      # @param limit [Integer] Number of mass messages to return (default = 20)
-      #
-      # @param offset [Integer] Number of mass messages to skip for pagination
-      #
-      # @param query [String] Optionally, find a mass message by the message text.
-      #
-      # @param type [Symbol, Onlyfansapi::Models::MassMessagingListStatisticsParams::Type] Filter by sent / scheduled / unsent (default = sent)
-      #
-      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [Onlyfansapi::Models::MassMessagingListStatisticsResponse]
-      #
-      # @see Onlyfansapi::Models::MassMessagingListStatisticsParams
-      def list_statistics(account, params = {})
-        parsed, options = Onlyfansapi::MassMessagingListStatisticsParams.dump_request(params)
-        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
-        @client.request(
-          method: :get,
-          path: ["api/%1$s/mass-messaging/statistics", account],
-          query: query,
-          model: Onlyfansapi::Models::MassMessagingListStatisticsResponse,
-          options: options
-        )
-      end
-
       # Some parameter documentations has been truncated, see
       # {Onlyfansapi::Models::MassMessagingSendParams} for more details.
       #
@@ -169,20 +140,30 @@ module Onlyfansapi
       # `userIds` parameters to send the same message to both lists and individual
       # users.
       #
-      # @overload send_(account, text:, locked_text: nil, media_files: nil, previews: nil, price: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @overload send_(account, text:, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param text [String] The message text content
       #
+      # @param excluded_lists [Array<String>] Array of user list IDs that the mass message will NOT be sent to.
+      #
+      # @param giphy_id [String] The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
+      #
       # @param locked_text [Boolean] Whether the text should be shown or hidden
       #
-      # @param media_files [Array<String>] Array of media file upload prefixed_ids, or OF media IDs (required if price is n
+      # @param media_files [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, or OF vault IDs. Will be hidden i
       #
-      # @param previews [Array<String>] Array of media file upload prefixed_ids, or OF media IDs (required if price is n
+      # @param previews [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
       #
       # @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
       # \*\*mediaFi
+      #
+      # @param rf_guest [String] Array of OnlyFans Release Form Guest IDs to tag in your mass message
+      #
+      # @param rf_partner [String] Array of OnlyFans Release Form Partners IDs to tag in your mass message
+      #
+      # @param rf_tag [String] Array of OnlyFans Creator User IDs to tag in your mass message
       #
       # @param save_for_later [Boolean] Add your message to the "Saved for later" queue.
       #

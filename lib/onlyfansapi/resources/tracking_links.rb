@@ -6,11 +6,13 @@ module Onlyfansapi
     class TrackingLinks
       # Create a new Tracking Link for the account
       #
-      # @overload create(account, name:, request_options: {})
+      # @overload create(account, name:, tags: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param name [String] The name of the Tracking Link
+      #
+      # @param tags [Array<String>] Array of tag names to add to the tracking link.
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -70,14 +72,11 @@ module Onlyfansapi
         )
       end
 
-      # Some parameter documentations has been truncated, see
-      # {Onlyfansapi::Models::TrackingLinkDeleteParams} for more details.
-      #
       # Delete a Tracking Link
       #
       # @overload delete(tracking_link_id, account:, request_options: {})
       #
-      # @param tracking_link_id [String] The ID of the Tracking Link. Can be retrieved from the above store and list endp
+      # @param tracking_link_id [String] The ID of the tracking link.
       #
       # @param account [String] The Account ID
       #

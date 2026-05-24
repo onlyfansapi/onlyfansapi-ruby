@@ -30,15 +30,20 @@ module Onlyfansapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::UserListUpdateParams} for more details.
+      #
       # Update a OnlyFans User List
       #
-      # @overload update(user_list_id, account:, name:, request_options: {})
+      # @overload update(user_list_id, account:, name:, is_pinned_to_feed: nil, request_options: {})
       #
-      # @param user_list_id [Integer] Path param: OnlyFans User List ID
+      # @param user_list_id [String] Path param: OnlyFans User List ID, or a default list name like `tagged`
       #
       # @param account [String] Path param: The Account ID
       #
-      # @param name [String] Body param: Must not be greater than 64 characters.
+      # @param name [String] Body param: The new name for the User List.
+      #
+      # @param is_pinned_to_feed [Boolean, nil] Body param: Whether to pin the User List to feed to the OnlyFans homepage or not
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -94,7 +99,7 @@ module Onlyfansapi
       #
       # @overload delete(user_list_id, account:, request_options: {})
       #
-      # @param user_list_id [Integer] OnlyFans User List ID
+      # @param user_list_id [String] OnlyFans User List ID, or a default list name like `tagged`
       #
       # @param account [String] The Account ID
       #

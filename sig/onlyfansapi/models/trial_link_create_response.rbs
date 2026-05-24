@@ -157,16 +157,14 @@ module Onlyfansapi
         end
       end
 
-      type pagination = { next_page: String }
+      type pagination = { next_page: String? }
 
       class Pagination < Onlyfansapi::Internal::Type::BaseModel
-        attr_reader next_page: String?
+        attr_accessor next_page: String?
 
-        def next_page=: (String) -> String
+        def initialize: (?next_page: String?) -> void
 
-        def initialize: (?next_page: String) -> void
-
-        def to_hash: -> { next_page: String }
+        def to_hash: -> { next_page: String? }
       end
 
       type data =

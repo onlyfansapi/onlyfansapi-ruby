@@ -407,10 +407,7 @@ module Onlyfansapi
             attr_writer :entity
 
             sig { returns(T.nilable(String)) }
-            attr_reader :publish_date_time
-
-            sig { params(publish_date_time: String).void }
-            attr_writer :publish_date_time
+            attr_accessor :publish_date_time
 
             sig { returns(T.nilable(String)) }
             attr_reader :type
@@ -424,7 +421,7 @@ module Onlyfansapi
                 created_date_time: String,
                 entity:
                   Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity::OrHash,
-                publish_date_time: String,
+                publish_date_time: T.nilable(String),
                 type: String
               ).returns(T.attached_class)
             end
@@ -444,7 +441,7 @@ module Onlyfansapi
                   created_date_time: String,
                   entity:
                     Onlyfansapi::Models::SavedForLater::PostListResponse::Data::List::Entity,
-                  publish_date_time: String,
+                  publish_date_time: T.nilable(String),
                   type: String
                 }
               )

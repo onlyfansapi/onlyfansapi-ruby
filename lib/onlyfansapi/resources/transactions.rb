@@ -4,10 +4,13 @@ module Onlyfansapi
   module Resources
     # APIs for managing OnlyFans transactions
     class Transactions
-      # Get a paginated list of transactions for an Account. Newest transactions are
-      # first.
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::TransactionListParams} for more details.
       #
-      # @overload list(account, limit: nil, marker: nil, start_date: nil, request_options: {})
+      # Get a paginated list of transactions for an Account. Newest transactions are
+      # first. You can filter by transaction type and tips source.
+      #
+      # @overload list(account, limit: nil, marker: nil, start_date: nil, tips_source: nil, type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -16,6 +19,11 @@ module Onlyfansapi
       # @param marker [String] The marker used for pagination. Default: `null`
       #
       # @param start_date [String] The start date for transactions list. Default: `-30days`
+      #
+      # @param tips_source [String] Filter tips by source. Only applies when `type=tips`. Options: `profile`,
+      # `post\_
+      #
+      # @param type [String] Filter by transaction type. Options: `subscribes`, `tips`, `post`, `chat_message
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -28,7 +36,7 @@ module Onlyfansapi
         @client.request(
           method: :get,
           path: ["api/%1$s/transactions", account],
-          query: query.transform_keys(start_date: "startDate"),
+          query: query.transform_keys(start_date: "startDate", tips_source: "tipsSource"),
           model: Onlyfansapi::Models::TransactionListResponse,
           options: options
         )

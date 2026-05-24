@@ -48,7 +48,7 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.trial_links.delete(123_456_789, account: "acct_XXXXXXXXXXXXXXX")
+    response = @onlyfansapi.trial_links.delete("explicabo", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::TrialLinkDeleteResponse
@@ -83,12 +83,7 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.trial_links.list_subscribers(
-        "excepturi",
-        account: "acct_XXXXXXXXXXXXXXX",
-        limit: 10,
-        offset: 0
-      )
+      @onlyfansapi.trial_links.list_subscribers("est", account: "acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
 
     assert_pattern do
       response => Onlyfansapi::Models::TrialLinkListSubscribersResponse

@@ -6,7 +6,8 @@ module Onlyfansapi
         duration: Onlyfansapi::Models::TrialLinkCreateParams::duration,
         offer_expiration: Integer,
         offer_limit: Onlyfansapi::Models::TrialLinkCreateParams::offer_limit,
-        name: String?
+        name: String?,
+        tags: ::Array[String]
       }
       & Onlyfansapi::Internal::Type::request_parameters
 
@@ -24,12 +25,17 @@ module Onlyfansapi
 
       attr_accessor name: String?
 
+      attr_reader tags: ::Array[String]?
+
+      def tags=: (::Array[String]) -> ::Array[String]
+
       def initialize: (
         account: String,
         duration: Onlyfansapi::Models::TrialLinkCreateParams::duration,
         offer_expiration: Integer,
         offer_limit: Onlyfansapi::Models::TrialLinkCreateParams::offer_limit,
         ?name: String?,
+        ?tags: ::Array[String],
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
@@ -39,6 +45,7 @@ module Onlyfansapi
         offer_expiration: Integer,
         offer_limit: Onlyfansapi::Models::TrialLinkCreateParams::offer_limit,
         name: String?,
+        tags: ::Array[String],
         request_options: Onlyfansapi::RequestOptions
       }
 

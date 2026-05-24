@@ -412,10 +412,7 @@ module Onlyfansapi
           attr_writer :created_at
 
           sig { returns(T.nilable(String)) }
-          attr_reader :expired_at
-
-          sig { params(expired_at: String).void }
-          attr_writer :expired_at
+          attr_accessor :expired_at
 
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :is_finished
@@ -469,6 +466,12 @@ module Onlyfansapi
           sig { params(subscribe_days: Integer).void }
           attr_writer :subscribe_days
 
+          sig { returns(T.nilable(T::Array[String])) }
+          attr_reader :tags
+
+          sig { params(tags: T::Array[String]).void }
+          attr_writer :tags
+
           sig { returns(T.nilable(String)) }
           attr_reader :trial_link_name
 
@@ -487,7 +490,7 @@ module Onlyfansapi
               claim_counts: Integer,
               clicks_counts: Integer,
               created_at: String,
-              expired_at: String,
+              expired_at: T.nilable(String),
               is_finished: T::Boolean,
               links:
                 Onlyfansapi::Models::TrialLinkListResponse::Data::List::Links::OrHash,
@@ -495,6 +498,7 @@ module Onlyfansapi
                 Onlyfansapi::Models::TrialLinkListResponse::Data::List::Revenue::OrHash,
               subscribe_counts: Integer,
               subscribe_days: Integer,
+              tags: T::Array[String],
               trial_link_name: String,
               url: String
             ).returns(T.attached_class)
@@ -510,6 +514,7 @@ module Onlyfansapi
             revenue: nil,
             subscribe_counts: nil,
             subscribe_days: nil,
+            tags: nil,
             trial_link_name: nil,
             url: nil
           )
@@ -522,7 +527,7 @@ module Onlyfansapi
                 claim_counts: Integer,
                 clicks_counts: Integer,
                 created_at: String,
-                expired_at: String,
+                expired_at: T.nilable(String),
                 is_finished: T::Boolean,
                 links:
                   Onlyfansapi::Models::TrialLinkListResponse::Data::List::Links,
@@ -530,6 +535,7 @@ module Onlyfansapi
                   Onlyfansapi::Models::TrialLinkListResponse::Data::List::Revenue,
                 subscribe_counts: Integer,
                 subscribe_days: Integer,
+                tags: T::Array[String],
                 trial_link_name: String,
                 url: String
               }

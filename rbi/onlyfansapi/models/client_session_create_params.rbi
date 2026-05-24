@@ -90,56 +90,6 @@ module Onlyfansapi
             :uk,
             Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
           )
-        DE =
-          T.let(
-            :de,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        ES =
-          T.let(
-            :es,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        FR =
-          T.let(
-            :fr,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        IT =
-          T.let(
-            :it,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        UA =
-          T.let(
-            :ua,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        PL =
-          T.let(
-            :pl,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        RO =
-          T.let(
-            :ro,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        CZ =
-          T.let(
-            :cz,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        HU =
-          T.let(
-            :hu,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
-        SK =
-          T.let(
-            :sk,
-            Onlyfansapi::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
-          )
 
         sig do
           override.returns(

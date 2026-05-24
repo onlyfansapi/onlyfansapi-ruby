@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::UsersTest < Onlyfansapi::Test::ResourceTest
   def test_retrieve_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.users.retrieve("consequuntur", account: "acct_XXXXXXXXXXXXXXX")
+    response = @onlyfansapi.users.retrieve("exampleuser", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::UserRetrieveResponse

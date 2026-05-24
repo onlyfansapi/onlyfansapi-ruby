@@ -3,11 +3,16 @@
 module Onlyfansapi
   module Resources
     class Profiles
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::ProfileRetrieveParams} for more details.
+      #
       # Get profile details by username.
       #
-      # @overload retrieve(username, request_options: {})
+      # @overload retrieve(username, fresh: nil, request_options: {})
       #
       # @param username [String] The username of the profile to get
+      #
+      # @param fresh [Boolean, nil] If `true` then OnlyFansAPI will always return the real time information about pr
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -15,11 +20,14 @@ module Onlyfansapi
       #
       # @see Onlyfansapi::Models::ProfileRetrieveParams
       def retrieve(username, params = {})
+        parsed, options = Onlyfansapi::ProfileRetrieveParams.dump_request(params)
+        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["api/profiles/%1$s", username],
+          query: query,
           model: Onlyfansapi::Models::ProfileRetrieveResponse,
-          options: params[:request_options]
+          options: options
         )
       end
 

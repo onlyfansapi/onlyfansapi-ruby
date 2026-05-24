@@ -30,7 +30,24 @@ module Onlyfansapi
       #   @return [String, nil]
       optional :start_date, String
 
-      # @!method initialize(account:, limit: nil, marker: nil, start_date: nil, request_options: {})
+      # @!attribute tips_source
+      #   Filter tips by source. Only applies when `type=tips`. Options: `profile`,
+      #   `post_all`, `chat`, `stream`, `story`
+      #
+      #   @return [String, nil]
+      optional :tips_source, String
+
+      # @!attribute type
+      #   Filter by transaction type. Options: `subscribes`, `tips`, `post`,
+      #   `chat_messages`, `stream`
+      #
+      #   @return [String, nil]
+      optional :type, String
+
+      # @!method initialize(account:, limit: nil, marker: nil, start_date: nil, tips_source: nil, type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfansapi::Models::TransactionListParams} for more details.
+      #
       #   @param account [String]
       #
       #   @param limit [String] The number of transactions to return. Recommended: `10`
@@ -38,6 +55,11 @@ module Onlyfansapi
       #   @param marker [String] The marker used for pagination. Default: `null`
       #
       #   @param start_date [String] The start date for transactions list. Default: `-30days`
+      #
+      #   @param tips_source [String] Filter tips by source. Only applies when `type=tips`. Options: `profile`,
+      #   `post\_
+      #
+      #   @param type [String] Filter by transaction type. Options: `subscribes`, `tips`, `post`, `chat_message
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
     end

@@ -11,7 +11,7 @@ module Onlyfansapi
           onlyfans_id: T.nilable(String),
           onlyfans_username: T.nilable(String),
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(T::Array[T.anything])
+        ).returns(T::Array[Onlyfansapi::Models::AccountListResponseItem])
       end
       def list(
         # Optionally, filter by the OnlyFans email

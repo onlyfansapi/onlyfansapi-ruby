@@ -2,7 +2,6 @@
 
 module Onlyfansapi
   module Resources
-    # Operations related to user account settings.
     class Settings
       # Returns the account settings
       #

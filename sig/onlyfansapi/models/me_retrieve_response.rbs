@@ -255,13 +255,13 @@ module Onlyfansapi
           is_wallet_autorecharge: bool,
           is_want_comments: bool,
           iv_country: String,
-          iv_fail_reason: String,
+          iv_fail_reason: String?,
           iv_flow: String,
           iv_hide_for_performers: bool,
           iv_status: String,
           join_date: String,
           last_seen: String,
-          location: String,
+          location: String?,
           max_fund_raising_target: Integer,
           max_pinned_posts_count: Integer,
           medias_count: Integer,
@@ -284,8 +284,8 @@ module Onlyfansapi
           show_media_count: bool,
           show_posts_in_feed: bool,
           show_subscribers_count: bool,
-          subscribed_by_data: String,
-          subscribed_on_data: String,
+          subscribed_by_data: String?,
+          subscribed_on_data: String?,
           subscribe_max_price: Integer,
           subscribe_min_price: Float,
           subscribe_price: Integer,
@@ -312,7 +312,7 @@ module Onlyfansapi
           watermark_position: String,
           watermark_text: String,
           website: String,
-          wishlist: String,
+          wishlist: String?,
           ws_auth_token: String,
           ws_url: String
         }
@@ -746,9 +746,7 @@ module Onlyfansapi
 
         def iv_country=: (String) -> String
 
-        attr_reader iv_fail_reason: String?
-
-        def iv_fail_reason=: (String) -> String
+        attr_accessor iv_fail_reason: String?
 
         attr_reader iv_flow: String?
 
@@ -770,9 +768,7 @@ module Onlyfansapi
 
         def last_seen=: (String) -> String
 
-        attr_reader location: String?
-
-        def location=: (String) -> String
+        attr_accessor location: String?
 
         attr_reader max_fund_raising_target: Integer?
 
@@ -862,13 +858,9 @@ module Onlyfansapi
 
         def show_subscribers_count=: (bool) -> bool
 
-        attr_reader subscribed_by_data: String?
+        attr_accessor subscribed_by_data: String?
 
-        def subscribed_by_data=: (String) -> String
-
-        attr_reader subscribed_on_data: String?
-
-        def subscribed_on_data=: (String) -> String
+        attr_accessor subscribed_on_data: String?
 
         attr_reader subscribe_max_price: Integer?
 
@@ -976,9 +968,7 @@ module Onlyfansapi
 
         def website=: (String) -> String
 
-        attr_reader wishlist: String?
-
-        def wishlist=: (String) -> String
+        attr_accessor wishlist: String?
 
         attr_reader ws_auth_token: String?
 
@@ -1094,13 +1084,13 @@ module Onlyfansapi
           ?is_wallet_autorecharge: bool,
           ?is_want_comments: bool,
           ?iv_country: String,
-          ?iv_fail_reason: String,
+          ?iv_fail_reason: String?,
           ?iv_flow: String,
           ?iv_hide_for_performers: bool,
           ?iv_status: String,
           ?join_date: String,
           ?last_seen: String,
-          ?location: String,
+          ?location: String?,
           ?max_fund_raising_target: Integer,
           ?max_pinned_posts_count: Integer,
           ?medias_count: Integer,
@@ -1123,8 +1113,8 @@ module Onlyfansapi
           ?show_media_count: bool,
           ?show_posts_in_feed: bool,
           ?show_subscribers_count: bool,
-          ?subscribed_by_data: String,
-          ?subscribed_on_data: String,
+          ?subscribed_by_data: String?,
+          ?subscribed_on_data: String?,
           ?subscribe_max_price: Integer,
           ?subscribe_min_price: Float,
           ?subscribe_price: Integer,
@@ -1151,7 +1141,7 @@ module Onlyfansapi
           ?watermark_position: String,
           ?watermark_text: String,
           ?website: String,
-          ?wishlist: String,
+          ?wishlist: String?,
           ?ws_auth_token: String,
           ?ws_url: String
         ) -> void
@@ -1262,13 +1252,13 @@ module Onlyfansapi
           is_wallet_autorecharge: bool,
           is_want_comments: bool,
           iv_country: String,
-          iv_fail_reason: String,
+          iv_fail_reason: String?,
           iv_flow: String,
           iv_hide_for_performers: bool,
           iv_status: String,
           join_date: String,
           last_seen: String,
-          location: String,
+          location: String?,
           max_fund_raising_target: Integer,
           max_pinned_posts_count: Integer,
           medias_count: Integer,
@@ -1291,8 +1281,8 @@ module Onlyfansapi
           show_media_count: bool,
           show_posts_in_feed: bool,
           show_subscribers_count: bool,
-          subscribed_by_data: String,
-          subscribed_on_data: String,
+          subscribed_by_data: String?,
+          subscribed_on_data: String?,
           subscribe_max_price: Integer,
           subscribe_min_price: Float,
           subscribe_price: Integer,
@@ -1319,7 +1309,7 @@ module Onlyfansapi
           watermark_position: String,
           watermark_text: String,
           website: String,
-          wishlist: String,
+          wishlist: String?,
           ws_auth_token: String,
           ws_url: String
         }

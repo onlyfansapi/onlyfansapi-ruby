@@ -342,10 +342,7 @@ module Onlyfansapi
         attr_writer :created_at
 
         sig { returns(T.nilable(String)) }
-        attr_reader :end_date
-
-        sig { params(end_date: String).void }
-        attr_writer :end_date
+        attr_accessor :end_date
 
         sig do
           params(
@@ -355,7 +352,7 @@ module Onlyfansapi
             count_subscribers: Integer,
             count_transitions: Integer,
             created_at: String,
-            end_date: String
+            end_date: T.nilable(String)
           ).returns(T.attached_class)
         end
         def self.new(
@@ -378,7 +375,7 @@ module Onlyfansapi
               count_subscribers: Integer,
               count_transitions: Integer,
               created_at: String,
-              end_date: String
+              end_date: T.nilable(String)
             }
           )
         end

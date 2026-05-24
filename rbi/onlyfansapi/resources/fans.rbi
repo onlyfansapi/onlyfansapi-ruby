@@ -9,9 +9,10 @@ module Onlyfansapi
         params(
           account: String,
           filter: Onlyfansapi::FanListActiveParams::Filter::OrHash,
-          limit: T.nilable(String),
-          offset: T.nilable(String),
-          type: T.nilable(String),
+          limit: Integer,
+          offset: Integer,
+          query: T.nilable(String),
+          type: Onlyfansapi::FanListActiveParams::Type::OrSymbol,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::FanListActiveResponse)
       end
@@ -19,11 +20,14 @@ module Onlyfansapi
         # The Account ID
         account,
         filter: nil,
-        # Number of fans to return (1-50)
+        # Number of fans to return (1-50). Must be at least 1. Must not be greater
+        # than 20.
         limit: nil,
-        # Number of fans to skip
+        # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Filter by fan type
+        # Search within fan name/username.
+        query: nil,
+        # Filter by fan type.
         type: nil,
         request_options: {}
       )
@@ -34,9 +38,10 @@ module Onlyfansapi
         params(
           account: String,
           filter: Onlyfansapi::FanListAllParams::Filter::OrHash,
-          limit: T.nilable(String),
-          offset: T.nilable(String),
-          type: T.nilable(String),
+          limit: Integer,
+          offset: Integer,
+          query: T.nilable(String),
+          type: Onlyfansapi::FanListAllParams::Type::OrSymbol,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::FanListAllResponse)
       end
@@ -44,11 +49,14 @@ module Onlyfansapi
         # The Account ID
         account,
         filter: nil,
-        # Number of fans to return (1-50)
+        # Number of fans to return (1-50). Must be at least 1. Must not be greater
+        # than 20.
         limit: nil,
-        # Number of fans to skip
+        # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Filter by fan type
+        # Search within fan name/username.
+        query: nil,
+        # Filter by fan type.
         type: nil,
         request_options: {}
       )
@@ -59,9 +67,10 @@ module Onlyfansapi
         params(
           account: String,
           filter: Onlyfansapi::FanListExpiredParams::Filter::OrHash,
-          limit: T.nilable(String),
-          offset: T.nilable(String),
-          type: T.nilable(String),
+          limit: Integer,
+          offset: Integer,
+          query: T.nilable(String),
+          type: Onlyfansapi::FanListExpiredParams::Type::OrSymbol,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::FanListExpiredResponse)
       end
@@ -69,11 +78,14 @@ module Onlyfansapi
         # The Account ID
         account,
         filter: nil,
-        # Number of fans to return (1-50)
+        # Number of fans to return (1-50). Must be at least 1. Must not be greater
+        # than 20.
         limit: nil,
-        # Number of fans to skip
+        # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Filter by fan type
+        # Search within fan name/username.
+        query: nil,
+        # Filter by fan type.
         type: nil,
         request_options: {}
       )
@@ -97,7 +109,7 @@ module Onlyfansapi
         account,
         # End date for filtering (required with start_date)
         end_date: nil,
-        # Number of fans to return (1-100)
+        # Number of fans to return (1-50)
         limit: nil,
         # Number of fans to skip
         offset: nil,

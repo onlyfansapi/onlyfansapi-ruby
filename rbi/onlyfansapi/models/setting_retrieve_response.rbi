@@ -379,10 +379,7 @@ module Onlyfansapi
         attr_writer :can_socials_connect
 
         sig { returns(T.nilable(String)) }
-        attr_reader :change_email_step
-
-        sig { params(change_email_step: String).void }
-        attr_writer :change_email_step
+        attr_accessor :change_email_step
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :changelog_updates
@@ -529,16 +526,10 @@ module Onlyfansapi
         attr_writer :is_telegram_connected
 
         sig { returns(T.nilable(String)) }
-        attr_reader :last_subscription_expired_at
-
-        sig { params(last_subscription_expired_at: String).void }
-        attr_writer :last_subscription_expired_at
+        attr_accessor :last_subscription_expired_at
 
         sig { returns(T.nilable(String)) }
-        attr_reader :life_time_email_code
-
-        sig { params(life_time_email_code: String).void }
-        attr_writer :life_time_email_code
+        attr_accessor :life_time_email_code
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :mute_tags_in_chats
@@ -565,10 +556,7 @@ module Onlyfansapi
         attr_writer :mute_tags_in_streams
 
         sig { returns(T.nilable(String)) }
-        attr_reader :new_email
-
-        sig { params(new_email: String).void }
-        attr_writer :new_email
+        attr_accessor :new_email
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :notify_on_all_mentions
@@ -577,10 +565,7 @@ module Onlyfansapi
         attr_writer :notify_on_all_mentions
 
         sig { returns(T.nilable(String)) }
-        attr_reader :phone_last4
-
-        sig { params(phone_last4: String).void }
-        attr_writer :phone_last4
+        attr_accessor :phone_last4
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :phone_otp
@@ -589,10 +574,7 @@ module Onlyfansapi
         attr_writer :phone_otp
 
         sig { returns(T.nilable(String)) }
-        attr_reader :recommender_reward
-
-        sig { params(recommender_reward: String).void }
-        attr_writer :recommender_reward
+        attr_accessor :recommender_reward
 
         sig { returns(T.nilable(T::Boolean)) }
         attr_reader :reply_on_subscribe
@@ -649,16 +631,10 @@ module Onlyfansapi
         attr_writer :socials_connects
 
         sig { returns(T.nilable(String)) }
-        attr_reader :streaming_mux_key
-
-        sig { params(streaming_mux_key: String).void }
-        attr_writer :streaming_mux_key
+        attr_accessor :streaming_mux_key
 
         sig { returns(T.nilable(String)) }
-        attr_reader :streaming_mux_key_expired_at
-
-        sig { params(streaming_mux_key_expired_at: String).void }
-        attr_writer :streaming_mux_key_expired_at
+        attr_accessor :streaming_mux_key_expired_at
 
         sig { returns(T.nilable(String)) }
         attr_reader :streaming_mux_server
@@ -718,7 +694,7 @@ module Onlyfansapi
               Onlyfansapi::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::OrHash,
             can_make_profile_links: T::Boolean,
             can_socials_connect: T::Boolean,
-            change_email_step: String,
+            change_email_step: T.nilable(String),
             changelog_updates: Integer,
             comments_only_for_payers: T::Boolean,
             confirm_email_sent_at: String,
@@ -743,17 +719,17 @@ module Onlyfansapi
             is_private: T::Boolean,
             is_suggestions_opt_out: T::Boolean,
             is_telegram_connected: T::Boolean,
-            last_subscription_expired_at: String,
-            life_time_email_code: String,
+            last_subscription_expired_at: T.nilable(String),
+            life_time_email_code: T.nilable(String),
             mute_tags_in_chats: T::Boolean,
             mute_tags_in_posts: T::Boolean,
             mute_tags_in_stories: T::Boolean,
             mute_tags_in_streams: T::Boolean,
-            new_email: String,
+            new_email: T.nilable(String),
             notify_on_all_mentions: T::Boolean,
-            phone_last4: String,
+            phone_last4: T.nilable(String),
             phone_otp: T::Boolean,
-            recommender_reward: String,
+            recommender_reward: T.nilable(String),
             reply_on_subscribe: T::Boolean,
             send_awards_top1: T::Boolean,
             send_awards_top5: T::Boolean,
@@ -763,8 +739,8 @@ module Onlyfansapi
             show_posts_tips: T::Boolean,
             show_subscribes_offers: T::Boolean,
             socials_connects: T::Array[T.anything],
-            streaming_mux_key: String,
-            streaming_mux_key_expired_at: String,
+            streaming_mux_key: T.nilable(String),
+            streaming_mux_key_expired_at: T.nilable(String),
             streaming_mux_server: String,
             streaming_obs_key: String,
             streaming_obs_server: String,
@@ -862,7 +838,7 @@ module Onlyfansapi
                 Onlyfansapi::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle,
               can_make_profile_links: T::Boolean,
               can_socials_connect: T::Boolean,
-              change_email_step: String,
+              change_email_step: T.nilable(String),
               changelog_updates: Integer,
               comments_only_for_payers: T::Boolean,
               confirm_email_sent_at: String,
@@ -887,17 +863,17 @@ module Onlyfansapi
               is_private: T::Boolean,
               is_suggestions_opt_out: T::Boolean,
               is_telegram_connected: T::Boolean,
-              last_subscription_expired_at: String,
-              life_time_email_code: String,
+              last_subscription_expired_at: T.nilable(String),
+              life_time_email_code: T.nilable(String),
               mute_tags_in_chats: T::Boolean,
               mute_tags_in_posts: T::Boolean,
               mute_tags_in_stories: T::Boolean,
               mute_tags_in_streams: T::Boolean,
-              new_email: String,
+              new_email: T.nilable(String),
               notify_on_all_mentions: T::Boolean,
-              phone_last4: String,
+              phone_last4: T.nilable(String),
               phone_otp: T::Boolean,
-              recommender_reward: String,
+              recommender_reward: T.nilable(String),
               reply_on_subscribe: T::Boolean,
               send_awards_top1: T::Boolean,
               send_awards_top5: T::Boolean,
@@ -907,8 +883,8 @@ module Onlyfansapi
               show_posts_tips: T::Boolean,
               show_subscribes_offers: T::Boolean,
               socials_connects: T::Array[T.anything],
-              streaming_mux_key: String,
-              streaming_mux_key_expired_at: String,
+              streaming_mux_key: T.nilable(String),
+              streaming_mux_key_expired_at: T.nilable(String),
               streaming_mux_server: String,
               streaming_obs_key: String,
               streaming_obs_server: String,
