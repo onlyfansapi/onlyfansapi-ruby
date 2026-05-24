@@ -1,0 +1,21 @@
+module Onlyfansapi
+  module Resources
+    class Users
+      class Block
+        def create: (
+          String user_id,
+          account: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Users::BlockCreateResponse
+
+        def delete: (
+          String user_id,
+          account: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Users::BlockDeleteResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

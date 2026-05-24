@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::ProfilesTest < Onlyfansapi::Test::ResourceTe
   def test_retrieve
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.profiles.retrieve("madison420ivy")
+    response = @only_fans_api.profiles.retrieve("madison420ivy")
 
     assert_pattern do
       response => Onlyfansapi::Models::ProfileRetrieveResponse

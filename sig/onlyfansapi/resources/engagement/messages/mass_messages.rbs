@@ -1,0 +1,28 @@
+module Onlyfansapi
+  module Resources
+    class Engagement
+      class Messages
+        class MassMessages
+          def list: (
+            String account,
+            ?end_date: String,
+            ?limit: Integer,
+            ?query: String,
+            ?start_date: String,
+            ?request_options: Onlyfansapi::request_opts
+          ) -> Onlyfansapi::Models::Engagement::Messages::MassMessageListResponse
+
+          def chart: (
+            String account,
+            ?end_date: String,
+            ?start_date: String,
+            ?with_total: bool,
+            ?request_options: Onlyfansapi::request_opts
+          ) -> Onlyfansapi::Models::Engagement::Messages::MassMessageChartResponse
+
+          def initialize: (client: Onlyfansapi::Client) -> void
+        end
+      end
+    end
+  end
+end

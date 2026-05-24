@@ -1,0 +1,28 @@
+module Onlyfansapi
+  module Models
+    type promotion_stop_params =
+      { account: String, promotion_id: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class PromotionStopParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor promotion_id: String
+
+      def initialize: (
+        account: String,
+        promotion_id: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        promotion_id: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

@@ -3,10 +3,26 @@
 module Onlyfansapi
   module Test
     module Resources
+      module Analytics
+        module Financial
+        end
+      end
+
       module Banking
       end
 
       module Chats
+      end
+
+      module Engagement
+        module Messages
+        end
+      end
+
+      module Fans
+      end
+
+      module Financial
       end
 
       module Lists
@@ -36,18 +52,36 @@ module Onlyfansapi
         end
       end
 
+      module Settings
+      end
+
+      module SharedTrackingLinks
+      end
+
+      module SharedTrialLinks
+      end
+
       module Statistics
+      end
+
+      module Stories
+      end
+
+      module TrackingLinks
+      end
+
+      module TrialLinks
       end
 
       module UserLists
       end
 
+      module Users
+      end
+
       module Vault
         module Lists
         end
-      end
-
-      module Workflows
       end
     end
   end

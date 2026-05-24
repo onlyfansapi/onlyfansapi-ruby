@@ -74,7 +74,7 @@ class Onlyfansapi::Test::ResourceTest < Minitest::Test
 
   def before_all
     super
-    @onlyfansapi = Onlyfansapi::Test::SingletonClient.instance
+    @only_fans_api = Onlyfansapi::Test::SingletonClient.instance
   end
 
   def around_all = async? ? Sync { super } : super

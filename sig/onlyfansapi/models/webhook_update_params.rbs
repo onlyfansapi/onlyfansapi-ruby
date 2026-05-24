@@ -1,0 +1,53 @@
+module Onlyfansapi
+  module Models
+    type webhook_update_params =
+      {
+        webhook_id: String,
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        account_ids: ::Array[String],
+        enabled: bool?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class WebhookUpdateParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor webhook_id: String
+
+      attr_accessor account_scope: String
+
+      attr_accessor endpoint_url: String
+
+      attr_accessor events: ::Array[String]
+
+      attr_reader account_ids: ::Array[String]?
+
+      def account_ids=: (::Array[String]) -> ::Array[String]
+
+      attr_accessor enabled: bool?
+
+      def initialize: (
+        webhook_id: String,
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        ?account_ids: ::Array[String],
+        ?enabled: bool?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        webhook_id: String,
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        account_ids: ::Array[String],
+        enabled: bool?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

@@ -7,6 +7,23 @@ module Onlyfansapi
         sig { returns(Onlyfansapi::Resources::Media::Vault::Lists) }
         attr_reader :lists
 
+        # Retrieve details about a specific media item in your vault.
+        sig do
+          params(
+            media_id: Integer,
+            account: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Media::VaultRetrieveResponse)
+        end
+        def retrieve(
+          # The ID of the media item to retrieve.
+          media_id,
+          # The Account ID
+          account:,
+          request_options: {}
+        )
+        end
+
         # List media items stored in your vault. See how many likes and how much tips did
         # they get.
         sig do
@@ -57,6 +74,32 @@ module Onlyfansapi
           account,
           # Array of media IDs to delete.
           media_ids:,
+          request_options: {}
+        )
+        end
+
+        # Upload a media file directly to your vault.
+        sig do
+          params(
+            account: String,
+            async: T::Boolean,
+            file: Onlyfansapi::Internal::FileInput,
+            file_url: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Media::VaultUploadResponse)
+        end
+        def upload(
+          # The Account ID
+          account,
+          # Set to `true` to process uploads in the background. Returns a `polling_url` to
+          # check status. Recommended for large files.
+          async: nil,
+          # The file to upload. Required if `file_url` is not provided. Maximum file size:
+          # 100 MB (limited by Cloudflare).
+          file: nil,
+          # A URL to download the file from. Required if `file` is not provided. Maximum
+          # file size depends on the subscription configuration.
+          file_url: nil,
           request_options: {}
         )
         end

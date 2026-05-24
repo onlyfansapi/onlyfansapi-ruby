@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::SavedForLater::PostsTest < Onlyfansapi::Test
   def test_list_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.saved_for_later.posts.list("acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
+    response = @only_fans_api.saved_for_later.posts.list("acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
 
     assert_pattern do
       response => Onlyfansapi::Models::SavedForLater::PostListResponse

@@ -1,0 +1,414 @@
+module Onlyfansapi
+  module Models
+    module Media
+      type upload_get_status_response =
+        Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember0
+        | Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember1
+        | Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2
+        | Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3
+
+      module UploadGetStatusResponse
+        extend Onlyfansapi::Internal::Type::Union
+
+        type union_member0 = { prefixed_id: String, status: String }
+
+        class UnionMember0 < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader prefixed_id: String?
+
+          def prefixed_id=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          def initialize: (?prefixed_id: String, ?status: String) -> void
+
+          def to_hash: -> { prefixed_id: String, status: String }
+        end
+
+        type union_member1 =
+          { error: String, prefixed_id: String, status: String }
+
+        class UnionMember1 < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader error: String?
+
+          def error=: (String) -> String
+
+          attr_reader prefixed_id: String?
+
+          def prefixed_id=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          def initialize: (
+            ?error: String,
+            ?prefixed_id: String,
+            ?status: String
+          ) -> void
+
+          def to_hash: -> { error: String, prefixed_id: String, status: String }
+        end
+
+        type union_member2 =
+          {
+            credits_used: Integer,
+            media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+            prefixed_id: String,
+            status: String
+          }
+
+        class UnionMember2 < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader credits_used: Integer?
+
+          def credits_used=: (Integer) -> Integer
+
+          attr_reader media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media?
+
+          def media=: (
+            Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media
+          ) -> Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media
+
+          attr_reader prefixed_id: String?
+
+          def prefixed_id=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          def initialize: (
+            ?credits_used: Integer,
+            ?media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+            ?prefixed_id: String,
+            ?status: String
+          ) -> void
+
+          def to_hash: -> {
+            credits_used: Integer,
+            media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+            prefixed_id: String,
+            status: String
+          }
+
+          type media =
+            {
+              id: Integer,
+              can_view: bool,
+              converted_to_video: bool,
+              created_at: String,
+              duration: Integer,
+              files: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+              has_custom_preview: bool,
+              has_error: bool,
+              is_ready: bool,
+              release_forms: ::Array[top],
+              type: String
+            }
+
+          class Media < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader can_view: bool?
+
+            def can_view=: (bool) -> bool
+
+            attr_reader converted_to_video: bool?
+
+            def converted_to_video=: (bool) -> bool
+
+            attr_reader created_at: String?
+
+            def created_at=: (String) -> String
+
+            attr_reader duration: Integer?
+
+            def duration=: (Integer) -> Integer
+
+            attr_reader files: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files?
+
+            def files=: (
+              Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files
+            ) -> Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files
+
+            attr_reader has_custom_preview: bool?
+
+            def has_custom_preview=: (bool) -> bool
+
+            attr_reader has_error: bool?
+
+            def has_error=: (bool) -> bool
+
+            attr_reader is_ready: bool?
+
+            def is_ready=: (bool) -> bool
+
+            attr_reader release_forms: ::Array[top]?
+
+            def release_forms=: (::Array[top]) -> ::Array[top]
+
+            attr_reader type: String?
+
+            def type=: (String) -> String
+
+            def initialize: (
+              ?id: Integer,
+              ?can_view: bool,
+              ?converted_to_video: bool,
+              ?created_at: String,
+              ?duration: Integer,
+              ?files: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+              ?has_custom_preview: bool,
+              ?has_error: bool,
+              ?is_ready: bool,
+              ?release_forms: ::Array[top],
+              ?type: String
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              can_view: bool,
+              converted_to_video: bool,
+              created_at: String,
+              duration: Integer,
+              files: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+              has_custom_preview: bool,
+              has_error: bool,
+              is_ready: bool,
+              release_forms: ::Array[top],
+              type: String
+            }
+
+            type files =
+              {
+                full: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                preview: String?,
+                square_preview: String?,
+                thumb: String?
+              }
+
+            class Files < Onlyfansapi::Internal::Type::BaseModel
+              attr_reader full: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full?
+
+              def full=: (
+                Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full
+              ) -> Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full
+
+              attr_accessor preview: String?
+
+              attr_accessor square_preview: String?
+
+              attr_accessor thumb: String?
+
+              def initialize: (
+                ?full: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                ?preview: String?,
+                ?square_preview: String?,
+                ?thumb: String?
+              ) -> void
+
+              def to_hash: -> {
+                full: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                preview: String?,
+                square_preview: String?,
+                thumb: String?
+              }
+
+              type full =
+                {
+                  height: Integer,
+                  size: Integer,
+                  sources: ::Array[top],
+                  url: String?,
+                  width: Integer
+                }
+
+              class Full < Onlyfansapi::Internal::Type::BaseModel
+                attr_reader height: Integer?
+
+                def height=: (Integer) -> Integer
+
+                attr_reader size: Integer?
+
+                def size=: (Integer) -> Integer
+
+                attr_reader sources: ::Array[top]?
+
+                def sources=: (::Array[top]) -> ::Array[top]
+
+                attr_accessor url: String?
+
+                attr_reader width: Integer?
+
+                def width=: (Integer) -> Integer
+
+                def initialize: (
+                  ?height: Integer,
+                  ?size: Integer,
+                  ?sources: ::Array[top],
+                  ?url: String?,
+                  ?width: Integer
+                ) -> void
+
+                def to_hash: -> {
+                  height: Integer,
+                  size: Integer,
+                  sources: ::Array[top],
+                  url: String?,
+                  width: Integer
+                }
+              end
+            end
+          end
+        end
+
+        type union_member3 =
+          {
+            credits_used: Integer,
+            media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+            prefixed_id: String,
+            status: String
+          }
+
+        class UnionMember3 < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader credits_used: Integer?
+
+          def credits_used=: (Integer) -> Integer
+
+          attr_reader media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media?
+
+          def media=: (
+            Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media
+          ) -> Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media
+
+          attr_reader prefixed_id: String?
+
+          def prefixed_id=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          def initialize: (
+            ?credits_used: Integer,
+            ?media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+            ?prefixed_id: String,
+            ?status: String
+          ) -> void
+
+          def to_hash: -> {
+            credits_used: Integer,
+            media: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+            prefixed_id: String,
+            status: String
+          }
+
+          type media =
+            {
+              additional: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+              extra: String,
+              file_name: String,
+              host: String,
+              prefixed_id: String,
+              process_id: String,
+              source_url: String,
+              thumbs: ::Array[Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+            }
+
+          class Media < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader additional: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional?
+
+            def additional=: (
+              Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional
+            ) -> Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional
+
+            attr_reader extra: String?
+
+            def extra=: (String) -> String
+
+            attr_reader file_name: String?
+
+            def file_name=: (String) -> String
+
+            attr_reader host: String?
+
+            def host=: (String) -> String
+
+            attr_reader prefixed_id: String?
+
+            def prefixed_id=: (String) -> String
+
+            attr_reader process_id: String?
+
+            def process_id=: (String) -> String
+
+            attr_reader source_url: String?
+
+            def source_url=: (String) -> String
+
+            attr_reader thumbs: ::Array[Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]?
+
+            def thumbs=: (
+              ::Array[Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+            ) -> ::Array[Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+
+            def initialize: (
+              ?additional: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+              ?extra: String,
+              ?file_name: String,
+              ?host: String,
+              ?prefixed_id: String,
+              ?process_id: String,
+              ?source_url: String,
+              ?thumbs: ::Array[Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+            ) -> void
+
+            def to_hash: -> {
+              additional: Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+              extra: String,
+              file_name: String,
+              host: String,
+              prefixed_id: String,
+              process_id: String,
+              source_url: String,
+              thumbs: ::Array[Onlyfansapi::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+            }
+
+            type additional = { user: String }
+
+            class Additional < Onlyfansapi::Internal::Type::BaseModel
+              attr_reader user: String?
+
+              def user=: (String) -> String
+
+              def initialize: (?user: String) -> void
+
+              def to_hash: -> { user: String }
+            end
+
+            type thumb = { id: Integer, url: String }
+
+            class Thumb < Onlyfansapi::Internal::Type::BaseModel
+              attr_reader id: Integer?
+
+              def id=: (Integer) -> Integer
+
+              attr_reader url: String?
+
+              def url=: (String) -> String
+
+              def initialize: (?id: Integer, ?url: String) -> void
+
+              def to_hash: -> { id: Integer, url: String }
+            end
+          end
+        end
+
+        def self?.variants: -> ::Array[Onlyfansapi::Models::Media::upload_get_status_response]
+      end
+    end
+  end
+end

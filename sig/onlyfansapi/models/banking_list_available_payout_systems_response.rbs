@@ -179,13 +179,13 @@ module Onlyfansapi
           {
             code: String,
             description: String,
-            fields: top,
+            fields: ::Hash[Symbol, top],
             fields_order: ::Array[top],
             min_payout_summ: Integer,
             payout_time: String,
             subtitle: String,
             title: String,
-            ui_mapping: top
+            ui_mapping: ::Hash[Symbol, top]
           }
 
         class Payout < Onlyfansapi::Internal::Type::BaseModel
@@ -197,9 +197,9 @@ module Onlyfansapi
 
           def description=: (String) -> String
 
-          attr_reader fields: top?
+          attr_reader fields: ::Hash[Symbol, top]?
 
-          def fields=: (top) -> top
+          def fields=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
           attr_reader fields_order: ::Array[top]?
 
@@ -221,32 +221,32 @@ module Onlyfansapi
 
           def title=: (String) -> String
 
-          attr_reader ui_mapping: top?
+          attr_reader ui_mapping: ::Hash[Symbol, top]?
 
-          def ui_mapping=: (top) -> top
+          def ui_mapping=: (::Hash[Symbol, top]) -> ::Hash[Symbol, top]
 
           def initialize: (
             ?code: String,
             ?description: String,
-            ?fields: top,
+            ?fields: ::Hash[Symbol, top],
             ?fields_order: ::Array[top],
             ?min_payout_summ: Integer,
             ?payout_time: String,
             ?subtitle: String,
             ?title: String,
-            ?ui_mapping: top
+            ?ui_mapping: ::Hash[Symbol, top]
           ) -> void
 
           def to_hash: -> {
             code: String,
             description: String,
-            fields: top,
+            fields: ::Hash[Symbol, top],
             fields_order: ::Array[top],
             min_payout_summ: Integer,
             payout_time: String,
             subtitle: String,
             title: String,
-            ui_mapping: top
+            ui_mapping: ::Hash[Symbol, top]
           }
         end
       end

@@ -1,0 +1,22 @@
+module Onlyfansapi
+  module Resources
+    class Fans
+      class Summary
+        def generate_summary: (
+          String fan_id,
+          account: String,
+          ?regenerate: bool,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Fans::SummaryGenerateSummaryResponse
+
+        def get_summary: (
+          String fan_id,
+          account: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Fans::SummaryGetSummaryResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

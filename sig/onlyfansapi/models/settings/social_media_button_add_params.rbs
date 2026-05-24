@@ -1,0 +1,96 @@
+module Onlyfansapi
+  module Models
+    module Settings
+      type social_media_button_add_params =
+        {
+          account: String,
+          label: String,
+          type: Onlyfansapi::Models::Settings::SocialMediaButtonAddParams::type_,
+          value: String
+        }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class SocialMediaButtonAddParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor label: String
+
+        attr_accessor type: Onlyfansapi::Models::Settings::SocialMediaButtonAddParams::type_
+
+        attr_accessor value: String
+
+        def initialize: (
+          account: String,
+          label: String,
+          type: Onlyfansapi::Models::Settings::SocialMediaButtonAddParams::type_,
+          value: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          label: String,
+          type: Onlyfansapi::Models::Settings::SocialMediaButtonAddParams::type_,
+          value: String,
+          request_options: Onlyfansapi::RequestOptions
+        }
+
+        type type_ =
+          :instagram
+          | :x
+          | :facebook
+          | :youtube
+          | :tiktok
+          | :snapchat
+          | :amazon
+          | :twitch
+          | :discord
+          | :patreon
+          | :pinterest
+          | :etsy
+          | :bereal
+          | :kick
+          | :depop
+          | :poshmark
+          | :vsco
+          | :threads
+          | :throne
+          | :shopltk
+          | :oftv
+          | :bluesky
+
+        module Type
+          extend Onlyfansapi::Internal::Type::Enum
+
+          INSTAGRAM: :instagram
+          X: :x
+          FACEBOOK: :facebook
+          YOUTUBE: :youtube
+          TIKTOK: :tiktok
+          SNAPCHAT: :snapchat
+          AMAZON: :amazon
+          TWITCH: :twitch
+          DISCORD: :discord
+          PATREON: :patreon
+          PINTEREST: :pinterest
+          ETSY: :etsy
+          BEREAL: :bereal
+          KICK: :kick
+          DEPOP: :depop
+          POSHMARK: :poshmark
+          VSCO: :vsco
+          THREADS: :threads
+          THRONE: :throne
+          SHOPLTK: :shopltk
+          OFTV: :oftv
+          BLUESKY: :bluesky
+
+          def self?.values: -> ::Array[Onlyfansapi::Models::Settings::SocialMediaButtonAddParams::type_]
+        end
+      end
+    end
+  end
+end

@@ -7,7 +7,7 @@ class Onlyfansapi::Test::Resources::Statistics::StatementsTest < Onlyfansapi::Te
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.statistics.statements.get_earnings(
+      @only_fans_api.statistics.statements.get_earnings(
         "acct_XXXXXXXXXXXXXXX",
         start_date: "2025-01-01 00:00:00"
       )

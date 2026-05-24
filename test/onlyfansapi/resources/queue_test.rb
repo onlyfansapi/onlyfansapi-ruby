@@ -7,7 +7,7 @@ class Onlyfansapi::Test::Resources::QueueTest < Onlyfansapi::Test::ResourceTest
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.queue.list(
+      @only_fans_api.queue.list(
         "acct_XXXXXXXXXXXXXXX",
         limit: 20,
         publish_date_end: "2025-01-01",
@@ -31,7 +31,7 @@ class Onlyfansapi::Test::Resources::QueueTest < Onlyfansapi::Test::ResourceTest
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.queue.count(
+      @only_fans_api.queue.count(
         "acct_XXXXXXXXXXXXXXX",
         publish_date_end: "2025-01-01",
         publish_date_start: "2025-01-01",
@@ -53,7 +53,7 @@ class Onlyfansapi::Test::Resources::QueueTest < Onlyfansapi::Test::ResourceTest
   def test_publish_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.queue.publish("queue_id", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.queue.publish("queue_id", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::QueuePublishResponse

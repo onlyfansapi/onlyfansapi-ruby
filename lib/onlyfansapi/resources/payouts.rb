@@ -5,7 +5,7 @@ module Onlyfansapi
     class Payouts
       # List all payout requests for the account.
       #
-      # @overload list_payout_requests(account, limit: nil, offset: nil, request_options: {})
+      # @overload list_requests(account, limit: nil, offset: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -15,17 +15,17 @@ module Onlyfansapi
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Onlyfansapi::Models::PayoutListPayoutRequestsResponse]
+      # @return [Onlyfansapi::Models::PayoutListRequestsResponse]
       #
-      # @see Onlyfansapi::Models::PayoutListPayoutRequestsParams
-      def list_payout_requests(account, params = {})
-        parsed, options = Onlyfansapi::PayoutListPayoutRequestsParams.dump_request(params)
+      # @see Onlyfansapi::Models::PayoutListRequestsParams
+      def list_requests(account, params = {})
+        parsed, options = Onlyfansapi::PayoutListRequestsParams.dump_request(params)
         query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["api/%1$s/payouts/payout-requests", account],
           query: query,
-          model: Onlyfansapi::Models::PayoutListPayoutRequestsResponse,
+          model: Onlyfansapi::Models::PayoutListRequestsResponse,
           options: options
         )
       end
@@ -125,24 +125,24 @@ module Onlyfansapi
 
       # Update the payout frequency for the account (Manual, Weekly or Monthly).
       #
-      # @overload update_payout_frequency(account, frequency:, request_options: {})
+      # @overload update_frequency(account, frequency:, request_options: {})
       #
       # @param account [String] The Account ID
       #
-      # @param frequency [Symbol, Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams::Frequency] The new payout frequency
+      # @param frequency [Symbol, Onlyfansapi::Models::PayoutUpdateFrequencyParams::Frequency] The new payout frequency
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Onlyfansapi::Models::PayoutUpdatePayoutFrequencyResponse]
+      # @return [Onlyfansapi::Models::PayoutUpdateFrequencyResponse]
       #
-      # @see Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams
-      def update_payout_frequency(account, params)
-        parsed, options = Onlyfansapi::PayoutUpdatePayoutFrequencyParams.dump_request(params)
+      # @see Onlyfansapi::Models::PayoutUpdateFrequencyParams
+      def update_frequency(account, params)
+        parsed, options = Onlyfansapi::PayoutUpdateFrequencyParams.dump_request(params)
         @client.request(
           method: :patch,
           path: ["api/%1$s/payouts/payout-frequency", account],
           body: parsed,
-          model: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyResponse,
+          model: Onlyfansapi::Models::PayoutUpdateFrequencyResponse,
           options: options
         )
       end

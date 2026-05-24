@@ -1,0 +1,45 @@
+module Onlyfansapi
+  module Resources
+    class Stored
+      def list_shared_tracking_links: (
+        String account,
+        ?filter_search: String,
+        ?filter_tags: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::StoredListSharedTrackingLinksResponse
+
+      def list_shared_trial_links: (
+        String account,
+        ?filter_search: String,
+        ?filter_tags: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::StoredListSharedTrialLinksResponse
+
+      def list_tracking_links: (
+        String account,
+        ?filter_include_smart_links: bool,
+        ?filter_search: String,
+        ?filter_tags: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::StoredListTrackingLinksResponse
+
+      def list_trial_links: (
+        String account,
+        ?filter_include_smart_links: bool,
+        ?filter_search: String,
+        ?filter_tags: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::StoredListTrialLinksResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

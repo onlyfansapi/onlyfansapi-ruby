@@ -22,16 +22,25 @@ module Onlyfansapi
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::MassMessagingUpdateResponse
 
+      def list: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MassMessagingListResponse
+
       def delete: (
         String id,
         account: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::MassMessagingDeleteResponse
 
-      def list_queue: (
+      def retrieve_overview: (
         String account,
+        ?end_date: String,
+        ?limit: Integer,
+        ?query: String,
+        ?start_date: String,
         ?request_options: Onlyfansapi::request_opts
-      ) -> Onlyfansapi::Models::MassMessagingListQueueResponse
+      ) -> Onlyfansapi::Models::MassMessagingRetrieveOverviewResponse
 
       def send_: (
         String account,

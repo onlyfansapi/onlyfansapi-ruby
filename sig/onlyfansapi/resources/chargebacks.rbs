@@ -1,0 +1,30 @@
+module Onlyfansapi
+  module Resources
+    class Chargebacks
+      def list: (
+        String account,
+        ?end_date: String,
+        ?limit: String?,
+        ?offset: String?,
+        ?start_date: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChargebackListResponse
+
+      def calculate_ratio: (
+        String account,
+        ?end_date: String,
+        ?start_date: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChargebackCalculateRatioResponse
+
+      def list_statistics: (
+        String account,
+        ?end_date: String,
+        ?start_date: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChargebackListStatisticsResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

@@ -1,0 +1,46 @@
+module Onlyfansapi
+  module Models
+    module Analytics
+      type summary_get_historical_performance_params =
+        {
+          time_range: Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceParams::time_range
+        }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class SummaryGetHistoricalPerformanceParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_reader time_range: Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceParams::time_range?
+
+        def time_range=: (
+          Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceParams::time_range
+        ) -> Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceParams::time_range
+
+        def initialize: (
+          ?time_range: Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceParams::time_range,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          time_range: Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceParams::time_range,
+          request_options: Onlyfansapi::RequestOptions
+        }
+
+        type time_range = :"3m" | :"6m" | :"12m" | :ytd | :"last-year"
+
+        module TimeRange
+          extend Onlyfansapi::Internal::Type::Enum
+
+          TIME_RANGE_3M: :"3m"
+          TIME_RANGE_6M: :"6m"
+          TIME_RANGE_12M: :"12m"
+          YTD: :ytd
+          LAST_YEAR: :"last-year"
+
+          def self?.values: -> ::Array[Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceParams::time_range]
+        end
+      end
+    end
+  end
+end

@@ -4,6 +4,10 @@ module Onlyfansapi
   module Resources
     # APIs for managing Free Trial Links
     class TrialLinks
+      # APIs for managing Free Trial Links
+      # @return [Onlyfansapi::Resources::TrialLinks::Tags]
+      attr_reader :tags
+
       # Some parameter documentations has been truncated, see
       # {Onlyfansapi::Models::TrialLinkCreateParams} for more details.
       #
@@ -35,6 +39,33 @@ module Onlyfansapi
           path: ["api/%1$s/trial-links", account],
           body: parsed,
           model: Onlyfansapi::Models::TrialLinkCreateResponse,
+          options: options
+        )
+      end
+
+      # Get individual Free Trial Link details and it's revenue data
+      #
+      # @overload retrieve(trial_link_id, account:, request_options: {})
+      #
+      # @param trial_link_id [String] The ID of the trial link.
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::TrialLinkRetrieveResponse]
+      #
+      # @see Onlyfansapi::Models::TrialLinkRetrieveParams
+      def retrieve(trial_link_id, params)
+        parsed, options = Onlyfansapi::TrialLinkRetrieveParams.dump_request(params)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/trial-links/%2$s", account, trial_link_id],
+          model: Onlyfansapi::Models::TrialLinkRetrieveResponse,
           options: options
         )
       end
@@ -170,11 +201,81 @@ module Onlyfansapi
         )
       end
 
+      # Get per-link time-to-profit cohort ARPS windows for a specific Free Trial Link
+      #
+      # @overload retrieve_cohort_arps(trial_link_id, account:, acquisition_end: nil, acquisition_start: nil, revenue_basis: nil, request_options: {})
+      #
+      # @param trial_link_id [String] Path param: The ID of the trial link.
+      #
+      # @param account [String] Path param: The Account ID
+      #
+      # @param acquisition_end [String] Query param: Optional acquisition range end date
+      #
+      # @param acquisition_start [String] Query param: Optional acquisition range start date
+      #
+      # @param revenue_basis [Symbol, Onlyfansapi::Models::TrialLinkRetrieveCohortArpsParams::RevenueBasis] Query param: Revenue basis. Defaults to `net`.
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [nil]
+      #
+      # @see Onlyfansapi::Models::TrialLinkRetrieveCohortArpsParams
+      def retrieve_cohort_arps(trial_link_id, params)
+        parsed, options = Onlyfansapi::TrialLinkRetrieveCohortArpsParams.dump_request(params)
+        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/trial-links/%2$s/cohort-arps", account, trial_link_id],
+          query: query,
+          model: NilClass,
+          options: options
+        )
+      end
+
+      # Get dashboard-style summary plus daily and monthly metrics for a specific Free
+      # Trial Link
+      #
+      # @overload retrieve_stats(trial_link_id, account:, date_end: nil, date_start: nil, request_options: {})
+      #
+      # @param trial_link_id [String] Path param: The ID of the trial link.
+      #
+      # @param account [String] Path param: The Account ID
+      #
+      # @param date_end [String] Query param: Optional stats range end date
+      #
+      # @param date_start [String] Query param: Optional stats range start date
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::TrialLinkRetrieveStatsResponse]
+      #
+      # @see Onlyfansapi::Models::TrialLinkRetrieveStatsParams
+      def retrieve_stats(trial_link_id, params)
+        parsed, options = Onlyfansapi::TrialLinkRetrieveStatsParams.dump_request(params)
+        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/trial-links/%2$s/stats", account, trial_link_id],
+          query: query,
+          model: Onlyfansapi::Models::TrialLinkRetrieveStatsResponse,
+          options: options
+        )
+      end
+
       # @api private
       #
       # @param client [Onlyfansapi::Client]
       def initialize(client:)
         @client = client
+        @tags = Onlyfansapi::Resources::TrialLinks::Tags.new(client: client)
       end
     end
   end

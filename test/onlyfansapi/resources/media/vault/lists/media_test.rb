@@ -7,7 +7,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfansapi
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.media.vault.lists.media.add(
+      @only_fans_api.media.vault.lists.media.add(
         "blanditiis",
         account: "acct_XXXXXXXXXXXXXXX",
         media_ids: ["string"]
@@ -29,7 +29,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfansapi
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.media.vault.lists.media.remove(
+      @only_fans_api.media.vault.lists.media.remove(
         "blanditiis",
         account: "acct_XXXXXXXXXXXXXXX",
         media_ids: ["string"]

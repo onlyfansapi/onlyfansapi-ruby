@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::SettingsTest < Onlyfansapi::Test::ResourceTe
   def test_retrieve
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.settings.retrieve("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.settings.retrieve("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::SettingRetrieveResponse
@@ -20,19 +20,20 @@ class Onlyfansapi::Test::Resources::SettingsTest < Onlyfansapi::Test::ResourceTe
     end
   end
 
-  def test_check_username_exists_required_params
+  def test_check_username_availability_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.settings.check_username_exists("acct_XXXXXXXXXXXXXXX", username: "MyNewUsername")
+    response =
+      @only_fans_api.settings.check_username_availability("acct_XXXXXXXXXXXXXXX", username: "MyNewUsername")
 
     assert_pattern do
-      response => Onlyfansapi::Models::SettingCheckUsernameExistsResponse
+      response => Onlyfansapi::Models::SettingCheckUsernameAvailabilityResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::SettingCheckUsernameExistsResponse::Meta | nil,
-        data: Onlyfansapi::Models::SettingCheckUsernameExistsResponse::Data | nil
+        _meta: Onlyfansapi::Models::SettingCheckUsernameAvailabilityResponse::Meta | nil,
+        data: Onlyfansapi::Models::SettingCheckUsernameAvailabilityResponse::Data | nil
       }
     end
   end
@@ -40,7 +41,7 @@ class Onlyfansapi::Test::Resources::SettingsTest < Onlyfansapi::Test::ResourceTe
   def test_update_profile
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.settings.update_profile("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.settings.update_profile("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::SettingUpdateProfileResponse
@@ -50,6 +51,23 @@ class Onlyfansapi::Test::Resources::SettingsTest < Onlyfansapi::Test::ResourceTe
       response => {
         _meta: Onlyfansapi::Models::SettingUpdateProfileResponse::Meta | nil,
         data: Onlyfansapi::Models::SettingUpdateProfileResponse::Data | nil
+      }
+    end
+  end
+
+  def test_update_subscription_price_required_params
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.settings.update_subscription_price("acct_XXXXXXXXXXXXXXX", price: "4.99")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::SettingUpdateSubscriptionPriceResponse
+    end
+
+    assert_pattern do
+      response => {
+        _meta: Onlyfansapi::Models::SettingUpdateSubscriptionPriceResponse::Meta | nil,
+        data: Onlyfansapi::Models::SettingUpdateSubscriptionPriceResponse::Data | nil
       }
     end
   end

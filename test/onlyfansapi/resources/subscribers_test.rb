@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::SubscribersTest < Onlyfansapi::Test::Resourc
   def test_retrieve_statistics
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.subscribers.retrieve_statistics("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.subscribers.retrieve_statistics("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::SubscriberRetrieveStatisticsResponse

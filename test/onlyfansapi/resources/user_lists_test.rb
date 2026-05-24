@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::UserListsTest < Onlyfansapi::Test::ResourceT
   def test_create_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.user_lists.create("acct_XXXXXXXXXXXXXXX", name: "iaxxxx")
+    response = @only_fans_api.user_lists.create("acct_XXXXXXXXXXXXXXX", name: "iaxxxx")
 
     assert_pattern do
       response => Onlyfansapi::Models::UserListCreateResponse
@@ -20,11 +20,28 @@ class Onlyfansapi::Test::Resources::UserListsTest < Onlyfansapi::Test::ResourceT
     end
   end
 
+  def test_retrieve_required_params
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.user_lists.retrieve("userListId", account: "acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::UserListRetrieveResponse
+    end
+
+    assert_pattern do
+      response => {
+        _meta: Onlyfansapi::Models::UserListRetrieveResponse::Meta | nil,
+        data: Onlyfansapi::Models::UserListRetrieveResponse::Data | nil
+      }
+    end
+  end
+
   def test_update_required_params
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.user_lists.update(
+      @only_fans_api.user_lists.update(
         "userListId",
         account: "acct_XXXXXXXXXXXXXXX",
         name: "My Updated List Name"
@@ -45,7 +62,7 @@ class Onlyfansapi::Test::Resources::UserListsTest < Onlyfansapi::Test::ResourceT
   def test_list
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.user_lists.list("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.user_lists.list("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::UserListListResponse
@@ -62,7 +79,7 @@ class Onlyfansapi::Test::Resources::UserListsTest < Onlyfansapi::Test::ResourceT
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.user_lists.delete("userListId", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.user_lists.delete("userListId", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::UserListDeleteResponse

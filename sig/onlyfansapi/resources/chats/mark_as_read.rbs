@@ -1,0 +1,14 @@
+module Onlyfansapi
+  module Resources
+    class Chats
+      class MarkAsRead
+        def all: (
+          String account,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MarkAsReadAllResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

@@ -16,23 +16,33 @@ module Onlyfansapi
 
     attr_reader me: Onlyfansapi::Resources::Me
 
+    attr_reader analytics: Onlyfansapi::Resources::Analytics
+
     attr_reader banking: Onlyfansapi::Resources::Banking
+
+    attr_reader chargebacks: Onlyfansapi::Resources::Chargebacks
 
     attr_reader chats: Onlyfansapi::Resources::Chats
 
-    attr_reader client_sessions: Onlyfansapi::Resources::ClientSessions
+    attr_reader messages: Onlyfansapi::Resources::Messages
 
-    attr_reader user_lists: Onlyfansapi::Resources::UserLists
+    attr_reader client_sessions: Onlyfansapi::Resources::ClientSessions
 
     attr_reader authenticate: Onlyfansapi::Resources::Authenticate
 
-    attr_reader workflows: Onlyfansapi::Resources::Workflows
+    attr_reader data_exports: Onlyfansapi::Resources::DataExports
+
+    attr_reader engagement: Onlyfansapi::Resources::Engagement
 
     attr_reader fans: Onlyfansapi::Resources::Fans
 
     attr_reader following: Onlyfansapi::Resources::Following
 
     attr_reader trial_links: Onlyfansapi::Resources::TrialLinks
+
+    attr_reader giphy: Onlyfansapi::Resources::Giphy
+
+    attr_reader link_tags: Onlyfansapi::Resources::LinkTags
 
     attr_reader mass_messaging: Onlyfansapi::Resources::MassMessaging
 
@@ -44,23 +54,43 @@ module Onlyfansapi
 
     attr_reader posts: Onlyfansapi::Resources::Posts
 
+    attr_reader promotions: Onlyfansapi::Resources::Promotions
+
     attr_reader profiles: Onlyfansapi::Resources::Profiles
 
     attr_reader search: Onlyfansapi::Resources::Search
 
     attr_reader queue: Onlyfansapi::Resources::Queue
 
+    attr_reader release_forms: Onlyfansapi::Resources::ReleaseForms
+
     attr_reader saved_for_later: Onlyfansapi::Resources::SavedForLater
 
     attr_reader settings: Onlyfansapi::Resources::Settings
+
+    attr_reader shared_trial_links: Onlyfansapi::Resources::SharedTrialLinks
+
+    attr_reader shared_tracking_links: Onlyfansapi::Resources::SharedTrackingLinks
+
+    attr_reader smart_link_postbacks: Onlyfansapi::Resources::SmartLinkPostbacks
+
+    attr_reader smart_links: Onlyfansapi::Resources::SmartLinks
 
     attr_reader statistics: Onlyfansapi::Resources::Statistics
 
     attr_reader subscribers: Onlyfansapi::Resources::Subscribers
 
+    attr_reader stored: Onlyfansapi::Resources::Stored
+
+    attr_reader stories: Onlyfansapi::Resources::Stories
+
+    attr_reader bundles: Onlyfansapi::Resources::Bundles
+
     attr_reader tracking_links: Onlyfansapi::Resources::TrackingLinks
 
     attr_reader transactions: Onlyfansapi::Resources::Transactions
+
+    attr_reader user_lists: Onlyfansapi::Resources::UserLists
 
     attr_reader users: Onlyfansapi::Resources::Users
 

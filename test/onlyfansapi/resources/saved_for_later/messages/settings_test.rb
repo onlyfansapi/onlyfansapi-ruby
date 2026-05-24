@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::SavedForLater::Messages::SettingsTest < Only
   def test_retrieve
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.saved_for_later.messages.settings.retrieve("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.saved_for_later.messages.settings.retrieve("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::SavedForLater::Messages::SettingRetrieveResponse
@@ -24,7 +24,7 @@ class Onlyfansapi::Test::Resources::SavedForLater::Messages::SettingsTest < Only
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.saved_for_later.messages.settings.disable_automatic_messaging("acct_XXXXXXXXXXXXXXX")
+      @only_fans_api.saved_for_later.messages.settings.disable_automatic_messaging("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse
@@ -42,7 +42,7 @@ class Onlyfansapi::Test::Resources::SavedForLater::Messages::SettingsTest < Only
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.saved_for_later.messages.settings.enable_or_update_automatic_messaging(
+      @only_fans_api.saved_for_later.messages.settings.enable_or_update_automatic_messaging(
         "acct_XXXXXXXXXXXXXXX",
         period: 24
       )

@@ -11,7 +11,7 @@ module Onlyfansapi
       def disconnect: (
         String id,
         ?request_options: Onlyfansapi::request_opts
-      ) -> top?
+      ) -> Onlyfansapi::Models::account_disconnect_response?
 
       def initialize: (client: Onlyfansapi::Client) -> void
     end

@@ -25,25 +25,35 @@ module Onlyfansapi
     sig { returns(Onlyfansapi::Resources::Me) }
     attr_reader :me
 
+    sig { returns(Onlyfansapi::Resources::Analytics) }
+    attr_reader :analytics
+
     # Operations related to user banking details, payout methods, legal and tax
     # information, and account country settings.
     sig { returns(Onlyfansapi::Resources::Banking) }
     attr_reader :banking
 
+    sig { returns(Onlyfansapi::Resources::Chargebacks) }
+    attr_reader :chargebacks
+
     sig { returns(Onlyfansapi::Resources::Chats) }
     attr_reader :chats
+
+    sig { returns(Onlyfansapi::Resources::Messages) }
+    attr_reader :messages
 
     sig { returns(Onlyfansapi::Resources::ClientSessions) }
     attr_reader :client_sessions
 
-    sig { returns(Onlyfansapi::Resources::UserLists) }
-    attr_reader :user_lists
-
     sig { returns(Onlyfansapi::Resources::Authenticate) }
     attr_reader :authenticate
 
-    sig { returns(Onlyfansapi::Resources::Workflows) }
-    attr_reader :workflows
+    # APIs for managing data exports
+    sig { returns(Onlyfansapi::Resources::DataExports) }
+    attr_reader :data_exports
+
+    sig { returns(Onlyfansapi::Resources::Engagement) }
+    attr_reader :engagement
 
     # APIs for managing OnlyFans fans (subscribers)
     sig { returns(Onlyfansapi::Resources::Fans) }
@@ -56,6 +66,13 @@ module Onlyfansapi
     # APIs for managing Free Trial Links
     sig { returns(Onlyfansapi::Resources::TrialLinks) }
     attr_reader :trial_links
+
+    sig { returns(Onlyfansapi::Resources::Giphy) }
+    attr_reader :giphy
+
+    # APIs for managing tags on free trial links and tracking links
+    sig { returns(Onlyfansapi::Resources::LinkTags) }
+    attr_reader :link_tags
 
     sig { returns(Onlyfansapi::Resources::MassMessaging) }
     attr_reader :mass_messaging
@@ -74,6 +91,9 @@ module Onlyfansapi
     sig { returns(Onlyfansapi::Resources::Posts) }
     attr_reader :posts
 
+    sig { returns(Onlyfansapi::Resources::Promotions) }
+    attr_reader :promotions
+
     sig { returns(Onlyfansapi::Resources::Profiles) }
     attr_reader :profiles
 
@@ -83,17 +103,50 @@ module Onlyfansapi
     sig { returns(Onlyfansapi::Resources::Queue) }
     attr_reader :queue
 
+    # APIs for managing OnlyFans release forms
+    sig { returns(Onlyfansapi::Resources::ReleaseForms) }
+    attr_reader :release_forms
+
     sig { returns(Onlyfansapi::Resources::SavedForLater) }
     attr_reader :saved_for_later
 
     sig { returns(Onlyfansapi::Resources::Settings) }
     attr_reader :settings
 
+    # APIs for Free Trial Links that other OF creators have shared with this account.
+    # Revenue, cost, and spender data are not available for shared links.
+    sig { returns(Onlyfansapi::Resources::SharedTrialLinks) }
+    attr_reader :shared_trial_links
+
+    # APIs for Tracking Links (campaigns) that other OF creators have shared with this
+    # account. Revenue, cost, and spender data are not available for shared campaigns.
+    sig { returns(Onlyfansapi::Resources::SharedTrackingLinks) }
+    attr_reader :shared_tracking_links
+
+    # APIs for managing Smart Link postback destinations
+    sig { returns(Onlyfansapi::Resources::SmartLinkPostbacks) }
+    attr_reader :smart_link_postbacks
+
+    # APIs for managing Smart Links (Free Trial Links and Tracking Links with pooled
+    # inventory)
+    sig { returns(Onlyfansapi::Resources::SmartLinks) }
+    attr_reader :smart_links
+
     sig { returns(Onlyfansapi::Resources::Statistics) }
     attr_reader :statistics
 
     sig { returns(Onlyfansapi::Resources::Subscribers) }
     attr_reader :subscribers
+
+    sig { returns(Onlyfansapi::Resources::Stored) }
+    attr_reader :stored
+
+    # APIs for managing OnlyFans stories
+    sig { returns(Onlyfansapi::Resources::Stories) }
+    attr_reader :stories
+
+    sig { returns(Onlyfansapi::Resources::Bundles) }
+    attr_reader :bundles
 
     # APIs for managing tracking links
     sig { returns(Onlyfansapi::Resources::TrackingLinks) }
@@ -102,6 +155,9 @@ module Onlyfansapi
     # APIs for managing OnlyFans transactions
     sig { returns(Onlyfansapi::Resources::Transactions) }
     attr_reader :transactions
+
+    sig { returns(Onlyfansapi::Resources::UserLists) }
+    attr_reader :user_lists
 
     # APIs for fetching OnlyFans users
     sig { returns(Onlyfansapi::Resources::Users) }
@@ -131,8 +187,8 @@ module Onlyfansapi
       # Defaults to `ENV["ONLYFANSAPI_API_KEY"]`
       api_key: ENV["ONLYFANSAPI_API_KEY"],
       # Override the default base URL for the API, e.g.,
-      # `"https://api.example.com/v2/"`. Defaults to `ENV["ONLYFANSAPI_BASE_URL"]`
-      base_url: ENV["ONLYFANSAPI_BASE_URL"],
+      # `"https://api.example.com/v2/"`. Defaults to `ENV["ONLY_FANS_API_BASE_URL"]`
+      base_url: ENV["ONLY_FANS_API_BASE_URL"],
       # Max number of retries to attempt after a failed retryable request.
       max_retries: Onlyfansapi::Client::DEFAULT_MAX_RETRIES,
       timeout: Onlyfansapi::Client::DEFAULT_TIMEOUT_IN_SECONDS,

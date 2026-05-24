@@ -1,0 +1,40 @@
+module Onlyfansapi
+  module Models
+    type shared_trial_link_list_params =
+      { account: String, limit: Integer, offset: Integer, synchronous: bool? }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class SharedTrialLinkListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_accessor synchronous: bool?
+
+      def initialize: (
+        account: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?synchronous: bool?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        synchronous: bool?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

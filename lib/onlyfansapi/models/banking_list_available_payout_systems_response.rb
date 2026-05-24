@@ -141,8 +141,8 @@ module Onlyfansapi
 
           # @!attribute fields
           #
-          #   @return [Object, nil]
-          optional :fields, Onlyfansapi::Internal::Type::Unknown
+          #   @return [Hash{Symbol=>Object}, nil]
+          optional :fields, Onlyfansapi::Internal::Type::HashOf[Onlyfansapi::Internal::Type::Unknown]
 
           # @!attribute fields_order
           #
@@ -173,19 +173,21 @@ module Onlyfansapi
 
           # @!attribute ui_mapping
           #
-          #   @return [Object, nil]
-          optional :ui_mapping, Onlyfansapi::Internal::Type::Unknown, api_name: :uiMapping
+          #   @return [Hash{Symbol=>Object}, nil]
+          optional :ui_mapping,
+                   Onlyfansapi::Internal::Type::HashOf[Onlyfansapi::Internal::Type::Unknown],
+                   api_name: :uiMapping
 
           # @!method initialize(code: nil, description: nil, fields: nil, fields_order: nil, min_payout_summ: nil, payout_time: nil, subtitle: nil, title: nil, ui_mapping: nil)
           #   @param code [String]
           #   @param description [String]
-          #   @param fields [Object]
+          #   @param fields [Hash{Symbol=>Object}]
           #   @param fields_order [Array<Object>]
           #   @param min_payout_summ [Integer]
           #   @param payout_time [String]
           #   @param subtitle [String]
           #   @param title [String]
-          #   @param ui_mapping [Object]
+          #   @param ui_mapping [Hash{Symbol=>Object}]
         end
       end
     end

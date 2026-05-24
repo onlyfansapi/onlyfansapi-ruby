@@ -1,0 +1,69 @@
+module Onlyfansapi
+  module Models
+    type chat_list_media_params =
+      {
+        account: String,
+        chat_id: String,
+        limit: String,
+        offset: String,
+        skip_users: String,
+        type: Onlyfansapi::Models::ChatListMediaParams::type_?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class ChatListMediaParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor chat_id: String
+
+      attr_reader limit: String?
+
+      def limit=: (String) -> String
+
+      attr_reader offset: String?
+
+      def offset=: (String) -> String
+
+      attr_reader skip_users: String?
+
+      def skip_users=: (String) -> String
+
+      attr_accessor type: Onlyfansapi::Models::ChatListMediaParams::type_?
+
+      def initialize: (
+        account: String,
+        chat_id: String,
+        ?limit: String,
+        ?offset: String,
+        ?skip_users: String,
+        ?type: Onlyfansapi::Models::ChatListMediaParams::type_?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        chat_id: String,
+        limit: String,
+        offset: String,
+        skip_users: String,
+        type: Onlyfansapi::Models::ChatListMediaParams::type_?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type type_ = :photos | :videos | :audios
+
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        PHOTOS: :photos
+        VIDEOS: :videos
+        AUDIOS: :audios
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::ChatListMediaParams::type_]
+      end
+    end
+  end
+end

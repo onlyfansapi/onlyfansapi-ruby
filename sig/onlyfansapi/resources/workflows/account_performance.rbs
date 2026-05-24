@@ -1,9 +1,0 @@
-module Onlyfansapi
-  module Resources
-    class Workflows
-      class AccountPerformance
-        def initialize: (client: Onlyfansapi::Client) -> void
-      end
-    end
-  end
-end

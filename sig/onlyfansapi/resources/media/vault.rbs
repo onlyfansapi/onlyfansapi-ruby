@@ -4,6 +4,12 @@ module Onlyfansapi
       class Vault
         attr_reader lists: Onlyfansapi::Resources::Media::Vault::Lists
 
+        def retrieve: (
+          Integer media_id,
+          account: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Media::VaultRetrieveResponse
+
         def list: (
           String account,
           ?field: Onlyfansapi::Models::Media::VaultListParams::field,
@@ -21,6 +27,14 @@ module Onlyfansapi
           media_ids: ::Array[String],
           ?request_options: Onlyfansapi::request_opts
         ) -> Onlyfansapi::Models::Media::VaultDeleteResponse
+
+        def upload: (
+          String account,
+          ?async: bool,
+          ?file: Onlyfansapi::Internal::file_input,
+          ?file_url: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Media::VaultUploadResponse
 
         def initialize: (client: Onlyfansapi::Client) -> void
       end

@@ -3,6 +3,8 @@ module Onlyfansapi
     class Chats
       attr_reader messages: Onlyfansapi::Resources::Chats::Messages
 
+      attr_reader mark_as_read: Onlyfansapi::Resources::Chats::MarkAsRead
+
       def list: (
         String account,
         ?filter: Onlyfansapi::Models::ChatListParams::filter,
@@ -14,11 +16,51 @@ module Onlyfansapi
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::ChatListResponse
 
-      def start_typing_indicator: (
+      def delete: (
         String chat_id,
         account: String,
         ?request_options: Onlyfansapi::request_opts
-      ) -> Onlyfansapi::Models::ChatStartTypingIndicatorResponse
+      ) -> Onlyfansapi::Models::ChatDeleteResponse
+
+      def hide: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatHideResponse
+
+      def list_media: (
+        String chat_id,
+        account: String,
+        ?limit: String,
+        ?offset: String,
+        ?skip_users: String,
+        ?type: Onlyfansapi::Models::ChatListMediaParams::type_?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatListMediaResponse
+
+      def mark_as_unread: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatMarkAsUnreadResponse
+
+      def mute: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatMuteResponse
+
+      def start_typing: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatStartTypingResponse
+
+      def unmute: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatUnmuteResponse
 
       def initialize: (client: Onlyfansapi::Client) -> void
     end

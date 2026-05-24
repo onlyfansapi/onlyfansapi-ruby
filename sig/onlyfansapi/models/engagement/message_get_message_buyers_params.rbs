@@ -1,0 +1,68 @@
+module Onlyfansapi
+  module Models
+    module Engagement
+      type message_get_message_buyers_params =
+        {
+          account: String,
+          message_id: String,
+          limit: Integer,
+          marker: Integer,
+          offset: Integer,
+          skip_users: String,
+          skip_users_dups: Integer
+        }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class MessageGetMessageBuyersParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor message_id: String
+
+        attr_reader limit: Integer?
+
+        def limit=: (Integer) -> Integer
+
+        attr_reader marker: Integer?
+
+        def marker=: (Integer) -> Integer
+
+        attr_reader offset: Integer?
+
+        def offset=: (Integer) -> Integer
+
+        attr_reader skip_users: String?
+
+        def skip_users=: (String) -> String
+
+        attr_reader skip_users_dups: Integer?
+
+        def skip_users_dups=: (Integer) -> Integer
+
+        def initialize: (
+          account: String,
+          message_id: String,
+          ?limit: Integer,
+          ?marker: Integer,
+          ?offset: Integer,
+          ?skip_users: String,
+          ?skip_users_dups: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          message_id: String,
+          limit: Integer,
+          marker: Integer,
+          offset: Integer,
+          skip_users: String,
+          skip_users_dups: Integer,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

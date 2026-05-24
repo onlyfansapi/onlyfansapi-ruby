@@ -1,0 +1,61 @@
+module Onlyfansapi
+  module Models
+    module Analytics
+      module Financial
+        type transaction_get_summary_response =
+          {
+            disputed_count: Integer,
+            refunded_count: Integer,
+            succeeded_count: Integer,
+            total_fees: Float,
+            total_gross: Float,
+            total_net: Float
+          }
+
+        class TransactionGetSummaryResponse < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader disputed_count: Integer?
+
+          def disputed_count=: (Integer) -> Integer
+
+          attr_reader refunded_count: Integer?
+
+          def refunded_count=: (Integer) -> Integer
+
+          attr_reader succeeded_count: Integer?
+
+          def succeeded_count=: (Integer) -> Integer
+
+          attr_reader total_fees: Float?
+
+          def total_fees=: (Float) -> Float
+
+          attr_reader total_gross: Float?
+
+          def total_gross=: (Float) -> Float
+
+          attr_reader total_net: Float?
+
+          def total_net=: (Float) -> Float
+
+          def initialize: (
+            ?disputed_count: Integer,
+            ?refunded_count: Integer,
+            ?succeeded_count: Integer,
+            ?total_fees: Float,
+            ?total_gross: Float,
+            ?total_net: Float
+          ) -> void
+
+          def to_hash: -> {
+            disputed_count: Integer,
+            refunded_count: Integer,
+            succeeded_count: Integer,
+            total_fees: Float,
+            total_gross: Float,
+            total_net: Float
+          }
+        end
+      end
+    end
+  end
+end

@@ -11,6 +11,11 @@ module Onlyfansapi
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::MeGetModelStartDateResponse
 
+      def get_top_percentage: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MeGetTopPercentageResponse
+
       def initialize: (client: Onlyfansapi::Client) -> void
     end
   end

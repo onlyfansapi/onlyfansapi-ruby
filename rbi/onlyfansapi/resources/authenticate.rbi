@@ -35,6 +35,22 @@ module Onlyfansapi
       )
       end
 
+      # Send 2FA verification e-mail to the creator's email so they can verify login on
+      # their device without your input. The e-mail will be sent to the e-mail address
+      # used for signing into OnlyFans.
+      sig do
+        params(
+          attempt_id: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::AuthenticateSend2faEmailResponse)
+      end
+      def send_2fa_email(
+        # The attempt ID of the authentication process
+        attempt_id,
+        request_options: {}
+      )
+      end
+
       # Start the authentication process for a new account. Supports three methods:
       # email/password (default), cookies & headers (raw_data), or FansAPI Auth+ mobile
       # app (mobile_app). For email/password, our systems will bypass Captcha and ask
@@ -102,8 +118,7 @@ module Onlyfansapi
         params(
           attempt_id: String,
           code: String,
-          selfie_verification_completed:
-            Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted::OrBoolean,
+          selfie_verification_completed: T.anything,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::AuthenticateSubmit2faResponse)
       end

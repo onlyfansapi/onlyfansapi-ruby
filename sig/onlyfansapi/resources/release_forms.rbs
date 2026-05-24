@@ -1,0 +1,30 @@
+module Onlyfansapi
+  module Resources
+    class ReleaseForms
+      def create_invitation_link: (
+        String account,
+        name: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ReleaseFormCreateInvitationLinkResponse
+
+      def create_release_form: (
+        String account,
+        name: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ReleaseFormCreateReleaseFormResponse
+
+      def list_taggable_users: (
+        String account,
+        ?filter: Onlyfansapi::Models::ReleaseFormListTaggableUsersParams::filter?,
+        ?limit: Integer,
+        ?name: String?,
+        ?offset: Integer,
+        ?sort: Onlyfansapi::Models::ReleaseFormListTaggableUsersParams::sort?,
+        ?sort_direction: Onlyfansapi::Models::ReleaseFormListTaggableUsersParams::sort_direction?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ReleaseFormListTaggableUsersResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

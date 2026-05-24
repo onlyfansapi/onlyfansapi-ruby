@@ -27,33 +27,33 @@ module Onlyfansapi
           ?request_options: Onlyfansapi::request_opts
         ) -> Onlyfansapi::Models::Posts::CommentDeleteResponse
 
-        def like_comment: (
+        def like: (
           Integer comment_id,
           account: String,
           post_id: Integer,
           ?request_options: Onlyfansapi::request_opts
-        ) -> Onlyfansapi::Models::Posts::CommentLikeCommentResponse
+        ) -> Onlyfansapi::Models::Posts::CommentLikeResponse
 
-        def pin_comment: (
+        def pin: (
           Integer comment_id,
           account: String,
           post_id: Integer,
           ?request_options: Onlyfansapi::request_opts
-        ) -> Onlyfansapi::Models::Posts::CommentPinCommentResponse
+        ) -> Onlyfansapi::Models::Posts::CommentPinResponse
 
-        def unlike_comment: (
+        def unlike: (
           Integer comment_id,
           account: String,
           post_id: Integer,
           ?request_options: Onlyfansapi::request_opts
-        ) -> Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse
+        ) -> Onlyfansapi::Models::Posts::CommentUnlikeResponse
 
-        def unpin_comment: (
+        def unpin: (
           Integer comment_id,
           account: String,
           post_id: Integer,
           ?request_options: Onlyfansapi::request_opts
-        ) -> Onlyfansapi::Models::Posts::CommentUnpinCommentResponse
+        ) -> Onlyfansapi::Models::Posts::CommentUnpinResponse
 
         def initialize: (client: Onlyfansapi::Client) -> void
       end

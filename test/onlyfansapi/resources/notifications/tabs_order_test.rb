@@ -7,7 +7,7 @@ class Onlyfansapi::Test::Resources::Notifications::TabsOrderTest < Onlyfansapi::
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.notifications.tabs_order.update(
+      @only_fans_api.notifications.tabs_order.update(
         "acct_XXXXXXXXXXXXXXX",
         tabs: %w[
           all
@@ -38,7 +38,7 @@ class Onlyfansapi::Test::Resources::Notifications::TabsOrderTest < Onlyfansapi::
   def test_get
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.notifications.tabs_order.get("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.notifications.tabs_order.get("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Notifications::TabsOrderGetResponse

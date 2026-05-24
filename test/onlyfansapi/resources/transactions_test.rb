@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::TransactionsTest < Onlyfansapi::Test::Resour
   def test_list
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.transactions.list("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.transactions.list("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::TransactionListResponse

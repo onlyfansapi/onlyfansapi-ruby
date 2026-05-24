@@ -83,9 +83,9 @@ module Onlyfansapi
             account: String,
             post_id: Integer,
             request_options: Onlyfansapi::RequestOptions::OrHash
-          ).returns(Onlyfansapi::Models::Posts::CommentLikeCommentResponse)
+          ).returns(Onlyfansapi::Models::Posts::CommentLikeResponse)
         end
-        def like_comment(
+        def like(
           # The ID of the comment to like.
           comment_id,
           # The Account ID
@@ -103,9 +103,9 @@ module Onlyfansapi
             account: String,
             post_id: Integer,
             request_options: Onlyfansapi::RequestOptions::OrHash
-          ).returns(Onlyfansapi::Models::Posts::CommentPinCommentResponse)
+          ).returns(Onlyfansapi::Models::Posts::CommentPinResponse)
         end
-        def pin_comment(
+        def pin(
           # The ID of the comment to pin.
           comment_id,
           # The Account ID
@@ -123,9 +123,9 @@ module Onlyfansapi
             account: String,
             post_id: Integer,
             request_options: Onlyfansapi::RequestOptions::OrHash
-          ).returns(Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse)
+          ).returns(Onlyfansapi::Models::Posts::CommentUnlikeResponse)
         end
-        def unlike_comment(
+        def unlike(
           # The ID of the comment to like.
           comment_id,
           # The Account ID
@@ -143,9 +143,9 @@ module Onlyfansapi
             account: String,
             post_id: Integer,
             request_options: Onlyfansapi::RequestOptions::OrHash
-          ).returns(Onlyfansapi::Models::Posts::CommentUnpinCommentResponse)
+          ).returns(Onlyfansapi::Models::Posts::CommentUnpinResponse)
         end
-        def unpin_comment(
+        def unpin(
           # The ID of the comment to pin.
           comment_id,
           # The Account ID

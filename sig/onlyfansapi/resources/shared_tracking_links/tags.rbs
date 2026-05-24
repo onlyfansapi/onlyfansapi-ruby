@@ -1,0 +1,29 @@
+module Onlyfansapi
+  module Resources
+    class SharedTrackingLinks
+      class Tags
+        def list: (
+          Integer shared_tracking_link_id,
+          account: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::SharedTrackingLinks::TagListResponse
+
+        def add: (
+          Integer shared_tracking_link_id,
+          account: String,
+          tags: ::Array[String],
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::SharedTrackingLinks::TagAddResponse
+
+        def remove: (
+          Integer shared_tracking_link_id,
+          account: String,
+          tags: ::Array[String],
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::SharedTrackingLinks::TagRemoveResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

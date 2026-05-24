@@ -4,6 +4,32 @@ module Onlyfansapi
   module Resources
     # APIs for managing OnlyFans fans (subscribers)
     class Fans
+      # APIs for managing OnlyFans fans (subscribers)
+      sig { returns(Onlyfansapi::Resources::Fans::Notes) }
+      attr_reader :notes
+
+      # APIs for generating and retrieving AI-powered fan profile summaries
+      sig { returns(Onlyfansapi::Resources::Fans::Summary) }
+      attr_reader :summary
+
+      # Get Subscription History for a given OnlyFans User ID. This can be useful, for
+      # example, when the user's subscribed to your account for the first time.
+      sig do
+        params(
+          user_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::FanGetSubscriptionHistoryResponse)
+      end
+      def get_subscription_history(
+        # The OnlyFans ID of the User.
+        user_id,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
+
       # Get a paginated list of fans for an Account. Newest fans are first.
       sig do
         params(
@@ -117,6 +143,53 @@ module Onlyfansapi
         start_date: nil,
         # Filter by type: total, renew, or new
         type: nil,
+        request_options: {}
+      )
+      end
+
+      # Get a list of top fans sorted by spending. Filterable by total, subscriptions,
+      # tips, messages, posts, or streams.
+      sig do
+        params(
+          account: String,
+          by: T.nilable(Onlyfansapi::FanListTopParams::By::OrSymbol),
+          end_date: T.nilable(String),
+          start_date: T.nilable(String),
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::FanListTopResponse)
+      end
+      def list_top(
+        # The Account ID
+        account,
+        # Sort by: total (default), subscribes, tips, messages, post, streams.
+        by: nil,
+        # End date for filtering (required with start_date). This field is required when
+        # <code>start_date</code> is present.
+        end_date: nil,
+        # Start date for filtering (required with end_date). This field is required when
+        # <code>end_date</code> is present.
+        start_date: nil,
+        request_options: {}
+      )
+      end
+
+      # Change the Fan's Custom Name shown in OnlyFans
+      sig do
+        params(
+          fan_id: String,
+          account: String,
+          custom_name: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::FanSetCustomNameResponse)
+      end
+      def set_custom_name(
+        # Path param: Fan's OnlyFans ID
+        fan_id,
+        # Path param: The Account ID
+        account:,
+        # Body param: New Custom Name for a Fan. Send empty string (`""`) or `null` to
+        # clear out the custom name.
+        custom_name:,
         request_options: {}
       )
       end

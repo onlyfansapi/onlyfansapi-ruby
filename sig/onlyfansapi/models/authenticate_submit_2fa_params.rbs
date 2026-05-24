@@ -1,11 +1,7 @@
 module Onlyfansapi
   module Models
     type authenticate_submit2fa_params =
-      {
-        attempt_id: String,
-        code: String,
-        selfie_verification_completed: Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed
-      }
+      { attempt_id: String, code: String, selfie_verification_completed: top }
       & Onlyfansapi::Internal::Type::request_parameters
 
     class AuthenticateSubmit2faParams < Onlyfansapi::Internal::Type::BaseModel
@@ -18,33 +14,23 @@ module Onlyfansapi
 
       def code=: (String) -> String
 
-      attr_reader selfie_verification_completed: Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed?
+      attr_reader selfie_verification_completed: top?
 
-      def selfie_verification_completed=: (
-        Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed
-      ) -> Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed
+      def selfie_verification_completed=: (top) -> top
 
       def initialize: (
         attempt_id: String,
         ?code: String,
-        ?selfie_verification_completed: Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed,
+        ?selfie_verification_completed: top,
         ?request_options: Onlyfansapi::request_opts
       ) -> void
 
       def to_hash: -> {
         attempt_id: String,
         code: String,
-        selfie_verification_completed: Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed,
+        selfie_verification_completed: top,
         request_options: Onlyfansapi::RequestOptions
       }
-
-      type selfie_verification_completed = nil
-
-      module SelfieVerificationCompleted
-        extend Onlyfansapi::Internal::Type::Enum
-
-        def self?.values: -> ::Array[Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed]
-      end
     end
   end
 end

@@ -1,11 +1,23 @@
 module Onlyfansapi
   module Resources
     class Users
+      attr_reader restrict: Onlyfansapi::Resources::Users::Restrict
+
+      attr_reader block: Onlyfansapi::Resources::Users::Block
+
+      attr_reader subscribe: Onlyfansapi::Resources::Users::Subscribe
+
       def retrieve: (
         String username,
         account: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::UserRetrieveResponse
+
+      def list: (
+        String account,
+        ids: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::UserListResponse
 
       def initialize: (client: Onlyfansapi::Client) -> void
     end

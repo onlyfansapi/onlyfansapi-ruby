@@ -1,7 +1,15 @@
 module Onlyfansapi
   module Resources
     class Media
+      attr_reader uploads: Onlyfansapi::Resources::Media::Uploads
+
       attr_reader vault: Onlyfansapi::Resources::Media::Vault
+
+      def download: (
+        String cdn_url,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> String
 
       def scrape: (
         String account,

@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::BankingTest < Onlyfansapi::Test::ResourceTes
   def test_list_available_payout_systems
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.banking.list_available_payout_systems("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.banking.list_available_payout_systems("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::BankingListAvailablePayoutSystemsResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::BankingTest < Onlyfansapi::Test::ResourceTes
   def test_list_countries
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.banking.list_countries("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.banking.list_countries("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::BankingListCountriesResponse

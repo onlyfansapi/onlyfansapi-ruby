@@ -44,6 +44,26 @@ module Onlyfansapi
         )
       end
 
+      # Get the top percentage of the model (e.g., top 0.02% of all creators)
+      #
+      # @overload get_top_percentage(account, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::MeGetTopPercentageResponse]
+      #
+      # @see Onlyfansapi::Models::MeGetTopPercentageParams
+      def get_top_percentage(account, params = {})
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/me/top-percentage", account],
+          model: Onlyfansapi::Models::MeGetTopPercentageResponse,
+          options: params[:request_options]
+        )
+      end
+
       # @api private
       #
       # @param client [Onlyfansapi::Client]

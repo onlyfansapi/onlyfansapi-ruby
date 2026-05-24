@@ -29,7 +29,7 @@ module Onlyfansapi
         params(
           id: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(T.nilable(T.anything))
+        ).returns(T.nilable(T::Hash[Symbol, T.anything]))
       end
       def disconnect(
         # The ID of the account.

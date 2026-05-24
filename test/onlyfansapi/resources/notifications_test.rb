@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::NotificationsTest < Onlyfansapi::Test::Resou
   def test_list
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.notifications.list("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.notifications.list("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::NotificationListResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::NotificationsTest < Onlyfansapi::Test::Resou
   def test_get_counts
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.notifications.get_counts("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.notifications.get_counts("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::NotificationGetCountsResponse
@@ -40,7 +40,7 @@ class Onlyfansapi::Test::Resources::NotificationsTest < Onlyfansapi::Test::Resou
   def test_mark_all_as_read
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.notifications.mark_all_as_read("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.notifications.mark_all_as_read("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::NotificationMarkAllAsReadResponse
@@ -57,7 +57,7 @@ class Onlyfansapi::Test::Resources::NotificationsTest < Onlyfansapi::Test::Resou
   def test_search_users_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.notifications.search_users("acct_XXXXXXXXXXXXXXX", query: "User")
+    response = @only_fans_api.notifications.search_users("acct_XXXXXXXXXXXXXXX", query: "User")
 
     assert_pattern do
       response => Onlyfansapi::Models::NotificationSearchUsersResponse

@@ -1,0 +1,34 @@
+module Onlyfansapi
+  module Models
+    module TrialLinks
+      type tag_add_params =
+        { account: String, trial_link_id: Integer, tags: ::Array[String] }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class TagAddParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor trial_link_id: Integer
+
+        attr_accessor tags: ::Array[String]
+
+        def initialize: (
+          account: String,
+          trial_link_id: Integer,
+          tags: ::Array[String],
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          trial_link_id: Integer,
+          tags: ::Array[String],
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

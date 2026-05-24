@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_create_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.create("acct_XXXXXXXXXXXXXXX", text: "Hello!")
+    response = @only_fans_api.posts.create("acct_XXXXXXXXXXXXXXX", text: "Hello!")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostCreateResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_retrieve_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.retrieve(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.retrieve(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostRetrieveResponse
@@ -40,7 +40,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_update_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.update(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX", text: "Hello!")
+    response = @only_fans_api.posts.update(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX", text: "Hello!")
 
     assert_pattern do
       response => String
@@ -50,7 +50,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_list
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.list("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.list("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostListResponse
@@ -67,7 +67,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.delete(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.delete(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostDeleteResponse
@@ -84,7 +84,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_archive_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.archive(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.archive(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostArchiveResponse
@@ -101,7 +101,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_pin_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.pin(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.pin(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostPinResponse
@@ -118,7 +118,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_stats_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.stats(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.stats(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostStatsResponse
@@ -135,7 +135,7 @@ class Onlyfansapi::Test::Resources::PostsTest < Onlyfansapi::Test::ResourceTest
   def test_unarchive_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.unarchive(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.unarchive(1_234_567_890, account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PostUnarchiveResponse

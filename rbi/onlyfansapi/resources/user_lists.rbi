@@ -23,6 +23,23 @@ module Onlyfansapi
       )
       end
 
+      # Get a user list
+      sig do
+        params(
+          user_list_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::UserListRetrieveResponse)
+      end
+      def retrieve(
+        # OnlyFans User List ID, or a default list name like `tagged`
+        user_list_id,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
+
       # Update a OnlyFans User List
       sig do
         params(

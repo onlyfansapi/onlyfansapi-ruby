@@ -1,0 +1,424 @@
+module Onlyfansapi
+  module Models
+    type smart_link_list_clicks_response =
+      {
+        _meta: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta,
+        data: Onlyfansapi::Models::SmartLinkListClicksResponse::Data
+      }
+
+    class SmartLinkListClicksResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta?
+
+      def _meta=: (
+        Onlyfansapi::Models::SmartLinkListClicksResponse::Meta
+      ) -> Onlyfansapi::Models::SmartLinkListClicksResponse::Meta
+
+      attr_reader data: Onlyfansapi::Models::SmartLinkListClicksResponse::Data?
+
+      def data=: (
+        Onlyfansapi::Models::SmartLinkListClicksResponse::Data
+      ) -> Onlyfansapi::Models::SmartLinkListClicksResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta,
+        ?data: Onlyfansapi::Models::SmartLinkListClicksResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta,
+        data: Onlyfansapi::Models::SmartLinkListClicksResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Credits
+        }
+
+      class Meta < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Cache
+        ) -> Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Credits
+        ) -> Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Credits
+
+        def initialize: (
+          ?_cache: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Cache,
+          ?_credits: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Credits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::SmartLinkListClicksResponse::Meta::Credits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+      end
+
+      type data =
+        {
+          chart: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Chart],
+          filters: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Filters,
+          rows: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Row],
+          summary: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Summary
+        }
+
+      class Data < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader chart: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Chart]?
+
+        def chart=: (
+          ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Chart]
+        ) -> ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Chart]
+
+        attr_reader filters: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Filters?
+
+        def filters=: (
+          Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Filters
+        ) -> Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Filters
+
+        attr_reader rows: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Row]?
+
+        def rows=: (
+          ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Row]
+        ) -> ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Row]
+
+        attr_reader summary: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Summary?
+
+        def summary=: (
+          Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Summary
+        ) -> Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Summary
+
+        def initialize: (
+          ?chart: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Chart],
+          ?filters: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Filters,
+          ?rows: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Row],
+          ?summary: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Summary
+        ) -> void
+
+        def to_hash: -> {
+          chart: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Chart],
+          filters: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Filters,
+          rows: ::Array[Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Row],
+          summary: Onlyfansapi::Models::SmartLinkListClicksResponse::Data::Summary
+        }
+
+        type chart = { clicks: Integer, timestamp: String }
+
+        class Chart < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader clicks: Integer?
+
+          def clicks=: (Integer) -> Integer
+
+          attr_reader timestamp: String?
+
+          def timestamp=: (String) -> String
+
+          def initialize: (?clicks: Integer, ?timestamp: String) -> void
+
+          def to_hash: -> { clicks: Integer, timestamp: String }
+        end
+
+        type filters =
+          {
+            date_end: String,
+            date_start: String,
+            include_bots: bool,
+            include_duplicates: bool,
+            limit: Integer,
+            offset: Integer
+          }
+
+        class Filters < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader date_end: String?
+
+          def date_end=: (String) -> String
+
+          attr_reader date_start: String?
+
+          def date_start=: (String) -> String
+
+          attr_reader include_bots: bool?
+
+          def include_bots=: (bool) -> bool
+
+          attr_reader include_duplicates: bool?
+
+          def include_duplicates=: (bool) -> bool
+
+          attr_reader limit: Integer?
+
+          def limit=: (Integer) -> Integer
+
+          attr_reader offset: Integer?
+
+          def offset=: (Integer) -> Integer
+
+          def initialize: (
+            ?date_end: String,
+            ?date_start: String,
+            ?include_bots: bool,
+            ?include_duplicates: bool,
+            ?limit: Integer,
+            ?offset: Integer
+          ) -> void
+
+          def to_hash: -> {
+            date_end: String,
+            date_start: String,
+            include_bots: bool,
+            include_duplicates: bool,
+            limit: Integer,
+            offset: Integer
+          }
+        end
+
+        type row =
+          {
+            id: String,
+            :aff_s1 => String,
+            :aff_s2 => String?,
+            :aff_s3 => String?,
+            :aff_s4 => String?,
+            :aff_s5 => String?,
+            browser_device_type: String,
+            browser_family: String,
+            browser_name: String,
+            browser_platform: String,
+            country_code: String,
+            created_at: String,
+            external_click_id: String,
+            fbclid: String?,
+            gclid: String,
+            gross_clicks: Integer,
+            ip_address: String,
+            is_bot: bool,
+            is_duplicate: bool,
+            referrer: String,
+            ttclid: String,
+            user_agent: String,
+            utm_campaign: String,
+            utm_content: String,
+            utm_medium: String,
+            utm_source: String,
+            utm_term: String
+          }
+
+        class Row < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          attr_reader aff_s1: String?
+
+          def aff_s1=: (String) -> String
+
+          attr_accessor aff_s2: String?
+
+          attr_accessor aff_s3: String?
+
+          attr_accessor aff_s4: String?
+
+          attr_accessor aff_s5: String?
+
+          attr_reader browser_device_type: String?
+
+          def browser_device_type=: (String) -> String
+
+          attr_reader browser_family: String?
+
+          def browser_family=: (String) -> String
+
+          attr_reader browser_name: String?
+
+          def browser_name=: (String) -> String
+
+          attr_reader browser_platform: String?
+
+          def browser_platform=: (String) -> String
+
+          attr_reader country_code: String?
+
+          def country_code=: (String) -> String
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_reader external_click_id: String?
+
+          def external_click_id=: (String) -> String
+
+          attr_accessor fbclid: String?
+
+          attr_reader gclid: String?
+
+          def gclid=: (String) -> String
+
+          attr_reader gross_clicks: Integer?
+
+          def gross_clicks=: (Integer) -> Integer
+
+          attr_reader ip_address: String?
+
+          def ip_address=: (String) -> String
+
+          attr_reader is_bot: bool?
+
+          def is_bot=: (bool) -> bool
+
+          attr_reader is_duplicate: bool?
+
+          def is_duplicate=: (bool) -> bool
+
+          attr_reader referrer: String?
+
+          def referrer=: (String) -> String
+
+          attr_reader ttclid: String?
+
+          def ttclid=: (String) -> String
+
+          attr_reader user_agent: String?
+
+          def user_agent=: (String) -> String
+
+          attr_reader utm_campaign: String?
+
+          def utm_campaign=: (String) -> String
+
+          attr_reader utm_content: String?
+
+          def utm_content=: (String) -> String
+
+          attr_reader utm_medium: String?
+
+          def utm_medium=: (String) -> String
+
+          attr_reader utm_source: String?
+
+          def utm_source=: (String) -> String
+
+          attr_reader utm_term: String?
+
+          def utm_term=: (String) -> String
+
+          def initialize: (
+            ?id: String,
+            ?aff_s1: String,
+            ?aff_s2: String?,
+            ?aff_s3: String?,
+            ?aff_s4: String?,
+            ?aff_s5: String?,
+            ?browser_device_type: String,
+            ?browser_family: String,
+            ?browser_name: String,
+            ?browser_platform: String,
+            ?country_code: String,
+            ?created_at: String,
+            ?external_click_id: String,
+            ?fbclid: String?,
+            ?gclid: String,
+            ?gross_clicks: Integer,
+            ?ip_address: String,
+            ?is_bot: bool,
+            ?is_duplicate: bool,
+            ?referrer: String,
+            ?ttclid: String,
+            ?user_agent: String,
+            ?utm_campaign: String,
+            ?utm_content: String,
+            ?utm_medium: String,
+            ?utm_source: String,
+            ?utm_term: String
+          ) -> void
+
+          def to_hash: -> {
+            id: String,
+            :aff_s1 => String,
+            :aff_s2 => String?,
+            :aff_s3 => String?,
+            :aff_s4 => String?,
+            :aff_s5 => String?,
+            browser_device_type: String,
+            browser_family: String,
+            browser_name: String,
+            browser_platform: String,
+            country_code: String,
+            created_at: String,
+            external_click_id: String,
+            fbclid: String?,
+            gclid: String,
+            gross_clicks: Integer,
+            ip_address: String,
+            is_bot: bool,
+            is_duplicate: bool,
+            referrer: String,
+            ttclid: String,
+            user_agent: String,
+            utm_campaign: String,
+            utm_content: String,
+            utm_medium: String,
+            utm_source: String,
+            utm_term: String
+          }
+        end
+
+        type summary = { clicks_total: Integer }
+
+        class Summary < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader clicks_total: Integer?
+
+          def clicks_total=: (Integer) -> Integer
+
+          def initialize: (?clicks_total: Integer) -> void
+
+          def to_hash: -> { clicks_total: Integer }
+        end
+      end
+    end
+  end
+end
