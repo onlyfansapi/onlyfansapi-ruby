@@ -1,9 +1,0 @@
-module Onlyfansapi
-  module Resources
-    class Workflows
-      attr_reader account_performance: Onlyfansapi::Resources::Workflows::AccountPerformance
-
-      def initialize: (client: Onlyfansapi::Client) -> void
-    end
-  end
-end

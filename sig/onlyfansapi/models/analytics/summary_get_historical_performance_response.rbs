@@ -1,0 +1,27 @@
+module Onlyfansapi
+  module Models
+    module Analytics
+      type summary_get_historical_performance_response_item =
+        { period: String, value: Float }
+
+      class SummaryGetHistoricalPerformanceResponseItem < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader period: String?
+
+        def period=: (String) -> String
+
+        attr_reader value: Float?
+
+        def value=: (Float) -> Float
+
+        def initialize: (?period: String, ?value: Float) -> void
+
+        def to_hash: -> { period: String, value: Float }
+      end
+
+      type summary_get_historical_performance_response =
+        ::Array[Onlyfansapi::Models::Analytics::SummaryGetHistoricalPerformanceResponseItem]
+
+      SummaryGetHistoricalPerformanceResponse: Onlyfansapi::Internal::Type::Converter
+    end
+  end
+end

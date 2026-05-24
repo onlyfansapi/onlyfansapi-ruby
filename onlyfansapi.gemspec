@@ -5,9 +5,9 @@ require_relative "lib/onlyfansapi/version"
 Gem::Specification.new do |s|
   s.name = "onlyfansapi"
   s.version = Onlyfansapi::VERSION
-  s.summary = "Ruby library to access the Onlyfansapi API"
-  s.authors = ["Onlyfansapi"]
-  s.email = ""
+  s.summary = "Ruby library to access the Only Fans API API"
+  s.authors = ["Only Fans API"]
+  s.email = "hello@onlyfansapi.com"
   s.homepage = "https://gemdocs.org/gems/onlyfansapi"
   s.metadata["homepage_uri"] = s.homepage
   s.metadata["source_code_uri"] = "https://github.com/stainless-sdks/onlyfansapi-ruby"

@@ -1,0 +1,43 @@
+module Onlyfansapi
+  module Models
+    module Stories
+      type highlight_create_params =
+        {
+          account: String,
+          cover_story_id: Integer,
+          story_ids: ::Array[String],
+          title: String
+        }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class HighlightCreateParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor cover_story_id: Integer
+
+        attr_accessor story_ids: ::Array[String]
+
+        attr_accessor title: String
+
+        def initialize: (
+          account: String,
+          cover_story_id: Integer,
+          story_ids: ::Array[String],
+          title: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          cover_story_id: Integer,
+          story_ids: ::Array[String],
+          title: String,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

@@ -2,6 +2,13 @@ module Onlyfansapi
   module Resources
     class Chats
       class Messages
+        def retrieve: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageRetrieveResponse
+
         def list: (
           String chat_id,
           account: String,
@@ -21,6 +28,27 @@ module Onlyfansapi
           ?request_options: Onlyfansapi::request_opts
         ) -> Onlyfansapi::Models::Chats::MessageDeleteResponse
 
+        def like: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageLikeResponse
+
+        def pin: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessagePinResponse
+
+        def search: (
+          String chat_id,
+          account: String,
+          query: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageSearchResponse
+
         def send_: (
           String chat_id,
           account: String,
@@ -36,6 +64,20 @@ module Onlyfansapi
           ?text: String,
           ?request_options: Onlyfansapi::request_opts
         ) -> Onlyfansapi::Models::Chats::MessageSendResponse
+
+        def unlike: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageUnlikeResponse
+
+        def unpin: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageUnpinResponse
 
         def initialize: (client: Onlyfansapi::Client) -> void
       end

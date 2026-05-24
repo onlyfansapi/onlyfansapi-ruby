@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::Posts::LabelsTest < Onlyfansapi::Test::Resou
   def test_create_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.labels.create("acct_XXXXXXXXXXXXXXX", name: "My new label")
+    response = @only_fans_api.posts.labels.create("acct_XXXXXXXXXXXXXXX", name: "My new label")
 
     assert_pattern do
       response => Onlyfansapi::Models::Posts::LabelCreateResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::Posts::LabelsTest < Onlyfansapi::Test::Resou
   def test_list
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.labels.list("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.labels.list("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Posts::LabelListResponse

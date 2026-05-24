@@ -4,6 +4,27 @@ module Onlyfansapi
   module Resources
     class Chats
       class Messages
+        # Get a single chat message by its ID. Returns a 404 if the message does not exist
+        # in the chat.
+        sig do
+          params(
+            message_id: String,
+            account: String,
+            chat_id: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Chats::MessageRetrieveResponse)
+        end
+        def retrieve(
+          # The ID of the message to retrieve
+          message_id,
+          # The Account ID
+          account:,
+          # The ID of the chat (usually a fan's OnlyFans User ID)
+          chat_id:,
+          request_options: {}
+        )
+        end
+
         # Get messages from a specific chat.
         sig do
           params(
@@ -65,6 +86,67 @@ module Onlyfansapi
         )
         end
 
+        # Like a chat message.
+        sig do
+          params(
+            message_id: String,
+            account: String,
+            chat_id: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Chats::MessageLikeResponse)
+        end
+        def like(
+          # The ID of the message to like
+          message_id,
+          # The Account ID
+          account:,
+          # The ID of the chat, usually a fan's OnlyFans User ID
+          chat_id:,
+          request_options: {}
+        )
+        end
+
+        # Pin a message from a chat.
+        sig do
+          params(
+            message_id: String,
+            account: String,
+            chat_id: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Chats::MessagePinResponse)
+        end
+        def pin(
+          # The ID of the message to pin
+          message_id,
+          # The Account ID
+          account:,
+          # The ID of the chat, usually a fan's OnlyFans User ID
+          chat_id:,
+          request_options: {}
+        )
+        end
+
+        # Search messages in a specific chat. Returns a list of message IDs matching the
+        # search query.
+        sig do
+          params(
+            chat_id: String,
+            account: String,
+            query: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Chats::MessageSearchResponse)
+        end
+        def search(
+          # Path param: The ID of the chat (usually a fan's OnlyFans User ID)
+          chat_id,
+          # Path param: The Account ID
+          account:,
+          # Query param: The query search in messages
+          query:,
+          request_options: {}
+        )
+        end
+
         # Send a new message to a chat.
         sig do
           params(
@@ -114,6 +196,46 @@ module Onlyfansapi
           rf_tag: nil,
           # Body param: The message text content. Required unless a media file is present.
           text: nil,
+          request_options: {}
+        )
+        end
+
+        # Unlike a chat message.
+        sig do
+          params(
+            message_id: String,
+            account: String,
+            chat_id: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Chats::MessageUnlikeResponse)
+        end
+        def unlike(
+          # The ID of the message to unlike
+          message_id,
+          # The Account ID
+          account:,
+          # The ID of the chat, usually a fan's OnlyFans User ID
+          chat_id:,
+          request_options: {}
+        )
+        end
+
+        # Unpin a message from a chat.
+        sig do
+          params(
+            message_id: String,
+            account: String,
+            chat_id: String,
+            request_options: Onlyfansapi::RequestOptions::OrHash
+          ).returns(Onlyfansapi::Models::Chats::MessageUnpinResponse)
+        end
+        def unpin(
+          # The ID of the message to unpin
+          message_id,
+          # The Account ID
+          account:,
+          # The ID of the chat, usually a fan's OnlyFans User ID
+          chat_id:,
           request_options: {}
         )
         end

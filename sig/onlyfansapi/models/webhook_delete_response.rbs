@@ -1,5 +1,7 @@
 module Onlyfansapi
   module Models
+    type webhook_delete_response = ::Hash[Symbol, top]?
+
     WebhookDeleteResponse: Onlyfansapi::Internal::Type::Converter
   end
 end

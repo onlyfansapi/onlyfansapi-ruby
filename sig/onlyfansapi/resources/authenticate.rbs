@@ -11,6 +11,11 @@ module Onlyfansapi
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::AuthenticateReauthenticateResponse
 
+      def send_2fa_email: (
+        String attempt_id,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::AuthenticateSend2faEmailResponse
+
       def start: (
         ?auth_id: String,
         ?auth_type: Onlyfansapi::Models::AuthenticateStartParams::auth_type,
@@ -29,7 +34,7 @@ module Onlyfansapi
       def submit_2fa: (
         String attempt_id,
         ?code: String,
-        ?selfie_verification_completed: Onlyfansapi::Models::AuthenticateSubmit2faParams::selfie_verification_completed,
+        ?selfie_verification_completed: top,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::AuthenticateSubmit2faResponse
 

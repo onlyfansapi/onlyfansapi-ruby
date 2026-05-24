@@ -1,0 +1,108 @@
+module Onlyfansapi
+  module Models
+    type data_export_list_params =
+      {
+        download_url_expires_in: Integer,
+        page: Integer,
+        per_page: Integer,
+        status: Onlyfansapi::Models::DataExportListParams::status,
+        type: Onlyfansapi::Models::DataExportListParams::type_
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class DataExportListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_reader download_url_expires_in: Integer?
+
+      def download_url_expires_in=: (Integer) -> Integer
+
+      attr_reader page: Integer?
+
+      def page=: (Integer) -> Integer
+
+      attr_reader per_page: Integer?
+
+      def per_page=: (Integer) -> Integer
+
+      attr_reader status: Onlyfansapi::Models::DataExportListParams::status?
+
+      def status=: (
+        Onlyfansapi::Models::DataExportListParams::status
+      ) -> Onlyfansapi::Models::DataExportListParams::status
+
+      attr_reader type: Onlyfansapi::Models::DataExportListParams::type_?
+
+      def type=: (
+        Onlyfansapi::Models::DataExportListParams::type_
+      ) -> Onlyfansapi::Models::DataExportListParams::type_
+
+      def initialize: (
+        ?download_url_expires_in: Integer,
+        ?page: Integer,
+        ?per_page: Integer,
+        ?status: Onlyfansapi::Models::DataExportListParams::status,
+        ?type: Onlyfansapi::Models::DataExportListParams::type_,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        download_url_expires_in: Integer,
+        page: Integer,
+        per_page: Integer,
+        status: Onlyfansapi::Models::DataExportListParams::status,
+        type: Onlyfansapi::Models::DataExportListParams::type_,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type status =
+        :calculating_credits
+        | :calculating_credits_failed
+        | :calculating_credits_completed
+        | :pending
+        | :in_progress
+        | :completed
+        | :failed
+
+      module Status
+        extend Onlyfansapi::Internal::Type::Enum
+
+        CALCULATING_CREDITS: :calculating_credits
+        CALCULATING_CREDITS_FAILED: :calculating_credits_failed
+        CALCULATING_CREDITS_COMPLETED: :calculating_credits_completed
+        PENDING: :pending
+        IN_PROGRESS: :in_progress
+        COMPLETED: :completed
+        FAILED: :failed
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::DataExportListParams::status]
+      end
+
+      type type_ =
+        :transactions
+        | :chat_messages
+        | :media_vault
+        | :trial_links
+        | :tracking_links
+        | :payouts
+        | :chargebacks
+        | :public_profiles
+
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        TRANSACTIONS: :transactions
+        CHAT_MESSAGES: :chat_messages
+        MEDIA_VAULT: :media_vault
+        TRIAL_LINKS: :trial_links
+        TRACKING_LINKS: :tracking_links
+        PAYOUTS: :payouts
+        CHARGEBACKS: :chargebacks
+        PUBLIC_PROFILES: :public_profiles
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::DataExportListParams::type_]
+      end
+    end
+  end
+end

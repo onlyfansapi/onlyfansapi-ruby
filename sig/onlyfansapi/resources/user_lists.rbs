@@ -9,6 +9,12 @@ module Onlyfansapi
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::UserListCreateResponse
 
+      def retrieve: (
+        String user_list_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::UserListRetrieveResponse
+
       def update: (
         String user_list_id,
         account: String,

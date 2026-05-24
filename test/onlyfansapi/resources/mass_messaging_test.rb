@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::MassMessagingTest < Onlyfansapi::Test::Resou
   def test_retrieve_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.mass_messaging.retrieve("id", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.mass_messaging.retrieve("id", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MassMessagingRetrieveResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::MassMessagingTest < Onlyfansapi::Test::Resou
   def test_update_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.mass_messaging.update("id", account: "acct_XXXXXXXXXXXXXXX", text: "Hello!")
+    response = @only_fans_api.mass_messaging.update("id", account: "acct_XXXXXXXXXXXXXXX", text: "Hello!")
 
     assert_pattern do
       response => Onlyfansapi::Models::MassMessagingUpdateResponse
@@ -37,10 +37,27 @@ class Onlyfansapi::Test::Resources::MassMessagingTest < Onlyfansapi::Test::Resou
     end
   end
 
+  def test_list
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.mass_messaging.list("acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::MassMessagingListResponse
+    end
+
+    assert_pattern do
+      response => {
+        _meta: Onlyfansapi::Models::MassMessagingListResponse::Meta | nil,
+        data: ^(Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Models::MassMessagingListResponse::Data]) | nil
+      }
+    end
+  end
+
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.mass_messaging.delete("id", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.mass_messaging.delete("id", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MassMessagingDeleteResponse
@@ -54,19 +71,19 @@ class Onlyfansapi::Test::Resources::MassMessagingTest < Onlyfansapi::Test::Resou
     end
   end
 
-  def test_list_queue
+  def test_retrieve_overview
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.mass_messaging.list_queue("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.mass_messaging.retrieve_overview("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
-      response => Onlyfansapi::Models::MassMessagingListQueueResponse
+      response => Onlyfansapi::Models::MassMessagingRetrieveOverviewResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::MassMessagingListQueueResponse::Meta | nil,
-        data: ^(Onlyfansapi::Internal::Type::ArrayOf[Onlyfansapi::Models::MassMessagingListQueueResponse::Data]) | nil
+        _meta: Onlyfansapi::Models::MassMessagingRetrieveOverviewResponse::Meta | nil,
+        data: Onlyfansapi::Models::MassMessagingRetrieveOverviewResponse::Data | nil
       }
     end
   end
@@ -74,7 +91,7 @@ class Onlyfansapi::Test::Resources::MassMessagingTest < Onlyfansapi::Test::Resou
   def test_send__required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.mass_messaging.send_("acct_XXXXXXXXXXXXXXX", text: "Hello!")
+    response = @only_fans_api.mass_messaging.send_("acct_XXXXXXXXXXXXXXX", text: "Hello!")
 
     assert_pattern do
       response => Onlyfansapi::Models::MassMessagingSendResponse

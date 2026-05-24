@@ -1,0 +1,72 @@
+module Onlyfansapi
+  module Models
+    type promotion_create_params =
+      {
+        account: String,
+        discount: Integer,
+        expiration_days: Integer,
+        offer_limit: Integer,
+        type: Onlyfansapi::Models::PromotionCreateParams::type_,
+        free_trial_days: Integer,
+        message: String
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class PromotionCreateParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor discount: Integer
+
+      attr_accessor expiration_days: Integer
+
+      attr_accessor offer_limit: Integer
+
+      attr_accessor type: Onlyfansapi::Models::PromotionCreateParams::type_
+
+      attr_reader free_trial_days: Integer?
+
+      def free_trial_days=: (Integer) -> Integer
+
+      attr_reader message: String?
+
+      def message=: (String) -> String
+
+      def initialize: (
+        account: String,
+        discount: Integer,
+        expiration_days: Integer,
+        offer_limit: Integer,
+        type: Onlyfansapi::Models::PromotionCreateParams::type_,
+        ?free_trial_days: Integer,
+        ?message: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        discount: Integer,
+        expiration_days: Integer,
+        offer_limit: Integer,
+        type: Onlyfansapi::Models::PromotionCreateParams::type_,
+        free_trial_days: Integer,
+        message: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type type_ = :new | :expired | :new_and_expired
+
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        NEW: :new
+        EXPIRED: :expired
+        NEW_AND_EXPIRED: :new_and_expired
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::PromotionCreateParams::type_]
+      end
+    end
+  end
+end

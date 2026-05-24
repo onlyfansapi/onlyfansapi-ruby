@@ -1,0 +1,25 @@
+module Onlyfansapi
+  module Resources
+    class Bundles
+      def create: (
+        String account,
+        discount: Onlyfansapi::Models::BundleCreateParams::discount,
+        duration: Onlyfansapi::Models::BundleCreateParams::duration,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::BundleCreateResponse
+
+      def list: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::BundleListResponse
+
+      def delete: (
+        String bundle_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::BundleDeleteResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

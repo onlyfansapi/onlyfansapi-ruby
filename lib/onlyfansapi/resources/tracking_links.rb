@@ -4,6 +4,10 @@ module Onlyfansapi
   module Resources
     # APIs for managing tracking links
     class TrackingLinks
+      # APIs for managing tracking links
+      # @return [Onlyfansapi::Resources::TrackingLinks::Tags]
+      attr_reader :tags
+
       # Create a new Tracking Link for the account
       #
       # @overload create(account, name:, tags: nil, request_options: {})
@@ -26,6 +30,33 @@ module Onlyfansapi
           path: ["api/%1$s/tracking-links", account],
           body: parsed,
           model: Onlyfansapi::Models::TrackingLinkCreateResponse,
+          options: options
+        )
+      end
+
+      # Get individual Tracking Link details and it's revenue data
+      #
+      # @overload retrieve(tracking_link_id, account:, request_options: {})
+      #
+      # @param tracking_link_id [String] The ID of the tracking link.
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::TrackingLinkRetrieveResponse]
+      #
+      # @see Onlyfansapi::Models::TrackingLinkRetrieveParams
+      def retrieve(tracking_link_id, params)
+        parsed, options = Onlyfansapi::TrackingLinkRetrieveParams.dump_request(params)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/tracking-links/%2$s", account, tracking_link_id],
+          model: Onlyfansapi::Models::TrackingLinkRetrieveResponse,
           options: options
         )
       end
@@ -95,6 +126,80 @@ module Onlyfansapi
           method: :delete,
           path: ["api/%1$s/tracking-links/%2$s", account, tracking_link_id],
           model: Onlyfansapi::Models::TrackingLinkDeleteResponse,
+          options: options
+        )
+      end
+
+      # Get per-link time-to-profit cohort ARPS windows for a specific Tracking Link
+      #
+      # @overload get_cohort_arps(tracking_link_id, account:, acquisition_end: nil, acquisition_start: nil, revenue_basis: nil, request_options: {})
+      #
+      # @param tracking_link_id [String] Path param: The ID of the tracking link.
+      #
+      # @param account [String] Path param: The Account ID
+      #
+      # @param acquisition_end [String] Query param: Optional acquisition range end date
+      #
+      # @param acquisition_start [String] Query param: Optional acquisition range start date
+      #
+      # @param revenue_basis [Symbol, Onlyfansapi::Models::TrackingLinkGetCohortArpsParams::RevenueBasis] Query param: Revenue basis. Defaults to `net`.
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [nil]
+      #
+      # @see Onlyfansapi::Models::TrackingLinkGetCohortArpsParams
+      def get_cohort_arps(tracking_link_id, params)
+        parsed, options = Onlyfansapi::TrackingLinkGetCohortArpsParams.dump_request(params)
+        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/tracking-links/%2$s/cohort-arps", account, tracking_link_id],
+          query: query,
+          model: NilClass,
+          options: options
+        )
+      end
+
+      # Get dashboard-style summary plus daily and monthly metrics for a specific
+      # Tracking Link. <Callout title='Important information'> - `daily_metrics` returns
+      # **incremental per-day values**, not cumulative totals. - Cumulative totals are
+      # available in the `summary` section. - Historical daily data is only available
+      # from when we began recording daily link stats. - Daily data can only be tracked
+      # from the date the account was connected to OnlyFans API; earlier periods are not
+      # available. </Callout>
+      #
+      # @overload get_stats(tracking_link_id, account:, date_end: nil, date_start: nil, request_options: {})
+      #
+      # @param tracking_link_id [String] Path param: The ID of the tracking link.
+      #
+      # @param account [String] Path param: The Account ID
+      #
+      # @param date_end [String] Query param: Optional stats range end date
+      #
+      # @param date_start [String] Query param: Optional stats range start date
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::TrackingLinkGetStatsResponse]
+      #
+      # @see Onlyfansapi::Models::TrackingLinkGetStatsParams
+      def get_stats(tracking_link_id, params)
+        parsed, options = Onlyfansapi::TrackingLinkGetStatsParams.dump_request(params)
+        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/tracking-links/%2$s/stats", account, tracking_link_id],
+          query: query,
+          model: Onlyfansapi::Models::TrackingLinkGetStatsResponse,
           options: options
         )
       end
@@ -178,6 +283,7 @@ module Onlyfansapi
       # @param client [Onlyfansapi::Client]
       def initialize(client:)
         @client = client
+        @tags = Onlyfansapi::Resources::TrackingLinks::Tags.new(client: client)
       end
     end
   end

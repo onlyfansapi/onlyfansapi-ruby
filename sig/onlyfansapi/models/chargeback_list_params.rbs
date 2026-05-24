@@ -1,0 +1,50 @@
+module Onlyfansapi
+  module Models
+    type chargeback_list_params =
+      {
+        account: String,
+        end_date: String,
+        limit: String?,
+        offset: String?,
+        start_date: String
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class ChargebackListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader end_date: String?
+
+      def end_date=: (String) -> String
+
+      attr_accessor limit: String?
+
+      attr_accessor offset: String?
+
+      attr_reader start_date: String?
+
+      def start_date=: (String) -> String
+
+      def initialize: (
+        account: String,
+        ?end_date: String,
+        ?limit: String?,
+        ?offset: String?,
+        ?start_date: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String,
+        limit: String?,
+        offset: String?,
+        start_date: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

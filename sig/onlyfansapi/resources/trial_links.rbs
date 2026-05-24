@@ -1,6 +1,8 @@
 module Onlyfansapi
   module Resources
     class TrialLinks
+      attr_reader tags: Onlyfansapi::Resources::TrialLinks::Tags
+
       def create: (
         String account,
         duration: Onlyfansapi::Models::TrialLinkCreateParams::duration,
@@ -10,6 +12,12 @@ module Onlyfansapi
         ?tags: ::Array[String],
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TrialLinkCreateResponse
+
+      def retrieve: (
+        String trial_link_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrialLinkRetrieveResponse
 
       def list: (
         String account,
@@ -43,6 +51,23 @@ module Onlyfansapi
         offset: Integer,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TrialLinkListSubscribersResponse
+
+      def retrieve_cohort_arps: (
+        String trial_link_id,
+        account: String,
+        ?acquisition_end: String,
+        ?acquisition_start: String,
+        ?revenue_basis: Onlyfansapi::Models::TrialLinkRetrieveCohortArpsParams::revenue_basis,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> nil
+
+      def retrieve_stats: (
+        String trial_link_id,
+        account: String,
+        ?date_end: String,
+        ?date_start: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrialLinkRetrieveStatsResponse
 
       def initialize: (client: Onlyfansapi::Client) -> void
     end

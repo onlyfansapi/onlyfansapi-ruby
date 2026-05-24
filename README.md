@@ -1,12 +1,14 @@
-# Onlyfansapi Ruby API library
+# Only Fans API Ruby API library
 
-The Onlyfansapi Ruby library provides convenient access to the Onlyfansapi REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/stainless-sdks/onlyfansapi-ruby#Sorbet) for usage with Sorbet. The standard library's `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.
+The Only Fans API Ruby library provides convenient access to the Only Fans API REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/stainless-sdks/onlyfansapi-ruby#Sorbet) for usage with Sorbet. The standard library's `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.
 
 It is generated with [Stainless](https://www.stainless.com/).
 
 ## Documentation
 
 Documentation for releases of this gem can be found [on RubyDoc](https://gemdocs.org/gems/onlyfansapi).
+
+The REST API documentation can be found on [docs.onlyfansapi.com](https://docs.onlyfansapi.com).
 
 ## Installation
 
@@ -22,11 +24,11 @@ gem "onlyfansapi", "~> 0.0.1"
 require "bundler/setup"
 require "onlyfansapi"
 
-onlyfansapi = Onlyfansapi::Client.new(
+only_fans_api = Onlyfansapi::Client.new(
   api_key: ENV["ONLYFANSAPI_API_KEY"] # This is the default and can be omitted
 )
 
-whoami = onlyfansapi.whoami.retrieve
+whoami = only_fans_api.whoami.retrieve
 
 puts(whoami.api_key)
 ```
@@ -39,15 +41,15 @@ Request parameters that correspond to file uploads can be passed as raw contents
 require "pathname"
 
 # Use `Pathname` to send the filename and/or avoid paging a large file into memory:
-response = onlyfansapi.media.upload(file: Pathname("/path/to/file"))
+response = only_fans_api.media.upload(file: Pathname("/path/to/file"))
 
 # Alternatively, pass file contents or a `StringIO` directly:
-response = onlyfansapi.media.upload(file: File.read("/path/to/file"))
+response = only_fans_api.media.upload(file: File.read("/path/to/file"))
 
 # Or, to control the filename and/or content type:
 file =
   Onlyfansapi::FilePart.new(File.read("/path/to/file"), filename: "/path/to/file", content_type: "…")
-response = onlyfansapi.media.upload(file: file)
+response = only_fans_api.media.upload(file: file)
 
 puts(response.prefixed_id)
 ```
@@ -60,7 +62,7 @@ When the library is unable to connect to the API, or if the API returns a non-su
 
 ```ruby
 begin
-  whoami = onlyfansapi.whoami.retrieve
+  whoami = only_fans_api.whoami.retrieve
 rescue Onlyfansapi::Errors::APIConnectionError => e
   puts("The server could not be reached")
   puts(e.cause)  # an underlying Exception, likely raised within `net/http`
@@ -98,12 +100,12 @@ You can use the `max_retries` option to configure or disable this:
 
 ```ruby
 # Configure the default for all requests:
-onlyfansapi = Onlyfansapi::Client.new(
+only_fans_api = Onlyfansapi::Client.new(
   max_retries: 0 # default is 2
 )
 
 # Or, configure per-request:
-onlyfansapi.whoami.retrieve(request_options: {max_retries: 5})
+only_fans_api.whoami.retrieve(request_options: {max_retries: 5})
 ```
 
 ### Timeouts
@@ -112,12 +114,12 @@ By default, requests will time out after 60 seconds. You can use the timeout opt
 
 ```ruby
 # Configure the default for all requests:
-onlyfansapi = Onlyfansapi::Client.new(
+only_fans_api = Onlyfansapi::Client.new(
   timeout: nil # default is 60
 )
 
 # Or, configure per-request:
-onlyfansapi.whoami.retrieve(request_options: {timeout: 5})
+only_fans_api.whoami.retrieve(request_options: {timeout: 5})
 ```
 
 On timeout, `Onlyfansapi::Errors::APITimeoutError` is raised.
@@ -148,7 +150,7 @@ Note: the `extra_` parameters of the same name overrides the documented paramete
 
 ```ruby
 whoami =
-  onlyfansapi.whoami.retrieve(
+  only_fans_api.whoami.retrieve(
     request_options: {
       extra_query: {my_query_parameter: value},
       extra_body: {my_body_parameter: value},
@@ -194,18 +196,18 @@ This library provides comprehensive [RBI](https://sorbet.org/docs/rbi) definitio
 You can provide typesafe request parameters like so:
 
 ```ruby
-onlyfansapi.whoami.retrieve
+only_fans_api.whoami.retrieve
 ```
 
 Or, equivalently:
 
 ```ruby
 # Hashes work, but are not typesafe:
-onlyfansapi.whoami.retrieve
+only_fans_api.whoami.retrieve
 
 # You can also splat a full Params class:
 params = Onlyfansapi::WhoamiRetrieveParams.new
-onlyfansapi.whoami.retrieve(**params)
+only_fans_api.whoami.retrieve(**params)
 ```
 
 ### Enums
@@ -213,25 +215,25 @@ onlyfansapi.whoami.retrieve(**params)
 Since this library does not depend on `sorbet-runtime`, it cannot provide [`T::Enum`](https://sorbet.org/docs/tenum) instances. Instead, we provide "tagged symbols" instead, which is always a primitive at runtime:
 
 ```ruby
-# :pinned
-puts(Onlyfansapi::ChatListParams::Filter::PINNED)
+# :revenue
+puts(Onlyfansapi::Analytics::FinancialGetForecastParams::Metric::REVENUE)
 
-# Revealed type: `T.all(Onlyfansapi::ChatListParams::Filter, Symbol)`
-T.reveal_type(Onlyfansapi::ChatListParams::Filter::PINNED)
+# Revealed type: `T.all(Onlyfansapi::Analytics::FinancialGetForecastParams::Metric, Symbol)`
+T.reveal_type(Onlyfansapi::Analytics::FinancialGetForecastParams::Metric::REVENUE)
 ```
 
 Enum parameters have a "relaxed" type, so you can either pass in enum constants or their literal value:
 
 ```ruby
 # Using the enum constants preserves the tagged type information:
-onlyfansapi.chats.list(
-  filter: Onlyfansapi::ChatListParams::Filter::PINNED,
+only_fans_api.analytics.financial.get_forecast(
+  metric: Onlyfansapi::Analytics::FinancialGetForecastParams::Metric::REVENUE,
   # …
 )
 
 # Literal values are also permissible:
-onlyfansapi.chats.list(
-  filter: :pinned,
+only_fans_api.analytics.financial.get_forecast(
+  metric: :revenue,
   # …
 )
 ```

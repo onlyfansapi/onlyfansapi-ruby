@@ -1,0 +1,39 @@
+module Onlyfansapi
+  module Models
+    type link_tag_list_params =
+      { type: Onlyfansapi::Models::LinkTagListParams::type_ }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class LinkTagListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_reader type: Onlyfansapi::Models::LinkTagListParams::type_?
+
+      def type=: (
+        Onlyfansapi::Models::LinkTagListParams::type_
+      ) -> Onlyfansapi::Models::LinkTagListParams::type_
+
+      def initialize: (
+        ?type: Onlyfansapi::Models::LinkTagListParams::type_,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        type: Onlyfansapi::Models::LinkTagListParams::type_,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type type_ = :trial_links | :tracking_links
+
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        TRIAL_LINKS: :trial_links
+        TRACKING_LINKS: :tracking_links
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::LinkTagListParams::type_]
+      end
+    end
+  end
+end

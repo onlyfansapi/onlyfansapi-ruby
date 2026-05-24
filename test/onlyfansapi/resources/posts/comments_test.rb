@@ -7,7 +7,11 @@ class Onlyfansapi::Test::Resources::Posts::CommentsTest < Onlyfansapi::Test::Res
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.posts.comments.create("ullam", account: "acct_XXXXXXXXXXXXXXX", text: "This is a comment.")
+      @only_fans_api.posts.comments.create(
+        "ullam",
+        account: "acct_XXXXXXXXXXXXXXX",
+        text: "This is a comment."
+      )
 
     assert_pattern do
       response => Onlyfansapi::Models::Posts::CommentCreateResponse
@@ -24,7 +28,7 @@ class Onlyfansapi::Test::Resources::Posts::CommentsTest < Onlyfansapi::Test::Res
   def test_list_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.comments.list("ullam", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.comments.list("ullam", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Posts::CommentListResponse
@@ -41,7 +45,7 @@ class Onlyfansapi::Test::Resources::Posts::CommentsTest < Onlyfansapi::Test::Res
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.comments.delete(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
+    response = @only_fans_api.posts.comments.delete(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
 
     assert_pattern do
       response => Onlyfansapi::Models::Posts::CommentDeleteResponse
@@ -55,70 +59,70 @@ class Onlyfansapi::Test::Resources::Posts::CommentsTest < Onlyfansapi::Test::Res
     end
   end
 
-  def test_like_comment_required_params
+  def test_like_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.comments.like_comment(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
+    response = @only_fans_api.posts.comments.like(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
 
     assert_pattern do
-      response => Onlyfansapi::Models::Posts::CommentLikeCommentResponse
+      response => Onlyfansapi::Models::Posts::CommentLikeResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::Posts::CommentLikeCommentResponse::Meta | nil,
-        data: Onlyfansapi::Models::Posts::CommentLikeCommentResponse::Data | nil
+        _meta: Onlyfansapi::Models::Posts::CommentLikeResponse::Meta | nil,
+        data: Onlyfansapi::Models::Posts::CommentLikeResponse::Data | nil
       }
     end
   end
 
-  def test_pin_comment_required_params
+  def test_pin_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.comments.pin_comment(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
+    response = @only_fans_api.posts.comments.pin(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
 
     assert_pattern do
-      response => Onlyfansapi::Models::Posts::CommentPinCommentResponse
+      response => Onlyfansapi::Models::Posts::CommentPinResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::Posts::CommentPinCommentResponse::Meta | nil,
-        data: Onlyfansapi::Models::Posts::CommentPinCommentResponse::Data | nil
+        _meta: Onlyfansapi::Models::Posts::CommentPinResponse::Meta | nil,
+        data: Onlyfansapi::Models::Posts::CommentPinResponse::Data | nil
       }
     end
   end
 
-  def test_unlike_comment_required_params
+  def test_unlike_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.comments.unlike_comment(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
+    response = @only_fans_api.posts.comments.unlike(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
 
     assert_pattern do
-      response => Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse
+      response => Onlyfansapi::Models::Posts::CommentUnlikeResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse::Meta | nil,
-        data: Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse::Data | nil
+        _meta: Onlyfansapi::Models::Posts::CommentUnlikeResponse::Meta | nil,
+        data: Onlyfansapi::Models::Posts::CommentUnlikeResponse::Data | nil
       }
     end
   end
 
-  def test_unpin_comment_required_params
+  def test_unpin_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.posts.comments.unpin_comment(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
+    response = @only_fans_api.posts.comments.unpin(123, account: "acct_XXXXXXXXXXXXXXX", post_id: 123)
 
     assert_pattern do
-      response => Onlyfansapi::Models::Posts::CommentUnpinCommentResponse
+      response => Onlyfansapi::Models::Posts::CommentUnpinResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::Posts::CommentUnpinCommentResponse::Meta | nil,
-        data: Onlyfansapi::Models::Posts::CommentUnpinCommentResponse::Data | nil
+        _meta: Onlyfansapi::Models::Posts::CommentUnpinResponse::Meta | nil,
+        data: Onlyfansapi::Models::Posts::CommentUnpinResponse::Data | nil
       }
     end
   end

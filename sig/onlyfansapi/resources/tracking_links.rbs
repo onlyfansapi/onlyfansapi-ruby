@@ -1,12 +1,20 @@
 module Onlyfansapi
   module Resources
     class TrackingLinks
+      attr_reader tags: Onlyfansapi::Resources::TrackingLinks::Tags
+
       def create: (
         String account,
         name: String,
         ?tags: ::Array[String],
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TrackingLinkCreateResponse
+
+      def retrieve: (
+        String tracking_link_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrackingLinkRetrieveResponse
 
       def list: (
         String account,
@@ -26,6 +34,23 @@ module Onlyfansapi
         account: String,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::TrackingLinkDeleteResponse
+
+      def get_cohort_arps: (
+        String tracking_link_id,
+        account: String,
+        ?acquisition_end: String,
+        ?acquisition_start: String,
+        ?revenue_basis: Onlyfansapi::Models::TrackingLinkGetCohortArpsParams::revenue_basis,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> nil
+
+      def get_stats: (
+        String tracking_link_id,
+        account: String,
+        ?date_end: String,
+        ?date_start: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrackingLinkGetStatsResponse
 
       def list_spenders: (
         String tracking_link_id,

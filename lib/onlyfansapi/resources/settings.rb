@@ -3,6 +3,15 @@
 module Onlyfansapi
   module Resources
     class Settings
+      # @return [Onlyfansapi::Resources::Settings::BlockedCountries]
+      attr_reader :blocked_countries
+
+      # @return [Onlyfansapi::Resources::Settings::WelcomeMessage]
+      attr_reader :welcome_message
+
+      # @return [Onlyfansapi::Resources::Settings::SocialMediaButtons]
+      attr_reader :social_media_buttons
+
       # Returns the account settings
       #
       # @overload retrieve(account, request_options: {})
@@ -26,7 +35,7 @@ module Onlyfansapi
       # Check if a username is taken. Returns `false` if the username is available,
       # `true` if it is already taken.
       #
-      # @overload check_username_exists(account, username:, request_options: {})
+      # @overload check_username_availability(account, username:, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -34,16 +43,16 @@ module Onlyfansapi
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Onlyfansapi::Models::SettingCheckUsernameExistsResponse]
+      # @return [Onlyfansapi::Models::SettingCheckUsernameAvailabilityResponse]
       #
-      # @see Onlyfansapi::Models::SettingCheckUsernameExistsParams
-      def check_username_exists(account, params)
-        parsed, options = Onlyfansapi::SettingCheckUsernameExistsParams.dump_request(params)
+      # @see Onlyfansapi::Models::SettingCheckUsernameAvailabilityParams
+      def check_username_availability(account, params)
+        parsed, options = Onlyfansapi::SettingCheckUsernameAvailabilityParams.dump_request(params)
         @client.request(
           method: :post,
           path: ["api/%1$s/settings/username-exists", account],
           body: parsed,
-          model: Onlyfansapi::Models::SettingCheckUsernameExistsResponse,
+          model: Onlyfansapi::Models::SettingCheckUsernameAvailabilityResponse,
           options: options
         )
       end
@@ -90,11 +99,43 @@ module Onlyfansapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::SettingUpdateSubscriptionPriceParams} for more details.
+      #
+      # Update the account subscription price. Send `0` or `"free"` to make the account
+      # free. ⚠️ WARNING! OnlyFans limits updating the subscription price to max. 3
+      # times per day.
+      #
+      # @overload update_subscription_price(account, price:, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param price [String] The new subscription price. Accepts `0`, `"free"`, or a number between 4.99 and
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::SettingUpdateSubscriptionPriceResponse]
+      #
+      # @see Onlyfansapi::Models::SettingUpdateSubscriptionPriceParams
+      def update_subscription_price(account, params)
+        parsed, options = Onlyfansapi::SettingUpdateSubscriptionPriceParams.dump_request(params)
+        @client.request(
+          method: :patch,
+          path: ["api/%1$s/settings/subscription-price", account],
+          body: parsed,
+          model: Onlyfansapi::Models::SettingUpdateSubscriptionPriceResponse,
+          options: options
+        )
+      end
+
       # @api private
       #
       # @param client [Onlyfansapi::Client]
       def initialize(client:)
         @client = client
+        @blocked_countries = Onlyfansapi::Resources::Settings::BlockedCountries.new(client: client)
+        @welcome_message = Onlyfansapi::Resources::Settings::WelcomeMessage.new(client: client)
+        @social_media_buttons = Onlyfansapi::Resources::Settings::SocialMediaButtons.new(client: client)
       end
     end
   end

@@ -71,6 +71,20 @@ module Onlyfansapi
       )
       end
 
+      # List the pending or recently sent mass messages in the message queue.
+      sig do
+        params(
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::MassMessagingListResponse)
+      end
+      def list(
+        # The Account ID
+        account,
+        request_options: {}
+      )
+      end
+
       # Unsend a recently sent mass message, or delete a scheduled/saved message. When
       # unsending, purchased content will continue to be able to viewable.
       sig do
@@ -90,16 +104,29 @@ module Onlyfansapi
       )
       end
 
-      # List the pending or recently sent mass messages in the message queue.
+      # Get an overview of mass messages, showing the send count and view count.
       sig do
         params(
           account: String,
+          end_date: String,
+          limit: Integer,
+          query: String,
+          start_date: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(Onlyfansapi::Models::MassMessagingListQueueResponse)
+        ).returns(Onlyfansapi::Models::MassMessagingRetrieveOverviewResponse)
       end
-      def list_queue(
+      def retrieve_overview(
         # The Account ID
         account,
+        # The latest mass message to retrieve. Keep empty to get all. MUST BE DATE AFTER
+        # `startDate`. This is also used for pagination.
+        end_date: nil,
+        # Number of mass messages to return (default = 10)
+        limit: nil,
+        # Optionally, find a mass message by the message text.
+        query: nil,
+        # The earliest mass message to retrieve. Keep empty to get all.
+        start_date: nil,
         request_options: {}
       )
       end

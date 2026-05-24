@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::ListsTest < Onlyfansapi::Test:
   def test_create_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.vault.lists.create("acct_XXXXXXXXXXXXXXX", name: "My new list")
+    response = @only_fans_api.media.vault.lists.create("acct_XXXXXXXXXXXXXXX", name: "My new list")
 
     assert_pattern do
       response => Onlyfansapi::Models::Media::Vault::ListCreateResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::ListsTest < Onlyfansapi::Test:
   def test_retrieve_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.vault.lists.retrieve("123", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.media.vault.lists.retrieve("123", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Media::Vault::ListRetrieveResponse
@@ -40,7 +40,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::ListsTest < Onlyfansapi::Test:
   def test_update_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.vault.lists.update("123", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.media.vault.lists.update("123", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Media::Vault::ListUpdateResponse
@@ -57,7 +57,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::ListsTest < Onlyfansapi::Test:
   def test_list
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.vault.lists.list("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.media.vault.lists.list("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Media::Vault::ListListResponse
@@ -74,7 +74,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::ListsTest < Onlyfansapi::Test:
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.vault.lists.delete("123", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.media.vault.lists.delete("123", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Media::Vault::ListDeleteResponse

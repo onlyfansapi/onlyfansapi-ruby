@@ -32,6 +32,20 @@ module Onlyfansapi
       )
       end
 
+      # Get the top percentage of the model (e.g., top 0.02% of all creators)
+      sig do
+        params(
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::MeGetTopPercentageResponse)
+      end
+      def get_top_percentage(
+        # The Account ID
+        account,
+        request_options: {}
+      )
+      end
+
       # @api private
       sig { params(client: Onlyfansapi::Client).returns(T.attached_class) }
       def self.new(client:)

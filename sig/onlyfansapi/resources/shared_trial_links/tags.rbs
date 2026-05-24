@@ -1,0 +1,29 @@
+module Onlyfansapi
+  module Resources
+    class SharedTrialLinks
+      class Tags
+        def list: (
+          Integer shared_trial_link_id,
+          account: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::SharedTrialLinks::TagListResponse
+
+        def add: (
+          Integer shared_trial_link_id,
+          account: String,
+          tags: ::Array[String],
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::SharedTrialLinks::TagAddResponse
+
+        def remove: (
+          Integer shared_trial_link_id,
+          account: String,
+          tags: ::Array[String],
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::SharedTrialLinks::TagRemoveResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

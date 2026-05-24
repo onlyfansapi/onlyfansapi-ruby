@@ -1,0 +1,28 @@
+module Onlyfansapi
+  module Models
+    type release_form_create_release_form_params =
+      { account: String, name: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class ReleaseFormCreateReleaseFormParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor name: String
+
+      def initialize: (
+        account: String,
+        name: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        name: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

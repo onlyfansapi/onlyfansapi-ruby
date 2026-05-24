@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::ClientSessionsTest < Onlyfansapi::Test::Reso
   def test_create_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.client_sessions.create(display_name: "STRLCxGLVC Agency / Model: Stella")
+    response = @only_fans_api.client_sessions.create(display_name: "STRLCxGLVC Agency / Model: Stella")
 
     assert_pattern do
       response => Onlyfansapi::Models::ClientSessionCreateResponse

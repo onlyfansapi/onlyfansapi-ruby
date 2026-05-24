@@ -7,7 +7,7 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.trial_links.create(
+      @only_fans_api.trial_links.create(
         "acct_XXXXXXXXXXXXXXX",
         duration: 7,
         offer_expiration: 7,
@@ -27,10 +27,27 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
     end
   end
 
+  def test_retrieve_required_params
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.trial_links.retrieve("explicabo", account: "acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::TrialLinkRetrieveResponse
+    end
+
+    assert_pattern do
+      response => {
+        _meta: Onlyfansapi::Models::TrialLinkRetrieveResponse::Meta | nil,
+        data: Onlyfansapi::Models::TrialLinkRetrieveResponse::Data | nil
+      }
+    end
+  end
+
   def test_list_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.trial_links.list("acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
+    response = @only_fans_api.trial_links.list("acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
 
     assert_pattern do
       response => Onlyfansapi::Models::TrialLinkListResponse
@@ -48,7 +65,7 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.trial_links.delete("explicabo", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.delete("explicabo", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::TrialLinkDeleteResponse
@@ -65,7 +82,7 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
   def test_list_spenders_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.trial_links.list_spenders("trial_link_id", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.list_spenders("trial_link_id", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::TrialLinkListSpendersResponse
@@ -83,7 +100,12 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.trial_links.list_subscribers("est", account: "acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
+      @only_fans_api.trial_links.list_subscribers(
+        "est",
+        account: "acct_XXXXXXXXXXXXXXX",
+        limit: 10,
+        offset: 0
+      )
 
     assert_pattern do
       response => Onlyfansapi::Models::TrialLinkListSubscribersResponse
@@ -93,6 +115,33 @@ class Onlyfansapi::Test::Resources::TrialLinksTest < Onlyfansapi::Test::Resource
       response => {
         _meta: Onlyfansapi::Models::TrialLinkListSubscribersResponse::Meta | nil,
         data: Onlyfansapi::Models::TrialLinkListSubscribersResponse::Data | nil
+      }
+    end
+  end
+
+  def test_retrieve_cohort_arps_required_params
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.trial_links.retrieve_cohort_arps("aut", account: "acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => nil
+    end
+  end
+
+  def test_retrieve_stats_required_params
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.trial_links.retrieve_stats("necessitatibus", account: "acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::TrialLinkRetrieveStatsResponse
+    end
+
+    assert_pattern do
+      response => {
+        _meta: Onlyfansapi::Models::TrialLinkRetrieveStatsResponse::Meta | nil,
+        data: Onlyfansapi::Models::TrialLinkRetrieveStatsResponse::Data | nil
       }
     end
   end

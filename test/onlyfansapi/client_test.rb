@@ -37,10 +37,10 @@ class OnlyfansapiTest < Minitest::Test
   def test_client_default_request_default_retry_attempts
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 500, body: {})
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve
+      only_fans_api.whoami.retrieve
     end
 
     assert_requested(:any, /./, times: 3)
@@ -49,11 +49,11 @@ class OnlyfansapiTest < Minitest::Test
   def test_client_given_request_default_retry_attempts
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 500, body: {})
 
-    onlyfansapi =
+    only_fans_api =
       Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 3)
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve
+      only_fans_api.whoami.retrieve
     end
 
     assert_requested(:any, /./, times: 4)
@@ -62,10 +62,10 @@ class OnlyfansapiTest < Minitest::Test
   def test_client_default_request_given_retry_attempts
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 500, body: {})
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve(request_options: {max_retries: 3})
+      only_fans_api.whoami.retrieve(request_options: {max_retries: 3})
     end
 
     assert_requested(:any, /./, times: 4)
@@ -74,11 +74,11 @@ class OnlyfansapiTest < Minitest::Test
   def test_client_given_request_given_retry_attempts
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 500, body: {})
 
-    onlyfansapi =
+    only_fans_api =
       Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 3)
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve(request_options: {max_retries: 4})
+      only_fans_api.whoami.retrieve(request_options: {max_retries: 4})
     end
 
     assert_requested(:any, /./, times: 5)
@@ -91,11 +91,11 @@ class OnlyfansapiTest < Minitest::Test
       body: {}
     )
 
-    onlyfansapi =
+    only_fans_api =
       Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve
+      only_fans_api.whoami.retrieve
     end
 
     assert_requested(:any, /./, times: 2)
@@ -111,12 +111,12 @@ class OnlyfansapiTest < Minitest::Test
       body: {}
     )
 
-    onlyfansapi =
+    only_fans_api =
       Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     Thread.current.thread_variable_set(:time_now, time_now)
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve
+      only_fans_api.whoami.retrieve
     end
     Thread.current.thread_variable_set(:time_now, nil)
 
@@ -131,11 +131,11 @@ class OnlyfansapiTest < Minitest::Test
       body: {}
     )
 
-    onlyfansapi =
+    only_fans_api =
       Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key", max_retries: 1)
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve
+      only_fans_api.whoami.retrieve
     end
 
     assert_requested(:any, /./, times: 2)
@@ -145,10 +145,10 @@ class OnlyfansapiTest < Minitest::Test
   def test_retry_count_header
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 500, body: {})
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve
+      only_fans_api.whoami.retrieve
     end
 
     3.times do
@@ -159,10 +159,10 @@ class OnlyfansapiTest < Minitest::Test
   def test_omit_retry_count_header
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 500, body: {})
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve(request_options: {extra_headers: {"x-stainless-retry-count" => nil}})
+      only_fans_api.whoami.retrieve(request_options: {extra_headers: {"x-stainless-retry-count" => nil}})
     end
 
     assert_requested(:any, /./, times: 3) do
@@ -173,10 +173,10 @@ class OnlyfansapiTest < Minitest::Test
   def test_overwrite_retry_count_header
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 500, body: {})
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::InternalServerError) do
-      onlyfansapi.whoami.retrieve(request_options: {extra_headers: {"x-stainless-retry-count" => "42"}})
+      only_fans_api.whoami.retrieve(request_options: {extra_headers: {"x-stainless-retry-count" => "42"}})
     end
 
     assert_requested(:any, /./, headers: {"x-stainless-retry-count" => "42"}, times: 3)
@@ -193,10 +193,10 @@ class OnlyfansapiTest < Minitest::Test
       headers: {"location" => "/redirected"}
     )
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::APIConnectionError) do
-      onlyfansapi.whoami.retrieve(request_options: {extra_headers: {}})
+      only_fans_api.whoami.retrieve(request_options: {extra_headers: {}})
     end
 
     recorded, = WebMock::RequestRegistry.instance.requested_signatures.hash.first
@@ -222,10 +222,10 @@ class OnlyfansapiTest < Minitest::Test
       headers: {"location" => "/redirected"}
     )
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::APIConnectionError) do
-      onlyfansapi.whoami.retrieve(request_options: {extra_headers: {}})
+      only_fans_api.whoami.retrieve(request_options: {extra_headers: {}})
     end
 
     assert_requested(:get, "http://localhost/redirected", times: Onlyfansapi::Client::MAX_REDIRECTS) do
@@ -246,10 +246,10 @@ class OnlyfansapiTest < Minitest::Test
       headers: {"location" => "/redirected"}
     )
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::APIConnectionError) do
-      onlyfansapi.whoami.retrieve(request_options: {extra_headers: {"authorization" => "Bearer xyz"}})
+      only_fans_api.whoami.retrieve(request_options: {extra_headers: {"authorization" => "Bearer xyz"}})
     end
 
     recorded, = WebMock::RequestRegistry.instance.requested_signatures.hash.first
@@ -273,10 +273,10 @@ class OnlyfansapiTest < Minitest::Test
       headers: {"location" => "https://example.com/redirected"}
     )
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
     assert_raises(Onlyfansapi::Errors::APIConnectionError) do
-      onlyfansapi.whoami.retrieve(request_options: {extra_headers: {"authorization" => "Bearer xyz"}})
+      only_fans_api.whoami.retrieve(request_options: {extra_headers: {"authorization" => "Bearer xyz"}})
     end
 
     assert_requested(:any, "https://example.com/redirected", times: Onlyfansapi::Client::MAX_REDIRECTS) do
@@ -288,9 +288,9 @@ class OnlyfansapiTest < Minitest::Test
   def test_default_headers
     stub_request(:get, "http://localhost/api/whoami").to_return_json(status: 200, body: {})
 
-    onlyfansapi = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
+    only_fans_api = Onlyfansapi::Client.new(base_url: "http://localhost", api_key: "My API Key")
 
-    onlyfansapi.whoami.retrieve
+    only_fans_api.whoami.retrieve
 
     assert_requested(:any, /./) do |req|
       headers = req.headers.transform_keys(&:downcase)

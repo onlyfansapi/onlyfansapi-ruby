@@ -1,0 +1,36 @@
+module Onlyfansapi
+  module Models
+    module Fans
+      type summary_generate_summary_params =
+        { account: String, fan_id: String, regenerate: bool }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class SummaryGenerateSummaryParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor fan_id: String
+
+        attr_reader regenerate: bool?
+
+        def regenerate=: (bool) -> bool
+
+        def initialize: (
+          account: String,
+          fan_id: String,
+          ?regenerate: bool,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          fan_id: String,
+          regenerate: bool,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

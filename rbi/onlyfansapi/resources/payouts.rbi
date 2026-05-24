@@ -10,9 +10,9 @@ module Onlyfansapi
           limit: String,
           offset: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(Onlyfansapi::Models::PayoutListPayoutRequestsResponse)
+        ).returns(Onlyfansapi::Models::PayoutListRequestsResponse)
       end
-      def list_payout_requests(
+      def list_requests(
         # The Account ID
         account,
         # Number of payout requests to return
@@ -97,11 +97,11 @@ module Onlyfansapi
         params(
           account: String,
           frequency:
-            Onlyfansapi::PayoutUpdatePayoutFrequencyParams::Frequency::OrSymbol,
+            Onlyfansapi::PayoutUpdateFrequencyParams::Frequency::OrSymbol,
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(Onlyfansapi::Models::PayoutUpdatePayoutFrequencyResponse)
+        ).returns(Onlyfansapi::Models::PayoutUpdateFrequencyResponse)
       end
-      def update_payout_frequency(
+      def update_frequency(
         # The Account ID
         account,
         # The new payout frequency

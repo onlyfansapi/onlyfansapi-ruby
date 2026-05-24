@@ -47,6 +47,28 @@ module Onlyfansapi
         )
       end
 
+      # Send 2FA verification e-mail to the creator's email so they can verify login on
+      # their device without your input. The e-mail will be sent to the e-mail address
+      # used for signing into OnlyFans.
+      #
+      # @overload send_2fa_email(attempt_id, request_options: {})
+      #
+      # @param attempt_id [String] The attempt ID of the authentication process
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::AuthenticateSend2faEmailResponse]
+      #
+      # @see Onlyfansapi::Models::AuthenticateSend2faEmailParams
+      def send_2fa_email(attempt_id, params = {})
+        @client.request(
+          method: :post,
+          path: ["api/authenticate/%1$s/send-email-to-creator", attempt_id],
+          model: Onlyfansapi::Models::AuthenticateSend2faEmailResponse,
+          options: params[:request_options]
+        )
+      end
+
       # Some parameter documentations has been truncated, see
       # {Onlyfansapi::Models::AuthenticateStartParams} for more details.
       #
@@ -111,7 +133,7 @@ module Onlyfansapi
       #
       # @param code [String] The 2FA code you received on your phone. Must be empty if `selfie_verification_c
       #
-      # @param selfie_verification_completed [Boolean, Onlyfansapi::Models::AuthenticateSubmit2faParams::SelfieVerificationCompleted] This field is required when <code>code</code> is not present.
+      # @param selfie_verification_completed [Object] This field is required when <code>code</code> is not present.
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

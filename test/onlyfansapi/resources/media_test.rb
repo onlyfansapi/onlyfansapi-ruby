@@ -3,10 +3,20 @@
 require_relative "../test_helper"
 
 class Onlyfansapi::Test::Resources::MediaTest < Onlyfansapi::Test::ResourceTest
+  def test_download_required_params
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.media.download("cdnUrl", account: "acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => String
+    end
+  end
+
   def test_scrape
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.scrape("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.media.scrape("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MediaScrapeResponse
@@ -23,7 +33,7 @@ class Onlyfansapi::Test::Resources::MediaTest < Onlyfansapi::Test::ResourceTest
   def test_upload
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.media.upload("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.media.upload("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MediaUploadResponse

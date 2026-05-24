@@ -30,6 +30,33 @@ module Onlyfansapi
         )
       end
 
+      # Get a user list
+      #
+      # @overload retrieve(user_list_id, account:, request_options: {})
+      #
+      # @param user_list_id [String] OnlyFans User List ID, or a default list name like `tagged`
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::UserListRetrieveResponse]
+      #
+      # @see Onlyfansapi::Models::UserListRetrieveParams
+      def retrieve(user_list_id, params)
+        parsed, options = Onlyfansapi::UserListRetrieveParams.dump_request(params)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/user-lists/%2$s", account, user_list_id],
+          model: Onlyfansapi::Models::UserListRetrieveResponse,
+          options: options
+        )
+      end
+
       # Some parameter documentations has been truncated, see
       # {Onlyfansapi::Models::UserListUpdateParams} for more details.
       #

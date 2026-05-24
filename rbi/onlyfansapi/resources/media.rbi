@@ -3,8 +3,34 @@
 module Onlyfansapi
   module Resources
     class Media
+      sig { returns(Onlyfansapi::Resources::Media::Uploads) }
+      attr_reader :uploads
+
       sig { returns(Onlyfansapi::Resources::Media::Vault) }
       attr_reader :vault
+
+      # Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the
+      # file is already cached on our CDN, this endpoint returns a `302` redirect to a
+      # `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects
+      # automatically (`curl` requires `-L`). Otherwise, the file is streamed through
+      # our proxies and queued for caching.
+      sig do
+        params(
+          cdn_url: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(String)
+      end
+      def download(
+        # Optional parameter. The CDN URL to scrape. **Keep in mind that these URLs expire
+        # in approx. 20 minutes.** So for example, if you fetched Media Vault Items at
+        # 01:00pm, the URLs will expire at around 01:20pm
+        cdn_url,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
 
       # **⚠️ This is a deprecated endpoint. Please use the new "Download media from the
       # OnlyFans CDN" endpoint!** Scrapes a `https://cdn*.onlyfans.com/*` URL _or_ Vault

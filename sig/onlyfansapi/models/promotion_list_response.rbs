@@ -1,0 +1,286 @@
+module Onlyfansapi
+  module Models
+    type promotion_list_response =
+      {
+        _meta: Onlyfansapi::Models::PromotionListResponse::Meta,
+        data: Onlyfansapi::Models::PromotionListResponse::Data
+      }
+
+    class PromotionListResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfansapi::Models::PromotionListResponse::Meta?
+
+      def _meta=: (
+        Onlyfansapi::Models::PromotionListResponse::Meta
+      ) -> Onlyfansapi::Models::PromotionListResponse::Meta
+
+      attr_reader data: Onlyfansapi::Models::PromotionListResponse::Data?
+
+      def data=: (
+        Onlyfansapi::Models::PromotionListResponse::Data
+      ) -> Onlyfansapi::Models::PromotionListResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfansapi::Models::PromotionListResponse::Meta,
+        ?data: Onlyfansapi::Models::PromotionListResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfansapi::Models::PromotionListResponse::Meta,
+        data: Onlyfansapi::Models::PromotionListResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfansapi::Models::PromotionListResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::PromotionListResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::PromotionListResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfansapi::Models::PromotionListResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfansapi::Models::PromotionListResponse::Meta::Cache
+        ) -> Onlyfansapi::Models::PromotionListResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfansapi::Models::PromotionListResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfansapi::Models::PromotionListResponse::Meta::Credits
+        ) -> Onlyfansapi::Models::PromotionListResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfansapi::Models::PromotionListResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfansapi::Models::PromotionListResponse::Meta::RateLimits
+        ) -> Onlyfansapi::Models::PromotionListResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfansapi::Models::PromotionListResponse::Meta::Cache,
+          ?_credits: Onlyfansapi::Models::PromotionListResponse::Meta::Credits,
+          ?_rate_limits: Onlyfansapi::Models::PromotionListResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfansapi::Models::PromotionListResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::PromotionListResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::PromotionListResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+          attr_accessor limit_day: String?
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader notice: String?
+
+          def notice=: (String) -> String
+
+          attr_accessor remaining_day: String?
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: String?,
+            ?limit_minute: Integer,
+            ?notice: String,
+            ?remaining_day: String?,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          has_more: bool,
+          items: ::Array[Onlyfansapi::Models::PromotionListResponse::Data::Item]
+        }
+
+      class Data < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader has_more: bool?
+
+        def has_more=: (bool) -> bool
+
+        attr_reader items: ::Array[Onlyfansapi::Models::PromotionListResponse::Data::Item]?
+
+        def items=: (
+          ::Array[Onlyfansapi::Models::PromotionListResponse::Data::Item]
+        ) -> ::Array[Onlyfansapi::Models::PromotionListResponse::Data::Item]
+
+        def initialize: (
+          ?has_more: bool,
+          ?items: ::Array[Onlyfansapi::Models::PromotionListResponse::Data::Item]
+        ) -> void
+
+        def to_hash: -> {
+          has_more: bool,
+          items: ::Array[Onlyfansapi::Models::PromotionListResponse::Data::Item]
+        }
+
+        type item =
+          {
+            id: Integer,
+            can_claim: bool,
+            claims_count: Integer,
+            created_at: String,
+            finished_at: String,
+            has_related_promo: bool,
+            is_finished: bool,
+            message: String,
+            price: Integer,
+            raw_message: String,
+            subscribe_counts: Integer,
+            subscribe_days: Integer,
+            type: String
+          }
+
+        class Item < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader can_claim: bool?
+
+          def can_claim=: (bool) -> bool
+
+          attr_reader claims_count: Integer?
+
+          def claims_count=: (Integer) -> Integer
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_reader finished_at: String?
+
+          def finished_at=: (String) -> String
+
+          attr_reader has_related_promo: bool?
+
+          def has_related_promo=: (bool) -> bool
+
+          attr_reader is_finished: bool?
+
+          def is_finished=: (bool) -> bool
+
+          attr_reader message: String?
+
+          def message=: (String) -> String
+
+          attr_reader price: Integer?
+
+          def price=: (Integer) -> Integer
+
+          attr_reader raw_message: String?
+
+          def raw_message=: (String) -> String
+
+          attr_reader subscribe_counts: Integer?
+
+          def subscribe_counts=: (Integer) -> Integer
+
+          attr_reader subscribe_days: Integer?
+
+          def subscribe_days=: (Integer) -> Integer
+
+          attr_reader type: String?
+
+          def type=: (String) -> String
+
+          def initialize: (
+            ?id: Integer,
+            ?can_claim: bool,
+            ?claims_count: Integer,
+            ?created_at: String,
+            ?finished_at: String,
+            ?has_related_promo: bool,
+            ?is_finished: bool,
+            ?message: String,
+            ?price: Integer,
+            ?raw_message: String,
+            ?subscribe_counts: Integer,
+            ?subscribe_days: Integer,
+            ?type: String
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            can_claim: bool,
+            claims_count: Integer,
+            created_at: String,
+            finished_at: String,
+            has_related_promo: bool,
+            is_finished: bool,
+            message: String,
+            price: Integer,
+            raw_message: String,
+            subscribe_counts: Integer,
+            subscribe_days: Integer,
+            type: String
+          }
+        end
+      end
+    end
+  end
+end

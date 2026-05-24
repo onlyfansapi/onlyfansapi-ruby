@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::AuthenticateTest < Onlyfansapi::Test::Resour
   def test_poll_status
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.authenticate.poll_status("auth_XXXXXXX")
+    response = @only_fans_api.authenticate.poll_status("auth_XXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::AuthenticatePollStatusResponse
@@ -25,7 +25,7 @@ class Onlyfansapi::Test::Resources::AuthenticateTest < Onlyfansapi::Test::Resour
   def test_reauthenticate
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.authenticate.reauthenticate("acct_XXXXXXXXXX")
+    response = @only_fans_api.authenticate.reauthenticate("acct_XXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::AuthenticateReauthenticateResponse
@@ -40,10 +40,27 @@ class Onlyfansapi::Test::Resources::AuthenticateTest < Onlyfansapi::Test::Resour
     end
   end
 
+  def test_send_2fa_email
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.authenticate.send_2fa_email("auth_XXXXXXX")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::AuthenticateSend2faEmailResponse
+    end
+
+    assert_pattern do
+      response => {
+        message: String | nil,
+        success: Onlyfansapi::Internal::Type::Boolean | nil
+      }
+    end
+  end
+
   def test_start
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.authenticate.start
+    response = @only_fans_api.authenticate.start
 
     assert_pattern do
       response => Onlyfansapi::Models::AuthenticateStartResponse
@@ -60,7 +77,7 @@ class Onlyfansapi::Test::Resources::AuthenticateTest < Onlyfansapi::Test::Resour
   def test_submit_2fa
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.authenticate.submit_2fa("auth_XXXXXXX")
+    response = @only_fans_api.authenticate.submit_2fa("auth_XXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::AuthenticateSubmit2faResponse

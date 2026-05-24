@@ -1,0 +1,332 @@
+module Onlyfansapi
+  module Models
+    type smart_link_create_response =
+      {
+        _meta: Onlyfansapi::Models::SmartLinkCreateResponse::Meta,
+        data: Onlyfansapi::Models::SmartLinkCreateResponse::Data
+      }
+
+    class SmartLinkCreateResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfansapi::Models::SmartLinkCreateResponse::Meta?
+
+      def _meta=: (
+        Onlyfansapi::Models::SmartLinkCreateResponse::Meta
+      ) -> Onlyfansapi::Models::SmartLinkCreateResponse::Meta
+
+      attr_reader data: Onlyfansapi::Models::SmartLinkCreateResponse::Data?
+
+      def data=: (
+        Onlyfansapi::Models::SmartLinkCreateResponse::Data
+      ) -> Onlyfansapi::Models::SmartLinkCreateResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfansapi::Models::SmartLinkCreateResponse::Meta,
+        ?data: Onlyfansapi::Models::SmartLinkCreateResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfansapi::Models::SmartLinkCreateResponse::Meta,
+        data: Onlyfansapi::Models::SmartLinkCreateResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Cache
+        ) -> Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Credits
+        ) -> Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfansapi::Models::SmartLinkCreateResponse::Meta::RateLimits
+        ) -> Onlyfansapi::Models::SmartLinkCreateResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Cache,
+          ?_credits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Credits,
+          ?_rate_limits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::SmartLinkCreateResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: String,
+          account: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Account,
+          clicks_count: Integer,
+          conversions_count: Integer,
+          cost: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Cost,
+          created_at: String,
+          free_trial_days: Integer,
+          link_type: String,
+          name: String,
+          revenue: String?,
+          subscribers_count: Integer,
+          traffic_redirect_url: String,
+          updated_at: String
+        }
+
+      class Data < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader account: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Account?
+
+        def account=: (
+          Onlyfansapi::Models::SmartLinkCreateResponse::Data::Account
+        ) -> Onlyfansapi::Models::SmartLinkCreateResponse::Data::Account
+
+        attr_reader clicks_count: Integer?
+
+        def clicks_count=: (Integer) -> Integer
+
+        attr_reader conversions_count: Integer?
+
+        def conversions_count=: (Integer) -> Integer
+
+        attr_reader cost: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Cost?
+
+        def cost=: (
+          Onlyfansapi::Models::SmartLinkCreateResponse::Data::Cost
+        ) -> Onlyfansapi::Models::SmartLinkCreateResponse::Data::Cost
+
+        attr_reader created_at: String?
+
+        def created_at=: (String) -> String
+
+        attr_reader free_trial_days: Integer?
+
+        def free_trial_days=: (Integer) -> Integer
+
+        attr_reader link_type: String?
+
+        def link_type=: (String) -> String
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_accessor revenue: String?
+
+        attr_reader subscribers_count: Integer?
+
+        def subscribers_count=: (Integer) -> Integer
+
+        attr_reader traffic_redirect_url: String?
+
+        def traffic_redirect_url=: (String) -> String
+
+        attr_reader updated_at: String?
+
+        def updated_at=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?account: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Account,
+          ?clicks_count: Integer,
+          ?conversions_count: Integer,
+          ?cost: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Cost,
+          ?created_at: String,
+          ?free_trial_days: Integer,
+          ?link_type: String,
+          ?name: String,
+          ?revenue: String?,
+          ?subscribers_count: Integer,
+          ?traffic_redirect_url: String,
+          ?updated_at: String
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          account: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Account,
+          clicks_count: Integer,
+          conversions_count: Integer,
+          cost: Onlyfansapi::Models::SmartLinkCreateResponse::Data::Cost,
+          created_at: String,
+          free_trial_days: Integer,
+          link_type: String,
+          name: String,
+          revenue: String?,
+          subscribers_count: Integer,
+          traffic_redirect_url: String,
+          updated_at: String
+        }
+
+        type account = { id: String, display_name: String, username: String }
+
+        class Account < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          attr_reader display_name: String?
+
+          def display_name=: (String) -> String
+
+          attr_reader username: String?
+
+          def username=: (String) -> String
+
+          def initialize: (
+            ?id: String,
+            ?display_name: String,
+            ?username: String
+          ) -> void
+
+          def to_hash: -> { id: String, display_name: String, username: String }
+        end
+
+        type cost =
+          {
+            click_source_count: Integer,
+            input_mode: String?,
+            input_value: String?,
+            per_click: String?,
+            per_promo: String?,
+            per_sub: String?,
+            subscriber_source_count: Integer
+          }
+
+        class Cost < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader click_source_count: Integer?
+
+          def click_source_count=: (Integer) -> Integer
+
+          attr_accessor input_mode: String?
+
+          attr_accessor input_value: String?
+
+          attr_accessor per_click: String?
+
+          attr_accessor per_promo: String?
+
+          attr_accessor per_sub: String?
+
+          attr_reader subscriber_source_count: Integer?
+
+          def subscriber_source_count=: (Integer) -> Integer
+
+          def initialize: (
+            ?click_source_count: Integer,
+            ?input_mode: String?,
+            ?input_value: String?,
+            ?per_click: String?,
+            ?per_promo: String?,
+            ?per_sub: String?,
+            ?subscriber_source_count: Integer
+          ) -> void
+
+          def to_hash: -> {
+            click_source_count: Integer,
+            input_mode: String?,
+            input_value: String?,
+            per_click: String?,
+            per_promo: String?,
+            per_sub: String?,
+            subscriber_source_count: Integer
+          }
+        end
+      end
+    end
+  end
+end

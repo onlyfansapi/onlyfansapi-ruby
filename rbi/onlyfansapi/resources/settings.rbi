@@ -3,6 +3,15 @@
 module Onlyfansapi
   module Resources
     class Settings
+      sig { returns(Onlyfansapi::Resources::Settings::BlockedCountries) }
+      attr_reader :blocked_countries
+
+      sig { returns(Onlyfansapi::Resources::Settings::WelcomeMessage) }
+      attr_reader :welcome_message
+
+      sig { returns(Onlyfansapi::Resources::Settings::SocialMediaButtons) }
+      attr_reader :social_media_buttons
+
       # Returns the account settings
       sig do
         params(
@@ -24,9 +33,9 @@ module Onlyfansapi
           account: String,
           username: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(Onlyfansapi::Models::SettingCheckUsernameExistsResponse)
+        ).returns(Onlyfansapi::Models::SettingCheckUsernameAvailabilityResponse)
       end
-      def check_username_exists(
+      def check_username_availability(
         # The Account ID
         account,
         # The username to check.
@@ -74,6 +83,26 @@ module Onlyfansapi
         # The new Amazon Wishlist URL to use. Must be a valid URL. Set to `null` to empty
         # it.
         wishlist: nil,
+        request_options: {}
+      )
+      end
+
+      # Update the account subscription price. Send `0` or `"free"` to make the account
+      # free. ⚠️ WARNING! OnlyFans limits updating the subscription price to max. 3
+      # times per day.
+      sig do
+        params(
+          account: String,
+          price: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::SettingUpdateSubscriptionPriceResponse)
+      end
+      def update_subscription_price(
+        # The Account ID
+        account,
+        # The new subscription price. Accepts `0`, `"free"`, or a number between 4.99
+        # and 200.
+        price:,
         request_options: {}
       )
       end

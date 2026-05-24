@@ -1,0 +1,38 @@
+module Onlyfansapi
+  module Resources
+    class SmartLinkPostbacks
+      def create: (
+        conversion_types: ::Array[String],
+        smart_link_scope: Onlyfansapi::Models::SmartLinkPostbackCreateParams::smart_link_scope,
+        url: String,
+        ?smart_link_ids: ::Array[String],
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkPostbackCreateResponse
+
+      def retrieve: (
+        Integer postback_id,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkPostbackRetrieveResponse
+
+      def update: (
+        Integer postback_id,
+        conversion_types: ::Array[String],
+        smart_link_scope: Onlyfansapi::Models::SmartLinkPostbackUpdateParams::smart_link_scope,
+        url: String,
+        ?smart_link_ids: ::Array[String],
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkPostbackUpdateResponse
+
+      def list: (
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkPostbackListResponse
+
+      def delete: (
+        Integer postback_id,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::smart_link_postback_delete_response?
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

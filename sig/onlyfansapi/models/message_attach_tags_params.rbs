@@ -1,0 +1,52 @@
+module Onlyfansapi
+  module Models
+    type message_attach_tags_params =
+      {
+        account: String,
+        message_id: String,
+        rf_guest: String,
+        rf_partner: String,
+        rf_tag: String
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class MessageAttachTagsParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor message_id: String
+
+      attr_reader rf_guest: String?
+
+      def rf_guest=: (String) -> String
+
+      attr_reader rf_partner: String?
+
+      def rf_partner=: (String) -> String
+
+      attr_reader rf_tag: String?
+
+      def rf_tag=: (String) -> String
+
+      def initialize: (
+        account: String,
+        message_id: String,
+        ?rf_guest: String,
+        ?rf_partner: String,
+        ?rf_tag: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        message_id: String,
+        rf_guest: String,
+        rf_partner: String,
+        rf_tag: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

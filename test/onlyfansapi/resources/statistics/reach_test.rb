@@ -7,7 +7,7 @@ class Onlyfansapi::Test::Resources::Statistics::ReachTest < Onlyfansapi::Test::R
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.statistics.reach.get_profile_visitors(
+      @only_fans_api.statistics.reach.get_profile_visitors(
         "acct_XXXXXXXXXXXXXXX",
         end_date: "2025-03-31 23:59:59",
         start_date: "2025-01-01 00:00:00"

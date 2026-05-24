@@ -7,6 +7,33 @@ module Onlyfansapi
         # @return [Onlyfansapi::Resources::Media::Vault::Lists]
         attr_reader :lists
 
+        # Retrieve details about a specific media item in your vault.
+        #
+        # @overload retrieve(media_id, account:, request_options: {})
+        #
+        # @param media_id [Integer] The ID of the media item to retrieve.
+        #
+        # @param account [String] The Account ID
+        #
+        # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+        #
+        # @return [Onlyfansapi::Models::Media::VaultRetrieveResponse]
+        #
+        # @see Onlyfansapi::Models::Media::VaultRetrieveParams
+        def retrieve(media_id, params)
+          parsed, options = Onlyfansapi::Media::VaultRetrieveParams.dump_request(params)
+          account =
+            parsed.delete(:account) do
+              raise ArgumentError.new("missing required path argument #{_1}")
+            end
+          @client.request(
+            method: :get,
+            path: ["api/%1$s/media/vault/%2$s", account, media_id],
+            model: Onlyfansapi::Models::Media::VaultRetrieveResponse,
+            options: options
+          )
+        end
+
         # Some parameter documentations has been truncated, see
         # {Onlyfansapi::Models::Media::VaultListParams} for more details.
         #
@@ -69,6 +96,38 @@ module Onlyfansapi
             path: ["api/%1$s/media/vault/delete-media", account],
             body: parsed,
             model: Onlyfansapi::Models::Media::VaultDeleteResponse,
+            options: options
+          )
+        end
+
+        # Some parameter documentations has been truncated, see
+        # {Onlyfansapi::Models::Media::VaultUploadParams} for more details.
+        #
+        # Upload a media file directly to your vault.
+        #
+        # @overload upload(account, async: nil, file: nil, file_url: nil, request_options: {})
+        #
+        # @param account [String] The Account ID
+        #
+        # @param async [Boolean] Set to `true` to process uploads in the background. Returns a `polling_url` to c
+        #
+        # @param file [Pathname, StringIO, IO, String, Onlyfansapi::FilePart] The file to upload. Required if `file_url` is not provided. Maximum file size: 1
+        #
+        # @param file_url [String] A URL to download the file from. Required if `file` is not provided. Maximum fil
+        #
+        # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+        #
+        # @return [Onlyfansapi::Models::Media::VaultUploadResponse]
+        #
+        # @see Onlyfansapi::Models::Media::VaultUploadParams
+        def upload(account, params = {})
+          parsed, options = Onlyfansapi::Media::VaultUploadParams.dump_request(params)
+          @client.request(
+            method: :post,
+            path: ["api/%1$s/media/vault", account],
+            headers: {"content-type" => "multipart/form-data"},
+            body: parsed,
+            model: Onlyfansapi::Models::Media::VaultUploadResponse,
             options: options
           )
         end

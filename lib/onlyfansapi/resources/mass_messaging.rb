@@ -82,6 +82,26 @@ module Onlyfansapi
         )
       end
 
+      # List the pending or recently sent mass messages in the message queue.
+      #
+      # @overload list(account, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::MassMessagingListResponse]
+      #
+      # @see Onlyfansapi::Models::MassMessagingListParams
+      def list(account, params = {})
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/mass-messaging", account],
+          model: Onlyfansapi::Models::MassMessagingListResponse,
+          options: params[:request_options]
+        )
+      end
+
       # Some parameter documentations has been truncated, see
       # {Onlyfansapi::Models::MassMessagingDeleteParams} for more details.
       #
@@ -113,23 +133,37 @@ module Onlyfansapi
         )
       end
 
-      # List the pending or recently sent mass messages in the message queue.
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::MassMessagingRetrieveOverviewParams} for more details.
       #
-      # @overload list_queue(account, request_options: {})
+      # Get an overview of mass messages, showing the send count and view count.
+      #
+      # @overload retrieve_overview(account, end_date: nil, limit: nil, query: nil, start_date: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
+      # @param end_date [String] The latest mass message to retrieve. Keep empty to get all. MUST BE DATE AFTER `
+      #
+      # @param limit [Integer] Number of mass messages to return (default = 10)
+      #
+      # @param query [String] Optionally, find a mass message by the message text.
+      #
+      # @param start_date [String] The earliest mass message to retrieve. Keep empty to get all.
+      #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Onlyfansapi::Models::MassMessagingListQueueResponse]
+      # @return [Onlyfansapi::Models::MassMessagingRetrieveOverviewResponse]
       #
-      # @see Onlyfansapi::Models::MassMessagingListQueueParams
-      def list_queue(account, params = {})
+      # @see Onlyfansapi::Models::MassMessagingRetrieveOverviewParams
+      def retrieve_overview(account, params = {})
+        parsed, options = Onlyfansapi::MassMessagingRetrieveOverviewParams.dump_request(params)
+        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
-          path: ["api/%1$s/mass-messaging", account],
-          model: Onlyfansapi::Models::MassMessagingListQueueResponse,
-          options: params[:request_options]
+          path: ["api/%1$s/mass-messaging/overview", account],
+          query: query.transform_keys(end_date: "endDate", start_date: "startDate"),
+          model: Onlyfansapi::Models::MassMessagingRetrieveOverviewResponse,
+          options: options
         )
       end
 

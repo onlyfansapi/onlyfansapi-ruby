@@ -1,0 +1,30 @@
+module Onlyfansapi
+  module Models
+    module Fans
+      type summary_get_summary_params =
+        { account: String, fan_id: String }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class SummaryGetSummaryParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor fan_id: String
+
+        def initialize: (
+          account: String,
+          fan_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          fan_id: String,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

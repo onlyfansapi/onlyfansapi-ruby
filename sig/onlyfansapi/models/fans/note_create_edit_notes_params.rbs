@@ -1,0 +1,34 @@
+module Onlyfansapi
+  module Models
+    module Fans
+      type note_create_edit_notes_params =
+        { account: String, fan_id: String, notes: String }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class NoteCreateEditNotesParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor fan_id: String
+
+        attr_accessor notes: String
+
+        def initialize: (
+          account: String,
+          fan_id: String,
+          notes: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          fan_id: String,
+          notes: String,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

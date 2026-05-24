@@ -1,0 +1,141 @@
+module Onlyfansapi
+  module Models
+    module Fans
+      type summary_get_summary_response =
+        {
+          analyzed_message_count: Integer,
+          error_message: String?,
+          last_analyzed_at: String,
+          status: String,
+          summary_data: Onlyfansapi::Models::Fans::SummaryGetSummaryResponse::SummaryData
+        }
+
+      class SummaryGetSummaryResponse < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader analyzed_message_count: Integer?
+
+        def analyzed_message_count=: (Integer) -> Integer
+
+        attr_accessor error_message: String?
+
+        attr_reader last_analyzed_at: String?
+
+        def last_analyzed_at=: (String) -> String
+
+        attr_reader status: String?
+
+        def status=: (String) -> String
+
+        attr_reader summary_data: Onlyfansapi::Models::Fans::SummaryGetSummaryResponse::SummaryData?
+
+        def summary_data=: (
+          Onlyfansapi::Models::Fans::SummaryGetSummaryResponse::SummaryData
+        ) -> Onlyfansapi::Models::Fans::SummaryGetSummaryResponse::SummaryData
+
+        def initialize: (
+          ?analyzed_message_count: Integer,
+          ?error_message: String?,
+          ?last_analyzed_at: String,
+          ?status: String,
+          ?summary_data: Onlyfansapi::Models::Fans::SummaryGetSummaryResponse::SummaryData
+        ) -> void
+
+        def to_hash: -> {
+          analyzed_message_count: Integer,
+          error_message: String?,
+          last_analyzed_at: String,
+          status: String,
+          summary_data: Onlyfansapi::Models::Fans::SummaryGetSummaryResponse::SummaryData
+        }
+
+        type summary_data =
+          {
+            content_preferences: String,
+            family_pets: String,
+            hobbies: String,
+            interests: String,
+            kinks: String,
+            name: String,
+            other_notes: String,
+            preferred_name: String,
+            requests: String,
+            themes: String,
+            travel_plans: String
+          }
+
+        class SummaryData < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader content_preferences: String?
+
+          def content_preferences=: (String) -> String
+
+          attr_reader family_pets: String?
+
+          def family_pets=: (String) -> String
+
+          attr_reader hobbies: String?
+
+          def hobbies=: (String) -> String
+
+          attr_reader interests: String?
+
+          def interests=: (String) -> String
+
+          attr_reader kinks: String?
+
+          def kinks=: (String) -> String
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader other_notes: String?
+
+          def other_notes=: (String) -> String
+
+          attr_reader preferred_name: String?
+
+          def preferred_name=: (String) -> String
+
+          attr_reader requests: String?
+
+          def requests=: (String) -> String
+
+          attr_reader themes: String?
+
+          def themes=: (String) -> String
+
+          attr_reader travel_plans: String?
+
+          def travel_plans=: (String) -> String
+
+          def initialize: (
+            ?content_preferences: String,
+            ?family_pets: String,
+            ?hobbies: String,
+            ?interests: String,
+            ?kinks: String,
+            ?name: String,
+            ?other_notes: String,
+            ?preferred_name: String,
+            ?requests: String,
+            ?themes: String,
+            ?travel_plans: String
+          ) -> void
+
+          def to_hash: -> {
+            content_preferences: String,
+            family_pets: String,
+            hobbies: String,
+            interests: String,
+            kinks: String,
+            name: String,
+            other_notes: String,
+            preferred_name: String,
+            requests: String,
+            themes: String,
+            travel_plans: String
+          }
+        end
+      end
+    end
+  end
+end

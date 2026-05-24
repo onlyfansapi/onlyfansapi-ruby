@@ -1,0 +1,206 @@
+module Onlyfansapi
+  module Models
+    type webhook_list_response =
+      {
+        _meta: Onlyfansapi::Models::WebhookListResponse::Meta,
+        data: ::Array[Onlyfansapi::Models::WebhookListResponse::Data]
+      }
+
+    class WebhookListResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfansapi::Models::WebhookListResponse::Meta?
+
+      def _meta=: (
+        Onlyfansapi::Models::WebhookListResponse::Meta
+      ) -> Onlyfansapi::Models::WebhookListResponse::Meta
+
+      attr_reader data: ::Array[Onlyfansapi::Models::WebhookListResponse::Data]?
+
+      def data=: (
+        ::Array[Onlyfansapi::Models::WebhookListResponse::Data]
+      ) -> ::Array[Onlyfansapi::Models::WebhookListResponse::Data]
+
+      def initialize: (
+        ?_meta: Onlyfansapi::Models::WebhookListResponse::Meta,
+        ?data: ::Array[Onlyfansapi::Models::WebhookListResponse::Data]
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfansapi::Models::WebhookListResponse::Meta,
+        data: ::Array[Onlyfansapi::Models::WebhookListResponse::Data]
+      }
+
+      type meta =
+        {
+          _cache: Onlyfansapi::Models::WebhookListResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::WebhookListResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::WebhookListResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfansapi::Models::WebhookListResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfansapi::Models::WebhookListResponse::Meta::Cache
+        ) -> Onlyfansapi::Models::WebhookListResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfansapi::Models::WebhookListResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfansapi::Models::WebhookListResponse::Meta::Credits
+        ) -> Onlyfansapi::Models::WebhookListResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfansapi::Models::WebhookListResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfansapi::Models::WebhookListResponse::Meta::RateLimits
+        ) -> Onlyfansapi::Models::WebhookListResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfansapi::Models::WebhookListResponse::Meta::Cache,
+          ?_credits: Onlyfansapi::Models::WebhookListResponse::Meta::Credits,
+          ?_rate_limits: Onlyfansapi::Models::WebhookListResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfansapi::Models::WebhookListResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::WebhookListResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::WebhookListResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: String,
+          created_at: String,
+          enabled: bool,
+          events: ::Array[String],
+          has_signing_secret: bool,
+          url: String
+        }
+
+      class Data < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader created_at: String?
+
+        def created_at=: (String) -> String
+
+        attr_reader enabled: bool?
+
+        def enabled=: (bool) -> bool
+
+        attr_reader events: ::Array[String]?
+
+        def events=: (::Array[String]) -> ::Array[String]
+
+        attr_reader has_signing_secret: bool?
+
+        def has_signing_secret=: (bool) -> bool
+
+        attr_reader url: String?
+
+        def url=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?created_at: String,
+          ?enabled: bool,
+          ?events: ::Array[String],
+          ?has_signing_secret: bool,
+          ?url: String
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          created_at: String,
+          enabled: bool,
+          events: ::Array[String],
+          has_signing_secret: bool,
+          url: String
+        }
+      end
+    end
+  end
+end

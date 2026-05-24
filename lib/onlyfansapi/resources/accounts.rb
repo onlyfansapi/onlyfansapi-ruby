@@ -39,14 +39,14 @@ module Onlyfansapi
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [Object, nil]
+      # @return [Hash{Symbol=>Object}, nil]
       #
       # @see Onlyfansapi::Models::AccountDisconnectParams
       def disconnect(id, params = {})
         @client.request(
           method: :delete,
           path: ["api/accounts/%1$s", id],
-          model: Onlyfansapi::Internal::Type::Unknown,
+          model: Onlyfansapi::Internal::Type::HashOf[Onlyfansapi::Internal::Type::Unknown],
           options: params[:request_options]
         )
       end

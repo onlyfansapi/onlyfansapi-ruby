@@ -3,19 +3,19 @@
 require_relative "../test_helper"
 
 class Onlyfansapi::Test::Resources::PayoutsTest < Onlyfansapi::Test::ResourceTest
-  def test_list_payout_requests
+  def test_list_requests
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.payouts.list_payout_requests("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.payouts.list_requests("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
-      response => Onlyfansapi::Models::PayoutListPayoutRequestsResponse
+      response => Onlyfansapi::Models::PayoutListRequestsResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::PayoutListPayoutRequestsResponse::Meta | nil,
-        data: Onlyfansapi::Models::PayoutListPayoutRequestsResponse::Data | nil
+        _meta: Onlyfansapi::Models::PayoutListRequestsResponse::Meta | nil,
+        data: Onlyfansapi::Models::PayoutListRequestsResponse::Data | nil
       }
     end
   end
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::PayoutsTest < Onlyfansapi::Test::ResourceTes
   def test_request_manual_withdrawal_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.payouts.request_manual_withdrawal("acct_XXXXXXXXXXXXXXX", amount: 50)
+    response = @only_fans_api.payouts.request_manual_withdrawal("acct_XXXXXXXXXXXXXXX", amount: 50)
 
     assert_pattern do
       response => Onlyfansapi::Models::PayoutRequestManualWithdrawalResponse
@@ -40,7 +40,7 @@ class Onlyfansapi::Test::Resources::PayoutsTest < Onlyfansapi::Test::ResourceTes
   def test_retrieve_balances
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.payouts.retrieve_balances("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.payouts.retrieve_balances("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PayoutRetrieveBalancesResponse
@@ -57,7 +57,7 @@ class Onlyfansapi::Test::Resources::PayoutsTest < Onlyfansapi::Test::ResourceTes
   def test_retrieve_earning_statistics
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.payouts.retrieve_earning_statistics("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.payouts.retrieve_earning_statistics("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PayoutRetrieveEarningStatisticsResponse
@@ -74,7 +74,7 @@ class Onlyfansapi::Test::Resources::PayoutsTest < Onlyfansapi::Test::ResourceTes
   def test_retrieve_eligibility
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.payouts.retrieve_eligibility("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.payouts.retrieve_eligibility("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::PayoutRetrieveEligibilityResponse
@@ -88,19 +88,19 @@ class Onlyfansapi::Test::Resources::PayoutsTest < Onlyfansapi::Test::ResourceTes
     end
   end
 
-  def test_update_payout_frequency_required_params
+  def test_update_frequency_required_params
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.payouts.update_payout_frequency("acct_XXXXXXXXXXXXXXX", frequency: :manual)
+    response = @only_fans_api.payouts.update_frequency("acct_XXXXXXXXXXXXXXX", frequency: :manual)
 
     assert_pattern do
-      response => Onlyfansapi::Models::PayoutUpdatePayoutFrequencyResponse
+      response => Onlyfansapi::Models::PayoutUpdateFrequencyResponse
     end
 
     assert_pattern do
       response => {
-        _meta: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyResponse::Meta | nil,
-        data: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyResponse::Data | nil
+        _meta: Onlyfansapi::Models::PayoutUpdateFrequencyResponse::Meta | nil,
+        data: Onlyfansapi::Models::PayoutUpdateFrequencyResponse::Data | nil
       }
     end
   end

@@ -1,0 +1,15 @@
+module Onlyfansapi
+  module Models
+    type smart_link_postback_list_params =
+      {  } & Onlyfansapi::Internal::Type::request_parameters
+
+    class SmartLinkPostbackListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: Onlyfansapi::request_opts) -> void
+
+      def to_hash: -> { request_options: Onlyfansapi::RequestOptions }
+    end
+  end
+end

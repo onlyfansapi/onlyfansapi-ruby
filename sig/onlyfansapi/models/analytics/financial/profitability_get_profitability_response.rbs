@@ -1,0 +1,80 @@
+module Onlyfansapi
+  module Models
+    module Analytics
+      module Financial
+        type profitability_get_profitability_response_item =
+          {
+            commission: Float,
+            creator_id: Integer,
+            gross_revenue: Float,
+            margin: Float,
+            name: String,
+            net_revenue: Float,
+            profit: Float,
+            total_costs: Float
+          }
+
+        class ProfitabilityGetProfitabilityResponseItem < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader commission: Float?
+
+          def commission=: (Float) -> Float
+
+          attr_reader creator_id: Integer?
+
+          def creator_id=: (Integer) -> Integer
+
+          attr_reader gross_revenue: Float?
+
+          def gross_revenue=: (Float) -> Float
+
+          attr_reader margin: Float?
+
+          def margin=: (Float) -> Float
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader net_revenue: Float?
+
+          def net_revenue=: (Float) -> Float
+
+          attr_reader profit: Float?
+
+          def profit=: (Float) -> Float
+
+          attr_reader total_costs: Float?
+
+          def total_costs=: (Float) -> Float
+
+          def initialize: (
+            ?commission: Float,
+            ?creator_id: Integer,
+            ?gross_revenue: Float,
+            ?margin: Float,
+            ?name: String,
+            ?net_revenue: Float,
+            ?profit: Float,
+            ?total_costs: Float
+          ) -> void
+
+          def to_hash: -> {
+            commission: Float,
+            creator_id: Integer,
+            gross_revenue: Float,
+            margin: Float,
+            name: String,
+            net_revenue: Float,
+            profit: Float,
+            total_costs: Float
+          }
+        end
+
+        type profitability_get_profitability_response =
+          ::Array[Onlyfansapi::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem]
+
+        ProfitabilityGetProfitabilityResponse: Onlyfansapi::Internal::Type::Converter
+      end
+    end
+  end
+end

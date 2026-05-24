@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::FollowingTest < Onlyfansapi::Test::ResourceT
   def test_list_active
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.following.list_active("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.following.list_active("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::FollowingListActiveResponse
@@ -24,7 +24,7 @@ class Onlyfansapi::Test::Resources::FollowingTest < Onlyfansapi::Test::ResourceT
   def test_list_all
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.following.list_all("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.following.list_all("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::FollowingListAllResponse
@@ -42,7 +42,7 @@ class Onlyfansapi::Test::Resources::FollowingTest < Onlyfansapi::Test::ResourceT
   def test_list_expired
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.following.list_expired("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.following.list_expired("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::FollowingListExpiredResponse

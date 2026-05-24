@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::Banking::DetailsTest < Onlyfansapi::Test::Re
   def test_retrieve_account_country_details
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.banking.details.retrieve_account_country_details("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.banking.details.retrieve_account_country_details("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Banking::DetailRetrieveAccountCountryDetailsResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::Banking::DetailsTest < Onlyfansapi::Test::Re
   def test_retrieve_bank_details
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.banking.details.retrieve_bank_details("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.banking.details.retrieve_bank_details("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Banking::DetailRetrieveBankDetailsResponse
@@ -40,7 +40,7 @@ class Onlyfansapi::Test::Resources::Banking::DetailsTest < Onlyfansapi::Test::Re
   def test_retrieve_dac7_form_details
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.banking.details.retrieve_dac7_form_details("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.banking.details.retrieve_dac7_form_details("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse
@@ -57,7 +57,7 @@ class Onlyfansapi::Test::Resources::Banking::DetailsTest < Onlyfansapi::Test::Re
   def test_retrieve_legal_and_tax_status
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.banking.details.retrieve_legal_and_tax_status("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.banking.details.retrieve_legal_and_tax_status("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse
@@ -74,7 +74,7 @@ class Onlyfansapi::Test::Resources::Banking::DetailsTest < Onlyfansapi::Test::Re
   def test_retrieve_legal_form_details
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.banking.details.retrieve_legal_form_details("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.banking.details.retrieve_legal_form_details("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::Banking::DetailRetrieveLegalFormDetailsResponse

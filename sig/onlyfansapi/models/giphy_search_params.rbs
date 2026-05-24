@@ -1,0 +1,40 @@
+module Onlyfansapi
+  module Models
+    type giphy_search_params =
+      { account: String, q: String, limit: Integer, offset: Integer }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class GiphySearchParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor q: String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      def initialize: (
+        account: String,
+        q: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        q: String,
+        limit: Integer,
+        offset: Integer,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

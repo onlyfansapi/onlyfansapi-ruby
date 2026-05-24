@@ -1,0 +1,36 @@
+module Onlyfansapi
+  module Models
+    module Analytics
+      module Financial
+        type profitability_get_profitability_params =
+          { account_ids: ::Array[String], month: Integer, year: Integer }
+          & Onlyfansapi::Internal::Type::request_parameters
+
+        class ProfitabilityGetProfitabilityParams < Onlyfansapi::Internal::Type::BaseModel
+          extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+          include Onlyfansapi::Internal::Type::RequestParameters
+
+          attr_accessor account_ids: ::Array[String]
+
+          attr_accessor month: Integer
+
+          attr_accessor year: Integer
+
+          def initialize: (
+            account_ids: ::Array[String],
+            month: Integer,
+            year: Integer,
+            ?request_options: Onlyfansapi::request_opts
+          ) -> void
+
+          def to_hash: -> {
+            account_ids: ::Array[String],
+            month: Integer,
+            year: Integer,
+            request_options: Onlyfansapi::RequestOptions
+          }
+        end
+      end
+    end
+  end
+end

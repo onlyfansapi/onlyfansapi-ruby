@@ -1,0 +1,5 @@
+module Onlyfansapi
+  module Models
+    class MediaDownloadResponse = String
+  end
+end

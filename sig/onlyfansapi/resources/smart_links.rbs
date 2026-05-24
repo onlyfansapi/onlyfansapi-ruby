@@ -1,0 +1,93 @@
+module Onlyfansapi
+  module Resources
+    class SmartLinks
+      def create: (
+        account_id: String,
+        link_type: Onlyfansapi::Models::SmartLinkCreateParams::link_type,
+        name: String,
+        ?free_trial_days: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkCreateResponse
+
+      def retrieve: (
+        String smart_link_id,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkRetrieveResponse
+
+      def list: (
+        ?account_ids: String,
+        ?limit: Integer,
+        ?meta_pixel_ids: String,
+        ?name: String,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkListResponse
+
+      def delete: (
+        String smart_link_id,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkDeleteResponse
+
+      def list_clicks: (
+        String smart_link_id,
+        ?date_end: String,
+        ?date_start: String,
+        ?include_bots: bool,
+        ?include_duplicates: bool,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkListClicksResponse
+
+      def list_conversions: (
+        String smart_link_id,
+        ?conversion_type: Onlyfansapi::Models::SmartLinkListConversionsParams::conversion_type,
+        ?date_end: String,
+        ?date_start: String,
+        ?include_bots: bool,
+        ?include_duplicates: bool,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?onlyfans_user_id: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkListConversionsResponse
+
+      def list_fans: (
+        String smart_link_id,
+        ?has_messages: bool,
+        ?limit: Integer,
+        ?min_messages_sent_by_fan: Integer,
+        ?min_revenue_net: Float,
+        ?min_tips_net: Float,
+        ?offset: Integer,
+        ?sort: Onlyfansapi::Models::SmartLinkListFansParams::sort,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkListFansResponse
+
+      def list_spenders: (
+        String smart_link_id,
+        ?limit: Integer,
+        ?min_spend: Float,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkListSpendersResponse
+
+      def retrieve_cohort_arps: (
+        String smart_link_id,
+        ?acquisition_end: String,
+        ?acquisition_start: String,
+        ?revenue_basis: Onlyfansapi::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> nil
+
+      def retrieve_stats: (
+        String smart_link_id,
+        ?date_end: String,
+        ?date_start: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SmartLinkRetrieveStatsResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

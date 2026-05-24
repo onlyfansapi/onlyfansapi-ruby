@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::SearchTest < Onlyfansapi::Test::ResourceTest
   def test_profiles
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.search.profiles
+    response = @only_fans_api.search.profiles
 
     assert_pattern do
       response => Onlyfansapi::Models::SearchProfilesResponse

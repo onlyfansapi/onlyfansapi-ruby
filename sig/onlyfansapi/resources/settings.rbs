@@ -1,16 +1,22 @@
 module Onlyfansapi
   module Resources
     class Settings
+      attr_reader blocked_countries: Onlyfansapi::Resources::Settings::BlockedCountries
+
+      attr_reader welcome_message: Onlyfansapi::Resources::Settings::WelcomeMessage
+
+      attr_reader social_media_buttons: Onlyfansapi::Resources::Settings::SocialMediaButtons
+
       def retrieve: (
         String account,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::SettingRetrieveResponse
 
-      def check_username_exists: (
+      def check_username_availability: (
         String account,
         username: String,
         ?request_options: Onlyfansapi::request_opts
-      ) -> Onlyfansapi::Models::SettingCheckUsernameExistsResponse
+      ) -> Onlyfansapi::Models::SettingCheckUsernameAvailabilityResponse
 
       def update_profile: (
         String account,
@@ -24,6 +30,12 @@ module Onlyfansapi
         ?wishlist: String?,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::SettingUpdateProfileResponse
+
+      def update_subscription_price: (
+        String account,
+        price: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SettingUpdateSubscriptionPriceResponse
 
       def initialize: (client: Onlyfansapi::Client) -> void
     end

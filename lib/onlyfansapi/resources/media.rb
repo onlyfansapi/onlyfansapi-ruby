@@ -3,8 +3,47 @@
 module Onlyfansapi
   module Resources
     class Media
+      # @return [Onlyfansapi::Resources::Media::Uploads]
+      attr_reader :uploads
+
       # @return [Onlyfansapi::Resources::Media::Vault]
       attr_reader :vault
+
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::MediaDownloadParams} for more details.
+      #
+      # Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the
+      # file is already cached on our CDN, this endpoint returns a `302` redirect to a
+      # `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects
+      # automatically (`curl` requires `-L`). Otherwise, the file is streamed through
+      # our proxies and queued for caching.
+      #
+      # @overload download(cdn_url, account:, request_options: {})
+      #
+      # @param cdn_url [String] Optional parameter. The CDN URL to scrape. \*\*Keep in mind that these URLs
+      # expire
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [String]
+      #
+      # @see Onlyfansapi::Models::MediaDownloadParams
+      def download(cdn_url, params)
+        parsed, options = Onlyfansapi::MediaDownloadParams.dump_request(params)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/media/download/%2$s", account, cdn_url],
+          headers: {"accept" => "text/plain"},
+          model: String,
+          options: options
+        )
+      end
 
       # Some parameter documentations has been truncated, see
       # {Onlyfansapi::Models::MediaScrapeParams} for more details.
@@ -85,6 +124,7 @@ module Onlyfansapi
       # @param client [Onlyfansapi::Client]
       def initialize(client:)
         @client = client
+        @uploads = Onlyfansapi::Resources::Media::Uploads.new(client: client)
         @vault = Onlyfansapi::Resources::Media::Vault.new(client: client)
       end
     end

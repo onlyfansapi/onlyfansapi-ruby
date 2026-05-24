@@ -7,7 +7,7 @@ class Onlyfansapi::Test::Resources::StatisticsTest < Onlyfansapi::Test::Resource
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.statistics.calculate_total_transactions(
+      @only_fans_api.statistics.calculate_total_transactions(
         "acct_XXXXXXXXXXXXXXX",
         end_date: "2025-03-31 23:59:59",
         start_date: "2025-01-01 00:00:00"
@@ -28,7 +28,7 @@ class Onlyfansapi::Test::Resources::StatisticsTest < Onlyfansapi::Test::Resource
   def test_get_overview
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.statistics.get_overview("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.statistics.get_overview("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::StatisticGetOverviewResponse
@@ -46,7 +46,7 @@ class Onlyfansapi::Test::Resources::StatisticsTest < Onlyfansapi::Test::Resource
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.statistics.get_subscriber_metrics(
+      @only_fans_api.statistics.get_subscriber_metrics(
         "acct_XXXXXXXXXXXXXXX",
         end_date: "2025-03-31 23:59:59",
         start_date: "2025-01-01 00:00:00"

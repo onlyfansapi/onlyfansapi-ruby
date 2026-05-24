@@ -26,29 +26,17 @@ module Onlyfansapi
       attr_writer :code
 
       # This field is required when <code>code</code> is not present.
-      sig do
-        returns(
-          T.nilable(
-            Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted::OrBoolean
-          )
-        )
-      end
+      sig { returns(T.nilable(T.anything)) }
       attr_reader :selfie_verification_completed
 
-      sig do
-        params(
-          selfie_verification_completed:
-            Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted::OrBoolean
-        ).void
-      end
+      sig { params(selfie_verification_completed: T.anything).void }
       attr_writer :selfie_verification_completed
 
       sig do
         params(
           attempt_id: String,
           code: String,
-          selfie_verification_completed:
-            Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted::OrBoolean,
+          selfie_verification_completed: T.anything,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -68,37 +56,12 @@ module Onlyfansapi
           {
             attempt_id: String,
             code: String,
-            selfie_verification_completed:
-              Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted::OrBoolean,
+            selfie_verification_completed: T.anything,
             request_options: Onlyfansapi::RequestOptions
           }
         )
       end
       def to_hash
-      end
-
-      # This field is required when <code>code</code> is not present.
-      module SelfieVerificationCompleted
-        extend Onlyfansapi::Internal::Type::Enum
-
-        TaggedBoolean =
-          T.type_alias do
-            T.all(
-              T::Boolean,
-              Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted
-            )
-          end
-        OrBoolean = T.type_alias { T::Boolean }
-
-        sig do
-          override.returns(
-            T::Array[
-              Onlyfansapi::AuthenticateSubmit2faParams::SelfieVerificationCompleted::TaggedBoolean
-            ]
-          )
-        end
-        def self.values
-        end
       end
     end
   end

@@ -1,0 +1,28 @@
+module Onlyfansapi
+  module Models
+    type tracking_link_retrieve_params =
+      { account: String, tracking_link_id: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class TrackingLinkRetrieveParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor tracking_link_id: String
+
+      def initialize: (
+        account: String,
+        tracking_link_id: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        tracking_link_id: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

@@ -4,6 +4,42 @@ module Onlyfansapi
   module Resources
     # APIs for managing OnlyFans fans (subscribers)
     class Fans
+      # APIs for managing OnlyFans fans (subscribers)
+      # @return [Onlyfansapi::Resources::Fans::Notes]
+      attr_reader :notes
+
+      # APIs for generating and retrieving AI-powered fan profile summaries
+      # @return [Onlyfansapi::Resources::Fans::Summary]
+      attr_reader :summary
+
+      # Get Subscription History for a given OnlyFans User ID. This can be useful, for
+      # example, when the user's subscribed to your account for the first time.
+      #
+      # @overload get_subscription_history(user_id, account:, request_options: {})
+      #
+      # @param user_id [String] The OnlyFans ID of the User.
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::FanGetSubscriptionHistoryResponse]
+      #
+      # @see Onlyfansapi::Models::FanGetSubscriptionHistoryParams
+      def get_subscription_history(user_id, params)
+        parsed, options = Onlyfansapi::FanGetSubscriptionHistoryParams.dump_request(params)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/fans/%2$s/subscriptions-history", account, user_id],
+          model: Onlyfansapi::Models::FanGetSubscriptionHistoryResponse,
+          options: options
+        )
+      end
+
       # Some parameter documentations has been truncated, see
       # {Onlyfansapi::Models::FanListActiveParams} for more details.
       #
@@ -146,11 +182,79 @@ module Onlyfansapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::FanListTopParams} for more details.
+      #
+      # Get a list of top fans sorted by spending. Filterable by total, subscriptions,
+      # tips, messages, posts, or streams.
+      #
+      # @overload list_top(account, by: nil, end_date: nil, start_date: nil, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param by [Symbol, Onlyfansapi::Models::FanListTopParams::By, nil] Sort by: total (default), subscribes, tips, messages, post, streams.
+      #
+      # @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
+      #
+      # @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::FanListTopResponse]
+      #
+      # @see Onlyfansapi::Models::FanListTopParams
+      def list_top(account, params = {})
+        parsed, options = Onlyfansapi::FanListTopParams.dump_request(params)
+        query = Onlyfansapi::Internal::Util.encode_query_params(parsed)
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/fans/top", account],
+          query: query,
+          model: Onlyfansapi::Models::FanListTopResponse,
+          options: options
+        )
+      end
+
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::FanSetCustomNameParams} for more details.
+      #
+      # Change the Fan's Custom Name shown in OnlyFans
+      #
+      # @overload set_custom_name(fan_id, account:, custom_name:, request_options: {})
+      #
+      # @param fan_id [String] Path param: Fan's OnlyFans ID
+      #
+      # @param account [String] Path param: The Account ID
+      #
+      # @param custom_name [String] Body param: New Custom Name for a Fan. Send empty string (`""`) or `null` to cle
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::FanSetCustomNameResponse]
+      #
+      # @see Onlyfansapi::Models::FanSetCustomNameParams
+      def set_custom_name(fan_id, params)
+        parsed, options = Onlyfansapi::FanSetCustomNameParams.dump_request(params)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :put,
+          path: ["api/%1$s/fans/%2$s/custom-name", account, fan_id],
+          body: parsed,
+          model: Onlyfansapi::Models::FanSetCustomNameResponse,
+          options: options
+        )
+      end
+
       # @api private
       #
       # @param client [Onlyfansapi::Client]
       def initialize(client:)
         @client = client
+        @notes = Onlyfansapi::Resources::Fans::Notes.new(client: client)
+        @summary = Onlyfansapi::Resources::Fans::Summary.new(client: client)
       end
     end
   end

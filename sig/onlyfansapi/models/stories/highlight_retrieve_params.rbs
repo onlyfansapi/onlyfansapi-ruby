@@ -1,0 +1,30 @@
+module Onlyfansapi
+  module Models
+    module Stories
+      type highlight_retrieve_params =
+        { account: String, highlight_id: Integer }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class HighlightRetrieveParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor highlight_id: Integer
+
+        def initialize: (
+          account: String,
+          highlight_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          highlight_id: Integer,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

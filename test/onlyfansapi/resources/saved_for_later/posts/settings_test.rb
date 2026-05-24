@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::SavedForLater::Posts::SettingsTest < Onlyfan
   def test_retrieve
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.saved_for_later.posts.settings.retrieve("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.saved_for_later.posts.settings.retrieve("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::SavedForLater::Posts::SettingRetrieveResponse
@@ -23,7 +23,8 @@ class Onlyfansapi::Test::Resources::SavedForLater::Posts::SettingsTest < Onlyfan
   def test_disable_automatic_posting
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.saved_for_later.posts.settings.disable_automatic_posting("acct_XXXXXXXXXXXXXXX")
+    response =
+      @only_fans_api.saved_for_later.posts.settings.disable_automatic_posting("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::SavedForLater::Posts::SettingDisableAutomaticPostingResponse
@@ -41,7 +42,7 @@ class Onlyfansapi::Test::Resources::SavedForLater::Posts::SettingsTest < Onlyfan
     skip("Mock server tests are disabled")
 
     response =
-      @onlyfansapi.saved_for_later.posts.settings.enable_or_update_automatic_posting(
+      @only_fans_api.saved_for_later.posts.settings.enable_or_update_automatic_posting(
         "acct_XXXXXXXXXXXXXXX",
         period: 6
       )

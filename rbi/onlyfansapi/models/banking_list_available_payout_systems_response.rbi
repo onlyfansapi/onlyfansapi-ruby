@@ -380,10 +380,10 @@ module Onlyfansapi
           sig { params(description: String).void }
           attr_writer :description
 
-          sig { returns(T.nilable(T.anything)) }
+          sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
           attr_reader :fields
 
-          sig { params(fields: T.anything).void }
+          sig { params(fields: T::Hash[Symbol, T.anything]).void }
           attr_writer :fields
 
           sig { returns(T.nilable(T::Array[T.anything])) }
@@ -416,23 +416,23 @@ module Onlyfansapi
           sig { params(title: String).void }
           attr_writer :title
 
-          sig { returns(T.nilable(T.anything)) }
+          sig { returns(T.nilable(T::Hash[Symbol, T.anything])) }
           attr_reader :ui_mapping
 
-          sig { params(ui_mapping: T.anything).void }
+          sig { params(ui_mapping: T::Hash[Symbol, T.anything]).void }
           attr_writer :ui_mapping
 
           sig do
             params(
               code: String,
               description: String,
-              fields: T.anything,
+              fields: T::Hash[Symbol, T.anything],
               fields_order: T::Array[T.anything],
               min_payout_summ: Integer,
               payout_time: String,
               subtitle: String,
               title: String,
-              ui_mapping: T.anything
+              ui_mapping: T::Hash[Symbol, T.anything]
             ).returns(T.attached_class)
           end
           def self.new(
@@ -453,13 +453,13 @@ module Onlyfansapi
               {
                 code: String,
                 description: String,
-                fields: T.anything,
+                fields: T::Hash[Symbol, T.anything],
                 fields_order: T::Array[T.anything],
                 min_payout_summ: Integer,
                 payout_time: String,
                 subtitle: String,
                 title: String,
-                ui_mapping: T.anything
+                ui_mapping: T::Hash[Symbol, T.anything]
               }
             )
           end

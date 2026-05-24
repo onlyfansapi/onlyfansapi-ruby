@@ -4,6 +4,10 @@ module Onlyfansapi
   module Resources
     # APIs for managing Free Trial Links
     class TrialLinks
+      # APIs for managing Free Trial Links
+      sig { returns(Onlyfansapi::Resources::TrialLinks::Tags) }
+      attr_reader :tags
+
       # Create a new free trial link for the account
       sig do
         params(
@@ -33,6 +37,23 @@ module Onlyfansapi
         name: nil,
         # Array of tag names to add to the trial link.
         tags: nil,
+        request_options: {}
+      )
+      end
+
+      # Get individual Free Trial Link details and it's revenue data
+      sig do
+        params(
+          trial_link_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::TrialLinkRetrieveResponse)
+      end
+      def retrieve(
+        # The ID of the trial link.
+        trial_link_id,
+        # The Account ID
+        account:,
         request_options: {}
       )
       end
@@ -130,6 +151,57 @@ module Onlyfansapi
         limit:,
         # Query param: The offset used for pagination. Default `0`
         offset:,
+        request_options: {}
+      )
+      end
+
+      # Get per-link time-to-profit cohort ARPS windows for a specific Free Trial Link
+      sig do
+        params(
+          trial_link_id: String,
+          account: String,
+          acquisition_end: String,
+          acquisition_start: String,
+          revenue_basis:
+            Onlyfansapi::TrialLinkRetrieveCohortArpsParams::RevenueBasis::OrSymbol,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).void
+      end
+      def retrieve_cohort_arps(
+        # Path param: The ID of the trial link.
+        trial_link_id,
+        # Path param: The Account ID
+        account:,
+        # Query param: Optional acquisition range end date
+        acquisition_end: nil,
+        # Query param: Optional acquisition range start date
+        acquisition_start: nil,
+        # Query param: Revenue basis. Defaults to `net`.
+        revenue_basis: nil,
+        request_options: {}
+      )
+      end
+
+      # Get dashboard-style summary plus daily and monthly metrics for a specific Free
+      # Trial Link
+      sig do
+        params(
+          trial_link_id: String,
+          account: String,
+          date_end: String,
+          date_start: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::TrialLinkRetrieveStatsResponse)
+      end
+      def retrieve_stats(
+        # Path param: The ID of the trial link.
+        trial_link_id,
+        # Path param: The Account ID
+        account:,
+        # Query param: Optional stats range end date
+        date_end: nil,
+        # Query param: Optional stats range start date
+        date_start: nil,
         request_options: {}
       )
       end

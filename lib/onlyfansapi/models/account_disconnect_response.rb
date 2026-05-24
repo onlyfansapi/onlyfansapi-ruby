@@ -3,6 +3,6 @@
 module Onlyfansapi
   module Models
     # @type [Onlyfansapi::Internal::Type::Converter]
-    AccountDisconnectResponse = Onlyfansapi::Internal::Type::Unknown
+    AccountDisconnectResponse = Onlyfansapi::Internal::Type::HashOf[Onlyfansapi::Internal::Type::Unknown]
   end
 end

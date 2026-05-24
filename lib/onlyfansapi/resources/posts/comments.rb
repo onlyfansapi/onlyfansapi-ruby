@@ -109,7 +109,7 @@ module Onlyfansapi
 
         # Like a comment on one of your posts.
         #
-        # @overload like_comment(comment_id, account:, post_id:, request_options: {})
+        # @overload like(comment_id, account:, post_id:, request_options: {})
         #
         # @param comment_id [Integer] The ID of the comment to like.
         #
@@ -119,11 +119,11 @@ module Onlyfansapi
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfansapi::Models::Posts::CommentLikeCommentResponse]
+        # @return [Onlyfansapi::Models::Posts::CommentLikeResponse]
         #
-        # @see Onlyfansapi::Models::Posts::CommentLikeCommentParams
-        def like_comment(comment_id, params)
-          parsed, options = Onlyfansapi::Posts::CommentLikeCommentParams.dump_request(params)
+        # @see Onlyfansapi::Models::Posts::CommentLikeParams
+        def like(comment_id, params)
+          parsed, options = Onlyfansapi::Posts::CommentLikeParams.dump_request(params)
           account =
             parsed.delete(:account) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -135,14 +135,14 @@ module Onlyfansapi
           @client.request(
             method: :post,
             path: ["api/%1$s/posts/%2$s/comments/%3$s/like", account, post_id, comment_id],
-            model: Onlyfansapi::Models::Posts::CommentLikeCommentResponse,
+            model: Onlyfansapi::Models::Posts::CommentLikeResponse,
             options: options
           )
         end
 
         # Pin a comment on one of your posts.
         #
-        # @overload pin_comment(comment_id, account:, post_id:, request_options: {})
+        # @overload pin(comment_id, account:, post_id:, request_options: {})
         #
         # @param comment_id [Integer] The ID of the comment to pin.
         #
@@ -152,11 +152,11 @@ module Onlyfansapi
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfansapi::Models::Posts::CommentPinCommentResponse]
+        # @return [Onlyfansapi::Models::Posts::CommentPinResponse]
         #
-        # @see Onlyfansapi::Models::Posts::CommentPinCommentParams
-        def pin_comment(comment_id, params)
-          parsed, options = Onlyfansapi::Posts::CommentPinCommentParams.dump_request(params)
+        # @see Onlyfansapi::Models::Posts::CommentPinParams
+        def pin(comment_id, params)
+          parsed, options = Onlyfansapi::Posts::CommentPinParams.dump_request(params)
           account =
             parsed.delete(:account) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -168,14 +168,14 @@ module Onlyfansapi
           @client.request(
             method: :post,
             path: ["api/%1$s/posts/%2$s/comments/%3$s/pin", account, post_id, comment_id],
-            model: Onlyfansapi::Models::Posts::CommentPinCommentResponse,
+            model: Onlyfansapi::Models::Posts::CommentPinResponse,
             options: options
           )
         end
 
         # Unlike a comment on one of your posts.
         #
-        # @overload unlike_comment(comment_id, account:, post_id:, request_options: {})
+        # @overload unlike(comment_id, account:, post_id:, request_options: {})
         #
         # @param comment_id [Integer] The ID of the comment to like.
         #
@@ -185,11 +185,11 @@ module Onlyfansapi
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse]
+        # @return [Onlyfansapi::Models::Posts::CommentUnlikeResponse]
         #
-        # @see Onlyfansapi::Models::Posts::CommentUnlikeCommentParams
-        def unlike_comment(comment_id, params)
-          parsed, options = Onlyfansapi::Posts::CommentUnlikeCommentParams.dump_request(params)
+        # @see Onlyfansapi::Models::Posts::CommentUnlikeParams
+        def unlike(comment_id, params)
+          parsed, options = Onlyfansapi::Posts::CommentUnlikeParams.dump_request(params)
           account =
             parsed.delete(:account) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -201,14 +201,14 @@ module Onlyfansapi
           @client.request(
             method: :delete,
             path: ["api/%1$s/posts/%2$s/comments/%3$s/like", account, post_id, comment_id],
-            model: Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse,
+            model: Onlyfansapi::Models::Posts::CommentUnlikeResponse,
             options: options
           )
         end
 
         # Unpin a comment from one of your posts.
         #
-        # @overload unpin_comment(comment_id, account:, post_id:, request_options: {})
+        # @overload unpin(comment_id, account:, post_id:, request_options: {})
         #
         # @param comment_id [Integer] The ID of the comment to pin.
         #
@@ -218,11 +218,11 @@ module Onlyfansapi
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfansapi::Models::Posts::CommentUnpinCommentResponse]
+        # @return [Onlyfansapi::Models::Posts::CommentUnpinResponse]
         #
-        # @see Onlyfansapi::Models::Posts::CommentUnpinCommentParams
-        def unpin_comment(comment_id, params)
-          parsed, options = Onlyfansapi::Posts::CommentUnpinCommentParams.dump_request(params)
+        # @see Onlyfansapi::Models::Posts::CommentUnpinParams
+        def unpin(comment_id, params)
+          parsed, options = Onlyfansapi::Posts::CommentUnpinParams.dump_request(params)
           account =
             parsed.delete(:account) do
               raise ArgumentError.new("missing required path argument #{_1}")
@@ -234,7 +234,7 @@ module Onlyfansapi
           @client.request(
             method: :delete,
             path: ["api/%1$s/posts/%2$s/comments/%3$s/pin", account, post_id, comment_id],
-            model: Onlyfansapi::Models::Posts::CommentUnpinCommentResponse,
+            model: Onlyfansapi::Models::Posts::CommentUnpinResponse,
             options: options
           )
         end

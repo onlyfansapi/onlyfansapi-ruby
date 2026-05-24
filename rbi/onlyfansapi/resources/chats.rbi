@@ -6,6 +6,9 @@ module Onlyfansapi
       sig { returns(Onlyfansapi::Resources::Chats::Messages) }
       attr_reader :messages
 
+      sig { returns(Onlyfansapi::Resources::Chats::MarkAsRead) }
+      attr_reader :mark_as_read
+
       # Get the list of chats for an Account.
       sig do
         params(
@@ -38,6 +41,106 @@ module Onlyfansapi
       )
       end
 
+      # Delete a specific chat.
+      sig do
+        params(
+          chat_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::ChatDeleteResponse)
+      end
+      def delete(
+        # The ID of the chat to delete, usually a fan's OnlyFans User ID
+        chat_id,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
+
+      # Hide a specific chat from the chat list. To unhide this chat, send a new message
+      # to the user.
+      sig do
+        params(
+          chat_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::ChatHideResponse)
+      end
+      def hide(
+        # The ID of the chat to hide, usually a fan's OnlyFans User ID
+        chat_id,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
+
+      # List media files shared in a specific chat.
+      sig do
+        params(
+          chat_id: String,
+          account: String,
+          limit: String,
+          offset: String,
+          skip_users: String,
+          type: T.nilable(Onlyfansapi::ChatListMediaParams::Type::OrSymbol),
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::ChatListMediaResponse)
+      end
+      def list_media(
+        # Path param: The ID of the chat to get media from, usually a fan's OnlyFans User
+        # ID
+        chat_id,
+        # Path param: The Account ID
+        account:,
+        # Query param: Number of medias to return. Default = 20
+        limit: nil,
+        # Query param: Number of medias to skip for pagination
+        offset: nil,
+        # Query param: Whether to skip user details in response (all or none). Default =
+        # all
+        skip_users: nil,
+        # Query param: Filter by specific media types. Keep empty to return all.
+        type: nil,
+        request_options: {}
+      )
+      end
+
+      # Mark a specific chat as unread.
+      sig do
+        params(
+          chat_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::ChatMarkAsUnreadResponse)
+      end
+      def mark_as_unread(
+        # The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+        chat_id,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
+
+      # Mute notifications for a specific chat.
+      sig do
+        params(
+          chat_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::ChatMuteResponse)
+      end
+      def mute(
+        # The ID of the chat to mute, usually a fan's OnlyFans User ID
+        chat_id,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
+
       # Calling this endpoint will show the target fan a "Model is typing..." note in
       # the chat for ~4 seconds. If you want to continue showing the indicator call this
       # endpoint multiple times. Free - no credits charged.
@@ -46,10 +149,27 @@ module Onlyfansapi
           chat_id: String,
           account: String,
           request_options: Onlyfansapi::RequestOptions::OrHash
-        ).returns(Onlyfansapi::Models::ChatStartTypingIndicatorResponse)
+        ).returns(Onlyfansapi::Models::ChatStartTypingResponse)
       end
-      def start_typing_indicator(
+      def start_typing(
         # The ID of the chat (usually a fan's OnlyFans User ID)
+        chat_id,
+        # The Account ID
+        account:,
+        request_options: {}
+      )
+      end
+
+      # Unmute notifications for a specific chat.
+      sig do
+        params(
+          chat_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::ChatUnmuteResponse)
+      end
+      def unmute(
+        # The ID of the chat to unmute, usually a fan's OnlyFans User ID
         chat_id,
         # The Account ID
         account:,

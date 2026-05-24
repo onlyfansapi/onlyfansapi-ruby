@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::MeTest < Onlyfansapi::Test::ResourceTest
   def test_retrieve
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.me.retrieve("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.me.retrieve("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MeRetrieveResponse
@@ -23,7 +23,7 @@ class Onlyfansapi::Test::Resources::MeTest < Onlyfansapi::Test::ResourceTest
   def test_get_model_start_date
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.me.get_model_start_date("acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.me.get_model_start_date("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfansapi::Models::MeGetModelStartDateResponse
@@ -33,6 +33,23 @@ class Onlyfansapi::Test::Resources::MeTest < Onlyfansapi::Test::ResourceTest
       response => {
         _meta: Onlyfansapi::Models::MeGetModelStartDateResponse::Meta | nil,
         data: Onlyfansapi::Models::MeGetModelStartDateResponse::Data | nil
+      }
+    end
+  end
+
+  def test_get_top_percentage
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.me.get_top_percentage("acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::MeGetTopPercentageResponse
+    end
+
+    assert_pattern do
+      response => {
+        _meta: Onlyfansapi::Models::MeGetTopPercentageResponse::Meta | nil,
+        data: Onlyfansapi::Models::MeGetTopPercentageResponse::Data | nil
       }
     end
   end

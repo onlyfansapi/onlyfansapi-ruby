@@ -1,0 +1,81 @@
+module Onlyfansapi
+  module Models
+    module Analytics
+      type financial_get_forecast_response =
+        {
+          forecast: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Forecast],
+          historical: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Historical],
+          metric: String,
+          model: String
+        }
+
+      class FinancialGetForecastResponse < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader forecast: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Forecast]?
+
+        def forecast=: (
+          ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Forecast]
+        ) -> ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Forecast]
+
+        attr_reader historical: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Historical]?
+
+        def historical=: (
+          ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Historical]
+        ) -> ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Historical]
+
+        attr_reader metric: String?
+
+        def metric=: (String) -> String
+
+        attr_reader model: String?
+
+        def model=: (String) -> String
+
+        def initialize: (
+          ?forecast: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Forecast],
+          ?historical: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Historical],
+          ?metric: String,
+          ?model: String
+        ) -> void
+
+        def to_hash: -> {
+          forecast: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Forecast],
+          historical: ::Array[Onlyfansapi::Models::Analytics::FinancialGetForecastResponse::Historical],
+          metric: String,
+          model: String
+        }
+
+        type forecast = { date: String, value: Float }
+
+        class Forecast < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          attr_reader value: Float?
+
+          def value=: (Float) -> Float
+
+          def initialize: (?date: String, ?value: Float) -> void
+
+          def to_hash: -> { date: String, value: Float }
+        end
+
+        type historical = { date: String, value: Float }
+
+        class Historical < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          attr_reader value: Float?
+
+          def value=: (Float) -> Float
+
+          def initialize: (?date: String, ?value: Float) -> void
+
+          def to_hash: -> { date: String, value: Float }
+        end
+      end
+    end
+  end
+end

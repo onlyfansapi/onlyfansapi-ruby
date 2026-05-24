@@ -1,0 +1,61 @@
+module Onlyfansapi
+  module Models
+    type stored_list_trial_links_params =
+      {
+        account: String,
+        filter_include_smart_links: bool,
+        filter_search: String,
+        filter_tags: String,
+        limit: Integer,
+        offset: Integer
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class StoredListTrialLinksParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader filter_include_smart_links: bool?
+
+      def filter_include_smart_links=: (bool) -> bool
+
+      attr_reader filter_search: String?
+
+      def filter_search=: (String) -> String
+
+      attr_reader filter_tags: String?
+
+      def filter_tags=: (String) -> String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      def initialize: (
+        account: String,
+        ?filter_include_smart_links: bool,
+        ?filter_search: String,
+        ?filter_tags: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        filter_include_smart_links: bool,
+        filter_search: String,
+        filter_tags: String,
+        limit: Integer,
+        offset: Integer,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

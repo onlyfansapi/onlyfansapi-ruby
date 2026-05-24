@@ -6,7 +6,7 @@ class Onlyfansapi::Test::Resources::WhoamiTest < Onlyfansapi::Test::ResourceTest
   def test_retrieve
     skip("Mock server tests are disabled")
 
-    response = @onlyfansapi.whoami.retrieve
+    response = @only_fans_api.whoami.retrieve
 
     assert_pattern do
       response => Onlyfansapi::Models::WhoamiRetrieveResponse
