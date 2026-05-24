@@ -1,0 +1,62 @@
+module Onlyfansapi
+  module Resources
+    class Posts
+      class Comments
+        def create: (
+          String post_id,
+          account: String,
+          text: String,
+          ?answer_to: Integer,
+          ?giphy_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Posts::CommentCreateResponse
+
+        def list: (
+          String post_id,
+          account: String,
+          ?limit: Integer,
+          ?offset: Integer,
+          ?sort: Onlyfansapi::Models::Posts::CommentListParams::sort,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Posts::CommentListResponse
+
+        def delete: (
+          Integer comment_id,
+          account: String,
+          post_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Posts::CommentDeleteResponse
+
+        def like_comment: (
+          Integer comment_id,
+          account: String,
+          post_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Posts::CommentLikeCommentResponse
+
+        def pin_comment: (
+          Integer comment_id,
+          account: String,
+          post_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Posts::CommentPinCommentResponse
+
+        def unlike_comment: (
+          Integer comment_id,
+          account: String,
+          post_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Posts::CommentUnlikeCommentResponse
+
+        def unpin_comment: (
+          Integer comment_id,
+          account: String,
+          post_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Posts::CommentUnpinCommentResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

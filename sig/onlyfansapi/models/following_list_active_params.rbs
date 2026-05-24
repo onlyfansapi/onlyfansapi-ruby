@@ -1,0 +1,87 @@
+module Onlyfansapi
+  module Models
+    type following_list_active_params =
+      {
+        account: String,
+        filter: Onlyfansapi::FollowingListActiveParams::Filter,
+        limit: Integer,
+        offset: Integer
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class FollowingListActiveParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader filter: Onlyfansapi::FollowingListActiveParams::Filter?
+
+      def filter=: (
+        Onlyfansapi::FollowingListActiveParams::Filter
+      ) -> Onlyfansapi::FollowingListActiveParams::Filter
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      def initialize: (
+        account: String,
+        ?filter: Onlyfansapi::FollowingListActiveParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        filter: Onlyfansapi::FollowingListActiveParams::Filter,
+        limit: Integer,
+        offset: Integer,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type filter =
+        {
+          online: Onlyfansapi::Models::FollowingListActiveParams::Filter::online?,
+          paid: Onlyfansapi::Models::FollowingListActiveParams::Filter::paid?
+        }
+
+      class Filter < Onlyfansapi::Internal::Type::BaseModel
+        attr_accessor online: Onlyfansapi::Models::FollowingListActiveParams::Filter::online?
+
+        attr_accessor paid: Onlyfansapi::Models::FollowingListActiveParams::Filter::paid?
+
+        def initialize: (
+          ?online: Onlyfansapi::Models::FollowingListActiveParams::Filter::online?,
+          ?paid: Onlyfansapi::Models::FollowingListActiveParams::Filter::paid?
+        ) -> void
+
+        def to_hash: -> {
+          online: Onlyfansapi::Models::FollowingListActiveParams::Filter::online?,
+          paid: Onlyfansapi::Models::FollowingListActiveParams::Filter::paid?
+        }
+
+        type online = nil
+
+        module Online
+          extend Onlyfansapi::Internal::Type::Enum
+
+          def self?.values: -> ::Array[Onlyfansapi::Models::FollowingListActiveParams::Filter::online]
+        end
+
+        type paid = nil
+
+        module Paid
+          extend Onlyfansapi::Internal::Type::Enum
+
+          def self?.values: -> ::Array[Onlyfansapi::Models::FollowingListActiveParams::Filter::paid]
+        end
+      end
+    end
+  end
+end

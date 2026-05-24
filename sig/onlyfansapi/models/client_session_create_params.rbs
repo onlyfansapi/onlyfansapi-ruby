@@ -1,0 +1,60 @@
+module Onlyfansapi
+  module Models
+    type client_session_create_params =
+      {
+        display_name: String,
+        client_reference_id: String,
+        proxy_country: Onlyfansapi::Models::ClientSessionCreateParams::proxy_country?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class ClientSessionCreateParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor display_name: String
+
+      attr_reader client_reference_id: String?
+
+      def client_reference_id=: (String) -> String
+
+      attr_accessor proxy_country: Onlyfansapi::Models::ClientSessionCreateParams::proxy_country?
+
+      def initialize: (
+        display_name: String,
+        ?client_reference_id: String,
+        ?proxy_country: Onlyfansapi::Models::ClientSessionCreateParams::proxy_country?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        display_name: String,
+        client_reference_id: String,
+        proxy_country: Onlyfansapi::Models::ClientSessionCreateParams::proxy_country?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type proxy_country =
+        :us | :uk | :de | :es | :fr | :it | :ua | :pl | :ro | :cz | :hu | :sk
+
+      module ProxyCountry
+        extend Onlyfansapi::Internal::Type::Enum
+
+        US: :us
+        UK: :uk
+        DE: :de
+        ES: :es
+        FR: :fr
+        IT: :it
+        UA: :ua
+        PL: :pl
+        RO: :ro
+        CZ: :cz
+        HU: :hu
+        SK: :sk
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::ClientSessionCreateParams::proxy_country]
+      end
+    end
+  end
+end

@@ -1,0 +1,50 @@
+module Onlyfansapi
+  module Resources
+    class Payouts
+      def list_payout_requests: (
+        String account,
+        ?limit: String,
+        ?offset: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::PayoutListPayoutRequestsResponse
+
+      def list_transactions: (
+        String account,
+        ?limit: String,
+        ?marker: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::PayoutListTransactionsResponse
+
+      def request_manual_withdrawal: (
+        String account,
+        amount: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::payout_request_manual_withdrawal_response
+
+      def retrieve_balances: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::PayoutRetrieveBalancesResponse
+
+      def retrieve_earning_statistics: (
+        String account,
+        ?end_date: String?,
+        ?start_date: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::PayoutRetrieveEarningStatisticsResponse
+
+      def retrieve_eligibility: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::PayoutRetrieveEligibilityResponse
+
+      def update_payout_frequency: (
+        String account,
+        frequency: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams::frequency,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::PayoutUpdatePayoutFrequencyResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

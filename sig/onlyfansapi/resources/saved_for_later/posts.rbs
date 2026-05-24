@@ -1,0 +1,18 @@
+module Onlyfansapi
+  module Resources
+    class SavedForLater
+      class Posts
+        attr_reader settings: Onlyfansapi::Resources::SavedForLater::Posts::Settings
+
+        def list: (
+          String account,
+          limit: Integer,
+          offset: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::SavedForLater::PostListResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

@@ -1,0 +1,45 @@
+# frozen_string_literal: true
+
+module Onlyfansapi
+  module Models
+    # @see Onlyfansapi::Resources::Transactions#list
+    class TransactionListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      # @!attribute account
+      #
+      #   @return [String]
+      required :account, String
+
+      # @!attribute limit
+      #   The number of transactions to return. Recommended: `10`
+      #
+      #   @return [String, nil]
+      optional :limit, String
+
+      # @!attribute marker
+      #   The marker used for pagination. Default: `null`
+      #
+      #   @return [String, nil]
+      optional :marker, String
+
+      # @!attribute start_date
+      #   The start date for transactions list. Default: `-30days`
+      #
+      #   @return [String, nil]
+      optional :start_date, String
+
+      # @!method initialize(account:, limit: nil, marker: nil, start_date: nil, request_options: {})
+      #   @param account [String]
+      #
+      #   @param limit [String] The number of transactions to return. Recommended: `10`
+      #
+      #   @param marker [String] The marker used for pagination. Default: `null`
+      #
+      #   @param start_date [String] The start date for transactions list. Default: `-30days`
+      #
+      #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
+    end
+  end
+end

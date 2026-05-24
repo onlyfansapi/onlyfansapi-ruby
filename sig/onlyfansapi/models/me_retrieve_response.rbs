@@ -1,0 +1,1501 @@
+module Onlyfansapi
+  module Models
+    type me_retrieve_response =
+      {
+        _meta: Onlyfansapi::Models::MeRetrieveResponse::Meta,
+        data: Onlyfansapi::Models::MeRetrieveResponse::Data
+      }
+
+    class MeRetrieveResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfansapi::Models::MeRetrieveResponse::Meta?
+
+      def _meta=: (
+        Onlyfansapi::Models::MeRetrieveResponse::Meta
+      ) -> Onlyfansapi::Models::MeRetrieveResponse::Meta
+
+      attr_reader data: Onlyfansapi::Models::MeRetrieveResponse::Data?
+
+      def data=: (
+        Onlyfansapi::Models::MeRetrieveResponse::Data
+      ) -> Onlyfansapi::Models::MeRetrieveResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfansapi::Models::MeRetrieveResponse::Meta,
+        ?data: Onlyfansapi::Models::MeRetrieveResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfansapi::Models::MeRetrieveResponse::Meta,
+        data: Onlyfansapi::Models::MeRetrieveResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfansapi::Models::MeRetrieveResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::MeRetrieveResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::MeRetrieveResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfansapi::Models::MeRetrieveResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Meta::Cache
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfansapi::Models::MeRetrieveResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Meta::Credits
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfansapi::Models::MeRetrieveResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Meta::RateLimits
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfansapi::Models::MeRetrieveResponse::Meta::Cache,
+          ?_credits: Onlyfansapi::Models::MeRetrieveResponse::Meta::Credits,
+          ?_rate_limits: Onlyfansapi::Models::MeRetrieveResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfansapi::Models::MeRetrieveResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::MeRetrieveResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::MeRetrieveResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: Integer,
+          about: String,
+          adv_block: ::Array[String],
+          age_verification_required: bool,
+          archived_posts_count: Integer,
+          audios_count: Integer,
+          avatar: String,
+          avatar_header_converter_upload: bool,
+          avatar_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::AvatarThumbs,
+          can_add_card: bool,
+          can_add_story: bool,
+          can_add_subscriber: bool,
+          can_alternative_wallet_top_up: bool,
+          can_change_content_price: bool,
+          can_chat: bool,
+          can_comment_story: bool,
+          can_connect_of_account: bool,
+          can_create_fund_raising: bool,
+          can_create_lists: bool,
+          can_create_promotion: bool,
+          can_create_trial: bool,
+          can_earn: bool,
+          can_look_story: bool,
+          can_make_expire_posts: bool,
+          can_pay_internal: bool,
+          can_pin_post: bool,
+          can_receive_chat_message: bool,
+          can_receive_manual_payout: bool,
+          can_receive_stripe_payout: bool,
+          can_send_chat_to_all: bool,
+          can_streaming: bool,
+          can_trial_send: bool,
+          chat_messages_count: Integer,
+          connected_of_accounts: ::Array[top],
+          count_pinned_chat: Integer,
+          count_priority_chat: Integer,
+          credit_balance: Integer,
+          credits_max: Integer,
+          credits_min: Integer,
+          csrf: String,
+          email: String,
+          enabled_image_editor_for_chat: bool,
+          face_id_regular: ::Array[top],
+          favorited_count: Integer,
+          favorites_count: Integer,
+          first_published_post_date: String,
+          has_friends: bool,
+          has_internal_payments: bool,
+          has_labels: bool,
+          has_links: bool,
+          has_new_alerts: bool,
+          has_new_changed_price_subscriptions: bool,
+          has_new_hints: bool,
+          has_new_ticket_replies: Onlyfansapi::Models::MeRetrieveResponse::Data::HasNewTicketReplies,
+          has_not_viewed_story: bool,
+          has_pinned_posts: bool,
+          has_purchased_posts: bool,
+          has_scenario: bool,
+          has_scheduled_stream: bool,
+          has_stories: bool,
+          has_stream: bool,
+          has_stripe: bool,
+          has_system_notifications: bool,
+          has_tags: bool,
+          has_watermark_photo: bool,
+          has_watermark_video: bool,
+          header: String,
+          header_size: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderSize,
+          header_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderThumbs,
+          ip: String,
+          is_adult_content: bool,
+          is_age_verified: bool,
+          is_allow_tweets: bool,
+          is_auth: bool,
+          is_country_vat_number_collect: bool,
+          is_country_vat_refundable: bool,
+          is_country_with_vat: bool,
+          is_credits_enabled: bool,
+          is_delete_initiated: bool,
+          is_email_checked: bool,
+          is_email_required: bool,
+          is_legal_approved_allowed: bool,
+          is_make_payment: bool,
+          is_markdown_disabled_for_about: bool,
+          is_need_confirm_payout: bool,
+          is_otp_enabled: bool,
+          is_payment_card_connected: bool,
+          is_paywall_passed: bool,
+          is_performer: bool,
+          is_private_restriction: bool,
+          is_real_card_connected: bool,
+          is_real_performer: bool,
+          is_referrer_allowed: bool,
+          is_scheduled_streams_allowed: bool,
+          is_spotify_connected: bool,
+          is_spring_connected: bool,
+          is_stripe_exist: bool,
+          is_twitter_connected: bool,
+          is_vat_required: bool,
+          is_verified: bool,
+          is_verified_reason: bool,
+          is_visible_online: bool,
+          is_wallet_autorecharge: bool,
+          is_want_comments: bool,
+          iv_country: String,
+          iv_fail_reason: String,
+          iv_flow: String,
+          iv_hide_for_performers: bool,
+          iv_status: String,
+          join_date: String,
+          last_seen: String,
+          location: String,
+          max_fund_raising_target: Integer,
+          max_pinned_posts_count: Integer,
+          medias_count: Integer,
+          message_max_price: Integer,
+          message_min_price: Integer,
+          min_fund_raising_target: Integer,
+          name: String,
+          need_iv_approve: bool,
+          new_tags_count: Integer,
+          notifications_count: Integer,
+          paid_feed: bool,
+          payout_legal_approve_state: String,
+          payout_type: String,
+          photos_count: Integer,
+          pinned_posts_count: Integer,
+          post_max_price: Integer,
+          post_min_price: Integer,
+          posts_count: Integer,
+          private_archived_posts_count: Integer,
+          show_media_count: bool,
+          show_posts_in_feed: bool,
+          show_subscribers_count: bool,
+          subscribed_by_data: String,
+          subscribed_on_data: String,
+          subscribe_max_price: Integer,
+          subscribe_min_price: Float,
+          subscribe_price: Integer,
+          subscribers_count: Integer,
+          subscribes_count: Integer,
+          subscription_bundles: ::Array[top],
+          tips_enabled: bool,
+          tips_max: Integer,
+          tips_min: Integer,
+          tips_min_internal: Integer,
+          tips_text_enabled: bool,
+          trial_max_days: Integer,
+          trial_max_expires_days: Integer,
+          twitter_username: String,
+          unread_tips: Integer,
+          upload: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload,
+          username: String,
+          vat_number_name: String,
+          videos_count: Integer,
+          view: String,
+          wallet_autorecharge_amount: Integer,
+          wallet_autorecharge_min: Integer,
+          wallet_first_rebills: bool,
+          watermark_position: String,
+          watermark_text: String,
+          website: String,
+          wishlist: String,
+          ws_auth_token: String,
+          ws_url: String
+        }
+
+      class Data < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_reader about: String?
+
+        def about=: (String) -> String
+
+        attr_reader adv_block: ::Array[String]?
+
+        def adv_block=: (::Array[String]) -> ::Array[String]
+
+        attr_reader age_verification_required: bool?
+
+        def age_verification_required=: (bool) -> bool
+
+        attr_reader archived_posts_count: Integer?
+
+        def archived_posts_count=: (Integer) -> Integer
+
+        attr_reader audios_count: Integer?
+
+        def audios_count=: (Integer) -> Integer
+
+        attr_reader avatar: String?
+
+        def avatar=: (String) -> String
+
+        attr_reader avatar_header_converter_upload: bool?
+
+        def avatar_header_converter_upload=: (bool) -> bool
+
+        attr_reader avatar_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::AvatarThumbs?
+
+        def avatar_thumbs=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Data::AvatarThumbs
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Data::AvatarThumbs
+
+        attr_reader can_add_card: bool?
+
+        def can_add_card=: (bool) -> bool
+
+        attr_reader can_add_story: bool?
+
+        def can_add_story=: (bool) -> bool
+
+        attr_reader can_add_subscriber: bool?
+
+        def can_add_subscriber=: (bool) -> bool
+
+        attr_reader can_alternative_wallet_top_up: bool?
+
+        def can_alternative_wallet_top_up=: (bool) -> bool
+
+        attr_reader can_change_content_price: bool?
+
+        def can_change_content_price=: (bool) -> bool
+
+        attr_reader can_chat: bool?
+
+        def can_chat=: (bool) -> bool
+
+        attr_reader can_comment_story: bool?
+
+        def can_comment_story=: (bool) -> bool
+
+        attr_reader can_connect_of_account: bool?
+
+        def can_connect_of_account=: (bool) -> bool
+
+        attr_reader can_create_fund_raising: bool?
+
+        def can_create_fund_raising=: (bool) -> bool
+
+        attr_reader can_create_lists: bool?
+
+        def can_create_lists=: (bool) -> bool
+
+        attr_reader can_create_promotion: bool?
+
+        def can_create_promotion=: (bool) -> bool
+
+        attr_reader can_create_trial: bool?
+
+        def can_create_trial=: (bool) -> bool
+
+        attr_reader can_earn: bool?
+
+        def can_earn=: (bool) -> bool
+
+        attr_reader can_look_story: bool?
+
+        def can_look_story=: (bool) -> bool
+
+        attr_reader can_make_expire_posts: bool?
+
+        def can_make_expire_posts=: (bool) -> bool
+
+        attr_reader can_pay_internal: bool?
+
+        def can_pay_internal=: (bool) -> bool
+
+        attr_reader can_pin_post: bool?
+
+        def can_pin_post=: (bool) -> bool
+
+        attr_reader can_receive_chat_message: bool?
+
+        def can_receive_chat_message=: (bool) -> bool
+
+        attr_reader can_receive_manual_payout: bool?
+
+        def can_receive_manual_payout=: (bool) -> bool
+
+        attr_reader can_receive_stripe_payout: bool?
+
+        def can_receive_stripe_payout=: (bool) -> bool
+
+        attr_reader can_send_chat_to_all: bool?
+
+        def can_send_chat_to_all=: (bool) -> bool
+
+        attr_reader can_streaming: bool?
+
+        def can_streaming=: (bool) -> bool
+
+        attr_reader can_trial_send: bool?
+
+        def can_trial_send=: (bool) -> bool
+
+        attr_reader chat_messages_count: Integer?
+
+        def chat_messages_count=: (Integer) -> Integer
+
+        attr_reader connected_of_accounts: ::Array[top]?
+
+        def connected_of_accounts=: (::Array[top]) -> ::Array[top]
+
+        attr_reader count_pinned_chat: Integer?
+
+        def count_pinned_chat=: (Integer) -> Integer
+
+        attr_reader count_priority_chat: Integer?
+
+        def count_priority_chat=: (Integer) -> Integer
+
+        attr_reader credit_balance: Integer?
+
+        def credit_balance=: (Integer) -> Integer
+
+        attr_reader credits_max: Integer?
+
+        def credits_max=: (Integer) -> Integer
+
+        attr_reader credits_min: Integer?
+
+        def credits_min=: (Integer) -> Integer
+
+        attr_reader csrf: String?
+
+        def csrf=: (String) -> String
+
+        attr_reader email: String?
+
+        def email=: (String) -> String
+
+        attr_reader enabled_image_editor_for_chat: bool?
+
+        def enabled_image_editor_for_chat=: (bool) -> bool
+
+        attr_reader face_id_regular: ::Array[top]?
+
+        def face_id_regular=: (::Array[top]) -> ::Array[top]
+
+        attr_reader favorited_count: Integer?
+
+        def favorited_count=: (Integer) -> Integer
+
+        attr_reader favorites_count: Integer?
+
+        def favorites_count=: (Integer) -> Integer
+
+        attr_reader first_published_post_date: String?
+
+        def first_published_post_date=: (String) -> String
+
+        attr_reader has_friends: bool?
+
+        def has_friends=: (bool) -> bool
+
+        attr_reader has_internal_payments: bool?
+
+        def has_internal_payments=: (bool) -> bool
+
+        attr_reader has_labels: bool?
+
+        def has_labels=: (bool) -> bool
+
+        attr_reader has_links: bool?
+
+        def has_links=: (bool) -> bool
+
+        attr_reader has_new_alerts: bool?
+
+        def has_new_alerts=: (bool) -> bool
+
+        attr_reader has_new_changed_price_subscriptions: bool?
+
+        def has_new_changed_price_subscriptions=: (bool) -> bool
+
+        attr_reader has_new_hints: bool?
+
+        def has_new_hints=: (bool) -> bool
+
+        attr_reader has_new_ticket_replies: Onlyfansapi::Models::MeRetrieveResponse::Data::HasNewTicketReplies?
+
+        def has_new_ticket_replies=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Data::HasNewTicketReplies
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Data::HasNewTicketReplies
+
+        attr_reader has_not_viewed_story: bool?
+
+        def has_not_viewed_story=: (bool) -> bool
+
+        attr_reader has_pinned_posts: bool?
+
+        def has_pinned_posts=: (bool) -> bool
+
+        attr_reader has_purchased_posts: bool?
+
+        def has_purchased_posts=: (bool) -> bool
+
+        attr_reader has_scenario: bool?
+
+        def has_scenario=: (bool) -> bool
+
+        attr_reader has_scheduled_stream: bool?
+
+        def has_scheduled_stream=: (bool) -> bool
+
+        attr_reader has_stories: bool?
+
+        def has_stories=: (bool) -> bool
+
+        attr_reader has_stream: bool?
+
+        def has_stream=: (bool) -> bool
+
+        attr_reader has_stripe: bool?
+
+        def has_stripe=: (bool) -> bool
+
+        attr_reader has_system_notifications: bool?
+
+        def has_system_notifications=: (bool) -> bool
+
+        attr_reader has_tags: bool?
+
+        def has_tags=: (bool) -> bool
+
+        attr_reader has_watermark_photo: bool?
+
+        def has_watermark_photo=: (bool) -> bool
+
+        attr_reader has_watermark_video: bool?
+
+        def has_watermark_video=: (bool) -> bool
+
+        attr_reader header: String?
+
+        def header=: (String) -> String
+
+        attr_reader header_size: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderSize?
+
+        def header_size=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderSize
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderSize
+
+        attr_reader header_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderThumbs?
+
+        def header_thumbs=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderThumbs
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderThumbs
+
+        attr_reader ip: String?
+
+        def ip=: (String) -> String
+
+        attr_reader is_adult_content: bool?
+
+        def is_adult_content=: (bool) -> bool
+
+        attr_reader is_age_verified: bool?
+
+        def is_age_verified=: (bool) -> bool
+
+        attr_reader is_allow_tweets: bool?
+
+        def is_allow_tweets=: (bool) -> bool
+
+        attr_reader is_auth: bool?
+
+        def is_auth=: (bool) -> bool
+
+        attr_reader is_country_vat_number_collect: bool?
+
+        def is_country_vat_number_collect=: (bool) -> bool
+
+        attr_reader is_country_vat_refundable: bool?
+
+        def is_country_vat_refundable=: (bool) -> bool
+
+        attr_reader is_country_with_vat: bool?
+
+        def is_country_with_vat=: (bool) -> bool
+
+        attr_reader is_credits_enabled: bool?
+
+        def is_credits_enabled=: (bool) -> bool
+
+        attr_reader is_delete_initiated: bool?
+
+        def is_delete_initiated=: (bool) -> bool
+
+        attr_reader is_email_checked: bool?
+
+        def is_email_checked=: (bool) -> bool
+
+        attr_reader is_email_required: bool?
+
+        def is_email_required=: (bool) -> bool
+
+        attr_reader is_legal_approved_allowed: bool?
+
+        def is_legal_approved_allowed=: (bool) -> bool
+
+        attr_reader is_make_payment: bool?
+
+        def is_make_payment=: (bool) -> bool
+
+        attr_reader is_markdown_disabled_for_about: bool?
+
+        def is_markdown_disabled_for_about=: (bool) -> bool
+
+        attr_reader is_need_confirm_payout: bool?
+
+        def is_need_confirm_payout=: (bool) -> bool
+
+        attr_reader is_otp_enabled: bool?
+
+        def is_otp_enabled=: (bool) -> bool
+
+        attr_reader is_payment_card_connected: bool?
+
+        def is_payment_card_connected=: (bool) -> bool
+
+        attr_reader is_paywall_passed: bool?
+
+        def is_paywall_passed=: (bool) -> bool
+
+        attr_reader is_performer: bool?
+
+        def is_performer=: (bool) -> bool
+
+        attr_reader is_private_restriction: bool?
+
+        def is_private_restriction=: (bool) -> bool
+
+        attr_reader is_real_card_connected: bool?
+
+        def is_real_card_connected=: (bool) -> bool
+
+        attr_reader is_real_performer: bool?
+
+        def is_real_performer=: (bool) -> bool
+
+        attr_reader is_referrer_allowed: bool?
+
+        def is_referrer_allowed=: (bool) -> bool
+
+        attr_reader is_scheduled_streams_allowed: bool?
+
+        def is_scheduled_streams_allowed=: (bool) -> bool
+
+        attr_reader is_spotify_connected: bool?
+
+        def is_spotify_connected=: (bool) -> bool
+
+        attr_reader is_spring_connected: bool?
+
+        def is_spring_connected=: (bool) -> bool
+
+        attr_reader is_stripe_exist: bool?
+
+        def is_stripe_exist=: (bool) -> bool
+
+        attr_reader is_twitter_connected: bool?
+
+        def is_twitter_connected=: (bool) -> bool
+
+        attr_reader is_vat_required: bool?
+
+        def is_vat_required=: (bool) -> bool
+
+        attr_reader is_verified: bool?
+
+        def is_verified=: (bool) -> bool
+
+        attr_reader is_verified_reason: bool?
+
+        def is_verified_reason=: (bool) -> bool
+
+        attr_reader is_visible_online: bool?
+
+        def is_visible_online=: (bool) -> bool
+
+        attr_reader is_wallet_autorecharge: bool?
+
+        def is_wallet_autorecharge=: (bool) -> bool
+
+        attr_reader is_want_comments: bool?
+
+        def is_want_comments=: (bool) -> bool
+
+        attr_reader iv_country: String?
+
+        def iv_country=: (String) -> String
+
+        attr_reader iv_fail_reason: String?
+
+        def iv_fail_reason=: (String) -> String
+
+        attr_reader iv_flow: String?
+
+        def iv_flow=: (String) -> String
+
+        attr_reader iv_hide_for_performers: bool?
+
+        def iv_hide_for_performers=: (bool) -> bool
+
+        attr_reader iv_status: String?
+
+        def iv_status=: (String) -> String
+
+        attr_reader join_date: String?
+
+        def join_date=: (String) -> String
+
+        attr_reader last_seen: String?
+
+        def last_seen=: (String) -> String
+
+        attr_reader location: String?
+
+        def location=: (String) -> String
+
+        attr_reader max_fund_raising_target: Integer?
+
+        def max_fund_raising_target=: (Integer) -> Integer
+
+        attr_reader max_pinned_posts_count: Integer?
+
+        def max_pinned_posts_count=: (Integer) -> Integer
+
+        attr_reader medias_count: Integer?
+
+        def medias_count=: (Integer) -> Integer
+
+        attr_reader message_max_price: Integer?
+
+        def message_max_price=: (Integer) -> Integer
+
+        attr_reader message_min_price: Integer?
+
+        def message_min_price=: (Integer) -> Integer
+
+        attr_reader min_fund_raising_target: Integer?
+
+        def min_fund_raising_target=: (Integer) -> Integer
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader need_iv_approve: bool?
+
+        def need_iv_approve=: (bool) -> bool
+
+        attr_reader new_tags_count: Integer?
+
+        def new_tags_count=: (Integer) -> Integer
+
+        attr_reader notifications_count: Integer?
+
+        def notifications_count=: (Integer) -> Integer
+
+        attr_reader paid_feed: bool?
+
+        def paid_feed=: (bool) -> bool
+
+        attr_reader payout_legal_approve_state: String?
+
+        def payout_legal_approve_state=: (String) -> String
+
+        attr_reader payout_type: String?
+
+        def payout_type=: (String) -> String
+
+        attr_reader photos_count: Integer?
+
+        def photos_count=: (Integer) -> Integer
+
+        attr_reader pinned_posts_count: Integer?
+
+        def pinned_posts_count=: (Integer) -> Integer
+
+        attr_reader post_max_price: Integer?
+
+        def post_max_price=: (Integer) -> Integer
+
+        attr_reader post_min_price: Integer?
+
+        def post_min_price=: (Integer) -> Integer
+
+        attr_reader posts_count: Integer?
+
+        def posts_count=: (Integer) -> Integer
+
+        attr_reader private_archived_posts_count: Integer?
+
+        def private_archived_posts_count=: (Integer) -> Integer
+
+        attr_reader show_media_count: bool?
+
+        def show_media_count=: (bool) -> bool
+
+        attr_reader show_posts_in_feed: bool?
+
+        def show_posts_in_feed=: (bool) -> bool
+
+        attr_reader show_subscribers_count: bool?
+
+        def show_subscribers_count=: (bool) -> bool
+
+        attr_reader subscribed_by_data: String?
+
+        def subscribed_by_data=: (String) -> String
+
+        attr_reader subscribed_on_data: String?
+
+        def subscribed_on_data=: (String) -> String
+
+        attr_reader subscribe_max_price: Integer?
+
+        def subscribe_max_price=: (Integer) -> Integer
+
+        attr_reader subscribe_min_price: Float?
+
+        def subscribe_min_price=: (Float) -> Float
+
+        attr_reader subscribe_price: Integer?
+
+        def subscribe_price=: (Integer) -> Integer
+
+        attr_reader subscribers_count: Integer?
+
+        def subscribers_count=: (Integer) -> Integer
+
+        attr_reader subscribes_count: Integer?
+
+        def subscribes_count=: (Integer) -> Integer
+
+        attr_reader subscription_bundles: ::Array[top]?
+
+        def subscription_bundles=: (::Array[top]) -> ::Array[top]
+
+        attr_reader tips_enabled: bool?
+
+        def tips_enabled=: (bool) -> bool
+
+        attr_reader tips_max: Integer?
+
+        def tips_max=: (Integer) -> Integer
+
+        attr_reader tips_min: Integer?
+
+        def tips_min=: (Integer) -> Integer
+
+        attr_reader tips_min_internal: Integer?
+
+        def tips_min_internal=: (Integer) -> Integer
+
+        attr_reader tips_text_enabled: bool?
+
+        def tips_text_enabled=: (bool) -> bool
+
+        attr_reader trial_max_days: Integer?
+
+        def trial_max_days=: (Integer) -> Integer
+
+        attr_reader trial_max_expires_days: Integer?
+
+        def trial_max_expires_days=: (Integer) -> Integer
+
+        attr_reader twitter_username: String?
+
+        def twitter_username=: (String) -> String
+
+        attr_reader unread_tips: Integer?
+
+        def unread_tips=: (Integer) -> Integer
+
+        attr_reader upload: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload?
+
+        def upload=: (
+          Onlyfansapi::Models::MeRetrieveResponse::Data::Upload
+        ) -> Onlyfansapi::Models::MeRetrieveResponse::Data::Upload
+
+        attr_reader username: String?
+
+        def username=: (String) -> String
+
+        attr_reader vat_number_name: String?
+
+        def vat_number_name=: (String) -> String
+
+        attr_reader videos_count: Integer?
+
+        def videos_count=: (Integer) -> Integer
+
+        attr_reader view: String?
+
+        def view=: (String) -> String
+
+        attr_reader wallet_autorecharge_amount: Integer?
+
+        def wallet_autorecharge_amount=: (Integer) -> Integer
+
+        attr_reader wallet_autorecharge_min: Integer?
+
+        def wallet_autorecharge_min=: (Integer) -> Integer
+
+        attr_reader wallet_first_rebills: bool?
+
+        def wallet_first_rebills=: (bool) -> bool
+
+        attr_reader watermark_position: String?
+
+        def watermark_position=: (String) -> String
+
+        attr_reader watermark_text: String?
+
+        def watermark_text=: (String) -> String
+
+        attr_reader website: String?
+
+        def website=: (String) -> String
+
+        attr_reader wishlist: String?
+
+        def wishlist=: (String) -> String
+
+        attr_reader ws_auth_token: String?
+
+        def ws_auth_token=: (String) -> String
+
+        attr_reader ws_url: String?
+
+        def ws_url=: (String) -> String
+
+        def initialize: (
+          ?id: Integer,
+          ?about: String,
+          ?adv_block: ::Array[String],
+          ?age_verification_required: bool,
+          ?archived_posts_count: Integer,
+          ?audios_count: Integer,
+          ?avatar: String,
+          ?avatar_header_converter_upload: bool,
+          ?avatar_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::AvatarThumbs,
+          ?can_add_card: bool,
+          ?can_add_story: bool,
+          ?can_add_subscriber: bool,
+          ?can_alternative_wallet_top_up: bool,
+          ?can_change_content_price: bool,
+          ?can_chat: bool,
+          ?can_comment_story: bool,
+          ?can_connect_of_account: bool,
+          ?can_create_fund_raising: bool,
+          ?can_create_lists: bool,
+          ?can_create_promotion: bool,
+          ?can_create_trial: bool,
+          ?can_earn: bool,
+          ?can_look_story: bool,
+          ?can_make_expire_posts: bool,
+          ?can_pay_internal: bool,
+          ?can_pin_post: bool,
+          ?can_receive_chat_message: bool,
+          ?can_receive_manual_payout: bool,
+          ?can_receive_stripe_payout: bool,
+          ?can_send_chat_to_all: bool,
+          ?can_streaming: bool,
+          ?can_trial_send: bool,
+          ?chat_messages_count: Integer,
+          ?connected_of_accounts: ::Array[top],
+          ?count_pinned_chat: Integer,
+          ?count_priority_chat: Integer,
+          ?credit_balance: Integer,
+          ?credits_max: Integer,
+          ?credits_min: Integer,
+          ?csrf: String,
+          ?email: String,
+          ?enabled_image_editor_for_chat: bool,
+          ?face_id_regular: ::Array[top],
+          ?favorited_count: Integer,
+          ?favorites_count: Integer,
+          ?first_published_post_date: String,
+          ?has_friends: bool,
+          ?has_internal_payments: bool,
+          ?has_labels: bool,
+          ?has_links: bool,
+          ?has_new_alerts: bool,
+          ?has_new_changed_price_subscriptions: bool,
+          ?has_new_hints: bool,
+          ?has_new_ticket_replies: Onlyfansapi::Models::MeRetrieveResponse::Data::HasNewTicketReplies,
+          ?has_not_viewed_story: bool,
+          ?has_pinned_posts: bool,
+          ?has_purchased_posts: bool,
+          ?has_scenario: bool,
+          ?has_scheduled_stream: bool,
+          ?has_stories: bool,
+          ?has_stream: bool,
+          ?has_stripe: bool,
+          ?has_system_notifications: bool,
+          ?has_tags: bool,
+          ?has_watermark_photo: bool,
+          ?has_watermark_video: bool,
+          ?header: String,
+          ?header_size: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderSize,
+          ?header_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderThumbs,
+          ?ip: String,
+          ?is_adult_content: bool,
+          ?is_age_verified: bool,
+          ?is_allow_tweets: bool,
+          ?is_auth: bool,
+          ?is_country_vat_number_collect: bool,
+          ?is_country_vat_refundable: bool,
+          ?is_country_with_vat: bool,
+          ?is_credits_enabled: bool,
+          ?is_delete_initiated: bool,
+          ?is_email_checked: bool,
+          ?is_email_required: bool,
+          ?is_legal_approved_allowed: bool,
+          ?is_make_payment: bool,
+          ?is_markdown_disabled_for_about: bool,
+          ?is_need_confirm_payout: bool,
+          ?is_otp_enabled: bool,
+          ?is_payment_card_connected: bool,
+          ?is_paywall_passed: bool,
+          ?is_performer: bool,
+          ?is_private_restriction: bool,
+          ?is_real_card_connected: bool,
+          ?is_real_performer: bool,
+          ?is_referrer_allowed: bool,
+          ?is_scheduled_streams_allowed: bool,
+          ?is_spotify_connected: bool,
+          ?is_spring_connected: bool,
+          ?is_stripe_exist: bool,
+          ?is_twitter_connected: bool,
+          ?is_vat_required: bool,
+          ?is_verified: bool,
+          ?is_verified_reason: bool,
+          ?is_visible_online: bool,
+          ?is_wallet_autorecharge: bool,
+          ?is_want_comments: bool,
+          ?iv_country: String,
+          ?iv_fail_reason: String,
+          ?iv_flow: String,
+          ?iv_hide_for_performers: bool,
+          ?iv_status: String,
+          ?join_date: String,
+          ?last_seen: String,
+          ?location: String,
+          ?max_fund_raising_target: Integer,
+          ?max_pinned_posts_count: Integer,
+          ?medias_count: Integer,
+          ?message_max_price: Integer,
+          ?message_min_price: Integer,
+          ?min_fund_raising_target: Integer,
+          ?name: String,
+          ?need_iv_approve: bool,
+          ?new_tags_count: Integer,
+          ?notifications_count: Integer,
+          ?paid_feed: bool,
+          ?payout_legal_approve_state: String,
+          ?payout_type: String,
+          ?photos_count: Integer,
+          ?pinned_posts_count: Integer,
+          ?post_max_price: Integer,
+          ?post_min_price: Integer,
+          ?posts_count: Integer,
+          ?private_archived_posts_count: Integer,
+          ?show_media_count: bool,
+          ?show_posts_in_feed: bool,
+          ?show_subscribers_count: bool,
+          ?subscribed_by_data: String,
+          ?subscribed_on_data: String,
+          ?subscribe_max_price: Integer,
+          ?subscribe_min_price: Float,
+          ?subscribe_price: Integer,
+          ?subscribers_count: Integer,
+          ?subscribes_count: Integer,
+          ?subscription_bundles: ::Array[top],
+          ?tips_enabled: bool,
+          ?tips_max: Integer,
+          ?tips_min: Integer,
+          ?tips_min_internal: Integer,
+          ?tips_text_enabled: bool,
+          ?trial_max_days: Integer,
+          ?trial_max_expires_days: Integer,
+          ?twitter_username: String,
+          ?unread_tips: Integer,
+          ?upload: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload,
+          ?username: String,
+          ?vat_number_name: String,
+          ?videos_count: Integer,
+          ?view: String,
+          ?wallet_autorecharge_amount: Integer,
+          ?wallet_autorecharge_min: Integer,
+          ?wallet_first_rebills: bool,
+          ?watermark_position: String,
+          ?watermark_text: String,
+          ?website: String,
+          ?wishlist: String,
+          ?ws_auth_token: String,
+          ?ws_url: String
+        ) -> void
+
+        def to_hash: -> {
+          id: Integer,
+          about: String,
+          adv_block: ::Array[String],
+          age_verification_required: bool,
+          archived_posts_count: Integer,
+          audios_count: Integer,
+          avatar: String,
+          avatar_header_converter_upload: bool,
+          avatar_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::AvatarThumbs,
+          can_add_card: bool,
+          can_add_story: bool,
+          can_add_subscriber: bool,
+          can_alternative_wallet_top_up: bool,
+          can_change_content_price: bool,
+          can_chat: bool,
+          can_comment_story: bool,
+          can_connect_of_account: bool,
+          can_create_fund_raising: bool,
+          can_create_lists: bool,
+          can_create_promotion: bool,
+          can_create_trial: bool,
+          can_earn: bool,
+          can_look_story: bool,
+          can_make_expire_posts: bool,
+          can_pay_internal: bool,
+          can_pin_post: bool,
+          can_receive_chat_message: bool,
+          can_receive_manual_payout: bool,
+          can_receive_stripe_payout: bool,
+          can_send_chat_to_all: bool,
+          can_streaming: bool,
+          can_trial_send: bool,
+          chat_messages_count: Integer,
+          connected_of_accounts: ::Array[top],
+          count_pinned_chat: Integer,
+          count_priority_chat: Integer,
+          credit_balance: Integer,
+          credits_max: Integer,
+          credits_min: Integer,
+          csrf: String,
+          email: String,
+          enabled_image_editor_for_chat: bool,
+          face_id_regular: ::Array[top],
+          favorited_count: Integer,
+          favorites_count: Integer,
+          first_published_post_date: String,
+          has_friends: bool,
+          has_internal_payments: bool,
+          has_labels: bool,
+          has_links: bool,
+          has_new_alerts: bool,
+          has_new_changed_price_subscriptions: bool,
+          has_new_hints: bool,
+          has_new_ticket_replies: Onlyfansapi::Models::MeRetrieveResponse::Data::HasNewTicketReplies,
+          has_not_viewed_story: bool,
+          has_pinned_posts: bool,
+          has_purchased_posts: bool,
+          has_scenario: bool,
+          has_scheduled_stream: bool,
+          has_stories: bool,
+          has_stream: bool,
+          has_stripe: bool,
+          has_system_notifications: bool,
+          has_tags: bool,
+          has_watermark_photo: bool,
+          has_watermark_video: bool,
+          header: String,
+          header_size: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderSize,
+          header_thumbs: Onlyfansapi::Models::MeRetrieveResponse::Data::HeaderThumbs,
+          ip: String,
+          is_adult_content: bool,
+          is_age_verified: bool,
+          is_allow_tweets: bool,
+          is_auth: bool,
+          is_country_vat_number_collect: bool,
+          is_country_vat_refundable: bool,
+          is_country_with_vat: bool,
+          is_credits_enabled: bool,
+          is_delete_initiated: bool,
+          is_email_checked: bool,
+          is_email_required: bool,
+          is_legal_approved_allowed: bool,
+          is_make_payment: bool,
+          is_markdown_disabled_for_about: bool,
+          is_need_confirm_payout: bool,
+          is_otp_enabled: bool,
+          is_payment_card_connected: bool,
+          is_paywall_passed: bool,
+          is_performer: bool,
+          is_private_restriction: bool,
+          is_real_card_connected: bool,
+          is_real_performer: bool,
+          is_referrer_allowed: bool,
+          is_scheduled_streams_allowed: bool,
+          is_spotify_connected: bool,
+          is_spring_connected: bool,
+          is_stripe_exist: bool,
+          is_twitter_connected: bool,
+          is_vat_required: bool,
+          is_verified: bool,
+          is_verified_reason: bool,
+          is_visible_online: bool,
+          is_wallet_autorecharge: bool,
+          is_want_comments: bool,
+          iv_country: String,
+          iv_fail_reason: String,
+          iv_flow: String,
+          iv_hide_for_performers: bool,
+          iv_status: String,
+          join_date: String,
+          last_seen: String,
+          location: String,
+          max_fund_raising_target: Integer,
+          max_pinned_posts_count: Integer,
+          medias_count: Integer,
+          message_max_price: Integer,
+          message_min_price: Integer,
+          min_fund_raising_target: Integer,
+          name: String,
+          need_iv_approve: bool,
+          new_tags_count: Integer,
+          notifications_count: Integer,
+          paid_feed: bool,
+          payout_legal_approve_state: String,
+          payout_type: String,
+          photos_count: Integer,
+          pinned_posts_count: Integer,
+          post_max_price: Integer,
+          post_min_price: Integer,
+          posts_count: Integer,
+          private_archived_posts_count: Integer,
+          show_media_count: bool,
+          show_posts_in_feed: bool,
+          show_subscribers_count: bool,
+          subscribed_by_data: String,
+          subscribed_on_data: String,
+          subscribe_max_price: Integer,
+          subscribe_min_price: Float,
+          subscribe_price: Integer,
+          subscribers_count: Integer,
+          subscribes_count: Integer,
+          subscription_bundles: ::Array[top],
+          tips_enabled: bool,
+          tips_max: Integer,
+          tips_min: Integer,
+          tips_min_internal: Integer,
+          tips_text_enabled: bool,
+          trial_max_days: Integer,
+          trial_max_expires_days: Integer,
+          twitter_username: String,
+          unread_tips: Integer,
+          upload: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload,
+          username: String,
+          vat_number_name: String,
+          videos_count: Integer,
+          view: String,
+          wallet_autorecharge_amount: Integer,
+          wallet_autorecharge_min: Integer,
+          wallet_first_rebills: bool,
+          watermark_position: String,
+          watermark_text: String,
+          website: String,
+          wishlist: String,
+          ws_auth_token: String,
+          ws_url: String
+        }
+
+        type avatar_thumbs = { :c144 => String, :c50 => String }
+
+        class AvatarThumbs < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader c144: String?
+
+          def c144=: (String) -> String
+
+          attr_reader c50: String?
+
+          def c50=: (String) -> String
+
+          def initialize: (?c144: String, ?c50: String) -> void
+
+          def to_hash: -> { :c144 => String, :c50 => String }
+        end
+
+        type has_new_ticket_replies =
+          { appeal_form: bool, closed: bool, open_: bool, solved: bool }
+
+        class HasNewTicketReplies < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader appeal_form: bool?
+
+          def appeal_form=: (bool) -> bool
+
+          attr_reader closed: bool?
+
+          def closed=: (bool) -> bool
+
+          attr_reader open_: bool?
+
+          def open_=: (bool) -> bool
+
+          attr_reader solved: bool?
+
+          def solved=: (bool) -> bool
+
+          def initialize: (
+            ?appeal_form: bool,
+            ?closed: bool,
+            ?open_: bool,
+            ?solved: bool
+          ) -> void
+
+          def to_hash: -> {
+            appeal_form: bool,
+            closed: bool,
+            open_: bool,
+            solved: bool
+          }
+        end
+
+        type header_size = { height: Integer, width: Integer }
+
+        class HeaderSize < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader height: Integer?
+
+          def height=: (Integer) -> Integer
+
+          attr_reader width: Integer?
+
+          def width=: (Integer) -> Integer
+
+          def initialize: (?height: Integer, ?width: Integer) -> void
+
+          def to_hash: -> { height: Integer, width: Integer }
+        end
+
+        type header_thumbs = { :w480 => String, :w760 => String }
+
+        class HeaderThumbs < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader w480: String?
+
+          def w480=: (String) -> String
+
+          attr_reader w760: String?
+
+          def w760=: (String) -> String
+
+          def initialize: (?w480: String, ?w760: String) -> void
+
+          def to_hash: -> { :w480 => String, :w760 => String }
+        end
+
+        type upload =
+          {
+            geo_upload_args: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs
+          }
+
+        class Upload < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader geo_upload_args: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs?
+
+          def geo_upload_args=: (
+            Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs
+          ) -> Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs
+
+          def initialize: (
+            ?geo_upload_args: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs
+          ) -> void
+
+          def to_hash: -> {
+            geo_upload_args: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs
+          }
+
+          type geo_upload_args =
+            {
+              additional: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs::Additional,
+              is_delay: bool,
+              need_thumbs: bool,
+              preset: String,
+              preset_png: String,
+              protected_preset: String
+            }
+
+          class GeoUploadArgs < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader additional: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs::Additional?
+
+            def additional=: (
+              Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs::Additional
+            ) -> Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs::Additional
+
+            attr_reader is_delay: bool?
+
+            def is_delay=: (bool) -> bool
+
+            attr_reader need_thumbs: bool?
+
+            def need_thumbs=: (bool) -> bool
+
+            attr_reader preset: String?
+
+            def preset=: (String) -> String
+
+            attr_reader preset_png: String?
+
+            def preset_png=: (String) -> String
+
+            attr_reader protected_preset: String?
+
+            def protected_preset=: (String) -> String
+
+            def initialize: (
+              ?additional: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs::Additional,
+              ?is_delay: bool,
+              ?need_thumbs: bool,
+              ?preset: String,
+              ?preset_png: String,
+              ?protected_preset: String
+            ) -> void
+
+            def to_hash: -> {
+              additional: Onlyfansapi::Models::MeRetrieveResponse::Data::Upload::GeoUploadArgs::Additional,
+              is_delay: bool,
+              need_thumbs: bool,
+              preset: String,
+              preset_png: String,
+              protected_preset: String
+            }
+
+            type additional = { user: String }
+
+            class Additional < Onlyfansapi::Internal::Type::BaseModel
+              attr_reader user: String?
+
+              def user=: (String) -> String
+
+              def initialize: (?user: String) -> void
+
+              def to_hash: -> { user: String }
+            end
+          end
+        end
+      end
+    end
+  end
+end

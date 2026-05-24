@@ -1,0 +1,7 @@
+module Onlyfansapi
+  module Models
+    type account_list_response = ::Array[top]
+
+    AccountListResponse: Onlyfansapi::Internal::Type::Converter
+  end
+end

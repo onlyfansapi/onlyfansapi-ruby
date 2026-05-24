@@ -1,0 +1,41 @@
+module Onlyfansapi
+  module Models
+    type trial_link_list_subscribers_params =
+      {
+        account: String,
+        trial_link_id: String,
+        limit: Integer,
+        offset: Integer
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class TrialLinkListSubscribersParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor trial_link_id: String
+
+      attr_accessor limit: Integer
+
+      attr_accessor offset: Integer
+
+      def initialize: (
+        account: String,
+        trial_link_id: String,
+        limit: Integer,
+        offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        trial_link_id: String,
+        limit: Integer,
+        offset: Integer,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

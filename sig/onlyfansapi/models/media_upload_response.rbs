@@ -1,0 +1,103 @@
+module Onlyfansapi
+  module Models
+    type media_upload_response =
+      {
+        additional: Onlyfansapi::Models::MediaUploadResponse::Additional,
+        extra: String,
+        file_name: String,
+        host: String,
+        prefixed_id: String,
+        process_id: String,
+        source_url: String,
+        thumbs: ::Array[Onlyfansapi::Models::MediaUploadResponse::Thumb]
+      }
+
+    class MediaUploadResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader additional: Onlyfansapi::Models::MediaUploadResponse::Additional?
+
+      def additional=: (
+        Onlyfansapi::Models::MediaUploadResponse::Additional
+      ) -> Onlyfansapi::Models::MediaUploadResponse::Additional
+
+      attr_reader extra: String?
+
+      def extra=: (String) -> String
+
+      attr_reader file_name: String?
+
+      def file_name=: (String) -> String
+
+      attr_reader host: String?
+
+      def host=: (String) -> String
+
+      attr_reader prefixed_id: String?
+
+      def prefixed_id=: (String) -> String
+
+      attr_reader process_id: String?
+
+      def process_id=: (String) -> String
+
+      attr_reader source_url: String?
+
+      def source_url=: (String) -> String
+
+      attr_reader thumbs: ::Array[Onlyfansapi::Models::MediaUploadResponse::Thumb]?
+
+      def thumbs=: (
+        ::Array[Onlyfansapi::Models::MediaUploadResponse::Thumb]
+      ) -> ::Array[Onlyfansapi::Models::MediaUploadResponse::Thumb]
+
+      def initialize: (
+        ?additional: Onlyfansapi::Models::MediaUploadResponse::Additional,
+        ?extra: String,
+        ?file_name: String,
+        ?host: String,
+        ?prefixed_id: String,
+        ?process_id: String,
+        ?source_url: String,
+        ?thumbs: ::Array[Onlyfansapi::Models::MediaUploadResponse::Thumb]
+      ) -> void
+
+      def to_hash: -> {
+        additional: Onlyfansapi::Models::MediaUploadResponse::Additional,
+        extra: String,
+        file_name: String,
+        host: String,
+        prefixed_id: String,
+        process_id: String,
+        source_url: String,
+        thumbs: ::Array[Onlyfansapi::Models::MediaUploadResponse::Thumb]
+      }
+
+      type additional = { user: String }
+
+      class Additional < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader user: String?
+
+        def user=: (String) -> String
+
+        def initialize: (?user: String) -> void
+
+        def to_hash: -> { user: String }
+      end
+
+      type thumb = { id: Integer, url: String }
+
+      class Thumb < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_reader url: String?
+
+        def url=: (String) -> String
+
+        def initialize: (?id: Integer, ?url: String) -> void
+
+        def to_hash: -> { id: Integer, url: String }
+      end
+    end
+  end
+end

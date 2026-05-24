@@ -1,0 +1,278 @@
+module Onlyfansapi
+  module Models
+    module Banking
+      type detail_retrieve_dac7_form_details_response =
+        {
+          _meta: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta,
+          data: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Data
+        }
+
+      class DetailRetrieveDac7FormDetailsResponse < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta?
+
+        def _meta=: (
+          Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta
+        ) -> Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta
+
+        attr_reader data: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Data?
+
+        def data=: (
+          Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Data
+        ) -> Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta,
+          ?data: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta,
+          data: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Cache
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Credits
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::RateLimits
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Cache,
+            ?_credits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Credits,
+            ?_rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveDac7FormDetailsResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            address: String,
+            city: String,
+            city_of_birth: String,
+            country_id: Integer,
+            country_of_birth_id: Integer,
+            country_of_residence_id: Integer,
+            dob: String,
+            first_name: String,
+            issuing_country_id: Integer,
+            last_name: String,
+            state: String,
+            status: String,
+            tax_id: String,
+            type: String,
+            vat_number: String,
+            zip: String
+          }
+
+        class Data < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader address: String?
+
+          def address=: (String) -> String
+
+          attr_reader city: String?
+
+          def city=: (String) -> String
+
+          attr_reader city_of_birth: String?
+
+          def city_of_birth=: (String) -> String
+
+          attr_reader country_id: Integer?
+
+          def country_id=: (Integer) -> Integer
+
+          attr_reader country_of_birth_id: Integer?
+
+          def country_of_birth_id=: (Integer) -> Integer
+
+          attr_reader country_of_residence_id: Integer?
+
+          def country_of_residence_id=: (Integer) -> Integer
+
+          attr_reader dob: String?
+
+          def dob=: (String) -> String
+
+          attr_reader first_name: String?
+
+          def first_name=: (String) -> String
+
+          attr_reader issuing_country_id: Integer?
+
+          def issuing_country_id=: (Integer) -> Integer
+
+          attr_reader last_name: String?
+
+          def last_name=: (String) -> String
+
+          attr_reader state: String?
+
+          def state=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          attr_reader tax_id: String?
+
+          def tax_id=: (String) -> String
+
+          attr_reader type: String?
+
+          def type=: (String) -> String
+
+          attr_reader vat_number: String?
+
+          def vat_number=: (String) -> String
+
+          attr_reader zip: String?
+
+          def zip=: (String) -> String
+
+          def initialize: (
+            ?address: String,
+            ?city: String,
+            ?city_of_birth: String,
+            ?country_id: Integer,
+            ?country_of_birth_id: Integer,
+            ?country_of_residence_id: Integer,
+            ?dob: String,
+            ?first_name: String,
+            ?issuing_country_id: Integer,
+            ?last_name: String,
+            ?state: String,
+            ?status: String,
+            ?tax_id: String,
+            ?type: String,
+            ?vat_number: String,
+            ?zip: String
+          ) -> void
+
+          def to_hash: -> {
+            address: String,
+            city: String,
+            city_of_birth: String,
+            country_id: Integer,
+            country_of_birth_id: Integer,
+            country_of_residence_id: Integer,
+            dob: String,
+            first_name: String,
+            issuing_country_id: Integer,
+            last_name: String,
+            state: String,
+            status: String,
+            tax_id: String,
+            type: String,
+            vat_number: String,
+            zip: String
+          }
+        end
+      end
+    end
+  end
+end

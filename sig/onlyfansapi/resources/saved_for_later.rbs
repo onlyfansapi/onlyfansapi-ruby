@@ -1,0 +1,11 @@
+module Onlyfansapi
+  module Resources
+    class SavedForLater
+      attr_reader messages: Onlyfansapi::Resources::SavedForLater::Messages
+
+      attr_reader posts: Onlyfansapi::Resources::SavedForLater::Posts
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

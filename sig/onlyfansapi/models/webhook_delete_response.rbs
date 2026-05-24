@@ -1,0 +1,5 @@
+module Onlyfansapi
+  module Models
+    WebhookDeleteResponse: Onlyfansapi::Internal::Type::Converter
+  end
+end

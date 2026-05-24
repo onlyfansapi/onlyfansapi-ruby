@@ -1,0 +1,31 @@
+module Onlyfansapi
+  module Resources
+    class Following
+      def list_active: (
+        String account,
+        ?filter: Onlyfansapi::FollowingListActiveParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> nil
+
+      def list_all: (
+        String account,
+        ?filter: Onlyfansapi::FollowingListAllParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> nil
+
+      def list_expired: (
+        String account,
+        ?filter: Onlyfansapi::FollowingListExpiredParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> nil
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

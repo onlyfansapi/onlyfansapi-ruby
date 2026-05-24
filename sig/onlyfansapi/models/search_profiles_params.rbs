@@ -1,0 +1,54 @@
+module Onlyfansapi
+  module Models
+    type search_profiles_params =
+      {
+        query: String,
+        limit: String,
+        location: String,
+        max_subscribe_price: String,
+        min_subscribe_price: String
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class SearchProfilesParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor query: String
+
+      attr_reader limit: String?
+
+      def limit=: (String) -> String
+
+      attr_reader location: String?
+
+      def location=: (String) -> String
+
+      attr_reader max_subscribe_price: String?
+
+      def max_subscribe_price=: (String) -> String
+
+      attr_reader min_subscribe_price: String?
+
+      def min_subscribe_price=: (String) -> String
+
+      def initialize: (
+        query: String,
+        ?limit: String,
+        ?location: String,
+        ?max_subscribe_price: String,
+        ?min_subscribe_price: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        query: String,
+        limit: String,
+        location: String,
+        max_subscribe_price: String,
+        min_subscribe_price: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

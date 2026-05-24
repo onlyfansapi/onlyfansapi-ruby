@@ -1,0 +1,68 @@
+# typed: strong
+
+module Onlyfansapi
+  module Resources
+    class SavedForLater
+      class Posts
+        class Settings
+          # Get the Saved For Later post settings.
+          sig do
+            params(
+              account: String,
+              request_options: Onlyfansapi::RequestOptions::OrHash
+            ).returns(
+              Onlyfansapi::Models::SavedForLater::Posts::SettingRetrieveResponse
+            )
+          end
+          def retrieve(
+            # The Account ID
+            account,
+            request_options: {}
+          )
+          end
+
+          # Disable automatic posting of Saved For Later posts.
+          sig do
+            params(
+              account: String,
+              request_options: Onlyfansapi::RequestOptions::OrHash
+            ).returns(
+              Onlyfansapi::Models::SavedForLater::Posts::SettingDisableAutomaticPostingResponse
+            )
+          end
+          def disable_automatic_posting(
+            # The Account ID
+            account,
+            request_options: {}
+          )
+          end
+
+          # Enable or update automatic posting of Saved For Later posts.
+          sig do
+            params(
+              account: String,
+              period:
+                Onlyfansapi::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingParams::Period::OrInteger,
+              request_options: Onlyfansapi::RequestOptions::OrHash
+            ).returns(
+              Onlyfansapi::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingResponse
+            )
+          end
+          def enable_or_update_automatic_posting(
+            # The Account ID
+            account,
+            # The automatic posting interval (in hours)
+            period:,
+            request_options: {}
+          )
+          end
+
+          # @api private
+          sig { params(client: Onlyfansapi::Client).returns(T.attached_class) }
+          def self.new(client:)
+          end
+        end
+      end
+    end
+  end
+end

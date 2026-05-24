@@ -1,0 +1,28 @@
+module Onlyfansapi
+  module Models
+    type notification_search_users_params =
+      { account: String, query: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class NotificationSearchUsersParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor query: String
+
+      def initialize: (
+        account: String,
+        query: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        query: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

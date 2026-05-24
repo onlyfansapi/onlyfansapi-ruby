@@ -1,0 +1,80 @@
+module Onlyfansapi
+  class Client < Onlyfansapi::Internal::Transport::BaseClient
+    DEFAULT_MAX_RETRIES: 2
+
+    DEFAULT_TIMEOUT_IN_SECONDS: Float
+
+    DEFAULT_INITIAL_RETRY_DELAY: Float
+
+    DEFAULT_MAX_RETRY_DELAY: Float
+
+    attr_reader api_key: String
+
+    attr_reader whoami: Onlyfansapi::Resources::Whoami
+
+    attr_reader accounts: Onlyfansapi::Resources::Accounts
+
+    attr_reader me: Onlyfansapi::Resources::Me
+
+    attr_reader banking: Onlyfansapi::Resources::Banking
+
+    attr_reader chats: Onlyfansapi::Resources::Chats
+
+    attr_reader client_sessions: Onlyfansapi::Resources::ClientSessions
+
+    attr_reader user_lists: Onlyfansapi::Resources::UserLists
+
+    attr_reader authenticate: Onlyfansapi::Resources::Authenticate
+
+    attr_reader workflows: Onlyfansapi::Resources::Workflows
+
+    attr_reader fans: Onlyfansapi::Resources::Fans
+
+    attr_reader following: Onlyfansapi::Resources::Following
+
+    attr_reader trial_links: Onlyfansapi::Resources::TrialLinks
+
+    attr_reader mass_messaging: Onlyfansapi::Resources::MassMessaging
+
+    attr_reader media: Onlyfansapi::Resources::Media
+
+    attr_reader notifications: Onlyfansapi::Resources::Notifications
+
+    attr_reader payouts: Onlyfansapi::Resources::Payouts
+
+    attr_reader posts: Onlyfansapi::Resources::Posts
+
+    attr_reader profiles: Onlyfansapi::Resources::Profiles
+
+    attr_reader search: Onlyfansapi::Resources::Search
+
+    attr_reader queue: Onlyfansapi::Resources::Queue
+
+    attr_reader saved_for_later: Onlyfansapi::Resources::SavedForLater
+
+    attr_reader settings: Onlyfansapi::Resources::Settings
+
+    attr_reader statistics: Onlyfansapi::Resources::Statistics
+
+    attr_reader subscribers: Onlyfansapi::Resources::Subscribers
+
+    attr_reader tracking_links: Onlyfansapi::Resources::TrackingLinks
+
+    attr_reader transactions: Onlyfansapi::Resources::Transactions
+
+    attr_reader users: Onlyfansapi::Resources::Users
+
+    attr_reader webhooks: Onlyfansapi::Resources::Webhooks
+
+    private def auth_headers: -> ::Hash[String, String]
+
+    def initialize: (
+      ?api_key: String?,
+      ?base_url: String?,
+      ?max_retries: Integer,
+      ?timeout: Float,
+      ?initial_retry_delay: Float,
+      ?max_retry_delay: Float
+    ) -> void
+  end
+end

@@ -1,0 +1,28 @@
+module Onlyfansapi
+  module Models
+    type authenticate_submit2fa_params =
+      { attempt_id: String, code: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class AuthenticateSubmit2faParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor attempt_id: String
+
+      attr_accessor code: String
+
+      def initialize: (
+        attempt_id: String,
+        code: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        attempt_id: String,
+        code: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

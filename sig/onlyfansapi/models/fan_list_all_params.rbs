@@ -1,0 +1,82 @@
+module Onlyfansapi
+  module Models
+    type fan_list_all_params =
+      {
+        account: String,
+        filter: Onlyfansapi::FanListAllParams::Filter,
+        limit: String?,
+        offset: String?,
+        type: String?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class FanListAllParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader filter: Onlyfansapi::FanListAllParams::Filter?
+
+      def filter=: (
+        Onlyfansapi::FanListAllParams::Filter
+      ) -> Onlyfansapi::FanListAllParams::Filter
+
+      attr_accessor limit: String?
+
+      attr_accessor offset: String?
+
+      attr_accessor type: String?
+
+      def initialize: (
+        account: String,
+        ?filter: Onlyfansapi::FanListAllParams::Filter,
+        ?limit: String?,
+        ?offset: String?,
+        ?type: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        filter: Onlyfansapi::FanListAllParams::Filter,
+        limit: String?,
+        offset: String?,
+        type: String?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type filter =
+        {
+          duration: String?,
+          online: String?,
+          tips: String?,
+          total_spent: String?
+        }
+
+      class Filter < Onlyfansapi::Internal::Type::BaseModel
+        attr_accessor duration: String?
+
+        attr_accessor online: String?
+
+        attr_accessor tips: String?
+
+        attr_accessor total_spent: String?
+
+        def initialize: (
+          ?duration: String?,
+          ?online: String?,
+          ?tips: String?,
+          ?total_spent: String?
+        ) -> void
+
+        def to_hash: -> {
+          duration: String?,
+          online: String?,
+          tips: String?,
+          total_spent: String?
+        }
+      end
+    end
+  end
+end

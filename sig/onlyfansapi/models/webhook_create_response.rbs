@@ -1,0 +1,50 @@
+module Onlyfansapi
+  module Models
+    type webhook_create_response =
+      {
+        id: String,
+        created_at: String,
+        events: ::Array[String],
+        has_signing_secret: bool,
+        url: String
+      }
+
+    class WebhookCreateResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader id: String?
+
+      def id=: (String) -> String
+
+      attr_reader created_at: String?
+
+      def created_at=: (String) -> String
+
+      attr_reader events: ::Array[String]?
+
+      def events=: (::Array[String]) -> ::Array[String]
+
+      attr_reader has_signing_secret: bool?
+
+      def has_signing_secret=: (bool) -> bool
+
+      attr_reader url: String?
+
+      def url=: (String) -> String
+
+      def initialize: (
+        ?id: String,
+        ?created_at: String,
+        ?events: ::Array[String],
+        ?has_signing_secret: bool,
+        ?url: String
+      ) -> void
+
+      def to_hash: -> {
+        id: String,
+        created_at: String,
+        events: ::Array[String],
+        has_signing_secret: bool,
+        url: String
+      }
+    end
+  end
+end

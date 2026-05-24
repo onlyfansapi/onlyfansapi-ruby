@@ -1,0 +1,36 @@
+module Onlyfansapi
+  module Models
+    type account_list_params =
+      {
+        onlyfans_email: String?,
+        onlyfans_id: String?,
+        onlyfans_username: String?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class AccountListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor onlyfans_email: String?
+
+      attr_accessor onlyfans_id: String?
+
+      attr_accessor onlyfans_username: String?
+
+      def initialize: (
+        ?onlyfans_email: String?,
+        ?onlyfans_id: String?,
+        ?onlyfans_username: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        onlyfans_email: String?,
+        onlyfans_id: String?,
+        onlyfans_username: String?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

@@ -1,0 +1,13 @@
+module Onlyfansapi
+  module Resources
+    class Users
+      def retrieve: (
+        String username,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::UserRetrieveResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

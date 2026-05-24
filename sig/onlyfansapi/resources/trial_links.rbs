@@ -1,0 +1,49 @@
+module Onlyfansapi
+  module Resources
+    class TrialLinks
+      def create: (
+        String account,
+        duration: Onlyfansapi::Models::TrialLinkCreateParams::duration,
+        offer_expiration: Integer,
+        offer_limit: Onlyfansapi::Models::TrialLinkCreateParams::offer_limit,
+        ?name: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrialLinkCreateResponse
+
+      def list: (
+        String account,
+        limit: Integer,
+        offset: Integer,
+        ?field: Onlyfansapi::Models::TrialLinkListParams::field?,
+        ?sort: Onlyfansapi::Models::TrialLinkListParams::sort?,
+        ?synchronous: bool?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrialLinkListResponse
+
+      def delete: (
+        Integer trial_link_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrialLinkDeleteResponse
+
+      def list_spenders: (
+        String trial_link_id,
+        account: String,
+        ?limit: Integer,
+        ?min_spend: Float,
+        ?offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrialLinkListSpendersResponse
+
+      def list_subscribers: (
+        String trial_link_id,
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::TrialLinkListSubscribersResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

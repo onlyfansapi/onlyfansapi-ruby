@@ -1,0 +1,32 @@
+module Onlyfansapi
+  module Models
+    type authenticate_start_response =
+      { attempt_id: String, message: String, polling_url: String }
+
+    class AuthenticateStartResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader attempt_id: String?
+
+      def attempt_id=: (String) -> String
+
+      attr_reader message: String?
+
+      def message=: (String) -> String
+
+      attr_reader polling_url: String?
+
+      def polling_url=: (String) -> String
+
+      def initialize: (
+        ?attempt_id: String,
+        ?message: String,
+        ?polling_url: String
+      ) -> void
+
+      def to_hash: -> {
+        attempt_id: String,
+        message: String,
+        polling_url: String
+      }
+    end
+  end
+end

@@ -1,0 +1,27 @@
+module Onlyfansapi
+  module Resources
+    class SavedForLater
+      class Posts
+        class Settings
+          def retrieve: (
+            String account,
+            ?request_options: Onlyfansapi::request_opts
+          ) -> Onlyfansapi::Models::SavedForLater::Posts::SettingRetrieveResponse
+
+          def disable_automatic_posting: (
+            String account,
+            ?request_options: Onlyfansapi::request_opts
+          ) -> Onlyfansapi::Models::SavedForLater::Posts::SettingDisableAutomaticPostingResponse
+
+          def enable_or_update_automatic_posting: (
+            String account,
+            period: Onlyfansapi::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingParams::period,
+            ?request_options: Onlyfansapi::request_opts
+          ) -> Onlyfansapi::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingResponse
+
+          def initialize: (client: Onlyfansapi::Client) -> void
+        end
+      end
+    end
+  end
+end

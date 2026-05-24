@@ -1,0 +1,30 @@
+module Onlyfansapi
+  module Resources
+    class Authenticate
+      def poll_status: (
+        String attempt_id,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::AuthenticatePollStatusResponse
+
+      def reauthenticate: (
+        String account_id,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> nil
+
+      def start: (
+        email: String,
+        password: String,
+        proxy_country: Onlyfansapi::Models::AuthenticateStartParams::proxy_country,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::AuthenticateStartResponse
+
+      def submit_2fa: (
+        String attempt_id,
+        code: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::AuthenticateSubmit2faResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

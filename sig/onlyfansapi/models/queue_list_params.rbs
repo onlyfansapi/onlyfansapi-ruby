@@ -1,0 +1,46 @@
+module Onlyfansapi
+  module Models
+    type queue_list_params =
+      {
+        account: String,
+        limit: Integer,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class QueueListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor limit: Integer
+
+      attr_accessor publish_date_end: String
+
+      attr_accessor publish_date_start: String
+
+      attr_accessor timezone: String
+
+      def initialize: (
+        account: String,
+        limit: Integer,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: Integer,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end
