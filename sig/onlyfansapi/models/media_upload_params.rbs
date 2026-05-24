@@ -1,0 +1,52 @@
+module Onlyfansapi
+  module Models
+    type media_upload_params =
+      {
+        account: String,
+        file: String,
+        type: Onlyfansapi::Models::MediaUploadParams::type_
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class MediaUploadParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor file: String
+
+      attr_reader type: Onlyfansapi::Models::MediaUploadParams::type_?
+
+      def type=: (
+        Onlyfansapi::Models::MediaUploadParams::type_
+      ) -> Onlyfansapi::Models::MediaUploadParams::type_
+
+      def initialize: (
+        account: String,
+        file: String,
+        ?type: Onlyfansapi::Models::MediaUploadParams::type_,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        file: String,
+        type: Onlyfansapi::Models::MediaUploadParams::type_,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type type_ = :default | :avatar | :header
+
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        DEFAULT: :default
+        AVATAR: :avatar
+        HEADER: :header
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::MediaUploadParams::type_]
+      end
+    end
+  end
+end

@@ -1,0 +1,32 @@
+module Onlyfansapi
+  module Models
+    type webhook_create_params =
+      { endpoint_url: String, events: ::Array[String], signing_secret: String? }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class WebhookCreateParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor endpoint_url: String
+
+      attr_accessor events: ::Array[String]
+
+      attr_accessor signing_secret: String?
+
+      def initialize: (
+        endpoint_url: String,
+        events: ::Array[String],
+        ?signing_secret: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        endpoint_url: String,
+        events: ::Array[String],
+        signing_secret: String?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

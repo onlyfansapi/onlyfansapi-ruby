@@ -1,0 +1,61 @@
+module Onlyfansapi
+  module Resources
+    class MassMessaging
+      def retrieve: (
+        String id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MassMessagingRetrieveResponse
+
+      def update: (
+        String id,
+        account: String,
+        text: String,
+        ?locked_text: bool,
+        ?media_files: ::Array[String],
+        ?previews: ::Array[String],
+        ?price: Integer,
+        ?scheduled_date: String,
+        ?user_ids: ::Array[String],
+        ?user_lists: ::Array[String],
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MassMessagingUpdateResponse
+
+      def delete: (
+        String id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MassMessagingDeleteResponse
+
+      def list_queue: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MassMessagingListQueueResponse
+
+      def list_statistics: (
+        String account,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String,
+        ?type: Onlyfansapi::Models::MassMessagingListStatisticsParams::type_,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MassMessagingListStatisticsResponse
+
+      def send_: (
+        String account,
+        text: String,
+        ?locked_text: bool,
+        ?media_files: ::Array[String],
+        ?previews: ::Array[String],
+        ?price: Integer,
+        ?save_for_later: bool,
+        ?scheduled_date: String,
+        ?user_ids: ::Array[String],
+        ?user_lists: ::Array[String],
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MassMessagingSendResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

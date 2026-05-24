@@ -1,0 +1,85 @@
+module Onlyfansapi
+  module Models
+    type mass_messaging_update_params =
+      {
+        account: String,
+        id: String,
+        text: String,
+        locked_text: bool,
+        media_files: ::Array[String],
+        previews: ::Array[String],
+        price: Integer,
+        scheduled_date: String,
+        user_ids: ::Array[String],
+        user_lists: ::Array[String]
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class MassMessagingUpdateParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor id: String
+
+      attr_accessor text: String
+
+      attr_reader locked_text: bool?
+
+      def locked_text=: (bool) -> bool
+
+      attr_reader media_files: ::Array[String]?
+
+      def media_files=: (::Array[String]) -> ::Array[String]
+
+      attr_reader previews: ::Array[String]?
+
+      def previews=: (::Array[String]) -> ::Array[String]
+
+      attr_reader price: Integer?
+
+      def price=: (Integer) -> Integer
+
+      attr_reader scheduled_date: String?
+
+      def scheduled_date=: (String) -> String
+
+      attr_reader user_ids: ::Array[String]?
+
+      def user_ids=: (::Array[String]) -> ::Array[String]
+
+      attr_reader user_lists: ::Array[String]?
+
+      def user_lists=: (::Array[String]) -> ::Array[String]
+
+      def initialize: (
+        account: String,
+        id: String,
+        text: String,
+        ?locked_text: bool,
+        ?media_files: ::Array[String],
+        ?previews: ::Array[String],
+        ?price: Integer,
+        ?scheduled_date: String,
+        ?user_ids: ::Array[String],
+        ?user_lists: ::Array[String],
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        id: String,
+        text: String,
+        locked_text: bool,
+        media_files: ::Array[String],
+        previews: ::Array[String],
+        price: Integer,
+        scheduled_date: String,
+        user_ids: ::Array[String],
+        user_lists: ::Array[String],
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

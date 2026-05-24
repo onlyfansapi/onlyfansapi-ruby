@@ -1,0 +1,43 @@
+module Onlyfansapi
+  module Models
+    type payout_update_payout_frequency_params =
+      {
+        account: String,
+        frequency: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams::frequency
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class PayoutUpdatePayoutFrequencyParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor frequency: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams::frequency
+
+      def initialize: (
+        account: String,
+        frequency: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams::frequency,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        frequency: Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams::frequency,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type frequency = :manual | :weekly | :monthly
+
+      module Frequency
+        extend Onlyfansapi::Internal::Type::Enum
+
+        MANUAL: :manual
+        WEEKLY: :weekly
+        MONTHLY: :monthly
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::PayoutUpdatePayoutFrequencyParams::frequency]
+      end
+    end
+  end
+end

@@ -1,0 +1,17 @@
+module Onlyfansapi
+  module Resources
+    class Me
+      def retrieve: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MeRetrieveResponse
+
+      def get_model_start_date: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::MeGetModelStartDateResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

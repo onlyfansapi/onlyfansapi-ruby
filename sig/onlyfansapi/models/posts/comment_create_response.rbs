@@ -1,0 +1,577 @@
+module Onlyfansapi
+  module Models
+    module Posts
+      type comment_create_response =
+        {
+          _meta: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta,
+          data: Onlyfansapi::Models::Posts::CommentCreateResponse::Data
+        }
+
+      class CommentCreateResponse < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta?
+
+        def _meta=: (
+          Onlyfansapi::Models::Posts::CommentCreateResponse::Meta
+        ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Meta
+
+        attr_reader data: Onlyfansapi::Models::Posts::CommentCreateResponse::Data?
+
+        def data=: (
+          Onlyfansapi::Models::Posts::CommentCreateResponse::Data
+        ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta,
+          ?data: Onlyfansapi::Models::Posts::CommentCreateResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta,
+          data: Onlyfansapi::Models::Posts::CommentCreateResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Cache
+          ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Credits
+          ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::RateLimits
+          ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Cache,
+            ?_credits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Credits,
+            ?_rate_limits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Posts::CommentCreateResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            id: Integer,
+            author: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author,
+            can_like: bool,
+            changed_at: String,
+            giphy_id: String,
+            is_liked: bool,
+            is_liked_by_author: bool,
+            is_pinned: bool,
+            likes_count: Integer,
+            posted_at: String,
+            text: String
+          }
+
+        class Data < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader author: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author?
+
+          def author=: (
+            Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author
+          ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author
+
+          attr_reader can_like: bool?
+
+          def can_like=: (bool) -> bool
+
+          attr_reader changed_at: String?
+
+          def changed_at=: (String) -> String
+
+          attr_reader giphy_id: String?
+
+          def giphy_id=: (String) -> String
+
+          attr_reader is_liked: bool?
+
+          def is_liked=: (bool) -> bool
+
+          attr_reader is_liked_by_author: bool?
+
+          def is_liked_by_author=: (bool) -> bool
+
+          attr_reader is_pinned: bool?
+
+          def is_pinned=: (bool) -> bool
+
+          attr_reader likes_count: Integer?
+
+          def likes_count=: (Integer) -> Integer
+
+          attr_reader posted_at: String?
+
+          def posted_at=: (String) -> String
+
+          attr_reader text: String?
+
+          def text=: (String) -> String
+
+          def initialize: (
+            ?id: Integer,
+            ?author: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author,
+            ?can_like: bool,
+            ?changed_at: String,
+            ?giphy_id: String,
+            ?is_liked: bool,
+            ?is_liked_by_author: bool,
+            ?is_pinned: bool,
+            ?likes_count: Integer,
+            ?posted_at: String,
+            ?text: String
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            author: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author,
+            can_like: bool,
+            changed_at: String,
+            giphy_id: String,
+            is_liked: bool,
+            is_liked_by_author: bool,
+            is_pinned: bool,
+            likes_count: Integer,
+            posted_at: String,
+            text: String
+          }
+
+          type author =
+            {
+              id: Integer,
+              avatar: String,
+              avatar_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::AvatarThumbs,
+              can_add_subscriber: bool,
+              can_comment_story: bool,
+              can_create_lists: bool,
+              can_earn: bool,
+              can_look_story: bool,
+              can_pay_internal: bool,
+              can_report: bool,
+              can_send_chat_to_all: bool,
+              credits_max: Integer,
+              credits_min: Integer,
+              credits_min_alternatives: Integer,
+              has_not_viewed_story: bool,
+              has_scheduled_stream: bool,
+              has_stories: bool,
+              has_stream: bool,
+              has_stripe: bool,
+              header: String,
+              header_size: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderSize,
+              header_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderThumbs,
+              is_paywall_passed: bool,
+              is_stripe_exist: bool,
+              is_verified: bool,
+              last_seen: String,
+              name: String,
+              show_media_count: bool,
+              subscribed_on: String,
+              subscribe_price: Float,
+              subscription_bundles: ::Array[top],
+              tips_enabled: bool,
+              tips_max: Integer,
+              tips_min: Integer,
+              tips_min_internal: Integer,
+              tips_text_enabled: bool,
+              username: String,
+              view: String
+            }
+
+          class Author < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader avatar: String?
+
+            def avatar=: (String) -> String
+
+            attr_reader avatar_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::AvatarThumbs?
+
+            def avatar_thumbs=: (
+              Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::AvatarThumbs
+            ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::AvatarThumbs
+
+            attr_reader can_add_subscriber: bool?
+
+            def can_add_subscriber=: (bool) -> bool
+
+            attr_reader can_comment_story: bool?
+
+            def can_comment_story=: (bool) -> bool
+
+            attr_reader can_create_lists: bool?
+
+            def can_create_lists=: (bool) -> bool
+
+            attr_reader can_earn: bool?
+
+            def can_earn=: (bool) -> bool
+
+            attr_reader can_look_story: bool?
+
+            def can_look_story=: (bool) -> bool
+
+            attr_reader can_pay_internal: bool?
+
+            def can_pay_internal=: (bool) -> bool
+
+            attr_reader can_report: bool?
+
+            def can_report=: (bool) -> bool
+
+            attr_reader can_send_chat_to_all: bool?
+
+            def can_send_chat_to_all=: (bool) -> bool
+
+            attr_reader credits_max: Integer?
+
+            def credits_max=: (Integer) -> Integer
+
+            attr_reader credits_min: Integer?
+
+            def credits_min=: (Integer) -> Integer
+
+            attr_reader credits_min_alternatives: Integer?
+
+            def credits_min_alternatives=: (Integer) -> Integer
+
+            attr_reader has_not_viewed_story: bool?
+
+            def has_not_viewed_story=: (bool) -> bool
+
+            attr_reader has_scheduled_stream: bool?
+
+            def has_scheduled_stream=: (bool) -> bool
+
+            attr_reader has_stories: bool?
+
+            def has_stories=: (bool) -> bool
+
+            attr_reader has_stream: bool?
+
+            def has_stream=: (bool) -> bool
+
+            attr_reader has_stripe: bool?
+
+            def has_stripe=: (bool) -> bool
+
+            attr_reader header: String?
+
+            def header=: (String) -> String
+
+            attr_reader header_size: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderSize?
+
+            def header_size=: (
+              Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderSize
+            ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderSize
+
+            attr_reader header_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderThumbs?
+
+            def header_thumbs=: (
+              Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderThumbs
+            ) -> Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderThumbs
+
+            attr_reader is_paywall_passed: bool?
+
+            def is_paywall_passed=: (bool) -> bool
+
+            attr_reader is_stripe_exist: bool?
+
+            def is_stripe_exist=: (bool) -> bool
+
+            attr_reader is_verified: bool?
+
+            def is_verified=: (bool) -> bool
+
+            attr_reader last_seen: String?
+
+            def last_seen=: (String) -> String
+
+            attr_reader name: String?
+
+            def name=: (String) -> String
+
+            attr_reader show_media_count: bool?
+
+            def show_media_count=: (bool) -> bool
+
+            attr_reader subscribed_on: String?
+
+            def subscribed_on=: (String) -> String
+
+            attr_reader subscribe_price: Float?
+
+            def subscribe_price=: (Float) -> Float
+
+            attr_reader subscription_bundles: ::Array[top]?
+
+            def subscription_bundles=: (::Array[top]) -> ::Array[top]
+
+            attr_reader tips_enabled: bool?
+
+            def tips_enabled=: (bool) -> bool
+
+            attr_reader tips_max: Integer?
+
+            def tips_max=: (Integer) -> Integer
+
+            attr_reader tips_min: Integer?
+
+            def tips_min=: (Integer) -> Integer
+
+            attr_reader tips_min_internal: Integer?
+
+            def tips_min_internal=: (Integer) -> Integer
+
+            attr_reader tips_text_enabled: bool?
+
+            def tips_text_enabled=: (bool) -> bool
+
+            attr_reader username: String?
+
+            def username=: (String) -> String
+
+            attr_reader view: String?
+
+            def view=: (String) -> String
+
+            def initialize: (
+              ?id: Integer,
+              ?avatar: String,
+              ?avatar_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::AvatarThumbs,
+              ?can_add_subscriber: bool,
+              ?can_comment_story: bool,
+              ?can_create_lists: bool,
+              ?can_earn: bool,
+              ?can_look_story: bool,
+              ?can_pay_internal: bool,
+              ?can_report: bool,
+              ?can_send_chat_to_all: bool,
+              ?credits_max: Integer,
+              ?credits_min: Integer,
+              ?credits_min_alternatives: Integer,
+              ?has_not_viewed_story: bool,
+              ?has_scheduled_stream: bool,
+              ?has_stories: bool,
+              ?has_stream: bool,
+              ?has_stripe: bool,
+              ?header: String,
+              ?header_size: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderSize,
+              ?header_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderThumbs,
+              ?is_paywall_passed: bool,
+              ?is_stripe_exist: bool,
+              ?is_verified: bool,
+              ?last_seen: String,
+              ?name: String,
+              ?show_media_count: bool,
+              ?subscribed_on: String,
+              ?subscribe_price: Float,
+              ?subscription_bundles: ::Array[top],
+              ?tips_enabled: bool,
+              ?tips_max: Integer,
+              ?tips_min: Integer,
+              ?tips_min_internal: Integer,
+              ?tips_text_enabled: bool,
+              ?username: String,
+              ?view: String
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              avatar: String,
+              avatar_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::AvatarThumbs,
+              can_add_subscriber: bool,
+              can_comment_story: bool,
+              can_create_lists: bool,
+              can_earn: bool,
+              can_look_story: bool,
+              can_pay_internal: bool,
+              can_report: bool,
+              can_send_chat_to_all: bool,
+              credits_max: Integer,
+              credits_min: Integer,
+              credits_min_alternatives: Integer,
+              has_not_viewed_story: bool,
+              has_scheduled_stream: bool,
+              has_stories: bool,
+              has_stream: bool,
+              has_stripe: bool,
+              header: String,
+              header_size: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderSize,
+              header_thumbs: Onlyfansapi::Models::Posts::CommentCreateResponse::Data::Author::HeaderThumbs,
+              is_paywall_passed: bool,
+              is_stripe_exist: bool,
+              is_verified: bool,
+              last_seen: String,
+              name: String,
+              show_media_count: bool,
+              subscribed_on: String,
+              subscribe_price: Float,
+              subscription_bundles: ::Array[top],
+              tips_enabled: bool,
+              tips_max: Integer,
+              tips_min: Integer,
+              tips_min_internal: Integer,
+              tips_text_enabled: bool,
+              username: String,
+              view: String
+            }
+
+            type avatar_thumbs = { :c144 => String, :c50 => String }
+
+            class AvatarThumbs < Onlyfansapi::Internal::Type::BaseModel
+              attr_reader c144: String?
+
+              def c144=: (String) -> String
+
+              attr_reader c50: String?
+
+              def c50=: (String) -> String
+
+              def initialize: (?c144: String, ?c50: String) -> void
+
+              def to_hash: -> { :c144 => String, :c50 => String }
+            end
+
+            type header_size = { height: Integer, width: Integer }
+
+            class HeaderSize < Onlyfansapi::Internal::Type::BaseModel
+              attr_reader height: Integer?
+
+              def height=: (Integer) -> Integer
+
+              attr_reader width: Integer?
+
+              def width=: (Integer) -> Integer
+
+              def initialize: (?height: Integer, ?width: Integer) -> void
+
+              def to_hash: -> { height: Integer, width: Integer }
+            end
+
+            type header_thumbs = { :w480 => String, :w760 => String }
+
+            class HeaderThumbs < Onlyfansapi::Internal::Type::BaseModel
+              attr_reader w480: String?
+
+              def w480=: (String) -> String
+
+              attr_reader w760: String?
+
+              def w760=: (String) -> String
+
+              def initialize: (?w480: String, ?w760: String) -> void
+
+              def to_hash: -> { :w480 => String, :w760 => String }
+            end
+          end
+        end
+      end
+    end
+  end
+end

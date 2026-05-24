@@ -1,0 +1,14 @@
+module Onlyfansapi
+  module Resources
+    class Workflows
+      class AccountPerformance
+        def retrieve_starting_revenues: (
+          String account,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> nil
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

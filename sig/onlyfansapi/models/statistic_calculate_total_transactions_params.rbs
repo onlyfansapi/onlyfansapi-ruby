@@ -1,0 +1,32 @@
+module Onlyfansapi
+  module Models
+    type statistic_calculate_total_transactions_params =
+      { account: String, end_date: String, start_date: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class StatisticCalculateTotalTransactionsParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor end_date: String
+
+      attr_accessor start_date: String
+
+      def initialize: (
+        account: String,
+        end_date: String,
+        start_date: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String,
+        start_date: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

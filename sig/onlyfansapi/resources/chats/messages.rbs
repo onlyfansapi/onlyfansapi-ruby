@@ -1,0 +1,36 @@
+module Onlyfansapi
+  module Resources
+    class Chats
+      class Messages
+        def list: (
+          String chat_id,
+          account: String,
+          ?id: String,
+          ?order: String,
+          ?skip_users: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageListResponse
+
+        def delete: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageDeleteResponse
+
+        def send_: (
+          String chat_id,
+          account: String,
+          text: String,
+          ?locked_text: bool,
+          ?media_files: ::Array[String],
+          ?previews: ::Array[String],
+          ?price: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Chats::MessageSendResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

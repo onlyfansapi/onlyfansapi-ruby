@@ -1,0 +1,5 @@
+module Onlyfansapi
+  module Models
+    AccountDisconnectResponse: Onlyfansapi::Internal::Type::Converter
+  end
+end

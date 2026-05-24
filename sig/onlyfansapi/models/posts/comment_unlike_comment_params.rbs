@@ -1,0 +1,34 @@
+module Onlyfansapi
+  module Models
+    module Posts
+      type comment_unlike_comment_params =
+        { account: String, post_id: Integer, comment_id: Integer }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class CommentUnlikeCommentParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor post_id: Integer
+
+        attr_accessor comment_id: Integer
+
+        def initialize: (
+          account: String,
+          post_id: Integer,
+          comment_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          post_id: Integer,
+          comment_id: Integer,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

@@ -1,0 +1,31 @@
+module Onlyfansapi
+  module Resources
+    class Settings
+      def retrieve: (
+        String account,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SettingRetrieveResponse
+
+      def check_username_exists: (
+        String account,
+        username: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SettingCheckUsernameExistsResponse
+
+      def update_profile: (
+        String account,
+        ?about: String?,
+        ?avatar: String,
+        ?header: String,
+        ?location: String?,
+        ?name: String?,
+        ?username: String,
+        ?website: String?,
+        ?wishlist: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SettingUpdateProfileResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

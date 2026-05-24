@@ -1,0 +1,42 @@
+module Onlyfansapi
+  module Models
+    type transaction_list_params =
+      { account: String, limit: String, marker: String, start_date: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class TransactionListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader limit: String?
+
+      def limit=: (String) -> String
+
+      attr_reader marker: String?
+
+      def marker=: (String) -> String
+
+      attr_reader start_date: String?
+
+      def start_date=: (String) -> String
+
+      def initialize: (
+        account: String,
+        ?limit: String,
+        ?marker: String,
+        ?start_date: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: String,
+        marker: String,
+        start_date: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

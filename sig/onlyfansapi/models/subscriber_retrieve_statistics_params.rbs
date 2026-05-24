@@ -1,0 +1,53 @@
+module Onlyfansapi
+  module Models
+    type subscriber_retrieve_statistics_params =
+      {
+        account: String,
+        end_date: String?,
+        start_date: String?,
+        type: Onlyfansapi::Models::SubscriberRetrieveStatisticsParams::type_?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class SubscriberRetrieveStatisticsParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor end_date: String?
+
+      attr_accessor start_date: String?
+
+      attr_accessor type: Onlyfansapi::Models::SubscriberRetrieveStatisticsParams::type_?
+
+      def initialize: (
+        account: String,
+        ?end_date: String?,
+        ?start_date: String?,
+        ?type: Onlyfansapi::Models::SubscriberRetrieveStatisticsParams::type_?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String?,
+        start_date: String?,
+        type: Onlyfansapi::Models::SubscriberRetrieveStatisticsParams::type_?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type type_ = :total | :renew | :new
+
+      module Type
+        extend Onlyfansapi::Internal::Type::Enum
+
+        TOTAL: :total
+        RENEW: :renew
+        NEW: :new
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::SubscriberRetrieveStatisticsParams::type_]
+      end
+    end
+  end
+end

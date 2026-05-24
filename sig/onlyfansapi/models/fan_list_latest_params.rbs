@@ -1,0 +1,51 @@
+module Onlyfansapi
+  module Models
+    type fan_list_latest_params =
+      {
+        account: String,
+        end_date: String?,
+        limit: String?,
+        offset: String?,
+        start_date: String?,
+        type: String?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class FanListLatestParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor end_date: String?
+
+      attr_accessor limit: String?
+
+      attr_accessor offset: String?
+
+      attr_accessor start_date: String?
+
+      attr_accessor type: String?
+
+      def initialize: (
+        account: String,
+        ?end_date: String?,
+        ?limit: String?,
+        ?offset: String?,
+        ?start_date: String?,
+        ?type: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String?,
+        limit: String?,
+        offset: String?,
+        start_date: String?,
+        type: String?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

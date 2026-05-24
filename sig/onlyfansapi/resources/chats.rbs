@@ -1,0 +1,25 @@
+module Onlyfansapi
+  module Resources
+    class Chats
+      attr_reader messages: Onlyfansapi::Resources::Chats::Messages
+
+      def list: (
+        String account,
+        ?limit: String,
+        ?offset: String,
+        ?order: String,
+        ?query: String,
+        ?skip_users: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatListResponse
+
+      def start_typing_indicator: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatStartTypingIndicatorResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

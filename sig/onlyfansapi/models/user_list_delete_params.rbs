@@ -1,0 +1,28 @@
+module Onlyfansapi
+  module Models
+    type user_list_delete_params =
+      { account: String, user_list_id: Integer }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class UserListDeleteParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor user_list_id: Integer
+
+      def initialize: (
+        account: String,
+        user_list_id: Integer,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        user_list_id: Integer,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

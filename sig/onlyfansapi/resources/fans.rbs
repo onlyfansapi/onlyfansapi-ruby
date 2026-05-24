@@ -1,0 +1,44 @@
+module Onlyfansapi
+  module Resources
+    class Fans
+      def list_active: (
+        String account,
+        ?filter: Onlyfansapi::FanListActiveParams::Filter,
+        ?limit: String?,
+        ?offset: String?,
+        ?type: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::FanListActiveResponse
+
+      def list_all: (
+        String account,
+        ?filter: Onlyfansapi::FanListAllParams::Filter,
+        ?limit: String?,
+        ?offset: String?,
+        ?type: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::FanListAllResponse
+
+      def list_expired: (
+        String account,
+        ?filter: Onlyfansapi::FanListExpiredParams::Filter,
+        ?limit: String?,
+        ?offset: String?,
+        ?type: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::FanListExpiredResponse
+
+      def list_latest: (
+        String account,
+        ?end_date: String?,
+        ?limit: String?,
+        ?offset: String?,
+        ?start_date: String?,
+        ?type: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::FanListLatestResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

@@ -1,0 +1,54 @@
+module Onlyfansapi
+  module Models
+    module Chats
+      type message_list_params =
+        {
+          account: String,
+          chat_id: String,
+          id: String,
+          order: String,
+          skip_users: String
+        }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class MessageListParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor chat_id: String
+
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader order: String?
+
+        def order=: (String) -> String
+
+        attr_reader skip_users: String?
+
+        def skip_users=: (String) -> String
+
+        def initialize: (
+          account: String,
+          chat_id: String,
+          ?id: String,
+          ?order: String,
+          ?skip_users: String,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          chat_id: String,
+          id: String,
+          order: String,
+          skip_users: String,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

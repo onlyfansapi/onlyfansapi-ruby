@@ -1,0 +1,16 @@
+module Onlyfansapi
+  module Resources
+    class Search
+      def profiles: (
+        query: String,
+        ?limit: String,
+        ?location: String,
+        ?max_subscribe_price: String,
+        ?min_subscribe_price: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::SearchProfilesResponse
+
+      def initialize: (client: Onlyfansapi::Client) -> void
+    end
+  end
+end

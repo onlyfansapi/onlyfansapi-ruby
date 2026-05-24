@@ -1,0 +1,140 @@
+module Onlyfansapi
+  module Models
+    type post_update_params =
+      {
+        account: String,
+        post_id: Integer,
+        text: String,
+        expire_days: Integer,
+        fund_raising_target_amount: Integer,
+        fund_raising_tips_presets: ::Array[String],
+        label_ids: String,
+        media_files: String,
+        price: Integer,
+        rf_tag: String,
+        save_for_later: bool,
+        scheduled_date: String,
+        voting_correct_index: Integer,
+        voting_due: Integer,
+        voting_options: ::Array[String],
+        voting_type: Onlyfansapi::Models::PostUpdateParams::voting_type
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class PostUpdateParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor post_id: Integer
+
+      attr_accessor text: String
+
+      attr_reader expire_days: Integer?
+
+      def expire_days=: (Integer) -> Integer
+
+      attr_reader fund_raising_target_amount: Integer?
+
+      def fund_raising_target_amount=: (Integer) -> Integer
+
+      attr_reader fund_raising_tips_presets: ::Array[String]?
+
+      def fund_raising_tips_presets=: (::Array[String]) -> ::Array[String]
+
+      attr_reader label_ids: String?
+
+      def label_ids=: (String) -> String
+
+      attr_reader media_files: String?
+
+      def media_files=: (String) -> String
+
+      attr_reader price: Integer?
+
+      def price=: (Integer) -> Integer
+
+      attr_reader rf_tag: String?
+
+      def rf_tag=: (String) -> String
+
+      attr_reader save_for_later: bool?
+
+      def save_for_later=: (bool) -> bool
+
+      attr_reader scheduled_date: String?
+
+      def scheduled_date=: (String) -> String
+
+      attr_reader voting_correct_index: Integer?
+
+      def voting_correct_index=: (Integer) -> Integer
+
+      attr_reader voting_due: Integer?
+
+      def voting_due=: (Integer) -> Integer
+
+      attr_reader voting_options: ::Array[String]?
+
+      def voting_options=: (::Array[String]) -> ::Array[String]
+
+      attr_reader voting_type: Onlyfansapi::Models::PostUpdateParams::voting_type?
+
+      def voting_type=: (
+        Onlyfansapi::Models::PostUpdateParams::voting_type
+      ) -> Onlyfansapi::Models::PostUpdateParams::voting_type
+
+      def initialize: (
+        account: String,
+        post_id: Integer,
+        text: String,
+        ?expire_days: Integer,
+        ?fund_raising_target_amount: Integer,
+        ?fund_raising_tips_presets: ::Array[String],
+        ?label_ids: String,
+        ?media_files: String,
+        ?price: Integer,
+        ?rf_tag: String,
+        ?save_for_later: bool,
+        ?scheduled_date: String,
+        ?voting_correct_index: Integer,
+        ?voting_due: Integer,
+        ?voting_options: ::Array[String],
+        ?voting_type: Onlyfansapi::Models::PostUpdateParams::voting_type,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        post_id: Integer,
+        text: String,
+        expire_days: Integer,
+        fund_raising_target_amount: Integer,
+        fund_raising_tips_presets: ::Array[String],
+        label_ids: String,
+        media_files: String,
+        price: Integer,
+        rf_tag: String,
+        save_for_later: bool,
+        scheduled_date: String,
+        voting_correct_index: Integer,
+        voting_due: Integer,
+        voting_options: ::Array[String],
+        voting_type: Onlyfansapi::Models::PostUpdateParams::voting_type,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type voting_type = :poll | :quiz
+
+      module VotingType
+        extend Onlyfansapi::Internal::Type::Enum
+
+        POLL: :poll
+        QUIZ: :quiz
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::PostUpdateParams::voting_type]
+      end
+    end
+  end
+end

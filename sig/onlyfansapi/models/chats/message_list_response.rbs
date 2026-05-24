@@ -1,0 +1,422 @@
+module Onlyfansapi
+  module Models
+    module Chats
+      type message_list_response =
+        {
+          _meta: Onlyfansapi::Models::Chats::MessageListResponse::Meta,
+          _pagination: Onlyfansapi::Models::Chats::MessageListResponse::Pagination,
+          data: ::Array[Onlyfansapi::Models::Chats::MessageListResponse::Data]
+        }
+
+      class MessageListResponse < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfansapi::Models::Chats::MessageListResponse::Meta?
+
+        def _meta=: (
+          Onlyfansapi::Models::Chats::MessageListResponse::Meta
+        ) -> Onlyfansapi::Models::Chats::MessageListResponse::Meta
+
+        attr_reader _pagination: Onlyfansapi::Models::Chats::MessageListResponse::Pagination?
+
+        def _pagination=: (
+          Onlyfansapi::Models::Chats::MessageListResponse::Pagination
+        ) -> Onlyfansapi::Models::Chats::MessageListResponse::Pagination
+
+        attr_reader data: ::Array[Onlyfansapi::Models::Chats::MessageListResponse::Data]?
+
+        def data=: (
+          ::Array[Onlyfansapi::Models::Chats::MessageListResponse::Data]
+        ) -> ::Array[Onlyfansapi::Models::Chats::MessageListResponse::Data]
+
+        def initialize: (
+          ?_meta: Onlyfansapi::Models::Chats::MessageListResponse::Meta,
+          ?_pagination: Onlyfansapi::Models::Chats::MessageListResponse::Pagination,
+          ?data: ::Array[Onlyfansapi::Models::Chats::MessageListResponse::Data]
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfansapi::Models::Chats::MessageListResponse::Meta,
+          _pagination: Onlyfansapi::Models::Chats::MessageListResponse::Pagination,
+          data: ::Array[Onlyfansapi::Models::Chats::MessageListResponse::Data]
+        }
+
+        type meta =
+          {
+            _cache: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfansapi::Models::Chats::MessageListResponse::Meta::Cache
+          ) -> Onlyfansapi::Models::Chats::MessageListResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfansapi::Models::Chats::MessageListResponse::Meta::Credits
+          ) -> Onlyfansapi::Models::Chats::MessageListResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfansapi::Models::Chats::MessageListResponse::Meta::RateLimits
+          ) -> Onlyfansapi::Models::Chats::MessageListResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Cache,
+            ?_credits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Credits,
+            ?_rate_limits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Chats::MessageListResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type pagination = { next_page: String }
+
+        class Pagination < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader next_page: String?
+
+          def next_page=: (String) -> String
+
+          def initialize: (?next_page: String) -> void
+
+          def to_hash: -> { next_page: String }
+        end
+
+        type data =
+          {
+            id: Integer,
+            can_be_pinned: bool,
+            cancel_seconds: Integer,
+            can_purchase: bool,
+            can_purchase_reason: String,
+            can_report: bool,
+            changed_at: String,
+            created_at: String,
+            from_user: Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser,
+            giphy_id: String,
+            is_couple_people_media: bool,
+            is_free: bool,
+            is_from_queue: bool,
+            is_liked: bool,
+            is_markdown_disabled: bool,
+            is_media_ready: bool,
+            is_new: bool,
+            is_opened: bool,
+            is_pinned: bool,
+            is_reported_by_me: bool,
+            is_sent_by_me: bool,
+            is_tip: bool,
+            locked_text: bool,
+            media: ::Array[top],
+            media_count: Integer,
+            previews: ::Array[top],
+            price: Integer,
+            queue_id: Integer,
+            release_forms: ::Array[top],
+            response_type: String,
+            text: String
+          }
+
+        class Data < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader can_be_pinned: bool?
+
+          def can_be_pinned=: (bool) -> bool
+
+          attr_reader cancel_seconds: Integer?
+
+          def cancel_seconds=: (Integer) -> Integer
+
+          attr_reader can_purchase: bool?
+
+          def can_purchase=: (bool) -> bool
+
+          attr_reader can_purchase_reason: String?
+
+          def can_purchase_reason=: (String) -> String
+
+          attr_reader can_report: bool?
+
+          def can_report=: (bool) -> bool
+
+          attr_reader changed_at: String?
+
+          def changed_at=: (String) -> String
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_reader from_user: Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser?
+
+          def from_user=: (
+            Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser
+          ) -> Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser
+
+          attr_reader giphy_id: String?
+
+          def giphy_id=: (String) -> String
+
+          attr_reader is_couple_people_media: bool?
+
+          def is_couple_people_media=: (bool) -> bool
+
+          attr_reader is_free: bool?
+
+          def is_free=: (bool) -> bool
+
+          attr_reader is_from_queue: bool?
+
+          def is_from_queue=: (bool) -> bool
+
+          attr_reader is_liked: bool?
+
+          def is_liked=: (bool) -> bool
+
+          attr_reader is_markdown_disabled: bool?
+
+          def is_markdown_disabled=: (bool) -> bool
+
+          attr_reader is_media_ready: bool?
+
+          def is_media_ready=: (bool) -> bool
+
+          attr_reader is_new: bool?
+
+          def is_new=: (bool) -> bool
+
+          attr_reader is_opened: bool?
+
+          def is_opened=: (bool) -> bool
+
+          attr_reader is_pinned: bool?
+
+          def is_pinned=: (bool) -> bool
+
+          attr_reader is_reported_by_me: bool?
+
+          def is_reported_by_me=: (bool) -> bool
+
+          attr_reader is_sent_by_me: bool?
+
+          def is_sent_by_me=: (bool) -> bool
+
+          attr_reader is_tip: bool?
+
+          def is_tip=: (bool) -> bool
+
+          attr_reader locked_text: bool?
+
+          def locked_text=: (bool) -> bool
+
+          attr_reader media: ::Array[top]?
+
+          def media=: (::Array[top]) -> ::Array[top]
+
+          attr_reader media_count: Integer?
+
+          def media_count=: (Integer) -> Integer
+
+          attr_reader previews: ::Array[top]?
+
+          def previews=: (::Array[top]) -> ::Array[top]
+
+          attr_reader price: Integer?
+
+          def price=: (Integer) -> Integer
+
+          attr_reader queue_id: Integer?
+
+          def queue_id=: (Integer) -> Integer
+
+          attr_reader release_forms: ::Array[top]?
+
+          def release_forms=: (::Array[top]) -> ::Array[top]
+
+          attr_reader response_type: String?
+
+          def response_type=: (String) -> String
+
+          attr_reader text: String?
+
+          def text=: (String) -> String
+
+          def initialize: (
+            ?id: Integer,
+            ?can_be_pinned: bool,
+            ?cancel_seconds: Integer,
+            ?can_purchase: bool,
+            ?can_purchase_reason: String,
+            ?can_report: bool,
+            ?changed_at: String,
+            ?created_at: String,
+            ?from_user: Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser,
+            ?giphy_id: String,
+            ?is_couple_people_media: bool,
+            ?is_free: bool,
+            ?is_from_queue: bool,
+            ?is_liked: bool,
+            ?is_markdown_disabled: bool,
+            ?is_media_ready: bool,
+            ?is_new: bool,
+            ?is_opened: bool,
+            ?is_pinned: bool,
+            ?is_reported_by_me: bool,
+            ?is_sent_by_me: bool,
+            ?is_tip: bool,
+            ?locked_text: bool,
+            ?media: ::Array[top],
+            ?media_count: Integer,
+            ?previews: ::Array[top],
+            ?price: Integer,
+            ?queue_id: Integer,
+            ?release_forms: ::Array[top],
+            ?response_type: String,
+            ?text: String
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            can_be_pinned: bool,
+            cancel_seconds: Integer,
+            can_purchase: bool,
+            can_purchase_reason: String,
+            can_report: bool,
+            changed_at: String,
+            created_at: String,
+            from_user: Onlyfansapi::Models::Chats::MessageListResponse::Data::FromUser,
+            giphy_id: String,
+            is_couple_people_media: bool,
+            is_free: bool,
+            is_from_queue: bool,
+            is_liked: bool,
+            is_markdown_disabled: bool,
+            is_media_ready: bool,
+            is_new: bool,
+            is_opened: bool,
+            is_pinned: bool,
+            is_reported_by_me: bool,
+            is_sent_by_me: bool,
+            is_tip: bool,
+            locked_text: bool,
+            media: ::Array[top],
+            media_count: Integer,
+            previews: ::Array[top],
+            price: Integer,
+            queue_id: Integer,
+            release_forms: ::Array[top],
+            response_type: String,
+            text: String
+          }
+
+          type from_user = { id: Integer, _view: String }
+
+          class FromUser < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader _view: String?
+
+            def _view=: (String) -> String
+
+            def initialize: (?id: Integer, ?_view: String) -> void
+
+            def to_hash: -> { id: Integer, _view: String }
+          end
+        end
+      end
+    end
+  end
+end

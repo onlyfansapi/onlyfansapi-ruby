@@ -1,0 +1,29 @@
+module Onlyfansapi
+  module Resources
+    class Media
+      class Vault
+        attr_reader lists: Onlyfansapi::Resources::Media::Vault::Lists
+
+        def list: (
+          String account,
+          ?field: Onlyfansapi::Models::Media::VaultListParams::field,
+          ?limit: Integer,
+          ?list: Integer,
+          ?offset: Integer,
+          ?query: String,
+          ?sort: Onlyfansapi::Models::Media::VaultListParams::sort,
+          ?type: Onlyfansapi::Models::Media::VaultListParams::type_,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Media::VaultListResponse
+
+        def delete: (
+          String account,
+          media_ids: ::Array[String],
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Media::VaultDeleteResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

@@ -1,0 +1,241 @@
+module Onlyfansapi
+  module Models
+    type mass_messaging_send_response =
+      {
+        _meta: Onlyfansapi::Models::MassMessagingSendResponse::Meta,
+        data: Onlyfansapi::Models::MassMessagingSendResponse::Data
+      }
+
+    class MassMessagingSendResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfansapi::Models::MassMessagingSendResponse::Meta?
+
+      def _meta=: (
+        Onlyfansapi::Models::MassMessagingSendResponse::Meta
+      ) -> Onlyfansapi::Models::MassMessagingSendResponse::Meta
+
+      attr_reader data: Onlyfansapi::Models::MassMessagingSendResponse::Data?
+
+      def data=: (
+        Onlyfansapi::Models::MassMessagingSendResponse::Data
+      ) -> Onlyfansapi::Models::MassMessagingSendResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfansapi::Models::MassMessagingSendResponse::Meta,
+        ?data: Onlyfansapi::Models::MassMessagingSendResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfansapi::Models::MassMessagingSendResponse::Meta,
+        data: Onlyfansapi::Models::MassMessagingSendResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfansapi::Models::MassMessagingSendResponse::Meta::Cache
+        ) -> Onlyfansapi::Models::MassMessagingSendResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfansapi::Models::MassMessagingSendResponse::Meta::Credits
+        ) -> Onlyfansapi::Models::MassMessagingSendResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfansapi::Models::MassMessagingSendResponse::Meta::RateLimits
+        ) -> Onlyfansapi::Models::MassMessagingSendResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Cache,
+          ?_credits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Credits,
+          ?_rate_limits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::MassMessagingSendResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: Integer,
+          can_unsend: bool,
+          date: String,
+          has_error: bool,
+          is_canceled: bool,
+          is_couple_people_media: bool,
+          is_done: bool,
+          is_ready: bool,
+          pending: Integer,
+          total: Integer,
+          unsend_seconds: Integer
+        }
+
+      class Data < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_reader can_unsend: bool?
+
+        def can_unsend=: (bool) -> bool
+
+        attr_reader date: String?
+
+        def date=: (String) -> String
+
+        attr_reader has_error: bool?
+
+        def has_error=: (bool) -> bool
+
+        attr_reader is_canceled: bool?
+
+        def is_canceled=: (bool) -> bool
+
+        attr_reader is_couple_people_media: bool?
+
+        def is_couple_people_media=: (bool) -> bool
+
+        attr_reader is_done: bool?
+
+        def is_done=: (bool) -> bool
+
+        attr_reader is_ready: bool?
+
+        def is_ready=: (bool) -> bool
+
+        attr_reader pending: Integer?
+
+        def pending=: (Integer) -> Integer
+
+        attr_reader total: Integer?
+
+        def total=: (Integer) -> Integer
+
+        attr_reader unsend_seconds: Integer?
+
+        def unsend_seconds=: (Integer) -> Integer
+
+        def initialize: (
+          ?id: Integer,
+          ?can_unsend: bool,
+          ?date: String,
+          ?has_error: bool,
+          ?is_canceled: bool,
+          ?is_couple_people_media: bool,
+          ?is_done: bool,
+          ?is_ready: bool,
+          ?pending: Integer,
+          ?total: Integer,
+          ?unsend_seconds: Integer
+        ) -> void
+
+        def to_hash: -> {
+          id: Integer,
+          can_unsend: bool,
+          date: String,
+          has_error: bool,
+          is_canceled: bool,
+          is_couple_people_media: bool,
+          is_done: bool,
+          is_ready: bool,
+          pending: Integer,
+          total: Integer,
+          unsend_seconds: Integer
+        }
+      end
+    end
+  end
+end

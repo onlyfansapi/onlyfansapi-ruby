@@ -1,0 +1,32 @@
+module Onlyfansapi
+  module Models
+    type media_scrape_params =
+      { account: String, url: String, expiration_date: String? }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class MediaScrapeParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor url: String
+
+      attr_accessor expiration_date: String?
+
+      def initialize: (
+        account: String,
+        url: String,
+        ?expiration_date: String?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        url: String,
+        expiration_date: String?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

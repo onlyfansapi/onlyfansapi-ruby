@@ -1,0 +1,344 @@
+module Onlyfansapi
+  module Models
+    module Banking
+      type detail_retrieve_legal_and_tax_status_response =
+        {
+          _meta: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta,
+          data: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data
+        }
+
+      class DetailRetrieveLegalAndTaxStatusResponse < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta?
+
+        def _meta=: (
+          Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta
+        ) -> Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta
+
+        attr_reader data: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data?
+
+        def data=: (
+          Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data
+        ) -> Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta,
+          ?data: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta,
+          data: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Cache
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Credits
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::RateLimits
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Cache,
+            ?_credits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Credits,
+            ?_rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            can_change_payout_type: bool,
+            can_show_legal_form: bool,
+            :dac7 => Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Dac7,
+            hide_banking: bool,
+            is_real_id_image: bool,
+            :is_w9_exist => bool,
+            :is_w9_required => bool,
+            is_xxx: bool,
+            iv_fail_reason: String,
+            iv_status: String,
+            :need_show_edit_w9 => bool,
+            payout_legal_approve_reject_reason: String,
+            show_iv_button: bool,
+            tax: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
+          }
+
+        class Data < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader can_change_payout_type: bool?
+
+          def can_change_payout_type=: (bool) -> bool
+
+          attr_reader can_show_legal_form: bool?
+
+          def can_show_legal_form=: (bool) -> bool
+
+          attr_reader dac7: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Dac7?
+
+          def dac7=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Dac7
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Dac7
+
+          attr_reader hide_banking: bool?
+
+          def hide_banking=: (bool) -> bool
+
+          attr_reader is_real_id_image: bool?
+
+          def is_real_id_image=: (bool) -> bool
+
+          attr_reader is_w9_exist: bool?
+
+          def is_w9_exist=: (bool) -> bool
+
+          attr_reader is_w9_required: bool?
+
+          def is_w9_required=: (bool) -> bool
+
+          attr_reader is_xxx: bool?
+
+          def is_xxx=: (bool) -> bool
+
+          attr_reader iv_fail_reason: String?
+
+          def iv_fail_reason=: (String) -> String
+
+          attr_reader iv_status: String?
+
+          def iv_status=: (String) -> String
+
+          attr_reader need_show_edit_w9: bool?
+
+          def need_show_edit_w9=: (bool) -> bool
+
+          attr_reader payout_legal_approve_reject_reason: String?
+
+          def payout_legal_approve_reject_reason=: (String) -> String
+
+          attr_reader show_iv_button: bool?
+
+          def show_iv_button=: (bool) -> bool
+
+          attr_reader tax: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax?
+
+          def tax=: (
+            Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
+          ) -> Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
+
+          def initialize: (
+            ?can_change_payout_type: bool,
+            ?can_show_legal_form: bool,
+            ?dac7: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Dac7,
+            ?hide_banking: bool,
+            ?is_real_id_image: bool,
+            ?is_w9_exist: bool,
+            ?is_w9_required: bool,
+            ?is_xxx: bool,
+            ?iv_fail_reason: String,
+            ?iv_status: String,
+            ?need_show_edit_w9: bool,
+            ?payout_legal_approve_reject_reason: String,
+            ?show_iv_button: bool,
+            ?tax: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
+          ) -> void
+
+          def to_hash: -> {
+            can_change_payout_type: bool,
+            can_show_legal_form: bool,
+            :dac7 => Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Dac7,
+            hide_banking: bool,
+            is_real_id_image: bool,
+            :is_w9_exist => bool,
+            :is_w9_required => bool,
+            is_xxx: bool,
+            iv_fail_reason: String,
+            iv_status: String,
+            :need_show_edit_w9 => bool,
+            payout_legal_approve_reject_reason: String,
+            show_iv_button: bool,
+            tax: Onlyfansapi::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse::Data::Tax
+          }
+
+          type dac7 =
+            {
+              country_ids: ::Array[Integer],
+              error: String,
+              required: bool,
+              state: String,
+              type: String
+            }
+
+          class Dac7 < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader country_ids: ::Array[Integer]?
+
+            def country_ids=: (::Array[Integer]) -> ::Array[Integer]
+
+            attr_reader error: String?
+
+            def error=: (String) -> String
+
+            attr_reader required: bool?
+
+            def required=: (bool) -> bool
+
+            attr_reader state: String?
+
+            def state=: (String) -> String
+
+            attr_reader type: String?
+
+            def type=: (String) -> String
+
+            def initialize: (
+              ?country_ids: ::Array[Integer],
+              ?error: String,
+              ?required: bool,
+              ?state: String,
+              ?type: String
+            ) -> void
+
+            def to_hash: -> {
+              country_ids: ::Array[Integer],
+              error: String,
+              required: bool,
+              state: String,
+              type: String
+            }
+          end
+
+          type tax =
+            { country_code: String, editable: bool, is_banking_disabled: bool }
+
+          class Tax < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader country_code: String?
+
+            def country_code=: (String) -> String
+
+            attr_reader editable: bool?
+
+            def editable=: (bool) -> bool
+
+            attr_reader is_banking_disabled: bool?
+
+            def is_banking_disabled=: (bool) -> bool
+
+            def initialize: (
+              ?country_code: String,
+              ?editable: bool,
+              ?is_banking_disabled: bool
+            ) -> void
+
+            def to_hash: -> {
+              country_code: String,
+              editable: bool,
+              is_banking_disabled: bool
+            }
+          end
+        end
+      end
+    end
+  end
+end

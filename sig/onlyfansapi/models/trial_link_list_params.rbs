@@ -1,0 +1,81 @@
+module Onlyfansapi
+  module Models
+    type trial_link_list_params =
+      {
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        field: Onlyfansapi::Models::TrialLinkListParams::field?,
+        sort: Onlyfansapi::Models::TrialLinkListParams::sort?,
+        synchronous: bool?
+      }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class TrialLinkListParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor limit: Integer
+
+      attr_accessor offset: Integer
+
+      attr_accessor field: Onlyfansapi::Models::TrialLinkListParams::field?
+
+      attr_accessor sort: Onlyfansapi::Models::TrialLinkListParams::sort?
+
+      attr_accessor synchronous: bool?
+
+      def initialize: (
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        ?field: Onlyfansapi::Models::TrialLinkListParams::field?,
+        ?sort: Onlyfansapi::Models::TrialLinkListParams::sort?,
+        ?synchronous: bool?,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        field: Onlyfansapi::Models::TrialLinkListParams::field?,
+        sort: Onlyfansapi::Models::TrialLinkListParams::sort?,
+        synchronous: bool?,
+        request_options: Onlyfansapi::RequestOptions
+      }
+
+      type field =
+        :create_date
+        | :expire_date
+        | :subscribe_counts
+        | :subscribe_days
+        | :claims_count
+
+      module Field
+        extend Onlyfansapi::Internal::Type::Enum
+
+        CREATE_DATE: :create_date
+        EXPIRE_DATE: :expire_date
+        SUBSCRIBE_COUNTS: :subscribe_counts
+        SUBSCRIBE_DAYS: :subscribe_days
+        CLAIMS_COUNT: :claims_count
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::TrialLinkListParams::field]
+      end
+
+      type sort = :desc | :asc
+
+      module Sort
+        extend Onlyfansapi::Internal::Type::Enum
+
+        DESC: :desc
+        ASC: :asc
+
+        def self?.values: -> ::Array[Onlyfansapi::Models::TrialLinkListParams::sort]
+      end
+    end
+  end
+end

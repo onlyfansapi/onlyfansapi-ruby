@@ -1,0 +1,23 @@
+module Onlyfansapi
+  module Resources
+    class UserLists
+      class Users
+        def add: (
+          Integer user_list_id,
+          account: String,
+          ids: ::Array[String],
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::UserLists::UserAddResponse
+
+        def remove: (
+          Integer user_id,
+          account: String,
+          user_list_id: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::UserLists::UserRemoveResponse
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end

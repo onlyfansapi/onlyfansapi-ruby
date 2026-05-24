@@ -1,0 +1,66 @@
+module Onlyfansapi
+  module Models
+    module Chats
+      type message_send_params =
+        {
+          account: String,
+          chat_id: String,
+          text: String,
+          locked_text: bool,
+          media_files: ::Array[String],
+          previews: ::Array[String],
+          price: Integer
+        }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class MessageSendParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor chat_id: String
+
+        attr_accessor text: String
+
+        attr_reader locked_text: bool?
+
+        def locked_text=: (bool) -> bool
+
+        attr_reader media_files: ::Array[String]?
+
+        def media_files=: (::Array[String]) -> ::Array[String]
+
+        attr_reader previews: ::Array[String]?
+
+        def previews=: (::Array[String]) -> ::Array[String]
+
+        attr_reader price: Integer?
+
+        def price=: (Integer) -> Integer
+
+        def initialize: (
+          account: String,
+          chat_id: String,
+          text: String,
+          ?locked_text: bool,
+          ?media_files: ::Array[String],
+          ?previews: ::Array[String],
+          ?price: Integer,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          chat_id: String,
+          text: String,
+          locked_text: bool,
+          media_files: ::Array[String],
+          previews: ::Array[String],
+          price: Integer,
+          request_options: Onlyfansapi::RequestOptions
+        }
+      end
+    end
+  end
+end

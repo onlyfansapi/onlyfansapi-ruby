@@ -1,0 +1,36 @@
+module Onlyfansapi
+  module Models
+    type payout_list_payout_requests_params =
+      { account: String, limit: String, offset: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class PayoutListPayoutRequestsParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader limit: String?
+
+      def limit=: (String) -> String
+
+      attr_reader offset: String?
+
+      def offset=: (String) -> String
+
+      def initialize: (
+        account: String,
+        ?limit: String,
+        ?offset: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: String,
+        offset: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

@@ -1,0 +1,32 @@
+module Onlyfansapi
+  module Models
+    type user_list_update_params =
+      { account: String, user_list_id: Integer, name: String }
+      & Onlyfansapi::Internal::Type::request_parameters
+
+    class UserListUpdateParams < Onlyfansapi::Internal::Type::BaseModel
+      extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+      include Onlyfansapi::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor user_list_id: Integer
+
+      attr_accessor name: String
+
+      def initialize: (
+        account: String,
+        user_list_id: Integer,
+        name: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        user_list_id: Integer,
+        name: String,
+        request_options: Onlyfansapi::RequestOptions
+      }
+    end
+  end
+end

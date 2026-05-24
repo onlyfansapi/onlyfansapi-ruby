@@ -1,0 +1,360 @@
+module Onlyfansapi
+  module Models
+    type payout_list_transactions_response =
+      {
+        _meta: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta,
+        data: Onlyfansapi::Models::PayoutListTransactionsResponse::Data
+      }
+
+    class PayoutListTransactionsResponse < Onlyfansapi::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta?
+
+      def _meta=: (
+        Onlyfansapi::Models::PayoutListTransactionsResponse::Meta
+      ) -> Onlyfansapi::Models::PayoutListTransactionsResponse::Meta
+
+      attr_reader data: Onlyfansapi::Models::PayoutListTransactionsResponse::Data?
+
+      def data=: (
+        Onlyfansapi::Models::PayoutListTransactionsResponse::Data
+      ) -> Onlyfansapi::Models::PayoutListTransactionsResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta,
+        ?data: Onlyfansapi::Models::PayoutListTransactionsResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta,
+        data: Onlyfansapi::Models::PayoutListTransactionsResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Cache
+        ) -> Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Credits
+        ) -> Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::RateLimits
+        ) -> Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Cache,
+          ?_credits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Credits,
+          ?_rate_limits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Cache,
+          _credits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::Credits,
+          _rate_limits: Onlyfansapi::Models::PayoutListTransactionsResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          has_more: bool,
+          list: ::Array[Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List],
+          marker: Integer,
+          next_marker: Integer
+        }
+
+      class Data < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader has_more: bool?
+
+        def has_more=: (bool) -> bool
+
+        attr_reader list: ::Array[Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List]?
+
+        def list=: (
+          ::Array[Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List]
+        ) -> ::Array[Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List]
+
+        attr_reader marker: Integer?
+
+        def marker=: (Integer) -> Integer
+
+        attr_reader next_marker: Integer?
+
+        def next_marker=: (Integer) -> Integer
+
+        def initialize: (
+          ?has_more: bool,
+          ?list: ::Array[Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List],
+          ?marker: Integer,
+          ?next_marker: Integer
+        ) -> void
+
+        def to_hash: -> {
+          has_more: bool,
+          list: ::Array[Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List],
+          marker: Integer,
+          next_marker: Integer
+        }
+
+        type list =
+          {
+            id: String,
+            amount: Float,
+            created_at: String,
+            currency: String,
+            description: String,
+            fee: Float,
+            media_tax_amount: Float,
+            net: Float,
+            payout_pending_days: Integer,
+            status: String,
+            tax_amount: Float,
+            user: Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List::User,
+            vat_amount: Float
+          }
+
+        class List < Onlyfansapi::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          attr_reader amount: Float?
+
+          def amount=: (Float) -> Float
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_reader currency: String?
+
+          def currency=: (String) -> String
+
+          attr_reader description: String?
+
+          def description=: (String) -> String
+
+          attr_reader fee: Float?
+
+          def fee=: (Float) -> Float
+
+          attr_reader media_tax_amount: Float?
+
+          def media_tax_amount=: (Float) -> Float
+
+          attr_reader net: Float?
+
+          def net=: (Float) -> Float
+
+          attr_reader payout_pending_days: Integer?
+
+          def payout_pending_days=: (Integer) -> Integer
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          attr_reader tax_amount: Float?
+
+          def tax_amount=: (Float) -> Float
+
+          attr_reader user: Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List::User?
+
+          def user=: (
+            Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List::User
+          ) -> Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List::User
+
+          attr_reader vat_amount: Float?
+
+          def vat_amount=: (Float) -> Float
+
+          def initialize: (
+            ?id: String,
+            ?amount: Float,
+            ?created_at: String,
+            ?currency: String,
+            ?description: String,
+            ?fee: Float,
+            ?media_tax_amount: Float,
+            ?net: Float,
+            ?payout_pending_days: Integer,
+            ?status: String,
+            ?tax_amount: Float,
+            ?user: Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List::User,
+            ?vat_amount: Float
+          ) -> void
+
+          def to_hash: -> {
+            id: String,
+            amount: Float,
+            created_at: String,
+            currency: String,
+            description: String,
+            fee: Float,
+            media_tax_amount: Float,
+            net: Float,
+            payout_pending_days: Integer,
+            status: String,
+            tax_amount: Float,
+            user: Onlyfansapi::Models::PayoutListTransactionsResponse::Data::List::User,
+            vat_amount: Float
+          }
+
+          type user =
+            {
+              id: Integer,
+              avatar: String,
+              avatar_thumbs: String,
+              is_verified: bool,
+              name: String,
+              username: String,
+              view: String
+            }
+
+          class User < Onlyfansapi::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader avatar: String?
+
+            def avatar=: (String) -> String
+
+            attr_reader avatar_thumbs: String?
+
+            def avatar_thumbs=: (String) -> String
+
+            attr_reader is_verified: bool?
+
+            def is_verified=: (bool) -> bool
+
+            attr_reader name: String?
+
+            def name=: (String) -> String
+
+            attr_reader username: String?
+
+            def username=: (String) -> String
+
+            attr_reader view: String?
+
+            def view=: (String) -> String
+
+            def initialize: (
+              ?id: Integer,
+              ?avatar: String,
+              ?avatar_thumbs: String,
+              ?is_verified: bool,
+              ?name: String,
+              ?username: String,
+              ?view: String
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              avatar: String,
+              avatar_thumbs: String,
+              is_verified: bool,
+              name: String,
+              username: String,
+              view: String
+            }
+          end
+        end
+      end
+    end
+  end
+end

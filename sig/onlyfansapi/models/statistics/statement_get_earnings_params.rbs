@@ -1,0 +1,64 @@
+module Onlyfansapi
+  module Models
+    module Statistics
+      type statement_get_earnings_params =
+        {
+          account: String,
+          start_date: String,
+          end_date: String,
+          type: Onlyfansapi::Models::Statistics::StatementGetEarningsParams::type_
+        }
+        & Onlyfansapi::Internal::Type::request_parameters
+
+      class StatementGetEarningsParams < Onlyfansapi::Internal::Type::BaseModel
+        extend Onlyfansapi::Internal::Type::RequestParameters::Converter
+        include Onlyfansapi::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor start_date: String
+
+        attr_reader end_date: String?
+
+        def end_date=: (String) -> String
+
+        attr_reader type: Onlyfansapi::Models::Statistics::StatementGetEarningsParams::type_?
+
+        def type=: (
+          Onlyfansapi::Models::Statistics::StatementGetEarningsParams::type_
+        ) -> Onlyfansapi::Models::Statistics::StatementGetEarningsParams::type_
+
+        def initialize: (
+          account: String,
+          start_date: String,
+          ?end_date: String,
+          ?type: Onlyfansapi::Models::Statistics::StatementGetEarningsParams::type_,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          start_date: String,
+          end_date: String,
+          type: Onlyfansapi::Models::Statistics::StatementGetEarningsParams::type_,
+          request_options: Onlyfansapi::RequestOptions
+        }
+
+        type type_ = :total | :subscribes | :tips | :post | :messages | :stream
+
+        module Type
+          extend Onlyfansapi::Internal::Type::Enum
+
+          TOTAL: :total
+          SUBSCRIBES: :subscribes
+          TIPS: :tips
+          POST: :post
+          MESSAGES: :messages
+          STREAM: :stream
+
+          def self?.values: -> ::Array[Onlyfansapi::Models::Statistics::StatementGetEarningsParams::type_]
+        end
+      end
+    end
+  end
+end

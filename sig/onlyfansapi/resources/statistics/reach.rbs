@@ -1,0 +1,19 @@
+module Onlyfansapi
+  module Resources
+    class Statistics
+      class Reach
+        def get_profile_visitors: (
+          String account,
+          end_date: String,
+          start_date: String,
+          ?filter: Onlyfansapi::Models::Statistics::ReachGetProfileVisitorsParams::filter?,
+          ?limit: Integer?,
+          ?type: Onlyfansapi::Models::Statistics::ReachGetProfileVisitorsParams::type_?,
+          ?request_options: Onlyfansapi::request_opts
+        ) -> Onlyfansapi::Models::Statistics::reach_get_profile_visitors_response
+
+        def initialize: (client: Onlyfansapi::Client) -> void
+      end
+    end
+  end
+end
