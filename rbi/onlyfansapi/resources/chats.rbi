@@ -6,8 +6,8 @@ module Onlyfansapi
       sig { returns(Onlyfansapi::Resources::Chats::Messages) }
       attr_reader :messages
 
-      sig { returns(Onlyfansapi::Resources::Chats::MarkAsRead) }
-      attr_reader :mark_as_read
+      sig { returns(Onlyfansapi::Resources::Chats::MarkAllAsRead) }
+      attr_reader :mark_all_as_read
 
       # Get the list of chats for an Account.
       sig do
@@ -103,6 +103,24 @@ module Onlyfansapi
         skip_users: nil,
         # Query param: Filter by specific media types. Keep empty to return all.
         type: nil,
+        request_options: {}
+      )
+      end
+
+      # Mark a specific chat as read. Alternative to List Chat Messages endpoint, if you
+      # just want to mark the chat as read without fetching messages.
+      sig do
+        params(
+          chat_id: String,
+          account: String,
+          request_options: Onlyfansapi::RequestOptions::OrHash
+        ).returns(Onlyfansapi::Models::ChatMarkAsReadResponse)
+      end
+      def mark_as_read(
+        # The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+        chat_id,
+        # The Account ID
+        account:,
         request_options: {}
       )
       end

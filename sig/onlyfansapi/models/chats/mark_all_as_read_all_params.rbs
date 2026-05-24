@@ -1,10 +1,10 @@
 module Onlyfansapi
   module Models
     module Chats
-      type mark_as_read_all_params =
+      type mark_all_as_read_all_params =
         { account: String } & Onlyfansapi::Internal::Type::request_parameters
 
-      class MarkAsReadAllParams < Onlyfansapi::Internal::Type::BaseModel
+      class MarkAllAsReadAllParams < Onlyfansapi::Internal::Type::BaseModel
         extend Onlyfansapi::Internal::Type::RequestParameters::Converter
         include Onlyfansapi::Internal::Type::RequestParameters
 

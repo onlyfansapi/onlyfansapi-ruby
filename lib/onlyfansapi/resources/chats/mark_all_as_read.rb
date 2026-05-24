@@ -3,7 +3,7 @@
 module Onlyfansapi
   module Resources
     class Chats
-      class MarkAsRead
+      class MarkAllAsRead
         # Mark all chats as read.
         #
         # @overload all(account, request_options: {})
@@ -12,14 +12,14 @@ module Onlyfansapi
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfansapi::Models::Chats::MarkAsReadAllResponse]
+        # @return [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse]
         #
-        # @see Onlyfansapi::Models::Chats::MarkAsReadAllParams
+        # @see Onlyfansapi::Models::Chats::MarkAllAsReadAllParams
         def all(account, params = {})
           @client.request(
             method: :post,
             path: ["api/%1$s/chats/mark-as-read", account],
-            model: Onlyfansapi::Models::Chats::MarkAsReadAllResponse,
+            model: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse,
             options: params[:request_options]
           )
         end

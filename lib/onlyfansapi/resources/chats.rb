@@ -6,8 +6,8 @@ module Onlyfansapi
       # @return [Onlyfansapi::Resources::Chats::Messages]
       attr_reader :messages
 
-      # @return [Onlyfansapi::Resources::Chats::MarkAsRead]
-      attr_reader :mark_as_read
+      # @return [Onlyfansapi::Resources::Chats::MarkAllAsRead]
+      attr_reader :mark_all_as_read
 
       # Get the list of chats for an Account.
       #
@@ -139,6 +139,34 @@ module Onlyfansapi
         )
       end
 
+      # Mark a specific chat as read. Alternative to List Chat Messages endpoint, if you
+      # just want to mark the chat as read without fetching messages.
+      #
+      # @overload mark_as_read(chat_id, account:, request_options: {})
+      #
+      # @param chat_id [String] The ID of the chat to mark as read, usually a fan's OnlyFans User ID
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfansapi::Models::ChatMarkAsReadResponse]
+      #
+      # @see Onlyfansapi::Models::ChatMarkAsReadParams
+      def mark_as_read(chat_id, params)
+        parsed, options = Onlyfansapi::ChatMarkAsReadParams.dump_request(params)
+        account =
+          parsed.delete(:account) do
+            raise ArgumentError.new("missing required path argument #{_1}")
+          end
+        @client.request(
+          method: :post,
+          path: ["api/%1$s/chats/%2$s/mark-as-read", account, chat_id],
+          model: Onlyfansapi::Models::ChatMarkAsReadResponse,
+          options: options
+        )
+      end
+
       # Mark a specific chat as unread.
       #
       # @overload mark_as_unread(chat_id, account:, request_options: {})
@@ -255,7 +283,7 @@ module Onlyfansapi
       def initialize(client:)
         @client = client
         @messages = Onlyfansapi::Resources::Chats::Messages.new(client: client)
-        @mark_as_read = Onlyfansapi::Resources::Chats::MarkAsRead.new(client: client)
+        @mark_all_as_read = Onlyfansapi::Resources::Chats::MarkAllAsRead.new(client: client)
       end
     end
   end

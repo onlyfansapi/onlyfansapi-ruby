@@ -3,45 +3,45 @@
 module Onlyfansapi
   module Models
     module Chats
-      # @see Onlyfansapi::Resources::Chats::MarkAsRead#all
-      class MarkAsReadAllResponse < Onlyfansapi::Internal::Type::BaseModel
+      # @see Onlyfansapi::Resources::Chats::MarkAllAsRead#all
+      class MarkAllAsReadAllResponse < Onlyfansapi::Internal::Type::BaseModel
         # @!attribute _meta
         #
-        #   @return [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta, nil]
-        optional :_meta, -> { Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta }
+        #   @return [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta, nil]
+        optional :_meta, -> { Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta }
 
         # @!attribute data
         #
-        #   @return [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data, nil]
-        optional :data, -> { Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data }
+        #   @return [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data, nil]
+        optional :data, -> { Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data }
 
         # @!method initialize(_meta: nil, data: nil)
-        #   @param _meta [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta]
-        #   @param data [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data]
+        #   @param _meta [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta]
+        #   @param data [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data]
 
-        # @see Onlyfansapi::Models::Chats::MarkAsReadAllResponse#_meta
+        # @see Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse#_meta
         class Meta < Onlyfansapi::Internal::Type::BaseModel
           # @!attribute _cache
           #
-          #   @return [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache, nil]
-          optional :_cache, -> { Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache }
+          #   @return [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache, nil]
+          optional :_cache, -> { Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache }
 
           # @!attribute _credits
           #
-          #   @return [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits, nil]
-          optional :_credits, -> { Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits }
+          #   @return [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits, nil]
+          optional :_credits, -> { Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits }
 
           # @!attribute _rate_limits
           #
-          #   @return [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits, nil]
-          optional :_rate_limits, -> { Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits }
+          #   @return [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits, nil]
+          optional :_rate_limits, -> { Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits }
 
           # @!method initialize(_cache: nil, _credits: nil, _rate_limits: nil)
-          #   @param _cache [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache]
-          #   @param _credits [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits]
-          #   @param _rate_limits [Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits]
+          #   @param _cache [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache]
+          #   @param _credits [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits]
+          #   @param _rate_limits [Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits]
 
-          # @see Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta#_cache
+          # @see Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta#_cache
           class Cache < Onlyfansapi::Internal::Type::BaseModel
             # @!attribute is_cached
             #
@@ -58,7 +58,7 @@ module Onlyfansapi
             #   @param note [String]
           end
 
-          # @see Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta#_credits
+          # @see Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta#_credits
           class Credits < Onlyfansapi::Internal::Type::BaseModel
             # @!attribute balance
             #
@@ -81,7 +81,7 @@ module Onlyfansapi
             #   @param used [Integer]
           end
 
-          # @see Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta#_rate_limits
+          # @see Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta#_rate_limits
           class RateLimits < Onlyfansapi::Internal::Type::BaseModel
             # @!attribute limit_day
             #
@@ -111,7 +111,7 @@ module Onlyfansapi
           end
         end
 
-        # @see Onlyfansapi::Models::Chats::MarkAsReadAllResponse#data
+        # @see Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse#data
         class Data < Onlyfansapi::Internal::Type::BaseModel
           # @!attribute success
           #

@@ -3,8 +3,8 @@
 module Onlyfansapi
   module Models
     module Chats
-      # @see Onlyfansapi::Resources::Chats::MarkAsRead#all
-      class MarkAsReadAllParams < Onlyfansapi::Internal::Type::BaseModel
+      # @see Onlyfansapi::Resources::Chats::MarkAllAsRead#all
+      class MarkAllAsReadAllParams < Onlyfansapi::Internal::Type::BaseModel
         extend Onlyfansapi::Internal::Type::RequestParameters::Converter
         include Onlyfansapi::Internal::Type::RequestParameters
 

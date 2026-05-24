@@ -3,7 +3,7 @@ module Onlyfansapi
     class Chats
       attr_reader messages: Onlyfansapi::Resources::Chats::Messages
 
-      attr_reader mark_as_read: Onlyfansapi::Resources::Chats::MarkAsRead
+      attr_reader mark_all_as_read: Onlyfansapi::Resources::Chats::MarkAllAsRead
 
       def list: (
         String account,
@@ -37,6 +37,12 @@ module Onlyfansapi
         ?type: Onlyfansapi::Models::ChatListMediaParams::type_?,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::ChatListMediaResponse
+
+      def mark_as_read: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfansapi::request_opts
+      ) -> Onlyfansapi::Models::ChatMarkAsReadResponse
 
       def mark_as_unread: (
         String chat_id,

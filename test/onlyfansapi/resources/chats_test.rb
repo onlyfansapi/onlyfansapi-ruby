@@ -72,6 +72,23 @@ class Onlyfansapi::Test::Resources::ChatsTest < Onlyfansapi::Test::ResourceTest
     end
   end
 
+  def test_mark_as_read_required_params
+    skip("Mock server tests are disabled")
+
+    response = @only_fans_api.chats.mark_as_read("123", account: "acct_XXXXXXXXXXXXXXX")
+
+    assert_pattern do
+      response => Onlyfansapi::Models::ChatMarkAsReadResponse
+    end
+
+    assert_pattern do
+      response => {
+        _meta: Onlyfansapi::Models::ChatMarkAsReadResponse::Meta | nil,
+        data: Onlyfansapi::Models::ChatMarkAsReadResponse::Data | nil
+      }
+    end
+  end
+
   def test_mark_as_unread_required_params
     skip("Mock server tests are disabled")
 

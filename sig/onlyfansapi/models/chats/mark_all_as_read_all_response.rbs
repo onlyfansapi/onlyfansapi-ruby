@@ -1,71 +1,71 @@
 module Onlyfansapi
   module Models
     module Chats
-      type mark_as_read_all_response =
+      type mark_all_as_read_all_response =
         {
-          _meta: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta,
-          data: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data
+          _meta: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta,
+          data: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data
         }
 
-      class MarkAsReadAllResponse < Onlyfansapi::Internal::Type::BaseModel
-        attr_reader _meta: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta?
+      class MarkAllAsReadAllResponse < Onlyfansapi::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta?
 
         def _meta=: (
-          Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta
-        ) -> Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta
+          Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta
+        ) -> Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta
 
-        attr_reader data: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data?
+        attr_reader data: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data?
 
         def data=: (
-          Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data
-        ) -> Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data
+          Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data
+        ) -> Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data
 
         def initialize: (
-          ?_meta: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta,
-          ?data: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data
+          ?_meta: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta,
+          ?data: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data
         ) -> void
 
         def to_hash: -> {
-          _meta: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta,
-          data: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data
+          _meta: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta,
+          data: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data
         }
 
         type meta =
           {
-            _cache: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache,
-            _credits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits,
-            _rate_limits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits
+            _cache: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits
           }
 
         class Meta < Onlyfansapi::Internal::Type::BaseModel
-          attr_reader _cache: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache?
+          attr_reader _cache: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache?
 
           def _cache=: (
-            Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache
-          ) -> Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache
+            Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache
+          ) -> Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache
 
-          attr_reader _credits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits?
+          attr_reader _credits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits?
 
           def _credits=: (
-            Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits
-          ) -> Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits
+            Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits
+          ) -> Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits
 
-          attr_reader _rate_limits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits?
+          attr_reader _rate_limits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits?
 
           def _rate_limits=: (
-            Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits
-          ) -> Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits
+            Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits
+          ) -> Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits
 
           def initialize: (
-            ?_cache: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache,
-            ?_credits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits,
-            ?_rate_limits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits
+            ?_cache: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache,
+            ?_credits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits,
+            ?_rate_limits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits
           ) -> void
 
           def to_hash: -> {
-            _cache: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache,
-            _credits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits,
-            _rate_limits: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits
+            _cache: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache,
+            _credits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits,
+            _rate_limits: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits
           }
 
           type cache = { is_cached: bool, note: String }
