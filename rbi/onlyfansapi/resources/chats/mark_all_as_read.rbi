@@ -3,13 +3,13 @@
 module Onlyfansapi
   module Resources
     class Chats
-      class MarkAsRead
+      class MarkAllAsRead
         # Mark all chats as read.
         sig do
           params(
             account: String,
             request_options: Onlyfansapi::RequestOptions::OrHash
-          ).returns(Onlyfansapi::Models::Chats::MarkAsReadAllResponse)
+          ).returns(Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse)
         end
         def all(
           # The Account ID

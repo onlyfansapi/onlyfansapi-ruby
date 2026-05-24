@@ -3,14 +3,14 @@
 module Onlyfansapi
   module Models
     module Chats
-      class MarkAsReadAllParams < Onlyfansapi::Internal::Type::BaseModel
+      class MarkAllAsReadAllParams < Onlyfansapi::Internal::Type::BaseModel
         extend Onlyfansapi::Internal::Type::RequestParameters::Converter
         include Onlyfansapi::Internal::Type::RequestParameters
 
         OrHash =
           T.type_alias do
             T.any(
-              Onlyfansapi::Chats::MarkAsReadAllParams,
+              Onlyfansapi::Chats::MarkAllAsReadAllParams,
               Onlyfansapi::Internal::AnyHash
             )
           end

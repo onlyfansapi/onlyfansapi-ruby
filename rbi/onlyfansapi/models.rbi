@@ -49,6 +49,8 @@ module Onlyfansapi
 
   ChatListParams = Onlyfansapi::Models::ChatListParams
 
+  ChatMarkAsReadParams = Onlyfansapi::Models::ChatMarkAsReadParams
+
   ChatMarkAsUnreadParams = Onlyfansapi::Models::ChatMarkAsUnreadParams
 
   ChatMuteParams = Onlyfansapi::Models::ChatMuteParams

@@ -3,18 +3,20 @@
 module Onlyfansapi
   module Models
     module Chats
-      class MarkAsReadAllResponse < Onlyfansapi::Internal::Type::BaseModel
+      class MarkAllAsReadAllResponse < Onlyfansapi::Internal::Type::BaseModel
         OrHash =
           T.type_alias do
             T.any(
-              Onlyfansapi::Models::Chats::MarkAsReadAllResponse,
+              Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse,
               Onlyfansapi::Internal::AnyHash
             )
           end
 
         sig do
           returns(
-            T.nilable(Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta)
+            T.nilable(
+              Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta
+            )
           )
         end
         attr_reader :_meta
@@ -22,14 +24,16 @@ module Onlyfansapi
         sig do
           params(
             _meta:
-              Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::OrHash
+              Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::OrHash
           ).void
         end
         attr_writer :_meta
 
         sig do
           returns(
-            T.nilable(Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data)
+            T.nilable(
+              Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data
+            )
           )
         end
         attr_reader :data
@@ -37,7 +41,7 @@ module Onlyfansapi
         sig do
           params(
             data:
-              Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data::OrHash
+              Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data::OrHash
           ).void
         end
         attr_writer :data
@@ -45,9 +49,9 @@ module Onlyfansapi
         sig do
           params(
             _meta:
-              Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::OrHash,
+              Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::OrHash,
             data:
-              Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data::OrHash
+              Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data::OrHash
           ).returns(T.attached_class)
         end
         def self.new(_meta: nil, data: nil)
@@ -56,8 +60,8 @@ module Onlyfansapi
         sig do
           override.returns(
             {
-              _meta: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta,
-              data: Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data
+              _meta: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta,
+              data: Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data
             }
           )
         end
@@ -68,7 +72,7 @@ module Onlyfansapi
           OrHash =
             T.type_alias do
               T.any(
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta,
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta,
                 Onlyfansapi::Internal::AnyHash
               )
             end
@@ -76,7 +80,7 @@ module Onlyfansapi
           sig do
             returns(
               T.nilable(
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache
               )
             )
           end
@@ -85,7 +89,7 @@ module Onlyfansapi
           sig do
             params(
               _cache:
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache::OrHash
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache::OrHash
             ).void
           end
           attr_writer :_cache
@@ -93,7 +97,7 @@ module Onlyfansapi
           sig do
             returns(
               T.nilable(
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits
               )
             )
           end
@@ -102,7 +106,7 @@ module Onlyfansapi
           sig do
             params(
               _credits:
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits::OrHash
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits::OrHash
             ).void
           end
           attr_writer :_credits
@@ -110,7 +114,7 @@ module Onlyfansapi
           sig do
             returns(
               T.nilable(
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits
               )
             )
           end
@@ -119,7 +123,7 @@ module Onlyfansapi
           sig do
             params(
               _rate_limits:
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits::OrHash
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits::OrHash
             ).void
           end
           attr_writer :_rate_limits
@@ -127,11 +131,11 @@ module Onlyfansapi
           sig do
             params(
               _cache:
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache::OrHash,
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache::OrHash,
               _credits:
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits::OrHash,
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits::OrHash,
               _rate_limits:
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits::OrHash
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits::OrHash
             ).returns(T.attached_class)
           end
           def self.new(_cache: nil, _credits: nil, _rate_limits: nil)
@@ -141,11 +145,11 @@ module Onlyfansapi
             override.returns(
               {
                 _cache:
-                  Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache,
+                  Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache,
                 _credits:
-                  Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits,
+                  Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits,
                 _rate_limits:
-                  Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits
+                  Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits
               }
             )
           end
@@ -156,7 +160,7 @@ module Onlyfansapi
             OrHash =
               T.type_alias do
                 T.any(
-                  Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Cache,
+                  Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Cache,
                   Onlyfansapi::Internal::AnyHash
                 )
               end
@@ -190,7 +194,7 @@ module Onlyfansapi
             OrHash =
               T.type_alias do
                 T.any(
-                  Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::Credits,
+                  Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::Credits,
                   Onlyfansapi::Internal::AnyHash
                 )
               end
@@ -234,7 +238,7 @@ module Onlyfansapi
             OrHash =
               T.type_alias do
                 T.any(
-                  Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Meta::RateLimits,
+                  Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Meta::RateLimits,
                   Onlyfansapi::Internal::AnyHash
                 )
               end
@@ -298,7 +302,7 @@ module Onlyfansapi
           OrHash =
             T.type_alias do
               T.any(
-                Onlyfansapi::Models::Chats::MarkAsReadAllResponse::Data,
+                Onlyfansapi::Models::Chats::MarkAllAsReadAllResponse::Data,
                 Onlyfansapi::Internal::AnyHash
               )
             end
