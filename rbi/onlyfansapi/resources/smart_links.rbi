@@ -47,10 +47,10 @@ module Onlyfansapi
       # List all Smart Links
       sig do
         params(
-          account_ids: String,
+          account_ids: T.nilable(String),
           limit: Integer,
-          meta_pixel_ids: String,
-          name: String,
+          meta_pixel_ids: T.nilable(String),
+          name: T.nilable(String),
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
         ).returns(Onlyfansapi::Models::SmartLinkListResponse)
@@ -58,13 +58,14 @@ module Onlyfansapi
       def list(
         # Comma-separated account prefixed IDs to include.
         account_ids: nil,
-        # The number of Smart Links to return. Default `50`
+        # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
+        # be greater than 1000.
         limit: nil,
         # Comma-separated Meta Pixel IDs to include.
         meta_pixel_ids: nil,
-        # Filter Smart Links by name.
+        # Filter Smart Links by name. Must not be greater than 255 characters.
         name: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )

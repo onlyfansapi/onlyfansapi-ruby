@@ -17,36 +17,27 @@ module Onlyfansapi
       sig { returns(String) }
       attr_accessor :account
 
-      # Include trial links created by Smart Links. Default `false`
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_reader :filter_include_smart_links
+      sig do
+        returns(T.nilable(Onlyfansapi::StoredListTrialLinksParams::Filter))
+      end
+      attr_reader :filter
 
-      sig { params(filter_include_smart_links: T::Boolean).void }
-      attr_writer :filter_include_smart_links
+      sig do
+        params(
+          filter: Onlyfansapi::StoredListTrialLinksParams::Filter::OrHash
+        ).void
+      end
+      attr_writer :filter
 
-      # Search trial link name or URL.
-      sig { returns(T.nilable(String)) }
-      attr_reader :filter_search
-
-      sig { params(filter_search: String).void }
-      attr_writer :filter_search
-
-      # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-      # (`filter[tags][]=...`) and matches any tag.
-      sig { returns(T.nilable(String)) }
-      attr_reader :filter_tags
-
-      sig { params(filter_tags: String).void }
-      attr_writer :filter_tags
-
-      # The number of trial links to return. Default `10`
+      # The number of trial links to return. Default `10`. Must be at least 1. Must not
+      # be greater than 1000.
       sig { returns(T.nilable(Integer)) }
       attr_reader :limit
 
       sig { params(limit: Integer).void }
       attr_writer :limit
 
-      # The offset used for pagination. Default `0`
+      # The offset used for pagination. Default `0`. Must be at least 0.
       sig { returns(T.nilable(Integer)) }
       attr_reader :offset
 
@@ -56,9 +47,7 @@ module Onlyfansapi
       sig do
         params(
           account: String,
-          filter_include_smart_links: T::Boolean,
-          filter_search: String,
-          filter_tags: String,
+          filter: Onlyfansapi::StoredListTrialLinksParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
@@ -66,16 +55,11 @@ module Onlyfansapi
       end
       def self.new(
         account:,
-        # Include trial links created by Smart Links. Default `false`
-        filter_include_smart_links: nil,
-        # Search trial link name or URL.
-        filter_search: nil,
-        # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-        # (`filter[tags][]=...`) and matches any tag.
-        filter_tags: nil,
-        # The number of trial links to return. Default `10`
+        filter: nil,
+        # The number of trial links to return. Default `10`. Must be at least 1. Must not
+        # be greater than 1000.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )
@@ -85,9 +69,7 @@ module Onlyfansapi
         override.returns(
           {
             account: String,
-            filter_include_smart_links: T::Boolean,
-            filter_search: String,
-            filter_tags: String,
+            filter: Onlyfansapi::StoredListTrialLinksParams::Filter,
             limit: Integer,
             offset: Integer,
             request_options: Onlyfansapi::RequestOptions
@@ -95,6 +77,61 @@ module Onlyfansapi
         )
       end
       def to_hash
+      end
+
+      class Filter < Onlyfansapi::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Onlyfansapi::StoredListTrialLinksParams::Filter,
+              Onlyfansapi::Internal::AnyHash
+            )
+          end
+
+        sig { returns(T.nilable(T::Boolean)) }
+        attr_reader :include_smart_links
+
+        sig { params(include_smart_links: T::Boolean).void }
+        attr_writer :include_smart_links
+
+        # Must not be greater than 255 characters.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :search
+
+        # Must not be greater than 50 characters.
+        sig { returns(T.nilable(T::Array[String])) }
+        attr_reader :tags
+
+        sig { params(tags: T::Array[String]).void }
+        attr_writer :tags
+
+        sig do
+          params(
+            include_smart_links: T::Boolean,
+            search: T.nilable(String),
+            tags: T::Array[String]
+          ).returns(T.attached_class)
+        end
+        def self.new(
+          include_smart_links: nil,
+          # Must not be greater than 255 characters.
+          search: nil,
+          # Must not be greater than 50 characters.
+          tags: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            {
+              include_smart_links: T::Boolean,
+              search: T.nilable(String),
+              tags: T::Array[String]
+            }
+          )
+        end
+        def to_hash
+        end
       end
     end
   end

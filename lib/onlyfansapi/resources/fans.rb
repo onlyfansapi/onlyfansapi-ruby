@@ -148,6 +148,9 @@ module Onlyfansapi
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfansapi::Models::FanListLatestParams} for more details.
+      #
       # Get a paginated list fans, filterable by total, only new subscribers, or only
       # renewals. Newest fans are first.
       #
@@ -155,15 +158,15 @@ module Onlyfansapi
       #
       # @param account [String] The Account ID
       #
-      # @param end_date [String, nil] End date for filtering (required with start_date)
+      # @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
       #
-      # @param limit [String, nil] Number of fans to return (1-50)
+      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 10
       #
-      # @param offset [String, nil] Number of fans to skip
+      # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      # @param start_date [String, nil] Start date for filtering (required with end_date)
+      # @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
       #
-      # @param type [String, nil] Filter by type: total, renew, or new
+      # @param type [Symbol, Onlyfansapi::Models::FanListLatestParams::Type, nil] Filter by type: total, renew, or new.
       #
       # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
       #

@@ -191,7 +191,7 @@ module Onlyfansapi
         #
         # @param account [String] Path param: The Account ID
         #
-        # @param query [String] Query param: The query search in messages
+        # @param query [String] Query param: The query search in messages.
         #
         # @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}, nil]
         #

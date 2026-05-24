@@ -12,47 +12,56 @@ module Onlyfansapi
       #   @return [String]
       required :account, String
 
-      # @!attribute filter_search
-      #   Search shared trial link name, URL, or owner username.
+      # @!attribute filter
       #
-      #   @return [String, nil]
-      optional :filter_search, String
-
-      # @!attribute filter_tags
-      #   Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-      #   (`filter[tags][]=...`) and matches any tag. Tag namespace is shared with owned
-      #   Free Trial Links.
-      #
-      #   @return [String, nil]
-      optional :filter_tags, String
+      #   @return [Onlyfansapi::Models::StoredListSharedTrialLinksParams::Filter, nil]
+      optional :filter, -> { Onlyfansapi::StoredListSharedTrialLinksParams::Filter }
 
       # @!attribute limit
-      #   The number of shared trial links to return. Default `10`
+      #   The number of shared trial links to return. Default `10`. Must be at least 1.
+      #   Must not be greater than 1000.
       #
       #   @return [Integer, nil]
       optional :limit, Integer
 
       # @!attribute offset
-      #   The offset used for pagination. Default `0`
+      #   The offset used for pagination. Default `0`. Must be at least 0.
       #
       #   @return [Integer, nil]
       optional :offset, Integer
 
-      # @!method initialize(account:, filter_search: nil, filter_tags: nil, limit: nil, offset: nil, request_options: {})
+      # @!method initialize(account:, filter: nil, limit: nil, offset: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfansapi::Models::StoredListSharedTrialLinksParams} for more details.
       #
       #   @param account [String]
       #
-      #   @param filter_search [String] Search shared trial link name, URL, or owner username.
+      #   @param filter [Onlyfansapi::Models::StoredListSharedTrialLinksParams::Filter]
       #
-      #   @param filter_tags [String] Filter by one or more tag names or slugs. Accepts CSV or repeated array values (
+      #   @param limit [Integer] The number of shared trial links to return. Default `10`. Must be at least 1. Mu
       #
-      #   @param limit [Integer] The number of shared trial links to return. Default `10`
-      #
-      #   @param offset [Integer] The offset used for pagination. Default `0`
+      #   @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
       #
       #   @param request_options [Onlyfansapi::RequestOptions, Hash{Symbol=>Object}]
+
+      class Filter < Onlyfansapi::Internal::Type::BaseModel
+        # @!attribute search
+        #   Must not be greater than 255 characters.
+        #
+        #   @return [String, nil]
+        optional :search, String, nil?: true
+
+        # @!attribute tags
+        #   Must not be greater than 50 characters.
+        #
+        #   @return [Array<String>, nil]
+        optional :tags, Onlyfansapi::Internal::Type::ArrayOf[String]
+
+        # @!method initialize(search: nil, tags: nil)
+        #   @param search [String, nil] Must not be greater than 255 characters.
+        #
+        #   @param tags [Array<String>] Must not be greater than 50 characters.
+      end
     end
   end
 end

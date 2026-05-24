@@ -15,10 +15,10 @@ module Onlyfansapi
       ) -> Onlyfansapi::Models::SmartLinkRetrieveResponse
 
       def list: (
-        ?account_ids: String,
+        ?account_ids: String?,
         ?limit: Integer,
-        ?meta_pixel_ids: String,
-        ?name: String,
+        ?meta_pixel_ids: String?,
+        ?name: String?,
         ?offset: Integer,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::SmartLinkListResponse

@@ -21,7 +21,7 @@ module Onlyfansapi
         sig { returns(String) }
         attr_accessor :chat_id
 
-        # The query search in messages
+        # The query search in messages.
         sig { returns(String) }
         attr_accessor :query
 
@@ -36,7 +36,7 @@ module Onlyfansapi
         def self.new(
           account:,
           chat_id:,
-          # The query search in messages
+          # The query search in messages.
           query:,
           request_options: {}
         )

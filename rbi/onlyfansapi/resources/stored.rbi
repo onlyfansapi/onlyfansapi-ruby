@@ -8,8 +8,8 @@ module Onlyfansapi
       sig do
         params(
           account: String,
-          filter_search: String,
-          filter_tags: String,
+          filter:
+            Onlyfansapi::StoredListSharedTrackingLinksParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
@@ -18,15 +18,11 @@ module Onlyfansapi
       def list_shared_tracking_links(
         # The Account ID
         account,
-        # Search campaign name, owner username, or a pasted OnlyFans tracking link URL.
-        filter_search: nil,
-        # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-        # (`filter[tags][]=...`) and matches any tag. Tag namespace is shared with owned
-        # Tracking Links.
-        filter_tags: nil,
-        # The number of shared tracking links to return. Default `10`
+        filter: nil,
+        # The number of shared tracking links to return. Default `10`. Must be at least 1.
+        # Must not be greater than 1000.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )
@@ -37,8 +33,7 @@ module Onlyfansapi
       sig do
         params(
           account: String,
-          filter_search: String,
-          filter_tags: String,
+          filter: Onlyfansapi::StoredListSharedTrialLinksParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
@@ -47,15 +42,11 @@ module Onlyfansapi
       def list_shared_trial_links(
         # The Account ID
         account,
-        # Search shared trial link name, URL, or owner username.
-        filter_search: nil,
-        # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-        # (`filter[tags][]=...`) and matches any tag. Tag namespace is shared with owned
-        # Free Trial Links.
-        filter_tags: nil,
-        # The number of shared trial links to return. Default `10`
+        filter: nil,
+        # The number of shared trial links to return. Default `10`. Must be at least 1.
+        # Must not be greater than 1000.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )
@@ -66,9 +57,7 @@ module Onlyfansapi
       sig do
         params(
           account: String,
-          filter_include_smart_links: T::Boolean,
-          filter_search: String,
-          filter_tags: String,
+          filter: Onlyfansapi::StoredListTrackingLinksParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
@@ -77,16 +66,11 @@ module Onlyfansapi
       def list_tracking_links(
         # The Account ID
         account,
-        # Include tracking links created by Smart Links. Default `false`
-        filter_include_smart_links: nil,
-        # Search campaign name, creator username, or a pasted OnlyFans tracking link URL.
-        filter_search: nil,
-        # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-        # (`filter[tags][]=...`) and matches any tag.
-        filter_tags: nil,
-        # The number of tracking links to return. Default `10`
+        filter: nil,
+        # The number of tracking links to return. Default `10`. Must be at least 1. Must
+        # not be greater than 1000.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )
@@ -97,9 +81,7 @@ module Onlyfansapi
       sig do
         params(
           account: String,
-          filter_include_smart_links: T::Boolean,
-          filter_search: String,
-          filter_tags: String,
+          filter: Onlyfansapi::StoredListTrialLinksParams::Filter::OrHash,
           limit: Integer,
           offset: Integer,
           request_options: Onlyfansapi::RequestOptions::OrHash
@@ -108,16 +90,11 @@ module Onlyfansapi
       def list_trial_links(
         # The Account ID
         account,
-        # Include trial links created by Smart Links. Default `false`
-        filter_include_smart_links: nil,
-        # Search trial link name or URL.
-        filter_search: nil,
-        # Filter by one or more tag names or slugs. Accepts CSV or repeated array values
-        # (`filter[tags][]=...`) and matches any tag.
-        filter_tags: nil,
-        # The number of trial links to return. Default `10`
+        filter: nil,
+        # The number of trial links to return. Default `10`. Must be at least 1. Must not
+        # be greater than 1000.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
         request_options: {}
       )

@@ -10,6 +10,7 @@ module Onlyfansapi
           sig do
             params(
               account: String,
+              account_prefixed_id: String,
               months: Integer,
               request_options: Onlyfansapi::RequestOptions::OrHash
             ).returns(
@@ -21,7 +22,10 @@ module Onlyfansapi
           def get_history(
             # The Account ID
             account,
-            # Number of months of history to retrieve (1-60, default 12)
+            # The account prefixed ID.
+            account_prefixed_id:,
+            # Number of months of history to retrieve (1-60, default 12). Must be at least 1.
+            # Must not be greater than 60.
             months: nil,
             request_options: {}
           )

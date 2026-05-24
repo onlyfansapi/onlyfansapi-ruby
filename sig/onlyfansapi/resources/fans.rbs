@@ -44,10 +44,10 @@ module Onlyfansapi
       def list_latest: (
         String account,
         ?end_date: String?,
-        ?limit: String?,
-        ?offset: String?,
+        ?limit: Integer,
+        ?offset: Integer,
         ?start_date: String?,
-        ?type: String?,
+        ?type: Onlyfansapi::Models::FanListLatestParams::type_?,
         ?request_options: Onlyfansapi::request_opts
       ) -> Onlyfansapi::Models::FanListLatestResponse
 

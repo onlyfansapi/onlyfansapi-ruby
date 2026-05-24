@@ -141,7 +141,7 @@ module Onlyfansapi
           chat_id,
           # Path param: The Account ID
           account:,
-          # Query param: The query search in messages
+          # Query param: The query search in messages.
           query:,
           request_options: {}
         )
