@@ -1,0 +1,19 @@
+module Onlyfans
+  module Resources
+    class Banking
+      attr_reader details: Onlyfans::Resources::Banking::Details
+
+      def list_available_payout_systems: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::BankingListAvailablePayoutSystemsResponse
+
+      def list_countries: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::BankingListCountriesResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

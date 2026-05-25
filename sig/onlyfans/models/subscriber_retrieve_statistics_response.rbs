@@ -1,0 +1,235 @@
+module Onlyfans
+  module Models
+    type subscriber_retrieve_statistics_response =
+      {
+        _meta: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta,
+        data: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data
+      }
+
+    class SubscriberRetrieveStatisticsResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta
+      ) -> Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta
+
+      attr_reader data: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data
+      ) -> Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta,
+        ?data: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta,
+        data: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Cache
+        ) -> Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Credits
+        ) -> Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          delta: Float,
+          earnings: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Earning],
+          subscribers: Integer,
+          subscribes: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Subscribe],
+          total: Float
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader delta: Float?
+
+        def delta=: (Float) -> Float
+
+        attr_reader earnings: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Earning]?
+
+        def earnings=: (
+          ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Earning]
+        ) -> ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Earning]
+
+        attr_reader subscribers: Integer?
+
+        def subscribers=: (Integer) -> Integer
+
+        attr_reader subscribes: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Subscribe]?
+
+        def subscribes=: (
+          ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Subscribe]
+        ) -> ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Subscribe]
+
+        attr_reader total: Float?
+
+        def total=: (Float) -> Float
+
+        def initialize: (
+          ?delta: Float,
+          ?earnings: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Earning],
+          ?subscribers: Integer,
+          ?subscribes: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Subscribe],
+          ?total: Float
+        ) -> void
+
+        def to_hash: -> {
+          delta: Float,
+          earnings: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Earning],
+          subscribers: Integer,
+          subscribes: ::Array[Onlyfans::Models::SubscriberRetrieveStatisticsResponse::Data::Subscribe],
+          total: Float
+        }
+
+        type earning = { count: Float, date: String }
+
+        class Earning < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Float?
+
+          def count=: (Float) -> Float
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Float, ?date: String) -> void
+
+          def to_hash: -> { count: Float, date: String }
+        end
+
+        type subscribe = { count: Integer, date: String }
+
+        class Subscribe < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+      end
+    end
+  end
+end

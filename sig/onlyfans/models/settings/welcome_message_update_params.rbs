@@ -1,0 +1,91 @@
+module Onlyfans
+  module Models
+    module Settings
+      type welcome_message_update_params =
+        {
+          account: String,
+          is_forward: bool,
+          locked_text: bool,
+          media_files: ::Array[top],
+          previews: ::Array[top],
+          price: Integer,
+          rf_guest: String,
+          rf_partner: String,
+          rf_tag: String,
+          text: String
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class WelcomeMessageUpdateParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_reader is_forward: bool?
+
+        def is_forward=: (bool) -> bool
+
+        attr_reader locked_text: bool?
+
+        def locked_text=: (bool) -> bool
+
+        attr_reader media_files: ::Array[top]?
+
+        def media_files=: (::Array[top]) -> ::Array[top]
+
+        attr_reader previews: ::Array[top]?
+
+        def previews=: (::Array[top]) -> ::Array[top]
+
+        attr_reader price: Integer?
+
+        def price=: (Integer) -> Integer
+
+        attr_reader rf_guest: String?
+
+        def rf_guest=: (String) -> String
+
+        attr_reader rf_partner: String?
+
+        def rf_partner=: (String) -> String
+
+        attr_reader rf_tag: String?
+
+        def rf_tag=: (String) -> String
+
+        attr_reader text: String?
+
+        def text=: (String) -> String
+
+        def initialize: (
+          account: String,
+          ?is_forward: bool,
+          ?locked_text: bool,
+          ?media_files: ::Array[top],
+          ?previews: ::Array[top],
+          ?price: Integer,
+          ?rf_guest: String,
+          ?rf_partner: String,
+          ?rf_tag: String,
+          ?text: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          is_forward: bool,
+          locked_text: bool,
+          media_files: ::Array[top],
+          previews: ::Array[top],
+          price: Integer,
+          rf_guest: String,
+          rf_partner: String,
+          rf_tag: String,
+          text: String,
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

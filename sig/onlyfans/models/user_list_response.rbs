@@ -1,0 +1,1274 @@
+module Onlyfans
+  module Models
+    type user_list_response =
+      {
+        _meta: Onlyfans::Models::UserListResponse::Meta,
+        data: Onlyfans::Models::UserListResponse::Data
+      }
+
+    class UserListResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::UserListResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::UserListResponse::Meta
+      ) -> Onlyfans::Models::UserListResponse::Meta
+
+      attr_reader data: Onlyfans::Models::UserListResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::UserListResponse::Data
+      ) -> Onlyfans::Models::UserListResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::UserListResponse::Meta,
+        ?data: Onlyfans::Models::UserListResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::UserListResponse::Meta,
+        data: Onlyfans::Models::UserListResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::UserListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::UserListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::UserListResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::UserListResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::UserListResponse::Meta::Cache
+        ) -> Onlyfans::Models::UserListResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::UserListResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::UserListResponse::Meta::Credits
+        ) -> Onlyfans::Models::UserListResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::UserListResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::UserListResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::UserListResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::UserListResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::UserListResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::UserListResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::UserListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::UserListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::UserListResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_accessor limit_day: String?
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader notice: String?
+
+          def notice=: (String) -> String
+
+          attr_accessor remaining_day: String?
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: String?,
+            ?limit_minute: Integer,
+            ?notice: String,
+            ?remaining_day: String?,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          :number_1000000 => Onlyfans::Models::UserListResponse::Data::Const1000000
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader number_1000000: Onlyfans::Models::UserListResponse::Data::Const1000000?
+
+        def number_1000000=: (
+          Onlyfans::Models::UserListResponse::Data::Const1000000
+        ) -> Onlyfans::Models::UserListResponse::Data::Const1000000
+
+        def initialize: (
+          ?number_1000000: Onlyfans::Models::UserListResponse::Data::Const1000000
+        ) -> void
+
+        def to_hash: -> {
+          :number_1000000 => Onlyfans::Models::UserListResponse::Data::Const1000000
+        }
+
+        type const1000000 =
+          {
+            id: Integer,
+            about: String,
+            archived_posts_count: Integer,
+            audios_count: Integer,
+            avatar: String,
+            avatar_header_converter_upload: bool,
+            avatar_thumbs: Onlyfans::Models::UserListResponse::Data::Const1000000::AvatarThumbs,
+            can_add_subscriber: bool,
+            can_chat: bool,
+            can_comment_story: bool,
+            can_create_promotion: bool,
+            can_create_trial: bool,
+            can_earn: bool,
+            can_look_story: bool,
+            can_pay_internal: bool,
+            can_receive_chat_message: bool,
+            can_report: bool,
+            can_restrict: bool,
+            can_trial_send: bool,
+            can_unsubscribe: bool,
+            current_subscribe_price: Integer,
+            display_name: String,
+            favorited_count: Integer,
+            favorites_count: Integer,
+            first_published_post_date: String,
+            has_friends: bool,
+            has_labels: bool,
+            has_links: bool,
+            has_not_viewed_story: bool,
+            has_pinned_posts: bool,
+            has_scheduled_stream: bool,
+            has_stories: bool,
+            has_stream: bool,
+            header: String?,
+            header_size: String?,
+            header_thumbs: String?,
+            is_active: bool,
+            is_adult_content: bool,
+            is_blocked: bool,
+            is_friend: bool,
+            is_markdown_disabled_for_about: bool,
+            is_paywall_required: bool,
+            is_pending_autoprolong: bool,
+            is_performer: bool,
+            is_private_restriction: bool,
+            is_real_performer: bool,
+            is_referrer_allowed: bool,
+            is_restricted: bool,
+            is_spotify_connected: bool,
+            is_spring_connected: bool,
+            is_verified: bool,
+            join_date: String,
+            last_seen: String,
+            lists_states: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::ListsState],
+            location: String?,
+            medias_count: Integer,
+            name: String,
+            notice: String,
+            photos_count: Integer,
+            posts_count: Integer,
+            private_archived_posts_count: Integer,
+            show_media_count: bool,
+            show_posts_in_feed: bool,
+            show_subscribers_count: bool,
+            subscribed_by: bool,
+            subscribed_by_autoprolong: bool,
+            subscribed_by_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData,
+            subscribed_by_expire: bool,
+            subscribed_by_expire_date: String,
+            subscribed_is_expired_now: bool,
+            subscribed_on: String?,
+            subscribed_on_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedOnData,
+            subscribed_on_duration: String,
+            subscribed_on_expired_now: bool,
+            subscribe_price: Integer,
+            subscribers_count: String?,
+            tips_enabled: bool,
+            tips_max: Integer,
+            tips_min: Integer,
+            tips_min_internal: Integer,
+            tips_text_enabled: bool,
+            username: String,
+            videos_count: Integer,
+            view: String,
+            website: String?,
+            wishlist: String?
+          }
+
+        class Const1000000 < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader about: String?
+
+          def about=: (String) -> String
+
+          attr_reader archived_posts_count: Integer?
+
+          def archived_posts_count=: (Integer) -> Integer
+
+          attr_reader audios_count: Integer?
+
+          def audios_count=: (Integer) -> Integer
+
+          attr_reader avatar: String?
+
+          def avatar=: (String) -> String
+
+          attr_reader avatar_header_converter_upload: bool?
+
+          def avatar_header_converter_upload=: (bool) -> bool
+
+          attr_reader avatar_thumbs: Onlyfans::Models::UserListResponse::Data::Const1000000::AvatarThumbs?
+
+          def avatar_thumbs=: (
+            Onlyfans::Models::UserListResponse::Data::Const1000000::AvatarThumbs
+          ) -> Onlyfans::Models::UserListResponse::Data::Const1000000::AvatarThumbs
+
+          attr_reader can_add_subscriber: bool?
+
+          def can_add_subscriber=: (bool) -> bool
+
+          attr_reader can_chat: bool?
+
+          def can_chat=: (bool) -> bool
+
+          attr_reader can_comment_story: bool?
+
+          def can_comment_story=: (bool) -> bool
+
+          attr_reader can_create_promotion: bool?
+
+          def can_create_promotion=: (bool) -> bool
+
+          attr_reader can_create_trial: bool?
+
+          def can_create_trial=: (bool) -> bool
+
+          attr_reader can_earn: bool?
+
+          def can_earn=: (bool) -> bool
+
+          attr_reader can_look_story: bool?
+
+          def can_look_story=: (bool) -> bool
+
+          attr_reader can_pay_internal: bool?
+
+          def can_pay_internal=: (bool) -> bool
+
+          attr_reader can_receive_chat_message: bool?
+
+          def can_receive_chat_message=: (bool) -> bool
+
+          attr_reader can_report: bool?
+
+          def can_report=: (bool) -> bool
+
+          attr_reader can_restrict: bool?
+
+          def can_restrict=: (bool) -> bool
+
+          attr_reader can_trial_send: bool?
+
+          def can_trial_send=: (bool) -> bool
+
+          attr_reader can_unsubscribe: bool?
+
+          def can_unsubscribe=: (bool) -> bool
+
+          attr_reader current_subscribe_price: Integer?
+
+          def current_subscribe_price=: (Integer) -> Integer
+
+          attr_reader display_name: String?
+
+          def display_name=: (String) -> String
+
+          attr_reader favorited_count: Integer?
+
+          def favorited_count=: (Integer) -> Integer
+
+          attr_reader favorites_count: Integer?
+
+          def favorites_count=: (Integer) -> Integer
+
+          attr_reader first_published_post_date: String?
+
+          def first_published_post_date=: (String) -> String
+
+          attr_reader has_friends: bool?
+
+          def has_friends=: (bool) -> bool
+
+          attr_reader has_labels: bool?
+
+          def has_labels=: (bool) -> bool
+
+          attr_reader has_links: bool?
+
+          def has_links=: (bool) -> bool
+
+          attr_reader has_not_viewed_story: bool?
+
+          def has_not_viewed_story=: (bool) -> bool
+
+          attr_reader has_pinned_posts: bool?
+
+          def has_pinned_posts=: (bool) -> bool
+
+          attr_reader has_scheduled_stream: bool?
+
+          def has_scheduled_stream=: (bool) -> bool
+
+          attr_reader has_stories: bool?
+
+          def has_stories=: (bool) -> bool
+
+          attr_reader has_stream: bool?
+
+          def has_stream=: (bool) -> bool
+
+          attr_accessor header: String?
+
+          attr_accessor header_size: String?
+
+          attr_accessor header_thumbs: String?
+
+          attr_reader is_active: bool?
+
+          def is_active=: (bool) -> bool
+
+          attr_reader is_adult_content: bool?
+
+          def is_adult_content=: (bool) -> bool
+
+          attr_reader is_blocked: bool?
+
+          def is_blocked=: (bool) -> bool
+
+          attr_reader is_friend: bool?
+
+          def is_friend=: (bool) -> bool
+
+          attr_reader is_markdown_disabled_for_about: bool?
+
+          def is_markdown_disabled_for_about=: (bool) -> bool
+
+          attr_reader is_paywall_required: bool?
+
+          def is_paywall_required=: (bool) -> bool
+
+          attr_reader is_pending_autoprolong: bool?
+
+          def is_pending_autoprolong=: (bool) -> bool
+
+          attr_reader is_performer: bool?
+
+          def is_performer=: (bool) -> bool
+
+          attr_reader is_private_restriction: bool?
+
+          def is_private_restriction=: (bool) -> bool
+
+          attr_reader is_real_performer: bool?
+
+          def is_real_performer=: (bool) -> bool
+
+          attr_reader is_referrer_allowed: bool?
+
+          def is_referrer_allowed=: (bool) -> bool
+
+          attr_reader is_restricted: bool?
+
+          def is_restricted=: (bool) -> bool
+
+          attr_reader is_spotify_connected: bool?
+
+          def is_spotify_connected=: (bool) -> bool
+
+          attr_reader is_spring_connected: bool?
+
+          def is_spring_connected=: (bool) -> bool
+
+          attr_reader is_verified: bool?
+
+          def is_verified=: (bool) -> bool
+
+          attr_reader join_date: String?
+
+          def join_date=: (String) -> String
+
+          attr_reader last_seen: String?
+
+          def last_seen=: (String) -> String
+
+          attr_reader lists_states: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::ListsState]?
+
+          def lists_states=: (
+            ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::ListsState]
+          ) -> ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::ListsState]
+
+          attr_accessor location: String?
+
+          attr_reader medias_count: Integer?
+
+          def medias_count=: (Integer) -> Integer
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader notice: String?
+
+          def notice=: (String) -> String
+
+          attr_reader photos_count: Integer?
+
+          def photos_count=: (Integer) -> Integer
+
+          attr_reader posts_count: Integer?
+
+          def posts_count=: (Integer) -> Integer
+
+          attr_reader private_archived_posts_count: Integer?
+
+          def private_archived_posts_count=: (Integer) -> Integer
+
+          attr_reader show_media_count: bool?
+
+          def show_media_count=: (bool) -> bool
+
+          attr_reader show_posts_in_feed: bool?
+
+          def show_posts_in_feed=: (bool) -> bool
+
+          attr_reader show_subscribers_count: bool?
+
+          def show_subscribers_count=: (bool) -> bool
+
+          attr_reader subscribed_by: bool?
+
+          def subscribed_by=: (bool) -> bool
+
+          attr_reader subscribed_by_autoprolong: bool?
+
+          def subscribed_by_autoprolong=: (bool) -> bool
+
+          attr_reader subscribed_by_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData?
+
+          def subscribed_by_data=: (
+            Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData
+          ) -> Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData
+
+          attr_reader subscribed_by_expire: bool?
+
+          def subscribed_by_expire=: (bool) -> bool
+
+          attr_reader subscribed_by_expire_date: String?
+
+          def subscribed_by_expire_date=: (String) -> String
+
+          attr_reader subscribed_is_expired_now: bool?
+
+          def subscribed_is_expired_now=: (bool) -> bool
+
+          attr_accessor subscribed_on: String?
+
+          attr_reader subscribed_on_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedOnData?
+
+          def subscribed_on_data=: (
+            Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedOnData
+          ) -> Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedOnData
+
+          attr_reader subscribed_on_duration: String?
+
+          def subscribed_on_duration=: (String) -> String
+
+          attr_reader subscribed_on_expired_now: bool?
+
+          def subscribed_on_expired_now=: (bool) -> bool
+
+          attr_reader subscribe_price: Integer?
+
+          def subscribe_price=: (Integer) -> Integer
+
+          attr_accessor subscribers_count: String?
+
+          attr_reader tips_enabled: bool?
+
+          def tips_enabled=: (bool) -> bool
+
+          attr_reader tips_max: Integer?
+
+          def tips_max=: (Integer) -> Integer
+
+          attr_reader tips_min: Integer?
+
+          def tips_min=: (Integer) -> Integer
+
+          attr_reader tips_min_internal: Integer?
+
+          def tips_min_internal=: (Integer) -> Integer
+
+          attr_reader tips_text_enabled: bool?
+
+          def tips_text_enabled=: (bool) -> bool
+
+          attr_reader username: String?
+
+          def username=: (String) -> String
+
+          attr_reader videos_count: Integer?
+
+          def videos_count=: (Integer) -> Integer
+
+          attr_reader view: String?
+
+          def view=: (String) -> String
+
+          attr_accessor website: String?
+
+          attr_accessor wishlist: String?
+
+          def initialize: (
+            ?id: Integer,
+            ?about: String,
+            ?archived_posts_count: Integer,
+            ?audios_count: Integer,
+            ?avatar: String,
+            ?avatar_header_converter_upload: bool,
+            ?avatar_thumbs: Onlyfans::Models::UserListResponse::Data::Const1000000::AvatarThumbs,
+            ?can_add_subscriber: bool,
+            ?can_chat: bool,
+            ?can_comment_story: bool,
+            ?can_create_promotion: bool,
+            ?can_create_trial: bool,
+            ?can_earn: bool,
+            ?can_look_story: bool,
+            ?can_pay_internal: bool,
+            ?can_receive_chat_message: bool,
+            ?can_report: bool,
+            ?can_restrict: bool,
+            ?can_trial_send: bool,
+            ?can_unsubscribe: bool,
+            ?current_subscribe_price: Integer,
+            ?display_name: String,
+            ?favorited_count: Integer,
+            ?favorites_count: Integer,
+            ?first_published_post_date: String,
+            ?has_friends: bool,
+            ?has_labels: bool,
+            ?has_links: bool,
+            ?has_not_viewed_story: bool,
+            ?has_pinned_posts: bool,
+            ?has_scheduled_stream: bool,
+            ?has_stories: bool,
+            ?has_stream: bool,
+            ?header: String?,
+            ?header_size: String?,
+            ?header_thumbs: String?,
+            ?is_active: bool,
+            ?is_adult_content: bool,
+            ?is_blocked: bool,
+            ?is_friend: bool,
+            ?is_markdown_disabled_for_about: bool,
+            ?is_paywall_required: bool,
+            ?is_pending_autoprolong: bool,
+            ?is_performer: bool,
+            ?is_private_restriction: bool,
+            ?is_real_performer: bool,
+            ?is_referrer_allowed: bool,
+            ?is_restricted: bool,
+            ?is_spotify_connected: bool,
+            ?is_spring_connected: bool,
+            ?is_verified: bool,
+            ?join_date: String,
+            ?last_seen: String,
+            ?lists_states: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::ListsState],
+            ?location: String?,
+            ?medias_count: Integer,
+            ?name: String,
+            ?notice: String,
+            ?photos_count: Integer,
+            ?posts_count: Integer,
+            ?private_archived_posts_count: Integer,
+            ?show_media_count: bool,
+            ?show_posts_in_feed: bool,
+            ?show_subscribers_count: bool,
+            ?subscribed_by: bool,
+            ?subscribed_by_autoprolong: bool,
+            ?subscribed_by_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData,
+            ?subscribed_by_expire: bool,
+            ?subscribed_by_expire_date: String,
+            ?subscribed_is_expired_now: bool,
+            ?subscribed_on: String?,
+            ?subscribed_on_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedOnData,
+            ?subscribed_on_duration: String,
+            ?subscribed_on_expired_now: bool,
+            ?subscribe_price: Integer,
+            ?subscribers_count: String?,
+            ?tips_enabled: bool,
+            ?tips_max: Integer,
+            ?tips_min: Integer,
+            ?tips_min_internal: Integer,
+            ?tips_text_enabled: bool,
+            ?username: String,
+            ?videos_count: Integer,
+            ?view: String,
+            ?website: String?,
+            ?wishlist: String?
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            about: String,
+            archived_posts_count: Integer,
+            audios_count: Integer,
+            avatar: String,
+            avatar_header_converter_upload: bool,
+            avatar_thumbs: Onlyfans::Models::UserListResponse::Data::Const1000000::AvatarThumbs,
+            can_add_subscriber: bool,
+            can_chat: bool,
+            can_comment_story: bool,
+            can_create_promotion: bool,
+            can_create_trial: bool,
+            can_earn: bool,
+            can_look_story: bool,
+            can_pay_internal: bool,
+            can_receive_chat_message: bool,
+            can_report: bool,
+            can_restrict: bool,
+            can_trial_send: bool,
+            can_unsubscribe: bool,
+            current_subscribe_price: Integer,
+            display_name: String,
+            favorited_count: Integer,
+            favorites_count: Integer,
+            first_published_post_date: String,
+            has_friends: bool,
+            has_labels: bool,
+            has_links: bool,
+            has_not_viewed_story: bool,
+            has_pinned_posts: bool,
+            has_scheduled_stream: bool,
+            has_stories: bool,
+            has_stream: bool,
+            header: String?,
+            header_size: String?,
+            header_thumbs: String?,
+            is_active: bool,
+            is_adult_content: bool,
+            is_blocked: bool,
+            is_friend: bool,
+            is_markdown_disabled_for_about: bool,
+            is_paywall_required: bool,
+            is_pending_autoprolong: bool,
+            is_performer: bool,
+            is_private_restriction: bool,
+            is_real_performer: bool,
+            is_referrer_allowed: bool,
+            is_restricted: bool,
+            is_spotify_connected: bool,
+            is_spring_connected: bool,
+            is_verified: bool,
+            join_date: String,
+            last_seen: String,
+            lists_states: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::ListsState],
+            location: String?,
+            medias_count: Integer,
+            name: String,
+            notice: String,
+            photos_count: Integer,
+            posts_count: Integer,
+            private_archived_posts_count: Integer,
+            show_media_count: bool,
+            show_posts_in_feed: bool,
+            show_subscribers_count: bool,
+            subscribed_by: bool,
+            subscribed_by_autoprolong: bool,
+            subscribed_by_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData,
+            subscribed_by_expire: bool,
+            subscribed_by_expire_date: String,
+            subscribed_is_expired_now: bool,
+            subscribed_on: String?,
+            subscribed_on_data: Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedOnData,
+            subscribed_on_duration: String,
+            subscribed_on_expired_now: bool,
+            subscribe_price: Integer,
+            subscribers_count: String?,
+            tips_enabled: bool,
+            tips_max: Integer,
+            tips_min: Integer,
+            tips_min_internal: Integer,
+            tips_text_enabled: bool,
+            username: String,
+            videos_count: Integer,
+            view: String,
+            website: String?,
+            wishlist: String?
+          }
+
+          type avatar_thumbs = { :c144 => String, :c50 => String }
+
+          class AvatarThumbs < Onlyfans::Internal::Type::BaseModel
+            attr_reader c144: String?
+
+            def c144=: (String) -> String
+
+            attr_reader c50: String?
+
+            def c50=: (String) -> String
+
+            def initialize: (?c144: String, ?c50: String) -> void
+
+            def to_hash: -> { :c144 => String, :c50 => String }
+          end
+
+          type lists_state =
+            {
+              id: String,
+              can_add_user: bool,
+              cannot_add_user_reason: String?,
+              has_user: bool,
+              name: String,
+              type: String
+            }
+
+          class ListsState < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: String?
+
+            def id=: (String) -> String
+
+            attr_reader can_add_user: bool?
+
+            def can_add_user=: (bool) -> bool
+
+            attr_accessor cannot_add_user_reason: String?
+
+            attr_reader has_user: bool?
+
+            def has_user=: (bool) -> bool
+
+            attr_reader name: String?
+
+            def name=: (String) -> String
+
+            attr_reader type: String?
+
+            def type=: (String) -> String
+
+            def initialize: (
+              ?id: String,
+              ?can_add_user: bool,
+              ?cannot_add_user_reason: String?,
+              ?has_user: bool,
+              ?name: String,
+              ?type: String
+            ) -> void
+
+            def to_hash: -> {
+              id: String,
+              can_add_user: bool,
+              cannot_add_user_reason: String?,
+              has_user: bool,
+              name: String,
+              type: String
+            }
+          end
+
+          type subscribed_by_data =
+            {
+              discount_finished_at: String?,
+              discount_percent: Integer,
+              discount_period: Integer,
+              discount_started_at: String?,
+              duration: String,
+              expired_at: String,
+              has_active_paid_subscriptions: bool,
+              is_muted: bool,
+              new_price: Integer,
+              price: Integer,
+              regular_price: Integer,
+              renewed_at: String?,
+              show_posts_in_feed: bool,
+              status: String,
+              subscribe_at: String,
+              subscribe_price: Integer,
+              subscribes: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData::Subscribe],
+              unsubscribe_reason: String
+            }
+
+          class SubscribedByData < Onlyfans::Internal::Type::BaseModel
+            attr_accessor discount_finished_at: String?
+
+            attr_reader discount_percent: Integer?
+
+            def discount_percent=: (Integer) -> Integer
+
+            attr_reader discount_period: Integer?
+
+            def discount_period=: (Integer) -> Integer
+
+            attr_accessor discount_started_at: String?
+
+            attr_reader duration: String?
+
+            def duration=: (String) -> String
+
+            attr_reader expired_at: String?
+
+            def expired_at=: (String) -> String
+
+            attr_reader has_active_paid_subscriptions: bool?
+
+            def has_active_paid_subscriptions=: (bool) -> bool
+
+            attr_reader is_muted: bool?
+
+            def is_muted=: (bool) -> bool
+
+            attr_reader new_price: Integer?
+
+            def new_price=: (Integer) -> Integer
+
+            attr_reader price: Integer?
+
+            def price=: (Integer) -> Integer
+
+            attr_reader regular_price: Integer?
+
+            def regular_price=: (Integer) -> Integer
+
+            attr_accessor renewed_at: String?
+
+            attr_reader show_posts_in_feed: bool?
+
+            def show_posts_in_feed=: (bool) -> bool
+
+            attr_reader status: String?
+
+            def status=: (String) -> String
+
+            attr_reader subscribe_at: String?
+
+            def subscribe_at=: (String) -> String
+
+            attr_reader subscribe_price: Integer?
+
+            def subscribe_price=: (Integer) -> Integer
+
+            attr_reader subscribes: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData::Subscribe]?
+
+            def subscribes=: (
+              ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData::Subscribe]
+            ) -> ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData::Subscribe]
+
+            attr_reader unsubscribe_reason: String?
+
+            def unsubscribe_reason=: (String) -> String
+
+            def initialize: (
+              ?discount_finished_at: String?,
+              ?discount_percent: Integer,
+              ?discount_period: Integer,
+              ?discount_started_at: String?,
+              ?duration: String,
+              ?expired_at: String,
+              ?has_active_paid_subscriptions: bool,
+              ?is_muted: bool,
+              ?new_price: Integer,
+              ?price: Integer,
+              ?regular_price: Integer,
+              ?renewed_at: String?,
+              ?show_posts_in_feed: bool,
+              ?status: String,
+              ?subscribe_at: String,
+              ?subscribe_price: Integer,
+              ?subscribes: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData::Subscribe],
+              ?unsubscribe_reason: String
+            ) -> void
+
+            def to_hash: -> {
+              discount_finished_at: String?,
+              discount_percent: Integer,
+              discount_period: Integer,
+              discount_started_at: String?,
+              duration: String,
+              expired_at: String,
+              has_active_paid_subscriptions: bool,
+              is_muted: bool,
+              new_price: Integer,
+              price: Integer,
+              regular_price: Integer,
+              renewed_at: String?,
+              show_posts_in_feed: bool,
+              status: String,
+              subscribe_at: String,
+              subscribe_price: Integer,
+              subscribes: ::Array[Onlyfans::Models::UserListResponse::Data::Const1000000::SubscribedByData::Subscribe],
+              unsubscribe_reason: String
+            }
+
+            type subscribe =
+              {
+                id: Integer,
+                action: String,
+                cancel_date: String?,
+                date: String,
+                discount: Integer,
+                duration: Integer,
+                earning_id: Integer,
+                expire_date: String,
+                is_current: bool,
+                offer_end: String?,
+                offer_start: String?,
+                price: Integer,
+                regular_price: Integer,
+                start_date: String,
+                subscriber_id: Integer,
+                type: String,
+                user_id: Integer
+              }
+
+            class Subscribe < Onlyfans::Internal::Type::BaseModel
+              attr_reader id: Integer?
+
+              def id=: (Integer) -> Integer
+
+              attr_reader action: String?
+
+              def action=: (String) -> String
+
+              attr_accessor cancel_date: String?
+
+              attr_reader date: String?
+
+              def date=: (String) -> String
+
+              attr_reader discount: Integer?
+
+              def discount=: (Integer) -> Integer
+
+              attr_reader duration: Integer?
+
+              def duration=: (Integer) -> Integer
+
+              attr_reader earning_id: Integer?
+
+              def earning_id=: (Integer) -> Integer
+
+              attr_reader expire_date: String?
+
+              def expire_date=: (String) -> String
+
+              attr_reader is_current: bool?
+
+              def is_current=: (bool) -> bool
+
+              attr_accessor offer_end: String?
+
+              attr_accessor offer_start: String?
+
+              attr_reader price: Integer?
+
+              def price=: (Integer) -> Integer
+
+              attr_reader regular_price: Integer?
+
+              def regular_price=: (Integer) -> Integer
+
+              attr_reader start_date: String?
+
+              def start_date=: (String) -> String
+
+              attr_reader subscriber_id: Integer?
+
+              def subscriber_id=: (Integer) -> Integer
+
+              attr_reader type: String?
+
+              def type=: (String) -> String
+
+              attr_reader user_id: Integer?
+
+              def user_id=: (Integer) -> Integer
+
+              def initialize: (
+                ?id: Integer,
+                ?action: String,
+                ?cancel_date: String?,
+                ?date: String,
+                ?discount: Integer,
+                ?duration: Integer,
+                ?earning_id: Integer,
+                ?expire_date: String,
+                ?is_current: bool,
+                ?offer_end: String?,
+                ?offer_start: String?,
+                ?price: Integer,
+                ?regular_price: Integer,
+                ?start_date: String,
+                ?subscriber_id: Integer,
+                ?type: String,
+                ?user_id: Integer
+              ) -> void
+
+              def to_hash: -> {
+                id: Integer,
+                action: String,
+                cancel_date: String?,
+                date: String,
+                discount: Integer,
+                duration: Integer,
+                earning_id: Integer,
+                expire_date: String,
+                is_current: bool,
+                offer_end: String?,
+                offer_start: String?,
+                price: Integer,
+                regular_price: Integer,
+                start_date: String,
+                subscriber_id: Integer,
+                type: String,
+                user_id: Integer
+              }
+            end
+          end
+
+          type subscribed_on_data =
+            {
+              discount_finished_at: String?,
+              discount_percent: Integer,
+              discount_period: Integer,
+              discount_started_at: String?,
+              duration: String,
+              expired_at: String,
+              has_active_paid_subscriptions: bool,
+              is_muted: bool,
+              messages_summ: Integer,
+              new_price: Float,
+              posts_summ: Integer,
+              price: Float,
+              regular_price: Float,
+              renewed_at: String?,
+              status: String?,
+              streams_summ: Integer,
+              subscribe_at: String,
+              subscribe_price: Float,
+              subscribes: ::Array[top],
+              subscribes_summ: Integer,
+              tips_summ: Integer,
+              total_summ: Integer,
+              unsubscribe_reason: String
+            }
+
+          class SubscribedOnData < Onlyfans::Internal::Type::BaseModel
+            attr_accessor discount_finished_at: String?
+
+            attr_reader discount_percent: Integer?
+
+            def discount_percent=: (Integer) -> Integer
+
+            attr_reader discount_period: Integer?
+
+            def discount_period=: (Integer) -> Integer
+
+            attr_accessor discount_started_at: String?
+
+            attr_reader duration: String?
+
+            def duration=: (String) -> String
+
+            attr_reader expired_at: String?
+
+            def expired_at=: (String) -> String
+
+            attr_reader has_active_paid_subscriptions: bool?
+
+            def has_active_paid_subscriptions=: (bool) -> bool
+
+            attr_reader is_muted: bool?
+
+            def is_muted=: (bool) -> bool
+
+            attr_reader messages_summ: Integer?
+
+            def messages_summ=: (Integer) -> Integer
+
+            attr_reader new_price: Float?
+
+            def new_price=: (Float) -> Float
+
+            attr_reader posts_summ: Integer?
+
+            def posts_summ=: (Integer) -> Integer
+
+            attr_reader price: Float?
+
+            def price=: (Float) -> Float
+
+            attr_reader regular_price: Float?
+
+            def regular_price=: (Float) -> Float
+
+            attr_accessor renewed_at: String?
+
+            attr_accessor status: String?
+
+            attr_reader streams_summ: Integer?
+
+            def streams_summ=: (Integer) -> Integer
+
+            attr_reader subscribe_at: String?
+
+            def subscribe_at=: (String) -> String
+
+            attr_reader subscribe_price: Float?
+
+            def subscribe_price=: (Float) -> Float
+
+            attr_reader subscribes: ::Array[top]?
+
+            def subscribes=: (::Array[top]) -> ::Array[top]
+
+            attr_reader subscribes_summ: Integer?
+
+            def subscribes_summ=: (Integer) -> Integer
+
+            attr_reader tips_summ: Integer?
+
+            def tips_summ=: (Integer) -> Integer
+
+            attr_reader total_summ: Integer?
+
+            def total_summ=: (Integer) -> Integer
+
+            attr_reader unsubscribe_reason: String?
+
+            def unsubscribe_reason=: (String) -> String
+
+            def initialize: (
+              ?discount_finished_at: String?,
+              ?discount_percent: Integer,
+              ?discount_period: Integer,
+              ?discount_started_at: String?,
+              ?duration: String,
+              ?expired_at: String,
+              ?has_active_paid_subscriptions: bool,
+              ?is_muted: bool,
+              ?messages_summ: Integer,
+              ?new_price: Float,
+              ?posts_summ: Integer,
+              ?price: Float,
+              ?regular_price: Float,
+              ?renewed_at: String?,
+              ?status: String?,
+              ?streams_summ: Integer,
+              ?subscribe_at: String,
+              ?subscribe_price: Float,
+              ?subscribes: ::Array[top],
+              ?subscribes_summ: Integer,
+              ?tips_summ: Integer,
+              ?total_summ: Integer,
+              ?unsubscribe_reason: String
+            ) -> void
+
+            def to_hash: -> {
+              discount_finished_at: String?,
+              discount_percent: Integer,
+              discount_period: Integer,
+              discount_started_at: String?,
+              duration: String,
+              expired_at: String,
+              has_active_paid_subscriptions: bool,
+              is_muted: bool,
+              messages_summ: Integer,
+              new_price: Float,
+              posts_summ: Integer,
+              price: Float,
+              regular_price: Float,
+              renewed_at: String?,
+              status: String?,
+              streams_summ: Integer,
+              subscribe_at: String,
+              subscribe_price: Float,
+              subscribes: ::Array[top],
+              subscribes_summ: Integer,
+              tips_summ: Integer,
+              total_summ: Integer,
+              unsubscribe_reason: String
+            }
+          end
+        end
+      end
+    end
+  end
+end

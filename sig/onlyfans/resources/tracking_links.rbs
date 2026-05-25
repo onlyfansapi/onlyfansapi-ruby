@@ -1,0 +1,75 @@
+module Onlyfans
+  module Resources
+    class TrackingLinks
+      attr_reader tags: Onlyfans::Resources::TrackingLinks::Tags
+
+      def create: (
+        String account,
+        name: String,
+        ?tags: ::Array[String],
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::TrackingLinkCreateResponse
+
+      def retrieve: (
+        String tracking_link_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::TrackingLinkRetrieveResponse
+
+      def list: (
+        String account,
+        ?end_date: String?,
+        ?limit: Integer?,
+        ?offset: Integer?,
+        ?sort: Onlyfans::Models::TrackingLinkListParams::sort?,
+        ?sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        ?start_date: String?,
+        ?synchronous: bool?,
+        ?with_deleted: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::TrackingLinkListResponse
+
+      def delete: (
+        String tracking_link_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::TrackingLinkDeleteResponse
+
+      def get_cohort_arps: (
+        String tracking_link_id,
+        account: String,
+        ?acquisition_end: String,
+        ?acquisition_start: String,
+        ?revenue_basis: Onlyfans::Models::TrackingLinkGetCohortArpsParams::revenue_basis,
+        ?request_options: Onlyfans::request_opts
+      ) -> nil
+
+      def get_stats: (
+        String tracking_link_id,
+        account: String,
+        ?date_end: String,
+        ?date_start: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::TrackingLinkGetStatsResponse
+
+      def list_spenders: (
+        String tracking_link_id,
+        account: String,
+        ?limit: Integer,
+        ?min_spend: Float,
+        ?offset: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::TrackingLinkListSpendersResponse
+
+      def list_subscribers: (
+        String tracking_link_id,
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::TrackingLinkListSubscribersResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

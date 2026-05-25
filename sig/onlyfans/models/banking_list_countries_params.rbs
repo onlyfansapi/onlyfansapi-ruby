@@ -1,0 +1,23 @@
+module Onlyfans
+  module Models
+    type banking_list_countries_params =
+      { account: String } & Onlyfans::Internal::Type::request_parameters
+
+    class BankingListCountriesParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      def initialize: (
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

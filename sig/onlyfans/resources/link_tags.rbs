@@ -1,0 +1,12 @@
+module Onlyfans
+  module Resources
+    class LinkTags
+      def list: (
+        ?type: Onlyfans::Models::LinkTagListParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::LinkTagListResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

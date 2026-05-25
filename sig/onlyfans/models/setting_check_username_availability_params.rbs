@@ -1,0 +1,28 @@
+module Onlyfans
+  module Models
+    type setting_check_username_availability_params =
+      { account: String, username: String }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SettingCheckUsernameAvailabilityParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor username: String
+
+      def initialize: (
+        account: String,
+        username: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        username: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

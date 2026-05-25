@@ -1,0 +1,36 @@
+module Onlyfans
+  module Models
+    type story_list_viewers_params =
+      { account: String, story_id: Integer, limit: Integer?, offset: Integer? }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class StoryListViewersParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor story_id: Integer
+
+      attr_accessor limit: Integer?
+
+      attr_accessor offset: Integer?
+
+      def initialize: (
+        account: String,
+        story_id: Integer,
+        ?limit: Integer?,
+        ?offset: Integer?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        story_id: Integer,
+        limit: Integer?,
+        offset: Integer?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

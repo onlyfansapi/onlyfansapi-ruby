@@ -1,0 +1,377 @@
+module Onlyfans
+  module Models
+    type data_export_list_response =
+      {
+        _meta: Onlyfans::Models::DataExportListResponse::Meta,
+        data: Onlyfans::Models::DataExportListResponse::Data
+      }
+
+    class DataExportListResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::DataExportListResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::DataExportListResponse::Meta
+      ) -> Onlyfans::Models::DataExportListResponse::Meta
+
+      attr_reader data: Onlyfans::Models::DataExportListResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::DataExportListResponse::Data
+      ) -> Onlyfans::Models::DataExportListResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::DataExportListResponse::Meta,
+        ?data: Onlyfans::Models::DataExportListResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::DataExportListResponse::Meta,
+        data: Onlyfans::Models::DataExportListResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::DataExportListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::DataExportListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::DataExportListResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::DataExportListResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::DataExportListResponse::Meta::Cache
+        ) -> Onlyfans::Models::DataExportListResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::DataExportListResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::DataExportListResponse::Meta::Credits
+        ) -> Onlyfans::Models::DataExportListResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::DataExportListResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::DataExportListResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::DataExportListResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::DataExportListResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::DataExportListResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::DataExportListResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::DataExportListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::DataExportListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::DataExportListResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_accessor limit_day: String?
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader notice: String?
+
+          def notice=: (String) -> String
+
+          attr_accessor remaining_day: String?
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: String?,
+            ?limit_minute: Integer,
+            ?notice: String,
+            ?remaining_day: String?,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          data: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data],
+          meta: Onlyfans::Models::DataExportListResponse::Data::Meta
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader data: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data]?
+
+        def data=: (
+          ::Array[Onlyfans::Models::DataExportListResponse::Data::Data]
+        ) -> ::Array[Onlyfans::Models::DataExportListResponse::Data::Data]
+
+        attr_reader meta: Onlyfans::Models::DataExportListResponse::Data::Meta?
+
+        def meta=: (
+          Onlyfans::Models::DataExportListResponse::Data::Meta
+        ) -> Onlyfans::Models::DataExportListResponse::Data::Meta
+
+        def initialize: (
+          ?data: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data],
+          ?meta: Onlyfans::Models::DataExportListResponse::Data::Meta
+        ) -> void
+
+        def to_hash: -> {
+          data: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data],
+          meta: Onlyfans::Models::DataExportListResponse::Data::Meta
+        }
+
+        type data =
+          {
+            id: String,
+            accounts: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data::Account],
+            completed_at: String,
+            created_at: String,
+            credit_cost: Integer,
+            download_url: String,
+            download_url_expires_at: String,
+            end_date: String,
+            export_columns: ::Array[String],
+            failed_at: String?,
+            failed_reason: String?,
+            file_type: String,
+            progress_percentage: Integer,
+            rows_processed: Integer,
+            start_date: String,
+            status: String,
+            total_rows: Integer,
+            type: String
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: String?
+
+          def id=: (String) -> String
+
+          attr_reader accounts: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data::Account]?
+
+          def accounts=: (
+            ::Array[Onlyfans::Models::DataExportListResponse::Data::Data::Account]
+          ) -> ::Array[Onlyfans::Models::DataExportListResponse::Data::Data::Account]
+
+          attr_reader completed_at: String?
+
+          def completed_at=: (String) -> String
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_reader credit_cost: Integer?
+
+          def credit_cost=: (Integer) -> Integer
+
+          attr_reader download_url: String?
+
+          def download_url=: (String) -> String
+
+          attr_reader download_url_expires_at: String?
+
+          def download_url_expires_at=: (String) -> String
+
+          attr_reader end_date: String?
+
+          def end_date=: (String) -> String
+
+          attr_reader export_columns: ::Array[String]?
+
+          def export_columns=: (::Array[String]) -> ::Array[String]
+
+          attr_accessor failed_at: String?
+
+          attr_accessor failed_reason: String?
+
+          attr_reader file_type: String?
+
+          def file_type=: (String) -> String
+
+          attr_reader progress_percentage: Integer?
+
+          def progress_percentage=: (Integer) -> Integer
+
+          attr_reader rows_processed: Integer?
+
+          def rows_processed=: (Integer) -> Integer
+
+          attr_reader start_date: String?
+
+          def start_date=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          attr_reader total_rows: Integer?
+
+          def total_rows=: (Integer) -> Integer
+
+          attr_reader type: String?
+
+          def type=: (String) -> String
+
+          def initialize: (
+            ?id: String,
+            ?accounts: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data::Account],
+            ?completed_at: String,
+            ?created_at: String,
+            ?credit_cost: Integer,
+            ?download_url: String,
+            ?download_url_expires_at: String,
+            ?end_date: String,
+            ?export_columns: ::Array[String],
+            ?failed_at: String?,
+            ?failed_reason: String?,
+            ?file_type: String,
+            ?progress_percentage: Integer,
+            ?rows_processed: Integer,
+            ?start_date: String,
+            ?status: String,
+            ?total_rows: Integer,
+            ?type: String
+          ) -> void
+
+          def to_hash: -> {
+            id: String,
+            accounts: ::Array[Onlyfans::Models::DataExportListResponse::Data::Data::Account],
+            completed_at: String,
+            created_at: String,
+            credit_cost: Integer,
+            download_url: String,
+            download_url_expires_at: String,
+            end_date: String,
+            export_columns: ::Array[String],
+            failed_at: String?,
+            failed_reason: String?,
+            file_type: String,
+            progress_percentage: Integer,
+            rows_processed: Integer,
+            start_date: String,
+            status: String,
+            total_rows: Integer,
+            type: String
+          }
+
+          type account = { id: String, display_name: String }
+
+          class Account < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: String?
+
+            def id=: (String) -> String
+
+            attr_reader display_name: String?
+
+            def display_name=: (String) -> String
+
+            def initialize: (?id: String, ?display_name: String) -> void
+
+            def to_hash: -> { id: String, display_name: String }
+          end
+        end
+
+        type meta =
+          {
+            current_page: Integer,
+            last_page: Integer,
+            per_page: Integer,
+            total: Integer
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader current_page: Integer?
+
+          def current_page=: (Integer) -> Integer
+
+          attr_reader last_page: Integer?
+
+          def last_page=: (Integer) -> Integer
+
+          attr_reader per_page: Integer?
+
+          def per_page=: (Integer) -> Integer
+
+          attr_reader total: Integer?
+
+          def total=: (Integer) -> Integer
+
+          def initialize: (
+            ?current_page: Integer,
+            ?last_page: Integer,
+            ?per_page: Integer,
+            ?total: Integer
+          ) -> void
+
+          def to_hash: -> {
+            current_page: Integer,
+            last_page: Integer,
+            per_page: Integer,
+            total: Integer
+          }
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,101 @@
+module Onlyfans
+  module Models
+    type smart_link_list_conversions_params =
+      {
+        smart_link_id: String,
+        conversion_type: Onlyfans::Models::SmartLinkListConversionsParams::conversion_type,
+        date_end: String,
+        date_start: String,
+        include_bots: bool,
+        include_duplicates: bool,
+        limit: Integer,
+        offset: Integer,
+        onlyfans_user_id: String
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkListConversionsParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor smart_link_id: String
+
+      attr_reader conversion_type: Onlyfans::Models::SmartLinkListConversionsParams::conversion_type?
+
+      def conversion_type=: (
+        Onlyfans::Models::SmartLinkListConversionsParams::conversion_type
+      ) -> Onlyfans::Models::SmartLinkListConversionsParams::conversion_type
+
+      attr_reader date_end: String?
+
+      def date_end=: (String) -> String
+
+      attr_reader date_start: String?
+
+      def date_start=: (String) -> String
+
+      attr_reader include_bots: bool?
+
+      def include_bots=: (bool) -> bool
+
+      attr_reader include_duplicates: bool?
+
+      def include_duplicates=: (bool) -> bool
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_reader onlyfans_user_id: String?
+
+      def onlyfans_user_id=: (String) -> String
+
+      def initialize: (
+        smart_link_id: String,
+        ?conversion_type: Onlyfans::Models::SmartLinkListConversionsParams::conversion_type,
+        ?date_end: String,
+        ?date_start: String,
+        ?include_bots: bool,
+        ?include_duplicates: bool,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?onlyfans_user_id: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        smart_link_id: String,
+        conversion_type: Onlyfans::Models::SmartLinkListConversionsParams::conversion_type,
+        date_end: String,
+        date_start: String,
+        include_bots: bool,
+        include_duplicates: bool,
+        limit: Integer,
+        offset: Integer,
+        onlyfans_user_id: String,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type conversion_type =
+        :new_subscriber
+        | :new_transaction
+        | :message_received
+        | :fan_sent_3_messages
+
+      module ConversionType
+        extend Onlyfans::Internal::Type::Enum
+
+        NEW_SUBSCRIBER: :new_subscriber
+        NEW_TRANSACTION: :new_transaction
+        MESSAGE_RECEIVED: :message_received
+        FAN_SENT_3_MESSAGES: :fan_sent_3_messages
+
+        def self?.values: -> ::Array[Onlyfans::Models::SmartLinkListConversionsParams::conversion_type]
+      end
+    end
+  end
+end

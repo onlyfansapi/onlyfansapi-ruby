@@ -1,0 +1,49 @@
+# frozen_string_literal: true
+
+module Onlyfans
+  module Models
+    module Media
+      module Vault
+        # @see Onlyfans::Resources::Media::Vault::Lists#list
+        class ListListParams < Onlyfans::Internal::Type::BaseModel
+          extend Onlyfans::Internal::Type::RequestParameters::Converter
+          include Onlyfans::Internal::Type::RequestParameters
+
+          # @!attribute account
+          #
+          #   @return [String]
+          required :account, String
+
+          # @!attribute limit
+          #   Number of media to return per page. Default: `24`
+          #
+          #   @return [Integer, nil]
+          optional :limit, Integer
+
+          # @!attribute offset
+          #   The offset used for pagination. Default `0`
+          #
+          #   @return [Integer, nil]
+          optional :offset, Integer
+
+          # @!attribute query
+          #   Optionally, find a list by its name.
+          #
+          #   @return [String, nil]
+          optional :query, String
+
+          # @!method initialize(account:, limit: nil, offset: nil, query: nil, request_options: {})
+          #   @param account [String]
+          #
+          #   @param limit [Integer] Number of media to return per page. Default: `24`
+          #
+          #   @param offset [Integer] The offset used for pagination. Default `0`
+          #
+          #   @param query [String] Optionally, find a list by its name.
+          #
+          #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+        end
+      end
+    end
+  end
+end

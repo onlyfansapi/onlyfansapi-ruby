@@ -1,0 +1,21 @@
+module Onlyfans
+  module Resources
+    class Settings
+      class BlockedCountries
+        def retrieve: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::BlockedCountryRetrieveResponse
+
+        def update: (
+          String account,
+          blocked_countries: ::Array[String],
+          ?blocked_states: ::Array[String],
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::BlockedCountryUpdateResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

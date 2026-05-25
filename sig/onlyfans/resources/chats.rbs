@@ -1,0 +1,74 @@
+module Onlyfans
+  module Resources
+    class Chats
+      attr_reader messages: Onlyfans::Resources::Chats::Messages
+
+      attr_reader mark_all_as_read: Onlyfans::Resources::Chats::MarkAllAsRead
+
+      def list: (
+        String account,
+        ?filter: Onlyfans::Models::ChatListParams::filter,
+        ?limit: String,
+        ?offset: String,
+        ?order: Onlyfans::Models::ChatListParams::order,
+        ?query: String,
+        ?skip_users: Onlyfans::Models::ChatListParams::skip_users,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatListResponse
+
+      def delete: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatDeleteResponse
+
+      def hide: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatHideResponse
+
+      def list_media: (
+        String chat_id,
+        account: String,
+        ?limit: String,
+        ?offset: String,
+        ?skip_users: String,
+        ?type: Onlyfans::Models::ChatListMediaParams::type_?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatListMediaResponse
+
+      def mark_as_read: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatMarkAsReadResponse
+
+      def mark_as_unread: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatMarkAsUnreadResponse
+
+      def mute: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatMuteResponse
+
+      def start_typing: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatStartTypingResponse
+
+      def unmute: (
+        String chat_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ChatUnmuteResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

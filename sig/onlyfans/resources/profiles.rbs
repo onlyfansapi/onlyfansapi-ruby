@@ -1,0 +1,13 @@
+module Onlyfans
+  module Resources
+    class Profiles
+      def retrieve: (
+        String username,
+        ?fresh: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ProfileRetrieveResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

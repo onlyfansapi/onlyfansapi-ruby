@@ -1,0 +1,51 @@
+module Onlyfans
+  module Models
+    module Media
+      type vault_upload_params =
+        {
+          account: String,
+          async: bool,
+          file: Onlyfans::Internal::file_input,
+          file_url: String
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class VaultUploadParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_reader async: bool?
+
+        def async=: (bool) -> bool
+
+        attr_reader file: Onlyfans::Internal::file_input?
+
+        def file=: (
+          Onlyfans::Internal::file_input
+        ) -> Onlyfans::Internal::file_input
+
+        attr_reader file_url: String?
+
+        def file_url=: (String) -> String
+
+        def initialize: (
+          account: String,
+          ?async: bool,
+          ?file: Onlyfans::Internal::file_input,
+          ?file_url: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          async: bool,
+          file: Onlyfans::Internal::file_input,
+          file_url: String,
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

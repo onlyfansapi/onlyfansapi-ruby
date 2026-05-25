@@ -1,0 +1,34 @@
+module Onlyfans
+  module Models
+    module Users
+      type subscribe_delete_params =
+        { account: String, user_id: String, reason: String }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class SubscribeDeleteParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor user_id: String
+
+        attr_accessor reason: String
+
+        def initialize: (
+          account: String,
+          user_id: String,
+          reason: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          user_id: String,
+          reason: String,
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

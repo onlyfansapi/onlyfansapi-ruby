@@ -1,0 +1,117 @@
+module Onlyfans
+  module Models
+    module Media
+      type vault_list_params =
+        {
+          account: String,
+          field: Onlyfans::Models::Media::VaultListParams::field,
+          limit: Integer,
+          list: Integer,
+          offset: Integer,
+          query: String?,
+          sort: Onlyfans::Models::Media::VaultListParams::sort,
+          type: Onlyfans::Models::Media::VaultListParams::type_
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class VaultListParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_reader field: Onlyfans::Models::Media::VaultListParams::field?
+
+        def field=: (
+          Onlyfans::Models::Media::VaultListParams::field
+        ) -> Onlyfans::Models::Media::VaultListParams::field
+
+        attr_reader limit: Integer?
+
+        def limit=: (Integer) -> Integer
+
+        attr_reader list: Integer?
+
+        def list=: (Integer) -> Integer
+
+        attr_reader offset: Integer?
+
+        def offset=: (Integer) -> Integer
+
+        attr_accessor query: String?
+
+        attr_reader sort: Onlyfans::Models::Media::VaultListParams::sort?
+
+        def sort=: (
+          Onlyfans::Models::Media::VaultListParams::sort
+        ) -> Onlyfans::Models::Media::VaultListParams::sort
+
+        attr_reader type: Onlyfans::Models::Media::VaultListParams::type_?
+
+        def type=: (
+          Onlyfans::Models::Media::VaultListParams::type_
+        ) -> Onlyfans::Models::Media::VaultListParams::type_
+
+        def initialize: (
+          account: String,
+          ?field: Onlyfans::Models::Media::VaultListParams::field,
+          ?limit: Integer,
+          ?list: Integer,
+          ?offset: Integer,
+          ?query: String?,
+          ?sort: Onlyfans::Models::Media::VaultListParams::sort,
+          ?type: Onlyfans::Models::Media::VaultListParams::type_,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          field: Onlyfans::Models::Media::VaultListParams::field,
+          limit: Integer,
+          list: Integer,
+          offset: Integer,
+          query: String?,
+          sort: Onlyfans::Models::Media::VaultListParams::sort,
+          type: Onlyfans::Models::Media::VaultListParams::type_,
+          request_options: Onlyfans::RequestOptions
+        }
+
+        type field = :recent | :"most-liked" | :"highest-tips"
+
+        module Field
+          extend Onlyfans::Internal::Type::Enum
+
+          RECENT: :recent
+          MOST_LIKED: :"most-liked"
+          HIGHEST_TIPS: :"highest-tips"
+
+          def self?.values: -> ::Array[Onlyfans::Models::Media::VaultListParams::field]
+        end
+
+        type sort = :desc | :asc
+
+        module Sort
+          extend Onlyfans::Internal::Type::Enum
+
+          DESC: :desc
+          ASC: :asc
+
+          def self?.values: -> ::Array[Onlyfans::Models::Media::VaultListParams::sort]
+        end
+
+        type type_ = :photo | :gif | :video | :audio
+
+        module Type
+          extend Onlyfans::Internal::Type::Enum
+
+          PHOTO: :photo
+          GIF: :gif
+          VIDEO: :video
+          AUDIO: :audio
+
+          def self?.values: -> ::Array[Onlyfans::Models::Media::VaultListParams::type_]
+        end
+      end
+    end
+  end
+end

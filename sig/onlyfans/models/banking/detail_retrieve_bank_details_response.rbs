@@ -1,0 +1,1060 @@
+module Onlyfans
+  module Models
+    module Banking
+      type detail_retrieve_bank_details_response =
+        {
+          _meta: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta,
+          data: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data
+        }
+
+      class DetailRetrieveBankDetailsResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta
+        ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta
+
+        attr_reader data: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data?
+
+        def data=: (
+          Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data
+        ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta,
+          ?data: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta,
+          data: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Cache
+          ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Credits
+          ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::RateLimits
+          ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            is_payout_data_filled: bool,
+            payout_code: String,
+            payouts: ::Array[Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout]
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_payout_data_filled: bool?
+
+          def is_payout_data_filled=: (bool) -> bool
+
+          attr_reader payout_code: String?
+
+          def payout_code=: (String) -> String
+
+          attr_reader payouts: ::Array[Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout]?
+
+          def payouts=: (
+            ::Array[Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout]
+          ) -> ::Array[Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout]
+
+          def initialize: (
+            ?is_payout_data_filled: bool,
+            ?payout_code: String,
+            ?payouts: ::Array[Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout]
+          ) -> void
+
+          def to_hash: -> {
+            is_payout_data_filled: bool,
+            payout_code: String,
+            payouts: ::Array[Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout]
+          }
+
+          type payout =
+            {
+              code: String,
+              description: String,
+              fields: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields,
+              fields_order: ::Array[String],
+              min_payout_summ: Integer,
+              payout_time: String,
+              subtitle: String,
+              title: String,
+              ui_mapping: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping
+            }
+
+          class Payout < Onlyfans::Internal::Type::BaseModel
+            attr_reader code: String?
+
+            def code=: (String) -> String
+
+            attr_reader description: String?
+
+            def description=: (String) -> String
+
+            attr_reader fields: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields?
+
+            def fields=: (
+              Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields
+            ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields
+
+            attr_reader fields_order: ::Array[String]?
+
+            def fields_order=: (::Array[String]) -> ::Array[String]
+
+            attr_reader min_payout_summ: Integer?
+
+            def min_payout_summ=: (Integer) -> Integer
+
+            attr_reader payout_time: String?
+
+            def payout_time=: (String) -> String
+
+            attr_reader subtitle: String?
+
+            def subtitle=: (String) -> String
+
+            attr_reader title: String?
+
+            def title=: (String) -> String
+
+            attr_reader ui_mapping: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping?
+
+            def ui_mapping=: (
+              Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping
+            ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping
+
+            def initialize: (
+              ?code: String,
+              ?description: String,
+              ?fields: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields,
+              ?fields_order: ::Array[String],
+              ?min_payout_summ: Integer,
+              ?payout_time: String,
+              ?subtitle: String,
+              ?title: String,
+              ?ui_mapping: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping
+            ) -> void
+
+            def to_hash: -> {
+              code: String,
+              description: String,
+              fields: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields,
+              fields_order: ::Array[String],
+              min_payout_summ: Integer,
+              payout_time: String,
+              subtitle: String,
+              title: String,
+              ui_mapping: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping
+            }
+
+            type fields =
+              {
+                address: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address,
+                bank_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName,
+                bic: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic,
+                city: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City,
+                country: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country,
+                first_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName,
+                iban: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban,
+                last_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName,
+                postal: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal
+              }
+
+            class Fields < Onlyfans::Internal::Type::BaseModel
+              attr_reader address: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address?
+
+              def address=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address
+
+              attr_reader bank_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName?
+
+              def bank_name=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName
+
+              attr_reader bic: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic?
+
+              def bic=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic
+
+              attr_reader city: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City?
+
+              def city=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City
+
+              attr_reader country: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country?
+
+              def country=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country
+
+              attr_reader first_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName?
+
+              def first_name=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName
+
+              attr_reader iban: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban?
+
+              def iban=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban
+
+              attr_reader last_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName?
+
+              def last_name=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName
+
+              attr_reader postal: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal?
+
+              def postal=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal
+
+              def initialize: (
+                ?address: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address,
+                ?bank_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName,
+                ?bic: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic,
+                ?city: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City,
+                ?country: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country,
+                ?first_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName,
+                ?iban: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban,
+                ?last_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName,
+                ?postal: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal
+              ) -> void
+
+              def to_hash: -> {
+                address: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address,
+                bank_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName,
+                bic: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic,
+                city: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City,
+                country: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country,
+                first_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName,
+                iban: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban,
+                last_name: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName,
+                postal: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal
+              }
+
+              type address =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+              class Address < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address::Label
+
+                attr_reader maxlength: Integer?
+
+                def maxlength=: (Integer) -> Integer
+
+                attr_reader required: bool?
+
+                def required=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address::Label,
+                  ?maxlength: Integer,
+                  ?required: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Address::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+              end
+
+              type bank_name =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+              class BankName < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName::Label
+
+                attr_reader maxlength: Integer?
+
+                def maxlength=: (Integer) -> Integer
+
+                attr_reader required: bool?
+
+                def required=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName::Label,
+                  ?maxlength: Integer,
+                  ?required: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::BankName::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+              end
+
+              type bic =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+              class Bic < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic::Label
+
+                attr_reader maxlength: Integer?
+
+                def maxlength=: (Integer) -> Integer
+
+                attr_reader required: bool?
+
+                def required=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic::Label,
+                  ?maxlength: Integer,
+                  ?required: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Bic::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+              end
+
+              type city =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+              class City < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City::Label
+
+                attr_reader maxlength: Integer?
+
+                def maxlength=: (Integer) -> Integer
+
+                attr_reader required: bool?
+
+                def required=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City::Label,
+                  ?maxlength: Integer,
+                  ?required: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::City::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+              end
+
+              type country =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country::Label,
+                  readonly: bool,
+                  uionly: bool,
+                  value: String
+                }
+
+              class Country < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country::Label
+
+                attr_reader readonly: bool?
+
+                def readonly=: (bool) -> bool
+
+                attr_reader uionly: bool?
+
+                def uionly=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country::Label,
+                  ?readonly: bool,
+                  ?uionly: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Country::Label,
+                  readonly: bool,
+                  uionly: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+              end
+
+              type first_name =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Label,
+                  maxlength: Integer,
+                  oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput,
+                  readonly: bool,
+                  value: String
+                }
+
+              class FirstName < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Label
+
+                attr_reader maxlength: Integer?
+
+                def maxlength=: (Integer) -> Integer
+
+                attr_reader oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput?
+
+                def oninput=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput
+
+                attr_reader readonly: bool?
+
+                def readonly=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Label,
+                  ?maxlength: Integer,
+                  ?oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput,
+                  ?readonly: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Label,
+                  maxlength: Integer,
+                  oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput,
+                  readonly: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+
+                type oninput =
+                  {
+                    replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput::Replace
+                  }
+
+                class Oninput < Onlyfans::Internal::Type::BaseModel
+                  attr_reader replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput::Replace?
+
+                  def replace=: (
+                    Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput::Replace
+                  ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput::Replace
+
+                  def initialize: (
+                    ?replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput::Replace
+                  ) -> void
+
+                  def to_hash: -> {
+                    replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::FirstName::Oninput::Replace
+                  }
+
+                  type replace = { flag: String, pattern: String }
+
+                  class Replace < Onlyfans::Internal::Type::BaseModel
+                    attr_reader flag: String?
+
+                    def flag=: (String) -> String
+
+                    attr_reader pattern: String?
+
+                    def pattern=: (String) -> String
+
+                    def initialize: (?flag: String, ?pattern: String) -> void
+
+                    def to_hash: -> { flag: String, pattern: String }
+                  end
+                end
+              end
+
+              type iban =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Label,
+                  regex: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Regex,
+                  required: bool,
+                  value: String
+                }
+
+              class Iban < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Label
+
+                attr_reader regex: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Regex?
+
+                def regex=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Regex
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Regex
+
+                attr_reader required: bool?
+
+                def required=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Label,
+                  ?regex: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Regex,
+                  ?required: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Label,
+                  regex: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Iban::Regex,
+                  required: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+
+                type regex = { flag: String, pattern: String }
+
+                class Regex < Onlyfans::Internal::Type::BaseModel
+                  attr_reader flag: String?
+
+                  def flag=: (String) -> String
+
+                  attr_reader pattern: String?
+
+                  def pattern=: (String) -> String
+
+                  def initialize: (?flag: String, ?pattern: String) -> void
+
+                  def to_hash: -> { flag: String, pattern: String }
+                end
+              end
+
+              type last_name =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Label,
+                  maxlength: Integer,
+                  oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput,
+                  readonly: bool,
+                  value: String
+                }
+
+              class LastName < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Label
+
+                attr_reader maxlength: Integer?
+
+                def maxlength=: (Integer) -> Integer
+
+                attr_reader oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput?
+
+                def oninput=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput
+
+                attr_reader readonly: bool?
+
+                def readonly=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Label,
+                  ?maxlength: Integer,
+                  ?oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput,
+                  ?readonly: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Label,
+                  maxlength: Integer,
+                  oninput: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput,
+                  readonly: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+
+                type oninput =
+                  {
+                    replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput::Replace
+                  }
+
+                class Oninput < Onlyfans::Internal::Type::BaseModel
+                  attr_reader replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput::Replace?
+
+                  def replace=: (
+                    Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput::Replace
+                  ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput::Replace
+
+                  def initialize: (
+                    ?replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput::Replace
+                  ) -> void
+
+                  def to_hash: -> {
+                    replace: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::LastName::Oninput::Replace
+                  }
+
+                  type replace = { flag: String, pattern: String }
+
+                  class Replace < Onlyfans::Internal::Type::BaseModel
+                    attr_reader flag: String?
+
+                    def flag=: (String) -> String
+
+                    attr_reader pattern: String?
+
+                    def pattern=: (String) -> String
+
+                    def initialize: (?flag: String, ?pattern: String) -> void
+
+                    def to_hash: -> { flag: String, pattern: String }
+                  end
+                end
+              end
+
+              type postal =
+                {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+              class Postal < Onlyfans::Internal::Type::BaseModel
+                attr_reader label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal::Label?
+
+                def label=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal::Label
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal::Label
+
+                attr_reader maxlength: Integer?
+
+                def maxlength=: (Integer) -> Integer
+
+                attr_reader required: bool?
+
+                def required=: (bool) -> bool
+
+                attr_reader value: String?
+
+                def value=: (String) -> String
+
+                def initialize: (
+                  ?label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal::Label,
+                  ?maxlength: Integer,
+                  ?required: bool,
+                  ?value: String
+                ) -> void
+
+                def to_hash: -> {
+                  label: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::Fields::Postal::Label,
+                  maxlength: Integer,
+                  required: bool,
+                  value: String
+                }
+
+                type label = { key: String }
+
+                class Label < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+              end
+            end
+
+            type ui_mapping =
+              {
+                alert: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert,
+                btn_submit: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::BtnSubmit,
+                title: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Title
+              }
+
+            class UiMapping < Onlyfans::Internal::Type::BaseModel
+              attr_reader alert: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert?
+
+              def alert=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert
+
+              attr_reader btn_submit: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::BtnSubmit?
+
+              def btn_submit=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::BtnSubmit
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::BtnSubmit
+
+              attr_reader title: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Title?
+
+              def title=: (
+                Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Title
+              ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Title
+
+              def initialize: (
+                ?alert: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert,
+                ?btn_submit: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::BtnSubmit,
+                ?title: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Title
+              ) -> void
+
+              def to_hash: -> {
+                alert: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert,
+                btn_submit: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::BtnSubmit,
+                title: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Title
+              }
+
+              type alert =
+                {
+                  class_: String,
+                  text: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert::Text
+                }
+
+              class Alert < Onlyfans::Internal::Type::BaseModel
+                attr_reader class_: String?
+
+                def class_=: (String) -> String
+
+                attr_reader text: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert::Text?
+
+                def text=: (
+                  Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert::Text
+                ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert::Text
+
+                def initialize: (
+                  ?class_: String,
+                  ?text: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert::Text
+                ) -> void
+
+                def to_hash: -> {
+                  class_: String,
+                  text: Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse::Data::Payout::UiMapping::Alert::Text
+                }
+
+                type text = { key: String }
+
+                class Text < Onlyfans::Internal::Type::BaseModel
+                  attr_reader key: String?
+
+                  def key=: (String) -> String
+
+                  def initialize: (?key: String) -> void
+
+                  def to_hash: -> { key: String }
+                end
+              end
+
+              type btn_submit = { key: String }
+
+              class BtnSubmit < Onlyfans::Internal::Type::BaseModel
+                attr_reader key: String?
+
+                def key=: (String) -> String
+
+                def initialize: (?key: String) -> void
+
+                def to_hash: -> { key: String }
+              end
+
+              type title = { key: String }
+
+              class Title < Onlyfans::Internal::Type::BaseModel
+                attr_reader key: String?
+
+                def key=: (String) -> String
+
+                def initialize: (?key: String) -> void
+
+                def to_hash: -> { key: String }
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+end

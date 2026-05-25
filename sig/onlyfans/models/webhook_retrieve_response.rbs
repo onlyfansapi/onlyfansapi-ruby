@@ -1,0 +1,206 @@
+module Onlyfans
+  module Models
+    type webhook_retrieve_response =
+      {
+        _meta: Onlyfans::Models::WebhookRetrieveResponse::Meta,
+        data: Onlyfans::Models::WebhookRetrieveResponse::Data
+      }
+
+    class WebhookRetrieveResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::WebhookRetrieveResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::WebhookRetrieveResponse::Meta
+      ) -> Onlyfans::Models::WebhookRetrieveResponse::Meta
+
+      attr_reader data: Onlyfans::Models::WebhookRetrieveResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::WebhookRetrieveResponse::Data
+      ) -> Onlyfans::Models::WebhookRetrieveResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::WebhookRetrieveResponse::Meta,
+        ?data: Onlyfans::Models::WebhookRetrieveResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::WebhookRetrieveResponse::Meta,
+        data: Onlyfans::Models::WebhookRetrieveResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::WebhookRetrieveResponse::Meta::Cache,
+          _credits: Onlyfans::Models::WebhookRetrieveResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::WebhookRetrieveResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::WebhookRetrieveResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::WebhookRetrieveResponse::Meta::Cache
+        ) -> Onlyfans::Models::WebhookRetrieveResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::WebhookRetrieveResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::WebhookRetrieveResponse::Meta::Credits
+        ) -> Onlyfans::Models::WebhookRetrieveResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::WebhookRetrieveResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::WebhookRetrieveResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::WebhookRetrieveResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::WebhookRetrieveResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::WebhookRetrieveResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::WebhookRetrieveResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::WebhookRetrieveResponse::Meta::Cache,
+          _credits: Onlyfans::Models::WebhookRetrieveResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::WebhookRetrieveResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: String,
+          created_at: String,
+          enabled: bool,
+          events: ::Array[String],
+          has_signing_secret: bool,
+          url: String
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader created_at: String?
+
+        def created_at=: (String) -> String
+
+        attr_reader enabled: bool?
+
+        def enabled=: (bool) -> bool
+
+        attr_reader events: ::Array[String]?
+
+        def events=: (::Array[String]) -> ::Array[String]
+
+        attr_reader has_signing_secret: bool?
+
+        def has_signing_secret=: (bool) -> bool
+
+        attr_reader url: String?
+
+        def url=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?created_at: String,
+          ?enabled: bool,
+          ?events: ::Array[String],
+          ?has_signing_secret: bool,
+          ?url: String
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          created_at: String,
+          enabled: bool,
+          events: ::Array[String],
+          has_signing_secret: bool,
+          url: String
+        }
+      end
+    end
+  end
+end

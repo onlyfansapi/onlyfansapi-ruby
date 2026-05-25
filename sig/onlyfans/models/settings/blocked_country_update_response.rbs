@@ -1,0 +1,166 @@
+module Onlyfans
+  module Models
+    module Settings
+      type blocked_country_update_response =
+        {
+          _meta: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta,
+          data: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Data
+        }
+
+      class BlockedCountryUpdateResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta
+        ) -> Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta
+
+        attr_reader data: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Data?
+
+        def data=: (
+          Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Data
+        ) -> Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta,
+          ?data: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta,
+          data: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Cache
+          ) -> Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Credits
+          ) -> Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::RateLimits
+          ) -> Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Settings::BlockedCountryUpdateResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data = { success: bool }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader success: bool?
+
+          def success=: (bool) -> bool
+
+          def initialize: (?success: bool) -> void
+
+          def to_hash: -> { success: bool }
+        end
+      end
+    end
+  end
+end

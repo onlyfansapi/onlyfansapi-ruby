@@ -1,0 +1,98 @@
+module Onlyfans
+  module Models
+    type notification_list_params =
+      {
+        account: String,
+        from_id: Integer,
+        limit: Integer,
+        skip_users: Onlyfans::Models::NotificationListParams::skip_users,
+        type: Onlyfans::Models::NotificationListParams::type_
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class NotificationListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader from_id: Integer?
+
+      def from_id=: (Integer) -> Integer
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader skip_users: Onlyfans::Models::NotificationListParams::skip_users?
+
+      def skip_users=: (
+        Onlyfans::Models::NotificationListParams::skip_users
+      ) -> Onlyfans::Models::NotificationListParams::skip_users
+
+      attr_reader type: Onlyfans::Models::NotificationListParams::type_?
+
+      def type=: (
+        Onlyfans::Models::NotificationListParams::type_
+      ) -> Onlyfans::Models::NotificationListParams::type_
+
+      def initialize: (
+        account: String,
+        ?from_id: Integer,
+        ?limit: Integer,
+        ?skip_users: Onlyfans::Models::NotificationListParams::skip_users,
+        ?type: Onlyfans::Models::NotificationListParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        from_id: Integer,
+        limit: Integer,
+        skip_users: Onlyfans::Models::NotificationListParams::skip_users,
+        type: Onlyfans::Models::NotificationListParams::type_,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type skip_users = :all | :none
+
+      module SkipUsers
+        extend Onlyfans::Internal::Type::Enum
+
+        ALL: :all
+        NONE: :none
+
+        def self?.values: -> ::Array[Onlyfans::Models::NotificationListParams::skip_users]
+      end
+
+      type type_ =
+        :all
+        | :subscriptions
+        | :onlyfans
+        | :purchases
+        | :tips
+        | :tags
+        | :comments
+        | :mentions
+        | :likes
+        | :promotions
+
+      module Type
+        extend Onlyfans::Internal::Type::Enum
+
+        ALL: :all
+        SUBSCRIPTIONS: :subscriptions
+        ONLYFANS: :onlyfans
+        PURCHASES: :purchases
+        TIPS: :tips
+        TAGS: :tags
+        COMMENTS: :comments
+        MENTIONS: :mentions
+        LIKES: :likes
+        PROMOTIONS: :promotions
+
+        def self?.values: -> ::Array[Onlyfans::Models::NotificationListParams::type_]
+      end
+    end
+  end
+end

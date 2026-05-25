@@ -1,0 +1,154 @@
+module Onlyfans
+  module Models
+    type smart_link_list_spenders_response =
+      {
+        _meta: Onlyfans::Models::SmartLinkListSpendersResponse::Meta,
+        data: ::Array[Onlyfans::Models::SmartLinkListSpendersResponse::Data]
+      }
+
+    class SmartLinkListSpendersResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::SmartLinkListSpendersResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::SmartLinkListSpendersResponse::Meta
+      ) -> Onlyfans::Models::SmartLinkListSpendersResponse::Meta
+
+      attr_reader data: ::Array[Onlyfans::Models::SmartLinkListSpendersResponse::Data]?
+
+      def data=: (
+        ::Array[Onlyfans::Models::SmartLinkListSpendersResponse::Data]
+      ) -> ::Array[Onlyfans::Models::SmartLinkListSpendersResponse::Data]
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::SmartLinkListSpendersResponse::Meta,
+        ?data: ::Array[Onlyfans::Models::SmartLinkListSpendersResponse::Data]
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::SmartLinkListSpendersResponse::Meta,
+        data: ::Array[Onlyfans::Models::SmartLinkListSpendersResponse::Data]
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Credits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Cache
+        ) -> Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Credits
+        ) -> Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Credits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Credits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SmartLinkListSpendersResponse::Meta::Credits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+      end
+
+      type data =
+        {
+          onlyfans_id: String,
+          revenue: Onlyfans::Models::SmartLinkListSpendersResponse::Data::Revenue,
+          username: String
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader onlyfans_id: String?
+
+        def onlyfans_id=: (String) -> String
+
+        attr_reader revenue: Onlyfans::Models::SmartLinkListSpendersResponse::Data::Revenue?
+
+        def revenue=: (
+          Onlyfans::Models::SmartLinkListSpendersResponse::Data::Revenue
+        ) -> Onlyfans::Models::SmartLinkListSpendersResponse::Data::Revenue
+
+        attr_reader username: String?
+
+        def username=: (String) -> String
+
+        def initialize: (
+          ?onlyfans_id: String,
+          ?revenue: Onlyfans::Models::SmartLinkListSpendersResponse::Data::Revenue,
+          ?username: String
+        ) -> void
+
+        def to_hash: -> {
+          onlyfans_id: String,
+          revenue: Onlyfans::Models::SmartLinkListSpendersResponse::Data::Revenue,
+          username: String
+        }
+
+        type revenue = { calculated_at: String, total: Float }
+
+        class Revenue < Onlyfans::Internal::Type::BaseModel
+          attr_reader calculated_at: String?
+
+          def calculated_at=: (String) -> String
+
+          attr_reader total: Float?
+
+          def total=: (Float) -> Float
+
+          def initialize: (?calculated_at: String, ?total: Float) -> void
+
+          def to_hash: -> { calculated_at: String, total: Float }
+        end
+      end
+    end
+  end
+end

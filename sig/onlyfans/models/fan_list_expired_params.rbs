@@ -1,0 +1,124 @@
+module Onlyfans
+  module Models
+    type fan_list_expired_params =
+      {
+        account: String,
+        filter: Onlyfans::FanListExpiredParams::Filter,
+        limit: Integer,
+        offset: Integer,
+        query: String?,
+        type: Onlyfans::Models::FanListExpiredParams::type_
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class FanListExpiredParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader filter: Onlyfans::FanListExpiredParams::Filter?
+
+      def filter=: (
+        Onlyfans::FanListExpiredParams::Filter
+      ) -> Onlyfans::FanListExpiredParams::Filter
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_accessor query: String?
+
+      attr_reader type: Onlyfans::Models::FanListExpiredParams::type_?
+
+      def type=: (
+        Onlyfans::Models::FanListExpiredParams::type_
+      ) -> Onlyfans::Models::FanListExpiredParams::type_
+
+      def initialize: (
+        account: String,
+        ?filter: Onlyfans::FanListExpiredParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfans::Models::FanListExpiredParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        filter: Onlyfans::FanListExpiredParams::Filter,
+        limit: Integer,
+        offset: Integer,
+        query: String?,
+        type: Onlyfans::Models::FanListExpiredParams::type_,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type filter =
+        {
+          duration: Integer,
+          online: Onlyfans::Models::FanListExpiredParams::Filter::online?,
+          tips: Integer,
+          total_spent: Integer
+        }
+
+      class Filter < Onlyfans::Internal::Type::BaseModel
+        attr_reader duration: Integer?
+
+        def duration=: (Integer) -> Integer
+
+        attr_accessor online: Onlyfans::Models::FanListExpiredParams::Filter::online?
+
+        attr_reader tips: Integer?
+
+        def tips=: (Integer) -> Integer
+
+        attr_reader total_spent: Integer?
+
+        def total_spent=: (Integer) -> Integer
+
+        def initialize: (
+          ?duration: Integer,
+          ?online: Onlyfans::Models::FanListExpiredParams::Filter::online?,
+          ?tips: Integer,
+          ?total_spent: Integer
+        ) -> void
+
+        def to_hash: -> {
+          duration: Integer,
+          online: Onlyfans::Models::FanListExpiredParams::Filter::online?,
+          tips: Integer,
+          total_spent: Integer
+        }
+
+        type online = 1 | 0
+
+        module Online
+          extend Onlyfans::Internal::Type::Enum
+
+          ONLINE_1: 1
+          ONLINE_0: 0
+
+          def self?.values: -> ::Array[Onlyfans::Models::FanListExpiredParams::Filter::online]
+        end
+      end
+
+      type type_ = :active | :expired | :all
+
+      module Type
+        extend Onlyfans::Internal::Type::Enum
+
+        ACTIVE: :active
+        EXPIRED: :expired
+        ALL: :all
+
+        def self?.values: -> ::Array[Onlyfans::Models::FanListExpiredParams::type_]
+      end
+    end
+  end
+end

@@ -1,0 +1,20 @@
+module Onlyfans
+  module Resources
+    class Notifications
+      class TabsOrder
+        def update: (
+          String account,
+          tabs: ::Array[String],
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Notifications::TabsOrderUpdateResponse
+
+        def get: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Notifications::TabsOrderGetResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

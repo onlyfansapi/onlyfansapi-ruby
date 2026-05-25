@@ -1,0 +1,27 @@
+module Onlyfans
+  module Resources
+    class SavedForLater
+      class Messages
+        class Settings
+          def retrieve: (
+            String account,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse
+
+          def disable_automatic_messaging: (
+            String account,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse
+
+          def enable_or_update_automatic_messaging: (
+            String account,
+            period: Onlyfans::Models::SavedForLater::Messages::SettingEnableOrUpdateAutomaticMessagingParams::period,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::SavedForLater::Messages::SettingEnableOrUpdateAutomaticMessagingResponse
+
+          def initialize: (client: Onlyfans::Client) -> void
+        end
+      end
+    end
+  end
+end

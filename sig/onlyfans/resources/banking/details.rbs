@@ -1,0 +1,34 @@
+module Onlyfans
+  module Resources
+    class Banking
+      class Details
+        def retrieve_account_country_details: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Banking::DetailRetrieveAccountCountryDetailsResponse
+
+        def retrieve_bank_details: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Banking::DetailRetrieveBankDetailsResponse
+
+        def retrieve_dac7_form_details: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Banking::DetailRetrieveDac7FormDetailsResponse
+
+        def retrieve_legal_and_tax_status: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Banking::DetailRetrieveLegalAndTaxStatusResponse
+
+        def retrieve_legal_form_details: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Banking::DetailRetrieveLegalFormDetailsResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

@@ -1,0 +1,92 @@
+module Onlyfans
+  module Models
+    type trial_link_create_params =
+      {
+        account: String,
+        duration: Onlyfans::Models::TrialLinkCreateParams::duration,
+        offer_expiration: Integer,
+        offer_limit: Onlyfans::Models::TrialLinkCreateParams::offer_limit,
+        name: String?,
+        tags: ::Array[String]
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class TrialLinkCreateParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor duration: Onlyfans::Models::TrialLinkCreateParams::duration
+
+      attr_accessor offer_expiration: Integer
+
+      attr_accessor offer_limit: Onlyfans::Models::TrialLinkCreateParams::offer_limit
+
+      attr_accessor name: String?
+
+      attr_reader tags: ::Array[String]?
+
+      def tags=: (::Array[String]) -> ::Array[String]
+
+      def initialize: (
+        account: String,
+        duration: Onlyfans::Models::TrialLinkCreateParams::duration,
+        offer_expiration: Integer,
+        offer_limit: Onlyfans::Models::TrialLinkCreateParams::offer_limit,
+        ?name: String?,
+        ?tags: ::Array[String],
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        duration: Onlyfans::Models::TrialLinkCreateParams::duration,
+        offer_expiration: Integer,
+        offer_limit: Onlyfans::Models::TrialLinkCreateParams::offer_limit,
+        name: String?,
+        tags: ::Array[String],
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type duration = 1 | 3 | 7 | 14 | 30 | 90 | 180 | 360
+
+      module Duration
+        extend Onlyfans::Internal::Type::Enum
+
+        DURATION_1: 1
+        DURATION_3: 3
+        DURATION_7: 7
+        DURATION_14: 14
+        DURATION_30: 30
+        DURATION_90: 90
+        DURATION_180: 180
+        DURATION_360: 360
+
+        def self?.values: -> ::Array[Onlyfans::Models::TrialLinkCreateParams::duration]
+      end
+
+      type offer_limit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 50 | 100
+
+      module OfferLimit
+        extend Onlyfans::Internal::Type::Enum
+
+        OFFER_LIMIT_0: 0
+        OFFER_LIMIT_1: 1
+        OFFER_LIMIT_2: 2
+        OFFER_LIMIT_3: 3
+        OFFER_LIMIT_4: 4
+        OFFER_LIMIT_5: 5
+        OFFER_LIMIT_6: 6
+        OFFER_LIMIT_7: 7
+        OFFER_LIMIT_8: 8
+        OFFER_LIMIT_9: 9
+        OFFER_LIMIT_10: 10
+        OFFER_LIMIT_50: 50
+        OFFER_LIMIT_100: 100
+
+        def self?.values: -> ::Array[Onlyfans::Models::TrialLinkCreateParams::offer_limit]
+      end
+    end
+  end
+end

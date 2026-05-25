@@ -1,0 +1,767 @@
+module Onlyfans
+  module Models
+    type setting_retrieve_response =
+      {
+        _meta: Onlyfans::Models::SettingRetrieveResponse::Meta,
+        data: Onlyfans::Models::SettingRetrieveResponse::Data
+      }
+
+    class SettingRetrieveResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::SettingRetrieveResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::SettingRetrieveResponse::Meta
+      ) -> Onlyfans::Models::SettingRetrieveResponse::Meta
+
+      attr_reader data: Onlyfans::Models::SettingRetrieveResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::SettingRetrieveResponse::Data
+      ) -> Onlyfans::Models::SettingRetrieveResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::SettingRetrieveResponse::Meta,
+        ?data: Onlyfans::Models::SettingRetrieveResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::SettingRetrieveResponse::Meta,
+        data: Onlyfans::Models::SettingRetrieveResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::SettingRetrieveResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SettingRetrieveResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::SettingRetrieveResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::SettingRetrieveResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::SettingRetrieveResponse::Meta::Cache
+        ) -> Onlyfans::Models::SettingRetrieveResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::SettingRetrieveResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::SettingRetrieveResponse::Meta::Credits
+        ) -> Onlyfans::Models::SettingRetrieveResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::SettingRetrieveResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::SettingRetrieveResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::SettingRetrieveResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::SettingRetrieveResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::SettingRetrieveResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::SettingRetrieveResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::SettingRetrieveResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SettingRetrieveResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::SettingRetrieveResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          activity_hub_allowed: bool,
+          activity_hub_tokens: ::Array[top],
+          app_otp: bool,
+          avatar_header_converter_upload: bool,
+          blocked_countries: ::Array[top],
+          blocked_ips: ::Array[top],
+          blocked_states: ::Array[top],
+          bundle_max_price: Integer,
+          can_accept_message_only_from_friends: bool,
+          can_add_phone: bool,
+          can_add_subscriber_by_bundle: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle,
+          can_make_profile_links: bool,
+          can_socials_connect: bool,
+          change_email_step: String?,
+          changelog_updates: Integer,
+          comments_only_for_payers: bool,
+          confirm_email_sent_at: String,
+          co_streaming_request_from: String,
+          creators_comments_only_for_friends: bool,
+          disable_subscribes_offers: bool,
+          face_otp: bool,
+          force_face_otp: bool,
+          has_paid_posts: bool,
+          has_password: bool,
+          hide_after_mass_messages: bool,
+          important_subscription_notifications: bool,
+          is_auto_follow_back: bool,
+          is_co_streaming_allowed: bool,
+          is_delete_initiated: bool,
+          is_drm_enabled: bool,
+          is_email_notifications_enabled: bool,
+          is_monthly_newsletters: bool,
+          is_old_login_redirect: bool,
+          is_opensea_connected: bool,
+          is_otp_app_connected: bool,
+          is_private: bool,
+          is_suggestions_opt_out: bool,
+          is_telegram_connected: bool,
+          last_subscription_expired_at: String?,
+          life_time_email_code: String?,
+          mute_tags_in_chats: bool,
+          mute_tags_in_posts: bool,
+          mute_tags_in_stories: bool,
+          mute_tags_in_streams: bool,
+          new_email: String?,
+          notify_on_all_mentions: bool,
+          :phone_last4 => String?,
+          phone_otp: bool,
+          recommender_reward: String?,
+          reply_on_subscribe: bool,
+          :send_awards_top1 => bool,
+          :send_awards_top5 => bool,
+          should_receive_less_notifications: bool,
+          show_friends_to_subscribers: bool,
+          show_full_text_in_email_notify: bool,
+          show_posts_tips: bool,
+          show_subscribes_offers: bool,
+          socials_connects: ::Array[top],
+          streaming_mux_key: String?,
+          streaming_mux_key_expired_at: String?,
+          streaming_mux_server: String,
+          streaming_obs_key: String,
+          streaming_obs_server: String,
+          streaming_rtmp_key: String,
+          streaming_rtmp_server: String,
+          strong_otp: bool,
+          unfollow_auto_follow_back: bool
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader activity_hub_allowed: bool?
+
+        def activity_hub_allowed=: (bool) -> bool
+
+        attr_reader activity_hub_tokens: ::Array[top]?
+
+        def activity_hub_tokens=: (::Array[top]) -> ::Array[top]
+
+        attr_reader app_otp: bool?
+
+        def app_otp=: (bool) -> bool
+
+        attr_reader avatar_header_converter_upload: bool?
+
+        def avatar_header_converter_upload=: (bool) -> bool
+
+        attr_reader blocked_countries: ::Array[top]?
+
+        def blocked_countries=: (::Array[top]) -> ::Array[top]
+
+        attr_reader blocked_ips: ::Array[top]?
+
+        def blocked_ips=: (::Array[top]) -> ::Array[top]
+
+        attr_reader blocked_states: ::Array[top]?
+
+        def blocked_states=: (::Array[top]) -> ::Array[top]
+
+        attr_reader bundle_max_price: Integer?
+
+        def bundle_max_price=: (Integer) -> Integer
+
+        attr_reader can_accept_message_only_from_friends: bool?
+
+        def can_accept_message_only_from_friends=: (bool) -> bool
+
+        attr_reader can_add_phone: bool?
+
+        def can_add_phone=: (bool) -> bool
+
+        attr_reader can_add_subscriber_by_bundle: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle?
+
+        def can_add_subscriber_by_bundle=: (
+          Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle
+        ) -> Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle
+
+        attr_reader can_make_profile_links: bool?
+
+        def can_make_profile_links=: (bool) -> bool
+
+        attr_reader can_socials_connect: bool?
+
+        def can_socials_connect=: (bool) -> bool
+
+        attr_accessor change_email_step: String?
+
+        attr_reader changelog_updates: Integer?
+
+        def changelog_updates=: (Integer) -> Integer
+
+        attr_reader comments_only_for_payers: bool?
+
+        def comments_only_for_payers=: (bool) -> bool
+
+        attr_reader confirm_email_sent_at: String?
+
+        def confirm_email_sent_at=: (String) -> String
+
+        attr_reader co_streaming_request_from: String?
+
+        def co_streaming_request_from=: (String) -> String
+
+        attr_reader creators_comments_only_for_friends: bool?
+
+        def creators_comments_only_for_friends=: (bool) -> bool
+
+        attr_reader disable_subscribes_offers: bool?
+
+        def disable_subscribes_offers=: (bool) -> bool
+
+        attr_reader face_otp: bool?
+
+        def face_otp=: (bool) -> bool
+
+        attr_reader force_face_otp: bool?
+
+        def force_face_otp=: (bool) -> bool
+
+        attr_reader has_paid_posts: bool?
+
+        def has_paid_posts=: (bool) -> bool
+
+        attr_reader has_password: bool?
+
+        def has_password=: (bool) -> bool
+
+        attr_reader hide_after_mass_messages: bool?
+
+        def hide_after_mass_messages=: (bool) -> bool
+
+        attr_reader important_subscription_notifications: bool?
+
+        def important_subscription_notifications=: (bool) -> bool
+
+        attr_reader is_auto_follow_back: bool?
+
+        def is_auto_follow_back=: (bool) -> bool
+
+        attr_reader is_co_streaming_allowed: bool?
+
+        def is_co_streaming_allowed=: (bool) -> bool
+
+        attr_reader is_delete_initiated: bool?
+
+        def is_delete_initiated=: (bool) -> bool
+
+        attr_reader is_drm_enabled: bool?
+
+        def is_drm_enabled=: (bool) -> bool
+
+        attr_reader is_email_notifications_enabled: bool?
+
+        def is_email_notifications_enabled=: (bool) -> bool
+
+        attr_reader is_monthly_newsletters: bool?
+
+        def is_monthly_newsletters=: (bool) -> bool
+
+        attr_reader is_old_login_redirect: bool?
+
+        def is_old_login_redirect=: (bool) -> bool
+
+        attr_reader is_opensea_connected: bool?
+
+        def is_opensea_connected=: (bool) -> bool
+
+        attr_reader is_otp_app_connected: bool?
+
+        def is_otp_app_connected=: (bool) -> bool
+
+        attr_reader is_private: bool?
+
+        def is_private=: (bool) -> bool
+
+        attr_reader is_suggestions_opt_out: bool?
+
+        def is_suggestions_opt_out=: (bool) -> bool
+
+        attr_reader is_telegram_connected: bool?
+
+        def is_telegram_connected=: (bool) -> bool
+
+        attr_accessor last_subscription_expired_at: String?
+
+        attr_accessor life_time_email_code: String?
+
+        attr_reader mute_tags_in_chats: bool?
+
+        def mute_tags_in_chats=: (bool) -> bool
+
+        attr_reader mute_tags_in_posts: bool?
+
+        def mute_tags_in_posts=: (bool) -> bool
+
+        attr_reader mute_tags_in_stories: bool?
+
+        def mute_tags_in_stories=: (bool) -> bool
+
+        attr_reader mute_tags_in_streams: bool?
+
+        def mute_tags_in_streams=: (bool) -> bool
+
+        attr_accessor new_email: String?
+
+        attr_reader notify_on_all_mentions: bool?
+
+        def notify_on_all_mentions=: (bool) -> bool
+
+        attr_accessor phone_last4: String?
+
+        attr_reader phone_otp: bool?
+
+        def phone_otp=: (bool) -> bool
+
+        attr_accessor recommender_reward: String?
+
+        attr_reader reply_on_subscribe: bool?
+
+        def reply_on_subscribe=: (bool) -> bool
+
+        attr_reader send_awards_top1: bool?
+
+        def send_awards_top1=: (bool) -> bool
+
+        attr_reader send_awards_top5: bool?
+
+        def send_awards_top5=: (bool) -> bool
+
+        attr_reader should_receive_less_notifications: bool?
+
+        def should_receive_less_notifications=: (bool) -> bool
+
+        attr_reader show_friends_to_subscribers: bool?
+
+        def show_friends_to_subscribers=: (bool) -> bool
+
+        attr_reader show_full_text_in_email_notify: bool?
+
+        def show_full_text_in_email_notify=: (bool) -> bool
+
+        attr_reader show_posts_tips: bool?
+
+        def show_posts_tips=: (bool) -> bool
+
+        attr_reader show_subscribes_offers: bool?
+
+        def show_subscribes_offers=: (bool) -> bool
+
+        attr_reader socials_connects: ::Array[top]?
+
+        def socials_connects=: (::Array[top]) -> ::Array[top]
+
+        attr_accessor streaming_mux_key: String?
+
+        attr_accessor streaming_mux_key_expired_at: String?
+
+        attr_reader streaming_mux_server: String?
+
+        def streaming_mux_server=: (String) -> String
+
+        attr_reader streaming_obs_key: String?
+
+        def streaming_obs_key=: (String) -> String
+
+        attr_reader streaming_obs_server: String?
+
+        def streaming_obs_server=: (String) -> String
+
+        attr_reader streaming_rtmp_key: String?
+
+        def streaming_rtmp_key=: (String) -> String
+
+        attr_reader streaming_rtmp_server: String?
+
+        def streaming_rtmp_server=: (String) -> String
+
+        attr_reader strong_otp: bool?
+
+        def strong_otp=: (bool) -> bool
+
+        attr_reader unfollow_auto_follow_back: bool?
+
+        def unfollow_auto_follow_back=: (bool) -> bool
+
+        def initialize: (
+          ?activity_hub_allowed: bool,
+          ?activity_hub_tokens: ::Array[top],
+          ?app_otp: bool,
+          ?avatar_header_converter_upload: bool,
+          ?blocked_countries: ::Array[top],
+          ?blocked_ips: ::Array[top],
+          ?blocked_states: ::Array[top],
+          ?bundle_max_price: Integer,
+          ?can_accept_message_only_from_friends: bool,
+          ?can_add_phone: bool,
+          ?can_add_subscriber_by_bundle: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle,
+          ?can_make_profile_links: bool,
+          ?can_socials_connect: bool,
+          ?change_email_step: String?,
+          ?changelog_updates: Integer,
+          ?comments_only_for_payers: bool,
+          ?confirm_email_sent_at: String,
+          ?co_streaming_request_from: String,
+          ?creators_comments_only_for_friends: bool,
+          ?disable_subscribes_offers: bool,
+          ?face_otp: bool,
+          ?force_face_otp: bool,
+          ?has_paid_posts: bool,
+          ?has_password: bool,
+          ?hide_after_mass_messages: bool,
+          ?important_subscription_notifications: bool,
+          ?is_auto_follow_back: bool,
+          ?is_co_streaming_allowed: bool,
+          ?is_delete_initiated: bool,
+          ?is_drm_enabled: bool,
+          ?is_email_notifications_enabled: bool,
+          ?is_monthly_newsletters: bool,
+          ?is_old_login_redirect: bool,
+          ?is_opensea_connected: bool,
+          ?is_otp_app_connected: bool,
+          ?is_private: bool,
+          ?is_suggestions_opt_out: bool,
+          ?is_telegram_connected: bool,
+          ?last_subscription_expired_at: String?,
+          ?life_time_email_code: String?,
+          ?mute_tags_in_chats: bool,
+          ?mute_tags_in_posts: bool,
+          ?mute_tags_in_stories: bool,
+          ?mute_tags_in_streams: bool,
+          ?new_email: String?,
+          ?notify_on_all_mentions: bool,
+          ?phone_last4: String?,
+          ?phone_otp: bool,
+          ?recommender_reward: String?,
+          ?reply_on_subscribe: bool,
+          ?send_awards_top1: bool,
+          ?send_awards_top5: bool,
+          ?should_receive_less_notifications: bool,
+          ?show_friends_to_subscribers: bool,
+          ?show_full_text_in_email_notify: bool,
+          ?show_posts_tips: bool,
+          ?show_subscribes_offers: bool,
+          ?socials_connects: ::Array[top],
+          ?streaming_mux_key: String?,
+          ?streaming_mux_key_expired_at: String?,
+          ?streaming_mux_server: String,
+          ?streaming_obs_key: String,
+          ?streaming_obs_server: String,
+          ?streaming_rtmp_key: String,
+          ?streaming_rtmp_server: String,
+          ?strong_otp: bool,
+          ?unfollow_auto_follow_back: bool
+        ) -> void
+
+        def to_hash: -> {
+          activity_hub_allowed: bool,
+          activity_hub_tokens: ::Array[top],
+          app_otp: bool,
+          avatar_header_converter_upload: bool,
+          blocked_countries: ::Array[top],
+          blocked_ips: ::Array[top],
+          blocked_states: ::Array[top],
+          bundle_max_price: Integer,
+          can_accept_message_only_from_friends: bool,
+          can_add_phone: bool,
+          can_add_subscriber_by_bundle: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle,
+          can_make_profile_links: bool,
+          can_socials_connect: bool,
+          change_email_step: String?,
+          changelog_updates: Integer,
+          comments_only_for_payers: bool,
+          confirm_email_sent_at: String,
+          co_streaming_request_from: String,
+          creators_comments_only_for_friends: bool,
+          disable_subscribes_offers: bool,
+          face_otp: bool,
+          force_face_otp: bool,
+          has_paid_posts: bool,
+          has_password: bool,
+          hide_after_mass_messages: bool,
+          important_subscription_notifications: bool,
+          is_auto_follow_back: bool,
+          is_co_streaming_allowed: bool,
+          is_delete_initiated: bool,
+          is_drm_enabled: bool,
+          is_email_notifications_enabled: bool,
+          is_monthly_newsletters: bool,
+          is_old_login_redirect: bool,
+          is_opensea_connected: bool,
+          is_otp_app_connected: bool,
+          is_private: bool,
+          is_suggestions_opt_out: bool,
+          is_telegram_connected: bool,
+          last_subscription_expired_at: String?,
+          life_time_email_code: String?,
+          mute_tags_in_chats: bool,
+          mute_tags_in_posts: bool,
+          mute_tags_in_stories: bool,
+          mute_tags_in_streams: bool,
+          new_email: String?,
+          notify_on_all_mentions: bool,
+          :phone_last4 => String?,
+          phone_otp: bool,
+          recommender_reward: String?,
+          reply_on_subscribe: bool,
+          :send_awards_top1 => bool,
+          :send_awards_top5 => bool,
+          should_receive_less_notifications: bool,
+          show_friends_to_subscribers: bool,
+          show_full_text_in_email_notify: bool,
+          show_posts_tips: bool,
+          show_subscribes_offers: bool,
+          socials_connects: ::Array[top],
+          streaming_mux_key: String?,
+          streaming_mux_key_expired_at: String?,
+          streaming_mux_server: String,
+          streaming_obs_key: String,
+          streaming_obs_server: String,
+          streaming_rtmp_key: String,
+          streaming_rtmp_server: String,
+          strong_otp: bool,
+          unfollow_auto_follow_back: bool
+        }
+
+        type can_add_subscriber_by_bundle =
+          {
+            discounts: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Discounts,
+            durations: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Durations
+          }
+
+        class CanAddSubscriberByBundle < Onlyfans::Internal::Type::BaseModel
+          attr_reader discounts: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Discounts?
+
+          def discounts=: (
+            Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Discounts
+          ) -> Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Discounts
+
+          attr_reader durations: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Durations?
+
+          def durations=: (
+            Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Durations
+          ) -> Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Durations
+
+          def initialize: (
+            ?discounts: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Discounts,
+            ?durations: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Durations
+          ) -> void
+
+          def to_hash: -> {
+            discounts: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Discounts,
+            durations: Onlyfans::Models::SettingRetrieveResponse::Data::CanAddSubscriberByBundle::Durations
+          }
+
+          type discounts =
+            {
+              :number_0 => String,
+              :number_10 => String,
+              :number_15 => String,
+              :number_20 => String,
+              :number_25 => String,
+              :number_30 => String,
+              :number_35 => String,
+              :number_40 => String,
+              :number_45 => String,
+              :number_5 => String,
+              :number_50 => String
+            }
+
+          class Discounts < Onlyfans::Internal::Type::BaseModel
+            attr_reader number_0: String?
+
+            def number_0=: (String) -> String
+
+            attr_reader number_10: String?
+
+            def number_10=: (String) -> String
+
+            attr_reader number_15: String?
+
+            def number_15=: (String) -> String
+
+            attr_reader number_20: String?
+
+            def number_20=: (String) -> String
+
+            attr_reader number_25: String?
+
+            def number_25=: (String) -> String
+
+            attr_reader number_30: String?
+
+            def number_30=: (String) -> String
+
+            attr_reader number_35: String?
+
+            def number_35=: (String) -> String
+
+            attr_reader number_40: String?
+
+            def number_40=: (String) -> String
+
+            attr_reader number_45: String?
+
+            def number_45=: (String) -> String
+
+            attr_reader number_5: String?
+
+            def number_5=: (String) -> String
+
+            attr_reader number_50: String?
+
+            def number_50=: (String) -> String
+
+            def initialize: (
+              ?number_0: String,
+              ?number_10: String,
+              ?number_15: String,
+              ?number_20: String,
+              ?number_25: String,
+              ?number_30: String,
+              ?number_35: String,
+              ?number_40: String,
+              ?number_45: String,
+              ?number_5: String,
+              ?number_50: String
+            ) -> void
+
+            def to_hash: -> {
+              :number_0 => String,
+              :number_10 => String,
+              :number_15 => String,
+              :number_20 => String,
+              :number_25 => String,
+              :number_30 => String,
+              :number_35 => String,
+              :number_40 => String,
+              :number_45 => String,
+              :number_5 => String,
+              :number_50 => String
+            }
+          end
+
+          type durations =
+            { :number_12 => String, :number_3 => String, :number_6 => String }
+
+          class Durations < Onlyfans::Internal::Type::BaseModel
+            attr_reader number_12: String?
+
+            def number_12=: (String) -> String
+
+            attr_reader number_3: String?
+
+            def number_3=: (String) -> String
+
+            attr_reader number_6: String?
+
+            def number_6=: (String) -> String
+
+            def initialize: (
+              ?number_12: String,
+              ?number_3: String,
+              ?number_6: String
+            ) -> void
+
+            def to_hash: -> {
+              :number_12 => String,
+              :number_3 => String,
+              :number_6 => String
+            }
+          end
+        end
+      end
+    end
+  end
+end

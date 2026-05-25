@@ -1,0 +1,32 @@
+module Onlyfans
+  module Models
+    type payout_retrieve_earning_statistics_params =
+      { account: String, end_date: String?, start_date: String? }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class PayoutRetrieveEarningStatisticsParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor end_date: String?
+
+      attr_accessor start_date: String?
+
+      def initialize: (
+        account: String,
+        ?end_date: String?,
+        ?start_date: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String?,
+        start_date: String?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

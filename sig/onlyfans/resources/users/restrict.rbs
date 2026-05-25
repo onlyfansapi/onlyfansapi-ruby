@@ -1,0 +1,21 @@
+module Onlyfans
+  module Resources
+    class Users
+      class Restrict
+        def create: (
+          String user_id,
+          account: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Users::RestrictCreateResponse
+
+        def delete: (
+          String user_id,
+          account: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Users::RestrictDeleteResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

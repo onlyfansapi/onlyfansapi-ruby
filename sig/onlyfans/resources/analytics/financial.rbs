@@ -1,0 +1,22 @@
+module Onlyfans
+  module Resources
+    class Analytics
+      class Financial
+        attr_reader transactions: Onlyfans::Resources::Analytics::Financial::Transactions
+
+        attr_reader profitability: Onlyfans::Resources::Analytics::Financial::Profitability
+
+        def get_forecast: (
+          account_ids: ::Array[String],
+          forecast_days: Integer,
+          historical_days: Integer,
+          metric: Onlyfans::Models::Analytics::FinancialGetForecastParams::metric,
+          model: Onlyfans::Models::Analytics::FinancialGetForecastParams::model,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Analytics::FinancialGetForecastResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

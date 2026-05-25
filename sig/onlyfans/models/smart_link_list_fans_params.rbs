@@ -1,0 +1,102 @@
+module Onlyfans
+  module Models
+    type smart_link_list_fans_params =
+      {
+        smart_link_id: String,
+        has_messages: bool,
+        limit: Integer,
+        min_messages_sent_by_fan: Integer,
+        min_revenue_net: Float,
+        min_tips_net: Float,
+        offset: Integer,
+        sort: Onlyfans::Models::SmartLinkListFansParams::sort
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkListFansParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor smart_link_id: String
+
+      attr_reader has_messages: bool?
+
+      def has_messages=: (bool) -> bool
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader min_messages_sent_by_fan: Integer?
+
+      def min_messages_sent_by_fan=: (Integer) -> Integer
+
+      attr_reader min_revenue_net: Float?
+
+      def min_revenue_net=: (Float) -> Float
+
+      attr_reader min_tips_net: Float?
+
+      def min_tips_net=: (Float) -> Float
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_reader sort: Onlyfans::Models::SmartLinkListFansParams::sort?
+
+      def sort=: (
+        Onlyfans::Models::SmartLinkListFansParams::sort
+      ) -> Onlyfans::Models::SmartLinkListFansParams::sort
+
+      def initialize: (
+        smart_link_id: String,
+        ?has_messages: bool,
+        ?limit: Integer,
+        ?min_messages_sent_by_fan: Integer,
+        ?min_revenue_net: Float,
+        ?min_tips_net: Float,
+        ?offset: Integer,
+        ?sort: Onlyfans::Models::SmartLinkListFansParams::sort,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        smart_link_id: String,
+        has_messages: bool,
+        limit: Integer,
+        min_messages_sent_by_fan: Integer,
+        min_revenue_net: Float,
+        min_tips_net: Float,
+        offset: Integer,
+        sort: Onlyfans::Models::SmartLinkListFansParams::sort,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type sort =
+        :revenue_net
+        | :"-revenue_net"
+        | :tips_net
+        | :"-tips_net"
+        | :messages_sent_by_fan
+        | :"-messages_sent_by_fan"
+        | :converted_at
+        | :"-converted_at"
+
+      module Sort
+        extend Onlyfans::Internal::Type::Enum
+
+        REVENUE_NET: :revenue_net
+        MINUS_REVENUE_NET: :"-revenue_net"
+        TIPS_NET: :tips_net
+        MINUS_TIPS_NET: :"-tips_net"
+        MESSAGES_SENT_BY_FAN: :messages_sent_by_fan
+        MINUS_MESSAGES_SENT_BY_FAN: :"-messages_sent_by_fan"
+        CONVERTED_AT: :converted_at
+        MINUS_CONVERTED_AT: :"-converted_at"
+
+        def self?.values: -> ::Array[Onlyfans::Models::SmartLinkListFansParams::sort]
+      end
+    end
+  end
+end

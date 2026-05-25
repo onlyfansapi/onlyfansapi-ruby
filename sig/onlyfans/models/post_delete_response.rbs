@@ -1,0 +1,241 @@
+module Onlyfans
+  module Models
+    type post_delete_response =
+      {
+        _meta: Onlyfans::Models::PostDeleteResponse::Meta,
+        data: Onlyfans::Models::PostDeleteResponse::Data
+      }
+
+    class PostDeleteResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::PostDeleteResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::PostDeleteResponse::Meta
+      ) -> Onlyfans::Models::PostDeleteResponse::Meta
+
+      attr_reader data: Onlyfans::Models::PostDeleteResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::PostDeleteResponse::Data
+      ) -> Onlyfans::Models::PostDeleteResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::PostDeleteResponse::Meta,
+        ?data: Onlyfans::Models::PostDeleteResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::PostDeleteResponse::Meta,
+        data: Onlyfans::Models::PostDeleteResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::PostDeleteResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PostDeleteResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PostDeleteResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::PostDeleteResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::PostDeleteResponse::Meta::Cache
+        ) -> Onlyfans::Models::PostDeleteResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::PostDeleteResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::PostDeleteResponse::Meta::Credits
+        ) -> Onlyfans::Models::PostDeleteResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::PostDeleteResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::PostDeleteResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::PostDeleteResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::PostDeleteResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::PostDeleteResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::PostDeleteResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::PostDeleteResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PostDeleteResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PostDeleteResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          counters: Onlyfans::Models::PostDeleteResponse::Data::Counters,
+          success: bool
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader counters: Onlyfans::Models::PostDeleteResponse::Data::Counters?
+
+        def counters=: (
+          Onlyfans::Models::PostDeleteResponse::Data::Counters
+        ) -> Onlyfans::Models::PostDeleteResponse::Data::Counters
+
+        attr_reader success: bool?
+
+        def success=: (bool) -> bool
+
+        def initialize: (
+          ?counters: Onlyfans::Models::PostDeleteResponse::Data::Counters,
+          ?success: bool
+        ) -> void
+
+        def to_hash: -> {
+          counters: Onlyfans::Models::PostDeleteResponse::Data::Counters,
+          success: bool
+        }
+
+        type counters =
+          {
+            archived_posts_count: Integer,
+            audios_count: Integer,
+            medias_count: Integer,
+            photos_count: Integer,
+            posts_count: Integer,
+            streams_count: Integer,
+            videos_count: Integer
+          }
+
+        class Counters < Onlyfans::Internal::Type::BaseModel
+          attr_reader archived_posts_count: Integer?
+
+          def archived_posts_count=: (Integer) -> Integer
+
+          attr_reader audios_count: Integer?
+
+          def audios_count=: (Integer) -> Integer
+
+          attr_reader medias_count: Integer?
+
+          def medias_count=: (Integer) -> Integer
+
+          attr_reader photos_count: Integer?
+
+          def photos_count=: (Integer) -> Integer
+
+          attr_reader posts_count: Integer?
+
+          def posts_count=: (Integer) -> Integer
+
+          attr_reader streams_count: Integer?
+
+          def streams_count=: (Integer) -> Integer
+
+          attr_reader videos_count: Integer?
+
+          def videos_count=: (Integer) -> Integer
+
+          def initialize: (
+            ?archived_posts_count: Integer,
+            ?audios_count: Integer,
+            ?medias_count: Integer,
+            ?photos_count: Integer,
+            ?posts_count: Integer,
+            ?streams_count: Integer,
+            ?videos_count: Integer
+          ) -> void
+
+          def to_hash: -> {
+            archived_posts_count: Integer,
+            audios_count: Integer,
+            medias_count: Integer,
+            photos_count: Integer,
+            posts_count: Integer,
+            streams_count: Integer,
+            videos_count: Integer
+          }
+        end
+      end
+    end
+  end
+end

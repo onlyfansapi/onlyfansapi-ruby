@@ -1,0 +1,23 @@
+module Onlyfans
+  module Models
+    type webhook_delete_params =
+      { webhook_id: String } & Onlyfans::Internal::Type::request_parameters
+
+    class WebhookDeleteParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor webhook_id: String
+
+      def initialize: (
+        webhook_id: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        webhook_id: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

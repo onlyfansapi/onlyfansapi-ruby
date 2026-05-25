@@ -1,0 +1,36 @@
+module Onlyfans
+  module Models
+    type smart_link_retrieve_stats_params =
+      { smart_link_id: String, date_end: String, date_start: String }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkRetrieveStatsParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor smart_link_id: String
+
+      attr_reader date_end: String?
+
+      def date_end=: (String) -> String
+
+      attr_reader date_start: String?
+
+      def date_start=: (String) -> String
+
+      def initialize: (
+        smart_link_id: String,
+        ?date_end: String,
+        ?date_start: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        smart_link_id: String,
+        date_end: String,
+        date_start: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

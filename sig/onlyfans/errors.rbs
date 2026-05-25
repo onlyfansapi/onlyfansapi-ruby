@@ -1,0 +1,117 @@
+module Onlyfans
+  module Errors
+    class Error < StandardError
+      attr_accessor cause: StandardError?
+    end
+
+    class ConversionError < Onlyfans::Errors::Error
+      def cause: -> StandardError?
+
+      def initialize: (
+        on: Class,
+        method: Symbol,
+        target: top,
+        value: top,
+        ?cause: StandardError?
+      ) -> void
+    end
+
+    class APIError < Onlyfans::Errors::Error
+      attr_accessor url: URI::Generic
+
+      attr_accessor status: Integer?
+
+      attr_accessor headers: ::Hash[String, String]?
+
+      attr_accessor body: top?
+
+      def initialize: (
+        url: URI::Generic,
+        ?status: Integer?,
+        ?headers: ::Hash[String, String]?,
+        ?body: Object?,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIConnectionError < Onlyfans::Errors::APIError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?headers: ::Hash[String, String]?,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APITimeoutError < Onlyfans::Errors::APIConnectionError
+      def initialize: (
+        url: URI::Generic,
+        ?status: nil,
+        ?headers: ::Hash[String, String]?,
+        ?body: nil,
+        ?request: nil,
+        ?response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class APIStatusError < Onlyfans::Errors::APIError
+      def self.for: (
+        url: URI::Generic,
+        status: Integer,
+        headers: ::Hash[String, String]?,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> instance
+
+      def initialize: (
+        url: URI::Generic,
+        status: Integer,
+        headers: ::Hash[String, String]?,
+        body: Object?,
+        request: nil,
+        response: nil,
+        ?message: String?
+      ) -> void
+    end
+
+    class BadRequestError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: 400
+    end
+
+    class AuthenticationError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: 401
+    end
+
+    class PermissionDeniedError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: 403
+    end
+
+    class NotFoundError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: 404
+    end
+
+    class ConflictError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: 409
+    end
+
+    class UnprocessableEntityError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: 422
+    end
+
+    class RateLimitError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: 429
+    end
+
+    class InternalServerError < Onlyfans::Errors::APIStatusError
+      HTTP_STATUS: Range[Integer]
+    end
+  end
+end

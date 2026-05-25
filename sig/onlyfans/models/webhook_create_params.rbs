@@ -1,0 +1,48 @@
+module Onlyfans
+  module Models
+    type webhook_create_params =
+      {
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        account_ids: ::Array[String],
+        signing_secret: String?
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class WebhookCreateParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account_scope: String
+
+      attr_accessor endpoint_url: String
+
+      attr_accessor events: ::Array[String]
+
+      attr_reader account_ids: ::Array[String]?
+
+      def account_ids=: (::Array[String]) -> ::Array[String]
+
+      attr_accessor signing_secret: String?
+
+      def initialize: (
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        ?account_ids: ::Array[String],
+        ?signing_secret: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        account_ids: ::Array[String],
+        signing_secret: String?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

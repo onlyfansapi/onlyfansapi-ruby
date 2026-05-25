@@ -1,0 +1,36 @@
+module Onlyfans
+  module Models
+    type promotion_list_params =
+      { account: String, limit: Integer, offset: Integer }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class PromotionListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      def initialize: (
+        account: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

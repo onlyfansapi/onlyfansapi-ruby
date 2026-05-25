@@ -1,0 +1,28 @@
+module Onlyfans
+  module Models
+    type story_retrieve_params =
+      { account: String, story_id: Integer }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class StoryRetrieveParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor story_id: Integer
+
+      def initialize: (
+        account: String,
+        story_id: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        story_id: Integer,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

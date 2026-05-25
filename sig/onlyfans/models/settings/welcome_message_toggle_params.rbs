@@ -1,0 +1,30 @@
+module Onlyfans
+  module Models
+    module Settings
+      type welcome_message_toggle_params =
+        { account: String, enabled: bool }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class WelcomeMessageToggleParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor enabled: bool
+
+        def initialize: (
+          account: String,
+          enabled: bool,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          enabled: bool,
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

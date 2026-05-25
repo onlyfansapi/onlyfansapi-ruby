@@ -1,0 +1,23 @@
+module Onlyfans
+  module Resources
+    class Search
+      def profiles: (
+        ?cursor: String?,
+        ?filter: Onlyfans::SearchProfilesParams::Filter,
+        ?instagram: String,
+        ?limit: Integer,
+        ?location: String,
+        ?max_subscribe_price: Float,
+        ?min_subscribe_price: Float,
+        ?query: String,
+        ?sort: Onlyfans::Models::SearchProfilesParams::sort,
+        ?sort_direction: Onlyfans::Models::SearchProfilesParams::sort_direction,
+        ?tiktok: String,
+        ?website: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SearchProfilesResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

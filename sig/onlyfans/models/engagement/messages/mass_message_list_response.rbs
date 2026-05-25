@@ -1,0 +1,348 @@
+module Onlyfans
+  module Models
+    module Engagement
+      module Messages
+        type mass_message_list_response =
+          {
+            _meta: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta,
+            _pagination: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Pagination,
+            data: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data
+          }
+
+        class MassMessageListResponse < Onlyfans::Internal::Type::BaseModel
+          attr_reader _meta: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta?
+
+          def _meta=: (
+            Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta
+          ) -> Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta
+
+          attr_reader _pagination: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Pagination?
+
+          def _pagination=: (
+            Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Pagination
+          ) -> Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Pagination
+
+          attr_reader data: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data?
+
+          def data=: (
+            Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data
+          ) -> Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data
+
+          def initialize: (
+            ?_meta: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta,
+            ?_pagination: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Pagination,
+            ?data: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data
+          ) -> void
+
+          def to_hash: -> {
+            _meta: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta,
+            _pagination: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Pagination,
+            data: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data
+          }
+
+          type meta =
+            {
+              _cache: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Cache,
+              _credits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::RateLimits
+            }
+
+          class Meta < Onlyfans::Internal::Type::BaseModel
+            attr_reader _cache: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Cache?
+
+            def _cache=: (
+              Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Cache
+            ) -> Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Cache
+
+            attr_reader _credits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Credits?
+
+            def _credits=: (
+              Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Credits
+            ) -> Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Credits
+
+            attr_reader _rate_limits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::RateLimits?
+
+            def _rate_limits=: (
+              Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::RateLimits
+            ) -> Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::RateLimits
+
+            def initialize: (
+              ?_cache: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Cache,
+              ?_credits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Credits,
+              ?_rate_limits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::RateLimits
+            ) -> void
+
+            def to_hash: -> {
+              _cache: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Cache,
+              _credits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Meta::RateLimits
+            }
+
+            type cache = { is_cached: bool, note: String }
+
+            class Cache < Onlyfans::Internal::Type::BaseModel
+              attr_reader is_cached: bool?
+
+              def is_cached=: (bool) -> bool
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              def initialize: (?is_cached: bool, ?note: String) -> void
+
+              def to_hash: -> { is_cached: bool, note: String }
+            end
+
+            type credits = { balance: Integer, note: String, used: Integer }
+
+            class Credits < Onlyfans::Internal::Type::BaseModel
+              attr_reader balance: Integer?
+
+              def balance=: (Integer) -> Integer
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              attr_reader used: Integer?
+
+              def used=: (Integer) -> Integer
+
+              def initialize: (
+                ?balance: Integer,
+                ?note: String,
+                ?used: Integer
+              ) -> void
+
+              def to_hash: -> { balance: Integer, note: String, used: Integer }
+            end
+
+            type rate_limits =
+              {
+                limit_day: Integer,
+                limit_minute: Integer,
+                remaining_day: Integer,
+                remaining_minute: Integer
+              }
+
+            class RateLimits < Onlyfans::Internal::Type::BaseModel
+              attr_reader limit_day: Integer?
+
+              def limit_day=: (Integer) -> Integer
+
+              attr_reader limit_minute: Integer?
+
+              def limit_minute=: (Integer) -> Integer
+
+              attr_reader remaining_day: Integer?
+
+              def remaining_day=: (Integer) -> Integer
+
+              attr_reader remaining_minute: Integer?
+
+              def remaining_minute=: (Integer) -> Integer
+
+              def initialize: (
+                ?limit_day: Integer,
+                ?limit_minute: Integer,
+                ?remaining_day: Integer,
+                ?remaining_minute: Integer
+              ) -> void
+
+              def to_hash: -> {
+                limit_day: Integer,
+                limit_minute: Integer,
+                remaining_day: Integer,
+                remaining_minute: Integer
+              }
+            end
+          end
+
+          type pagination = { next_page: String }
+
+          class Pagination < Onlyfans::Internal::Type::BaseModel
+            attr_reader next_page: String?
+
+            def next_page=: (String) -> String
+
+            def initialize: (?next_page: String) -> void
+
+            def to_hash: -> { next_page: String }
+          end
+
+          type data =
+            {
+              has_more: bool,
+              items: ::Array[Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data::Item]
+            }
+
+          class Data < Onlyfans::Internal::Type::BaseModel
+            attr_reader has_more: bool?
+
+            def has_more=: (bool) -> bool
+
+            attr_reader items: ::Array[Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data::Item]?
+
+            def items=: (
+              ::Array[Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data::Item]
+            ) -> ::Array[Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data::Item]
+
+            def initialize: (
+              ?has_more: bool,
+              ?items: ::Array[Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data::Item]
+            ) -> void
+
+            def to_hash: -> {
+              has_more: bool,
+              items: ::Array[Onlyfans::Models::Engagement::Messages::MassMessageListResponse::Data::Item]
+            }
+
+            type item =
+              {
+                id: Integer,
+                can_unsend: bool,
+                date: String,
+                giphy_id: String?,
+                is_canceled: bool,
+                is_free: bool,
+                is_media_ready: bool,
+                is_reported_by_me: bool,
+                is_tip: bool,
+                media: ::Array[top],
+                media_count: Integer,
+                previews: ::Array[top],
+                raw_text: String,
+                response_type: String,
+                sent_count: Integer,
+                template: String,
+                text: String,
+                unsend_seconds: Integer,
+                viewed_count: Integer
+              }
+
+            class Item < Onlyfans::Internal::Type::BaseModel
+              attr_reader id: Integer?
+
+              def id=: (Integer) -> Integer
+
+              attr_reader can_unsend: bool?
+
+              def can_unsend=: (bool) -> bool
+
+              attr_reader date: String?
+
+              def date=: (String) -> String
+
+              attr_accessor giphy_id: String?
+
+              attr_reader is_canceled: bool?
+
+              def is_canceled=: (bool) -> bool
+
+              attr_reader is_free: bool?
+
+              def is_free=: (bool) -> bool
+
+              attr_reader is_media_ready: bool?
+
+              def is_media_ready=: (bool) -> bool
+
+              attr_reader is_reported_by_me: bool?
+
+              def is_reported_by_me=: (bool) -> bool
+
+              attr_reader is_tip: bool?
+
+              def is_tip=: (bool) -> bool
+
+              attr_reader media: ::Array[top]?
+
+              def media=: (::Array[top]) -> ::Array[top]
+
+              attr_reader media_count: Integer?
+
+              def media_count=: (Integer) -> Integer
+
+              attr_reader previews: ::Array[top]?
+
+              def previews=: (::Array[top]) -> ::Array[top]
+
+              attr_reader raw_text: String?
+
+              def raw_text=: (String) -> String
+
+              attr_reader response_type: String?
+
+              def response_type=: (String) -> String
+
+              attr_reader sent_count: Integer?
+
+              def sent_count=: (Integer) -> Integer
+
+              attr_reader template: String?
+
+              def template=: (String) -> String
+
+              attr_reader text: String?
+
+              def text=: (String) -> String
+
+              attr_reader unsend_seconds: Integer?
+
+              def unsend_seconds=: (Integer) -> Integer
+
+              attr_reader viewed_count: Integer?
+
+              def viewed_count=: (Integer) -> Integer
+
+              def initialize: (
+                ?id: Integer,
+                ?can_unsend: bool,
+                ?date: String,
+                ?giphy_id: String?,
+                ?is_canceled: bool,
+                ?is_free: bool,
+                ?is_media_ready: bool,
+                ?is_reported_by_me: bool,
+                ?is_tip: bool,
+                ?media: ::Array[top],
+                ?media_count: Integer,
+                ?previews: ::Array[top],
+                ?raw_text: String,
+                ?response_type: String,
+                ?sent_count: Integer,
+                ?template: String,
+                ?text: String,
+                ?unsend_seconds: Integer,
+                ?viewed_count: Integer
+              ) -> void
+
+              def to_hash: -> {
+                id: Integer,
+                can_unsend: bool,
+                date: String,
+                giphy_id: String?,
+                is_canceled: bool,
+                is_free: bool,
+                is_media_ready: bool,
+                is_reported_by_me: bool,
+                is_tip: bool,
+                media: ::Array[top],
+                media_count: Integer,
+                previews: ::Array[top],
+                raw_text: String,
+                response_type: String,
+                sent_count: Integer,
+                template: String,
+                text: String,
+                unsend_seconds: Integer,
+                viewed_count: Integer
+              }
+            end
+          end
+        end
+      end
+    end
+  end
+end

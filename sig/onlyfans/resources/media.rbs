@@ -1,0 +1,36 @@
+module Onlyfans
+  module Resources
+    class Media
+      attr_reader uploads: Onlyfans::Resources::Media::Uploads
+
+      attr_reader vault: Onlyfans::Resources::Media::Vault
+
+      def download: (
+        String cdn_url,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> String
+
+      def scrape: (
+        String account,
+        ?expiration_date: String?,
+        ?file_type: Onlyfans::Models::MediaScrapeParams::file_type?,
+        ?media_id: Integer?,
+        ?public: bool?,
+        ?url: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::MediaScrapeResponse
+
+      def upload: (
+        String account,
+        ?async: bool,
+        ?file: Onlyfans::Internal::file_input,
+        ?file_url: String,
+        ?type: Onlyfans::Models::MediaUploadParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::MediaUploadResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

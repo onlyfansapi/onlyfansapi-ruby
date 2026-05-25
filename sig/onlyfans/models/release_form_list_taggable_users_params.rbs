@@ -1,0 +1,93 @@
+module Onlyfans
+  module Models
+    type release_form_list_taggable_users_params =
+      {
+        account: String,
+        filter: Onlyfans::Models::ReleaseFormListTaggableUsersParams::filter?,
+        limit: Integer,
+        name: String?,
+        offset: Integer,
+        sort: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort?,
+        sort_direction: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort_direction?
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class ReleaseFormListTaggableUsersParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor filter: Onlyfans::Models::ReleaseFormListTaggableUsersParams::filter?
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_accessor name: String?
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_accessor sort: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort?
+
+      attr_accessor sort_direction: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort_direction?
+
+      def initialize: (
+        account: String,
+        ?filter: Onlyfans::Models::ReleaseFormListTaggableUsersParams::filter?,
+        ?limit: Integer,
+        ?name: String?,
+        ?offset: Integer,
+        ?sort: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort?,
+        ?sort_direction: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort_direction?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        filter: Onlyfans::Models::ReleaseFormListTaggableUsersParams::filter?,
+        limit: Integer,
+        name: String?,
+        offset: Integer,
+        sort: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort?,
+        sort_direction: Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort_direction?,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type filter = :all | :pending
+
+      module Filter
+        extend Onlyfans::Internal::Type::Enum
+
+        ALL: :all
+        PENDING: :pending
+
+        def self?.values: -> ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersParams::filter]
+      end
+
+      type sort = :date | :name
+
+      module Sort
+        extend Onlyfans::Internal::Type::Enum
+
+        DATE: :date
+        NAME: :name
+
+        def self?.values: -> ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort]
+      end
+
+      type sort_direction = :desc | :asc
+
+      module SortDirection
+        extend Onlyfans::Internal::Type::Enum
+
+        DESC: :desc
+        ASC: :asc
+
+        def self?.values: -> ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersParams::sort_direction]
+      end
+    end
+  end
+end

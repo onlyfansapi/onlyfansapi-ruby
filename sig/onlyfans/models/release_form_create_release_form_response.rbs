@@ -1,0 +1,426 @@
+module Onlyfans
+  module Models
+    type release_form_create_release_form_response =
+      {
+        _meta: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta,
+        data: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data
+      }
+
+    class ReleaseFormCreateReleaseFormResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta
+      ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta
+
+      attr_reader data: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data
+      ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta,
+        ?data: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta,
+        data: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Cache,
+          _credits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Cache
+        ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Credits
+        ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Cache,
+          _credits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: Integer,
+          approved_at: String?,
+          code: String,
+          created_at: String,
+          name: String,
+          signature: String,
+          signed: ::Array[top],
+          signers_count: Integer,
+          submission_url: String,
+          type: String,
+          user: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_accessor approved_at: String?
+
+        attr_reader code: String?
+
+        def code=: (String) -> String
+
+        attr_reader created_at: String?
+
+        def created_at=: (String) -> String
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader signature: String?
+
+        def signature=: (String) -> String
+
+        attr_reader signed: ::Array[top]?
+
+        def signed=: (::Array[top]) -> ::Array[top]
+
+        attr_reader signers_count: Integer?
+
+        def signers_count=: (Integer) -> Integer
+
+        attr_reader submission_url: String?
+
+        def submission_url=: (String) -> String
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader user: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User?
+
+        def user=: (
+          Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User
+        ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User
+
+        def initialize: (
+          ?id: Integer,
+          ?approved_at: String?,
+          ?code: String,
+          ?created_at: String,
+          ?name: String,
+          ?signature: String,
+          ?signed: ::Array[top],
+          ?signers_count: Integer,
+          ?submission_url: String,
+          ?type: String,
+          ?user: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User
+        ) -> void
+
+        def to_hash: -> {
+          id: Integer,
+          approved_at: String?,
+          code: String,
+          created_at: String,
+          name: String,
+          signature: String,
+          signed: ::Array[top],
+          signers_count: Integer,
+          submission_url: String,
+          type: String,
+          user: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User
+        }
+
+        type user =
+          {
+            id: Integer,
+            avatar: String,
+            avatar_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::AvatarThumbs,
+            can_pay_internal: bool,
+            can_trial_send: bool,
+            header: String,
+            header_size: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderSize,
+            header_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderThumbs,
+            is_verified: bool,
+            name: String,
+            subscribe_price: Float,
+            tips_enabled: bool,
+            tips_max: Integer,
+            tips_min: Integer,
+            tips_min_internal: Integer,
+            username: String,
+            view: String
+          }
+
+        class User < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader avatar: String?
+
+          def avatar=: (String) -> String
+
+          attr_reader avatar_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::AvatarThumbs?
+
+          def avatar_thumbs=: (
+            Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::AvatarThumbs
+          ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::AvatarThumbs
+
+          attr_reader can_pay_internal: bool?
+
+          def can_pay_internal=: (bool) -> bool
+
+          attr_reader can_trial_send: bool?
+
+          def can_trial_send=: (bool) -> bool
+
+          attr_reader header: String?
+
+          def header=: (String) -> String
+
+          attr_reader header_size: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderSize?
+
+          def header_size=: (
+            Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderSize
+          ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderSize
+
+          attr_reader header_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderThumbs?
+
+          def header_thumbs=: (
+            Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderThumbs
+          ) -> Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderThumbs
+
+          attr_reader is_verified: bool?
+
+          def is_verified=: (bool) -> bool
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader subscribe_price: Float?
+
+          def subscribe_price=: (Float) -> Float
+
+          attr_reader tips_enabled: bool?
+
+          def tips_enabled=: (bool) -> bool
+
+          attr_reader tips_max: Integer?
+
+          def tips_max=: (Integer) -> Integer
+
+          attr_reader tips_min: Integer?
+
+          def tips_min=: (Integer) -> Integer
+
+          attr_reader tips_min_internal: Integer?
+
+          def tips_min_internal=: (Integer) -> Integer
+
+          attr_reader username: String?
+
+          def username=: (String) -> String
+
+          attr_reader view: String?
+
+          def view=: (String) -> String
+
+          def initialize: (
+            ?id: Integer,
+            ?avatar: String,
+            ?avatar_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::AvatarThumbs,
+            ?can_pay_internal: bool,
+            ?can_trial_send: bool,
+            ?header: String,
+            ?header_size: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderSize,
+            ?header_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderThumbs,
+            ?is_verified: bool,
+            ?name: String,
+            ?subscribe_price: Float,
+            ?tips_enabled: bool,
+            ?tips_max: Integer,
+            ?tips_min: Integer,
+            ?tips_min_internal: Integer,
+            ?username: String,
+            ?view: String
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            avatar: String,
+            avatar_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::AvatarThumbs,
+            can_pay_internal: bool,
+            can_trial_send: bool,
+            header: String,
+            header_size: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderSize,
+            header_thumbs: Onlyfans::Models::ReleaseFormCreateReleaseFormResponse::Data::User::HeaderThumbs,
+            is_verified: bool,
+            name: String,
+            subscribe_price: Float,
+            tips_enabled: bool,
+            tips_max: Integer,
+            tips_min: Integer,
+            tips_min_internal: Integer,
+            username: String,
+            view: String
+          }
+
+          type avatar_thumbs = { :c144 => String, :c50 => String }
+
+          class AvatarThumbs < Onlyfans::Internal::Type::BaseModel
+            attr_reader c144: String?
+
+            def c144=: (String) -> String
+
+            attr_reader c50: String?
+
+            def c50=: (String) -> String
+
+            def initialize: (?c144: String, ?c50: String) -> void
+
+            def to_hash: -> { :c144 => String, :c50 => String }
+          end
+
+          type header_size = { height: Integer, width: Integer }
+
+          class HeaderSize < Onlyfans::Internal::Type::BaseModel
+            attr_reader height: Integer?
+
+            def height=: (Integer) -> Integer
+
+            attr_reader width: Integer?
+
+            def width=: (Integer) -> Integer
+
+            def initialize: (?height: Integer, ?width: Integer) -> void
+
+            def to_hash: -> { height: Integer, width: Integer }
+          end
+
+          type header_thumbs = { :w480 => String, :w760 => String }
+
+          class HeaderThumbs < Onlyfans::Internal::Type::BaseModel
+            attr_reader w480: String?
+
+            def w480=: (String) -> String
+
+            attr_reader w760: String?
+
+            def w760=: (String) -> String
+
+            def initialize: (?w480: String, ?w760: String) -> void
+
+            def to_hash: -> { :w480 => String, :w760 => String }
+          end
+        end
+      end
+    end
+  end
+end

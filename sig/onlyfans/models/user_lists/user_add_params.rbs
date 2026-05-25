@@ -1,0 +1,34 @@
+module Onlyfans
+  module Models
+    module UserLists
+      type user_add_params =
+        { account: String, user_list_id: String, ids: ::Array[String] }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class UserAddParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor user_list_id: String
+
+        attr_accessor ids: ::Array[String]
+
+        def initialize: (
+          account: String,
+          user_list_id: String,
+          ids: ::Array[String],
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          user_list_id: String,
+          ids: ::Array[String],
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

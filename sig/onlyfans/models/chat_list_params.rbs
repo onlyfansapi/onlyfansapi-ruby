@@ -1,0 +1,111 @@
+module Onlyfans
+  module Models
+    type chat_list_params =
+      {
+        account: String,
+        filter: Onlyfans::Models::ChatListParams::filter,
+        limit: String,
+        offset: String,
+        order: Onlyfans::Models::ChatListParams::order,
+        query: String,
+        skip_users: Onlyfans::Models::ChatListParams::skip_users
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class ChatListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader filter: Onlyfans::Models::ChatListParams::filter?
+
+      def filter=: (
+        Onlyfans::Models::ChatListParams::filter
+      ) -> Onlyfans::Models::ChatListParams::filter
+
+      attr_reader limit: String?
+
+      def limit=: (String) -> String
+
+      attr_reader offset: String?
+
+      def offset=: (String) -> String
+
+      attr_reader order: Onlyfans::Models::ChatListParams::order?
+
+      def order=: (
+        Onlyfans::Models::ChatListParams::order
+      ) -> Onlyfans::Models::ChatListParams::order
+
+      attr_reader query: String?
+
+      def query=: (String) -> String
+
+      attr_reader skip_users: Onlyfans::Models::ChatListParams::skip_users?
+
+      def skip_users=: (
+        Onlyfans::Models::ChatListParams::skip_users
+      ) -> Onlyfans::Models::ChatListParams::skip_users
+
+      def initialize: (
+        account: String,
+        ?filter: Onlyfans::Models::ChatListParams::filter,
+        ?limit: String,
+        ?offset: String,
+        ?order: Onlyfans::Models::ChatListParams::order,
+        ?query: String,
+        ?skip_users: Onlyfans::Models::ChatListParams::skip_users,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        filter: Onlyfans::Models::ChatListParams::filter,
+        limit: String,
+        offset: String,
+        order: Onlyfans::Models::ChatListParams::order,
+        query: String,
+        skip_users: Onlyfans::Models::ChatListParams::skip_users,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type filter =
+        :pinned | :priority | :unread | :with_tips | :unread_with_tips
+
+      module Filter
+        extend Onlyfans::Internal::Type::Enum
+
+        PINNED: :pinned
+        PRIORITY: :priority
+        UNREAD: :unread
+        WITH_TIPS: :with_tips
+        UNREAD_WITH_TIPS: :unread_with_tips
+
+        def self?.values: -> ::Array[Onlyfans::Models::ChatListParams::filter]
+      end
+
+      type order = :recent | :old
+
+      module Order
+        extend Onlyfans::Internal::Type::Enum
+
+        RECENT: :recent
+        OLD: :old
+
+        def self?.values: -> ::Array[Onlyfans::Models::ChatListParams::order]
+      end
+
+      type skip_users = :all | :none
+
+      module SkipUsers
+        extend Onlyfans::Internal::Type::Enum
+
+        ALL: :all
+        NONE: :none
+
+        def self?.values: -> ::Array[Onlyfans::Models::ChatListParams::skip_users]
+      end
+    end
+  end
+end

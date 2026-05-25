@@ -1,0 +1,102 @@
+module Onlyfans
+  module Resources
+    class Posts
+      attr_reader comments: Onlyfans::Resources::Posts::Comments
+
+      attr_reader labels: Onlyfans::Resources::Posts::Labels
+
+      def create: (
+        String account,
+        text: String,
+        ?expire_days: Integer,
+        ?fund_raising_target_amount: Integer,
+        ?fund_raising_tips_presets: ::Array[String],
+        ?label_ids: String,
+        ?media_files: ::Array[top],
+        ?previews: ::Array[top],
+        ?rf_tag: String,
+        ?save_for_later: bool,
+        ?scheduled_date: String,
+        ?voting_correct_index: Integer,
+        ?voting_due: Integer,
+        ?voting_options: ::Array[String],
+        ?voting_type: Onlyfans::Models::PostCreateParams::voting_type,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostCreateResponse
+
+      def retrieve: (
+        Integer post_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostRetrieveResponse
+
+      def update: (
+        Integer post_id,
+        account: String,
+        text: String,
+        ?expire_days: Integer,
+        ?fund_raising_target_amount: Integer,
+        ?fund_raising_tips_presets: ::Array[String],
+        ?label_ids: String,
+        ?media_files: String,
+        ?price: Integer,
+        ?rf_tag: String,
+        ?save_for_later: bool,
+        ?scheduled_date: String,
+        ?voting_correct_index: Integer,
+        ?voting_due: Integer,
+        ?voting_options: ::Array[String],
+        ?voting_type: Onlyfans::Models::PostUpdateParams::voting_type,
+        ?request_options: Onlyfans::request_opts
+      ) -> String
+
+      def list: (
+        String account,
+        ?counters: bool,
+        ?limit: Integer,
+        ?minimum_publish_date: String,
+        ?offset: Integer,
+        ?order: Onlyfans::Models::PostListParams::order,
+        ?pinned: bool,
+        ?query: String,
+        ?sort: Onlyfans::Models::PostListParams::sort,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostListResponse
+
+      def delete: (
+        Integer post_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostDeleteResponse
+
+      def archive: (
+        Integer post_id,
+        account: String,
+        ?private_archive: bool,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostArchiveResponse
+
+      def pin: (
+        Integer post_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostPinResponse
+
+      def stats: (
+        Integer post_id,
+        account: String,
+        ?with_historical_data: bool,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostStatsResponse
+
+      def unarchive: (
+        Integer post_id,
+        account: String,
+        ?private_archive: bool,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::PostUnarchiveResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

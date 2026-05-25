@@ -1,0 +1,42 @@
+module Onlyfans
+  module Resources
+    class UserLists
+      attr_reader users: Onlyfans::Resources::UserLists::Users
+
+      def create: (
+        String account,
+        name: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::UserListCreateResponse
+
+      def retrieve: (
+        String user_list_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::UserListRetrieveResponse
+
+      def update: (
+        String user_list_id,
+        account: String,
+        name: String,
+        ?is_pinned_to_feed: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::UserListUpdateResponse
+
+      def list: (
+        String account,
+        ?limit: Integer?,
+        ?offset: Integer?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::UserListListResponse
+
+      def delete: (
+        String user_list_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::UserListDeleteResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

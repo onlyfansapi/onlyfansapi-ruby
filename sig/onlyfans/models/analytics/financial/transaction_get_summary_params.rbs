@@ -1,0 +1,36 @@
+module Onlyfans
+  module Models
+    module Analytics
+      module Financial
+        type transaction_get_summary_params =
+          { account_ids: ::Array[String], end_date: String, start_date: String }
+          & Onlyfans::Internal::Type::request_parameters
+
+        class TransactionGetSummaryParams < Onlyfans::Internal::Type::BaseModel
+          extend Onlyfans::Internal::Type::RequestParameters::Converter
+          include Onlyfans::Internal::Type::RequestParameters
+
+          attr_accessor account_ids: ::Array[String]
+
+          attr_accessor end_date: String
+
+          attr_accessor start_date: String
+
+          def initialize: (
+            account_ids: ::Array[String],
+            end_date: String,
+            start_date: String,
+            ?request_options: Onlyfans::request_opts
+          ) -> void
+
+          def to_hash: -> {
+            account_ids: ::Array[String],
+            end_date: String,
+            start_date: String,
+            request_options: Onlyfans::RequestOptions
+          }
+        end
+      end
+    end
+  end
+end

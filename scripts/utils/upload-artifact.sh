@@ -110,4 +110,4 @@ walk_tree "$DIST_DIR"
 echo "::endgroup::"
 
 echo -e "${GREEN}Gem artifacts uploaded to Stainless storage.${NC}"
-echo -e "\033[32mInstallation: bundle remove onlyfansapi && bundle add onlyfansapi --source 'https://pkg.stainless.com/s/onlyfansapi-ruby/$SHA'\033[0m"
+echo -e "\033[32mInstallation: bundle remove onlyfans && bundle add onlyfans --source 'https://pkg.stainless.com/s/onlyfansapi-ruby/$SHA'\033[0m"

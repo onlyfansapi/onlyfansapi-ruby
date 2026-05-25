@@ -1,0 +1,72 @@
+module Onlyfans
+  module Models
+    type setting_update_profile_params =
+      {
+        account: String,
+        about: String?,
+        avatar: String,
+        header: String,
+        location: String?,
+        name: String?,
+        username: String,
+        website: String?,
+        wishlist: String?
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SettingUpdateProfileParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor about: String?
+
+      attr_reader avatar: String?
+
+      def avatar=: (String) -> String
+
+      attr_reader header: String?
+
+      def header=: (String) -> String
+
+      attr_accessor location: String?
+
+      attr_accessor name: String?
+
+      attr_reader username: String?
+
+      def username=: (String) -> String
+
+      attr_accessor website: String?
+
+      attr_accessor wishlist: String?
+
+      def initialize: (
+        account: String,
+        ?about: String?,
+        ?avatar: String,
+        ?header: String,
+        ?location: String?,
+        ?name: String?,
+        ?username: String,
+        ?website: String?,
+        ?wishlist: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        about: String?,
+        avatar: String,
+        header: String,
+        location: String?,
+        name: String?,
+        username: String,
+        website: String?,
+        wishlist: String?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

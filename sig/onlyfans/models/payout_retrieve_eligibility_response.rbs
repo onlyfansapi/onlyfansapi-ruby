@@ -1,0 +1,185 @@
+module Onlyfans
+  module Models
+    type payout_retrieve_eligibility_response =
+      {
+        _meta: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta,
+        data: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Data
+      }
+
+    class PayoutRetrieveEligibilityResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta
+      ) -> Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta
+
+      attr_reader data: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::PayoutRetrieveEligibilityResponse::Data
+      ) -> Onlyfans::Models::PayoutRetrieveEligibilityResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta,
+        ?data: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta,
+        data: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Cache
+        ) -> Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Credits
+        ) -> Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PayoutRetrieveEligibilityResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          can_receive_manual_payout: bool,
+          is_verified_reason: bool,
+          need_update_banking: bool
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader can_receive_manual_payout: bool?
+
+        def can_receive_manual_payout=: (bool) -> bool
+
+        attr_reader is_verified_reason: bool?
+
+        def is_verified_reason=: (bool) -> bool
+
+        attr_reader need_update_banking: bool?
+
+        def need_update_banking=: (bool) -> bool
+
+        def initialize: (
+          ?can_receive_manual_payout: bool,
+          ?is_verified_reason: bool,
+          ?need_update_banking: bool
+        ) -> void
+
+        def to_hash: -> {
+          can_receive_manual_payout: bool,
+          is_verified_reason: bool,
+          need_update_banking: bool
+        }
+      end
+    end
+  end
+end

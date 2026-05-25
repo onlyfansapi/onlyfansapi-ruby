@@ -1,0 +1,154 @@
+module Onlyfans
+  module Models
+    module SavedForLater
+      module Messages
+        type setting_disable_automatic_messaging_response =
+          {
+            _meta: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta,
+            data: ::Array[top]
+          }
+
+        class SettingDisableAutomaticMessagingResponse < Onlyfans::Internal::Type::BaseModel
+          attr_reader _meta: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta?
+
+          def _meta=: (
+            Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta
+          ) -> Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta
+
+          attr_reader data: ::Array[top]?
+
+          def data=: (::Array[top]) -> ::Array[top]
+
+          def initialize: (
+            ?_meta: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta,
+            ?data: ::Array[top]
+          ) -> void
+
+          def to_hash: -> {
+            _meta: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta,
+            data: ::Array[top]
+          }
+
+          type meta =
+            {
+              _cache: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Cache,
+              _credits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::RateLimits
+            }
+
+          class Meta < Onlyfans::Internal::Type::BaseModel
+            attr_reader _cache: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Cache?
+
+            def _cache=: (
+              Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Cache
+            ) -> Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Cache
+
+            attr_reader _credits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Credits?
+
+            def _credits=: (
+              Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Credits
+            ) -> Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Credits
+
+            attr_reader _rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::RateLimits?
+
+            def _rate_limits=: (
+              Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::RateLimits
+            ) -> Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::RateLimits
+
+            def initialize: (
+              ?_cache: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Cache,
+              ?_credits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Credits,
+              ?_rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::RateLimits
+            ) -> void
+
+            def to_hash: -> {
+              _cache: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Cache,
+              _credits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingDisableAutomaticMessagingResponse::Meta::RateLimits
+            }
+
+            type cache = { is_cached: bool, note: String }
+
+            class Cache < Onlyfans::Internal::Type::BaseModel
+              attr_reader is_cached: bool?
+
+              def is_cached=: (bool) -> bool
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              def initialize: (?is_cached: bool, ?note: String) -> void
+
+              def to_hash: -> { is_cached: bool, note: String }
+            end
+
+            type credits = { balance: Integer, note: String, used: Integer }
+
+            class Credits < Onlyfans::Internal::Type::BaseModel
+              attr_reader balance: Integer?
+
+              def balance=: (Integer) -> Integer
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              attr_reader used: Integer?
+
+              def used=: (Integer) -> Integer
+
+              def initialize: (
+                ?balance: Integer,
+                ?note: String,
+                ?used: Integer
+              ) -> void
+
+              def to_hash: -> { balance: Integer, note: String, used: Integer }
+            end
+
+            type rate_limits =
+              {
+                limit_day: Integer,
+                limit_minute: Integer,
+                remaining_day: Integer,
+                remaining_minute: Integer
+              }
+
+            class RateLimits < Onlyfans::Internal::Type::BaseModel
+              attr_reader limit_day: Integer?
+
+              def limit_day=: (Integer) -> Integer
+
+              attr_reader limit_minute: Integer?
+
+              def limit_minute=: (Integer) -> Integer
+
+              attr_reader remaining_day: Integer?
+
+              def remaining_day=: (Integer) -> Integer
+
+              attr_reader remaining_minute: Integer?
+
+              def remaining_minute=: (Integer) -> Integer
+
+              def initialize: (
+                ?limit_day: Integer,
+                ?limit_minute: Integer,
+                ?remaining_day: Integer,
+                ?remaining_minute: Integer
+              ) -> void
+
+              def to_hash: -> {
+                limit_day: Integer,
+                limit_minute: Integer,
+                remaining_day: Integer,
+                remaining_minute: Integer
+              }
+            end
+          end
+        end
+      end
+    end
+  end
+end

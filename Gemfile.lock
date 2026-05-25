@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    onlyfansapi (0.0.1)
+    onlyfans (0.1.0)
       cgi
       connection_pool
 
@@ -210,7 +210,7 @@ DEPENDENCIES
   minitest-hooks
   minitest-proveit
   minitest-rg
-  onlyfansapi!
+  onlyfans!
   rake
   rbs
   redcarpet

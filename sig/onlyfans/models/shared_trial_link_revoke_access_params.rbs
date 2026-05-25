@@ -1,0 +1,28 @@
+module Onlyfans
+  module Models
+    type shared_trial_link_revoke_access_params =
+      { account: String, shared_trial_link_id: Integer }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SharedTrialLinkRevokeAccessParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor shared_trial_link_id: Integer
+
+      def initialize: (
+        account: String,
+        shared_trial_link_id: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        shared_trial_link_id: Integer,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

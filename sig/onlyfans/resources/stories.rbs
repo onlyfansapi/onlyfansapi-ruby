@@ -1,0 +1,59 @@
+module Onlyfans
+  module Resources
+    class Stories
+      attr_reader highlights: Onlyfans::Resources::Stories::Highlights
+
+      def create: (
+        String account,
+        media_files: ::Array[String],
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryCreateResponse
+
+      def retrieve: (
+        Integer story_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryRetrieveResponse
+
+      def delete: (
+        Integer story_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryDeleteResponse
+
+      def list_active: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryListActiveResponse
+
+      def list_archive: (
+        String account,
+        ?limit: Integer,
+        ?marker: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryListArchiveResponse
+
+      def list_viewers: (
+        Integer story_id,
+        account: String,
+        ?limit: Integer?,
+        ?offset: Integer?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryListViewersResponse
+
+      def mark_as_watched: (
+        Integer story_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryMarkAsWatchedResponse
+
+      def retrieve_stats: (
+        Integer story_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::StoryRetrieveStatsResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

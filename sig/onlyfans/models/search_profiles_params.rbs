@@ -1,0 +1,180 @@
+module Onlyfans
+  module Models
+    type search_profiles_params =
+      {
+        cursor: String?,
+        filter: Onlyfans::SearchProfilesParams::Filter,
+        instagram: String,
+        limit: Integer,
+        location: String,
+        max_subscribe_price: Float,
+        min_subscribe_price: Float,
+        query: String,
+        sort: Onlyfans::Models::SearchProfilesParams::sort,
+        sort_direction: Onlyfans::Models::SearchProfilesParams::sort_direction,
+        tiktok: String,
+        website: String
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SearchProfilesParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor cursor: String?
+
+      attr_reader filter: Onlyfans::SearchProfilesParams::Filter?
+
+      def filter=: (
+        Onlyfans::SearchProfilesParams::Filter
+      ) -> Onlyfans::SearchProfilesParams::Filter
+
+      attr_reader instagram: String?
+
+      def instagram=: (String) -> String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader location: String?
+
+      def location=: (String) -> String
+
+      attr_reader max_subscribe_price: Float?
+
+      def max_subscribe_price=: (Float) -> Float
+
+      attr_reader min_subscribe_price: Float?
+
+      def min_subscribe_price=: (Float) -> Float
+
+      attr_reader query: String?
+
+      def query=: (String) -> String
+
+      attr_reader sort: Onlyfans::Models::SearchProfilesParams::sort?
+
+      def sort=: (
+        Onlyfans::Models::SearchProfilesParams::sort
+      ) -> Onlyfans::Models::SearchProfilesParams::sort
+
+      attr_reader sort_direction: Onlyfans::Models::SearchProfilesParams::sort_direction?
+
+      def sort_direction=: (
+        Onlyfans::Models::SearchProfilesParams::sort_direction
+      ) -> Onlyfans::Models::SearchProfilesParams::sort_direction
+
+      attr_reader tiktok: String?
+
+      def tiktok=: (String) -> String
+
+      attr_reader website: String?
+
+      def website=: (String) -> String
+
+      def initialize: (
+        ?cursor: String?,
+        ?filter: Onlyfans::SearchProfilesParams::Filter,
+        ?instagram: String,
+        ?limit: Integer,
+        ?location: String,
+        ?max_subscribe_price: Float,
+        ?min_subscribe_price: Float,
+        ?query: String,
+        ?sort: Onlyfans::Models::SearchProfilesParams::sort,
+        ?sort_direction: Onlyfans::Models::SearchProfilesParams::sort_direction,
+        ?tiktok: String,
+        ?website: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        cursor: String?,
+        filter: Onlyfans::SearchProfilesParams::Filter,
+        instagram: String,
+        limit: Integer,
+        location: String,
+        max_subscribe_price: Float,
+        min_subscribe_price: Float,
+        query: String,
+        sort: Onlyfans::Models::SearchProfilesParams::sort,
+        sort_direction: Onlyfans::Models::SearchProfilesParams::sort_direction,
+        tiktok: String,
+        website: String,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type filter =
+        { gender: Onlyfans::Models::SearchProfilesParams::Filter::gender }
+
+      class Filter < Onlyfans::Internal::Type::BaseModel
+        attr_reader gender: Onlyfans::Models::SearchProfilesParams::Filter::gender?
+
+        def gender=: (
+          Onlyfans::Models::SearchProfilesParams::Filter::gender
+        ) -> Onlyfans::Models::SearchProfilesParams::Filter::gender
+
+        def initialize: (
+          ?gender: Onlyfans::Models::SearchProfilesParams::Filter::gender
+        ) -> void
+
+        def to_hash: -> {
+          gender: Onlyfans::Models::SearchProfilesParams::Filter::gender
+        }
+
+        type gender =
+          :female | :male | :trans | :trans_ftm | :trans_mtf | :couple
+
+        module Gender
+          extend Onlyfans::Internal::Type::Enum
+
+          FEMALE: :female
+          MALE: :male
+          TRANS: :trans
+          TRANS_FTM: :trans_ftm
+          TRANS_MTF: :trans_mtf
+          COUPLE: :couple
+
+          def self?.values: -> ::Array[Onlyfans::Models::SearchProfilesParams::Filter::gender]
+        end
+      end
+
+      type sort =
+        :likes
+        | :photos
+        | :videos
+        | :subscribers
+        | :subscribe_price
+        | :min_subscribe_price
+        | :join_date
+        | :last_seen
+
+      module Sort
+        extend Onlyfans::Internal::Type::Enum
+
+        LIKES: :likes
+        PHOTOS: :photos
+        VIDEOS: :videos
+        SUBSCRIBERS: :subscribers
+        SUBSCRIBE_PRICE: :subscribe_price
+        MIN_SUBSCRIBE_PRICE: :min_subscribe_price
+        JOIN_DATE: :join_date
+        LAST_SEEN: :last_seen
+
+        def self?.values: -> ::Array[Onlyfans::Models::SearchProfilesParams::sort]
+      end
+
+      type sort_direction = :desc | :asc
+
+      module SortDirection
+        extend Onlyfans::Internal::Type::Enum
+
+        DESC: :desc
+        ASC: :asc
+
+        def self?.values: -> ::Array[Onlyfans::Models::SearchProfilesParams::sort_direction]
+      end
+    end
+  end
+end

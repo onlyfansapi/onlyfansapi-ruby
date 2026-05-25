@@ -1,0 +1,70 @@
+module Onlyfans
+  module Models
+    type media_upload_params =
+      {
+        account: String,
+        async: bool,
+        file: Onlyfans::Internal::file_input,
+        file_url: String,
+        type: Onlyfans::Models::MediaUploadParams::type_
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class MediaUploadParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader async: bool?
+
+      def async=: (bool) -> bool
+
+      attr_reader file: Onlyfans::Internal::file_input?
+
+      def file=: (
+        Onlyfans::Internal::file_input
+      ) -> Onlyfans::Internal::file_input
+
+      attr_reader file_url: String?
+
+      def file_url=: (String) -> String
+
+      attr_reader type: Onlyfans::Models::MediaUploadParams::type_?
+
+      def type=: (
+        Onlyfans::Models::MediaUploadParams::type_
+      ) -> Onlyfans::Models::MediaUploadParams::type_
+
+      def initialize: (
+        account: String,
+        ?async: bool,
+        ?file: Onlyfans::Internal::file_input,
+        ?file_url: String,
+        ?type: Onlyfans::Models::MediaUploadParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        async: bool,
+        file: Onlyfans::Internal::file_input,
+        file_url: String,
+        type: Onlyfans::Models::MediaUploadParams::type_,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type type_ = :default | :avatar | :header
+
+      module Type
+        extend Onlyfans::Internal::Type::Enum
+
+        DEFAULT: :default
+        AVATAR: :avatar
+        HEADER: :header
+
+        def self?.values: -> ::Array[Onlyfans::Models::MediaUploadParams::type_]
+      end
+    end
+  end
+end

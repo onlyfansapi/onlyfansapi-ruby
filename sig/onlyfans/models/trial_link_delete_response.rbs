@@ -1,0 +1,164 @@
+module Onlyfans
+  module Models
+    type trial_link_delete_response =
+      {
+        _meta: Onlyfans::Models::TrialLinkDeleteResponse::Meta,
+        data: Onlyfans::Models::TrialLinkDeleteResponse::Data
+      }
+
+    class TrialLinkDeleteResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::TrialLinkDeleteResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::TrialLinkDeleteResponse::Meta
+      ) -> Onlyfans::Models::TrialLinkDeleteResponse::Meta
+
+      attr_reader data: Onlyfans::Models::TrialLinkDeleteResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::TrialLinkDeleteResponse::Data
+      ) -> Onlyfans::Models::TrialLinkDeleteResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::TrialLinkDeleteResponse::Meta,
+        ?data: Onlyfans::Models::TrialLinkDeleteResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::TrialLinkDeleteResponse::Meta,
+        data: Onlyfans::Models::TrialLinkDeleteResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Cache,
+          _credits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::TrialLinkDeleteResponse::Meta::Cache
+        ) -> Onlyfans::Models::TrialLinkDeleteResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::TrialLinkDeleteResponse::Meta::Credits
+        ) -> Onlyfans::Models::TrialLinkDeleteResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::TrialLinkDeleteResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::TrialLinkDeleteResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Cache,
+          _credits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::TrialLinkDeleteResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data = { success: bool }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader success: bool?
+
+        def success=: (bool) -> bool
+
+        def initialize: (?success: bool) -> void
+
+        def to_hash: -> { success: bool }
+      end
+    end
+  end
+end
