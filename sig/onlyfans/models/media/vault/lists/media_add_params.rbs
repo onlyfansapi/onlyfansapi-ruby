@@ -1,0 +1,38 @@
+module Onlyfans
+  module Models
+    module Media
+      module Vault
+        module Lists
+          type media_add_params =
+            { account: String, list_id: String, media_ids: ::Array[String] }
+            & Onlyfans::Internal::Type::request_parameters
+
+          class MediaAddParams < Onlyfans::Internal::Type::BaseModel
+            extend Onlyfans::Internal::Type::RequestParameters::Converter
+            include Onlyfans::Internal::Type::RequestParameters
+
+            attr_accessor account: String
+
+            attr_accessor list_id: String
+
+            attr_accessor media_ids: ::Array[String]
+
+            def initialize: (
+              account: String,
+              list_id: String,
+              media_ids: ::Array[String],
+              ?request_options: Onlyfans::request_opts
+            ) -> void
+
+            def to_hash: -> {
+              account: String,
+              list_id: String,
+              media_ids: ::Array[String],
+              request_options: Onlyfans::RequestOptions
+            }
+          end
+        end
+      end
+    end
+  end
+end

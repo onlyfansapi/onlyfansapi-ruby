@@ -1,0 +1,47 @@
+module Onlyfans
+  module Models
+    type smart_link_list_spenders_params =
+      {
+        smart_link_id: String,
+        limit: Integer,
+        min_spend: Float,
+        offset: Integer
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkListSpendersParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor smart_link_id: String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader min_spend: Float?
+
+      def min_spend=: (Float) -> Float
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      def initialize: (
+        smart_link_id: String,
+        ?limit: Integer,
+        ?min_spend: Float,
+        ?offset: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        smart_link_id: String,
+        limit: Integer,
+        min_spend: Float,
+        offset: Integer,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

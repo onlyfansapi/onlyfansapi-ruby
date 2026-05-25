@@ -1,0 +1,23 @@
+module Onlyfans
+  module Resources
+    class SharedTrackingLinks
+      attr_reader tags: Onlyfans::Resources::SharedTrackingLinks::Tags
+
+      def list: (
+        String account,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?synchronous: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SharedTrackingLinkListResponse
+
+      def revoke_access: (
+        Integer shared_tracking_link_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SharedTrackingLinkRevokeAccessResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

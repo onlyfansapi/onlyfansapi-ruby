@@ -1,0 +1,291 @@
+module Onlyfans
+  module Models
+    type notification_list_response =
+      {
+        _meta: Onlyfans::Models::NotificationListResponse::Meta,
+        data: Onlyfans::Models::NotificationListResponse::Data
+      }
+
+    class NotificationListResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::NotificationListResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::NotificationListResponse::Meta
+      ) -> Onlyfans::Models::NotificationListResponse::Meta
+
+      attr_reader data: Onlyfans::Models::NotificationListResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::NotificationListResponse::Data
+      ) -> Onlyfans::Models::NotificationListResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::NotificationListResponse::Meta,
+        ?data: Onlyfans::Models::NotificationListResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::NotificationListResponse::Meta,
+        data: Onlyfans::Models::NotificationListResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::NotificationListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::NotificationListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::NotificationListResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::NotificationListResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::NotificationListResponse::Meta::Cache
+        ) -> Onlyfans::Models::NotificationListResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::NotificationListResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::NotificationListResponse::Meta::Credits
+        ) -> Onlyfans::Models::NotificationListResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::NotificationListResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::NotificationListResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::NotificationListResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::NotificationListResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::NotificationListResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::NotificationListResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::NotificationListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::NotificationListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::NotificationListResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::NotificationListResponse::Data::List]
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader has_more: bool?
+
+        def has_more=: (bool) -> bool
+
+        attr_reader list: ::Array[Onlyfans::Models::NotificationListResponse::Data::List]?
+
+        def list=: (
+          ::Array[Onlyfans::Models::NotificationListResponse::Data::List]
+        ) -> ::Array[Onlyfans::Models::NotificationListResponse::Data::List]
+
+        def initialize: (
+          ?has_more: bool,
+          ?list: ::Array[Onlyfans::Models::NotificationListResponse::Data::List]
+        ) -> void
+
+        def to_hash: -> {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::NotificationListResponse::Data::List]
+        }
+
+        type list =
+          {
+            id: Integer,
+            can_go_to_profile: bool,
+            created_at: String,
+            is_read: bool,
+            replace_pairs: Onlyfans::Models::NotificationListResponse::Data::List::ReplacePairs,
+            sub_type: String,
+            text: String,
+            type: String,
+            user: Onlyfans::Models::NotificationListResponse::Data::List::User
+          }
+
+        class List < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader can_go_to_profile: bool?
+
+          def can_go_to_profile=: (bool) -> bool
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_reader is_read: bool?
+
+          def is_read=: (bool) -> bool
+
+          attr_reader replace_pairs: Onlyfans::Models::NotificationListResponse::Data::List::ReplacePairs?
+
+          def replace_pairs=: (
+            Onlyfans::Models::NotificationListResponse::Data::List::ReplacePairs
+          ) -> Onlyfans::Models::NotificationListResponse::Data::List::ReplacePairs
+
+          attr_reader sub_type: String?
+
+          def sub_type=: (String) -> String
+
+          attr_reader text: String?
+
+          def text=: (String) -> String
+
+          attr_reader type: String?
+
+          def type=: (String) -> String
+
+          attr_reader user: Onlyfans::Models::NotificationListResponse::Data::List::User?
+
+          def user=: (
+            Onlyfans::Models::NotificationListResponse::Data::List::User
+          ) -> Onlyfans::Models::NotificationListResponse::Data::List::User
+
+          def initialize: (
+            ?id: Integer,
+            ?can_go_to_profile: bool,
+            ?created_at: String,
+            ?is_read: bool,
+            ?replace_pairs: Onlyfans::Models::NotificationListResponse::Data::List::ReplacePairs,
+            ?sub_type: String,
+            ?text: String,
+            ?type: String,
+            ?user: Onlyfans::Models::NotificationListResponse::Data::List::User
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            can_go_to_profile: bool,
+            created_at: String,
+            is_read: bool,
+            replace_pairs: Onlyfans::Models::NotificationListResponse::Data::List::ReplacePairs,
+            sub_type: String,
+            text: String,
+            type: String,
+            user: Onlyfans::Models::NotificationListResponse::Data::List::User
+          }
+
+          type replace_pairs = { price: String, subscriber_link: String }
+
+          class ReplacePairs < Onlyfans::Internal::Type::BaseModel
+            attr_reader price: String?
+
+            def price=: (String) -> String
+
+            attr_reader subscriber_link: String?
+
+            def subscriber_link=: (String) -> String
+
+            def initialize: (?price: String, ?subscriber_link: String) -> void
+
+            def to_hash: -> { price: String, subscriber_link: String }
+          end
+
+          type user = { id: Integer, _view: String }
+
+          class User < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader _view: String?
+
+            def _view=: (String) -> String
+
+            def initialize: (?id: Integer, ?_view: String) -> void
+
+            def to_hash: -> { id: Integer, _view: String }
+          end
+        end
+      end
+    end
+  end
+end

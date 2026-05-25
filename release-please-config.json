@@ -60,7 +60,7 @@
     }
   ],
   "release-type": "ruby",
-  "version-file": "lib/onlyfansapi/version.rb",
+  "version-file": "lib/onlyfans/version.rb",
   "extra-files": [
     {
       "type": "ruby-readme",

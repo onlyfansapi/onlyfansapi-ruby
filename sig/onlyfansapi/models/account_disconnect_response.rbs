@@ -1,7 +1,0 @@
-module Onlyfansapi
-  module Models
-    type account_disconnect_response = ::Hash[Symbol, top]?
-
-    AccountDisconnectResponse: Onlyfansapi::Internal::Type::Converter
-  end
-end

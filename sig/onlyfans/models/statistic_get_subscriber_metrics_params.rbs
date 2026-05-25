@@ -1,0 +1,36 @@
+module Onlyfans
+  module Models
+    type statistic_get_subscriber_metrics_params =
+      { account: String, end_date: String, start_date: String, detailed: bool? }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class StatisticGetSubscriberMetricsParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor end_date: String
+
+      attr_accessor start_date: String
+
+      attr_accessor detailed: bool?
+
+      def initialize: (
+        account: String,
+        end_date: String,
+        start_date: String,
+        ?detailed: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String,
+        start_date: String,
+        detailed: bool?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

@@ -1,0 +1,44 @@
+module Onlyfans
+  module Resources
+    class Webhooks
+      def create: (
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        ?account_ids: ::Array[String],
+        ?signing_secret: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::WebhookCreateResponse
+
+      def retrieve: (
+        String webhook_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::WebhookRetrieveResponse
+
+      def update: (
+        String webhook_id,
+        account_scope: String,
+        endpoint_url: String,
+        events: ::Array[String],
+        ?account_ids: ::Array[String],
+        ?enabled: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::WebhookUpdateResponse
+
+      def list: (
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::WebhookListResponse
+
+      def delete: (
+        String webhook_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::webhook_delete_response?
+
+      def list_events: (
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::WebhookListEventsResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

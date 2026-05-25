@@ -40,9 +40,9 @@ Layout/LineLength:
   AllowedPatterns:
     - "^\\s*#.*$"
     - ^require(_relative)?
-    - "Onlyfansapi::Internal::Type::BaseModel$"
+    - "Onlyfans::Internal::Type::BaseModel$"
     - "^\\s*[A-Z0-9_]+ = :"
-    - "Onlyfansapi::(Models|Resources|Test)::"
+    - "Onlyfans::(Models|Resources|Test)::"
   Max: 110
 
 Layout/MultilineArrayLineBreaks:

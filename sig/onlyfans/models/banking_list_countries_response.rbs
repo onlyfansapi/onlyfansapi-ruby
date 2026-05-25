@@ -1,0 +1,213 @@
+module Onlyfans
+  module Models
+    type banking_list_countries_response =
+      {
+        _meta: Onlyfans::Models::BankingListCountriesResponse::Meta,
+        data: ::Array[Onlyfans::Models::BankingListCountriesResponse::Data]
+      }
+
+    class BankingListCountriesResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::BankingListCountriesResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::BankingListCountriesResponse::Meta
+      ) -> Onlyfans::Models::BankingListCountriesResponse::Meta
+
+      attr_reader data: ::Array[Onlyfans::Models::BankingListCountriesResponse::Data]?
+
+      def data=: (
+        ::Array[Onlyfans::Models::BankingListCountriesResponse::Data]
+      ) -> ::Array[Onlyfans::Models::BankingListCountriesResponse::Data]
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::BankingListCountriesResponse::Meta,
+        ?data: ::Array[Onlyfans::Models::BankingListCountriesResponse::Data]
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::BankingListCountriesResponse::Meta,
+        data: ::Array[Onlyfans::Models::BankingListCountriesResponse::Data]
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::BankingListCountriesResponse::Meta::Cache,
+          _credits: Onlyfans::Models::BankingListCountriesResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::BankingListCountriesResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::BankingListCountriesResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::BankingListCountriesResponse::Meta::Cache
+        ) -> Onlyfans::Models::BankingListCountriesResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::BankingListCountriesResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::BankingListCountriesResponse::Meta::Credits
+        ) -> Onlyfans::Models::BankingListCountriesResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::BankingListCountriesResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::BankingListCountriesResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::BankingListCountriesResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::BankingListCountriesResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::BankingListCountriesResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::BankingListCountriesResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::BankingListCountriesResponse::Meta::Cache,
+          _credits: Onlyfans::Models::BankingListCountriesResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::BankingListCountriesResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: Integer,
+          :can_has_w9_form => bool,
+          can_pay: bool,
+          code: String,
+          has_states: bool,
+          has_zip: bool,
+          name: String
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_reader can_has_w9_form: bool?
+
+        def can_has_w9_form=: (bool) -> bool
+
+        attr_reader can_pay: bool?
+
+        def can_pay=: (bool) -> bool
+
+        attr_reader code: String?
+
+        def code=: (String) -> String
+
+        attr_reader has_states: bool?
+
+        def has_states=: (bool) -> bool
+
+        attr_reader has_zip: bool?
+
+        def has_zip=: (bool) -> bool
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        def initialize: (
+          ?id: Integer,
+          ?can_has_w9_form: bool,
+          ?can_pay: bool,
+          ?code: String,
+          ?has_states: bool,
+          ?has_zip: bool,
+          ?name: String
+        ) -> void
+
+        def to_hash: -> {
+          id: Integer,
+          :can_has_w9_form => bool,
+          can_pay: bool,
+          code: String,
+          has_states: bool,
+          has_zip: bool,
+          name: String
+        }
+      end
+    end
+  end
+end

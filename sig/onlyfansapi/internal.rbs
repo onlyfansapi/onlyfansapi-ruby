@@ -1,9 +1,0 @@
-module Onlyfansapi
-  module Internal
-    extend Onlyfansapi::Internal::Util::SorbetRuntimeSupport
-
-    type file_input = Pathname | StringIO | IO | String | Onlyfansapi::FilePart
-
-    OMIT: Object
-  end
-end

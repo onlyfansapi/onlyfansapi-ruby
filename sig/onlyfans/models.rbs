@@ -1,0 +1,353 @@
+module Onlyfans
+  class AccountDisconnectParams = Onlyfans::Models::AccountDisconnectParams
+
+  class AccountListParams = Onlyfans::Models::AccountListParams
+
+  module Analytics = Onlyfans::Models::Analytics
+
+  class AuthenticatePollStatusParams = Onlyfans::Models::AuthenticatePollStatusParams
+
+  class AuthenticateReauthenticateParams = Onlyfans::Models::AuthenticateReauthenticateParams
+
+  class AuthenticateSend2faEmailParams = Onlyfans::Models::AuthenticateSend2faEmailParams
+
+  class AuthenticateStartParams = Onlyfans::Models::AuthenticateStartParams
+
+  class AuthenticateSubmit2faParams = Onlyfans::Models::AuthenticateSubmit2faParams
+
+  module Banking = Onlyfans::Models::Banking
+
+  class BankingListAvailablePayoutSystemsParams = Onlyfans::Models::BankingListAvailablePayoutSystemsParams
+
+  class BankingListCountriesParams = Onlyfans::Models::BankingListCountriesParams
+
+  class BundleCreateParams = Onlyfans::Models::BundleCreateParams
+
+  class BundleDeleteParams = Onlyfans::Models::BundleDeleteParams
+
+  class BundleListParams = Onlyfans::Models::BundleListParams
+
+  class ChargebackCalculateRatioParams = Onlyfans::Models::ChargebackCalculateRatioParams
+
+  class ChargebackListParams = Onlyfans::Models::ChargebackListParams
+
+  class ChargebackListStatisticsParams = Onlyfans::Models::ChargebackListStatisticsParams
+
+  class ChatDeleteParams = Onlyfans::Models::ChatDeleteParams
+
+  class ChatHideParams = Onlyfans::Models::ChatHideParams
+
+  class ChatListMediaParams = Onlyfans::Models::ChatListMediaParams
+
+  class ChatListParams = Onlyfans::Models::ChatListParams
+
+  class ChatMarkAsReadParams = Onlyfans::Models::ChatMarkAsReadParams
+
+  class ChatMarkAsUnreadParams = Onlyfans::Models::ChatMarkAsUnreadParams
+
+  class ChatMuteParams = Onlyfans::Models::ChatMuteParams
+
+  module Chats = Onlyfans::Models::Chats
+
+  class ChatStartTypingParams = Onlyfans::Models::ChatStartTypingParams
+
+  class ChatUnmuteParams = Onlyfans::Models::ChatUnmuteParams
+
+  class ClientSessionCreateParams = Onlyfans::Models::ClientSessionCreateParams
+
+  class DataExportCancelParams = Onlyfans::Models::DataExportCancelParams
+
+  class DataExportCreateParams = Onlyfans::Models::DataExportCreateParams
+
+  class DataExportListParams = Onlyfans::Models::DataExportListParams
+
+  class DataExportRetrieveParams = Onlyfans::Models::DataExportRetrieveParams
+
+  class DataExportRetryParams = Onlyfans::Models::DataExportRetryParams
+
+  class DataExportStartParams = Onlyfans::Models::DataExportStartParams
+
+  module Engagement = Onlyfans::Models::Engagement
+
+  class FanGetSubscriptionHistoryParams = Onlyfans::Models::FanGetSubscriptionHistoryParams
+
+  class FanListActiveParams = Onlyfans::Models::FanListActiveParams
+
+  class FanListAllParams = Onlyfans::Models::FanListAllParams
+
+  class FanListExpiredParams = Onlyfans::Models::FanListExpiredParams
+
+  class FanListLatestParams = Onlyfans::Models::FanListLatestParams
+
+  class FanListTopParams = Onlyfans::Models::FanListTopParams
+
+  module Fans = Onlyfans::Models::Fans
+
+  class FanSetCustomNameParams = Onlyfans::Models::FanSetCustomNameParams
+
+  class FollowingListActiveParams = Onlyfans::Models::FollowingListActiveParams
+
+  class FollowingListAllParams = Onlyfans::Models::FollowingListAllParams
+
+  class FollowingListExpiredParams = Onlyfans::Models::FollowingListExpiredParams
+
+  class GiphyListTrendingParams = Onlyfans::Models::GiphyListTrendingParams
+
+  class GiphySearchParams = Onlyfans::Models::GiphySearchParams
+
+  class LinkTagListParams = Onlyfans::Models::LinkTagListParams
+
+  class MassMessagingDeleteParams = Onlyfans::Models::MassMessagingDeleteParams
+
+  class MassMessagingListParams = Onlyfans::Models::MassMessagingListParams
+
+  class MassMessagingRetrieveOverviewParams = Onlyfans::Models::MassMessagingRetrieveOverviewParams
+
+  class MassMessagingRetrieveParams = Onlyfans::Models::MassMessagingRetrieveParams
+
+  class MassMessagingSendParams = Onlyfans::Models::MassMessagingSendParams
+
+  class MassMessagingUpdateParams = Onlyfans::Models::MassMessagingUpdateParams
+
+  module Media = Onlyfans::Models::Media
+
+  class MediaDownloadParams = Onlyfans::Models::MediaDownloadParams
+
+  class MediaScrapeParams = Onlyfans::Models::MediaScrapeParams
+
+  class MediaUploadParams = Onlyfans::Models::MediaUploadParams
+
+  class MeGetModelStartDateParams = Onlyfans::Models::MeGetModelStartDateParams
+
+  class MeGetTopPercentageParams = Onlyfans::Models::MeGetTopPercentageParams
+
+  class MeRetrieveParams = Onlyfans::Models::MeRetrieveParams
+
+  class MessageAttachTagsParams = Onlyfans::Models::MessageAttachTagsParams
+
+  class NotificationGetCountsParams = Onlyfans::Models::NotificationGetCountsParams
+
+  class NotificationListParams = Onlyfans::Models::NotificationListParams
+
+  class NotificationMarkAllAsReadParams = Onlyfans::Models::NotificationMarkAllAsReadParams
+
+  module Notifications = Onlyfans::Models::Notifications
+
+  class NotificationSearchUsersParams = Onlyfans::Models::NotificationSearchUsersParams
+
+  class PayoutListRequestsParams = Onlyfans::Models::PayoutListRequestsParams
+
+  class PayoutRequestManualWithdrawalParams = Onlyfans::Models::PayoutRequestManualWithdrawalParams
+
+  class PayoutRetrieveBalancesParams = Onlyfans::Models::PayoutRetrieveBalancesParams
+
+  class PayoutRetrieveEarningStatisticsParams = Onlyfans::Models::PayoutRetrieveEarningStatisticsParams
+
+  class PayoutRetrieveEligibilityParams = Onlyfans::Models::PayoutRetrieveEligibilityParams
+
+  class PayoutUpdateFrequencyParams = Onlyfans::Models::PayoutUpdateFrequencyParams
+
+  class PostArchiveParams = Onlyfans::Models::PostArchiveParams
+
+  class PostCreateParams = Onlyfans::Models::PostCreateParams
+
+  class PostDeleteParams = Onlyfans::Models::PostDeleteParams
+
+  class PostListParams = Onlyfans::Models::PostListParams
+
+  class PostPinParams = Onlyfans::Models::PostPinParams
+
+  class PostRetrieveParams = Onlyfans::Models::PostRetrieveParams
+
+  module Posts = Onlyfans::Models::Posts
+
+  class PostStatsParams = Onlyfans::Models::PostStatsParams
+
+  class PostUnarchiveParams = Onlyfans::Models::PostUnarchiveParams
+
+  class PostUpdateParams = Onlyfans::Models::PostUpdateParams
+
+  class ProfileRetrieveParams = Onlyfans::Models::ProfileRetrieveParams
+
+  class PromotionCreateParams = Onlyfans::Models::PromotionCreateParams
+
+  class PromotionDeleteParams = Onlyfans::Models::PromotionDeleteParams
+
+  class PromotionListParams = Onlyfans::Models::PromotionListParams
+
+  class PromotionStopParams = Onlyfans::Models::PromotionStopParams
+
+  class QueueCountParams = Onlyfans::Models::QueueCountParams
+
+  class QueueListParams = Onlyfans::Models::QueueListParams
+
+  class QueuePublishParams = Onlyfans::Models::QueuePublishParams
+
+  class ReleaseFormCreateInvitationLinkParams = Onlyfans::Models::ReleaseFormCreateInvitationLinkParams
+
+  class ReleaseFormCreateReleaseFormParams = Onlyfans::Models::ReleaseFormCreateReleaseFormParams
+
+  class ReleaseFormListTaggableUsersParams = Onlyfans::Models::ReleaseFormListTaggableUsersParams
+
+  module SavedForLater = Onlyfans::Models::SavedForLater
+
+  class SearchProfilesParams = Onlyfans::Models::SearchProfilesParams
+
+  class SettingCheckUsernameAvailabilityParams = Onlyfans::Models::SettingCheckUsernameAvailabilityParams
+
+  class SettingRetrieveParams = Onlyfans::Models::SettingRetrieveParams
+
+  module Settings = Onlyfans::Models::Settings
+
+  class SettingUpdateProfileParams = Onlyfans::Models::SettingUpdateProfileParams
+
+  class SettingUpdateSubscriptionPriceParams = Onlyfans::Models::SettingUpdateSubscriptionPriceParams
+
+  class SharedTrackingLinkListParams = Onlyfans::Models::SharedTrackingLinkListParams
+
+  class SharedTrackingLinkRevokeAccessParams = Onlyfans::Models::SharedTrackingLinkRevokeAccessParams
+
+  module SharedTrackingLinks = Onlyfans::Models::SharedTrackingLinks
+
+  class SharedTrialLinkListParams = Onlyfans::Models::SharedTrialLinkListParams
+
+  class SharedTrialLinkRevokeAccessParams = Onlyfans::Models::SharedTrialLinkRevokeAccessParams
+
+  module SharedTrialLinks = Onlyfans::Models::SharedTrialLinks
+
+  class SmartLinkCreateParams = Onlyfans::Models::SmartLinkCreateParams
+
+  class SmartLinkDeleteParams = Onlyfans::Models::SmartLinkDeleteParams
+
+  class SmartLinkListClicksParams = Onlyfans::Models::SmartLinkListClicksParams
+
+  class SmartLinkListConversionsParams = Onlyfans::Models::SmartLinkListConversionsParams
+
+  class SmartLinkListFansParams = Onlyfans::Models::SmartLinkListFansParams
+
+  class SmartLinkListParams = Onlyfans::Models::SmartLinkListParams
+
+  class SmartLinkListSpendersParams = Onlyfans::Models::SmartLinkListSpendersParams
+
+  class SmartLinkPostbackCreateParams = Onlyfans::Models::SmartLinkPostbackCreateParams
+
+  class SmartLinkPostbackDeleteParams = Onlyfans::Models::SmartLinkPostbackDeleteParams
+
+  class SmartLinkPostbackListParams = Onlyfans::Models::SmartLinkPostbackListParams
+
+  class SmartLinkPostbackRetrieveParams = Onlyfans::Models::SmartLinkPostbackRetrieveParams
+
+  class SmartLinkPostbackUpdateParams = Onlyfans::Models::SmartLinkPostbackUpdateParams
+
+  class SmartLinkRetrieveCohortArpsParams = Onlyfans::Models::SmartLinkRetrieveCohortArpsParams
+
+  class SmartLinkRetrieveParams = Onlyfans::Models::SmartLinkRetrieveParams
+
+  class SmartLinkRetrieveStatsParams = Onlyfans::Models::SmartLinkRetrieveStatsParams
+
+  class StatisticCalculateTotalTransactionsParams = Onlyfans::Models::StatisticCalculateTotalTransactionsParams
+
+  class StatisticGetOverviewParams = Onlyfans::Models::StatisticGetOverviewParams
+
+  class StatisticGetSubscriberMetricsParams = Onlyfans::Models::StatisticGetSubscriberMetricsParams
+
+  module Statistics = Onlyfans::Models::Statistics
+
+  class StoredListSharedTrackingLinksParams = Onlyfans::Models::StoredListSharedTrackingLinksParams
+
+  class StoredListSharedTrialLinksParams = Onlyfans::Models::StoredListSharedTrialLinksParams
+
+  class StoredListTrackingLinksParams = Onlyfans::Models::StoredListTrackingLinksParams
+
+  class StoredListTrialLinksParams = Onlyfans::Models::StoredListTrialLinksParams
+
+  module Stories = Onlyfans::Models::Stories
+
+  class StoryCreateParams = Onlyfans::Models::StoryCreateParams
+
+  class StoryDeleteParams = Onlyfans::Models::StoryDeleteParams
+
+  class StoryListActiveParams = Onlyfans::Models::StoryListActiveParams
+
+  class StoryListArchiveParams = Onlyfans::Models::StoryListArchiveParams
+
+  class StoryListViewersParams = Onlyfans::Models::StoryListViewersParams
+
+  class StoryMarkAsWatchedParams = Onlyfans::Models::StoryMarkAsWatchedParams
+
+  class StoryRetrieveParams = Onlyfans::Models::StoryRetrieveParams
+
+  class StoryRetrieveStatsParams = Onlyfans::Models::StoryRetrieveStatsParams
+
+  class SubscriberRetrieveStatisticsParams = Onlyfans::Models::SubscriberRetrieveStatisticsParams
+
+  class TrackingLinkCreateParams = Onlyfans::Models::TrackingLinkCreateParams
+
+  class TrackingLinkDeleteParams = Onlyfans::Models::TrackingLinkDeleteParams
+
+  class TrackingLinkGetCohortArpsParams = Onlyfans::Models::TrackingLinkGetCohortArpsParams
+
+  class TrackingLinkGetStatsParams = Onlyfans::Models::TrackingLinkGetStatsParams
+
+  class TrackingLinkListParams = Onlyfans::Models::TrackingLinkListParams
+
+  class TrackingLinkListSpendersParams = Onlyfans::Models::TrackingLinkListSpendersParams
+
+  class TrackingLinkListSubscribersParams = Onlyfans::Models::TrackingLinkListSubscribersParams
+
+  class TrackingLinkRetrieveParams = Onlyfans::Models::TrackingLinkRetrieveParams
+
+  module TrackingLinks = Onlyfans::Models::TrackingLinks
+
+  class TransactionListParams = Onlyfans::Models::TransactionListParams
+
+  class TrialLinkCreateParams = Onlyfans::Models::TrialLinkCreateParams
+
+  class TrialLinkDeleteParams = Onlyfans::Models::TrialLinkDeleteParams
+
+  class TrialLinkListParams = Onlyfans::Models::TrialLinkListParams
+
+  class TrialLinkListSpendersParams = Onlyfans::Models::TrialLinkListSpendersParams
+
+  class TrialLinkListSubscribersParams = Onlyfans::Models::TrialLinkListSubscribersParams
+
+  class TrialLinkRetrieveCohortArpsParams = Onlyfans::Models::TrialLinkRetrieveCohortArpsParams
+
+  class TrialLinkRetrieveParams = Onlyfans::Models::TrialLinkRetrieveParams
+
+  class TrialLinkRetrieveStatsParams = Onlyfans::Models::TrialLinkRetrieveStatsParams
+
+  module TrialLinks = Onlyfans::Models::TrialLinks
+
+  class UserListCreateParams = Onlyfans::Models::UserListCreateParams
+
+  class UserListDeleteParams = Onlyfans::Models::UserListDeleteParams
+
+  class UserListListParams = Onlyfans::Models::UserListListParams
+
+  class UserListParams = Onlyfans::Models::UserListParams
+
+  class UserListRetrieveParams = Onlyfans::Models::UserListRetrieveParams
+
+  module UserLists = Onlyfans::Models::UserLists
+
+  class UserListUpdateParams = Onlyfans::Models::UserListUpdateParams
+
+  class UserRetrieveParams = Onlyfans::Models::UserRetrieveParams
+
+  module Users = Onlyfans::Models::Users
+
+  class WebhookCreateParams = Onlyfans::Models::WebhookCreateParams
+
+  class WebhookDeleteParams = Onlyfans::Models::WebhookDeleteParams
+
+  class WebhookListEventsParams = Onlyfans::Models::WebhookListEventsParams
+
+  class WebhookListParams = Onlyfans::Models::WebhookListParams
+
+  class WebhookRetrieveParams = Onlyfans::Models::WebhookRetrieveParams
+
+  class WebhookUpdateParams = Onlyfans::Models::WebhookUpdateParams
+
+  class WhoamiRetrieveParams = Onlyfans::Models::WhoamiRetrieveParams
+end

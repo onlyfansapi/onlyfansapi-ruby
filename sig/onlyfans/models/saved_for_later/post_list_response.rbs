@@ -1,0 +1,353 @@
+module Onlyfans
+  module Models
+    module SavedForLater
+      type post_list_response =
+        {
+          _meta: Onlyfans::Models::SavedForLater::PostListResponse::Meta,
+          data: Onlyfans::Models::SavedForLater::PostListResponse::Data
+        }
+
+      class PostListResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::SavedForLater::PostListResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::SavedForLater::PostListResponse::Meta
+        ) -> Onlyfans::Models::SavedForLater::PostListResponse::Meta
+
+        attr_reader data: Onlyfans::Models::SavedForLater::PostListResponse::Data?
+
+        def data=: (
+          Onlyfans::Models::SavedForLater::PostListResponse::Data
+        ) -> Onlyfans::Models::SavedForLater::PostListResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::SavedForLater::PostListResponse::Meta,
+          ?data: Onlyfans::Models::SavedForLater::PostListResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::SavedForLater::PostListResponse::Meta,
+          data: Onlyfans::Models::SavedForLater::PostListResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Cache,
+            _credits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::SavedForLater::PostListResponse::Meta::Cache
+          ) -> Onlyfans::Models::SavedForLater::PostListResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::SavedForLater::PostListResponse::Meta::Credits
+          ) -> Onlyfans::Models::SavedForLater::PostListResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::SavedForLater::PostListResponse::Meta::RateLimits
+          ) -> Onlyfans::Models::SavedForLater::PostListResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Cache,
+            _credits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::SavedForLater::PostListResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            has_more: bool,
+            list: ::Array[Onlyfans::Models::SavedForLater::PostListResponse::Data::List],
+            sync_in_process: bool
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader has_more: bool?
+
+          def has_more=: (bool) -> bool
+
+          attr_reader list: ::Array[Onlyfans::Models::SavedForLater::PostListResponse::Data::List]?
+
+          def list=: (
+            ::Array[Onlyfans::Models::SavedForLater::PostListResponse::Data::List]
+          ) -> ::Array[Onlyfans::Models::SavedForLater::PostListResponse::Data::List]
+
+          attr_reader sync_in_process: bool?
+
+          def sync_in_process=: (bool) -> bool
+
+          def initialize: (
+            ?has_more: bool,
+            ?list: ::Array[Onlyfans::Models::SavedForLater::PostListResponse::Data::List],
+            ?sync_in_process: bool
+          ) -> void
+
+          def to_hash: -> {
+            has_more: bool,
+            list: ::Array[Onlyfans::Models::SavedForLater::PostListResponse::Data::List],
+            sync_in_process: bool
+          }
+
+          type list =
+            {
+              id: Integer,
+              created_date_time: String,
+              entity: Onlyfans::Models::SavedForLater::PostListResponse::Data::List::Entity,
+              publish_date_time: String?,
+              type: String
+            }
+
+          class List < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader created_date_time: String?
+
+            def created_date_time=: (String) -> String
+
+            attr_reader entity: Onlyfans::Models::SavedForLater::PostListResponse::Data::List::Entity?
+
+            def entity=: (
+              Onlyfans::Models::SavedForLater::PostListResponse::Data::List::Entity
+            ) -> Onlyfans::Models::SavedForLater::PostListResponse::Data::List::Entity
+
+            attr_accessor publish_date_time: String?
+
+            attr_reader type: String?
+
+            def type=: (String) -> String
+
+            def initialize: (
+              ?id: Integer,
+              ?created_date_time: String,
+              ?entity: Onlyfans::Models::SavedForLater::PostListResponse::Data::List::Entity,
+              ?publish_date_time: String?,
+              ?type: String
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              created_date_time: String,
+              entity: Onlyfans::Models::SavedForLater::PostListResponse::Data::List::Entity,
+              publish_date_time: String?,
+              type: String
+            }
+
+            type entity =
+              {
+                id: Integer,
+                can_delete: bool,
+                can_edit: bool,
+                can_toggle_favorite: bool,
+                can_view_media: bool,
+                is_markdown_disabled: bool,
+                is_media_ready: bool,
+                is_opened: bool,
+                is_published_with_period: bool,
+                posted_at: String,
+                posted_at_precise: String,
+                raw_text: String,
+                response_type: String,
+                text: String,
+                tips_amount: String
+              }
+
+            class Entity < Onlyfans::Internal::Type::BaseModel
+              attr_reader id: Integer?
+
+              def id=: (Integer) -> Integer
+
+              attr_reader can_delete: bool?
+
+              def can_delete=: (bool) -> bool
+
+              attr_reader can_edit: bool?
+
+              def can_edit=: (bool) -> bool
+
+              attr_reader can_toggle_favorite: bool?
+
+              def can_toggle_favorite=: (bool) -> bool
+
+              attr_reader can_view_media: bool?
+
+              def can_view_media=: (bool) -> bool
+
+              attr_reader is_markdown_disabled: bool?
+
+              def is_markdown_disabled=: (bool) -> bool
+
+              attr_reader is_media_ready: bool?
+
+              def is_media_ready=: (bool) -> bool
+
+              attr_reader is_opened: bool?
+
+              def is_opened=: (bool) -> bool
+
+              attr_reader is_published_with_period: bool?
+
+              def is_published_with_period=: (bool) -> bool
+
+              attr_reader posted_at: String?
+
+              def posted_at=: (String) -> String
+
+              attr_reader posted_at_precise: String?
+
+              def posted_at_precise=: (String) -> String
+
+              attr_reader raw_text: String?
+
+              def raw_text=: (String) -> String
+
+              attr_reader response_type: String?
+
+              def response_type=: (String) -> String
+
+              attr_reader text: String?
+
+              def text=: (String) -> String
+
+              attr_reader tips_amount: String?
+
+              def tips_amount=: (String) -> String
+
+              def initialize: (
+                ?id: Integer,
+                ?can_delete: bool,
+                ?can_edit: bool,
+                ?can_toggle_favorite: bool,
+                ?can_view_media: bool,
+                ?is_markdown_disabled: bool,
+                ?is_media_ready: bool,
+                ?is_opened: bool,
+                ?is_published_with_period: bool,
+                ?posted_at: String,
+                ?posted_at_precise: String,
+                ?raw_text: String,
+                ?response_type: String,
+                ?text: String,
+                ?tips_amount: String
+              ) -> void
+
+              def to_hash: -> {
+                id: Integer,
+                can_delete: bool,
+                can_edit: bool,
+                can_toggle_favorite: bool,
+                can_view_media: bool,
+                is_markdown_disabled: bool,
+                is_media_ready: bool,
+                is_opened: bool,
+                is_published_with_period: bool,
+                posted_at: String,
+                posted_at_precise: String,
+                raw_text: String,
+                response_type: String,
+                text: String,
+                tips_amount: String
+              }
+            end
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,54 @@
+module Onlyfans
+  module Models
+    type smart_link_create_params =
+      {
+        account_id: String,
+        link_type: Onlyfans::Models::SmartLinkCreateParams::link_type,
+        name: String,
+        free_trial_days: Integer
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkCreateParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account_id: String
+
+      attr_accessor link_type: Onlyfans::Models::SmartLinkCreateParams::link_type
+
+      attr_accessor name: String
+
+      attr_reader free_trial_days: Integer?
+
+      def free_trial_days=: (Integer) -> Integer
+
+      def initialize: (
+        account_id: String,
+        link_type: Onlyfans::Models::SmartLinkCreateParams::link_type,
+        name: String,
+        ?free_trial_days: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account_id: String,
+        link_type: Onlyfans::Models::SmartLinkCreateParams::link_type,
+        name: String,
+        free_trial_days: Integer,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type link_type = :free_trial | :tracking_link
+
+      module LinkType
+        extend Onlyfans::Internal::Type::Enum
+
+        FREE_TRIAL: :free_trial
+        TRACKING_LINK: :tracking_link
+
+        def self?.values: -> ::Array[Onlyfans::Models::SmartLinkCreateParams::link_type]
+      end
+    end
+  end
+end

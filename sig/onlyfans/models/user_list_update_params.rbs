@@ -1,0 +1,41 @@
+module Onlyfans
+  module Models
+    type user_list_update_params =
+      {
+        account: String,
+        user_list_id: String,
+        name: String,
+        is_pinned_to_feed: bool?
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class UserListUpdateParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor user_list_id: String
+
+      attr_accessor name: String
+
+      attr_accessor is_pinned_to_feed: bool?
+
+      def initialize: (
+        account: String,
+        user_list_id: String,
+        name: String,
+        ?is_pinned_to_feed: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        user_list_id: String,
+        name: String,
+        is_pinned_to_feed: bool?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

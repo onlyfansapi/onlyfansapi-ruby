@@ -1,0 +1,109 @@
+module Onlyfans
+  module Models
+    type post_list_params =
+      {
+        account: String,
+        counters: bool,
+        limit: Integer,
+        minimum_publish_date: String,
+        offset: Integer,
+        order: Onlyfans::Models::PostListParams::order,
+        pinned: bool,
+        query: String,
+        sort: Onlyfans::Models::PostListParams::sort
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class PostListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader counters: bool?
+
+      def counters=: (bool) -> bool
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader minimum_publish_date: String?
+
+      def minimum_publish_date=: (String) -> String
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_reader order: Onlyfans::Models::PostListParams::order?
+
+      def order=: (
+        Onlyfans::Models::PostListParams::order
+      ) -> Onlyfans::Models::PostListParams::order
+
+      attr_reader pinned: bool?
+
+      def pinned=: (bool) -> bool
+
+      attr_reader query: String?
+
+      def query=: (String) -> String
+
+      attr_reader sort: Onlyfans::Models::PostListParams::sort?
+
+      def sort=: (
+        Onlyfans::Models::PostListParams::sort
+      ) -> Onlyfans::Models::PostListParams::sort
+
+      def initialize: (
+        account: String,
+        ?counters: bool,
+        ?limit: Integer,
+        ?minimum_publish_date: String,
+        ?offset: Integer,
+        ?order: Onlyfans::Models::PostListParams::order,
+        ?pinned: bool,
+        ?query: String,
+        ?sort: Onlyfans::Models::PostListParams::sort,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        counters: bool,
+        limit: Integer,
+        minimum_publish_date: String,
+        offset: Integer,
+        order: Onlyfans::Models::PostListParams::order,
+        pinned: bool,
+        query: String,
+        sort: Onlyfans::Models::PostListParams::sort,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type order = :publish_date | :favorites_count | :tips_summ
+
+      module Order
+        extend Onlyfans::Internal::Type::Enum
+
+        PUBLISH_DATE: :publish_date
+        FAVORITES_COUNT: :favorites_count
+        TIPS_SUMM: :tips_summ
+
+        def self?.values: -> ::Array[Onlyfans::Models::PostListParams::order]
+      end
+
+      type sort = :desc | :asc
+
+      module Sort
+        extend Onlyfans::Internal::Type::Enum
+
+        DESC: :desc
+        ASC: :asc
+
+        def self?.values: -> ::Array[Onlyfans::Models::PostListParams::sort]
+      end
+    end
+  end
+end

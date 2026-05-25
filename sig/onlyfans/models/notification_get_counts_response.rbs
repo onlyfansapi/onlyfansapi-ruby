@@ -1,0 +1,241 @@
+module Onlyfans
+  module Models
+    type notification_get_counts_response =
+      {
+        _meta: Onlyfans::Models::NotificationGetCountsResponse::Meta,
+        data: Onlyfans::Models::NotificationGetCountsResponse::Data
+      }
+
+    class NotificationGetCountsResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::NotificationGetCountsResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::NotificationGetCountsResponse::Meta
+      ) -> Onlyfans::Models::NotificationGetCountsResponse::Meta
+
+      attr_reader data: Onlyfans::Models::NotificationGetCountsResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::NotificationGetCountsResponse::Data
+      ) -> Onlyfans::Models::NotificationGetCountsResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::NotificationGetCountsResponse::Meta,
+        ?data: Onlyfans::Models::NotificationGetCountsResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::NotificationGetCountsResponse::Meta,
+        data: Onlyfans::Models::NotificationGetCountsResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::NotificationGetCountsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::NotificationGetCountsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::NotificationGetCountsResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::NotificationGetCountsResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::NotificationGetCountsResponse::Meta::Cache
+        ) -> Onlyfans::Models::NotificationGetCountsResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::NotificationGetCountsResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::NotificationGetCountsResponse::Meta::Credits
+        ) -> Onlyfans::Models::NotificationGetCountsResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::NotificationGetCountsResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::NotificationGetCountsResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::NotificationGetCountsResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::NotificationGetCountsResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::NotificationGetCountsResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::NotificationGetCountsResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::NotificationGetCountsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::NotificationGetCountsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::NotificationGetCountsResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          all: Integer,
+          commented: Integer,
+          deactivated_media: Integer,
+          favorited: Integer,
+          mentioned: Integer,
+          message: Integer,
+          purchases: Integer,
+          subscribed: Integer,
+          system_: Integer,
+          tags: Integer,
+          tip: Integer
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader all: Integer?
+
+        def all=: (Integer) -> Integer
+
+        attr_reader commented: Integer?
+
+        def commented=: (Integer) -> Integer
+
+        attr_reader deactivated_media: Integer?
+
+        def deactivated_media=: (Integer) -> Integer
+
+        attr_reader favorited: Integer?
+
+        def favorited=: (Integer) -> Integer
+
+        attr_reader mentioned: Integer?
+
+        def mentioned=: (Integer) -> Integer
+
+        attr_reader message: Integer?
+
+        def message=: (Integer) -> Integer
+
+        attr_reader purchases: Integer?
+
+        def purchases=: (Integer) -> Integer
+
+        attr_reader subscribed: Integer?
+
+        def subscribed=: (Integer) -> Integer
+
+        attr_reader system_: Integer?
+
+        def system_=: (Integer) -> Integer
+
+        attr_reader tags: Integer?
+
+        def tags=: (Integer) -> Integer
+
+        attr_reader tip: Integer?
+
+        def tip=: (Integer) -> Integer
+
+        def initialize: (
+          ?all: Integer,
+          ?commented: Integer,
+          ?deactivated_media: Integer,
+          ?favorited: Integer,
+          ?mentioned: Integer,
+          ?message: Integer,
+          ?purchases: Integer,
+          ?subscribed: Integer,
+          ?system_: Integer,
+          ?tags: Integer,
+          ?tip: Integer
+        ) -> void
+
+        def to_hash: -> {
+          all: Integer,
+          commented: Integer,
+          deactivated_media: Integer,
+          favorited: Integer,
+          mentioned: Integer,
+          message: Integer,
+          purchases: Integer,
+          subscribed: Integer,
+          system_: Integer,
+          tags: Integer,
+          tip: Integer
+        }
+      end
+    end
+  end
+end

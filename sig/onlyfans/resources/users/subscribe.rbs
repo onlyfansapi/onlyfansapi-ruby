@@ -1,0 +1,22 @@
+module Onlyfans
+  module Resources
+    class Users
+      class Subscribe
+        def create: (
+          String user_id,
+          account: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Users::SubscribeCreateResponse
+
+        def delete: (
+          String user_id,
+          account: String,
+          reason: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Users::SubscribeDeleteResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

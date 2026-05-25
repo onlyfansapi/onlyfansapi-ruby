@@ -1,0 +1,34 @@
+module Onlyfans
+  module Resources
+    class Notifications
+      attr_reader tabs_order: Onlyfans::Resources::Notifications::TabsOrder
+
+      def list: (
+        String account,
+        ?from_id: Integer,
+        ?limit: Integer,
+        ?skip_users: Onlyfans::Models::NotificationListParams::skip_users,
+        ?type: Onlyfans::Models::NotificationListParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::NotificationListResponse
+
+      def get_counts: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::NotificationGetCountsResponse
+
+      def mark_all_as_read: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::NotificationMarkAllAsReadResponse
+
+      def search_users: (
+        String account,
+        query: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::NotificationSearchUsersResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

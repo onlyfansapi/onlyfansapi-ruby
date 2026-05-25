@@ -1,0 +1,41 @@
+module Onlyfans
+  module Resources
+    class Settings
+      class SocialMediaButtons
+        def update: (
+          String button_id,
+          account: String,
+          label: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::SocialMediaButtonUpdateResponse
+
+        def list: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::SocialMediaButtonListResponse
+
+        def delete: (
+          String button_id,
+          account: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::SocialMediaButtonDeleteResponse
+
+        def add: (
+          String account,
+          label: String,
+          type: Onlyfans::Models::Settings::SocialMediaButtonAddParams::type_,
+          value: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::SocialMediaButtonAddResponse
+
+        def reorder: (
+          String account,
+          button_ids: ::Array[String],
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::SocialMediaButtonReorderResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

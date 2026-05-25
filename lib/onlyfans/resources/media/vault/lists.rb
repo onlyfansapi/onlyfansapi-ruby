@@ -1,0 +1,156 @@
+# frozen_string_literal: true
+
+module Onlyfans
+  module Resources
+    class Media
+      class Vault
+        class Lists
+          # @return [Onlyfans::Resources::Media::Vault::Lists::Media]
+          attr_reader :media
+
+          # Create a new Vault list.
+          #
+          # @overload create(account, name:, request_options: {})
+          #
+          # @param account [String] The Account ID
+          #
+          # @param name [String] The name of your new list
+          #
+          # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+          #
+          # @return [Onlyfans::Models::Media::Vault::ListCreateResponse]
+          #
+          # @see Onlyfans::Models::Media::Vault::ListCreateParams
+          def create(account, params)
+            parsed, options = Onlyfans::Media::Vault::ListCreateParams.dump_request(params)
+            @client.request(
+              method: :post,
+              path: ["api/%1$s/media/vault/lists", account],
+              body: parsed,
+              model: Onlyfans::Models::Media::Vault::ListCreateResponse,
+              options: options
+            )
+          end
+
+          # Show a Vault list.
+          #
+          # @overload retrieve(list_id, account:, request_options: {})
+          #
+          # @param list_id [String] The ID of the list
+          #
+          # @param account [String] The Account ID
+          #
+          # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+          #
+          # @return [Onlyfans::Models::Media::Vault::ListRetrieveResponse]
+          #
+          # @see Onlyfans::Models::Media::Vault::ListRetrieveParams
+          def retrieve(list_id, params)
+            parsed, options = Onlyfans::Media::Vault::ListRetrieveParams.dump_request(params)
+            account =
+              parsed.delete(:account) do
+                raise ArgumentError.new("missing required path argument #{_1}")
+              end
+            @client.request(
+              method: :get,
+              path: ["api/%1$s/media/vault/lists/%2$s", account, list_id],
+              model: Onlyfans::Models::Media::Vault::ListRetrieveResponse,
+              options: options
+            )
+          end
+
+          # Rename a Vault list.
+          #
+          # @overload update(list_id, account:, request_options: {})
+          #
+          # @param list_id [String] The ID of the list
+          #
+          # @param account [String] The Account ID
+          #
+          # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+          #
+          # @return [Onlyfans::Models::Media::Vault::ListUpdateResponse]
+          #
+          # @see Onlyfans::Models::Media::Vault::ListUpdateParams
+          def update(list_id, params)
+            parsed, options = Onlyfans::Media::Vault::ListUpdateParams.dump_request(params)
+            account =
+              parsed.delete(:account) do
+                raise ArgumentError.new("missing required path argument #{_1}")
+              end
+            @client.request(
+              method: :put,
+              path: ["api/%1$s/media/vault/lists/%2$s", account, list_id],
+              model: Onlyfans::Models::Media::Vault::ListUpdateResponse,
+              options: options
+            )
+          end
+
+          # List your Vault lists (categories).
+          #
+          # @overload list(account, limit: nil, offset: nil, query: nil, request_options: {})
+          #
+          # @param account [String] The Account ID
+          #
+          # @param limit [Integer] Number of media to return per page. Default: `24`
+          #
+          # @param offset [Integer] The offset used for pagination. Default `0`
+          #
+          # @param query [String] Optionally, find a list by its name.
+          #
+          # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+          #
+          # @return [Onlyfans::Models::Media::Vault::ListListResponse]
+          #
+          # @see Onlyfans::Models::Media::Vault::ListListParams
+          def list(account, params = {})
+            parsed, options = Onlyfans::Media::Vault::ListListParams.dump_request(params)
+            query = Onlyfans::Internal::Util.encode_query_params(parsed)
+            @client.request(
+              method: :get,
+              path: ["api/%1$s/media/vault/lists", account],
+              query: query,
+              model: Onlyfans::Models::Media::Vault::ListListResponse,
+              options: options
+            )
+          end
+
+          # Delete a Vault list.
+          #
+          # @overload delete(list_id, account:, request_options: {})
+          #
+          # @param list_id [String] The ID of the list
+          #
+          # @param account [String] The Account ID
+          #
+          # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+          #
+          # @return [Onlyfans::Models::Media::Vault::ListDeleteResponse]
+          #
+          # @see Onlyfans::Models::Media::Vault::ListDeleteParams
+          def delete(list_id, params)
+            parsed, options = Onlyfans::Media::Vault::ListDeleteParams.dump_request(params)
+            account =
+              parsed.delete(:account) do
+                raise ArgumentError.new("missing required path argument #{_1}")
+              end
+            @client.request(
+              method: :delete,
+              path: ["api/%1$s/media/vault/lists/%2$s", account, list_id],
+              model: Onlyfans::Models::Media::Vault::ListDeleteResponse,
+              options: options
+            )
+          end
+
+          # @api private
+          #
+          # @param client [Onlyfans::Client]
+          def initialize(client:)
+            @client = client
+            @media = Onlyfans::Resources::Media::Vault::Lists::Media.new(client: client)
+          end
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,66 @@
+module Onlyfans
+  module Models
+    module Analytics
+      module Financial
+        type profitability_get_history_response_item =
+          {
+            gross_revenue: Float,
+            margin: Float,
+            month: Integer,
+            net_revenue: Float,
+            profit: Float,
+            year: Integer
+          }
+
+        class ProfitabilityGetHistoryResponseItem < Onlyfans::Internal::Type::BaseModel
+          attr_reader gross_revenue: Float?
+
+          def gross_revenue=: (Float) -> Float
+
+          attr_reader margin: Float?
+
+          def margin=: (Float) -> Float
+
+          attr_reader month: Integer?
+
+          def month=: (Integer) -> Integer
+
+          attr_reader net_revenue: Float?
+
+          def net_revenue=: (Float) -> Float
+
+          attr_reader profit: Float?
+
+          def profit=: (Float) -> Float
+
+          attr_reader year: Integer?
+
+          def year=: (Integer) -> Integer
+
+          def initialize: (
+            ?gross_revenue: Float,
+            ?margin: Float,
+            ?month: Integer,
+            ?net_revenue: Float,
+            ?profit: Float,
+            ?year: Integer
+          ) -> void
+
+          def to_hash: -> {
+            gross_revenue: Float,
+            margin: Float,
+            month: Integer,
+            net_revenue: Float,
+            profit: Float,
+            year: Integer
+          }
+        end
+
+        type profitability_get_history_response =
+          ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponseItem]
+
+        ProfitabilityGetHistoryResponse: Onlyfans::Internal::Type::Converter
+      end
+    end
+  end
+end

@@ -1,0 +1,443 @@
+module Onlyfans
+  module Models
+    type stored_list_tracking_links_response =
+      {
+        _meta: Onlyfans::Models::StoredListTrackingLinksResponse::Meta,
+        _pagination: Onlyfans::Models::StoredListTrackingLinksResponse::Pagination,
+        data: Onlyfans::Models::StoredListTrackingLinksResponse::Data
+      }
+
+    class StoredListTrackingLinksResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::StoredListTrackingLinksResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::StoredListTrackingLinksResponse::Meta
+      ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Meta
+
+      attr_reader _pagination: Onlyfans::Models::StoredListTrackingLinksResponse::Pagination?
+
+      def _pagination=: (
+        Onlyfans::Models::StoredListTrackingLinksResponse::Pagination
+      ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Pagination
+
+      attr_reader data: Onlyfans::Models::StoredListTrackingLinksResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::StoredListTrackingLinksResponse::Data
+      ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::StoredListTrackingLinksResponse::Meta,
+        ?_pagination: Onlyfans::Models::StoredListTrackingLinksResponse::Pagination,
+        ?data: Onlyfans::Models::StoredListTrackingLinksResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::StoredListTrackingLinksResponse::Meta,
+        _pagination: Onlyfans::Models::StoredListTrackingLinksResponse::Pagination,
+        data: Onlyfans::Models::StoredListTrackingLinksResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Cache,
+          _credits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Cache
+        ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Credits
+        ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::StoredListTrackingLinksResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Cache,
+          _credits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::StoredListTrackingLinksResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type pagination = { next_page: String }
+
+      class Pagination < Onlyfans::Internal::Type::BaseModel
+        attr_reader next_page: String?
+
+        def next_page=: (String) -> String
+
+        def initialize: (?next_page: String) -> void
+
+        def to_hash: -> { next_page: String }
+      end
+
+      type data =
+        {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::StoredListTrackingLinksResponse::Data::List]
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader has_more: bool?
+
+        def has_more=: (bool) -> bool
+
+        attr_reader list: ::Array[Onlyfans::Models::StoredListTrackingLinksResponse::Data::List]?
+
+        def list=: (
+          ::Array[Onlyfans::Models::StoredListTrackingLinksResponse::Data::List]
+        ) -> ::Array[Onlyfans::Models::StoredListTrackingLinksResponse::Data::List]
+
+        def initialize: (
+          ?has_more: bool,
+          ?list: ::Array[Onlyfans::Models::StoredListTrackingLinksResponse::Data::List]
+        ) -> void
+
+        def to_hash: -> {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::StoredListTrackingLinksResponse::Data::List]
+        }
+
+        type list =
+          {
+            id: Integer,
+            campaign_code: Integer,
+            campaign_name: String,
+            campaign_url: String,
+            clicks_count: Integer,
+            cost: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Cost,
+            created_at: String,
+            end_date: String?,
+            links: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links,
+            revenue: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Revenue,
+            subscribers_count: Integer,
+            tags: ::Array[String]
+          }
+
+        class List < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader campaign_code: Integer?
+
+          def campaign_code=: (Integer) -> Integer
+
+          attr_reader campaign_name: String?
+
+          def campaign_name=: (String) -> String
+
+          attr_reader campaign_url: String?
+
+          def campaign_url=: (String) -> String
+
+          attr_reader clicks_count: Integer?
+
+          def clicks_count=: (Integer) -> Integer
+
+          attr_reader cost: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Cost?
+
+          def cost=: (
+            Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Cost
+          ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Cost
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_accessor end_date: String?
+
+          attr_reader links: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links?
+
+          def links=: (
+            Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links
+          ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links
+
+          attr_reader revenue: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Revenue?
+
+          def revenue=: (
+            Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Revenue
+          ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Revenue
+
+          attr_reader subscribers_count: Integer?
+
+          def subscribers_count=: (Integer) -> Integer
+
+          attr_reader tags: ::Array[String]?
+
+          def tags=: (::Array[String]) -> ::Array[String]
+
+          def initialize: (
+            ?id: Integer,
+            ?campaign_code: Integer,
+            ?campaign_name: String,
+            ?campaign_url: String,
+            ?clicks_count: Integer,
+            ?cost: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Cost,
+            ?created_at: String,
+            ?end_date: String?,
+            ?links: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links,
+            ?revenue: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Revenue,
+            ?subscribers_count: Integer,
+            ?tags: ::Array[String]
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            campaign_code: Integer,
+            campaign_name: String,
+            campaign_url: String,
+            clicks_count: Integer,
+            cost: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Cost,
+            created_at: String,
+            end_date: String?,
+            links: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links,
+            revenue: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Revenue,
+            subscribers_count: Integer,
+            tags: ::Array[String]
+          }
+
+          type cost =
+            {
+              click_source_count: Integer,
+              input_mode: String?,
+              input_value: String?,
+              per_click: String?,
+              per_promo: String?,
+              per_sub: String?,
+              subscriber_source_count: Integer
+            }
+
+          class Cost < Onlyfans::Internal::Type::BaseModel
+            attr_reader click_source_count: Integer?
+
+            def click_source_count=: (Integer) -> Integer
+
+            attr_accessor input_mode: String?
+
+            attr_accessor input_value: String?
+
+            attr_accessor per_click: String?
+
+            attr_accessor per_promo: String?
+
+            attr_accessor per_sub: String?
+
+            attr_reader subscriber_source_count: Integer?
+
+            def subscriber_source_count=: (Integer) -> Integer
+
+            def initialize: (
+              ?click_source_count: Integer,
+              ?input_mode: String?,
+              ?input_value: String?,
+              ?per_click: String?,
+              ?per_promo: String?,
+              ?per_sub: String?,
+              ?subscriber_source_count: Integer
+            ) -> void
+
+            def to_hash: -> {
+              click_source_count: Integer,
+              input_mode: String?,
+              input_value: String?,
+              per_click: String?,
+              per_promo: String?,
+              per_sub: String?,
+              subscriber_source_count: Integer
+            }
+          end
+
+          type links =
+            {
+              related: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links::Related
+            }
+
+          class Links < Onlyfans::Internal::Type::BaseModel
+            attr_reader related: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links::Related?
+
+            def related=: (
+              Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links::Related
+            ) -> Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links::Related
+
+            def initialize: (
+              ?related: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links::Related
+            ) -> void
+
+            def to_hash: -> {
+              related: Onlyfans::Models::StoredListTrackingLinksResponse::Data::List::Links::Related
+            }
+
+            type related = { spenders: String, subscribers: String }
+
+            class Related < Onlyfans::Internal::Type::BaseModel
+              attr_reader spenders: String?
+
+              def spenders=: (String) -> String
+
+              attr_reader subscribers: String?
+
+              def subscribers=: (String) -> String
+
+              def initialize: (?spenders: String, ?subscribers: String) -> void
+
+              def to_hash: -> { spenders: String, subscribers: String }
+            end
+          end
+
+          type revenue =
+            {
+              calculated_at: String,
+              is_loading: bool,
+              revenue_per_click: Float,
+              revenue_per_subscriber: Integer,
+              spenders_count: Integer,
+              total: Integer
+            }
+
+          class Revenue < Onlyfans::Internal::Type::BaseModel
+            attr_reader calculated_at: String?
+
+            def calculated_at=: (String) -> String
+
+            attr_reader is_loading: bool?
+
+            def is_loading=: (bool) -> bool
+
+            attr_reader revenue_per_click: Float?
+
+            def revenue_per_click=: (Float) -> Float
+
+            attr_reader revenue_per_subscriber: Integer?
+
+            def revenue_per_subscriber=: (Integer) -> Integer
+
+            attr_reader spenders_count: Integer?
+
+            def spenders_count=: (Integer) -> Integer
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (
+              ?calculated_at: String,
+              ?is_loading: bool,
+              ?revenue_per_click: Float,
+              ?revenue_per_subscriber: Integer,
+              ?spenders_count: Integer,
+              ?total: Integer
+            ) -> void
+
+            def to_hash: -> {
+              calculated_at: String,
+              is_loading: bool,
+              revenue_per_click: Float,
+              revenue_per_subscriber: Integer,
+              spenders_count: Integer,
+              total: Integer
+            }
+          end
+        end
+      end
+    end
+  end
+end

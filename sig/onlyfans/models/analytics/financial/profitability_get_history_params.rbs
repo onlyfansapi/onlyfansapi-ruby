@@ -1,0 +1,38 @@
+module Onlyfans
+  module Models
+    module Analytics
+      module Financial
+        type profitability_get_history_params =
+          { account: String, account_prefixed_id: String, months: Integer }
+          & Onlyfans::Internal::Type::request_parameters
+
+        class ProfitabilityGetHistoryParams < Onlyfans::Internal::Type::BaseModel
+          extend Onlyfans::Internal::Type::RequestParameters::Converter
+          include Onlyfans::Internal::Type::RequestParameters
+
+          attr_accessor account: String
+
+          attr_accessor account_prefixed_id: String
+
+          attr_reader months: Integer?
+
+          def months=: (Integer) -> Integer
+
+          def initialize: (
+            account: String,
+            account_prefixed_id: String,
+            ?months: Integer,
+            ?request_options: Onlyfans::request_opts
+          ) -> void
+
+          def to_hash: -> {
+            account: String,
+            account_prefixed_id: String,
+            months: Integer,
+            request_options: Onlyfans::RequestOptions
+          }
+        end
+      end
+    end
+  end
+end

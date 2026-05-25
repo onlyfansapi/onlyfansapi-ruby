@@ -1,0 +1,430 @@
+module Onlyfans
+  module Models
+    type post_stats_response =
+      {
+        _meta: Onlyfans::Models::PostStatsResponse::Meta,
+        data: Onlyfans::Models::PostStatsResponse::Data
+      }
+
+    class PostStatsResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::PostStatsResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::PostStatsResponse::Meta
+      ) -> Onlyfans::Models::PostStatsResponse::Meta
+
+      attr_reader data: Onlyfans::Models::PostStatsResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::PostStatsResponse::Data
+      ) -> Onlyfans::Models::PostStatsResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::PostStatsResponse::Meta,
+        ?data: Onlyfans::Models::PostStatsResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::PostStatsResponse::Meta,
+        data: Onlyfans::Models::PostStatsResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::PostStatsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PostStatsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PostStatsResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::PostStatsResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::PostStatsResponse::Meta::Cache
+        ) -> Onlyfans::Models::PostStatsResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::PostStatsResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::PostStatsResponse::Meta::Credits
+        ) -> Onlyfans::Models::PostStatsResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::PostStatsResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::PostStatsResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::PostStatsResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::PostStatsResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::PostStatsResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::PostStatsResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::PostStatsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PostStatsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PostStatsResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          comment_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::CommentChart],
+          comment_count: Integer,
+          has_stats: bool,
+          has_video: bool,
+          is_available: bool,
+          like_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LikeChart],
+          like_count: Integer,
+          look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LookChart],
+          look_count: Integer,
+          look_duration: Integer,
+          look_duration_average: Integer,
+          purchased_count: Integer,
+          purchased_summ: Integer,
+          purchases_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::PurchasesChart],
+          tip_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipChart],
+          tip_count: Integer,
+          tip_sum: Integer,
+          tip_sum_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipSumChart],
+          unique_look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::UniqueLookChart],
+          unique_look_count: Integer
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader comment_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::CommentChart]?
+
+        def comment_chart=: (
+          ::Array[Onlyfans::Models::PostStatsResponse::Data::CommentChart]
+        ) -> ::Array[Onlyfans::Models::PostStatsResponse::Data::CommentChart]
+
+        attr_reader comment_count: Integer?
+
+        def comment_count=: (Integer) -> Integer
+
+        attr_reader has_stats: bool?
+
+        def has_stats=: (bool) -> bool
+
+        attr_reader has_video: bool?
+
+        def has_video=: (bool) -> bool
+
+        attr_reader is_available: bool?
+
+        def is_available=: (bool) -> bool
+
+        attr_reader like_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LikeChart]?
+
+        def like_chart=: (
+          ::Array[Onlyfans::Models::PostStatsResponse::Data::LikeChart]
+        ) -> ::Array[Onlyfans::Models::PostStatsResponse::Data::LikeChart]
+
+        attr_reader like_count: Integer?
+
+        def like_count=: (Integer) -> Integer
+
+        attr_reader look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LookChart]?
+
+        def look_chart=: (
+          ::Array[Onlyfans::Models::PostStatsResponse::Data::LookChart]
+        ) -> ::Array[Onlyfans::Models::PostStatsResponse::Data::LookChart]
+
+        attr_reader look_count: Integer?
+
+        def look_count=: (Integer) -> Integer
+
+        attr_reader look_duration: Integer?
+
+        def look_duration=: (Integer) -> Integer
+
+        attr_reader look_duration_average: Integer?
+
+        def look_duration_average=: (Integer) -> Integer
+
+        attr_reader purchased_count: Integer?
+
+        def purchased_count=: (Integer) -> Integer
+
+        attr_reader purchased_summ: Integer?
+
+        def purchased_summ=: (Integer) -> Integer
+
+        attr_reader purchases_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::PurchasesChart]?
+
+        def purchases_chart=: (
+          ::Array[Onlyfans::Models::PostStatsResponse::Data::PurchasesChart]
+        ) -> ::Array[Onlyfans::Models::PostStatsResponse::Data::PurchasesChart]
+
+        attr_reader tip_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipChart]?
+
+        def tip_chart=: (
+          ::Array[Onlyfans::Models::PostStatsResponse::Data::TipChart]
+        ) -> ::Array[Onlyfans::Models::PostStatsResponse::Data::TipChart]
+
+        attr_reader tip_count: Integer?
+
+        def tip_count=: (Integer) -> Integer
+
+        attr_reader tip_sum: Integer?
+
+        def tip_sum=: (Integer) -> Integer
+
+        attr_reader tip_sum_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipSumChart]?
+
+        def tip_sum_chart=: (
+          ::Array[Onlyfans::Models::PostStatsResponse::Data::TipSumChart]
+        ) -> ::Array[Onlyfans::Models::PostStatsResponse::Data::TipSumChart]
+
+        attr_reader unique_look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::UniqueLookChart]?
+
+        def unique_look_chart=: (
+          ::Array[Onlyfans::Models::PostStatsResponse::Data::UniqueLookChart]
+        ) -> ::Array[Onlyfans::Models::PostStatsResponse::Data::UniqueLookChart]
+
+        attr_reader unique_look_count: Integer?
+
+        def unique_look_count=: (Integer) -> Integer
+
+        def initialize: (
+          ?comment_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::CommentChart],
+          ?comment_count: Integer,
+          ?has_stats: bool,
+          ?has_video: bool,
+          ?is_available: bool,
+          ?like_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LikeChart],
+          ?like_count: Integer,
+          ?look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LookChart],
+          ?look_count: Integer,
+          ?look_duration: Integer,
+          ?look_duration_average: Integer,
+          ?purchased_count: Integer,
+          ?purchased_summ: Integer,
+          ?purchases_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::PurchasesChart],
+          ?tip_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipChart],
+          ?tip_count: Integer,
+          ?tip_sum: Integer,
+          ?tip_sum_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipSumChart],
+          ?unique_look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::UniqueLookChart],
+          ?unique_look_count: Integer
+        ) -> void
+
+        def to_hash: -> {
+          comment_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::CommentChart],
+          comment_count: Integer,
+          has_stats: bool,
+          has_video: bool,
+          is_available: bool,
+          like_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LikeChart],
+          like_count: Integer,
+          look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::LookChart],
+          look_count: Integer,
+          look_duration: Integer,
+          look_duration_average: Integer,
+          purchased_count: Integer,
+          purchased_summ: Integer,
+          purchases_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::PurchasesChart],
+          tip_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipChart],
+          tip_count: Integer,
+          tip_sum: Integer,
+          tip_sum_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::TipSumChart],
+          unique_look_chart: ::Array[Onlyfans::Models::PostStatsResponse::Data::UniqueLookChart],
+          unique_look_count: Integer
+        }
+
+        type comment_chart = { count: Integer, date: String }
+
+        class CommentChart < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+
+        type like_chart = { count: Integer, date: String }
+
+        class LikeChart < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+
+        type look_chart = { count: Integer, date: String }
+
+        class LookChart < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+
+        type purchases_chart = { count: Integer, date: String }
+
+        class PurchasesChart < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+
+        type tip_chart = { count: Integer, date: String }
+
+        class TipChart < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+
+        type tip_sum_chart = { count: Integer, date: String }
+
+        class TipSumChart < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+
+        type unique_look_chart = { count: Integer, date: String }
+
+        class UniqueLookChart < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+      end
+    end
+  end
+end

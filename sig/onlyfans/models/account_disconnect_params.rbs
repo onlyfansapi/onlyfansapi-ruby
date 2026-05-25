@@ -1,0 +1,20 @@
+module Onlyfans
+  module Models
+    type account_disconnect_params =
+      { id: String } & Onlyfans::Internal::Type::request_parameters
+
+    class AccountDisconnectParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor id: String
+
+      def initialize: (
+        id: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> { id: String, request_options: Onlyfans::RequestOptions }
+    end
+  end
+end

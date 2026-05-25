@@ -1,0 +1,190 @@
+# frozen_string_literal: true
+
+module Onlyfans
+  module Models
+    # @see Onlyfans::Resources::TrialLinks#create
+    class TrialLinkCreateResponse < Onlyfans::Internal::Type::BaseModel
+      # @!attribute _meta
+      #
+      #   @return [Onlyfans::Models::TrialLinkCreateResponse::Meta, nil]
+      optional :_meta, -> { Onlyfans::Models::TrialLinkCreateResponse::Meta }
+
+      # @!attribute _pagination
+      #
+      #   @return [Onlyfans::Models::TrialLinkCreateResponse::Pagination, nil]
+      optional :_pagination, -> { Onlyfans::Models::TrialLinkCreateResponse::Pagination }
+
+      # @!attribute data
+      #
+      #   @return [Onlyfans::Models::TrialLinkCreateResponse::Data, nil]
+      optional :data, -> { Onlyfans::Models::TrialLinkCreateResponse::Data }
+
+      # @!method initialize(_meta: nil, _pagination: nil, data: nil)
+      #   @param _meta [Onlyfans::Models::TrialLinkCreateResponse::Meta]
+      #   @param _pagination [Onlyfans::Models::TrialLinkCreateResponse::Pagination]
+      #   @param data [Onlyfans::Models::TrialLinkCreateResponse::Data]
+
+      # @see Onlyfans::Models::TrialLinkCreateResponse#_meta
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        # @!attribute _cache
+        #
+        #   @return [Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache, nil]
+        optional :_cache, -> { Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache }
+
+        # @!attribute _credits
+        #
+        #   @return [Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits, nil]
+        optional :_credits, -> { Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits }
+
+        # @!attribute _rate_limits
+        #
+        #   @return [Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits, nil]
+        optional :_rate_limits, -> { Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits }
+
+        # @!method initialize(_cache: nil, _credits: nil, _rate_limits: nil)
+        #   @param _cache [Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache]
+        #   @param _credits [Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits]
+        #   @param _rate_limits [Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits]
+
+        # @see Onlyfans::Models::TrialLinkCreateResponse::Meta#_cache
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          # @!attribute is_cached
+          #
+          #   @return [Boolean, nil]
+          optional :is_cached, Onlyfans::Internal::Type::Boolean
+
+          # @!attribute note
+          #
+          #   @return [String, nil]
+          optional :note, String
+
+          # @!method initialize(is_cached: nil, note: nil)
+          #   @param is_cached [Boolean]
+          #   @param note [String]
+        end
+
+        # @see Onlyfans::Models::TrialLinkCreateResponse::Meta#_credits
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          # @!attribute balance
+          #
+          #   @return [Integer, nil]
+          optional :balance, Integer
+
+          # @!attribute note
+          #
+          #   @return [String, nil]
+          optional :note, String
+
+          # @!attribute used
+          #
+          #   @return [Integer, nil]
+          optional :used, Integer
+
+          # @!method initialize(balance: nil, note: nil, used: nil)
+          #   @param balance [Integer]
+          #   @param note [String]
+          #   @param used [Integer]
+        end
+
+        # @see Onlyfans::Models::TrialLinkCreateResponse::Meta#_rate_limits
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          # @!attribute limit_day
+          #
+          #   @return [Integer, nil]
+          optional :limit_day, Integer
+
+          # @!attribute limit_minute
+          #
+          #   @return [Integer, nil]
+          optional :limit_minute, Integer
+
+          # @!attribute remaining_day
+          #
+          #   @return [Integer, nil]
+          optional :remaining_day, Integer
+
+          # @!attribute remaining_minute
+          #
+          #   @return [Integer, nil]
+          optional :remaining_minute, Integer
+
+          # @!method initialize(limit_day: nil, limit_minute: nil, remaining_day: nil, remaining_minute: nil)
+          #   @param limit_day [Integer]
+          #   @param limit_minute [Integer]
+          #   @param remaining_day [Integer]
+          #   @param remaining_minute [Integer]
+        end
+      end
+
+      # @see Onlyfans::Models::TrialLinkCreateResponse#_pagination
+      class Pagination < Onlyfans::Internal::Type::BaseModel
+        # @!attribute next_page
+        #
+        #   @return [String, nil]
+        optional :next_page, String, nil?: true
+
+        # @!method initialize(next_page: nil)
+        #   @param next_page [String, nil]
+      end
+
+      # @see Onlyfans::Models::TrialLinkCreateResponse#data
+      class Data < Onlyfans::Internal::Type::BaseModel
+        # @!attribute id
+        #
+        #   @return [Integer, nil]
+        optional :id, Integer
+
+        # @!attribute claim_counts
+        #
+        #   @return [Integer, nil]
+        optional :claim_counts, Integer, api_name: :claimCounts
+
+        # @!attribute created_at
+        #
+        #   @return [String, nil]
+        optional :created_at, String, api_name: :createdAt
+
+        # @!attribute expired_at
+        #
+        #   @return [String, nil]
+        optional :expired_at, String, api_name: :expiredAt
+
+        # @!attribute is_finished
+        #
+        #   @return [Boolean, nil]
+        optional :is_finished, Onlyfans::Internal::Type::Boolean, api_name: :isFinished
+
+        # @!attribute subscribe_counts
+        #
+        #   @return [Integer, nil]
+        optional :subscribe_counts, Integer, api_name: :subscribeCounts
+
+        # @!attribute subscribe_days
+        #
+        #   @return [Integer, nil]
+        optional :subscribe_days, Integer, api_name: :subscribeDays
+
+        # @!attribute trial_link_name
+        #
+        #   @return [String, nil]
+        optional :trial_link_name, String, api_name: :trialLinkName
+
+        # @!attribute url
+        #
+        #   @return [String, nil]
+        optional :url, String
+
+        # @!method initialize(id: nil, claim_counts: nil, created_at: nil, expired_at: nil, is_finished: nil, subscribe_counts: nil, subscribe_days: nil, trial_link_name: nil, url: nil)
+        #   @param id [Integer]
+        #   @param claim_counts [Integer]
+        #   @param created_at [String]
+        #   @param expired_at [String]
+        #   @param is_finished [Boolean]
+        #   @param subscribe_counts [Integer]
+        #   @param subscribe_days [Integer]
+        #   @param trial_link_name [String]
+        #   @param url [String]
+      end
+    end
+  end
+end

@@ -1,0 +1,331 @@
+module Onlyfans
+  module Models
+    type smart_link_list_fans_response =
+      {
+        _meta: Onlyfans::Models::SmartLinkListFansResponse::Meta,
+        data: Onlyfans::Models::SmartLinkListFansResponse::Data
+      }
+
+    class SmartLinkListFansResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::SmartLinkListFansResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::SmartLinkListFansResponse::Meta
+      ) -> Onlyfans::Models::SmartLinkListFansResponse::Meta
+
+      attr_reader data: Onlyfans::Models::SmartLinkListFansResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::SmartLinkListFansResponse::Data
+      ) -> Onlyfans::Models::SmartLinkListFansResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::SmartLinkListFansResponse::Meta,
+        ?data: Onlyfans::Models::SmartLinkListFansResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::SmartLinkListFansResponse::Meta,
+        data: Onlyfans::Models::SmartLinkListFansResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::SmartLinkListFansResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SmartLinkListFansResponse::Meta::Credits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::SmartLinkListFansResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::SmartLinkListFansResponse::Meta::Cache
+        ) -> Onlyfans::Models::SmartLinkListFansResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::SmartLinkListFansResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::SmartLinkListFansResponse::Meta::Credits
+        ) -> Onlyfans::Models::SmartLinkListFansResponse::Meta::Credits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::SmartLinkListFansResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::SmartLinkListFansResponse::Meta::Credits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::SmartLinkListFansResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SmartLinkListFansResponse::Meta::Credits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+      end
+
+      type data =
+        {
+          filters: Onlyfans::Models::SmartLinkListFansResponse::Data::Filters,
+          rows: ::Array[Onlyfans::Models::SmartLinkListFansResponse::Data::Row],
+          summary: Onlyfans::Models::SmartLinkListFansResponse::Data::Summary
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader filters: Onlyfans::Models::SmartLinkListFansResponse::Data::Filters?
+
+        def filters=: (
+          Onlyfans::Models::SmartLinkListFansResponse::Data::Filters
+        ) -> Onlyfans::Models::SmartLinkListFansResponse::Data::Filters
+
+        attr_reader rows: ::Array[Onlyfans::Models::SmartLinkListFansResponse::Data::Row]?
+
+        def rows=: (
+          ::Array[Onlyfans::Models::SmartLinkListFansResponse::Data::Row]
+        ) -> ::Array[Onlyfans::Models::SmartLinkListFansResponse::Data::Row]
+
+        attr_reader summary: Onlyfans::Models::SmartLinkListFansResponse::Data::Summary?
+
+        def summary=: (
+          Onlyfans::Models::SmartLinkListFansResponse::Data::Summary
+        ) -> Onlyfans::Models::SmartLinkListFansResponse::Data::Summary
+
+        def initialize: (
+          ?filters: Onlyfans::Models::SmartLinkListFansResponse::Data::Filters,
+          ?rows: ::Array[Onlyfans::Models::SmartLinkListFansResponse::Data::Row],
+          ?summary: Onlyfans::Models::SmartLinkListFansResponse::Data::Summary
+        ) -> void
+
+        def to_hash: -> {
+          filters: Onlyfans::Models::SmartLinkListFansResponse::Data::Filters,
+          rows: ::Array[Onlyfans::Models::SmartLinkListFansResponse::Data::Row],
+          summary: Onlyfans::Models::SmartLinkListFansResponse::Data::Summary
+        }
+
+        type filters =
+          {
+            has_messages: String?,
+            limit: Integer,
+            min_messages_sent_by_fan: String?,
+            min_revenue_net: String?,
+            min_tips_net: String?,
+            offset: Integer,
+            sort: String
+          }
+
+        class Filters < Onlyfans::Internal::Type::BaseModel
+          attr_accessor has_messages: String?
+
+          attr_reader limit: Integer?
+
+          def limit=: (Integer) -> Integer
+
+          attr_accessor min_messages_sent_by_fan: String?
+
+          attr_accessor min_revenue_net: String?
+
+          attr_accessor min_tips_net: String?
+
+          attr_reader offset: Integer?
+
+          def offset=: (Integer) -> Integer
+
+          attr_reader sort: String?
+
+          def sort=: (String) -> String
+
+          def initialize: (
+            ?has_messages: String?,
+            ?limit: Integer,
+            ?min_messages_sent_by_fan: String?,
+            ?min_revenue_net: String?,
+            ?min_tips_net: String?,
+            ?offset: Integer,
+            ?sort: String
+          ) -> void
+
+          def to_hash: -> {
+            has_messages: String?,
+            limit: Integer,
+            min_messages_sent_by_fan: String?,
+            min_revenue_net: String?,
+            min_tips_net: String?,
+            offset: Integer,
+            sort: String
+          }
+        end
+
+        type row =
+          {
+            avatar_url: String,
+            click_id: String,
+            conversion_id: Integer,
+            converted_at: String,
+            external_click_id: String,
+            fan_id: Integer,
+            messages_sent_by_fan: Integer,
+            name: String,
+            onlyfans_id: String,
+            revenue_net: Integer,
+            tips_net: Integer,
+            username: String
+          }
+
+        class Row < Onlyfans::Internal::Type::BaseModel
+          attr_reader avatar_url: String?
+
+          def avatar_url=: (String) -> String
+
+          attr_reader click_id: String?
+
+          def click_id=: (String) -> String
+
+          attr_reader conversion_id: Integer?
+
+          def conversion_id=: (Integer) -> Integer
+
+          attr_reader converted_at: String?
+
+          def converted_at=: (String) -> String
+
+          attr_reader external_click_id: String?
+
+          def external_click_id=: (String) -> String
+
+          attr_reader fan_id: Integer?
+
+          def fan_id=: (Integer) -> Integer
+
+          attr_reader messages_sent_by_fan: Integer?
+
+          def messages_sent_by_fan=: (Integer) -> Integer
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader onlyfans_id: String?
+
+          def onlyfans_id=: (String) -> String
+
+          attr_reader revenue_net: Integer?
+
+          def revenue_net=: (Integer) -> Integer
+
+          attr_reader tips_net: Integer?
+
+          def tips_net=: (Integer) -> Integer
+
+          attr_reader username: String?
+
+          def username=: (String) -> String
+
+          def initialize: (
+            ?avatar_url: String,
+            ?click_id: String,
+            ?conversion_id: Integer,
+            ?converted_at: String,
+            ?external_click_id: String,
+            ?fan_id: Integer,
+            ?messages_sent_by_fan: Integer,
+            ?name: String,
+            ?onlyfans_id: String,
+            ?revenue_net: Integer,
+            ?tips_net: Integer,
+            ?username: String
+          ) -> void
+
+          def to_hash: -> {
+            avatar_url: String,
+            click_id: String,
+            conversion_id: Integer,
+            converted_at: String,
+            external_click_id: String,
+            fan_id: Integer,
+            messages_sent_by_fan: Integer,
+            name: String,
+            onlyfans_id: String,
+            revenue_net: Integer,
+            tips_net: Integer,
+            username: String
+          }
+        end
+
+        type summary =
+          {
+            fans_total: Integer,
+            :fans_with_3_plus_messages_total => Integer,
+            revenue_net_total: Integer,
+            tips_net_total: Integer
+          }
+
+        class Summary < Onlyfans::Internal::Type::BaseModel
+          attr_reader fans_total: Integer?
+
+          def fans_total=: (Integer) -> Integer
+
+          attr_reader fans_with_3_plus_messages_total: Integer?
+
+          def fans_with_3_plus_messages_total=: (Integer) -> Integer
+
+          attr_reader revenue_net_total: Integer?
+
+          def revenue_net_total=: (Integer) -> Integer
+
+          attr_reader tips_net_total: Integer?
+
+          def tips_net_total=: (Integer) -> Integer
+
+          def initialize: (
+            ?fans_total: Integer,
+            ?fans_with_3_plus_messages_total: Integer,
+            ?revenue_net_total: Integer,
+            ?tips_net_total: Integer
+          ) -> void
+
+          def to_hash: -> {
+            fans_total: Integer,
+            :fans_with_3_plus_messages_total => Integer,
+            revenue_net_total: Integer,
+            tips_net_total: Integer
+          }
+        end
+      end
+    end
+  end
+end

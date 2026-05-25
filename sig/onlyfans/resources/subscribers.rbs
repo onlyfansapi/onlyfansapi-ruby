@@ -1,0 +1,15 @@
+module Onlyfans
+  module Resources
+    class Subscribers
+      def retrieve_statistics: (
+        String account,
+        ?end_date: String?,
+        ?start_date: String?,
+        ?type: Onlyfans::Models::SubscriberRetrieveStatisticsParams::type_?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SubscriberRetrieveStatisticsResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

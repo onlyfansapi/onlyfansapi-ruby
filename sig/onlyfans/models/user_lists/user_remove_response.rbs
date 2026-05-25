@@ -1,0 +1,448 @@
+module Onlyfans
+  module Models
+    module UserLists
+      type user_remove_response =
+        {
+          _meta: Onlyfans::Models::UserLists::UserRemoveResponse::Meta,
+          data: Onlyfans::Models::UserLists::UserRemoveResponse::Data
+        }
+
+      class UserRemoveResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::UserLists::UserRemoveResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::UserLists::UserRemoveResponse::Meta
+        ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Meta
+
+        attr_reader data: Onlyfans::Models::UserLists::UserRemoveResponse::Data?
+
+        def data=: (
+          Onlyfans::Models::UserLists::UserRemoveResponse::Data
+        ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::UserLists::UserRemoveResponse::Meta,
+          ?data: Onlyfans::Models::UserLists::UserRemoveResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::UserLists::UserRemoveResponse::Meta,
+          data: Onlyfans::Models::UserLists::UserRemoveResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Cache,
+            _credits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Cache
+          ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Credits
+          ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::UserLists::UserRemoveResponse::Meta::RateLimits
+          ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Cache,
+            _credits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::UserLists::UserRemoveResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            list: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List,
+            user_state: Onlyfans::Models::UserLists::UserRemoveResponse::Data::UserState
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader list: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List?
+
+          def list=: (
+            Onlyfans::Models::UserLists::UserRemoveResponse::Data::List
+          ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Data::List
+
+          attr_reader user_state: Onlyfans::Models::UserLists::UserRemoveResponse::Data::UserState?
+
+          def user_state=: (
+            Onlyfans::Models::UserLists::UserRemoveResponse::Data::UserState
+          ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Data::UserState
+
+          def initialize: (
+            ?list: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List,
+            ?user_state: Onlyfans::Models::UserLists::UserRemoveResponse::Data::UserState
+          ) -> void
+
+          def to_hash: -> {
+            list: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List,
+            user_state: Onlyfans::Models::UserLists::UserRemoveResponse::Data::UserState
+          }
+
+          type list =
+            {
+              id: Integer,
+              can_add_users: bool,
+              can_delete: bool,
+              can_manage_users: bool,
+              can_pinned_to_chat: bool,
+              can_pinned_to_feed: bool,
+              can_update: bool,
+              direction: String,
+              is_pinned_to_chat: bool,
+              is_pinned_to_feed: bool,
+              name: String,
+              order: String,
+              posts_count: Integer,
+              sort_list: ::Array[top],
+              type: String,
+              users: ::Array[Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User],
+              users_count: Integer
+            }
+
+          class List < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader can_add_users: bool?
+
+            def can_add_users=: (bool) -> bool
+
+            attr_reader can_delete: bool?
+
+            def can_delete=: (bool) -> bool
+
+            attr_reader can_manage_users: bool?
+
+            def can_manage_users=: (bool) -> bool
+
+            attr_reader can_pinned_to_chat: bool?
+
+            def can_pinned_to_chat=: (bool) -> bool
+
+            attr_reader can_pinned_to_feed: bool?
+
+            def can_pinned_to_feed=: (bool) -> bool
+
+            attr_reader can_update: bool?
+
+            def can_update=: (bool) -> bool
+
+            attr_reader direction: String?
+
+            def direction=: (String) -> String
+
+            attr_reader is_pinned_to_chat: bool?
+
+            def is_pinned_to_chat=: (bool) -> bool
+
+            attr_reader is_pinned_to_feed: bool?
+
+            def is_pinned_to_feed=: (bool) -> bool
+
+            attr_reader name: String?
+
+            def name=: (String) -> String
+
+            attr_reader order: String?
+
+            def order=: (String) -> String
+
+            attr_reader posts_count: Integer?
+
+            def posts_count=: (Integer) -> Integer
+
+            attr_reader sort_list: ::Array[top]?
+
+            def sort_list=: (::Array[top]) -> ::Array[top]
+
+            attr_reader type: String?
+
+            def type=: (String) -> String
+
+            attr_reader users: ::Array[Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User]?
+
+            def users=: (
+              ::Array[Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User]
+            ) -> ::Array[Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User]
+
+            attr_reader users_count: Integer?
+
+            def users_count=: (Integer) -> Integer
+
+            def initialize: (
+              ?id: Integer,
+              ?can_add_users: bool,
+              ?can_delete: bool,
+              ?can_manage_users: bool,
+              ?can_pinned_to_chat: bool,
+              ?can_pinned_to_feed: bool,
+              ?can_update: bool,
+              ?direction: String,
+              ?is_pinned_to_chat: bool,
+              ?is_pinned_to_feed: bool,
+              ?name: String,
+              ?order: String,
+              ?posts_count: Integer,
+              ?sort_list: ::Array[top],
+              ?type: String,
+              ?users: ::Array[Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User],
+              ?users_count: Integer
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              can_add_users: bool,
+              can_delete: bool,
+              can_manage_users: bool,
+              can_pinned_to_chat: bool,
+              can_pinned_to_feed: bool,
+              can_update: bool,
+              direction: String,
+              is_pinned_to_chat: bool,
+              is_pinned_to_feed: bool,
+              name: String,
+              order: String,
+              posts_count: Integer,
+              sort_list: ::Array[top],
+              type: String,
+              users: ::Array[Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User],
+              users_count: Integer
+            }
+
+            type user =
+              {
+                id: Integer,
+                avatar: String,
+                avatar_thumbs: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User::AvatarThumbs,
+                is_verified: bool,
+                name: String,
+                username: String,
+                view: String
+              }
+
+            class User < Onlyfans::Internal::Type::BaseModel
+              attr_reader id: Integer?
+
+              def id=: (Integer) -> Integer
+
+              attr_reader avatar: String?
+
+              def avatar=: (String) -> String
+
+              attr_reader avatar_thumbs: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User::AvatarThumbs?
+
+              def avatar_thumbs=: (
+                Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User::AvatarThumbs
+              ) -> Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User::AvatarThumbs
+
+              attr_reader is_verified: bool?
+
+              def is_verified=: (bool) -> bool
+
+              attr_reader name: String?
+
+              def name=: (String) -> String
+
+              attr_reader username: String?
+
+              def username=: (String) -> String
+
+              attr_reader view: String?
+
+              def view=: (String) -> String
+
+              def initialize: (
+                ?id: Integer,
+                ?avatar: String,
+                ?avatar_thumbs: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User::AvatarThumbs,
+                ?is_verified: bool,
+                ?name: String,
+                ?username: String,
+                ?view: String
+              ) -> void
+
+              def to_hash: -> {
+                id: Integer,
+                avatar: String,
+                avatar_thumbs: Onlyfans::Models::UserLists::UserRemoveResponse::Data::List::User::AvatarThumbs,
+                is_verified: bool,
+                name: String,
+                username: String,
+                view: String
+              }
+
+              type avatar_thumbs = { :c144 => String, :c50 => String }
+
+              class AvatarThumbs < Onlyfans::Internal::Type::BaseModel
+                attr_reader c144: String?
+
+                def c144=: (String) -> String
+
+                attr_reader c50: String?
+
+                def c50=: (String) -> String
+
+                def initialize: (?c144: String, ?c50: String) -> void
+
+                def to_hash: -> { :c144 => String, :c50 => String }
+              end
+            end
+          end
+
+          type user_state =
+            {
+              id: Integer,
+              can_add_user: bool,
+              cannot_add_user_reason: String?,
+              has_user: bool,
+              name: String,
+              type: String
+            }
+
+          class UserState < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader can_add_user: bool?
+
+            def can_add_user=: (bool) -> bool
+
+            attr_accessor cannot_add_user_reason: String?
+
+            attr_reader has_user: bool?
+
+            def has_user=: (bool) -> bool
+
+            attr_reader name: String?
+
+            def name=: (String) -> String
+
+            attr_reader type: String?
+
+            def type=: (String) -> String
+
+            def initialize: (
+              ?id: Integer,
+              ?can_add_user: bool,
+              ?cannot_add_user_reason: String?,
+              ?has_user: bool,
+              ?name: String,
+              ?type: String
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              can_add_user: bool,
+              cannot_add_user_reason: String?,
+              has_user: bool,
+              name: String,
+              type: String
+            }
+          end
+        end
+      end
+    end
+  end
+end

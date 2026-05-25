@@ -1,0 +1,22 @@
+module Onlyfans
+  module Resources
+    class Posts
+      class Labels
+        def create: (
+          String account,
+          name: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Posts::LabelCreateResponse
+
+        def list: (
+          String account,
+          ?limit: String,
+          ?offset: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Posts::LabelListResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

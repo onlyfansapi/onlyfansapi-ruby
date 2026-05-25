@@ -1,0 +1,32 @@
+module Onlyfans
+  module Models
+    type fan_set_custom_name_params =
+      { account: String, fan_id: String, custom_name: String }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class FanSetCustomNameParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor fan_id: String
+
+      attr_accessor custom_name: String
+
+      def initialize: (
+        account: String,
+        fan_id: String,
+        custom_name: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        fan_id: String,
+        custom_name: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

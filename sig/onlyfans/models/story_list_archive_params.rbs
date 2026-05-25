@@ -1,0 +1,36 @@
+module Onlyfans
+  module Models
+    type story_list_archive_params =
+      { account: String, limit: Integer, marker: String }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class StoryListArchiveParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader marker: String?
+
+      def marker=: (String) -> String
+
+      def initialize: (
+        account: String,
+        ?limit: Integer,
+        ?marker: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: Integer,
+        marker: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

@@ -1,0 +1,453 @@
+module Onlyfans
+  module Models
+    type payout_retrieve_earning_statistics_response =
+      {
+        _meta: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta,
+        data: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data
+      }
+
+    class PayoutRetrieveEarningStatisticsResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta
+      ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta
+
+      attr_reader data: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data
+      ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta,
+        ?data: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta,
+        data: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Cache
+        ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Credits
+        ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          list: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader list: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List?
+
+        def list=: (
+          Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List
+        ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List
+
+        def initialize: (
+          ?list: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List
+        ) -> void
+
+        def to_hash: -> {
+          list: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List
+        }
+
+        type list =
+          {
+            months: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months,
+            total: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total
+          }
+
+        class List < Onlyfans::Internal::Type::BaseModel
+          attr_reader months: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months?
+
+          def months=: (
+            Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months
+          ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months
+
+          attr_reader total: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total?
+
+          def total=: (
+            Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total
+          ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total
+
+          def initialize: (
+            ?months: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months,
+            ?total: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total
+          ) -> void
+
+          def to_hash: -> {
+            months: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months,
+            total: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total
+          }
+
+          type months =
+            {
+              :number_1735689661 => Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661
+            }
+
+          class Months < Onlyfans::Internal::Type::BaseModel
+            attr_reader number_1735689661: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661?
+
+            def number_1735689661=: (
+              Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661
+            ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661
+
+            def initialize: (
+              ?number_1735689661: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661
+            ) -> void
+
+            def to_hash: -> {
+              :number_1735689661 => Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661
+            }
+
+            type const1735689661 =
+              {
+                subscribes: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Subscribe],
+                tips: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Tip],
+                total_gross: Integer,
+                total_net: Integer
+              }
+
+            class Const1735689661 < Onlyfans::Internal::Type::BaseModel
+              attr_reader subscribes: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Subscribe]?
+
+              def subscribes=: (
+                ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Subscribe]
+              ) -> ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Subscribe]
+
+              attr_reader tips: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Tip]?
+
+              def tips=: (
+                ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Tip]
+              ) -> ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Tip]
+
+              attr_reader total_gross: Integer?
+
+              def total_gross=: (Integer) -> Integer
+
+              attr_reader total_net: Integer?
+
+              def total_net=: (Integer) -> Integer
+
+              def initialize: (
+                ?subscribes: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Subscribe],
+                ?tips: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Tip],
+                ?total_gross: Integer,
+                ?total_net: Integer
+              ) -> void
+
+              def to_hash: -> {
+                subscribes: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Subscribe],
+                tips: ::Array[Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Months::Const1735689661::Tip],
+                total_gross: Integer,
+                total_net: Integer
+              }
+
+              type subscribe = { gross: Integer, net: Integer, time: Integer }
+
+              class Subscribe < Onlyfans::Internal::Type::BaseModel
+                attr_reader gross: Integer?
+
+                def gross=: (Integer) -> Integer
+
+                attr_reader net: Integer?
+
+                def net=: (Integer) -> Integer
+
+                attr_reader time: Integer?
+
+                def time=: (Integer) -> Integer
+
+                def initialize: (
+                  ?gross: Integer,
+                  ?net: Integer,
+                  ?time: Integer
+                ) -> void
+
+                def to_hash: -> { gross: Integer, net: Integer, time: Integer }
+              end
+
+              type tip = { gross: Integer, net: Integer, time: Integer }
+
+              class Tip < Onlyfans::Internal::Type::BaseModel
+                attr_reader gross: Integer?
+
+                def gross=: (Integer) -> Integer
+
+                attr_reader net: Integer?
+
+                def net=: (Integer) -> Integer
+
+                attr_reader time: Integer?
+
+                def time=: (Integer) -> Integer
+
+                def initialize: (
+                  ?gross: Integer,
+                  ?net: Integer,
+                  ?time: Integer
+                ) -> void
+
+                def to_hash: -> { gross: Integer, net: Integer, time: Integer }
+              end
+            end
+          end
+
+          type total =
+            {
+              all: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::All,
+              chat_messages: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::ChatMessages,
+              post: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Post,
+              subscribes: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Subscribes,
+              tips: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Tips
+            }
+
+          class Total < Onlyfans::Internal::Type::BaseModel
+            attr_reader all: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::All?
+
+            def all=: (
+              Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::All
+            ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::All
+
+            attr_reader chat_messages: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::ChatMessages?
+
+            def chat_messages=: (
+              Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::ChatMessages
+            ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::ChatMessages
+
+            attr_reader post: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Post?
+
+            def post=: (
+              Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Post
+            ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Post
+
+            attr_reader subscribes: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Subscribes?
+
+            def subscribes=: (
+              Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Subscribes
+            ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Subscribes
+
+            attr_reader tips: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Tips?
+
+            def tips=: (
+              Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Tips
+            ) -> Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Tips
+
+            def initialize: (
+              ?all: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::All,
+              ?chat_messages: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::ChatMessages,
+              ?post: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Post,
+              ?subscribes: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Subscribes,
+              ?tips: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Tips
+            ) -> void
+
+            def to_hash: -> {
+              all: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::All,
+              chat_messages: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::ChatMessages,
+              post: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Post,
+              subscribes: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Subscribes,
+              tips: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse::Data::List::Total::Tips
+            }
+
+            type all = { total_gross: Float, total_net: Float }
+
+            class All < Onlyfans::Internal::Type::BaseModel
+              attr_reader total_gross: Float?
+
+              def total_gross=: (Float) -> Float
+
+              attr_reader total_net: Float?
+
+              def total_net=: (Float) -> Float
+
+              def initialize: (?total_gross: Float, ?total_net: Float) -> void
+
+              def to_hash: -> { total_gross: Float, total_net: Float }
+            end
+
+            type chat_messages = { total_gross: Float, total_net: Float }
+
+            class ChatMessages < Onlyfans::Internal::Type::BaseModel
+              attr_reader total_gross: Float?
+
+              def total_gross=: (Float) -> Float
+
+              attr_reader total_net: Float?
+
+              def total_net=: (Float) -> Float
+
+              def initialize: (?total_gross: Float, ?total_net: Float) -> void
+
+              def to_hash: -> { total_gross: Float, total_net: Float }
+            end
+
+            type post = { total_gross: Float, total_net: Float }
+
+            class Post < Onlyfans::Internal::Type::BaseModel
+              attr_reader total_gross: Float?
+
+              def total_gross=: (Float) -> Float
+
+              attr_reader total_net: Float?
+
+              def total_net=: (Float) -> Float
+
+              def initialize: (?total_gross: Float, ?total_net: Float) -> void
+
+              def to_hash: -> { total_gross: Float, total_net: Float }
+            end
+
+            type subscribes = { total_gross: Float, total_net: Float }
+
+            class Subscribes < Onlyfans::Internal::Type::BaseModel
+              attr_reader total_gross: Float?
+
+              def total_gross=: (Float) -> Float
+
+              attr_reader total_net: Float?
+
+              def total_net=: (Float) -> Float
+
+              def initialize: (?total_gross: Float, ?total_net: Float) -> void
+
+              def to_hash: -> { total_gross: Float, total_net: Float }
+            end
+
+            type tips = { total_gross: Float, total_net: Float }
+
+            class Tips < Onlyfans::Internal::Type::BaseModel
+              attr_reader total_gross: Float?
+
+              def total_gross=: (Float) -> Float
+
+              attr_reader total_net: Float?
+
+              def total_net=: (Float) -> Float
+
+              def initialize: (?total_gross: Float, ?total_net: Float) -> void
+
+              def to_hash: -> { total_gross: Float, total_net: Float }
+            end
+          end
+        end
+      end
+    end
+  end
+end

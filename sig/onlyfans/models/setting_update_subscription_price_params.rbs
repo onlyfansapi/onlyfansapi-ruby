@@ -1,0 +1,28 @@
+module Onlyfans
+  module Models
+    type setting_update_subscription_price_params =
+      { account: String, price: String }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SettingUpdateSubscriptionPriceParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor price: String
+
+      def initialize: (
+        account: String,
+        price: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        price: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

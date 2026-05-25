@@ -1,0 +1,34 @@
+module Onlyfans
+  module Resources
+    class Settings
+      class WelcomeMessage
+        def retrieve: (
+          String account,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::WelcomeMessageRetrieveResponse
+
+        def update: (
+          String account,
+          ?is_forward: bool,
+          ?locked_text: bool,
+          ?media_files: ::Array[top],
+          ?previews: ::Array[top],
+          ?price: Integer,
+          ?rf_guest: String,
+          ?rf_partner: String,
+          ?rf_tag: String,
+          ?text: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::WelcomeMessageUpdateResponse
+
+        def toggle: (
+          String account,
+          enabled: bool,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Settings::WelcomeMessageToggleResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

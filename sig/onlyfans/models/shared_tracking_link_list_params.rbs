@@ -1,0 +1,40 @@
+module Onlyfans
+  module Models
+    type shared_tracking_link_list_params =
+      { account: String, limit: Integer, offset: Integer, synchronous: bool? }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SharedTrackingLinkListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_accessor synchronous: bool?
+
+      def initialize: (
+        account: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?synchronous: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        synchronous: bool?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

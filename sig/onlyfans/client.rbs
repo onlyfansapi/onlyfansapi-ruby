@@ -1,0 +1,110 @@
+module Onlyfans
+  class Client < Onlyfans::Internal::Transport::BaseClient
+    DEFAULT_MAX_RETRIES: 2
+
+    DEFAULT_TIMEOUT_IN_SECONDS: Float
+
+    DEFAULT_INITIAL_RETRY_DELAY: Float
+
+    DEFAULT_MAX_RETRY_DELAY: Float
+
+    attr_reader api_key: String
+
+    attr_reader whoami: Onlyfans::Resources::Whoami
+
+    attr_reader accounts: Onlyfans::Resources::Accounts
+
+    attr_reader me: Onlyfans::Resources::Me
+
+    attr_reader analytics: Onlyfans::Resources::Analytics
+
+    attr_reader banking: Onlyfans::Resources::Banking
+
+    attr_reader chargebacks: Onlyfans::Resources::Chargebacks
+
+    attr_reader chats: Onlyfans::Resources::Chats
+
+    attr_reader messages: Onlyfans::Resources::Messages
+
+    attr_reader client_sessions: Onlyfans::Resources::ClientSessions
+
+    attr_reader authenticate: Onlyfans::Resources::Authenticate
+
+    attr_reader data_exports: Onlyfans::Resources::DataExports
+
+    attr_reader engagement: Onlyfans::Resources::Engagement
+
+    attr_reader fans: Onlyfans::Resources::Fans
+
+    attr_reader following: Onlyfans::Resources::Following
+
+    attr_reader trial_links: Onlyfans::Resources::TrialLinks
+
+    attr_reader giphy: Onlyfans::Resources::Giphy
+
+    attr_reader link_tags: Onlyfans::Resources::LinkTags
+
+    attr_reader mass_messaging: Onlyfans::Resources::MassMessaging
+
+    attr_reader media: Onlyfans::Resources::Media
+
+    attr_reader notifications: Onlyfans::Resources::Notifications
+
+    attr_reader payouts: Onlyfans::Resources::Payouts
+
+    attr_reader posts: Onlyfans::Resources::Posts
+
+    attr_reader promotions: Onlyfans::Resources::Promotions
+
+    attr_reader profiles: Onlyfans::Resources::Profiles
+
+    attr_reader search: Onlyfans::Resources::Search
+
+    attr_reader queue: Onlyfans::Resources::Queue
+
+    attr_reader release_forms: Onlyfans::Resources::ReleaseForms
+
+    attr_reader saved_for_later: Onlyfans::Resources::SavedForLater
+
+    attr_reader settings: Onlyfans::Resources::Settings
+
+    attr_reader shared_trial_links: Onlyfans::Resources::SharedTrialLinks
+
+    attr_reader shared_tracking_links: Onlyfans::Resources::SharedTrackingLinks
+
+    attr_reader smart_link_postbacks: Onlyfans::Resources::SmartLinkPostbacks
+
+    attr_reader smart_links: Onlyfans::Resources::SmartLinks
+
+    attr_reader statistics: Onlyfans::Resources::Statistics
+
+    attr_reader subscribers: Onlyfans::Resources::Subscribers
+
+    attr_reader stored: Onlyfans::Resources::Stored
+
+    attr_reader stories: Onlyfans::Resources::Stories
+
+    attr_reader bundles: Onlyfans::Resources::Bundles
+
+    attr_reader tracking_links: Onlyfans::Resources::TrackingLinks
+
+    attr_reader transactions: Onlyfans::Resources::Transactions
+
+    attr_reader user_lists: Onlyfans::Resources::UserLists
+
+    attr_reader users: Onlyfans::Resources::Users
+
+    attr_reader webhooks: Onlyfans::Resources::Webhooks
+
+    private def auth_headers: -> ::Hash[String, String]
+
+    def initialize: (
+      ?api_key: String?,
+      ?base_url: String?,
+      ?max_retries: Integer,
+      ?timeout: Float,
+      ?initial_retry_delay: Float,
+      ?max_retry_delay: Float
+    ) -> void
+  end
+end

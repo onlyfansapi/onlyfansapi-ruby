@@ -1,0 +1,34 @@
+module Onlyfans
+  module Resources
+    class Following
+      def list_active: (
+        String account,
+        ?filter: Onlyfans::FollowingListActiveParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FollowingListActiveResponse
+
+      def list_all: (
+        String account,
+        ?filter: Onlyfans::FollowingListAllParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FollowingListAllResponse
+
+      def list_expired: (
+        String account,
+        ?filter: Onlyfans::FollowingListExpiredParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FollowingListExpiredResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

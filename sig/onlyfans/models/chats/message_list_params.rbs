@@ -1,0 +1,83 @@
+module Onlyfans
+  module Models
+    module Chats
+      type message_list_params =
+        {
+          account: String,
+          chat_id: String,
+          filter: Onlyfans::Models::Chats::MessageListParams::filter,
+          first_id: String?,
+          last_id: String?,
+          limit: String,
+          order: String,
+          skip_users: String
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class MessageListParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor chat_id: String
+
+        attr_reader filter: Onlyfans::Models::Chats::MessageListParams::filter?
+
+        def filter=: (
+          Onlyfans::Models::Chats::MessageListParams::filter
+        ) -> Onlyfans::Models::Chats::MessageListParams::filter
+
+        attr_accessor first_id: String?
+
+        attr_accessor last_id: String?
+
+        attr_reader limit: String?
+
+        def limit=: (String) -> String
+
+        attr_reader order: String?
+
+        def order=: (String) -> String
+
+        attr_reader skip_users: String?
+
+        def skip_users=: (String) -> String
+
+        def initialize: (
+          account: String,
+          chat_id: String,
+          ?filter: Onlyfans::Models::Chats::MessageListParams::filter,
+          ?first_id: String?,
+          ?last_id: String?,
+          ?limit: String,
+          ?order: String,
+          ?skip_users: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          chat_id: String,
+          filter: Onlyfans::Models::Chats::MessageListParams::filter,
+          first_id: String?,
+          last_id: String?,
+          limit: String,
+          order: String,
+          skip_users: String,
+          request_options: Onlyfans::RequestOptions
+        }
+
+        type filter = :pinned
+
+        module Filter
+          extend Onlyfans::Internal::Type::Enum
+
+          PINNED: :pinned
+
+          def self?.values: -> ::Array[Onlyfans::Models::Chats::MessageListParams::filter]
+        end
+      end
+    end
+  end
+end

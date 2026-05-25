@@ -1,0 +1,291 @@
+module Onlyfans
+  module Models
+    module Engagement
+      module Messages
+        type direct_message_chart_response =
+          {
+            _meta: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta,
+            data: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data
+          }
+
+        class DirectMessageChartResponse < Onlyfans::Internal::Type::BaseModel
+          attr_reader _meta: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta?
+
+          def _meta=: (
+            Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta
+          ) -> Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta
+
+          attr_reader data: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data?
+
+          def data=: (
+            Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data
+          ) -> Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data
+
+          def initialize: (
+            ?_meta: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta,
+            ?data: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data
+          ) -> void
+
+          def to_hash: -> {
+            _meta: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta,
+            data: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data
+          }
+
+          type meta =
+            {
+              _cache: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Cache,
+              _credits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::RateLimits
+            }
+
+          class Meta < Onlyfans::Internal::Type::BaseModel
+            attr_reader _cache: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Cache?
+
+            def _cache=: (
+              Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Cache
+            ) -> Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Cache
+
+            attr_reader _credits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Credits?
+
+            def _credits=: (
+              Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Credits
+            ) -> Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Credits
+
+            attr_reader _rate_limits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::RateLimits?
+
+            def _rate_limits=: (
+              Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::RateLimits
+            ) -> Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::RateLimits
+
+            def initialize: (
+              ?_cache: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Cache,
+              ?_credits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Credits,
+              ?_rate_limits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::RateLimits
+            ) -> void
+
+            def to_hash: -> {
+              _cache: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Cache,
+              _credits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Meta::RateLimits
+            }
+
+            type cache = { is_cached: bool, note: String }
+
+            class Cache < Onlyfans::Internal::Type::BaseModel
+              attr_reader is_cached: bool?
+
+              def is_cached=: (bool) -> bool
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              def initialize: (?is_cached: bool, ?note: String) -> void
+
+              def to_hash: -> { is_cached: bool, note: String }
+            end
+
+            type credits = { balance: Integer, note: String, used: Integer }
+
+            class Credits < Onlyfans::Internal::Type::BaseModel
+              attr_reader balance: Integer?
+
+              def balance=: (Integer) -> Integer
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              attr_reader used: Integer?
+
+              def used=: (Integer) -> Integer
+
+              def initialize: (
+                ?balance: Integer,
+                ?note: String,
+                ?used: Integer
+              ) -> void
+
+              def to_hash: -> { balance: Integer, note: String, used: Integer }
+            end
+
+            type rate_limits =
+              {
+                limit_day: String?,
+                limit_minute: Integer,
+                notice: String,
+                remaining_day: String?,
+                remaining_minute: Integer
+              }
+
+            class RateLimits < Onlyfans::Internal::Type::BaseModel
+              attr_accessor limit_day: String?
+
+              attr_reader limit_minute: Integer?
+
+              def limit_minute=: (Integer) -> Integer
+
+              attr_reader notice: String?
+
+              def notice=: (String) -> String
+
+              attr_accessor remaining_day: String?
+
+              attr_reader remaining_minute: Integer?
+
+              def remaining_minute=: (Integer) -> Integer
+
+              def initialize: (
+                ?limit_day: String?,
+                ?limit_minute: Integer,
+                ?notice: String,
+                ?remaining_day: String?,
+                ?remaining_minute: Integer
+              ) -> void
+
+              def to_hash: -> {
+                limit_day: String?,
+                limit_minute: Integer,
+                notice: String,
+                remaining_day: String?,
+                remaining_minute: Integer
+              }
+            end
+          end
+
+          type data =
+            {
+              direct_messages: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages,
+              direct_messages_purchases: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases
+            }
+
+          class Data < Onlyfans::Internal::Type::BaseModel
+            attr_reader direct_messages: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages?
+
+            def direct_messages=: (
+              Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages
+            ) -> Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages
+
+            attr_reader direct_messages_purchases: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases?
+
+            def direct_messages_purchases=: (
+              Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases
+            ) -> Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases
+
+            def initialize: (
+              ?direct_messages: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages,
+              ?direct_messages_purchases: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases
+            ) -> void
+
+            def to_hash: -> {
+              direct_messages: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages,
+              direct_messages_purchases: Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases
+            }
+
+            type direct_messages =
+              {
+                chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages::Chart],
+                delta: Integer,
+                total: Integer
+              }
+
+            class DirectMessages < Onlyfans::Internal::Type::BaseModel
+              attr_reader chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages::Chart]?
+
+              def chart=: (
+                ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages::Chart]
+              ) -> ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages::Chart]
+
+              attr_reader delta: Integer?
+
+              def delta=: (Integer) -> Integer
+
+              attr_reader total: Integer?
+
+              def total=: (Integer) -> Integer
+
+              def initialize: (
+                ?chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages::Chart],
+                ?delta: Integer,
+                ?total: Integer
+              ) -> void
+
+              def to_hash: -> {
+                chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessages::Chart],
+                delta: Integer,
+                total: Integer
+              }
+
+              type chart = { count: Integer, date: String }
+
+              class Chart < Onlyfans::Internal::Type::BaseModel
+                attr_reader count: Integer?
+
+                def count=: (Integer) -> Integer
+
+                attr_reader date: String?
+
+                def date=: (String) -> String
+
+                def initialize: (?count: Integer, ?date: String) -> void
+
+                def to_hash: -> { count: Integer, date: String }
+              end
+            end
+
+            type direct_messages_purchases =
+              {
+                chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases::Chart],
+                delta: Float,
+                total: Float
+              }
+
+            class DirectMessagesPurchases < Onlyfans::Internal::Type::BaseModel
+              attr_reader chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases::Chart]?
+
+              def chart=: (
+                ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases::Chart]
+              ) -> ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases::Chart]
+
+              attr_reader delta: Float?
+
+              def delta=: (Float) -> Float
+
+              attr_reader total: Float?
+
+              def total=: (Float) -> Float
+
+              def initialize: (
+                ?chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases::Chart],
+                ?delta: Float,
+                ?total: Float
+              ) -> void
+
+              def to_hash: -> {
+                chart: ::Array[Onlyfans::Models::Engagement::Messages::DirectMessageChartResponse::Data::DirectMessagesPurchases::Chart],
+                delta: Float,
+                total: Float
+              }
+
+              type chart = { count: Float, date: String }
+
+              class Chart < Onlyfans::Internal::Type::BaseModel
+                attr_reader count: Float?
+
+                def count=: (Float) -> Float
+
+                attr_reader date: String?
+
+                def date=: (String) -> String
+
+                def initialize: (?count: Float, ?date: String) -> void
+
+                def to_hash: -> { count: Float, date: String }
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+end

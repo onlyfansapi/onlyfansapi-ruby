@@ -1,0 +1,30 @@
+module Onlyfans
+  module Models
+    module Media
+      type upload_get_status_params =
+        { account: String, upload: String }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class UploadGetStatusParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor upload: String
+
+        def initialize: (
+          account: String,
+          upload: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          upload: String,
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

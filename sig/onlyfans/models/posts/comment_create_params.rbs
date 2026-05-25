@@ -1,0 +1,52 @@
+module Onlyfans
+  module Models
+    module Posts
+      type comment_create_params =
+        {
+          account: String,
+          post_id: String,
+          text: String,
+          answer_to: Integer,
+          giphy_id: String
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class CommentCreateParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor post_id: String
+
+        attr_accessor text: String
+
+        attr_reader answer_to: Integer?
+
+        def answer_to=: (Integer) -> Integer
+
+        attr_reader giphy_id: String?
+
+        def giphy_id=: (String) -> String
+
+        def initialize: (
+          account: String,
+          post_id: String,
+          text: String,
+          ?answer_to: Integer,
+          ?giphy_id: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          post_id: String,
+          text: String,
+          answer_to: Integer,
+          giphy_id: String,
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

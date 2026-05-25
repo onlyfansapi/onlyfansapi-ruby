@@ -1,0 +1,60 @@
+module Onlyfans
+  module Models
+    type smart_link_retrieve_cohort_arps_params =
+      {
+        smart_link_id: String,
+        acquisition_end: String,
+        acquisition_start: String,
+        revenue_basis: Onlyfans::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkRetrieveCohortArpsParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor smart_link_id: String
+
+      attr_reader acquisition_end: String?
+
+      def acquisition_end=: (String) -> String
+
+      attr_reader acquisition_start: String?
+
+      def acquisition_start=: (String) -> String
+
+      attr_reader revenue_basis: Onlyfans::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis?
+
+      def revenue_basis=: (
+        Onlyfans::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis
+      ) -> Onlyfans::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis
+
+      def initialize: (
+        smart_link_id: String,
+        ?acquisition_end: String,
+        ?acquisition_start: String,
+        ?revenue_basis: Onlyfans::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        smart_link_id: String,
+        acquisition_end: String,
+        acquisition_start: String,
+        revenue_basis: Onlyfans::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type revenue_basis = :net | :gross
+
+      module RevenueBasis
+        extend Onlyfans::Internal::Type::Enum
+
+        NET: :net
+        GROSS: :gross
+
+        def self?.values: -> ::Array[Onlyfans::Models::SmartLinkRetrieveCohortArpsParams::revenue_basis]
+      end
+    end
+  end
+end

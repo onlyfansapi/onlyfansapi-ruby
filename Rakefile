@@ -162,7 +162,7 @@ multitask(:"build:gem") do
     sig/*
   GLOB
 
-  sh(*%w[gem build -- onlyfansapi.gemspec])
+  sh(*%w[gem build -- onlyfans.gemspec])
   rm_rf(ignore_file)
 end
 

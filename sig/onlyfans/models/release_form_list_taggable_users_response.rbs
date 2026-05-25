@@ -1,0 +1,343 @@
+module Onlyfans
+  module Models
+    type release_form_list_taggable_users_response =
+      {
+        _meta: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta,
+        _pagination: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Pagination,
+        data: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data
+      }
+
+    class ReleaseFormListTaggableUsersResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta
+      ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta
+
+      attr_reader _pagination: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Pagination?
+
+      def _pagination=: (
+        Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Pagination
+      ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Pagination
+
+      attr_reader data: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data
+      ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta,
+        ?_pagination: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Pagination,
+        ?data: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta,
+        _pagination: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Pagination,
+        data: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Cache,
+          _credits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Cache
+        ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Credits
+        ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Cache,
+          _credits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type pagination = { next_page: String }
+
+      class Pagination < Onlyfans::Internal::Type::BaseModel
+        attr_reader next_page: String?
+
+        def next_page=: (String) -> String
+
+        def initialize: (?next_page: String) -> void
+
+        def to_hash: -> { next_page: String }
+      end
+
+      type data =
+        {
+          has_more: bool,
+          items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader has_more: bool?
+
+        def has_more=: (bool) -> bool
+
+        attr_reader items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]?
+
+        def items=: (
+          ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
+        ) -> ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
+
+        def initialize: (
+          ?has_more: bool,
+          ?items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
+        ) -> void
+
+        def to_hash: -> {
+          has_more: bool,
+          items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
+        }
+
+        type item =
+          {
+            id: Integer,
+            name: String,
+            type: String,
+            user: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User
+          }
+
+        class Item < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader type: String?
+
+          def type=: (String) -> String
+
+          attr_reader user: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User?
+
+          def user=: (
+            Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User
+          ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User
+
+          def initialize: (
+            ?id: Integer,
+            ?name: String,
+            ?type: String,
+            ?user: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            name: String,
+            type: String,
+            user: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User
+          }
+
+          type user =
+            {
+              id: Integer,
+              avatar: String,
+              avatar_thumbs: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User::AvatarThumbs,
+              hidden_for_rf: bool,
+              is_from_guest: bool,
+              is_verified: bool,
+              iv_status: String,
+              name: String,
+              username: String,
+              view: String
+            }
+
+          class User < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader avatar: String?
+
+            def avatar=: (String) -> String
+
+            attr_reader avatar_thumbs: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User::AvatarThumbs?
+
+            def avatar_thumbs=: (
+              Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User::AvatarThumbs
+            ) -> Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User::AvatarThumbs
+
+            attr_reader hidden_for_rf: bool?
+
+            def hidden_for_rf=: (bool) -> bool
+
+            attr_reader is_from_guest: bool?
+
+            def is_from_guest=: (bool) -> bool
+
+            attr_reader is_verified: bool?
+
+            def is_verified=: (bool) -> bool
+
+            attr_reader iv_status: String?
+
+            def iv_status=: (String) -> String
+
+            attr_reader name: String?
+
+            def name=: (String) -> String
+
+            attr_reader username: String?
+
+            def username=: (String) -> String
+
+            attr_reader view: String?
+
+            def view=: (String) -> String
+
+            def initialize: (
+              ?id: Integer,
+              ?avatar: String,
+              ?avatar_thumbs: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User::AvatarThumbs,
+              ?hidden_for_rf: bool,
+              ?is_from_guest: bool,
+              ?is_verified: bool,
+              ?iv_status: String,
+              ?name: String,
+              ?username: String,
+              ?view: String
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              avatar: String,
+              avatar_thumbs: Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::User::AvatarThumbs,
+              hidden_for_rf: bool,
+              is_from_guest: bool,
+              is_verified: bool,
+              iv_status: String,
+              name: String,
+              username: String,
+              view: String
+            }
+
+            type avatar_thumbs = { :c144 => String, :c50 => String }
+
+            class AvatarThumbs < Onlyfans::Internal::Type::BaseModel
+              attr_reader c144: String?
+
+              def c144=: (String) -> String
+
+              attr_reader c50: String?
+
+              def c50=: (String) -> String
+
+              def initialize: (?c144: String, ?c50: String) -> void
+
+              def to_hash: -> { :c144 => String, :c50 => String }
+            end
+          end
+        end
+      end
+    end
+  end
+end

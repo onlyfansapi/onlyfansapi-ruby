@@ -1,0 +1,23 @@
+module Onlyfans
+  module Models
+    type smart_link_postback_delete_params =
+      { postback_id: Integer } & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkPostbackDeleteParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor postback_id: Integer
+
+      def initialize: (
+        postback_id: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        postback_id: Integer,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

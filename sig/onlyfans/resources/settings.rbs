@@ -1,0 +1,43 @@
+module Onlyfans
+  module Resources
+    class Settings
+      attr_reader blocked_countries: Onlyfans::Resources::Settings::BlockedCountries
+
+      attr_reader welcome_message: Onlyfans::Resources::Settings::WelcomeMessage
+
+      attr_reader social_media_buttons: Onlyfans::Resources::Settings::SocialMediaButtons
+
+      def retrieve: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SettingRetrieveResponse
+
+      def check_username_availability: (
+        String account,
+        username: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SettingCheckUsernameAvailabilityResponse
+
+      def update_profile: (
+        String account,
+        ?about: String?,
+        ?avatar: String,
+        ?header: String,
+        ?location: String?,
+        ?name: String?,
+        ?username: String,
+        ?website: String?,
+        ?wishlist: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SettingUpdateProfileResponse
+
+      def update_subscription_price: (
+        String account,
+        price: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::SettingUpdateSubscriptionPriceResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

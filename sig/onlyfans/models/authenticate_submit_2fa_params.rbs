@@ -1,0 +1,36 @@
+module Onlyfans
+  module Models
+    type authenticate_submit2fa_params =
+      { attempt_id: String, code: String, selfie_verification_completed: top }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class AuthenticateSubmit2faParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor attempt_id: String
+
+      attr_reader code: String?
+
+      def code=: (String) -> String
+
+      attr_reader selfie_verification_completed: top?
+
+      def selfie_verification_completed=: (top) -> top
+
+      def initialize: (
+        attempt_id: String,
+        ?code: String,
+        ?selfie_verification_completed: top,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        attempt_id: String,
+        code: String,
+        selfie_verification_completed: top,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

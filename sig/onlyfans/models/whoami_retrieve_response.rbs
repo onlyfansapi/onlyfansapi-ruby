@@ -1,0 +1,77 @@
+module Onlyfans
+  module Models
+    type whoami_retrieve_response =
+      {
+        api_key: Onlyfans::Models::WhoamiRetrieveResponse::APIKey,
+        team: Onlyfans::Models::WhoamiRetrieveResponse::Team
+      }
+
+    class WhoamiRetrieveResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader api_key: Onlyfans::Models::WhoamiRetrieveResponse::APIKey?
+
+      def api_key=: (
+        Onlyfans::Models::WhoamiRetrieveResponse::APIKey
+      ) -> Onlyfans::Models::WhoamiRetrieveResponse::APIKey
+
+      attr_reader team: Onlyfans::Models::WhoamiRetrieveResponse::Team?
+
+      def team=: (
+        Onlyfans::Models::WhoamiRetrieveResponse::Team
+      ) -> Onlyfans::Models::WhoamiRetrieveResponse::Team
+
+      def initialize: (
+        ?api_key: Onlyfans::Models::WhoamiRetrieveResponse::APIKey,
+        ?team: Onlyfans::Models::WhoamiRetrieveResponse::Team
+      ) -> void
+
+      def to_hash: -> {
+        api_key: Onlyfans::Models::WhoamiRetrieveResponse::APIKey,
+        team: Onlyfans::Models::WhoamiRetrieveResponse::Team
+      }
+
+      type api_key = { created_at: String, last_used_at: String, name: String }
+
+      class APIKey < Onlyfans::Internal::Type::BaseModel
+        attr_reader created_at: String?
+
+        def created_at=: (String) -> String
+
+        attr_reader last_used_at: String?
+
+        def last_used_at=: (String) -> String
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        def initialize: (
+          ?created_at: String,
+          ?last_used_at: String,
+          ?name: String
+        ) -> void
+
+        def to_hash: -> {
+          created_at: String,
+          last_used_at: String,
+          name: String
+        }
+      end
+
+      type team = { name: String, slug: String }
+
+      class Team < Onlyfans::Internal::Type::BaseModel
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader slug: String?
+
+        def slug=: (String) -> String
+
+        def initialize: (?name: String, ?slug: String) -> void
+
+        def to_hash: -> { name: String, slug: String }
+      end
+    end
+  end
+end

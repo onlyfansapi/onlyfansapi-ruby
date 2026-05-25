@@ -1,0 +1,34 @@
+module Onlyfans
+  module Models
+    module Chats
+      type message_search_params =
+        { account: String, chat_id: String, query: String }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class MessageSearchParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor chat_id: String
+
+        attr_accessor query: String
+
+        def initialize: (
+          account: String,
+          chat_id: String,
+          query: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          chat_id: String,
+          query: String,
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

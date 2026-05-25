@@ -1,0 +1,30 @@
+module Onlyfans
+  module Models
+    module Notifications
+      type tabs_order_update_params =
+        { account: String, tabs: ::Array[String] }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class TabsOrderUpdateParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor tabs: ::Array[String]
+
+        def initialize: (
+          account: String,
+          tabs: ::Array[String],
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          tabs: ::Array[String],
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

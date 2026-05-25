@@ -1,0 +1,114 @@
+module Onlyfans
+  module Models
+    module Analytics
+      type summary_get_period_comparison_params =
+        {
+          account_ids: ::Array[String],
+          period_a: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodA,
+          period_b: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodB,
+          granularity: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::granularity,
+          stat_type: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::stat_type
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class SummaryGetPeriodComparisonParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account_ids: ::Array[String]
+
+        attr_accessor period_a: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodA
+
+        attr_accessor period_b: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodB
+
+        attr_reader granularity: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::granularity?
+
+        def granularity=: (
+          Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::granularity
+        ) -> Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::granularity
+
+        attr_reader stat_type: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::stat_type?
+
+        def stat_type=: (
+          Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::stat_type
+        ) -> Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::stat_type
+
+        def initialize: (
+          account_ids: ::Array[String],
+          period_a: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodA,
+          period_b: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodB,
+          ?granularity: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::granularity,
+          ?stat_type: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::stat_type,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account_ids: ::Array[String],
+          period_a: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodA,
+          period_b: Onlyfans::Analytics::SummaryGetPeriodComparisonParams::PeriodB,
+          granularity: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::granularity,
+          stat_type: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::stat_type,
+          request_options: Onlyfans::RequestOptions
+        }
+
+        type period_a = { end_: String, start: String }
+
+        class PeriodA < Onlyfans::Internal::Type::BaseModel
+          attr_accessor end_: String
+
+          attr_accessor start: String
+
+          def initialize: (end_: String, start: String) -> void
+
+          def to_hash: -> { end_: String, start: String }
+        end
+
+        type period_b = { end_: String, start: String }
+
+        class PeriodB < Onlyfans::Internal::Type::BaseModel
+          attr_accessor end_: String
+
+          attr_accessor start: String
+
+          def initialize: (end_: String, start: String) -> void
+
+          def to_hash: -> { end_: String, start: String }
+        end
+
+        type granularity = :months | :quarters | :half_years | :years
+
+        module Granularity
+          extend Onlyfans::Internal::Type::Enum
+
+          MONTHS: :months
+          QUARTERS: :quarters
+          HALF_YEARS: :half_years
+          YEARS: :years
+
+          def self?.values: -> ::Array[Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::granularity]
+        end
+
+        type stat_type =
+          :totalEarnings
+          | :subscriptions
+          | :posts
+          | :messages
+          | :tips
+          | :streams
+
+        module StatType
+          extend Onlyfans::Internal::Type::Enum
+
+          TOTAL_EARNINGS: :totalEarnings
+          SUBSCRIPTIONS: :subscriptions
+          POSTS: :posts
+          MESSAGES: :messages
+          TIPS: :tips
+          STREAMS: :streams
+
+          def self?.values: -> ::Array[Onlyfans::Models::Analytics::SummaryGetPeriodComparisonParams::stat_type]
+        end
+      end
+    end
+  end
+end

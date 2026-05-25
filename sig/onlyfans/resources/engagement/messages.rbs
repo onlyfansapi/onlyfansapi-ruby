@@ -1,0 +1,31 @@
+module Onlyfans
+  module Resources
+    class Engagement
+      class Messages
+        attr_reader mass_messages: Onlyfans::Resources::Engagement::Messages::MassMessages
+
+        attr_reader direct_messages: Onlyfans::Resources::Engagement::Messages::DirectMessages
+
+        def get_message_buyers: (
+          String message_id,
+          account: String,
+          ?limit: Integer,
+          ?marker: Integer,
+          ?offset: Integer,
+          ?skip_users: String,
+          ?skip_users_dups: Integer,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Engagement::MessageGetMessageBuyersResponse
+
+        def get_top_message: (
+          String account,
+          ?end_date: String,
+          ?start_date: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

@@ -1,0 +1,28 @@
+module Onlyfans
+  module Models
+    type profile_retrieve_params =
+      { username: String, fresh: bool? }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class ProfileRetrieveParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor username: String
+
+      attr_accessor fresh: bool?
+
+      def initialize: (
+        username: String,
+        ?fresh: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        username: String,
+        fresh: bool?,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

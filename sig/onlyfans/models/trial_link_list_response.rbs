@@ -1,0 +1,386 @@
+module Onlyfans
+  module Models
+    type trial_link_list_response =
+      {
+        _meta: Onlyfans::Models::TrialLinkListResponse::Meta,
+        _pagination: Onlyfans::Models::TrialLinkListResponse::Pagination,
+        data: Onlyfans::Models::TrialLinkListResponse::Data
+      }
+
+    class TrialLinkListResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::TrialLinkListResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::TrialLinkListResponse::Meta
+      ) -> Onlyfans::Models::TrialLinkListResponse::Meta
+
+      attr_reader _pagination: Onlyfans::Models::TrialLinkListResponse::Pagination?
+
+      def _pagination=: (
+        Onlyfans::Models::TrialLinkListResponse::Pagination
+      ) -> Onlyfans::Models::TrialLinkListResponse::Pagination
+
+      attr_reader data: Onlyfans::Models::TrialLinkListResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::TrialLinkListResponse::Data
+      ) -> Onlyfans::Models::TrialLinkListResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::TrialLinkListResponse::Meta,
+        ?_pagination: Onlyfans::Models::TrialLinkListResponse::Pagination,
+        ?data: Onlyfans::Models::TrialLinkListResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::TrialLinkListResponse::Meta,
+        _pagination: Onlyfans::Models::TrialLinkListResponse::Pagination,
+        data: Onlyfans::Models::TrialLinkListResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::TrialLinkListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::TrialLinkListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::TrialLinkListResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::TrialLinkListResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::TrialLinkListResponse::Meta::Cache
+        ) -> Onlyfans::Models::TrialLinkListResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::TrialLinkListResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::TrialLinkListResponse::Meta::Credits
+        ) -> Onlyfans::Models::TrialLinkListResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::TrialLinkListResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::TrialLinkListResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::TrialLinkListResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::TrialLinkListResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::TrialLinkListResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::TrialLinkListResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::TrialLinkListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::TrialLinkListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::TrialLinkListResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type pagination = { next_page: String }
+
+      class Pagination < Onlyfans::Internal::Type::BaseModel
+        attr_reader next_page: String?
+
+        def next_page=: (String) -> String
+
+        def initialize: (?next_page: String) -> void
+
+        def to_hash: -> { next_page: String }
+      end
+
+      type data =
+        {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::TrialLinkListResponse::Data::List]
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader has_more: bool?
+
+        def has_more=: (bool) -> bool
+
+        attr_reader list: ::Array[Onlyfans::Models::TrialLinkListResponse::Data::List]?
+
+        def list=: (
+          ::Array[Onlyfans::Models::TrialLinkListResponse::Data::List]
+        ) -> ::Array[Onlyfans::Models::TrialLinkListResponse::Data::List]
+
+        def initialize: (
+          ?has_more: bool,
+          ?list: ::Array[Onlyfans::Models::TrialLinkListResponse::Data::List]
+        ) -> void
+
+        def to_hash: -> {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::TrialLinkListResponse::Data::List]
+        }
+
+        type list =
+          {
+            id: Integer,
+            claim_counts: Integer,
+            clicks_counts: Integer,
+            created_at: String,
+            expired_at: String?,
+            is_finished: bool,
+            links: Onlyfans::Models::TrialLinkListResponse::Data::List::Links,
+            revenue: Onlyfans::Models::TrialLinkListResponse::Data::List::Revenue,
+            subscribe_counts: Integer,
+            subscribe_days: Integer,
+            tags: ::Array[String],
+            trial_link_name: String,
+            url: String
+          }
+
+        class List < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader claim_counts: Integer?
+
+          def claim_counts=: (Integer) -> Integer
+
+          attr_reader clicks_counts: Integer?
+
+          def clicks_counts=: (Integer) -> Integer
+
+          attr_reader created_at: String?
+
+          def created_at=: (String) -> String
+
+          attr_accessor expired_at: String?
+
+          attr_reader is_finished: bool?
+
+          def is_finished=: (bool) -> bool
+
+          attr_reader links: Onlyfans::Models::TrialLinkListResponse::Data::List::Links?
+
+          def links=: (
+            Onlyfans::Models::TrialLinkListResponse::Data::List::Links
+          ) -> Onlyfans::Models::TrialLinkListResponse::Data::List::Links
+
+          attr_reader revenue: Onlyfans::Models::TrialLinkListResponse::Data::List::Revenue?
+
+          def revenue=: (
+            Onlyfans::Models::TrialLinkListResponse::Data::List::Revenue
+          ) -> Onlyfans::Models::TrialLinkListResponse::Data::List::Revenue
+
+          attr_reader subscribe_counts: Integer?
+
+          def subscribe_counts=: (Integer) -> Integer
+
+          attr_reader subscribe_days: Integer?
+
+          def subscribe_days=: (Integer) -> Integer
+
+          attr_reader tags: ::Array[String]?
+
+          def tags=: (::Array[String]) -> ::Array[String]
+
+          attr_reader trial_link_name: String?
+
+          def trial_link_name=: (String) -> String
+
+          attr_reader url: String?
+
+          def url=: (String) -> String
+
+          def initialize: (
+            ?id: Integer,
+            ?claim_counts: Integer,
+            ?clicks_counts: Integer,
+            ?created_at: String,
+            ?expired_at: String?,
+            ?is_finished: bool,
+            ?links: Onlyfans::Models::TrialLinkListResponse::Data::List::Links,
+            ?revenue: Onlyfans::Models::TrialLinkListResponse::Data::List::Revenue,
+            ?subscribe_counts: Integer,
+            ?subscribe_days: Integer,
+            ?tags: ::Array[String],
+            ?trial_link_name: String,
+            ?url: String
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            claim_counts: Integer,
+            clicks_counts: Integer,
+            created_at: String,
+            expired_at: String?,
+            is_finished: bool,
+            links: Onlyfans::Models::TrialLinkListResponse::Data::List::Links,
+            revenue: Onlyfans::Models::TrialLinkListResponse::Data::List::Revenue,
+            subscribe_counts: Integer,
+            subscribe_days: Integer,
+            tags: ::Array[String],
+            trial_link_name: String,
+            url: String
+          }
+
+          type links =
+            {
+              related: Onlyfans::Models::TrialLinkListResponse::Data::List::Links::Related
+            }
+
+          class Links < Onlyfans::Internal::Type::BaseModel
+            attr_reader related: Onlyfans::Models::TrialLinkListResponse::Data::List::Links::Related?
+
+            def related=: (
+              Onlyfans::Models::TrialLinkListResponse::Data::List::Links::Related
+            ) -> Onlyfans::Models::TrialLinkListResponse::Data::List::Links::Related
+
+            def initialize: (
+              ?related: Onlyfans::Models::TrialLinkListResponse::Data::List::Links::Related
+            ) -> void
+
+            def to_hash: -> {
+              related: Onlyfans::Models::TrialLinkListResponse::Data::List::Links::Related
+            }
+
+            type related = { subscribers: String }
+
+            class Related < Onlyfans::Internal::Type::BaseModel
+              attr_reader subscribers: String?
+
+              def subscribers=: (String) -> String
+
+              def initialize: (?subscribers: String) -> void
+
+              def to_hash: -> { subscribers: String }
+            end
+          end
+
+          type revenue =
+            {
+              calculated_at: String,
+              is_loading: bool,
+              revenue_per_subscriber: Float,
+              spenders_count: Integer,
+              total: Float
+            }
+
+          class Revenue < Onlyfans::Internal::Type::BaseModel
+            attr_reader calculated_at: String?
+
+            def calculated_at=: (String) -> String
+
+            attr_reader is_loading: bool?
+
+            def is_loading=: (bool) -> bool
+
+            attr_reader revenue_per_subscriber: Float?
+
+            def revenue_per_subscriber=: (Float) -> Float
+
+            attr_reader spenders_count: Integer?
+
+            def spenders_count=: (Integer) -> Integer
+
+            attr_reader total: Float?
+
+            def total=: (Float) -> Float
+
+            def initialize: (
+              ?calculated_at: String,
+              ?is_loading: bool,
+              ?revenue_per_subscriber: Float,
+              ?spenders_count: Integer,
+              ?total: Float
+            ) -> void
+
+            def to_hash: -> {
+              calculated_at: String,
+              is_loading: bool,
+              revenue_per_subscriber: Float,
+              spenders_count: Integer,
+              total: Float
+            }
+          end
+        end
+      end
+    end
+  end
+end

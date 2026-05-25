@@ -1,0 +1,121 @@
+module Onlyfans
+  module Models
+    module Users
+      type subscribe_delete_response =
+        {
+          _meta: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta,
+          data: Onlyfans::Models::Users::SubscribeDeleteResponse::Data
+        }
+
+      class SubscribeDeleteResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::Users::SubscribeDeleteResponse::Meta
+        ) -> Onlyfans::Models::Users::SubscribeDeleteResponse::Meta
+
+        attr_reader data: Onlyfans::Models::Users::SubscribeDeleteResponse::Data?
+
+        def data=: (
+          Onlyfans::Models::Users::SubscribeDeleteResponse::Data
+        ) -> Onlyfans::Models::Users::SubscribeDeleteResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta,
+          ?data: Onlyfans::Models::Users::SubscribeDeleteResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta,
+          data: Onlyfans::Models::Users::SubscribeDeleteResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Credits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Cache
+          ) -> Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Credits
+          ) -> Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Credits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Credits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Users::SubscribeDeleteResponse::Meta::Credits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+        end
+
+        type data = { message: String, success: bool }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader message: String?
+
+          def message=: (String) -> String
+
+          attr_reader success: bool?
+
+          def success=: (bool) -> bool
+
+          def initialize: (?message: String, ?success: bool) -> void
+
+          def to_hash: -> { message: String, success: bool }
+        end
+      end
+    end
+  end
+end

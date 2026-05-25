@@ -1,0 +1,49 @@
+module Onlyfans
+  module Resources
+    class DataExports
+      def create: (
+        end_date: String,
+        file_type: Onlyfans::Models::DataExportCreateParams::file_type,
+        start_date: String,
+        type: Onlyfans::Models::DataExportCreateParams::type_,
+        ?account_ids: ::Array[String],
+        ?auto_start: bool,
+        ?export_columns: ::Array[String],
+        ?options: ::Hash[Symbol, top],
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::DataExportCreateResponse
+
+      def retrieve: (
+        String data_export_id,
+        ?download_url_expires_in: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::DataExportRetrieveResponse
+
+      def list: (
+        ?download_url_expires_in: Integer,
+        ?page: Integer,
+        ?per_page: Integer,
+        ?status: Onlyfans::Models::DataExportListParams::status,
+        ?type: Onlyfans::Models::DataExportListParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::DataExportListResponse
+
+      def cancel: (
+        String data_export_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::DataExportCancelResponse
+
+      def retry_: (
+        String data_export_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::DataExportRetryResponse
+
+      def start: (
+        String data_export_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::DataExportStartResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

@@ -1,0 +1,725 @@
+module Onlyfans
+  module Models
+    module Engagement
+      type message_get_top_message_response =
+        {
+          _meta: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta,
+          data: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data
+        }
+
+      class MessageGetTopMessageResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta
+        ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta
+
+        attr_reader data: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data?
+
+        def data=: (
+          Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data
+        ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta,
+          ?data: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta,
+          data: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Cache
+          ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Credits
+          ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::RateLimits
+          ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: String?,
+              limit_minute: Integer,
+              notice: String,
+              remaining_day: String?,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_accessor limit_day: String?
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader notice: String?
+
+            def notice=: (String) -> String
+
+            attr_accessor remaining_day: String?
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: String?,
+              ?limit_minute: Integer,
+              ?notice: String,
+              ?remaining_day: String?,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: String?,
+              limit_minute: Integer,
+              notice: String,
+              remaining_day: String?,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            purchases: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader purchases: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases?
+
+          def purchases=: (
+            Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases
+          ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases
+
+          def initialize: (
+            ?purchases: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases
+          ) -> void
+
+          def to_hash: -> {
+            purchases: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases
+          }
+
+          type purchases =
+            {
+              id: Integer,
+              can_send_message_to_buyers: bool,
+              can_unsend: bool,
+              date: String,
+              giphy_id: String?,
+              is_canceled: bool,
+              is_free: bool,
+              is_media_ready: bool,
+              is_reported_by_me: bool,
+              is_tip: bool,
+              media: ::Array[Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media],
+              media_count: Integer,
+              previews: ::Array[top],
+              price: String,
+              purchased_count: Integer,
+              raw_text: String,
+              relationships: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships,
+              response_type: String,
+              sent_count: Integer,
+              template: String,
+              text: String,
+              total_revenue_generated: String,
+              unsend_seconds: Integer,
+              viewed_count: Integer
+            }
+
+          class Purchases < Onlyfans::Internal::Type::BaseModel
+            attr_reader id: Integer?
+
+            def id=: (Integer) -> Integer
+
+            attr_reader can_send_message_to_buyers: bool?
+
+            def can_send_message_to_buyers=: (bool) -> bool
+
+            attr_reader can_unsend: bool?
+
+            def can_unsend=: (bool) -> bool
+
+            attr_reader date: String?
+
+            def date=: (String) -> String
+
+            attr_accessor giphy_id: String?
+
+            attr_reader is_canceled: bool?
+
+            def is_canceled=: (bool) -> bool
+
+            attr_reader is_free: bool?
+
+            def is_free=: (bool) -> bool
+
+            attr_reader is_media_ready: bool?
+
+            def is_media_ready=: (bool) -> bool
+
+            attr_reader is_reported_by_me: bool?
+
+            def is_reported_by_me=: (bool) -> bool
+
+            attr_reader is_tip: bool?
+
+            def is_tip=: (bool) -> bool
+
+            attr_reader media: ::Array[Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media]?
+
+            def media=: (
+              ::Array[Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media]
+            ) -> ::Array[Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media]
+
+            attr_reader media_count: Integer?
+
+            def media_count=: (Integer) -> Integer
+
+            attr_reader previews: ::Array[top]?
+
+            def previews=: (::Array[top]) -> ::Array[top]
+
+            attr_reader price: String?
+
+            def price=: (String) -> String
+
+            attr_reader purchased_count: Integer?
+
+            def purchased_count=: (Integer) -> Integer
+
+            attr_reader raw_text: String?
+
+            def raw_text=: (String) -> String
+
+            attr_reader relationships: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships?
+
+            def relationships=: (
+              Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships
+            ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships
+
+            attr_reader response_type: String?
+
+            def response_type=: (String) -> String
+
+            attr_reader sent_count: Integer?
+
+            def sent_count=: (Integer) -> Integer
+
+            attr_reader template: String?
+
+            def template=: (String) -> String
+
+            attr_reader text: String?
+
+            def text=: (String) -> String
+
+            attr_reader total_revenue_generated: String?
+
+            def total_revenue_generated=: (String) -> String
+
+            attr_reader unsend_seconds: Integer?
+
+            def unsend_seconds=: (Integer) -> Integer
+
+            attr_reader viewed_count: Integer?
+
+            def viewed_count=: (Integer) -> Integer
+
+            def initialize: (
+              ?id: Integer,
+              ?can_send_message_to_buyers: bool,
+              ?can_unsend: bool,
+              ?date: String,
+              ?giphy_id: String?,
+              ?is_canceled: bool,
+              ?is_free: bool,
+              ?is_media_ready: bool,
+              ?is_reported_by_me: bool,
+              ?is_tip: bool,
+              ?media: ::Array[Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media],
+              ?media_count: Integer,
+              ?previews: ::Array[top],
+              ?price: String,
+              ?purchased_count: Integer,
+              ?raw_text: String,
+              ?relationships: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships,
+              ?response_type: String,
+              ?sent_count: Integer,
+              ?template: String,
+              ?text: String,
+              ?total_revenue_generated: String,
+              ?unsend_seconds: Integer,
+              ?viewed_count: Integer
+            ) -> void
+
+            def to_hash: -> {
+              id: Integer,
+              can_send_message_to_buyers: bool,
+              can_unsend: bool,
+              date: String,
+              giphy_id: String?,
+              is_canceled: bool,
+              is_free: bool,
+              is_media_ready: bool,
+              is_reported_by_me: bool,
+              is_tip: bool,
+              media: ::Array[Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media],
+              media_count: Integer,
+              previews: ::Array[top],
+              price: String,
+              purchased_count: Integer,
+              raw_text: String,
+              relationships: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships,
+              response_type: String,
+              sent_count: Integer,
+              template: String,
+              text: String,
+              total_revenue_generated: String,
+              unsend_seconds: Integer,
+              viewed_count: Integer
+            }
+
+            type media =
+              {
+                id: Integer,
+                can_view: bool,
+                converted_to_video: bool,
+                created_at: String,
+                duration: Integer,
+                files: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files,
+                has_custom_preview: bool,
+                has_error: bool,
+                is_ready: bool,
+                type: String,
+                video_sources: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::VideoSources
+              }
+
+            class Media < Onlyfans::Internal::Type::BaseModel
+              attr_reader id: Integer?
+
+              def id=: (Integer) -> Integer
+
+              attr_reader can_view: bool?
+
+              def can_view=: (bool) -> bool
+
+              attr_reader converted_to_video: bool?
+
+              def converted_to_video=: (bool) -> bool
+
+              attr_reader created_at: String?
+
+              def created_at=: (String) -> String
+
+              attr_reader duration: Integer?
+
+              def duration=: (Integer) -> Integer
+
+              attr_reader files: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files?
+
+              def files=: (
+                Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files
+              ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files
+
+              attr_reader has_custom_preview: bool?
+
+              def has_custom_preview=: (bool) -> bool
+
+              attr_reader has_error: bool?
+
+              def has_error=: (bool) -> bool
+
+              attr_reader is_ready: bool?
+
+              def is_ready=: (bool) -> bool
+
+              attr_reader type: String?
+
+              def type=: (String) -> String
+
+              attr_reader video_sources: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::VideoSources?
+
+              def video_sources=: (
+                Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::VideoSources
+              ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::VideoSources
+
+              def initialize: (
+                ?id: Integer,
+                ?can_view: bool,
+                ?converted_to_video: bool,
+                ?created_at: String,
+                ?duration: Integer,
+                ?files: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files,
+                ?has_custom_preview: bool,
+                ?has_error: bool,
+                ?is_ready: bool,
+                ?type: String,
+                ?video_sources: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::VideoSources
+              ) -> void
+
+              def to_hash: -> {
+                id: Integer,
+                can_view: bool,
+                converted_to_video: bool,
+                created_at: String,
+                duration: Integer,
+                files: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files,
+                has_custom_preview: bool,
+                has_error: bool,
+                is_ready: bool,
+                type: String,
+                video_sources: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::VideoSources
+              }
+
+              type files =
+                {
+                  full: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Full,
+                  preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Preview,
+                  square_preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::SquarePreview,
+                  thumb: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Thumb
+                }
+
+              class Files < Onlyfans::Internal::Type::BaseModel
+                attr_reader full: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Full?
+
+                def full=: (
+                  Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Full
+                ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Full
+
+                attr_reader preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Preview?
+
+                def preview=: (
+                  Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Preview
+                ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Preview
+
+                attr_reader square_preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::SquarePreview?
+
+                def square_preview=: (
+                  Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::SquarePreview
+                ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::SquarePreview
+
+                attr_reader thumb: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Thumb?
+
+                def thumb=: (
+                  Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Thumb
+                ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Thumb
+
+                def initialize: (
+                  ?full: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Full,
+                  ?preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Preview,
+                  ?square_preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::SquarePreview,
+                  ?thumb: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Thumb
+                ) -> void
+
+                def to_hash: -> {
+                  full: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Full,
+                  preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Preview,
+                  square_preview: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::SquarePreview,
+                  thumb: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Media::Files::Thumb
+                }
+
+                type full =
+                  {
+                    height: Integer,
+                    size: Integer,
+                    sources: ::Array[top],
+                    url: String,
+                    width: Integer
+                  }
+
+                class Full < Onlyfans::Internal::Type::BaseModel
+                  attr_reader height: Integer?
+
+                  def height=: (Integer) -> Integer
+
+                  attr_reader size: Integer?
+
+                  def size=: (Integer) -> Integer
+
+                  attr_reader sources: ::Array[top]?
+
+                  def sources=: (::Array[top]) -> ::Array[top]
+
+                  attr_reader url: String?
+
+                  def url=: (String) -> String
+
+                  attr_reader width: Integer?
+
+                  def width=: (Integer) -> Integer
+
+                  def initialize: (
+                    ?height: Integer,
+                    ?size: Integer,
+                    ?sources: ::Array[top],
+                    ?url: String,
+                    ?width: Integer
+                  ) -> void
+
+                  def to_hash: -> {
+                    height: Integer,
+                    size: Integer,
+                    sources: ::Array[top],
+                    url: String,
+                    width: Integer
+                  }
+                end
+
+                type preview =
+                  {
+                    height: Integer,
+                    size: Integer,
+                    url: String,
+                    width: Integer
+                  }
+
+                class Preview < Onlyfans::Internal::Type::BaseModel
+                  attr_reader height: Integer?
+
+                  def height=: (Integer) -> Integer
+
+                  attr_reader size: Integer?
+
+                  def size=: (Integer) -> Integer
+
+                  attr_reader url: String?
+
+                  def url=: (String) -> String
+
+                  attr_reader width: Integer?
+
+                  def width=: (Integer) -> Integer
+
+                  def initialize: (
+                    ?height: Integer,
+                    ?size: Integer,
+                    ?url: String,
+                    ?width: Integer
+                  ) -> void
+
+                  def to_hash: -> {
+                    height: Integer,
+                    size: Integer,
+                    url: String,
+                    width: Integer
+                  }
+                end
+
+                type square_preview =
+                  {
+                    height: Integer,
+                    size: Integer,
+                    url: String,
+                    width: Integer
+                  }
+
+                class SquarePreview < Onlyfans::Internal::Type::BaseModel
+                  attr_reader height: Integer?
+
+                  def height=: (Integer) -> Integer
+
+                  attr_reader size: Integer?
+
+                  def size=: (Integer) -> Integer
+
+                  attr_reader url: String?
+
+                  def url=: (String) -> String
+
+                  attr_reader width: Integer?
+
+                  def width=: (Integer) -> Integer
+
+                  def initialize: (
+                    ?height: Integer,
+                    ?size: Integer,
+                    ?url: String,
+                    ?width: Integer
+                  ) -> void
+
+                  def to_hash: -> {
+                    height: Integer,
+                    size: Integer,
+                    url: String,
+                    width: Integer
+                  }
+                end
+
+                type thumb =
+                  {
+                    height: Integer,
+                    size: Integer,
+                    url: String,
+                    width: Integer
+                  }
+
+                class Thumb < Onlyfans::Internal::Type::BaseModel
+                  attr_reader height: Integer?
+
+                  def height=: (Integer) -> Integer
+
+                  attr_reader size: Integer?
+
+                  def size=: (Integer) -> Integer
+
+                  attr_reader url: String?
+
+                  def url=: (String) -> String
+
+                  attr_reader width: Integer?
+
+                  def width=: (Integer) -> Integer
+
+                  def initialize: (
+                    ?height: Integer,
+                    ?size: Integer,
+                    ?url: String,
+                    ?width: Integer
+                  ) -> void
+
+                  def to_hash: -> {
+                    height: Integer,
+                    size: Integer,
+                    url: String,
+                    width: Integer
+                  }
+                end
+              end
+
+              type video_sources =
+                { :number_240 => String, :number_720 => String }
+
+              class VideoSources < Onlyfans::Internal::Type::BaseModel
+                attr_reader number_240: String?
+
+                def number_240=: (String) -> String
+
+                attr_reader number_720: String?
+
+                def number_720=: (String) -> String
+
+                def initialize: (
+                  ?number_240: String,
+                  ?number_720: String
+                ) -> void
+
+                def to_hash: -> { :number_240 => String, :number_720 => String }
+              end
+            end
+
+            type relationships =
+              {
+                buyers: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships::Buyers
+              }
+
+            class Relationships < Onlyfans::Internal::Type::BaseModel
+              attr_reader buyers: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships::Buyers?
+
+              def buyers=: (
+                Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships::Buyers
+              ) -> Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships::Buyers
+
+              def initialize: (
+                ?buyers: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships::Buyers
+              ) -> void
+
+              def to_hash: -> {
+                buyers: Onlyfans::Models::Engagement::MessageGetTopMessageResponse::Data::Purchases::Relationships::Buyers
+              }
+
+              type buyers = { href: String, method_: String }
+
+              class Buyers < Onlyfans::Internal::Type::BaseModel
+                attr_reader href: String?
+
+                def href=: (String) -> String
+
+                attr_reader method_: String?
+
+                def method_=: (String) -> String
+
+                def initialize: (?href: String, ?method_: String) -> void
+
+                def to_hash: -> { href: String, method_: String }
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+end

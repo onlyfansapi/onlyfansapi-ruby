@@ -1,0 +1,34 @@
+module Onlyfans
+  module Models
+    type tracking_link_create_params =
+      { account: String, name: String, tags: ::Array[String] }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class TrackingLinkCreateParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor name: String
+
+      attr_reader tags: ::Array[String]?
+
+      def tags=: (::Array[String]) -> ::Array[String]
+
+      def initialize: (
+        account: String,
+        name: String,
+        ?tags: ::Array[String],
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        name: String,
+        tags: ::Array[String],
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

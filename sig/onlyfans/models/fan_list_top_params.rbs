@@ -1,0 +1,56 @@
+module Onlyfans
+  module Models
+    type fan_list_top_params =
+      {
+        account: String,
+        by: Onlyfans::Models::FanListTopParams::by?,
+        end_date: String?,
+        start_date: String?
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class FanListTopParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor by: Onlyfans::Models::FanListTopParams::by?
+
+      attr_accessor end_date: String?
+
+      attr_accessor start_date: String?
+
+      def initialize: (
+        account: String,
+        ?by: Onlyfans::Models::FanListTopParams::by?,
+        ?end_date: String?,
+        ?start_date: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        by: Onlyfans::Models::FanListTopParams::by?,
+        end_date: String?,
+        start_date: String?,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type by = :total | :subscribes | :tips | :messages | :post | :streams
+
+      module By
+        extend Onlyfans::Internal::Type::Enum
+
+        TOTAL: :total
+        SUBSCRIBES: :subscribes
+        TIPS: :tips
+        MESSAGES: :messages
+        POST: :post
+        STREAMS: :streams
+
+        def self?.values: -> ::Array[Onlyfans::Models::FanListTopParams::by]
+      end
+    end
+  end
+end

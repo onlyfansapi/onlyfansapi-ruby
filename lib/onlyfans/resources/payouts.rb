@@ -1,0 +1,158 @@
+# frozen_string_literal: true
+
+module Onlyfans
+  module Resources
+    class Payouts
+      # List all payout requests for the account.
+      #
+      # @overload list_requests(account, limit: nil, offset: nil, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param limit [String] Number of payout requests to return
+      #
+      # @param offset [String] Number of payout requests to skip for pagination
+      #
+      # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfans::Models::PayoutListRequestsResponse]
+      #
+      # @see Onlyfans::Models::PayoutListRequestsParams
+      def list_requests(account, params = {})
+        parsed, options = Onlyfans::PayoutListRequestsParams.dump_request(params)
+        query = Onlyfans::Internal::Util.encode_query_params(parsed)
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/payouts/payout-requests", account],
+          query: query,
+          model: Onlyfans::Models::PayoutListRequestsResponse,
+          options: options
+        )
+      end
+
+      # Request a payout withdrawal, if the frequency is set to manual. Refer to our
+      # `/payouts/balances` endpoint to retrieve the minimum and maximum withdrawal
+      # amounts.
+      #
+      # @overload request_manual_withdrawal(account, amount:, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param amount [Integer] The amount to withdraw. Amount may not be higher than the current balance.
+      #
+      # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0, Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1]
+      #
+      # @see Onlyfans::Models::PayoutRequestManualWithdrawalParams
+      def request_manual_withdrawal(account, params)
+        parsed, options = Onlyfans::PayoutRequestManualWithdrawalParams.dump_request(params)
+        @client.request(
+          method: :post,
+          path: ["api/%1$s/payouts/request-manual-withdrawal", account],
+          body: parsed,
+          model: Onlyfans::Models::PayoutRequestManualWithdrawalResponse,
+          options: options
+        )
+      end
+
+      # Get the current available and pending balances for the account.
+      #
+      # @overload retrieve_balances(account, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfans::Models::PayoutRetrieveBalancesResponse]
+      #
+      # @see Onlyfans::Models::PayoutRetrieveBalancesParams
+      def retrieve_balances(account, params = {})
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/payouts/balances", account],
+          model: Onlyfans::Models::PayoutRetrieveBalancesResponse,
+          options: params[:request_options]
+        )
+      end
+
+      # Get total and monthly time-series earning statistics for the account.
+      #
+      # @overload retrieve_earning_statistics(account, end_date: nil, start_date: nil, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param end_date [String, nil] The end date for earning statistics. Keep empty to get all earnings.
+      #
+      # @param start_date [String, nil] The start date for earning statistics. Keep empty to get all earnings.
+      #
+      # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse]
+      #
+      # @see Onlyfans::Models::PayoutRetrieveEarningStatisticsParams
+      def retrieve_earning_statistics(account, params = {})
+        parsed, options = Onlyfans::PayoutRetrieveEarningStatisticsParams.dump_request(params)
+        query = Onlyfans::Internal::Util.encode_query_params(parsed)
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/payouts/earning-statistics", account],
+          query: query.transform_keys(end_date: "endDate", start_date: "startDate"),
+          model: Onlyfans::Models::PayoutRetrieveEarningStatisticsResponse,
+          options: options
+        )
+      end
+
+      # Get the eligibility details for receiving payouts.
+      #
+      # @overload retrieve_eligibility(account, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfans::Models::PayoutRetrieveEligibilityResponse]
+      #
+      # @see Onlyfans::Models::PayoutRetrieveEligibilityParams
+      def retrieve_eligibility(account, params = {})
+        @client.request(
+          method: :get,
+          path: ["api/%1$s/payouts/eligibility", account],
+          model: Onlyfans::Models::PayoutRetrieveEligibilityResponse,
+          options: params[:request_options]
+        )
+      end
+
+      # Update the payout frequency for the account (Manual, Weekly or Monthly).
+      #
+      # @overload update_frequency(account, frequency:, request_options: {})
+      #
+      # @param account [String] The Account ID
+      #
+      # @param frequency [Symbol, Onlyfans::Models::PayoutUpdateFrequencyParams::Frequency] The new payout frequency
+      #
+      # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
+      #
+      # @return [Onlyfans::Models::PayoutUpdateFrequencyResponse]
+      #
+      # @see Onlyfans::Models::PayoutUpdateFrequencyParams
+      def update_frequency(account, params)
+        parsed, options = Onlyfans::PayoutUpdateFrequencyParams.dump_request(params)
+        @client.request(
+          method: :patch,
+          path: ["api/%1$s/payouts/payout-frequency", account],
+          body: parsed,
+          model: Onlyfans::Models::PayoutUpdateFrequencyResponse,
+          options: options
+        )
+      end
+
+      # @api private
+      #
+      # @param client [Onlyfans::Client]
+      def initialize(client:)
+        @client = client
+      end
+    end
+  end
+end

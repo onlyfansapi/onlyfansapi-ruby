@@ -1,0 +1,38 @@
+module Onlyfans
+  module Models
+    module SharedTrialLinks
+      type tag_add_params =
+        {
+          account: String,
+          shared_trial_link_id: Integer,
+          tags: ::Array[String]
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class TagAddParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor shared_trial_link_id: Integer
+
+        attr_accessor tags: ::Array[String]
+
+        def initialize: (
+          account: String,
+          shared_trial_link_id: Integer,
+          tags: ::Array[String],
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          shared_trial_link_id: Integer,
+          tags: ::Array[String],
+          request_options: Onlyfans::RequestOptions
+        }
+      end
+    end
+  end
+end

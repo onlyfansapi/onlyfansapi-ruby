@@ -1,0 +1,86 @@
+module Onlyfans
+  module Resources
+    class Chats
+      class Messages
+        def retrieve: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageRetrieveResponse
+
+        def list: (
+          String chat_id,
+          account: String,
+          ?filter: Onlyfans::Models::Chats::MessageListParams::filter,
+          ?first_id: String?,
+          ?last_id: String?,
+          ?limit: String,
+          ?order: String,
+          ?skip_users: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageListResponse
+
+        def delete: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageDeleteResponse
+
+        def like: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageLikeResponse
+
+        def pin: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessagePinResponse
+
+        def search: (
+          String chat_id,
+          account: String,
+          query: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageSearchResponse
+
+        def send_: (
+          String chat_id,
+          account: String,
+          ?giphy_id: String,
+          ?locked_text: bool,
+          ?media_files: ::Array[top],
+          ?previews: ::Array[top],
+          ?price: Integer,
+          ?reply_to_message_id: Integer,
+          ?rf_guest: String,
+          ?rf_partner: String,
+          ?rf_tag: String,
+          ?text: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageSendResponse
+
+        def unlike: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageUnlikeResponse
+
+        def unpin: (
+          String message_id,
+          account: String,
+          chat_id: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Chats::MessageUnpinResponse
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end
