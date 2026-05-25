@@ -1,0 +1,22 @@
+module Onlyfans
+  module Resources
+    class Giphy
+      def list_trending: (
+        String account,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::GiphyListTrendingResponse
+
+      def search: (
+        String account,
+        q: String,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::GiphySearchResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

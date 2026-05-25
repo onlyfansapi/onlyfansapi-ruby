@@ -1,0 +1,7 @@
+module Onlyfans
+  module Models
+    type smart_link_postback_delete_response = ::Hash[Symbol, top]?
+
+    SmartLinkPostbackDeleteResponse: Onlyfans::Internal::Type::Converter
+  end
+end

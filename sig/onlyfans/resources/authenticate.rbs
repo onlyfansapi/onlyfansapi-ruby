@@ -1,0 +1,44 @@
+module Onlyfans
+  module Resources
+    class Authenticate
+      def poll_status: (
+        String attempt_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::AuthenticatePollStatusResponse
+
+      def reauthenticate: (
+        String account_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::AuthenticateReauthenticateResponse
+
+      def send_2fa_email: (
+        String attempt_id,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::AuthenticateSend2faEmailResponse
+
+      def start: (
+        ?auth_id: String,
+        ?auth_type: Onlyfans::Models::AuthenticateStartParams::auth_type,
+        ?cookies: String,
+        ?custom_proxy: Onlyfans::AuthenticateStartParams::CustomProxy,
+        ?email: String,
+        ?force_connect: bool,
+        ?name: String,
+        ?password: String,
+        ?proxy_country: Onlyfans::Models::AuthenticateStartParams::proxy_country,
+        ?user_agent: String,
+        ?xbc: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::authenticate_start_response
+
+      def submit_2fa: (
+        String attempt_id,
+        ?code: String,
+        ?selfie_verification_completed: top,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::AuthenticateSubmit2faResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

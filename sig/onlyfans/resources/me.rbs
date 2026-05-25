@@ -1,0 +1,22 @@
+module Onlyfans
+  module Resources
+    class Me
+      def retrieve: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::MeRetrieveResponse
+
+      def get_model_start_date: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::MeGetModelStartDateResponse
+
+      def get_top_percentage: (
+        String account,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::MeGetTopPercentageResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

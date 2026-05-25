@@ -1,0 +1,15 @@
+module Onlyfans
+  module Models
+    type webhook_list_params =
+      {  } & Onlyfans::Internal::Type::request_parameters
+
+    class WebhookListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      def initialize: (?request_options: Onlyfans::request_opts) -> void
+
+      def to_hash: -> { request_options: Onlyfans::RequestOptions }
+    end
+  end
+end

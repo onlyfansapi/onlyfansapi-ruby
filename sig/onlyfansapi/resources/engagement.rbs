@@ -1,9 +1,0 @@
-module Onlyfansapi
-  module Resources
-    class Engagement
-      attr_reader messages: Onlyfansapi::Resources::Engagement::Messages
-
-      def initialize: (client: Onlyfansapi::Client) -> void
-    end
-  end
-end

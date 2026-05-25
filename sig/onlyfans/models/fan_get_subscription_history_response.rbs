@@ -1,0 +1,212 @@
+module Onlyfans
+  module Models
+    type fan_get_subscription_history_response =
+      {
+        _meta: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta,
+        data: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data
+      }
+
+    class FanGetSubscriptionHistoryResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta
+      ) -> Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta
+
+      attr_reader data: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data
+      ) -> Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta,
+        ?data: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta,
+        data: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Cache,
+          _credits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Cache
+        ) -> Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Credits
+        ) -> Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Cache,
+          _credits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::FanGetSubscriptionHistoryResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_accessor limit_day: String?
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader notice: String?
+
+          def notice=: (String) -> String
+
+          attr_accessor remaining_day: String?
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: String?,
+            ?limit_minute: Integer,
+            ?notice: String,
+            ?remaining_day: String?,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: String?,
+            limit_minute: Integer,
+            notice: String,
+            remaining_day: String?,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data::List]
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader has_more: bool?
+
+        def has_more=: (bool) -> bool
+
+        attr_reader list: ::Array[Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data::List]?
+
+        def list=: (
+          ::Array[Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data::List]
+        ) -> ::Array[Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data::List]
+
+        def initialize: (
+          ?has_more: bool,
+          ?list: ::Array[Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data::List]
+        ) -> void
+
+        def to_hash: -> {
+          has_more: bool,
+          list: ::Array[Onlyfans::Models::FanGetSubscriptionHistoryResponse::Data::List]
+        }
+
+        type list =
+          { expire_date: String, price: Float, subscribe_date: String }
+
+        class List < Onlyfans::Internal::Type::BaseModel
+          attr_reader expire_date: String?
+
+          def expire_date=: (String) -> String
+
+          attr_reader price: Float?
+
+          def price=: (Float) -> Float
+
+          attr_reader subscribe_date: String?
+
+          def subscribe_date=: (String) -> String
+
+          def initialize: (
+            ?expire_date: String,
+            ?price: Float,
+            ?subscribe_date: String
+          ) -> void
+
+          def to_hash: -> {
+            expire_date: String,
+            price: Float,
+            subscribe_date: String
+          }
+        end
+      end
+    end
+  end
+end

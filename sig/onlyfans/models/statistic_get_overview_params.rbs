@@ -1,0 +1,58 @@
+module Onlyfans
+  module Models
+    type statistic_get_overview_params =
+      {
+        account: String,
+        end_date: String,
+        start_date: String,
+        type: Onlyfans::Models::StatisticGetOverviewParams::type_?
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class StatisticGetOverviewParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader end_date: String?
+
+      def end_date=: (String) -> String
+
+      attr_reader start_date: String?
+
+      def start_date=: (String) -> String
+
+      attr_accessor type: Onlyfans::Models::StatisticGetOverviewParams::type_?
+
+      def initialize: (
+        account: String,
+        ?end_date: String,
+        ?start_date: String,
+        ?type: Onlyfans::Models::StatisticGetOverviewParams::type_?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String,
+        start_date: String,
+        type: Onlyfans::Models::StatisticGetOverviewParams::type_?,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type type_ = :fans | :visitors | :posts | :messages
+
+      module Type
+        extend Onlyfans::Internal::Type::Enum
+
+        FANS: :fans
+        VISITORS: :visitors
+        POSTS: :posts
+        MESSAGES: :messages
+
+        def self?.values: -> ::Array[Onlyfans::Models::StatisticGetOverviewParams::type_]
+      end
+    end
+  end
+end

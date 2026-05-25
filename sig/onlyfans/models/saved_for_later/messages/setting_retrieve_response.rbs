@@ -1,0 +1,189 @@
+module Onlyfans
+  module Models
+    module SavedForLater
+      module Messages
+        type setting_retrieve_response =
+          {
+            _meta: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta,
+            data: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Data
+          }
+
+        class SettingRetrieveResponse < Onlyfans::Internal::Type::BaseModel
+          attr_reader _meta: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta?
+
+          def _meta=: (
+            Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta
+          ) -> Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta
+
+          attr_reader data: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Data?
+
+          def data=: (
+            Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Data
+          ) -> Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Data
+
+          def initialize: (
+            ?_meta: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta,
+            ?data: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Data
+          ) -> void
+
+          def to_hash: -> {
+            _meta: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta,
+            data: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Data
+          }
+
+          type meta =
+            {
+              _cache: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Cache,
+              _credits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::RateLimits
+            }
+
+          class Meta < Onlyfans::Internal::Type::BaseModel
+            attr_reader _cache: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Cache?
+
+            def _cache=: (
+              Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Cache
+            ) -> Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Cache
+
+            attr_reader _credits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Credits?
+
+            def _credits=: (
+              Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Credits
+            ) -> Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Credits
+
+            attr_reader _rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::RateLimits?
+
+            def _rate_limits=: (
+              Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::RateLimits
+            ) -> Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::RateLimits
+
+            def initialize: (
+              ?_cache: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Cache,
+              ?_credits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Credits,
+              ?_rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::RateLimits
+            ) -> void
+
+            def to_hash: -> {
+              _cache: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Cache,
+              _credits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::Credits,
+              _rate_limits: Onlyfans::Models::SavedForLater::Messages::SettingRetrieveResponse::Meta::RateLimits
+            }
+
+            type cache = { is_cached: bool, note: String }
+
+            class Cache < Onlyfans::Internal::Type::BaseModel
+              attr_reader is_cached: bool?
+
+              def is_cached=: (bool) -> bool
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              def initialize: (?is_cached: bool, ?note: String) -> void
+
+              def to_hash: -> { is_cached: bool, note: String }
+            end
+
+            type credits = { balance: Integer, note: String, used: Integer }
+
+            class Credits < Onlyfans::Internal::Type::BaseModel
+              attr_reader balance: Integer?
+
+              def balance=: (Integer) -> Integer
+
+              attr_reader note: String?
+
+              def note=: (String) -> String
+
+              attr_reader used: Integer?
+
+              def used=: (Integer) -> Integer
+
+              def initialize: (
+                ?balance: Integer,
+                ?note: String,
+                ?used: Integer
+              ) -> void
+
+              def to_hash: -> { balance: Integer, note: String, used: Integer }
+            end
+
+            type rate_limits =
+              {
+                limit_day: Integer,
+                limit_minute: Integer,
+                remaining_day: Integer,
+                remaining_minute: Integer
+              }
+
+            class RateLimits < Onlyfans::Internal::Type::BaseModel
+              attr_reader limit_day: Integer?
+
+              def limit_day=: (Integer) -> Integer
+
+              attr_reader limit_minute: Integer?
+
+              def limit_minute=: (Integer) -> Integer
+
+              attr_reader remaining_day: Integer?
+
+              def remaining_day=: (Integer) -> Integer
+
+              attr_reader remaining_minute: Integer?
+
+              def remaining_minute=: (Integer) -> Integer
+
+              def initialize: (
+                ?limit_day: Integer,
+                ?limit_minute: Integer,
+                ?remaining_day: Integer,
+                ?remaining_minute: Integer
+              ) -> void
+
+              def to_hash: -> {
+                limit_day: Integer,
+                limit_minute: Integer,
+                remaining_day: Integer,
+                remaining_minute: Integer
+              }
+            end
+          end
+
+          type data =
+            {
+              current_code: Integer,
+              is_enabled: bool,
+              options: ::Array[Integer]
+            }
+
+          class Data < Onlyfans::Internal::Type::BaseModel
+            attr_reader current_code: Integer?
+
+            def current_code=: (Integer) -> Integer
+
+            attr_reader is_enabled: bool?
+
+            def is_enabled=: (bool) -> bool
+
+            attr_reader options: ::Array[Integer]?
+
+            def options=: (::Array[Integer]) -> ::Array[Integer]
+
+            def initialize: (
+              ?current_code: Integer,
+              ?is_enabled: bool,
+              ?options: ::Array[Integer]
+            ) -> void
+
+            def to_hash: -> {
+              current_code: Integer,
+              is_enabled: bool,
+              options: ::Array[Integer]
+            }
+          end
+        end
+      end
+    end
+  end
+end

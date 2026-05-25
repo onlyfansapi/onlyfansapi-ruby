@@ -1,0 +1,330 @@
+module Onlyfans
+  module Models
+    type giphy_list_trending_response =
+      {
+        _meta: Onlyfans::Models::GiphyListTrendingResponse::Meta,
+        data: ::Array[Onlyfans::Models::GiphyListTrendingResponse::Data]
+      }
+
+    class GiphyListTrendingResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::GiphyListTrendingResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::GiphyListTrendingResponse::Meta
+      ) -> Onlyfans::Models::GiphyListTrendingResponse::Meta
+
+      attr_reader data: ::Array[Onlyfans::Models::GiphyListTrendingResponse::Data]?
+
+      def data=: (
+        ::Array[Onlyfans::Models::GiphyListTrendingResponse::Data]
+      ) -> ::Array[Onlyfans::Models::GiphyListTrendingResponse::Data]
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::GiphyListTrendingResponse::Meta,
+        ?data: ::Array[Onlyfans::Models::GiphyListTrendingResponse::Data]
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::GiphyListTrendingResponse::Meta,
+        data: ::Array[Onlyfans::Models::GiphyListTrendingResponse::Data]
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::GiphyListTrendingResponse::Meta::Cache,
+          _credits: Onlyfans::Models::GiphyListTrendingResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::GiphyListTrendingResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::GiphyListTrendingResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::GiphyListTrendingResponse::Meta::Cache
+        ) -> Onlyfans::Models::GiphyListTrendingResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::GiphyListTrendingResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::GiphyListTrendingResponse::Meta::Credits
+        ) -> Onlyfans::Models::GiphyListTrendingResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::GiphyListTrendingResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::GiphyListTrendingResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::GiphyListTrendingResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::GiphyListTrendingResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::GiphyListTrendingResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::GiphyListTrendingResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::GiphyListTrendingResponse::Meta::Cache,
+          _credits: Onlyfans::Models::GiphyListTrendingResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::GiphyListTrendingResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: String,
+          embed_url: String,
+          images: Onlyfans::Models::GiphyListTrendingResponse::Data::Images,
+          rating: String,
+          slug: String,
+          title: String,
+          type: String,
+          url: String,
+          username: String
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader embed_url: String?
+
+        def embed_url=: (String) -> String
+
+        attr_reader images: Onlyfans::Models::GiphyListTrendingResponse::Data::Images?
+
+        def images=: (
+          Onlyfans::Models::GiphyListTrendingResponse::Data::Images
+        ) -> Onlyfans::Models::GiphyListTrendingResponse::Data::Images
+
+        attr_reader rating: String?
+
+        def rating=: (String) -> String
+
+        attr_reader slug: String?
+
+        def slug=: (String) -> String
+
+        attr_reader title: String?
+
+        def title=: (String) -> String
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader url: String?
+
+        def url=: (String) -> String
+
+        attr_reader username: String?
+
+        def username=: (String) -> String
+
+        def initialize: (
+          ?id: String,
+          ?embed_url: String,
+          ?images: Onlyfans::Models::GiphyListTrendingResponse::Data::Images,
+          ?rating: String,
+          ?slug: String,
+          ?title: String,
+          ?type: String,
+          ?url: String,
+          ?username: String
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          embed_url: String,
+          images: Onlyfans::Models::GiphyListTrendingResponse::Data::Images,
+          rating: String,
+          slug: String,
+          title: String,
+          type: String,
+          url: String,
+          username: String
+        }
+
+        type images =
+          {
+            fixed_height: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::FixedHeight,
+            original: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::Original
+          }
+
+        class Images < Onlyfans::Internal::Type::BaseModel
+          attr_reader fixed_height: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::FixedHeight?
+
+          def fixed_height=: (
+            Onlyfans::Models::GiphyListTrendingResponse::Data::Images::FixedHeight
+          ) -> Onlyfans::Models::GiphyListTrendingResponse::Data::Images::FixedHeight
+
+          attr_reader original: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::Original?
+
+          def original=: (
+            Onlyfans::Models::GiphyListTrendingResponse::Data::Images::Original
+          ) -> Onlyfans::Models::GiphyListTrendingResponse::Data::Images::Original
+
+          def initialize: (
+            ?fixed_height: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::FixedHeight,
+            ?original: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::Original
+          ) -> void
+
+          def to_hash: -> {
+            fixed_height: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::FixedHeight,
+            original: Onlyfans::Models::GiphyListTrendingResponse::Data::Images::Original
+          }
+
+          type fixed_height = { height: String, url: String, width: String }
+
+          class FixedHeight < Onlyfans::Internal::Type::BaseModel
+            attr_reader height: String?
+
+            def height=: (String) -> String
+
+            attr_reader url: String?
+
+            def url=: (String) -> String
+
+            attr_reader width: String?
+
+            def width=: (String) -> String
+
+            def initialize: (
+              ?height: String,
+              ?url: String,
+              ?width: String
+            ) -> void
+
+            def to_hash: -> { height: String, url: String, width: String }
+          end
+
+          type original =
+            {
+              height: String,
+              :mp4 => String,
+              url: String,
+              webp: String,
+              width: String
+            }
+
+          class Original < Onlyfans::Internal::Type::BaseModel
+            attr_reader height: String?
+
+            def height=: (String) -> String
+
+            attr_reader mp4: String?
+
+            def mp4=: (String) -> String
+
+            attr_reader url: String?
+
+            def url=: (String) -> String
+
+            attr_reader webp: String?
+
+            def webp=: (String) -> String
+
+            attr_reader width: String?
+
+            def width=: (String) -> String
+
+            def initialize: (
+              ?height: String,
+              ?mp4: String,
+              ?url: String,
+              ?webp: String,
+              ?width: String
+            ) -> void
+
+            def to_hash: -> {
+              height: String,
+              :mp4 => String,
+              url: String,
+              webp: String,
+              width: String
+            }
+          end
+        end
+      end
+    end
+  end
+end

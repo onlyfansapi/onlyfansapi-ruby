@@ -1,0 +1,45 @@
+module Onlyfans
+  module Resources
+    class Media
+      class Vault
+        class Lists
+          attr_reader media: Onlyfans::Resources::Media::Vault::Lists::Media
+
+          def create: (
+            String account,
+            name: String,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::Media::Vault::ListCreateResponse
+
+          def retrieve: (
+            String list_id,
+            account: String,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::Media::Vault::ListRetrieveResponse
+
+          def update: (
+            String list_id,
+            account: String,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::Media::Vault::ListUpdateResponse
+
+          def list: (
+            String account,
+            ?limit: Integer,
+            ?offset: Integer,
+            ?query: String,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::Media::Vault::ListListResponse
+
+          def delete: (
+            String list_id,
+            account: String,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::Media::Vault::ListDeleteResponse
+
+          def initialize: (client: Onlyfans::Client) -> void
+        end
+      end
+    end
+  end
+end

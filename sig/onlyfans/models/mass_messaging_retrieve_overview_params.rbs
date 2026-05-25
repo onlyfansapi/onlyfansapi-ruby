@@ -1,0 +1,54 @@
+module Onlyfans
+  module Models
+    type mass_messaging_retrieve_overview_params =
+      {
+        account: String,
+        end_date: String,
+        limit: Integer,
+        query: String,
+        start_date: String
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class MassMessagingRetrieveOverviewParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_reader end_date: String?
+
+      def end_date=: (String) -> String
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader query: String?
+
+      def query=: (String) -> String
+
+      attr_reader start_date: String?
+
+      def start_date=: (String) -> String
+
+      def initialize: (
+        account: String,
+        ?end_date: String,
+        ?limit: Integer,
+        ?query: String,
+        ?start_date: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String,
+        limit: Integer,
+        query: String,
+        start_date: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

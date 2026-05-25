@@ -1,0 +1,94 @@
+module Onlyfans
+  module Models
+    module Analytics
+      type summary_get_period_comparison_response =
+        {
+          breakdown: ::Array[top],
+          chart_data: ::Array[top],
+          period_a_label: String,
+          period_b_label: String,
+          summary: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonResponse::Summary
+        }
+
+      class SummaryGetPeriodComparisonResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader breakdown: ::Array[top]?
+
+        def breakdown=: (::Array[top]) -> ::Array[top]
+
+        attr_reader chart_data: ::Array[top]?
+
+        def chart_data=: (::Array[top]) -> ::Array[top]
+
+        attr_reader period_a_label: String?
+
+        def period_a_label=: (String) -> String
+
+        attr_reader period_b_label: String?
+
+        def period_b_label=: (String) -> String
+
+        attr_reader summary: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonResponse::Summary?
+
+        def summary=: (
+          Onlyfans::Models::Analytics::SummaryGetPeriodComparisonResponse::Summary
+        ) -> Onlyfans::Models::Analytics::SummaryGetPeriodComparisonResponse::Summary
+
+        def initialize: (
+          ?breakdown: ::Array[top],
+          ?chart_data: ::Array[top],
+          ?period_a_label: String,
+          ?period_b_label: String,
+          ?summary: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonResponse::Summary
+        ) -> void
+
+        def to_hash: -> {
+          breakdown: ::Array[top],
+          chart_data: ::Array[top],
+          period_a_label: String,
+          period_b_label: String,
+          summary: Onlyfans::Models::Analytics::SummaryGetPeriodComparisonResponse::Summary
+        }
+
+        type summary =
+          {
+            change: Float,
+            change_percentage: Float,
+            period_a_total: Float,
+            period_b_total: Float
+          }
+
+        class Summary < Onlyfans::Internal::Type::BaseModel
+          attr_reader change: Float?
+
+          def change=: (Float) -> Float
+
+          attr_reader change_percentage: Float?
+
+          def change_percentage=: (Float) -> Float
+
+          attr_reader period_a_total: Float?
+
+          def period_a_total=: (Float) -> Float
+
+          attr_reader period_b_total: Float?
+
+          def period_b_total=: (Float) -> Float
+
+          def initialize: (
+            ?change: Float,
+            ?change_percentage: Float,
+            ?period_a_total: Float,
+            ?period_b_total: Float
+          ) -> void
+
+          def to_hash: -> {
+            change: Float,
+            change_percentage: Float,
+            period_a_total: Float,
+            period_b_total: Float
+          }
+        end
+      end
+    end
+  end
+end

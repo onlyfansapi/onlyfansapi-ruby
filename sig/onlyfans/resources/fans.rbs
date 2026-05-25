@@ -1,0 +1,72 @@
+module Onlyfans
+  module Resources
+    class Fans
+      attr_reader notes: Onlyfans::Resources::Fans::Notes
+
+      attr_reader summary: Onlyfans::Resources::Fans::Summary
+
+      def get_subscription_history: (
+        String user_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FanGetSubscriptionHistoryResponse
+
+      def list_active: (
+        String account,
+        ?filter: Onlyfans::FanListActiveParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfans::Models::FanListActiveParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FanListActiveResponse
+
+      def list_all: (
+        String account,
+        ?filter: Onlyfans::FanListAllParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfans::Models::FanListAllParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FanListAllResponse
+
+      def list_expired: (
+        String account,
+        ?filter: Onlyfans::FanListExpiredParams::Filter,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?query: String?,
+        ?type: Onlyfans::Models::FanListExpiredParams::type_,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FanListExpiredResponse
+
+      def list_latest: (
+        String account,
+        ?end_date: String?,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?start_date: String?,
+        ?type: Onlyfans::Models::FanListLatestParams::type_?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FanListLatestResponse
+
+      def list_top: (
+        String account,
+        ?by: Onlyfans::Models::FanListTopParams::by?,
+        ?end_date: String?,
+        ?start_date: String?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FanListTopResponse
+
+      def set_custom_name: (
+        String fan_id,
+        account: String,
+        custom_name: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::FanSetCustomNameResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

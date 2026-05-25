@@ -1,0 +1,88 @@
+module Onlyfans
+  module Models
+    type tracking_link_list_params =
+      {
+        account: String,
+        end_date: String?,
+        limit: Integer?,
+        offset: Integer?,
+        sort: Onlyfans::Models::TrackingLinkListParams::sort?,
+        sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        start_date: String?,
+        synchronous: bool?,
+        with_deleted: bool?
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class TrackingLinkListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor end_date: String?
+
+      attr_accessor limit: Integer?
+
+      attr_accessor offset: Integer?
+
+      attr_accessor sort: Onlyfans::Models::TrackingLinkListParams::sort?
+
+      attr_accessor sortby: Onlyfans::Models::TrackingLinkListParams::sortby?
+
+      attr_accessor start_date: String?
+
+      attr_accessor synchronous: bool?
+
+      attr_accessor with_deleted: bool?
+
+      def initialize: (
+        account: String,
+        ?end_date: String?,
+        ?limit: Integer?,
+        ?offset: Integer?,
+        ?sort: Onlyfans::Models::TrackingLinkListParams::sort?,
+        ?sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        ?start_date: String?,
+        ?synchronous: bool?,
+        ?with_deleted: bool?,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        end_date: String?,
+        limit: Integer?,
+        offset: Integer?,
+        sort: Onlyfans::Models::TrackingLinkListParams::sort?,
+        sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        start_date: String?,
+        synchronous: bool?,
+        with_deleted: bool?,
+        request_options: Onlyfans::RequestOptions
+      }
+
+      type sort = :desc | :asc
+
+      module Sort
+        extend Onlyfans::Internal::Type::Enum
+
+        DESC: :desc
+        ASC: :asc
+
+        def self?.values: -> ::Array[Onlyfans::Models::TrackingLinkListParams::sort]
+      end
+
+      type sortby = :claims | :created_date
+
+      module Sortby
+        extend Onlyfans::Internal::Type::Enum
+
+        CLAIMS: :claims
+        CREATED_DATE: :created_date
+
+        def self?.values: -> ::Array[Onlyfans::Models::TrackingLinkListParams::sortby]
+      end
+    end
+  end
+end

@@ -1,0 +1,228 @@
+module Onlyfans
+  module Models
+    type chargeback_list_statistics_response =
+      {
+        _meta: Onlyfans::Models::ChargebackListStatisticsResponse::Meta,
+        data: Onlyfans::Models::ChargebackListStatisticsResponse::Data
+      }
+
+    class ChargebackListStatisticsResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::ChargebackListStatisticsResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::ChargebackListStatisticsResponse::Meta
+      ) -> Onlyfans::Models::ChargebackListStatisticsResponse::Meta
+
+      attr_reader data: Onlyfans::Models::ChargebackListStatisticsResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::ChargebackListStatisticsResponse::Data
+      ) -> Onlyfans::Models::ChargebackListStatisticsResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::ChargebackListStatisticsResponse::Meta,
+        ?data: Onlyfans::Models::ChargebackListStatisticsResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::ChargebackListStatisticsResponse::Meta,
+        data: Onlyfans::Models::ChargebackListStatisticsResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Cache
+        ) -> Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Credits
+        ) -> Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::ChargebackListStatisticsResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::ChargebackListStatisticsResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Cache,
+          _credits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::ChargebackListStatisticsResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          chart_amount: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartAmount],
+          chart_count: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartCount],
+          delta: Integer,
+          total: Float
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader chart_amount: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartAmount]?
+
+        def chart_amount=: (
+          ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartAmount]
+        ) -> ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartAmount]
+
+        attr_reader chart_count: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartCount]?
+
+        def chart_count=: (
+          ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartCount]
+        ) -> ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartCount]
+
+        attr_reader delta: Integer?
+
+        def delta=: (Integer) -> Integer
+
+        attr_reader total: Float?
+
+        def total=: (Float) -> Float
+
+        def initialize: (
+          ?chart_amount: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartAmount],
+          ?chart_count: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartCount],
+          ?delta: Integer,
+          ?total: Float
+        ) -> void
+
+        def to_hash: -> {
+          chart_amount: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartAmount],
+          chart_count: ::Array[Onlyfans::Models::ChargebackListStatisticsResponse::Data::ChartCount],
+          delta: Integer,
+          total: Float
+        }
+
+        type chart_amount = { count: Float, date: String }
+
+        class ChartAmount < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Float?
+
+          def count=: (Float) -> Float
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Float, ?date: String) -> void
+
+          def to_hash: -> { count: Float, date: String }
+        end
+
+        type chart_count = { count: Integer, date: String }
+
+        class ChartCount < Onlyfans::Internal::Type::BaseModel
+          attr_reader count: Integer?
+
+          def count=: (Integer) -> Integer
+
+          attr_reader date: String?
+
+          def date=: (String) -> String
+
+          def initialize: (?count: Integer, ?date: String) -> void
+
+          def to_hash: -> { count: Integer, date: String }
+        end
+      end
+    end
+  end
+end

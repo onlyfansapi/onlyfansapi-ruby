@@ -1,0 +1,64 @@
+module Onlyfans
+  module Models
+    module Statistics
+      type statement_get_earnings_params =
+        {
+          account: String,
+          start_date: String,
+          end_date: String,
+          type: Onlyfans::Models::Statistics::StatementGetEarningsParams::type_
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class StatementGetEarningsParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor start_date: String
+
+        attr_reader end_date: String?
+
+        def end_date=: (String) -> String
+
+        attr_reader type: Onlyfans::Models::Statistics::StatementGetEarningsParams::type_?
+
+        def type=: (
+          Onlyfans::Models::Statistics::StatementGetEarningsParams::type_
+        ) -> Onlyfans::Models::Statistics::StatementGetEarningsParams::type_
+
+        def initialize: (
+          account: String,
+          start_date: String,
+          ?end_date: String,
+          ?type: Onlyfans::Models::Statistics::StatementGetEarningsParams::type_,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          start_date: String,
+          end_date: String,
+          type: Onlyfans::Models::Statistics::StatementGetEarningsParams::type_,
+          request_options: Onlyfans::RequestOptions
+        }
+
+        type type_ = :total | :subscribes | :tips | :post | :messages | :stream
+
+        module Type
+          extend Onlyfans::Internal::Type::Enum
+
+          TOTAL: :total
+          SUBSCRIBES: :subscribes
+          TIPS: :tips
+          POST: :post
+          MESSAGES: :messages
+          STREAM: :stream
+
+          def self?.values: -> ::Array[Onlyfans::Models::Statistics::StatementGetEarningsParams::type_]
+        end
+      end
+    end
+  end
+end

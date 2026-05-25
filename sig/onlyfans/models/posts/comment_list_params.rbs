@@ -1,0 +1,67 @@
+module Onlyfans
+  module Models
+    module Posts
+      type comment_list_params =
+        {
+          account: String,
+          post_id: String,
+          limit: Integer,
+          offset: Integer,
+          sort: Onlyfans::Models::Posts::CommentListParams::sort
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class CommentListParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account: String
+
+        attr_accessor post_id: String
+
+        attr_reader limit: Integer?
+
+        def limit=: (Integer) -> Integer
+
+        attr_reader offset: Integer?
+
+        def offset=: (Integer) -> Integer
+
+        attr_reader sort: Onlyfans::Models::Posts::CommentListParams::sort?
+
+        def sort=: (
+          Onlyfans::Models::Posts::CommentListParams::sort
+        ) -> Onlyfans::Models::Posts::CommentListParams::sort
+
+        def initialize: (
+          account: String,
+          post_id: String,
+          ?limit: Integer,
+          ?offset: Integer,
+          ?sort: Onlyfans::Models::Posts::CommentListParams::sort,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account: String,
+          post_id: String,
+          limit: Integer,
+          offset: Integer,
+          sort: Onlyfans::Models::Posts::CommentListParams::sort,
+          request_options: Onlyfans::RequestOptions
+        }
+
+        type sort = :desc | :asc
+
+        module Sort
+          extend Onlyfans::Internal::Type::Enum
+
+          DESC: :desc
+          ASC: :asc
+
+          def self?.values: -> ::Array[Onlyfans::Models::Posts::CommentListParams::sort]
+        end
+      end
+    end
+  end
+end

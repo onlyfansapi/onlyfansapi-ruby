@@ -1,0 +1,381 @@
+module Onlyfans
+  module Models
+    type payout_request_manual_withdrawal_response =
+      Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0
+      | Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1
+
+    module PayoutRequestManualWithdrawalResponse
+      extend Onlyfans::Internal::Type::Union
+
+      type union_member0 =
+        {
+          _meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta,
+          data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data
+        }
+
+      class UnionMember0 < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta
+        ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta
+
+        attr_reader data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data?
+
+        def data=: (
+          Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data
+        ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta,
+          ?data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta,
+          data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Cache,
+            _credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Credits,
+            _rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Cache
+          ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Credits
+          ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::RateLimits
+          ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Cache,
+            ?_credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Cache,
+            _credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::Credits,
+            _rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data::List]
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data::List]?
+
+          def list=: (
+            ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data::List]
+          ) -> ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data::List]
+
+          def initialize: (
+            ?list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data::List]
+          ) -> void
+
+          def to_hash: -> {
+            list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember0::Data::List]
+          }
+
+          type list = { reject_reason: String?, state: String }
+
+          class List < Onlyfans::Internal::Type::BaseModel
+            attr_accessor reject_reason: String?
+
+            attr_reader state: String?
+
+            def state=: (String) -> String
+
+            def initialize: (?reject_reason: String?, ?state: String) -> void
+
+            def to_hash: -> { reject_reason: String?, state: String }
+          end
+        end
+      end
+
+      type union_member1 =
+        {
+          _meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta,
+          data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data
+        }
+
+      class UnionMember1 < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta
+        ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta
+
+        attr_reader data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data?
+
+        def data=: (
+          Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data
+        ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta,
+          ?data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta,
+          data: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Cache,
+            _credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Credits,
+            _rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Cache
+          ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Credits
+          ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::RateLimits
+          ) -> Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Cache,
+            ?_credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Cache,
+            _credits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::Credits,
+            _rate_limits: Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data::List]
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data::List]?
+
+          def list=: (
+            ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data::List]
+          ) -> ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data::List]
+
+          def initialize: (
+            ?list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data::List]
+          ) -> void
+
+          def to_hash: -> {
+            list: ::Array[Onlyfans::Models::PayoutRequestManualWithdrawalResponse::UnionMember1::Data::List]
+          }
+
+          type list = { reject_reason: String?, state: String }
+
+          class List < Onlyfans::Internal::Type::BaseModel
+            attr_accessor reject_reason: String?
+
+            attr_reader state: String?
+
+            def state=: (String) -> String
+
+            def initialize: (?reject_reason: String?, ?state: String) -> void
+
+            def to_hash: -> { reject_reason: String?, state: String }
+          end
+        end
+      end
+
+      def self?.variants: -> ::Array[Onlyfans::Models::payout_request_manual_withdrawal_response]
+    end
+  end
+end

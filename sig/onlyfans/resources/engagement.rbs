@@ -1,0 +1,9 @@
+module Onlyfans
+  module Resources
+    class Engagement
+      attr_reader messages: Onlyfans::Resources::Engagement::Messages
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

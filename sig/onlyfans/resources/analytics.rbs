@@ -1,0 +1,11 @@
+module Onlyfans
+  module Resources
+    class Analytics
+      attr_reader financial: Onlyfans::Resources::Analytics::Financial
+
+      attr_reader summary: Onlyfans::Resources::Analytics::Summary
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

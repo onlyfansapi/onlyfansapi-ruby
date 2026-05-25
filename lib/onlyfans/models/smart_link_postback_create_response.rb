@@ -1,0 +1,138 @@
+# frozen_string_literal: true
+
+module Onlyfans
+  module Models
+    # @see Onlyfans::Resources::SmartLinkPostbacks#create
+    class SmartLinkPostbackCreateResponse < Onlyfans::Internal::Type::BaseModel
+      # @!attribute _meta
+      #
+      #   @return [Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta, nil]
+      optional :_meta, -> { Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta }
+
+      # @!attribute data
+      #
+      #   @return [Onlyfans::Models::SmartLinkPostbackCreateResponse::Data, nil]
+      optional :data, -> { Onlyfans::Models::SmartLinkPostbackCreateResponse::Data }
+
+      # @!method initialize(_meta: nil, data: nil)
+      #   @param _meta [Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta]
+      #   @param data [Onlyfans::Models::SmartLinkPostbackCreateResponse::Data]
+
+      # @see Onlyfans::Models::SmartLinkPostbackCreateResponse#_meta
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        # @!attribute _cache
+        #
+        #   @return [Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache, nil]
+        optional :_cache, -> { Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache }
+
+        # @!attribute _credits
+        #
+        #   @return [Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits, nil]
+        optional :_credits, -> { Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits }
+
+        # @!method initialize(_cache: nil, _credits: nil)
+        #   @param _cache [Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache]
+        #   @param _credits [Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits]
+
+        # @see Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta#_cache
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          # @!attribute is_cached
+          #
+          #   @return [Boolean, nil]
+          optional :is_cached, Onlyfans::Internal::Type::Boolean
+
+          # @!attribute note
+          #
+          #   @return [String, nil]
+          optional :note, String
+
+          # @!method initialize(is_cached: nil, note: nil)
+          #   @param is_cached [Boolean]
+          #   @param note [String]
+        end
+
+        # @see Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta#_credits
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          # @!attribute balance
+          #
+          #   @return [Integer, nil]
+          optional :balance, Integer
+
+          # @!attribute note
+          #
+          #   @return [String, nil]
+          optional :note, String
+
+          # @!attribute used
+          #
+          #   @return [Integer, nil]
+          optional :used, Integer
+
+          # @!method initialize(balance: nil, note: nil, used: nil)
+          #   @param balance [Integer]
+          #   @param note [String]
+          #   @param used [Integer]
+        end
+      end
+
+      # @see Onlyfans::Models::SmartLinkPostbackCreateResponse#data
+      class Data < Onlyfans::Internal::Type::BaseModel
+        # @!attribute id
+        #
+        #   @return [Integer, nil]
+        optional :id, Integer
+
+        # @!attribute conversion_types
+        #
+        #   @return [Array<String>, nil]
+        optional :conversion_types, Onlyfans::Internal::Type::ArrayOf[String]
+
+        # @!attribute created_at
+        #
+        #   @return [String, nil]
+        optional :created_at, String
+
+        # @!attribute latest_response
+        #
+        #   @return [String, nil]
+        optional :latest_response, String, nil?: true
+
+        # @!attribute smart_link_ids
+        #
+        #   @return [Array<Object>, nil]
+        optional :smart_link_ids, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
+
+        # @!attribute smart_link_scope
+        #
+        #   @return [String, nil]
+        optional :smart_link_scope, String
+
+        # @!attribute smart_links
+        #
+        #   @return [Array<Object>, nil]
+        optional :smart_links, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
+
+        # @!attribute updated_at
+        #
+        #   @return [String, nil]
+        optional :updated_at, String
+
+        # @!attribute url
+        #
+        #   @return [String, nil]
+        optional :url, String
+
+        # @!method initialize(id: nil, conversion_types: nil, created_at: nil, latest_response: nil, smart_link_ids: nil, smart_link_scope: nil, smart_links: nil, updated_at: nil, url: nil)
+        #   @param id [Integer]
+        #   @param conversion_types [Array<String>]
+        #   @param created_at [String]
+        #   @param latest_response [String, nil]
+        #   @param smart_link_ids [Array<Object>]
+        #   @param smart_link_scope [String]
+        #   @param smart_links [Array<Object>]
+        #   @param updated_at [String]
+        #   @param url [String]
+      end
+    end
+  end
+end

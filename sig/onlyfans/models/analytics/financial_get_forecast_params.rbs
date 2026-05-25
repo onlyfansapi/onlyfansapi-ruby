@@ -1,0 +1,72 @@
+module Onlyfans
+  module Models
+    module Analytics
+      type financial_get_forecast_params =
+        {
+          account_ids: ::Array[String],
+          forecast_days: Integer,
+          historical_days: Integer,
+          metric: Onlyfans::Models::Analytics::FinancialGetForecastParams::metric,
+          model: Onlyfans::Models::Analytics::FinancialGetForecastParams::model
+        }
+        & Onlyfans::Internal::Type::request_parameters
+
+      class FinancialGetForecastParams < Onlyfans::Internal::Type::BaseModel
+        extend Onlyfans::Internal::Type::RequestParameters::Converter
+        include Onlyfans::Internal::Type::RequestParameters
+
+        attr_accessor account_ids: ::Array[String]
+
+        attr_accessor forecast_days: Integer
+
+        attr_accessor historical_days: Integer
+
+        attr_accessor metric: Onlyfans::Models::Analytics::FinancialGetForecastParams::metric
+
+        attr_accessor model: Onlyfans::Models::Analytics::FinancialGetForecastParams::model
+
+        def initialize: (
+          account_ids: ::Array[String],
+          forecast_days: Integer,
+          historical_days: Integer,
+          metric: Onlyfans::Models::Analytics::FinancialGetForecastParams::metric,
+          model: Onlyfans::Models::Analytics::FinancialGetForecastParams::model,
+          ?request_options: Onlyfans::request_opts
+        ) -> void
+
+        def to_hash: -> {
+          account_ids: ::Array[String],
+          forecast_days: Integer,
+          historical_days: Integer,
+          metric: Onlyfans::Models::Analytics::FinancialGetForecastParams::metric,
+          model: Onlyfans::Models::Analytics::FinancialGetForecastParams::model,
+          request_options: Onlyfans::RequestOptions
+        }
+
+        type metric = :revenue | :churn_percentage
+
+        module Metric
+          extend Onlyfans::Internal::Type::Enum
+
+          REVENUE: :revenue
+          CHURN_PERCENTAGE: :churn_percentage
+
+          def self?.values: -> ::Array[Onlyfans::Models::Analytics::FinancialGetForecastParams::metric]
+        end
+
+        type model = :moving_average | :linear_regression | :arima | :sarima
+
+        module Model
+          extend Onlyfans::Internal::Type::Enum
+
+          MOVING_AVERAGE: :moving_average
+          LINEAR_REGRESSION: :linear_regression
+          ARIMA: :arima
+          SARIMA: :sarima
+
+          def self?.values: -> ::Array[Onlyfans::Models::Analytics::FinancialGetForecastParams::model]
+        end
+      end
+    end
+  end
+end

@@ -1,0 +1,14 @@
+module Onlyfans
+  module Resources
+    class ClientSessions
+      def create: (
+        display_name: String,
+        ?client_reference_id: String,
+        ?proxy_country: Onlyfans::Models::ClientSessionCreateParams::proxy_country?,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::ClientSessionCreateResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

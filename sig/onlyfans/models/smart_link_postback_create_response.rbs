@@ -1,0 +1,176 @@
+module Onlyfans
+  module Models
+    type smart_link_postback_create_response =
+      {
+        _meta: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta,
+        data: Onlyfans::Models::SmartLinkPostbackCreateResponse::Data
+      }
+
+    class SmartLinkPostbackCreateResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta
+      ) -> Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta
+
+      attr_reader data: Onlyfans::Models::SmartLinkPostbackCreateResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::SmartLinkPostbackCreateResponse::Data
+      ) -> Onlyfans::Models::SmartLinkPostbackCreateResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta,
+        ?data: Onlyfans::Models::SmartLinkPostbackCreateResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta,
+        data: Onlyfans::Models::SmartLinkPostbackCreateResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache
+        ) -> Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits
+        ) -> Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Cache,
+          _credits: Onlyfans::Models::SmartLinkPostbackCreateResponse::Meta::Credits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+      end
+
+      type data =
+        {
+          id: Integer,
+          conversion_types: ::Array[String],
+          created_at: String,
+          latest_response: String?,
+          smart_link_ids: ::Array[top],
+          smart_link_scope: String,
+          smart_links: ::Array[top],
+          updated_at: String,
+          url: String
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_reader conversion_types: ::Array[String]?
+
+        def conversion_types=: (::Array[String]) -> ::Array[String]
+
+        attr_reader created_at: String?
+
+        def created_at=: (String) -> String
+
+        attr_accessor latest_response: String?
+
+        attr_reader smart_link_ids: ::Array[top]?
+
+        def smart_link_ids=: (::Array[top]) -> ::Array[top]
+
+        attr_reader smart_link_scope: String?
+
+        def smart_link_scope=: (String) -> String
+
+        attr_reader smart_links: ::Array[top]?
+
+        def smart_links=: (::Array[top]) -> ::Array[top]
+
+        attr_reader updated_at: String?
+
+        def updated_at=: (String) -> String
+
+        attr_reader url: String?
+
+        def url=: (String) -> String
+
+        def initialize: (
+          ?id: Integer,
+          ?conversion_types: ::Array[String],
+          ?created_at: String,
+          ?latest_response: String?,
+          ?smart_link_ids: ::Array[top],
+          ?smart_link_scope: String,
+          ?smart_links: ::Array[top],
+          ?updated_at: String,
+          ?url: String
+        ) -> void
+
+        def to_hash: -> {
+          id: Integer,
+          conversion_types: ::Array[String],
+          created_at: String,
+          latest_response: String?,
+          smart_link_ids: ::Array[top],
+          smart_link_scope: String,
+          smart_links: ::Array[top],
+          updated_at: String,
+          url: String
+        }
+      end
+    end
+  end
+end

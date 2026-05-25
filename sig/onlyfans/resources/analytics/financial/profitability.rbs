@@ -1,0 +1,25 @@
+module Onlyfans
+  module Resources
+    class Analytics
+      class Financial
+        class Profitability
+          def get_history: (
+            String account,
+            account_prefixed_id: String,
+            ?months: Integer,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::Analytics::Financial::profitability_get_history_response
+
+          def get_profitability: (
+            account_ids: ::Array[String],
+            month: Integer,
+            year: Integer,
+            ?request_options: Onlyfans::request_opts
+          ) -> Onlyfans::Models::Analytics::Financial::profitability_get_profitability_response
+
+          def initialize: (client: Onlyfans::Client) -> void
+        end
+      end
+    end
+  end
+end

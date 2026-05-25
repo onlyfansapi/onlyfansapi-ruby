@@ -1,0 +1,30 @@
+module Onlyfans
+  module Resources
+    class Queue
+      def list: (
+        String account,
+        limit: Integer,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::QueueListResponse
+
+      def count: (
+        String account,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::QueueCountResponse
+
+      def publish: (
+        String queue_id,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::QueuePublishResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

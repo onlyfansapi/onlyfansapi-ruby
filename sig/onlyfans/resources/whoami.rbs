@@ -1,0 +1,11 @@
+module Onlyfans
+  module Resources
+    class Whoami
+      def retrieve: (
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::WhoamiRetrieveResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

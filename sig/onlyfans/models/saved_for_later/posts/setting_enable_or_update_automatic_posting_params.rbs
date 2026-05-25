@@ -1,0 +1,48 @@
+module Onlyfans
+  module Models
+    module SavedForLater
+      module Posts
+        type setting_enable_or_update_automatic_posting_params =
+          {
+            account: String,
+            period: Onlyfans::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingParams::period
+          }
+          & Onlyfans::Internal::Type::request_parameters
+
+        class SettingEnableOrUpdateAutomaticPostingParams < Onlyfans::Internal::Type::BaseModel
+          extend Onlyfans::Internal::Type::RequestParameters::Converter
+          include Onlyfans::Internal::Type::RequestParameters
+
+          attr_accessor account: String
+
+          attr_accessor period: Onlyfans::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingParams::period
+
+          def initialize: (
+            account: String,
+            period: Onlyfans::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingParams::period,
+            ?request_options: Onlyfans::request_opts
+          ) -> void
+
+          def to_hash: -> {
+            account: String,
+            period: Onlyfans::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingParams::period,
+            request_options: Onlyfans::RequestOptions
+          }
+
+          type period = 6 | 12 | 24 | 48
+
+          module Period
+            extend Onlyfans::Internal::Type::Enum
+
+            PERIOD_6: 6
+            PERIOD_12: 12
+            PERIOD_24: 24
+            PERIOD_48: 48
+
+            def self?.values: -> ::Array[Onlyfans::Models::SavedForLater::Posts::SettingEnableOrUpdateAutomaticPostingParams::period]
+          end
+        end
+      end
+    end
+  end
+end

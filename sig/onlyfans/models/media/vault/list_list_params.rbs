@@ -1,0 +1,46 @@
+module Onlyfans
+  module Models
+    module Media
+      module Vault
+        type list_list_params =
+          { account: String, limit: Integer, offset: Integer, query: String }
+          & Onlyfans::Internal::Type::request_parameters
+
+        class ListListParams < Onlyfans::Internal::Type::BaseModel
+          extend Onlyfans::Internal::Type::RequestParameters::Converter
+          include Onlyfans::Internal::Type::RequestParameters
+
+          attr_accessor account: String
+
+          attr_reader limit: Integer?
+
+          def limit=: (Integer) -> Integer
+
+          attr_reader offset: Integer?
+
+          def offset=: (Integer) -> Integer
+
+          attr_reader query: String?
+
+          def query=: (String) -> String
+
+          def initialize: (
+            account: String,
+            ?limit: Integer,
+            ?offset: Integer,
+            ?query: String,
+            ?request_options: Onlyfans::request_opts
+          ) -> void
+
+          def to_hash: -> {
+            account: String,
+            limit: Integer,
+            offset: Integer,
+            query: String,
+            request_options: Onlyfans::RequestOptions
+          }
+        end
+      end
+    end
+  end
+end

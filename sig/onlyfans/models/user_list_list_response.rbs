@@ -1,0 +1,283 @@
+module Onlyfans
+  module Models
+    type user_list_list_response =
+      {
+        _meta: Onlyfans::Models::UserListListResponse::Meta,
+        data: ::Array[Onlyfans::Models::UserListListResponse::Data]
+      }
+
+    class UserListListResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::UserListListResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::UserListListResponse::Meta
+      ) -> Onlyfans::Models::UserListListResponse::Meta
+
+      attr_reader data: ::Array[Onlyfans::Models::UserListListResponse::Data]?
+
+      def data=: (
+        ::Array[Onlyfans::Models::UserListListResponse::Data]
+      ) -> ::Array[Onlyfans::Models::UserListListResponse::Data]
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::UserListListResponse::Meta,
+        ?data: ::Array[Onlyfans::Models::UserListListResponse::Data]
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::UserListListResponse::Meta,
+        data: ::Array[Onlyfans::Models::UserListListResponse::Data]
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::UserListListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::UserListListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::UserListListResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::UserListListResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::UserListListResponse::Meta::Cache
+        ) -> Onlyfans::Models::UserListListResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::UserListListResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::UserListListResponse::Meta::Credits
+        ) -> Onlyfans::Models::UserListListResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::UserListListResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::UserListListResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::UserListListResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::UserListListResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::UserListListResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::UserListListResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::UserListListResponse::Meta::Cache,
+          _credits: Onlyfans::Models::UserListListResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::UserListListResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          id: String,
+          can_add_users: bool,
+          can_delete: bool,
+          can_manage_users: bool,
+          can_pinned_to_chat: bool,
+          can_pinned_to_feed: bool,
+          can_update: bool,
+          direction: String,
+          is_pinned_to_chat: bool,
+          is_pinned_to_feed: bool,
+          name: String,
+          order: String,
+          posts_count: Integer,
+          sort_list: ::Array[top],
+          type: String,
+          users: ::Array[top],
+          users_count: Integer
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader id: String?
+
+        def id=: (String) -> String
+
+        attr_reader can_add_users: bool?
+
+        def can_add_users=: (bool) -> bool
+
+        attr_reader can_delete: bool?
+
+        def can_delete=: (bool) -> bool
+
+        attr_reader can_manage_users: bool?
+
+        def can_manage_users=: (bool) -> bool
+
+        attr_reader can_pinned_to_chat: bool?
+
+        def can_pinned_to_chat=: (bool) -> bool
+
+        attr_reader can_pinned_to_feed: bool?
+
+        def can_pinned_to_feed=: (bool) -> bool
+
+        attr_reader can_update: bool?
+
+        def can_update=: (bool) -> bool
+
+        attr_reader direction: String?
+
+        def direction=: (String) -> String
+
+        attr_reader is_pinned_to_chat: bool?
+
+        def is_pinned_to_chat=: (bool) -> bool
+
+        attr_reader is_pinned_to_feed: bool?
+
+        def is_pinned_to_feed=: (bool) -> bool
+
+        attr_reader name: String?
+
+        def name=: (String) -> String
+
+        attr_reader order: String?
+
+        def order=: (String) -> String
+
+        attr_reader posts_count: Integer?
+
+        def posts_count=: (Integer) -> Integer
+
+        attr_reader sort_list: ::Array[top]?
+
+        def sort_list=: (::Array[top]) -> ::Array[top]
+
+        attr_reader type: String?
+
+        def type=: (String) -> String
+
+        attr_reader users: ::Array[top]?
+
+        def users=: (::Array[top]) -> ::Array[top]
+
+        attr_reader users_count: Integer?
+
+        def users_count=: (Integer) -> Integer
+
+        def initialize: (
+          ?id: String,
+          ?can_add_users: bool,
+          ?can_delete: bool,
+          ?can_manage_users: bool,
+          ?can_pinned_to_chat: bool,
+          ?can_pinned_to_feed: bool,
+          ?can_update: bool,
+          ?direction: String,
+          ?is_pinned_to_chat: bool,
+          ?is_pinned_to_feed: bool,
+          ?name: String,
+          ?order: String,
+          ?posts_count: Integer,
+          ?sort_list: ::Array[top],
+          ?type: String,
+          ?users: ::Array[top],
+          ?users_count: Integer
+        ) -> void
+
+        def to_hash: -> {
+          id: String,
+          can_add_users: bool,
+          can_delete: bool,
+          can_manage_users: bool,
+          can_pinned_to_chat: bool,
+          can_pinned_to_feed: bool,
+          can_update: bool,
+          direction: String,
+          is_pinned_to_chat: bool,
+          is_pinned_to_feed: bool,
+          name: String,
+          order: String,
+          posts_count: Integer,
+          sort_list: ::Array[top],
+          type: String,
+          users: ::Array[top],
+          users_count: Integer
+        }
+      end
+    end
+  end
+end

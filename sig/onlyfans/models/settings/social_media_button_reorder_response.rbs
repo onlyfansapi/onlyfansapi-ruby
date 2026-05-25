@@ -1,0 +1,229 @@
+module Onlyfans
+  module Models
+    module Settings
+      type social_media_button_reorder_response =
+        {
+          _meta: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta,
+          data: ::Array[Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Data]
+        }
+
+      class SocialMediaButtonReorderResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta
+        ) -> Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta
+
+        attr_reader data: ::Array[Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Data]?
+
+        def data=: (
+          ::Array[Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Data]
+        ) -> ::Array[Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Data]
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta,
+          ?data: ::Array[Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Data]
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta,
+          data: ::Array[Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Data]
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Cache
+          ) -> Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Credits
+          ) -> Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::RateLimits
+          ) -> Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Cache,
+            _credits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::Settings::SocialMediaButtonReorderResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data =
+          {
+            id: Integer,
+            clicks: Integer,
+            is_valid: bool,
+            label: String,
+            link: String,
+            social_media: String,
+            sort: Integer,
+            url: String,
+            username: String
+          }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader id: Integer?
+
+          def id=: (Integer) -> Integer
+
+          attr_reader clicks: Integer?
+
+          def clicks=: (Integer) -> Integer
+
+          attr_reader is_valid: bool?
+
+          def is_valid=: (bool) -> bool
+
+          attr_reader label: String?
+
+          def label=: (String) -> String
+
+          attr_reader link: String?
+
+          def link=: (String) -> String
+
+          attr_reader social_media: String?
+
+          def social_media=: (String) -> String
+
+          attr_reader sort: Integer?
+
+          def sort=: (Integer) -> Integer
+
+          attr_reader url: String?
+
+          def url=: (String) -> String
+
+          attr_reader username: String?
+
+          def username=: (String) -> String
+
+          def initialize: (
+            ?id: Integer,
+            ?clicks: Integer,
+            ?is_valid: bool,
+            ?label: String,
+            ?link: String,
+            ?social_media: String,
+            ?sort: Integer,
+            ?url: String,
+            ?username: String
+          ) -> void
+
+          def to_hash: -> {
+            id: Integer,
+            clicks: Integer,
+            is_valid: bool,
+            label: String,
+            link: String,
+            social_media: String,
+            sort: Integer,
+            url: String,
+            username: String
+          }
+        end
+      end
+    end
+  end
+end

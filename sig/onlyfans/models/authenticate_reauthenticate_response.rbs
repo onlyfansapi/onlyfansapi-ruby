@@ -1,0 +1,28 @@
+module Onlyfans
+  module Models
+    type authenticate_reauthenticate_response =
+      { message: String, polling_url: String, success: bool }
+
+    class AuthenticateReauthenticateResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader message: String?
+
+      def message=: (String) -> String
+
+      attr_reader polling_url: String?
+
+      def polling_url=: (String) -> String
+
+      attr_reader success: bool?
+
+      def success=: (bool) -> bool
+
+      def initialize: (
+        ?message: String,
+        ?polling_url: String,
+        ?success: bool
+      ) -> void
+
+      def to_hash: -> { message: String, polling_url: String, success: bool }
+    end
+  end
+end

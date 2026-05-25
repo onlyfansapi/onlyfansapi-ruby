@@ -1,0 +1,50 @@
+module Onlyfans
+  module Models
+    type smart_link_list_params =
+      {
+        account_ids: String?,
+        limit: Integer,
+        meta_pixel_ids: String?,
+        name: String?,
+        offset: Integer
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class SmartLinkListParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account_ids: String?
+
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_accessor meta_pixel_ids: String?
+
+      attr_accessor name: String?
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      def initialize: (
+        ?account_ids: String?,
+        ?limit: Integer,
+        ?meta_pixel_ids: String?,
+        ?name: String?,
+        ?offset: Integer,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account_ids: String?,
+        limit: Integer,
+        meta_pixel_ids: String?,
+        name: String?,
+        offset: Integer,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

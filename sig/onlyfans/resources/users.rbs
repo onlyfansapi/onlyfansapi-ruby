@@ -1,0 +1,25 @@
+module Onlyfans
+  module Resources
+    class Users
+      attr_reader restrict: Onlyfans::Resources::Users::Restrict
+
+      attr_reader block: Onlyfans::Resources::Users::Block
+
+      attr_reader subscribe: Onlyfans::Resources::Users::Subscribe
+
+      def retrieve: (
+        String username,
+        account: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::UserRetrieveResponse
+
+      def list: (
+        String account,
+        ids: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> Onlyfans::Models::UserListResponse
+
+      def initialize: (client: Onlyfans::Client) -> void
+    end
+  end
+end

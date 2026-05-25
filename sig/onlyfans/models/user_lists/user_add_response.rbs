@@ -1,0 +1,166 @@
+module Onlyfans
+  module Models
+    module UserLists
+      type user_add_response =
+        {
+          _meta: Onlyfans::Models::UserLists::UserAddResponse::Meta,
+          data: Onlyfans::Models::UserLists::UserAddResponse::Data
+        }
+
+      class UserAddResponse < Onlyfans::Internal::Type::BaseModel
+        attr_reader _meta: Onlyfans::Models::UserLists::UserAddResponse::Meta?
+
+        def _meta=: (
+          Onlyfans::Models::UserLists::UserAddResponse::Meta
+        ) -> Onlyfans::Models::UserLists::UserAddResponse::Meta
+
+        attr_reader data: Onlyfans::Models::UserLists::UserAddResponse::Data?
+
+        def data=: (
+          Onlyfans::Models::UserLists::UserAddResponse::Data
+        ) -> Onlyfans::Models::UserLists::UserAddResponse::Data
+
+        def initialize: (
+          ?_meta: Onlyfans::Models::UserLists::UserAddResponse::Meta,
+          ?data: Onlyfans::Models::UserLists::UserAddResponse::Data
+        ) -> void
+
+        def to_hash: -> {
+          _meta: Onlyfans::Models::UserLists::UserAddResponse::Meta,
+          data: Onlyfans::Models::UserLists::UserAddResponse::Data
+        }
+
+        type meta =
+          {
+            _cache: Onlyfans::Models::UserLists::UserAddResponse::Meta::Cache,
+            _credits: Onlyfans::Models::UserLists::UserAddResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::UserLists::UserAddResponse::Meta::RateLimits
+          }
+
+        class Meta < Onlyfans::Internal::Type::BaseModel
+          attr_reader _cache: Onlyfans::Models::UserLists::UserAddResponse::Meta::Cache?
+
+          def _cache=: (
+            Onlyfans::Models::UserLists::UserAddResponse::Meta::Cache
+          ) -> Onlyfans::Models::UserLists::UserAddResponse::Meta::Cache
+
+          attr_reader _credits: Onlyfans::Models::UserLists::UserAddResponse::Meta::Credits?
+
+          def _credits=: (
+            Onlyfans::Models::UserLists::UserAddResponse::Meta::Credits
+          ) -> Onlyfans::Models::UserLists::UserAddResponse::Meta::Credits
+
+          attr_reader _rate_limits: Onlyfans::Models::UserLists::UserAddResponse::Meta::RateLimits?
+
+          def _rate_limits=: (
+            Onlyfans::Models::UserLists::UserAddResponse::Meta::RateLimits
+          ) -> Onlyfans::Models::UserLists::UserAddResponse::Meta::RateLimits
+
+          def initialize: (
+            ?_cache: Onlyfans::Models::UserLists::UserAddResponse::Meta::Cache,
+            ?_credits: Onlyfans::Models::UserLists::UserAddResponse::Meta::Credits,
+            ?_rate_limits: Onlyfans::Models::UserLists::UserAddResponse::Meta::RateLimits
+          ) -> void
+
+          def to_hash: -> {
+            _cache: Onlyfans::Models::UserLists::UserAddResponse::Meta::Cache,
+            _credits: Onlyfans::Models::UserLists::UserAddResponse::Meta::Credits,
+            _rate_limits: Onlyfans::Models::UserLists::UserAddResponse::Meta::RateLimits
+          }
+
+          type cache = { is_cached: bool, note: String }
+
+          class Cache < Onlyfans::Internal::Type::BaseModel
+            attr_reader is_cached: bool?
+
+            def is_cached=: (bool) -> bool
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            def initialize: (?is_cached: bool, ?note: String) -> void
+
+            def to_hash: -> { is_cached: bool, note: String }
+          end
+
+          type credits = { balance: Integer, note: String, used: Integer }
+
+          class Credits < Onlyfans::Internal::Type::BaseModel
+            attr_reader balance: Integer?
+
+            def balance=: (Integer) -> Integer
+
+            attr_reader note: String?
+
+            def note=: (String) -> String
+
+            attr_reader used: Integer?
+
+            def used=: (Integer) -> Integer
+
+            def initialize: (
+              ?balance: Integer,
+              ?note: String,
+              ?used: Integer
+            ) -> void
+
+            def to_hash: -> { balance: Integer, note: String, used: Integer }
+          end
+
+          type rate_limits =
+            {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+
+          class RateLimits < Onlyfans::Internal::Type::BaseModel
+            attr_reader limit_day: Integer?
+
+            def limit_day=: (Integer) -> Integer
+
+            attr_reader limit_minute: Integer?
+
+            def limit_minute=: (Integer) -> Integer
+
+            attr_reader remaining_day: Integer?
+
+            def remaining_day=: (Integer) -> Integer
+
+            attr_reader remaining_minute: Integer?
+
+            def remaining_minute=: (Integer) -> Integer
+
+            def initialize: (
+              ?limit_day: Integer,
+              ?limit_minute: Integer,
+              ?remaining_day: Integer,
+              ?remaining_minute: Integer
+            ) -> void
+
+            def to_hash: -> {
+              limit_day: Integer,
+              limit_minute: Integer,
+              remaining_day: Integer,
+              remaining_minute: Integer
+            }
+          end
+        end
+
+        type data = { :number_1224114714 => ::Array[Integer] }
+
+        class Data < Onlyfans::Internal::Type::BaseModel
+          attr_reader number_1224114714: ::Array[Integer]?
+
+          def number_1224114714=: (::Array[Integer]) -> ::Array[Integer]
+
+          def initialize: (?number_1224114714: ::Array[Integer]) -> void
+
+          def to_hash: -> { :number_1224114714 => ::Array[Integer] }
+        end
+      end
+    end
+  end
+end

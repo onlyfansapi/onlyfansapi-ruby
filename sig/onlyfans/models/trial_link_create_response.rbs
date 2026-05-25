@@ -1,0 +1,246 @@
+module Onlyfans
+  module Models
+    type trial_link_create_response =
+      {
+        _meta: Onlyfans::Models::TrialLinkCreateResponse::Meta,
+        _pagination: Onlyfans::Models::TrialLinkCreateResponse::Pagination,
+        data: Onlyfans::Models::TrialLinkCreateResponse::Data
+      }
+
+    class TrialLinkCreateResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::TrialLinkCreateResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::TrialLinkCreateResponse::Meta
+      ) -> Onlyfans::Models::TrialLinkCreateResponse::Meta
+
+      attr_reader _pagination: Onlyfans::Models::TrialLinkCreateResponse::Pagination?
+
+      def _pagination=: (
+        Onlyfans::Models::TrialLinkCreateResponse::Pagination
+      ) -> Onlyfans::Models::TrialLinkCreateResponse::Pagination
+
+      attr_reader data: Onlyfans::Models::TrialLinkCreateResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::TrialLinkCreateResponse::Data
+      ) -> Onlyfans::Models::TrialLinkCreateResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::TrialLinkCreateResponse::Meta,
+        ?_pagination: Onlyfans::Models::TrialLinkCreateResponse::Pagination,
+        ?data: Onlyfans::Models::TrialLinkCreateResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::TrialLinkCreateResponse::Meta,
+        _pagination: Onlyfans::Models::TrialLinkCreateResponse::Pagination,
+        data: Onlyfans::Models::TrialLinkCreateResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache,
+          _credits: Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache
+        ) -> Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits
+        ) -> Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::TrialLinkCreateResponse::Meta::Cache,
+          _credits: Onlyfans::Models::TrialLinkCreateResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::TrialLinkCreateResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type pagination = { next_page: String? }
+
+      class Pagination < Onlyfans::Internal::Type::BaseModel
+        attr_accessor next_page: String?
+
+        def initialize: (?next_page: String?) -> void
+
+        def to_hash: -> { next_page: String? }
+      end
+
+      type data =
+        {
+          id: Integer,
+          claim_counts: Integer,
+          created_at: String,
+          expired_at: String,
+          is_finished: bool,
+          subscribe_counts: Integer,
+          subscribe_days: Integer,
+          trial_link_name: String,
+          url: String
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader id: Integer?
+
+        def id=: (Integer) -> Integer
+
+        attr_reader claim_counts: Integer?
+
+        def claim_counts=: (Integer) -> Integer
+
+        attr_reader created_at: String?
+
+        def created_at=: (String) -> String
+
+        attr_reader expired_at: String?
+
+        def expired_at=: (String) -> String
+
+        attr_reader is_finished: bool?
+
+        def is_finished=: (bool) -> bool
+
+        attr_reader subscribe_counts: Integer?
+
+        def subscribe_counts=: (Integer) -> Integer
+
+        attr_reader subscribe_days: Integer?
+
+        def subscribe_days=: (Integer) -> Integer
+
+        attr_reader trial_link_name: String?
+
+        def trial_link_name=: (String) -> String
+
+        attr_reader url: String?
+
+        def url=: (String) -> String
+
+        def initialize: (
+          ?id: Integer,
+          ?claim_counts: Integer,
+          ?created_at: String,
+          ?expired_at: String,
+          ?is_finished: bool,
+          ?subscribe_counts: Integer,
+          ?subscribe_days: Integer,
+          ?trial_link_name: String,
+          ?url: String
+        ) -> void
+
+        def to_hash: -> {
+          id: Integer,
+          claim_counts: Integer,
+          created_at: String,
+          expired_at: String,
+          is_finished: bool,
+          subscribe_counts: Integer,
+          subscribe_days: Integer,
+          trial_link_name: String,
+          url: String
+        }
+      end
+    end
+  end
+end

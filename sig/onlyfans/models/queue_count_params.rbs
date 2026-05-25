@@ -1,0 +1,41 @@
+module Onlyfans
+  module Models
+    type queue_count_params =
+      {
+        account: String,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String
+      }
+      & Onlyfans::Internal::Type::request_parameters
+
+    class QueueCountParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account: String
+
+      attr_accessor publish_date_end: String
+
+      attr_accessor publish_date_start: String
+
+      attr_accessor timezone: String
+
+      def initialize: (
+        account: String,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account: String,
+        publish_date_end: String,
+        publish_date_start: String,
+        timezone: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

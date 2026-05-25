@@ -1,0 +1,23 @@
+module Onlyfans
+  module Models
+    type authenticate_reauthenticate_params =
+      { account_id: String } & Onlyfans::Internal::Type::request_parameters
+
+    class AuthenticateReauthenticateParams < Onlyfans::Internal::Type::BaseModel
+      extend Onlyfans::Internal::Type::RequestParameters::Converter
+      include Onlyfans::Internal::Type::RequestParameters
+
+      attr_accessor account_id: String
+
+      def initialize: (
+        account_id: String,
+        ?request_options: Onlyfans::request_opts
+      ) -> void
+
+      def to_hash: -> {
+        account_id: String,
+        request_options: Onlyfans::RequestOptions
+      }
+    end
+  end
+end

@@ -1,0 +1,15 @@
+module Onlyfans
+  module Resources
+    class Media
+      class Uploads
+        def get_status: (
+          String upload,
+          account: String,
+          ?request_options: Onlyfans::request_opts
+        ) -> Onlyfans::Models::Media::upload_get_status_response
+
+        def initialize: (client: Onlyfans::Client) -> void
+      end
+    end
+  end
+end

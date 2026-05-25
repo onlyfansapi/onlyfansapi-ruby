@@ -51,7 +51,7 @@ jobs:
           URL: https://pkg.stainless.com/s
           AUTH: ${{ steps.github-oidc.outputs.github_token }}
           SHA: ${{ github.sha }}
-          PACKAGE_NAME: onlyfansapi
+          PACKAGE_NAME: onlyfans
         run: ./scripts/utils/upload-artifact.sh
   lint:
     timeout-minutes: 10

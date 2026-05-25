@@ -1,0 +1,783 @@
+module Onlyfans
+  module Models
+    type statistic_get_overview_response =
+      {
+        _meta: Onlyfans::Models::StatisticGetOverviewResponse::Meta,
+        data: Onlyfans::Models::StatisticGetOverviewResponse::Data
+      }
+
+    class StatisticGetOverviewResponse < Onlyfans::Internal::Type::BaseModel
+      attr_reader _meta: Onlyfans::Models::StatisticGetOverviewResponse::Meta?
+
+      def _meta=: (
+        Onlyfans::Models::StatisticGetOverviewResponse::Meta
+      ) -> Onlyfans::Models::StatisticGetOverviewResponse::Meta
+
+      attr_reader data: Onlyfans::Models::StatisticGetOverviewResponse::Data?
+
+      def data=: (
+        Onlyfans::Models::StatisticGetOverviewResponse::Data
+      ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data
+
+      def initialize: (
+        ?_meta: Onlyfans::Models::StatisticGetOverviewResponse::Meta,
+        ?data: Onlyfans::Models::StatisticGetOverviewResponse::Data
+      ) -> void
+
+      def to_hash: -> {
+        _meta: Onlyfans::Models::StatisticGetOverviewResponse::Meta,
+        data: Onlyfans::Models::StatisticGetOverviewResponse::Data
+      }
+
+      type meta =
+        {
+          _cache: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Cache,
+          _credits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::RateLimits
+        }
+
+      class Meta < Onlyfans::Internal::Type::BaseModel
+        attr_reader _cache: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Cache?
+
+        def _cache=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Meta::Cache
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Meta::Cache
+
+        attr_reader _credits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Credits?
+
+        def _credits=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Meta::Credits
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Meta::Credits
+
+        attr_reader _rate_limits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::RateLimits?
+
+        def _rate_limits=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Meta::RateLimits
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Meta::RateLimits
+
+        def initialize: (
+          ?_cache: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Cache,
+          ?_credits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Credits,
+          ?_rate_limits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::RateLimits
+        ) -> void
+
+        def to_hash: -> {
+          _cache: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Cache,
+          _credits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::Credits,
+          _rate_limits: Onlyfans::Models::StatisticGetOverviewResponse::Meta::RateLimits
+        }
+
+        type cache = { is_cached: bool, note: String }
+
+        class Cache < Onlyfans::Internal::Type::BaseModel
+          attr_reader is_cached: bool?
+
+          def is_cached=: (bool) -> bool
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          def initialize: (?is_cached: bool, ?note: String) -> void
+
+          def to_hash: -> { is_cached: bool, note: String }
+        end
+
+        type credits = { balance: Integer, note: String, used: Integer }
+
+        class Credits < Onlyfans::Internal::Type::BaseModel
+          attr_reader balance: Integer?
+
+          def balance=: (Integer) -> Integer
+
+          attr_reader note: String?
+
+          def note=: (String) -> String
+
+          attr_reader used: Integer?
+
+          def used=: (Integer) -> Integer
+
+          def initialize: (
+            ?balance: Integer,
+            ?note: String,
+            ?used: Integer
+          ) -> void
+
+          def to_hash: -> { balance: Integer, note: String, used: Integer }
+        end
+
+        type rate_limits =
+          {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+
+        class RateLimits < Onlyfans::Internal::Type::BaseModel
+          attr_reader limit_day: Integer?
+
+          def limit_day=: (Integer) -> Integer
+
+          attr_reader limit_minute: Integer?
+
+          def limit_minute=: (Integer) -> Integer
+
+          attr_reader remaining_day: Integer?
+
+          def remaining_day=: (Integer) -> Integer
+
+          attr_reader remaining_minute: Integer?
+
+          def remaining_minute=: (Integer) -> Integer
+
+          def initialize: (
+            ?limit_day: Integer,
+            ?limit_minute: Integer,
+            ?remaining_day: Integer,
+            ?remaining_minute: Integer
+          ) -> void
+
+          def to_hash: -> {
+            limit_day: Integer,
+            limit_minute: Integer,
+            remaining_day: Integer,
+            remaining_minute: Integer
+          }
+        end
+      end
+
+      type data =
+        {
+          earning: Onlyfans::Models::StatisticGetOverviewResponse::Data::Earning,
+          mass_messages: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages,
+          posts: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts,
+          streams: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams,
+          visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors
+        }
+
+      class Data < Onlyfans::Internal::Type::BaseModel
+        attr_reader earning: Onlyfans::Models::StatisticGetOverviewResponse::Data::Earning?
+
+        def earning=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Data::Earning
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Earning
+
+        attr_reader mass_messages: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages?
+
+        def mass_messages=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages
+
+        attr_reader posts: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts?
+
+        def posts=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts
+
+        attr_reader streams: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams?
+
+        def streams=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams
+
+        attr_reader visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors?
+
+        def visitors=: (
+          Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors
+        ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors
+
+        def initialize: (
+          ?earning: Onlyfans::Models::StatisticGetOverviewResponse::Data::Earning,
+          ?mass_messages: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages,
+          ?posts: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts,
+          ?streams: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams,
+          ?visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors
+        ) -> void
+
+        def to_hash: -> {
+          earning: Onlyfans::Models::StatisticGetOverviewResponse::Data::Earning,
+          mass_messages: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages,
+          posts: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts,
+          streams: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams,
+          visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors
+        }
+
+        type earning = { delta: Float, gross: Float, total: Float }
+
+        class Earning < Onlyfans::Internal::Type::BaseModel
+          attr_reader delta: Float?
+
+          def delta=: (Float) -> Float
+
+          attr_reader gross: Float?
+
+          def gross=: (Float) -> Float
+
+          attr_reader total: Float?
+
+          def total=: (Float) -> Float
+
+          def initialize: (?delta: Float, ?gross: Float, ?total: Float) -> void
+
+          def to_hash: -> { delta: Float, gross: Float, total: Float }
+        end
+
+        type mass_messages =
+          {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::ChartData],
+            count: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Count,
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Earnings,
+            has_statistic: bool,
+            views: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Views
+          }
+
+        class MassMessages < Onlyfans::Internal::Type::BaseModel
+          attr_reader chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::ChartData]?
+
+          def chart_data=: (
+            ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::ChartData]
+          ) -> ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::ChartData]
+
+          attr_reader count: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Count?
+
+          def count=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Count
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Count
+
+          attr_reader earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Earnings?
+
+          def earnings=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Earnings
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Earnings
+
+          attr_reader has_statistic: bool?
+
+          def has_statistic=: (bool) -> bool
+
+          attr_reader views: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Views?
+
+          def views=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Views
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Views
+
+          def initialize: (
+            ?chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::ChartData],
+            ?count: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Count,
+            ?earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Earnings,
+            ?has_statistic: bool,
+            ?views: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Views
+          ) -> void
+
+          def to_hash: -> {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::ChartData],
+            count: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Count,
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Earnings,
+            has_statistic: bool,
+            views: Onlyfans::Models::StatisticGetOverviewResponse::Data::MassMessages::Views
+          }
+
+          type chart_data = { count: Integer, date: String }
+
+          class ChartData < Onlyfans::Internal::Type::BaseModel
+            attr_reader count: Integer?
+
+            def count=: (Integer) -> Integer
+
+            attr_reader date: String?
+
+            def date=: (String) -> String
+
+            def initialize: (?count: Integer, ?date: String) -> void
+
+            def to_hash: -> { count: Integer, date: String }
+          end
+
+          type count = { delta: Float, total: Integer }
+
+          class Count < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Float?
+
+            def delta=: (Float) -> Float
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (?delta: Float, ?total: Integer) -> void
+
+            def to_hash: -> { delta: Float, total: Integer }
+          end
+
+          type earnings = { delta: Float, gross: Float, total: Float }
+
+          class Earnings < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Float?
+
+            def delta=: (Float) -> Float
+
+            attr_reader gross: Float?
+
+            def gross=: (Float) -> Float
+
+            attr_reader total: Float?
+
+            def total=: (Float) -> Float
+
+            def initialize: (
+              ?delta: Float,
+              ?gross: Float,
+              ?total: Float
+            ) -> void
+
+            def to_hash: -> { delta: Float, gross: Float, total: Float }
+          end
+
+          type views = { delta: Integer, total: Integer }
+
+          class Views < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Integer?
+
+            def delta=: (Integer) -> Integer
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (?delta: Integer, ?total: Integer) -> void
+
+            def to_hash: -> { delta: Integer, total: Integer }
+          end
+        end
+
+        type posts =
+          {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::ChartData],
+            count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Count,
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Earnings,
+            has_statistic: bool,
+            views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Views
+          }
+
+        class Posts < Onlyfans::Internal::Type::BaseModel
+          attr_reader chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::ChartData]?
+
+          def chart_data=: (
+            ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::ChartData]
+          ) -> ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::ChartData]
+
+          attr_reader count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Count?
+
+          def count=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Count
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Count
+
+          attr_reader earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Earnings?
+
+          def earnings=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Earnings
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Earnings
+
+          attr_reader has_statistic: bool?
+
+          def has_statistic=: (bool) -> bool
+
+          attr_reader views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Views?
+
+          def views=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Views
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Views
+
+          def initialize: (
+            ?chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::ChartData],
+            ?count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Count,
+            ?earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Earnings,
+            ?has_statistic: bool,
+            ?views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Views
+          ) -> void
+
+          def to_hash: -> {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::ChartData],
+            count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Count,
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Earnings,
+            has_statistic: bool,
+            views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Posts::Views
+          }
+
+          type chart_data = { count: Integer, date: String }
+
+          class ChartData < Onlyfans::Internal::Type::BaseModel
+            attr_reader count: Integer?
+
+            def count=: (Integer) -> Integer
+
+            attr_reader date: String?
+
+            def date=: (String) -> String
+
+            def initialize: (?count: Integer, ?date: String) -> void
+
+            def to_hash: -> { count: Integer, date: String }
+          end
+
+          type count = { delta: Integer, total: Integer }
+
+          class Count < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Integer?
+
+            def delta=: (Integer) -> Integer
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (?delta: Integer, ?total: Integer) -> void
+
+            def to_hash: -> { delta: Integer, total: Integer }
+          end
+
+          type earnings = { delta: Integer, gross: Integer, total: Integer }
+
+          class Earnings < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Integer?
+
+            def delta=: (Integer) -> Integer
+
+            attr_reader gross: Integer?
+
+            def gross=: (Integer) -> Integer
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (
+              ?delta: Integer,
+              ?gross: Integer,
+              ?total: Integer
+            ) -> void
+
+            def to_hash: -> { delta: Integer, gross: Integer, total: Integer }
+          end
+
+          type views = { delta: Float, total: Integer }
+
+          class Views < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Float?
+
+            def delta=: (Float) -> Float
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (?delta: Float, ?total: Integer) -> void
+
+            def to_hash: -> { delta: Float, total: Integer }
+          end
+        end
+
+        type streams =
+          {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::ChartData],
+            count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Count,
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Earnings,
+            has_statistic: bool,
+            views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Views
+          }
+
+        class Streams < Onlyfans::Internal::Type::BaseModel
+          attr_reader chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::ChartData]?
+
+          def chart_data=: (
+            ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::ChartData]
+          ) -> ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::ChartData]
+
+          attr_reader count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Count?
+
+          def count=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Count
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Count
+
+          attr_reader earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Earnings?
+
+          def earnings=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Earnings
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Earnings
+
+          attr_reader has_statistic: bool?
+
+          def has_statistic=: (bool) -> bool
+
+          attr_reader views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Views?
+
+          def views=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Views
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Views
+
+          def initialize: (
+            ?chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::ChartData],
+            ?count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Count,
+            ?earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Earnings,
+            ?has_statistic: bool,
+            ?views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Views
+          ) -> void
+
+          def to_hash: -> {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::ChartData],
+            count: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Count,
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Earnings,
+            has_statistic: bool,
+            views: Onlyfans::Models::StatisticGetOverviewResponse::Data::Streams::Views
+          }
+
+          type chart_data = { count: Integer, date: String }
+
+          class ChartData < Onlyfans::Internal::Type::BaseModel
+            attr_reader count: Integer?
+
+            def count=: (Integer) -> Integer
+
+            attr_reader date: String?
+
+            def date=: (String) -> String
+
+            def initialize: (?count: Integer, ?date: String) -> void
+
+            def to_hash: -> { count: Integer, date: String }
+          end
+
+          type count = { delta: Integer, total: String }
+
+          class Count < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Integer?
+
+            def delta=: (Integer) -> Integer
+
+            attr_reader total: String?
+
+            def total=: (String) -> String
+
+            def initialize: (?delta: Integer, ?total: String) -> void
+
+            def to_hash: -> { delta: Integer, total: String }
+          end
+
+          type earnings = { delta: Integer, gross: Integer, total: Integer }
+
+          class Earnings < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Integer?
+
+            def delta=: (Integer) -> Integer
+
+            attr_reader gross: Integer?
+
+            def gross=: (Integer) -> Integer
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (
+              ?delta: Integer,
+              ?gross: Integer,
+              ?total: Integer
+            ) -> void
+
+            def to_hash: -> { delta: Integer, gross: Integer, total: Integer }
+          end
+
+          type views = { delta: Integer, total: Integer }
+
+          class Views < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Integer?
+
+            def delta=: (Integer) -> Integer
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (?delta: Integer, ?total: Integer) -> void
+
+            def to_hash: -> { delta: Integer, total: Integer }
+          end
+        end
+
+        type visitors =
+          {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::ChartData],
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Earnings,
+            has_statistic: bool,
+            subscriptions: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions,
+            visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Visitors
+          }
+
+        class Visitors < Onlyfans::Internal::Type::BaseModel
+          attr_reader chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::ChartData]?
+
+          def chart_data=: (
+            ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::ChartData]
+          ) -> ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::ChartData]
+
+          attr_reader earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Earnings?
+
+          def earnings=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Earnings
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Earnings
+
+          attr_reader has_statistic: bool?
+
+          def has_statistic=: (bool) -> bool
+
+          attr_reader subscriptions: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions?
+
+          def subscriptions=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions
+
+          attr_reader visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Visitors?
+
+          def visitors=: (
+            Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Visitors
+          ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Visitors
+
+          def initialize: (
+            ?chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::ChartData],
+            ?earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Earnings,
+            ?has_statistic: bool,
+            ?subscriptions: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions,
+            ?visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Visitors
+          ) -> void
+
+          def to_hash: -> {
+            chart_data: ::Array[Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::ChartData],
+            earnings: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Earnings,
+            has_statistic: bool,
+            subscriptions: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions,
+            visitors: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Visitors
+          }
+
+          type chart_data = { count: Integer, date: String }
+
+          class ChartData < Onlyfans::Internal::Type::BaseModel
+            attr_reader count: Integer?
+
+            def count=: (Integer) -> Integer
+
+            attr_reader date: String?
+
+            def date=: (String) -> String
+
+            def initialize: (?count: Integer, ?date: String) -> void
+
+            def to_hash: -> { count: Integer, date: String }
+          end
+
+          type earnings = { delta: Float, gross: Float, total: Float }
+
+          class Earnings < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Float?
+
+            def delta=: (Float) -> Float
+
+            attr_reader gross: Float?
+
+            def gross=: (Float) -> Float
+
+            attr_reader total: Float?
+
+            def total=: (Float) -> Float
+
+            def initialize: (
+              ?delta: Float,
+              ?gross: Float,
+              ?total: Float
+            ) -> void
+
+            def to_hash: -> { delta: Float, gross: Float, total: Float }
+          end
+
+          type subscriptions =
+            {
+              new: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::New,
+              renew: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::Renew
+            }
+
+          class Subscriptions < Onlyfans::Internal::Type::BaseModel
+            attr_reader new: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::New?
+
+            def new=: (
+              Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::New
+            ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::New
+
+            attr_reader renew: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::Renew?
+
+            def renew=: (
+              Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::Renew
+            ) -> Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::Renew
+
+            def initialize: (
+              ?new: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::New,
+              ?renew: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::Renew
+            ) -> void
+
+            def to_hash: -> {
+              new: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::New,
+              renew: Onlyfans::Models::StatisticGetOverviewResponse::Data::Visitors::Subscriptions::Renew
+            }
+
+            type new_ = { delta: Float, total: Integer }
+
+            class New < Onlyfans::Internal::Type::BaseModel
+              attr_reader delta: Float?
+
+              def delta=: (Float) -> Float
+
+              attr_reader total: Integer?
+
+              def total=: (Integer) -> Integer
+
+              def initialize: (?delta: Float, ?total: Integer) -> void
+
+              def to_hash: -> { delta: Float, total: Integer }
+            end
+
+            type renew = { delta: Integer, total: Integer }
+
+            class Renew < Onlyfans::Internal::Type::BaseModel
+              attr_reader delta: Integer?
+
+              def delta=: (Integer) -> Integer
+
+              attr_reader total: Integer?
+
+              def total=: (Integer) -> Integer
+
+              def initialize: (?delta: Integer, ?total: Integer) -> void
+
+              def to_hash: -> { delta: Integer, total: Integer }
+            end
+          end
+
+          type visitors = { delta: Integer, total: Integer }
+
+          class Visitors < Onlyfans::Internal::Type::BaseModel
+            attr_reader delta: Integer?
+
+            def delta=: (Integer) -> Integer
+
+            attr_reader total: Integer?
+
+            def total=: (Integer) -> Integer
+
+            def initialize: (?delta: Integer, ?total: Integer) -> void
+
+            def to_hash: -> { delta: Integer, total: Integer }
+          end
+        end
+      end
+    end
+  end
+end
