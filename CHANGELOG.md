@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 (2026-05-25)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/onlyfansapi/onlyfansapi-ruby/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** api update ([f8fef5a](https://github.com/onlyfansapi/onlyfansapi-ruby/commit/f8fef5a3262dc9fe8d18830ee0029ceef897abfc))
+
 ## 0.1.0 (2026-05-25)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/onlyfansapi/onlyfansapi-ruby/compare/v0.0.1...v0.1.0)
