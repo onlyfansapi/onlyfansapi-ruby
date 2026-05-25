@@ -8,7 +8,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfansapi
 
     response =
       @only_fans_api.media.vault.lists.media.add(
-        "reprehenderit",
+        "hic",
         account: "acct_XXXXXXXXXXXXXXX",
         media_ids: ["string"]
       )
@@ -30,7 +30,7 @@ class Onlyfansapi::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfansapi
 
     response =
       @only_fans_api.media.vault.lists.media.remove(
-        "reprehenderit",
+        "hic",
         account: "acct_XXXXXXXXXXXXXXX",
         media_ids: ["string"]
       )
