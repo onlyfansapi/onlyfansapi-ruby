@@ -21,8 +21,8 @@ module Onlyfans
       required :smart_link_scope, enum: -> { Onlyfans::SmartLinkPostbackCreateParams::SmartLinkScope }
 
       # @!attribute url
-      #   The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and
-      #   `{ttclid}` are replaced when the postback is dispatched.
+      #   The destination URL. Variables such as `{external_click_id}`, `{fbclid}`,
+      #   `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
       #
       #   @return [String]
       required :url, String
@@ -41,7 +41,7 @@ module Onlyfans
       #
       #   @param smart_link_scope [Symbol, Onlyfans::Models::SmartLinkPostbackCreateParams::SmartLinkScope] `global` fires for all Smart Links. `campaign_specific` fires only for selected
       #
-      #   @param url [String] The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and
+      #   @param url [String] The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gcli
       #
       #   @param smart_link_ids [Array<String>] Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
       #
