@@ -27,8 +27,8 @@ module Onlyfans
       end
       attr_accessor :smart_link_scope
 
-      # The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and
-      # `{ttclid}` are replaced when the postback is dispatched.
+      # The destination URL. Variables such as `{external_click_id}`, `{fbclid}`,
+      # `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
       sig { returns(String) }
       attr_accessor :url
 
@@ -55,8 +55,8 @@ module Onlyfans
         # `global` fires for all Smart Links. `campaign_specific` fires only for selected
         # Smart Links.
         smart_link_scope:,
-        # The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and
-        # `{ttclid}` are replaced when the postback is dispatched.
+        # The destination URL. Variables such as `{external_click_id}`, `{fbclid}`,
+        # `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
         url:,
         # Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
         smart_link_ids: nil,
