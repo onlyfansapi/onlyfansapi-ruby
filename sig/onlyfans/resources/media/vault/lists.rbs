@@ -20,6 +20,7 @@ module Onlyfans
           def update: (
             String list_id,
             account: String,
+            name: String,
             ?request_options: Onlyfans::request_opts
           ) -> Onlyfans::Models::Media::Vault::ListUpdateResponse
 
