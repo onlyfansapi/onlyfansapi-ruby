@@ -40,7 +40,8 @@ class Onlyfans::Test::Resources::Media::Vault::ListsTest < Onlyfans::Test::Resou
   def test_update_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.media.vault.lists.update("123", account: "acct_XXXXXXXXXXXXXXX")
+    response =
+      @only_fans_api.media.vault.lists.update("123", account: "acct_XXXXXXXXXXXXXXX", name: "My renamed list")
 
     assert_pattern do
       response => Onlyfans::Models::Media::Vault::ListUpdateResponse

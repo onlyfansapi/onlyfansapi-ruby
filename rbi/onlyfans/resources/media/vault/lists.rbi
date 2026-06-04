@@ -47,14 +47,18 @@ module Onlyfans
             params(
               list_id: String,
               account: String,
+              name: String,
               request_options: Onlyfans::RequestOptions::OrHash
             ).returns(Onlyfans::Models::Media::Vault::ListUpdateResponse)
           end
           def update(
-            # The ID of the list
+            # Path param: The ID of the list
             list_id,
-            # The Account ID
+            # Path param: The Account ID
             account:,
+            # Body param: The new name for the vault list. Must not be greater than 255
+            # characters.
+            name:,
             request_options: {}
           )
           end

@@ -59,13 +59,18 @@ module Onlyfans
             )
           end
 
+          # Some parameter documentations has been truncated, see
+          # {Onlyfans::Models::Media::Vault::ListUpdateParams} for more details.
+          #
           # Rename a Vault list.
           #
-          # @overload update(list_id, account:, request_options: {})
+          # @overload update(list_id, account:, name:, request_options: {})
           #
-          # @param list_id [String] The ID of the list
+          # @param list_id [String] Path param: The ID of the list
           #
-          # @param account [String] The Account ID
+          # @param account [String] Path param: The Account ID
+          #
+          # @param name [String] Body param: The new name for the vault list. Must not be greater than 255 charac
           #
           # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
           #
@@ -81,6 +86,7 @@ module Onlyfans
             @client.request(
               method: :put,
               path: ["api/%1$s/media/vault/lists/%2$s", account, list_id],
+              body: parsed,
               model: Onlyfans::Models::Media::Vault::ListUpdateResponse,
               options: options
             )
