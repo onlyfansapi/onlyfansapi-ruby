@@ -161,6 +161,7 @@ module Onlyfans
           end_date: String,
           export_columns: ::Array[String],
           failed_at: String?,
+          failed_downloads: Integer,
           failed_reason: String?,
           file_type: String,
           progress_percentage: Integer,
@@ -202,6 +203,10 @@ module Onlyfans
 
         attr_accessor failed_at: String?
 
+        attr_reader failed_downloads: Integer?
+
+        def failed_downloads=: (Integer) -> Integer
+
         attr_accessor failed_reason: String?
 
         attr_reader file_type: String?
@@ -241,6 +246,7 @@ module Onlyfans
           ?end_date: String,
           ?export_columns: ::Array[String],
           ?failed_at: String?,
+          ?failed_downloads: Integer,
           ?failed_reason: String?,
           ?file_type: String,
           ?progress_percentage: Integer,
@@ -260,6 +266,7 @@ module Onlyfans
           end_date: String,
           export_columns: ::Array[String],
           failed_at: String?,
+          failed_downloads: Integer,
           failed_reason: String?,
           file_type: String,
           progress_percentage: Integer,
