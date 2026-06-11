@@ -20,6 +20,7 @@ module Onlyfans
         ?meta_pixel_ids: String?,
         ?name: String?,
         ?offset: Integer,
+        ?pixel_ids: String?,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::SmartLinkListResponse
 

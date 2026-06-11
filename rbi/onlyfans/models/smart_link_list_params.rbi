@@ -23,7 +23,7 @@ module Onlyfans
       sig { params(limit: Integer).void }
       attr_writer :limit
 
-      # Comma-separated Meta Pixel IDs to include.
+      # Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
       sig { returns(T.nilable(String)) }
       attr_accessor :meta_pixel_ids
 
@@ -38,6 +38,10 @@ module Onlyfans
       sig { params(offset: Integer).void }
       attr_writer :offset
 
+      # Comma-separated ad platform Pixel IDs to include.
+      sig { returns(T.nilable(String)) }
+      attr_accessor :pixel_ids
+
       sig do
         params(
           account_ids: T.nilable(String),
@@ -45,6 +49,7 @@ module Onlyfans
           meta_pixel_ids: T.nilable(String),
           name: T.nilable(String),
           offset: Integer,
+          pixel_ids: T.nilable(String),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -54,12 +59,14 @@ module Onlyfans
         # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
         # be greater than 1000.
         limit: nil,
-        # Comma-separated Meta Pixel IDs to include.
+        # Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
         meta_pixel_ids: nil,
         # Filter Smart Links by name. Must not be greater than 255 characters.
         name: nil,
         # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
+        # Comma-separated ad platform Pixel IDs to include.
+        pixel_ids: nil,
         request_options: {}
       )
       end
@@ -72,6 +79,7 @@ module Onlyfans
             meta_pixel_ids: T.nilable(String),
             name: T.nilable(String),
             offset: Integer,
+            pixel_ids: T.nilable(String),
             request_options: Onlyfans::RequestOptions
           }
         )
