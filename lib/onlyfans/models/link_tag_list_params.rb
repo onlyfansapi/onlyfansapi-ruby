@@ -8,22 +8,23 @@ module Onlyfans
       include Onlyfans::Internal::Type::RequestParameters
 
       # @!attribute type
-      #   Filter by link type. If not provided, returns tags for both types.
+      #   Filter by link type. If not provided, returns tags for all types.
       #
       #   @return [Symbol, Onlyfans::Models::LinkTagListParams::Type, nil]
       optional :type, enum: -> { Onlyfans::LinkTagListParams::Type }
 
       # @!method initialize(type: nil, request_options: {})
-      #   @param type [Symbol, Onlyfans::Models::LinkTagListParams::Type] Filter by link type. If not provided, returns tags for both types.
+      #   @param type [Symbol, Onlyfans::Models::LinkTagListParams::Type] Filter by link type. If not provided, returns tags for all types.
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 
-      # Filter by link type. If not provided, returns tags for both types.
+      # Filter by link type. If not provided, returns tags for all types.
       module Type
         extend Onlyfans::Internal::Type::Enum
 
         TRIAL_LINKS = :trial_links
         TRACKING_LINKS = :tracking_links
+        SMART_LINKS = :smart_links
 
         # @!method self.values
         #   @return [Array<Symbol>]

@@ -3,6 +3,7 @@ module Onlyfans
     type smart_link_list_params =
       {
         account_ids: String?,
+        filter: Onlyfans::SmartLinkListParams::Filter,
         limit: Integer,
         meta_pixel_ids: String?,
         name: String?,
@@ -16,6 +17,12 @@ module Onlyfans
       include Onlyfans::Internal::Type::RequestParameters
 
       attr_accessor account_ids: String?
+
+      attr_reader filter: Onlyfans::SmartLinkListParams::Filter?
+
+      def filter=: (
+        Onlyfans::SmartLinkListParams::Filter
+      ) -> Onlyfans::SmartLinkListParams::Filter
 
       attr_reader limit: Integer?
 
@@ -33,6 +40,7 @@ module Onlyfans
 
       def initialize: (
         ?account_ids: String?,
+        ?filter: Onlyfans::SmartLinkListParams::Filter,
         ?limit: Integer,
         ?meta_pixel_ids: String?,
         ?name: String?,
@@ -43,6 +51,7 @@ module Onlyfans
 
       def to_hash: -> {
         account_ids: String?,
+        filter: Onlyfans::SmartLinkListParams::Filter,
         limit: Integer,
         meta_pixel_ids: String?,
         name: String?,
@@ -50,6 +59,18 @@ module Onlyfans
         pixel_ids: String?,
         request_options: Onlyfans::RequestOptions
       }
+
+      type filter = { tags: ::Array[String] }
+
+      class Filter < Onlyfans::Internal::Type::BaseModel
+        attr_reader tags: ::Array[String]?
+
+        def tags=: (::Array[String]) -> ::Array[String]
+
+        def initialize: (?tags: ::Array[String]) -> void
+
+        def to_hash: -> { tags: ::Array[String] }
+      end
     end
   end
 end
