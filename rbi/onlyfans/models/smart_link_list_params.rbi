@@ -15,6 +15,12 @@ module Onlyfans
       sig { returns(T.nilable(String)) }
       attr_accessor :account_ids
 
+      sig { returns(T.nilable(Onlyfans::SmartLinkListParams::Filter)) }
+      attr_reader :filter
+
+      sig { params(filter: Onlyfans::SmartLinkListParams::Filter::OrHash).void }
+      attr_writer :filter
+
       # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
       # be greater than 1000.
       sig { returns(T.nilable(Integer)) }
@@ -45,6 +51,7 @@ module Onlyfans
       sig do
         params(
           account_ids: T.nilable(String),
+          filter: Onlyfans::SmartLinkListParams::Filter::OrHash,
           limit: Integer,
           meta_pixel_ids: T.nilable(String),
           name: T.nilable(String),
@@ -56,6 +63,7 @@ module Onlyfans
       def self.new(
         # Comma-separated account prefixed IDs to include.
         account_ids: nil,
+        filter: nil,
         # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
         # be greater than 1000.
         limit: nil,
@@ -75,6 +83,7 @@ module Onlyfans
         override.returns(
           {
             account_ids: T.nilable(String),
+            filter: Onlyfans::SmartLinkListParams::Filter,
             limit: Integer,
             meta_pixel_ids: T.nilable(String),
             name: T.nilable(String),
@@ -85,6 +94,34 @@ module Onlyfans
         )
       end
       def to_hash
+      end
+
+      class Filter < Onlyfans::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Onlyfans::SmartLinkListParams::Filter,
+              Onlyfans::Internal::AnyHash
+            )
+          end
+
+        # Must not be greater than 50 characters.
+        sig { returns(T.nilable(T::Array[String])) }
+        attr_reader :tags
+
+        sig { params(tags: T::Array[String]).void }
+        attr_writer :tags
+
+        sig { params(tags: T::Array[String]).returns(T.attached_class) }
+        def self.new(
+          # Must not be greater than 50 characters.
+          tags: nil
+        )
+        end
+
+        sig { override.returns({ tags: T::Array[String] }) }
+        def to_hash
+        end
       end
     end
   end

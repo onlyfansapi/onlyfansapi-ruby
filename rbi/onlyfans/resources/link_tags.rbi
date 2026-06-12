@@ -2,10 +2,10 @@
 
 module Onlyfans
   module Resources
-    # APIs for managing tags on free trial links and tracking links
+    # APIs for managing tags on free trial links, tracking links, and Smart Links
     class LinkTags
-      # Get all existing tags that have been used on free trial links and/or tracking
-      # links for this account. This is a free endpoint.
+      # Get all existing tags that have been used on free trial links, tracking links,
+      # and/or Smart Links for this account. This is a free endpoint.
       sig do
         params(
           type: Onlyfans::LinkTagListParams::Type::OrSymbol,
@@ -13,7 +13,7 @@ module Onlyfans
         ).returns(Onlyfans::Models::LinkTagListResponse)
       end
       def list(
-        # Filter by link type. If not provided, returns tags for both types.
+        # Filter by link type. If not provided, returns tags for all types.
         type: nil,
         request_options: {}
       )

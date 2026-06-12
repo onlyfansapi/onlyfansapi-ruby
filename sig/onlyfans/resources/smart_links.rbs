@@ -16,6 +16,7 @@ module Onlyfans
 
       def list: (
         ?account_ids: String?,
+        ?filter: Onlyfans::SmartLinkListParams::Filter,
         ?limit: Integer,
         ?meta_pixel_ids: String?,
         ?name: String?,

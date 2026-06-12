@@ -48,6 +48,7 @@ module Onlyfans
       sig do
         params(
           account_ids: T.nilable(String),
+          filter: Onlyfans::SmartLinkListParams::Filter::OrHash,
           limit: Integer,
           meta_pixel_ids: T.nilable(String),
           name: T.nilable(String),
@@ -59,6 +60,7 @@ module Onlyfans
       def list(
         # Comma-separated account prefixed IDs to include.
         account_ids: nil,
+        filter: nil,
         # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
         # be greater than 1000.
         limit: nil,
