@@ -82,6 +82,11 @@ module Onlyfans
         #   @return [Integer, nil]
         optional :id, Integer
 
+        # @!attribute body
+        #
+        #   @return [String, nil]
+        optional :body, String
+
         # @!attribute conversion_types
         #
         #   @return [Array<String>, nil]
@@ -91,6 +96,17 @@ module Onlyfans
         #
         #   @return [String, nil]
         optional :created_at, String
+
+        # @!attribute headers
+        #
+        #   @return [Array<Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header>, nil]
+        optional :headers,
+                 -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header] }
+
+        # @!attribute http_method
+        #
+        #   @return [String, nil]
+        optional :http_method, String
 
         # @!attribute latest_response
         #
@@ -122,16 +138,35 @@ module Onlyfans
         #   @return [String, nil]
         optional :url, String
 
-        # @!method initialize(id: nil, conversion_types: nil, created_at: nil, latest_response: nil, smart_link_ids: nil, smart_link_scope: nil, smart_links: nil, updated_at: nil, url: nil)
+        # @!method initialize(id: nil, body: nil, conversion_types: nil, created_at: nil, headers: nil, http_method: nil, latest_response: nil, smart_link_ids: nil, smart_link_scope: nil, smart_links: nil, updated_at: nil, url: nil)
         #   @param id [Integer]
+        #   @param body [String]
         #   @param conversion_types [Array<String>]
         #   @param created_at [String]
+        #   @param headers [Array<Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header>]
+        #   @param http_method [String]
         #   @param latest_response [String, nil]
         #   @param smart_link_ids [Array<Object>]
         #   @param smart_link_scope [String]
         #   @param smart_links [Array<Object>]
         #   @param updated_at [String]
         #   @param url [String]
+
+        class Header < Onlyfans::Internal::Type::BaseModel
+          # @!attribute name
+          #
+          #   @return [String, nil]
+          optional :name, String
+
+          # @!attribute value
+          #
+          #   @return [String, nil]
+          optional :value, String
+
+          # @!method initialize(name: nil, value: nil)
+          #   @param name [String]
+          #   @param value [String]
+        end
       end
     end
   end

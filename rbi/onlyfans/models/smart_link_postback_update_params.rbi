@@ -33,6 +33,48 @@ module Onlyfans
       sig { returns(String) }
       attr_accessor :url
 
+      # Optional request body template for POST postbacks. Variables are replaced when
+      # the postback is dispatched.
+      sig { returns(T.nilable(String)) }
+      attr_reader :body
+
+      sig { params(body: String).void }
+      attr_writer :body
+
+      # Optional request headers. Header values may include postback variables.
+      sig do
+        returns(
+          T.nilable(T::Array[Onlyfans::SmartLinkPostbackUpdateParams::Header])
+        )
+      end
+      attr_reader :headers
+
+      sig do
+        params(
+          headers:
+            T::Array[Onlyfans::SmartLinkPostbackUpdateParams::Header::OrHash]
+        ).void
+      end
+      attr_writer :headers
+
+      # HTTP method used for the postback request. Existing value is kept when omitted.
+      sig do
+        returns(
+          T.nilable(
+            Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::OrSymbol
+          )
+        )
+      end
+      attr_reader :http_method
+
+      sig do
+        params(
+          http_method:
+            Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::OrSymbol
+        ).void
+      end
+      attr_writer :http_method
+
       # Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :smart_link_ids
@@ -47,6 +89,11 @@ module Onlyfans
           smart_link_scope:
             Onlyfans::SmartLinkPostbackUpdateParams::SmartLinkScope::OrSymbol,
           url: String,
+          body: String,
+          headers:
+            T::Array[Onlyfans::SmartLinkPostbackUpdateParams::Header::OrHash],
+          http_method:
+            Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::OrSymbol,
           smart_link_ids: T::Array[String],
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
@@ -59,6 +106,13 @@ module Onlyfans
         smart_link_scope:,
         # The destination URL.
         url:,
+        # Optional request body template for POST postbacks. Variables are replaced when
+        # the postback is dispatched.
+        body: nil,
+        # Optional request headers. Header values may include postback variables.
+        headers: nil,
+        # HTTP method used for the postback request. Existing value is kept when omitted.
+        http_method: nil,
         # Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
         smart_link_ids: nil,
         request_options: {}
@@ -73,6 +127,10 @@ module Onlyfans
             smart_link_scope:
               Onlyfans::SmartLinkPostbackUpdateParams::SmartLinkScope::OrSymbol,
             url: String,
+            body: String,
+            headers: T::Array[Onlyfans::SmartLinkPostbackUpdateParams::Header],
+            http_method:
+              Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::OrSymbol,
             smart_link_ids: T::Array[String],
             request_options: Onlyfans::RequestOptions
           }
@@ -109,6 +167,81 @@ module Onlyfans
           override.returns(
             T::Array[
               Onlyfans::SmartLinkPostbackUpdateParams::SmartLinkScope::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      class Header < Onlyfans::Internal::Type::BaseModel
+        OrHash =
+          T.type_alias do
+            T.any(
+              Onlyfans::SmartLinkPostbackUpdateParams::Header,
+              Onlyfans::Internal::AnyHash
+            )
+          end
+
+        # This field is required when <code>headers._.value</code> is present. Must match
+        # the regex /\A[A-Za-z0-9!#$%&'_+.^\_`|~-]+\z/. Must not be greater than 100
+        # characters.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :name
+
+        # Must not be greater than 2000 characters.
+        sig { returns(T.nilable(String)) }
+        attr_accessor :value
+
+        sig do
+          params(name: T.nilable(String), value: T.nilable(String)).returns(
+            T.attached_class
+          )
+        end
+        def self.new(
+          # This field is required when <code>headers._.value</code> is present. Must match
+          # the regex /\A[A-Za-z0-9!#$%&'_+.^\_`|~-]+\z/. Must not be greater than 100
+          # characters.
+          name: nil,
+          # Must not be greater than 2000 characters.
+          value: nil
+        )
+        end
+
+        sig do
+          override.returns(
+            { name: T.nilable(String), value: T.nilable(String) }
+          )
+        end
+        def to_hash
+        end
+      end
+
+      # HTTP method used for the postback request. Existing value is kept when omitted.
+      module HTTPMethod
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        GET =
+          T.let(
+            :GET,
+            Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::TaggedSymbol
+          )
+        POST =
+          T.let(
+            :POST,
+            Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::TaggedSymbol
             ]
           )
         end

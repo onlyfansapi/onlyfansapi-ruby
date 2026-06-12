@@ -11,6 +11,11 @@ module Onlyfans
           smart_link_scope:
             Onlyfans::SmartLinkPostbackCreateParams::SmartLinkScope::OrSymbol,
           url: String,
+          body: String,
+          headers:
+            T::Array[Onlyfans::SmartLinkPostbackCreateParams::Header::OrHash],
+          http_method:
+            Onlyfans::SmartLinkPostbackCreateParams::HTTPMethod::OrSymbol,
           smart_link_ids: T::Array[String],
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::SmartLinkPostbackCreateResponse)
@@ -24,6 +29,13 @@ module Onlyfans
         # The destination URL. Variables such as `{external_click_id}`, `{fbclid}`,
         # `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
         url:,
+        # Optional request body template for POST postbacks. Variables are replaced when
+        # the postback is dispatched.
+        body: nil,
+        # Optional request headers. Header values may include postback variables.
+        headers: nil,
+        # HTTP method used for the postback request. Defaults to `GET` when omitted.
+        http_method: nil,
         # Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
         smart_link_ids: nil,
         request_options: {}
@@ -52,6 +64,11 @@ module Onlyfans
           smart_link_scope:
             Onlyfans::SmartLinkPostbackUpdateParams::SmartLinkScope::OrSymbol,
           url: String,
+          body: String,
+          headers:
+            T::Array[Onlyfans::SmartLinkPostbackUpdateParams::Header::OrHash],
+          http_method:
+            Onlyfans::SmartLinkPostbackUpdateParams::HTTPMethod::OrSymbol,
           smart_link_ids: T::Array[String],
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::SmartLinkPostbackUpdateResponse)
@@ -65,6 +82,13 @@ module Onlyfans
         smart_link_scope:,
         # The destination URL.
         url:,
+        # Optional request body template for POST postbacks. Variables are replaced when
+        # the postback is dispatched.
+        body: nil,
+        # Optional request headers. Header values may include postback variables.
+        headers: nil,
+        # HTTP method used for the postback request. Existing value is kept when omitted.
+        http_method: nil,
         # Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
         smart_link_ids: nil,
         request_options: {}
