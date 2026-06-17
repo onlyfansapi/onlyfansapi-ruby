@@ -1,15 +1,6 @@
 module Onlyfans
   module Resources
     class Messages
-      def attach_tags: (
-        String message_id,
-        account: String,
-        ?rf_guest: String,
-        ?rf_partner: String,
-        ?rf_tag: String,
-        ?request_options: Onlyfans::request_opts
-      ) -> Onlyfans::Models::MessageAttachTagsResponse
-
       def initialize: (client: Onlyfans::Client) -> void
     end
   end
