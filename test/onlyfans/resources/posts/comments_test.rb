@@ -8,7 +8,7 @@ class Onlyfans::Test::Resources::Posts::CommentsTest < Onlyfans::Test::ResourceT
 
     response =
       @only_fans_api.posts.comments.create(
-        "sequi",
+        "quis",
         account: "acct_XXXXXXXXXXXXXXX",
         text: "This is a comment."
       )
@@ -28,7 +28,7 @@ class Onlyfans::Test::Resources::Posts::CommentsTest < Onlyfans::Test::ResourceT
   def test_list_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.posts.comments.list("sequi", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.posts.comments.list("quis", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::Posts::CommentListResponse
