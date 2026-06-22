@@ -79,7 +79,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_clicks
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_clicks("molestiae")
+    response = @only_fans_api.smart_links.list_clicks("fugiat")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListClicksResponse
@@ -96,7 +96,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_conversions
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_conversions("deleniti")
+    response = @only_fans_api.smart_links.list_conversions("mollitia")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListConversionsResponse
@@ -113,7 +113,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_fans
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_fans("velit")
+    response = @only_fans_api.smart_links.list_fans("sed")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListFansResponse
@@ -130,7 +130,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_spenders
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_spenders("aut")
+    response = @only_fans_api.smart_links.list_spenders("est")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListSpendersResponse
@@ -147,7 +147,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_cohort_arps
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.retrieve_cohort_arps("at")
+    response = @only_fans_api.smart_links.retrieve_cohort_arps("nihil")
 
     assert_pattern do
       response => nil
@@ -157,7 +157,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_stats
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.retrieve_stats("mollitia")
+    response = @only_fans_api.smart_links.retrieve_stats("distinctio")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkRetrieveStatsResponse
