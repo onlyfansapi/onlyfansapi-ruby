@@ -2,6 +2,7 @@ module Onlyfans
   module Models
     type authenticate_start_params =
       {
+        _internal_automatic_syncs_disabled: bool,
         auth_id: String,
         auth_type: Onlyfans::Models::AuthenticateStartParams::auth_type,
         cookies: String,
@@ -19,6 +20,10 @@ module Onlyfans
     class AuthenticateStartParams < Onlyfans::Internal::Type::BaseModel
       extend Onlyfans::Internal::Type::RequestParameters::Converter
       include Onlyfans::Internal::Type::RequestParameters
+
+      attr_reader _internal_automatic_syncs_disabled: bool?
+
+      def _internal_automatic_syncs_disabled=: (bool) -> bool
 
       attr_reader auth_id: String?
 
@@ -71,6 +76,7 @@ module Onlyfans
       def xbc=: (String) -> String
 
       def initialize: (
+        ?_internal_automatic_syncs_disabled: bool,
         ?auth_id: String,
         ?auth_type: Onlyfans::Models::AuthenticateStartParams::auth_type,
         ?cookies: String,
@@ -86,6 +92,7 @@ module Onlyfans
       ) -> void
 
       def to_hash: -> {
+        _internal_automatic_syncs_disabled: bool,
         auth_id: String,
         auth_type: Onlyfans::Models::AuthenticateStartParams::auth_type,
         cookies: String,

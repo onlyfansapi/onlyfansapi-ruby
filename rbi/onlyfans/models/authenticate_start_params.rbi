@@ -11,6 +11,12 @@ module Onlyfans
           T.any(Onlyfans::AuthenticateStartParams, Onlyfans::Internal::AnyHash)
         end
 
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :_internal_automatic_syncs_disabled
+
+      sig { params(_internal_automatic_syncs_disabled: T::Boolean).void }
+      attr_writer :_internal_automatic_syncs_disabled
+
       # The auth_id from OnlyFans session cookies. Required when auth_type is
       # `raw_data`.
       sig { returns(T.nilable(String)) }
@@ -119,6 +125,7 @@ module Onlyfans
 
       sig do
         params(
+          _internal_automatic_syncs_disabled: T::Boolean,
           auth_id: String,
           auth_type: Onlyfans::AuthenticateStartParams::AuthType::OrSymbol,
           cookies: String,
@@ -135,6 +142,7 @@ module Onlyfans
         ).returns(T.attached_class)
       end
       def self.new(
+        _internal_automatic_syncs_disabled: nil,
         # The auth_id from OnlyFans session cookies. Required when auth_type is
         # `raw_data`.
         auth_id: nil,
@@ -172,6 +180,7 @@ module Onlyfans
       sig do
         override.returns(
           {
+            _internal_automatic_syncs_disabled: T::Boolean,
             auth_id: String,
             auth_type: Onlyfans::AuthenticateStartParams::AuthType::OrSymbol,
             cookies: String,

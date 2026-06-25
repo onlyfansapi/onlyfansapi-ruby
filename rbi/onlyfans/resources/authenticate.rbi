@@ -61,6 +61,7 @@ module Onlyfans
       # credentials are stored securely and encrypted at rest.
       sig do
         params(
+          _internal_automatic_syncs_disabled: T::Boolean,
           auth_id: String,
           auth_type: Onlyfans::AuthenticateStartParams::AuthType::OrSymbol,
           cookies: String,
@@ -77,6 +78,7 @@ module Onlyfans
         ).returns(Onlyfans::Models::AuthenticateStartResponse::Variants)
       end
       def start(
+        _internal_automatic_syncs_disabled: nil,
         # The auth_id from OnlyFans session cookies. Required when auth_type is
         # `raw_data`.
         auth_id: nil,
