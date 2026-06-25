@@ -17,7 +17,6 @@ module Onlyfans
       ) -> Onlyfans::Models::AuthenticateSend2faEmailResponse
 
       def start: (
-        ?_internal_automatic_syncs_disabled: bool,
         ?auth_id: String,
         ?auth_type: Onlyfans::Models::AuthenticateStartParams::auth_type,
         ?cookies: String,
