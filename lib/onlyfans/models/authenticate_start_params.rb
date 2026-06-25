@@ -7,6 +7,11 @@ module Onlyfans
       extend Onlyfans::Internal::Type::RequestParameters::Converter
       include Onlyfans::Internal::Type::RequestParameters
 
+      # @!attribute _internal_automatic_syncs_disabled
+      #
+      #   @return [Boolean, nil]
+      optional :_internal_automatic_syncs_disabled, Onlyfans::Internal::Type::Boolean
+
       # @!attribute auth_id
       #   The auth_id from OnlyFans session cookies. Required when auth_type is
       #   `raw_data`.
@@ -83,9 +88,11 @@ module Onlyfans
       #   @return [String, nil]
       optional :xbc, String
 
-      # @!method initialize(auth_id: nil, auth_type: nil, cookies: nil, custom_proxy: nil, email: nil, force_connect: nil, name: nil, password: nil, proxy_country: nil, user_agent: nil, xbc: nil, request_options: {})
+      # @!method initialize(_internal_automatic_syncs_disabled: nil, auth_id: nil, auth_type: nil, cookies: nil, custom_proxy: nil, email: nil, force_connect: nil, name: nil, password: nil, proxy_country: nil, user_agent: nil, xbc: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::AuthenticateStartParams} for more details.
+      #
+      #   @param _internal_automatic_syncs_disabled [Boolean]
       #
       #   @param auth_id [String] The auth_id from OnlyFans session cookies. Required when auth_type is `raw_data`
       #

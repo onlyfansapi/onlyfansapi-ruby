@@ -81,7 +81,9 @@ module Onlyfans
       # as a QR code) to complete authentication via the FansAPI Auth+ mobile app. All
       # credentials are stored securely and encrypted at rest.
       #
-      # @overload start(auth_id: nil, auth_type: nil, cookies: nil, custom_proxy: nil, email: nil, force_connect: nil, name: nil, password: nil, proxy_country: nil, user_agent: nil, xbc: nil, request_options: {})
+      # @overload start(_internal_automatic_syncs_disabled: nil, auth_id: nil, auth_type: nil, cookies: nil, custom_proxy: nil, email: nil, force_connect: nil, name: nil, password: nil, proxy_country: nil, user_agent: nil, xbc: nil, request_options: {})
+      #
+      # @param _internal_automatic_syncs_disabled [Boolean]
       #
       # @param auth_id [String] The auth_id from OnlyFans session cookies. Required when auth_type is `raw_data`
       #
