@@ -62,7 +62,9 @@ module Onlyfans
         ?min_revenue_net: Float,
         ?min_tips_net: Float,
         ?offset: Integer,
+        ?previously_subscribed: bool,
         ?sort: Onlyfans::Models::SmartLinkListFansParams::sort,
+        ?subscribed_using_promo: bool,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::SmartLinkListFansResponse
 

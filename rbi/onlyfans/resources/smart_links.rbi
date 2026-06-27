@@ -173,7 +173,9 @@ module Onlyfans
           min_revenue_net: Float,
           min_tips_net: Float,
           offset: Integer,
+          previously_subscribed: T::Boolean,
           sort: Onlyfans::SmartLinkListFansParams::Sort::OrSymbol,
+          subscribed_using_promo: T::Boolean,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::SmartLinkListFansResponse)
       end
@@ -192,8 +194,13 @@ module Onlyfans
         min_tips_net: nil,
         # Offset for pagination. Default `0`
         offset: nil,
+        # Optional - Filter to returning subscribers (fans previously subscribed before
+        # this subscription)
+        previously_subscribed: nil,
         # Optional sort field. Default `-revenue_net`
         sort: nil,
+        # Optional - Filter to fans who subscribed via a promotion/offer
+        subscribed_using_promo: nil,
         request_options: {}
       )
       end

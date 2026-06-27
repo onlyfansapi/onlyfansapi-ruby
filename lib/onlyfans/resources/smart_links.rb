@@ -190,10 +190,13 @@ module Onlyfans
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfans::Models::SmartLinkListFansParams} for more details.
+      #
       # Query attributed Smart Link fans with aggregate fan metrics and subscriber
       # attribution metadata
       #
-      # @overload list_fans(smart_link_id, has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, sort: nil, request_options: {})
+      # @overload list_fans(smart_link_id, has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, previously_subscribed: nil, sort: nil, subscribed_using_promo: nil, request_options: {})
       #
       # @param smart_link_id [String] The ID of the smart link.
       #
@@ -209,7 +212,11 @@ module Onlyfans
       #
       # @param offset [Integer] Offset for pagination. Default `0`
       #
+      # @param previously_subscribed [Boolean] Optional - Filter to returning subscribers (fans previously subscribed before th
+      #
       # @param sort [Symbol, Onlyfans::Models::SmartLinkListFansParams::Sort] Optional sort field. Default `-revenue_net`
+      #
+      # @param subscribed_using_promo [Boolean] Optional - Filter to fans who subscribed via a promotion/offer
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

@@ -145,7 +145,9 @@ module Onlyfans
             min_revenue_net: String?,
             min_tips_net: String?,
             offset: Integer,
-            sort: String
+            previously_subscribed: String?,
+            sort: String,
+            subscribed_using_promo: String?
           }
 
         class Filters < Onlyfans::Internal::Type::BaseModel
@@ -165,9 +167,13 @@ module Onlyfans
 
           def offset=: (Integer) -> Integer
 
+          attr_accessor previously_subscribed: String?
+
           attr_reader sort: String?
 
           def sort=: (String) -> String
+
+          attr_accessor subscribed_using_promo: String?
 
           def initialize: (
             ?has_messages: String?,
@@ -176,7 +182,9 @@ module Onlyfans
             ?min_revenue_net: String?,
             ?min_tips_net: String?,
             ?offset: Integer,
-            ?sort: String
+            ?previously_subscribed: String?,
+            ?sort: String,
+            ?subscribed_using_promo: String?
           ) -> void
 
           def to_hash: -> {
@@ -186,7 +194,9 @@ module Onlyfans
             min_revenue_net: String?,
             min_tips_net: String?,
             offset: Integer,
-            sort: String
+            previously_subscribed: String?,
+            sort: String,
+            subscribed_using_promo: String?
           }
         end
 
@@ -202,6 +212,7 @@ module Onlyfans
             name: String,
             onlyfans_id: String,
             revenue_net: Integer,
+            subscription_insights: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights,
             tips_net: Integer,
             username: String
           }
@@ -247,6 +258,12 @@ module Onlyfans
 
           def revenue_net=: (Integer) -> Integer
 
+          attr_reader subscription_insights: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights?
+
+          def subscription_insights=: (
+            Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights
+          ) -> Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights
+
           attr_reader tips_net: Integer?
 
           def tips_net=: (Integer) -> Integer
@@ -266,6 +283,7 @@ module Onlyfans
             ?name: String,
             ?onlyfans_id: String,
             ?revenue_net: Integer,
+            ?subscription_insights: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights,
             ?tips_net: Integer,
             ?username: String
           ) -> void
@@ -281,9 +299,106 @@ module Onlyfans
             name: String,
             onlyfans_id: String,
             revenue_net: Integer,
+            subscription_insights: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights,
             tips_net: Integer,
             username: String
           }
+
+          type subscription_insights =
+            {
+              current_subscription: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription,
+              current_subscription_from_smart_link: bool,
+              has_subscription_data: bool,
+              previously_subscribed: bool,
+              subscribed_using_promo: bool
+            }
+
+          class SubscriptionInsights < Onlyfans::Internal::Type::BaseModel
+            attr_reader current_subscription: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription?
+
+            def current_subscription=: (
+              Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription
+            ) -> Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription
+
+            attr_reader current_subscription_from_smart_link: bool?
+
+            def current_subscription_from_smart_link=: (bool) -> bool
+
+            attr_reader has_subscription_data: bool?
+
+            def has_subscription_data=: (bool) -> bool
+
+            attr_reader previously_subscribed: bool?
+
+            def previously_subscribed=: (bool) -> bool
+
+            attr_reader subscribed_using_promo: bool?
+
+            def subscribed_using_promo=: (bool) -> bool
+
+            def initialize: (
+              ?current_subscription: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription,
+              ?current_subscription_from_smart_link: bool,
+              ?has_subscription_data: bool,
+              ?previously_subscribed: bool,
+              ?subscribed_using_promo: bool
+            ) -> void
+
+            def to_hash: -> {
+              current_subscription: Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription,
+              current_subscription_from_smart_link: bool,
+              has_subscription_data: bool,
+              previously_subscribed: bool,
+              subscribed_using_promo: bool
+            }
+
+            type current_subscription =
+              {
+                action: String,
+                is_free: bool,
+                price: Integer,
+                regular_price: Integer,
+                type: String
+              }
+
+            class CurrentSubscription < Onlyfans::Internal::Type::BaseModel
+              attr_reader action: String?
+
+              def action=: (String) -> String
+
+              attr_reader is_free: bool?
+
+              def is_free=: (bool) -> bool
+
+              attr_reader price: Integer?
+
+              def price=: (Integer) -> Integer
+
+              attr_reader regular_price: Integer?
+
+              def regular_price=: (Integer) -> Integer
+
+              attr_reader type: String?
+
+              def type=: (String) -> String
+
+              def initialize: (
+                ?action: String,
+                ?is_free: bool,
+                ?price: Integer,
+                ?regular_price: Integer,
+                ?type: String
+              ) -> void
+
+              def to_hash: -> {
+                action: String,
+                is_free: bool,
+                price: Integer,
+                regular_price: Integer,
+                type: String
+              }
+            end
+          end
         end
 
         type summary =

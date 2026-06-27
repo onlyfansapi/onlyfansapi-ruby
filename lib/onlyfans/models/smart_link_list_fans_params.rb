@@ -48,13 +48,29 @@ module Onlyfans
       #   @return [Integer, nil]
       optional :offset, Integer
 
+      # @!attribute previously_subscribed
+      #   Optional - Filter to returning subscribers (fans previously subscribed before
+      #   this subscription)
+      #
+      #   @return [Boolean, nil]
+      optional :previously_subscribed, Onlyfans::Internal::Type::Boolean
+
       # @!attribute sort
       #   Optional sort field. Default `-revenue_net`
       #
       #   @return [Symbol, Onlyfans::Models::SmartLinkListFansParams::Sort, nil]
       optional :sort, enum: -> { Onlyfans::SmartLinkListFansParams::Sort }
 
-      # @!method initialize(smart_link_id:, has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, sort: nil, request_options: {})
+      # @!attribute subscribed_using_promo
+      #   Optional - Filter to fans who subscribed via a promotion/offer
+      #
+      #   @return [Boolean, nil]
+      optional :subscribed_using_promo, Onlyfans::Internal::Type::Boolean
+
+      # @!method initialize(smart_link_id:, has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, previously_subscribed: nil, sort: nil, subscribed_using_promo: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfans::Models::SmartLinkListFansParams} for more details.
+      #
       #   @param smart_link_id [String]
       #
       #   @param has_messages [Boolean] Optional - Filter to fans with or without fan-sent messages
@@ -69,7 +85,11 @@ module Onlyfans
       #
       #   @param offset [Integer] Offset for pagination. Default `0`
       #
+      #   @param previously_subscribed [Boolean] Optional - Filter to returning subscribers (fans previously subscribed before th
+      #
       #   @param sort [Symbol, Onlyfans::Models::SmartLinkListFansParams::Sort] Optional sort field. Default `-revenue_net`
+      #
+      #   @param subscribed_using_promo [Boolean] Optional - Filter to fans who subscribed via a promotion/offer
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 
