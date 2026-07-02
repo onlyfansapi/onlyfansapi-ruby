@@ -2,78 +2,153 @@ module Onlyfans
   module Models
     module Analytics
       module Financial
-        type profitability_get_profitability_response_item =
+        type profitability_get_profitability_response =
           {
-            commission: Float,
-            creator_id: Integer,
-            gross_revenue: Float,
-            margin: Float,
-            name: String,
-            net_revenue: Float,
-            profit: Float,
-            total_costs: Float
+            data: ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data]
           }
 
-        class ProfitabilityGetProfitabilityResponseItem < Onlyfans::Internal::Type::BaseModel
-          attr_reader commission: Float?
+        class ProfitabilityGetProfitabilityResponse < Onlyfans::Internal::Type::BaseModel
+          attr_reader data: ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data]?
 
-          def commission=: (Float) -> Float
-
-          attr_reader creator_id: Integer?
-
-          def creator_id=: (Integer) -> Integer
-
-          attr_reader gross_revenue: Float?
-
-          def gross_revenue=: (Float) -> Float
-
-          attr_reader margin: Float?
-
-          def margin=: (Float) -> Float
-
-          attr_reader name: String?
-
-          def name=: (String) -> String
-
-          attr_reader net_revenue: Float?
-
-          def net_revenue=: (Float) -> Float
-
-          attr_reader profit: Float?
-
-          def profit=: (Float) -> Float
-
-          attr_reader total_costs: Float?
-
-          def total_costs=: (Float) -> Float
+          def data=: (
+            ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data]
+          ) -> ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data]
 
           def initialize: (
-            ?commission: Float,
-            ?creator_id: Integer,
-            ?gross_revenue: Float,
-            ?margin: Float,
-            ?name: String,
-            ?net_revenue: Float,
-            ?profit: Float,
-            ?total_costs: Float
+            ?data: ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data]
           ) -> void
 
           def to_hash: -> {
-            commission: Float,
-            creator_id: Integer,
-            gross_revenue: Float,
-            margin: Float,
-            name: String,
-            net_revenue: Float,
-            profit: Float,
-            total_costs: Float
+            data: ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data]
           }
+
+          type data =
+            {
+              active_milestones: String?,
+              agency_earnings: String,
+              commission_amount: String,
+              commission_rate: String,
+              costs: ::Array[top],
+              creator_name: String,
+              has_commission_for_period: bool,
+              has_costs_for_period: bool,
+              margin_percentage: String,
+              month: Integer,
+              only_fans_user_id: Integer,
+              profit: String,
+              projected_net: String,
+              rate_periods: ::Array[top],
+              referral_note: String?,
+              total_costs: String,
+              year: Integer
+            }
+
+          class Data < Onlyfans::Internal::Type::BaseModel
+            attr_accessor active_milestones: String?
+
+            attr_reader agency_earnings: String?
+
+            def agency_earnings=: (String) -> String
+
+            attr_reader commission_amount: String?
+
+            def commission_amount=: (String) -> String
+
+            attr_reader commission_rate: String?
+
+            def commission_rate=: (String) -> String
+
+            attr_reader costs: ::Array[top]?
+
+            def costs=: (::Array[top]) -> ::Array[top]
+
+            attr_reader creator_name: String?
+
+            def creator_name=: (String) -> String
+
+            attr_reader has_commission_for_period: bool?
+
+            def has_commission_for_period=: (bool) -> bool
+
+            attr_reader has_costs_for_period: bool?
+
+            def has_costs_for_period=: (bool) -> bool
+
+            attr_reader margin_percentage: String?
+
+            def margin_percentage=: (String) -> String
+
+            attr_reader month: Integer?
+
+            def month=: (Integer) -> Integer
+
+            attr_reader only_fans_user_id: Integer?
+
+            def only_fans_user_id=: (Integer) -> Integer
+
+            attr_reader profit: String?
+
+            def profit=: (String) -> String
+
+            attr_reader projected_net: String?
+
+            def projected_net=: (String) -> String
+
+            attr_reader rate_periods: ::Array[top]?
+
+            def rate_periods=: (::Array[top]) -> ::Array[top]
+
+            attr_accessor referral_note: String?
+
+            attr_reader total_costs: String?
+
+            def total_costs=: (String) -> String
+
+            attr_reader year: Integer?
+
+            def year=: (Integer) -> Integer
+
+            def initialize: (
+              ?active_milestones: String?,
+              ?agency_earnings: String,
+              ?commission_amount: String,
+              ?commission_rate: String,
+              ?costs: ::Array[top],
+              ?creator_name: String,
+              ?has_commission_for_period: bool,
+              ?has_costs_for_period: bool,
+              ?margin_percentage: String,
+              ?month: Integer,
+              ?only_fans_user_id: Integer,
+              ?profit: String,
+              ?projected_net: String,
+              ?rate_periods: ::Array[top],
+              ?referral_note: String?,
+              ?total_costs: String,
+              ?year: Integer
+            ) -> void
+
+            def to_hash: -> {
+              active_milestones: String?,
+              agency_earnings: String,
+              commission_amount: String,
+              commission_rate: String,
+              costs: ::Array[top],
+              creator_name: String,
+              has_commission_for_period: bool,
+              has_costs_for_period: bool,
+              margin_percentage: String,
+              month: Integer,
+              only_fans_user_id: Integer,
+              profit: String,
+              projected_net: String,
+              rate_periods: ::Array[top],
+              referral_note: String?,
+              total_costs: String,
+              year: Integer
+            }
+          end
         end
-
-        type profitability_get_profitability_response =
-          ::Array[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem]
-
-        ProfitabilityGetProfitabilityResponse: Onlyfans::Internal::Type::Converter
       end
     end
   end
