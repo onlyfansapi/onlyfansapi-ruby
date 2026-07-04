@@ -30,7 +30,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.retrieve("doloremque", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.retrieve("minima", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkRetrieveResponse
@@ -65,7 +65,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.delete("doloremque", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.delete("minima", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkDeleteResponse
@@ -101,7 +101,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
 
     response =
       @only_fans_api.trial_links.list_subscribers(
-        "consequatur",
+        "provident",
         account: "acct_XXXXXXXXXXXXXXX",
         limit: 10,
         offset: 0
@@ -122,7 +122,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_cohort_arps_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.retrieve_cohort_arps("suscipit", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.retrieve_cohort_arps("saepe", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => nil
@@ -132,7 +132,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_stats_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.retrieve_stats("cumque", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.retrieve_stats("vel", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkRetrieveStatsResponse
