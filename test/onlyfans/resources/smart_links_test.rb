@@ -79,7 +79,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_clicks
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_clicks("corrupti")
+    response = @only_fans_api.smart_links.list_clicks("quos")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListClicksResponse
@@ -96,7 +96,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_conversions
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_conversions("distinctio")
+    response = @only_fans_api.smart_links.list_conversions("iure")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListConversionsResponse
@@ -113,7 +113,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_fans
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_fans("ut")
+    response = @only_fans_api.smart_links.list_fans("accusantium")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListFansResponse
@@ -130,7 +130,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_list_spenders
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.list_spenders("cumque")
+    response = @only_fans_api.smart_links.list_spenders("magnam")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkListSpendersResponse
@@ -157,7 +157,7 @@ class Onlyfans::Test::Resources::SmartLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_stats
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.smart_links.retrieve_stats("eos")
+    response = @only_fans_api.smart_links.retrieve_stats("dicta")
 
     assert_pattern do
       response => Onlyfans::Models::SmartLinkRetrieveStatsResponse
