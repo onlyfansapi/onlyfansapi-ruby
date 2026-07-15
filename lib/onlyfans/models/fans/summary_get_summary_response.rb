@@ -20,6 +20,11 @@ module Onlyfans
         #   @return [String, nil]
         optional :last_analyzed_at, String
 
+        # @!attribute last_buy_date
+        #
+        #   @return [String, nil]
+        optional :last_buy_date, String
+
         # @!attribute status
         #
         #   @return [String, nil]
@@ -30,10 +35,11 @@ module Onlyfans
         #   @return [Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData, nil]
         optional :summary_data, -> { Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData }
 
-        # @!method initialize(analyzed_message_count: nil, error_message: nil, last_analyzed_at: nil, status: nil, summary_data: nil)
+        # @!method initialize(analyzed_message_count: nil, error_message: nil, last_analyzed_at: nil, last_buy_date: nil, status: nil, summary_data: nil)
         #   @param analyzed_message_count [Integer]
         #   @param error_message [String, nil]
         #   @param last_analyzed_at [String]
+        #   @param last_buy_date [String]
         #   @param status [String]
         #   @param summary_data [Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData]
 
@@ -84,6 +90,11 @@ module Onlyfans
           #   @return [String, nil]
           optional :requests, String
 
+          # @!attribute spend_cadence
+          #
+          #   @return [String, nil]
+          optional :spend_cadence, String
+
           # @!attribute themes
           #
           #   @return [String, nil]
@@ -94,7 +105,7 @@ module Onlyfans
           #   @return [String, nil]
           optional :travel_plans, String
 
-          # @!method initialize(content_preferences: nil, family_pets: nil, hobbies: nil, interests: nil, kinks: nil, name: nil, other_notes: nil, preferred_name: nil, requests: nil, themes: nil, travel_plans: nil)
+          # @!method initialize(content_preferences: nil, family_pets: nil, hobbies: nil, interests: nil, kinks: nil, name: nil, other_notes: nil, preferred_name: nil, requests: nil, spend_cadence: nil, themes: nil, travel_plans: nil)
           #   @param content_preferences [String]
           #   @param family_pets [String]
           #   @param hobbies [String]
@@ -104,6 +115,7 @@ module Onlyfans
           #   @param other_notes [String]
           #   @param preferred_name [String]
           #   @param requests [String]
+          #   @param spend_cadence [String]
           #   @param themes [String]
           #   @param travel_plans [String]
         end
