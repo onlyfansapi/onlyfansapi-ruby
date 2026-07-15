@@ -34,6 +34,7 @@ class Onlyfans::Test::Resources::Fans::SummaryTest < Onlyfans::Test::ResourceTes
         analyzed_message_count: Integer | nil,
         error_message: String | nil,
         last_analyzed_at: String | nil,
+        last_buy_date: String | nil,
         status: String | nil,
         summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData | nil
       }

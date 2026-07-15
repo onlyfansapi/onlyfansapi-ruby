@@ -6,6 +6,7 @@ module Onlyfans
           analyzed_message_count: Integer,
           error_message: String?,
           last_analyzed_at: String,
+          last_buy_date: String,
           status: String,
           summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
         }
@@ -21,6 +22,10 @@ module Onlyfans
 
         def last_analyzed_at=: (String) -> String
 
+        attr_reader last_buy_date: String?
+
+        def last_buy_date=: (String) -> String
+
         attr_reader status: String?
 
         def status=: (String) -> String
@@ -35,6 +40,7 @@ module Onlyfans
           ?analyzed_message_count: Integer,
           ?error_message: String?,
           ?last_analyzed_at: String,
+          ?last_buy_date: String,
           ?status: String,
           ?summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
         ) -> void
@@ -43,6 +49,7 @@ module Onlyfans
           analyzed_message_count: Integer,
           error_message: String?,
           last_analyzed_at: String,
+          last_buy_date: String,
           status: String,
           summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
         }
@@ -58,6 +65,7 @@ module Onlyfans
             other_notes: String,
             preferred_name: String,
             requests: String,
+            spend_cadence: String,
             themes: String,
             travel_plans: String
           }
@@ -99,6 +107,10 @@ module Onlyfans
 
           def requests=: (String) -> String
 
+          attr_reader spend_cadence: String?
+
+          def spend_cadence=: (String) -> String
+
           attr_reader themes: String?
 
           def themes=: (String) -> String
@@ -117,6 +129,7 @@ module Onlyfans
             ?other_notes: String,
             ?preferred_name: String,
             ?requests: String,
+            ?spend_cadence: String,
             ?themes: String,
             ?travel_plans: String
           ) -> void
@@ -131,6 +144,7 @@ module Onlyfans
             other_notes: String,
             preferred_name: String,
             requests: String,
+            spend_cadence: String,
             themes: String,
             travel_plans: String
           }

@@ -28,6 +28,12 @@ module Onlyfans
         attr_writer :last_analyzed_at
 
         sig { returns(T.nilable(String)) }
+        attr_reader :last_buy_date
+
+        sig { params(last_buy_date: String).void }
+        attr_writer :last_buy_date
+
+        sig { returns(T.nilable(String)) }
         attr_reader :status
 
         sig { params(status: String).void }
@@ -55,6 +61,7 @@ module Onlyfans
             analyzed_message_count: Integer,
             error_message: T.nilable(String),
             last_analyzed_at: String,
+            last_buy_date: String,
             status: String,
             summary_data:
               Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData::OrHash
@@ -64,6 +71,7 @@ module Onlyfans
           analyzed_message_count: nil,
           error_message: nil,
           last_analyzed_at: nil,
+          last_buy_date: nil,
           status: nil,
           summary_data: nil
         )
@@ -75,6 +83,7 @@ module Onlyfans
               analyzed_message_count: Integer,
               error_message: T.nilable(String),
               last_analyzed_at: String,
+              last_buy_date: String,
               status: String,
               summary_data:
                 Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
@@ -148,6 +157,12 @@ module Onlyfans
           attr_writer :requests
 
           sig { returns(T.nilable(String)) }
+          attr_reader :spend_cadence
+
+          sig { params(spend_cadence: String).void }
+          attr_writer :spend_cadence
+
+          sig { returns(T.nilable(String)) }
           attr_reader :themes
 
           sig { params(themes: String).void }
@@ -170,6 +185,7 @@ module Onlyfans
               other_notes: String,
               preferred_name: String,
               requests: String,
+              spend_cadence: String,
               themes: String,
               travel_plans: String
             ).returns(T.attached_class)
@@ -184,6 +200,7 @@ module Onlyfans
             other_notes: nil,
             preferred_name: nil,
             requests: nil,
+            spend_cadence: nil,
             themes: nil,
             travel_plans: nil
           )
@@ -201,6 +218,7 @@ module Onlyfans
                 other_notes: String,
                 preferred_name: String,
                 requests: String,
+                spend_cadence: String,
                 themes: String,
                 travel_plans: String
               }
