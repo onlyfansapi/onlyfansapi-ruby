@@ -45,10 +45,20 @@ module Onlyfans
 
         # @see Onlyfans::Models::Fans::SummaryGetSummaryResponse#summary_data
         class SummaryData < Onlyfans::Internal::Type::BaseModel
+          # @!attribute content_dislikes
+          #
+          #   @return [String, nil]
+          optional :content_dislikes, String
+
           # @!attribute content_preferences
           #
           #   @return [String, nil]
           optional :content_preferences, String
+
+          # @!attribute dos_and_donts
+          #
+          #   @return [String, nil]
+          optional :dos_and_donts, String
 
           # @!attribute family_pets
           #
@@ -105,8 +115,10 @@ module Onlyfans
           #   @return [String, nil]
           optional :travel_plans, String
 
-          # @!method initialize(content_preferences: nil, family_pets: nil, hobbies: nil, interests: nil, kinks: nil, name: nil, other_notes: nil, preferred_name: nil, requests: nil, spend_cadence: nil, themes: nil, travel_plans: nil)
+          # @!method initialize(content_dislikes: nil, content_preferences: nil, dos_and_donts: nil, family_pets: nil, hobbies: nil, interests: nil, kinks: nil, name: nil, other_notes: nil, preferred_name: nil, requests: nil, spend_cadence: nil, themes: nil, travel_plans: nil)
+          #   @param content_dislikes [String]
           #   @param content_preferences [String]
+          #   @param dos_and_donts [String]
           #   @param family_pets [String]
           #   @param hobbies [String]
           #   @param interests [String]

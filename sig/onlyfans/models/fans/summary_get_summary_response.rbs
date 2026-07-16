@@ -56,7 +56,9 @@ module Onlyfans
 
         type summary_data =
           {
+            content_dislikes: String,
             content_preferences: String,
+            dos_and_donts: String,
             family_pets: String,
             hobbies: String,
             interests: String,
@@ -71,9 +73,17 @@ module Onlyfans
           }
 
         class SummaryData < Onlyfans::Internal::Type::BaseModel
+          attr_reader content_dislikes: String?
+
+          def content_dislikes=: (String) -> String
+
           attr_reader content_preferences: String?
 
           def content_preferences=: (String) -> String
+
+          attr_reader dos_and_donts: String?
+
+          def dos_and_donts=: (String) -> String
 
           attr_reader family_pets: String?
 
@@ -120,7 +130,9 @@ module Onlyfans
           def travel_plans=: (String) -> String
 
           def initialize: (
+            ?content_dislikes: String,
             ?content_preferences: String,
+            ?dos_and_donts: String,
             ?family_pets: String,
             ?hobbies: String,
             ?interests: String,
@@ -135,7 +147,9 @@ module Onlyfans
           ) -> void
 
           def to_hash: -> {
+            content_dislikes: String,
             content_preferences: String,
+            dos_and_donts: String,
             family_pets: String,
             hobbies: String,
             interests: String,

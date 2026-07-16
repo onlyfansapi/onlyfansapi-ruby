@@ -103,10 +103,22 @@ module Onlyfans
             end
 
           sig { returns(T.nilable(String)) }
+          attr_reader :content_dislikes
+
+          sig { params(content_dislikes: String).void }
+          attr_writer :content_dislikes
+
+          sig { returns(T.nilable(String)) }
           attr_reader :content_preferences
 
           sig { params(content_preferences: String).void }
           attr_writer :content_preferences
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :dos_and_donts
+
+          sig { params(dos_and_donts: String).void }
+          attr_writer :dos_and_donts
 
           sig { returns(T.nilable(String)) }
           attr_reader :family_pets
@@ -176,7 +188,9 @@ module Onlyfans
 
           sig do
             params(
+              content_dislikes: String,
               content_preferences: String,
+              dos_and_donts: String,
               family_pets: String,
               hobbies: String,
               interests: String,
@@ -191,7 +205,9 @@ module Onlyfans
             ).returns(T.attached_class)
           end
           def self.new(
+            content_dislikes: nil,
             content_preferences: nil,
+            dos_and_donts: nil,
             family_pets: nil,
             hobbies: nil,
             interests: nil,
@@ -209,7 +225,9 @@ module Onlyfans
           sig do
             override.returns(
               {
+                content_dislikes: String,
                 content_preferences: String,
+                dos_and_donts: String,
                 family_pets: String,
                 hobbies: String,
                 interests: String,
