@@ -32,6 +32,7 @@ class Onlyfans::Test::Resources::Fans::SummaryTest < Onlyfans::Test::ResourceTes
     assert_pattern do
       response => {
         analyzed_message_count: Integer | nil,
+        custom_fields: ^(Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField]) | nil,
         error_message: String | nil,
         last_analyzed_at: String | nil,
         last_buy_date: String | nil,

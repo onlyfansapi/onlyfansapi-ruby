@@ -18,6 +18,27 @@ module Onlyfans
         sig { params(analyzed_message_count: Integer).void }
         attr_writer :analyzed_message_count
 
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField
+              ]
+            )
+          )
+        end
+        attr_reader :custom_fields
+
+        sig do
+          params(
+            custom_fields:
+              T::Array[
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField::OrHash
+              ]
+          ).void
+        end
+        attr_writer :custom_fields
+
         sig { returns(T.nilable(String)) }
         attr_accessor :error_message
 
@@ -59,6 +80,10 @@ module Onlyfans
         sig do
           params(
             analyzed_message_count: Integer,
+            custom_fields:
+              T::Array[
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField::OrHash
+              ],
             error_message: T.nilable(String),
             last_analyzed_at: String,
             last_buy_date: String,
@@ -69,6 +94,7 @@ module Onlyfans
         end
         def self.new(
           analyzed_message_count: nil,
+          custom_fields: nil,
           error_message: nil,
           last_analyzed_at: nil,
           last_buy_date: nil,
@@ -81,6 +107,10 @@ module Onlyfans
           override.returns(
             {
               analyzed_message_count: Integer,
+              custom_fields:
+                T::Array[
+                  Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField
+                ],
               error_message: T.nilable(String),
               last_analyzed_at: String,
               last_buy_date: String,
@@ -91,6 +121,36 @@ module Onlyfans
           )
         end
         def to_hash
+        end
+
+        class CustomField < Onlyfans::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField,
+                Onlyfans::Internal::AnyHash
+              )
+            end
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :key
+
+          sig { params(key: String).void }
+          attr_writer :key
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :label
+
+          sig { params(label: String).void }
+          attr_writer :label
+
+          sig { params(key: String, label: String).returns(T.attached_class) }
+          def self.new(key: nil, label: nil)
+          end
+
+          sig { override.returns({ key: String, label: String }) }
+          def to_hash
+          end
         end
 
         class SummaryData < Onlyfans::Internal::Type::BaseModel

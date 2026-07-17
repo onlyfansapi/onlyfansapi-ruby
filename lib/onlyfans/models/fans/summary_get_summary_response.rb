@@ -10,6 +10,12 @@ module Onlyfans
         #   @return [Integer, nil]
         optional :analyzed_message_count, Integer
 
+        # @!attribute custom_fields
+        #
+        #   @return [Array<Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField>, nil]
+        optional :custom_fields,
+                 -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField] }
+
         # @!attribute error_message
         #
         #   @return [String, nil]
@@ -35,13 +41,30 @@ module Onlyfans
         #   @return [Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData, nil]
         optional :summary_data, -> { Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData }
 
-        # @!method initialize(analyzed_message_count: nil, error_message: nil, last_analyzed_at: nil, last_buy_date: nil, status: nil, summary_data: nil)
+        # @!method initialize(analyzed_message_count: nil, custom_fields: nil, error_message: nil, last_analyzed_at: nil, last_buy_date: nil, status: nil, summary_data: nil)
         #   @param analyzed_message_count [Integer]
+        #   @param custom_fields [Array<Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField>]
         #   @param error_message [String, nil]
         #   @param last_analyzed_at [String]
         #   @param last_buy_date [String]
         #   @param status [String]
         #   @param summary_data [Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData]
+
+        class CustomField < Onlyfans::Internal::Type::BaseModel
+          # @!attribute key
+          #
+          #   @return [String, nil]
+          optional :key, String
+
+          # @!attribute label
+          #
+          #   @return [String, nil]
+          optional :label, String
+
+          # @!method initialize(key: nil, label: nil)
+          #   @param key [String]
+          #   @param label [String]
+        end
 
         # @see Onlyfans::Models::Fans::SummaryGetSummaryResponse#summary_data
         class SummaryData < Onlyfans::Internal::Type::BaseModel

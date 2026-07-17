@@ -4,6 +4,7 @@ module Onlyfans
       type summary_get_summary_response =
         {
           analyzed_message_count: Integer,
+          custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField],
           error_message: String?,
           last_analyzed_at: String,
           last_buy_date: String,
@@ -15,6 +16,12 @@ module Onlyfans
         attr_reader analyzed_message_count: Integer?
 
         def analyzed_message_count=: (Integer) -> Integer
+
+        attr_reader custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField]?
+
+        def custom_fields=: (
+          ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField]
+        ) -> ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField]
 
         attr_accessor error_message: String?
 
@@ -38,6 +45,7 @@ module Onlyfans
 
         def initialize: (
           ?analyzed_message_count: Integer,
+          ?custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField],
           ?error_message: String?,
           ?last_analyzed_at: String,
           ?last_buy_date: String,
@@ -47,12 +55,29 @@ module Onlyfans
 
         def to_hash: -> {
           analyzed_message_count: Integer,
+          custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField],
           error_message: String?,
           last_analyzed_at: String,
           last_buy_date: String,
           status: String,
           summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
         }
+
+        type custom_field = { key: String, label: String }
+
+        class CustomField < Onlyfans::Internal::Type::BaseModel
+          attr_reader key: String?
+
+          def key=: (String) -> String
+
+          attr_reader label: String?
+
+          def label=: (String) -> String
+
+          def initialize: (?key: String, ?label: String) -> void
+
+          def to_hash: -> { key: String, label: String }
+        end
 
         type summary_data =
           {
