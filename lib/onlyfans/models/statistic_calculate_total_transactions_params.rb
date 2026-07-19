@@ -15,16 +15,16 @@ module Onlyfans
       # @!attribute end_date
       #   The end date for the period. Keep empty to calculate everything.
       #
-      #   @return [String]
-      required :end_date, String
+      #   @return [String, nil]
+      optional :end_date, String
 
       # @!attribute start_date
       #   The start date for the period. Keep empty to calculate everything.
       #
-      #   @return [String]
-      required :start_date, String
+      #   @return [String, nil]
+      optional :start_date, String
 
-      # @!method initialize(account:, end_date:, start_date:, request_options: {})
+      # @!method initialize(account:, end_date: nil, start_date: nil, request_options: {})
       #   @param account [String]
       #
       #   @param end_date [String] The end date for the period. Keep empty to calculate everything.

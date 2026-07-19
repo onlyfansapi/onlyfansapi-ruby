@@ -59,7 +59,7 @@ module Onlyfans
           limit: nil,
           # Query param: Sort order for messages (desc or asc)
           order: nil,
-          # Query param: Whether to skip user details (all or none)
+          # Query param: Whether to skip user details (`all` or `none`).
           skip_users: nil,
           request_options: {}
         )

@@ -17,42 +17,62 @@ module Onlyfans
       sig { returns(String) }
       attr_accessor :account
 
-      # The number of shared trial links to return. Default `10`
+      # The number of shared trial links to return. Default `10`. Must be at least 1.
+      # Must not be greater than 100.
       sig { returns(T.nilable(Integer)) }
       attr_reader :limit
 
       sig { params(limit: Integer).void }
       attr_writer :limit
 
-      # The offset used for pagination. Default `0`
+      # The offset used for pagination. Default `0`. Must be at least 0.
       sig { returns(T.nilable(Integer)) }
       attr_reader :offset
 
       sig { params(offset: Integer).void }
       attr_writer :offset
 
-      # Wait for the database sync to finish, instead of running it in the background.
-      # **Will result in longer response times, use with caution**. Default `false`
+      sig do
+        returns(
+          T.nilable(Onlyfans::SharedTrialLinkListParams::Pagination::OrInteger)
+        )
+      end
+      attr_reader :pagination
+
+      sig do
+        params(
+          pagination: Onlyfans::SharedTrialLinkListParams::Pagination::OrInteger
+        ).void
+      end
+      attr_writer :pagination
+
+      # Wait for the database sync instead of processing it in the background.
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :synchronous
+      attr_reader :synchronous
+
+      sig { params(synchronous: T::Boolean).void }
+      attr_writer :synchronous
 
       sig do
         params(
           account: String,
           limit: Integer,
           offset: Integer,
-          synchronous: T.nilable(T::Boolean),
+          pagination:
+            Onlyfans::SharedTrialLinkListParams::Pagination::OrInteger,
+          synchronous: T::Boolean,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
         account:,
-        # The number of shared trial links to return. Default `10`
+        # The number of shared trial links to return. Default `10`. Must be at least 1.
+        # Must not be greater than 100.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
-        # Wait for the database sync to finish, instead of running it in the background.
-        # **Will result in longer response times, use with caution**. Default `false`
+        pagination: nil,
+        # Wait for the database sync instead of processing it in the background.
         synchronous: nil,
         request_options: {}
       )
@@ -64,12 +84,45 @@ module Onlyfans
             account: String,
             limit: Integer,
             offset: Integer,
-            synchronous: T.nilable(T::Boolean),
+            pagination:
+              Onlyfans::SharedTrialLinkListParams::Pagination::OrInteger,
+            synchronous: T::Boolean,
             request_options: Onlyfans::RequestOptions
           }
         )
       end
       def to_hash
+      end
+
+      module Pagination
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedInteger =
+          T.type_alias do
+            T.all(Integer, Onlyfans::SharedTrialLinkListParams::Pagination)
+          end
+        OrInteger = T.type_alias { Integer }
+
+        PAGINATION_0 =
+          T.let(
+            0,
+            Onlyfans::SharedTrialLinkListParams::Pagination::TaggedInteger
+          )
+        PAGINATION_1 =
+          T.let(
+            1,
+            Onlyfans::SharedTrialLinkListParams::Pagination::TaggedInteger
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              Onlyfans::SharedTrialLinkListParams::Pagination::TaggedInteger
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

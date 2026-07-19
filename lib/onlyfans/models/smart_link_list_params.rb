@@ -25,12 +25,6 @@ module Onlyfans
       #   @return [Integer, nil]
       optional :limit, Integer
 
-      # @!attribute meta_pixel_ids
-      #   Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
-      #
-      #   @return [String, nil]
-      optional :meta_pixel_ids, String, nil?: true
-
       # @!attribute name
       #   Filter Smart Links by name. Must not be greater than 255 characters.
       #
@@ -49,7 +43,7 @@ module Onlyfans
       #   @return [String, nil]
       optional :pixel_ids, String, nil?: true
 
-      # @!method initialize(account_ids: nil, filter: nil, limit: nil, meta_pixel_ids: nil, name: nil, offset: nil, pixel_ids: nil, request_options: {})
+      # @!method initialize(account_ids: nil, filter: nil, limit: nil, name: nil, offset: nil, pixel_ids: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::SmartLinkListParams} for more details.
       #
@@ -58,8 +52,6 @@ module Onlyfans
       #   @param filter [Onlyfans::Models::SmartLinkListParams::Filter]
       #
       #   @param limit [Integer] The number of Smart Links to return. Default `50`. Must be at least 1. Must not
-      #
-      #   @param meta_pixel_ids [String, nil] Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
       #
       #   @param name [String, nil] Filter Smart Links by name. Must not be greater than 255 characters.
       #

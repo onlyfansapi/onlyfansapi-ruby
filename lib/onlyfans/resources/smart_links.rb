@@ -62,15 +62,13 @@ module Onlyfans
       #
       # List all Smart Links
       #
-      # @overload list(account_ids: nil, filter: nil, limit: nil, meta_pixel_ids: nil, name: nil, offset: nil, pixel_ids: nil, request_options: {})
+      # @overload list(account_ids: nil, filter: nil, limit: nil, name: nil, offset: nil, pixel_ids: nil, request_options: {})
       #
       # @param account_ids [String, nil] Comma-separated account prefixed IDs to include.
       #
       # @param filter [Onlyfans::Models::SmartLinkListParams::Filter]
       #
       # @param limit [Integer] The number of Smart Links to return. Default `50`. Must be at least 1. Must not
-      #
-      # @param meta_pixel_ids [String, nil] Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
       #
       # @param name [String, nil] Filter Smart Links by name. Must not be greater than 255 characters.
       #

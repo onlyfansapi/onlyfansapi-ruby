@@ -133,16 +133,16 @@ module Onlyfans
       def list_latest(
         # The Account ID
         account,
-        # End date for filtering (required with start_date). This field is required when
-        # <code>start_date</code> is present.
+        # End date for filtering (required with start_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         end_date: nil,
         # Number of fans to return (1-50). Must be at least 1. Must not be greater
         # than 100.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Start date for filtering (required with end_date). This field is required when
-        # <code>end_date</code> is present.
+        # Start date for filtering (required with end_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         start_date: nil,
         # Filter by type: total, renew, or new.
         type: nil,
@@ -166,11 +166,11 @@ module Onlyfans
         account,
         # Sort by: total (default), subscribes, tips, messages, post, streams.
         by: nil,
-        # End date for filtering (required with start_date). This field is required when
-        # <code>start_date</code> is present.
+        # End date for filtering (required with start_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         end_date: nil,
-        # Start date for filtering (required with end_date). This field is required when
-        # <code>end_date</code> is present.
+        # Start date for filtering (required with end_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         start_date: nil,
         request_options: {}
       )

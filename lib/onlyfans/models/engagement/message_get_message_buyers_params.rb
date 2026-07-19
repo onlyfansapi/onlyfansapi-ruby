@@ -37,7 +37,7 @@ module Onlyfans
         optional :offset, Integer
 
         # @!attribute skip_users
-        #   Optional flag for subsequent pages (example: all)
+        #   Optional flag for subsequent pages (example: all).
         #
         #   @return [String, nil]
         optional :skip_users, String
@@ -59,7 +59,7 @@ module Onlyfans
         #
         #   @param offset [Integer] Offset for pagination (default = 0)
         #
-        #   @param skip_users [String] Optional flag for subsequent pages (example: all)
+        #   @param skip_users [String] Optional flag for subsequent pages (example: all).
         #
         #   @param skip_users_dups [Integer] Skip duplicate users in results (0/1). Default = 1
         #

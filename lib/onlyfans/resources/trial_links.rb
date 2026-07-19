@@ -75,32 +75,36 @@ module Onlyfans
       #
       # List all free trial links for the account, including the details and statistics
       #
-      # @overload list(account, limit:, offset:, field: nil, sort: nil, synchronous: nil, request_options: {})
+      # @overload list(account, end_date: nil, field: nil, limit: nil, offset: nil, sort: nil, start_date: nil, synchronous: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
-      # @param limit [Integer] The number of trial links to return. Default `10`
+      # @param end_date [String, nil] The end date for trial links. Keep empty to get all. Must not be greater than 25
       #
-      # @param offset [Integer] The offset used for pagination. Default `0`
+      # @param field [Symbol, Onlyfans::Models::TrialLinkListParams::Field] Field to sort by. Default `create_date`.
       #
-      # @param field [Symbol, Onlyfans::Models::TrialLinkListParams::Field, nil] Sort the results by a field. Default `create_date`
+      # @param limit [Integer] The number of trial links to return. Default `10`. Must be at least 1. Must not
       #
-      # @param sort [Symbol, Onlyfans::Models::TrialLinkListParams::Sort, nil] Sort the results. Default `desc`
+      # @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
       #
-      # @param synchronous [Boolean, nil] Wait for the revenue data to finish processing, instead of processing in the bac
+      # @param sort [Symbol, Onlyfans::Models::TrialLinkListParams::Sort] Sort direction. Default `desc`.
+      #
+      # @param start_date [String, nil] The start date for trial links. Keep empty to get all. Must not be greater than
+      #
+      # @param synchronous [Boolean] Wait for revenue calculation instead of processing it in the background.
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
       # @return [Onlyfans::Models::TrialLinkListResponse]
       #
       # @see Onlyfans::Models::TrialLinkListParams
-      def list(account, params)
+      def list(account, params = {})
         parsed, options = Onlyfans::TrialLinkListParams.dump_request(params)
         query = Onlyfans::Internal::Util.encode_query_params(parsed)
         @client.request(
           method: :get,
           path: ["api/%1$s/trial-links", account],
-          query: query,
+          query: query.transform_keys(end_date: "endDate", start_date: "startDate"),
           model: Onlyfans::Models::TrialLinkListResponse,
           options: options
         )

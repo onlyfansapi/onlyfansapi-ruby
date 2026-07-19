@@ -11,7 +11,7 @@ module Onlyfans
 
       # Calculate the total transactions and amounts.
       #
-      # @overload calculate_total_transactions(account, end_date:, start_date:, request_options: {})
+      # @overload calculate_total_transactions(account, end_date: nil, start_date: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -24,7 +24,7 @@ module Onlyfans
       # @return [Onlyfans::Models::StatisticCalculateTotalTransactionsResponse]
       #
       # @see Onlyfans::Models::StatisticCalculateTotalTransactionsParams
-      def calculate_total_transactions(account, params)
+      def calculate_total_transactions(account, params = {})
         parsed, options = Onlyfans::StatisticCalculateTotalTransactionsParams.dump_request(params)
         query = Onlyfans::Internal::Util.encode_query_params(parsed)
         @client.request(

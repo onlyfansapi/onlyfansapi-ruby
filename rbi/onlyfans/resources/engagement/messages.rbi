@@ -38,7 +38,7 @@ module Onlyfans
           marker: nil,
           # Query param: Offset for pagination (default = 0)
           offset: nil,
-          # Query param: Optional flag for subsequent pages (example: all)
+          # Query param: Optional flag for subsequent pages (example: all).
           skip_users: nil,
           # Query param: Skip duplicate users in results (0/1). Default = 1
           skip_users_dups: nil,
@@ -58,8 +58,8 @@ module Onlyfans
         def get_top_message(
           # The Account ID
           account,
-          # The end date for the period. Keep empty to retrieve until now. MUST BE DATE
-          # AFTER `startDate`.
+          # The end date for the period. Keep empty to retrieve until now. It must be after
+          # `startDate`.
           end_date: nil,
           # The start date for the period. Keep empty to retrieve from the model start date.
           start_date: nil,

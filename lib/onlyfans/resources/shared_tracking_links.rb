@@ -16,16 +16,23 @@ module Onlyfans
       # List all Tracking Links (campaigns) shared with the account by other OF
       # creators. Calls OnlyFans live and syncs to our cache.
       #
-      # @overload list(account, limit: nil, offset: nil, synchronous: nil, request_options: {})
+      # @overload list(account, limit: nil, offset: nil, pagination: nil, sorting_deleted: nil, stats: nil, synchronous: nil, with_deleted: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
-      # @param limit [Integer] The number of shared tracking links to return. Default `10`
+      # @param limit [Integer] The number of shared tracking links to return. Default `10`. Must be at least 1.
       #
-      # @param offset [Integer] The offset used for pagination. Default `0`
+      # @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
       #
-      # @param synchronous [Boolean, nil] Wait for the database sync to finish, instead of running it in the
-      # background. \*
+      # @param pagination [Integer, Onlyfans::Models::SharedTrackingLinkListParams::Pagination] Whether pagination metadata is enabled. Default `1`.
+      #
+      # @param sorting_deleted [Integer, Onlyfans::Models::SharedTrackingLinkListParams::SortingDeleted] Whether deleted links participate in sorting. Default `1`.
+      #
+      # @param stats [String] Whether statistics are included. Default `true`. Must not be greater than 10 cha
+      #
+      # @param synchronous [Boolean] Wait for the database sync instead of processing it in the background.
+      #
+      # @param with_deleted [Integer, Onlyfans::Models::SharedTrackingLinkListParams::WithDeleted] Whether to include deleted shared tracking links. Default `1`.
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

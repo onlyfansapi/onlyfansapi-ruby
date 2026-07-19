@@ -7,8 +7,8 @@ module Onlyfans
 
       def calculate_total_transactions: (
         String account,
-        end_date: String,
-        start_date: String,
+        ?end_date: String,
+        ?start_date: String,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::StatisticCalculateTotalTransactionsResponse
 

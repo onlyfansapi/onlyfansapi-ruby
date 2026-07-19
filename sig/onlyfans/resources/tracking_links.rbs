@@ -19,13 +19,14 @@ module Onlyfans
       def list: (
         String account,
         ?end_date: String?,
-        ?limit: Integer?,
-        ?offset: Integer?,
-        ?sort: Onlyfans::Models::TrackingLinkListParams::sort?,
-        ?sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?pagination: Onlyfans::Models::TrackingLinkListParams::pagination,
+        ?sort: Onlyfans::Models::TrackingLinkListParams::sort,
+        ?sortby: Onlyfans::Models::TrackingLinkListParams::sortby,
         ?start_date: String?,
-        ?synchronous: bool?,
-        ?with_deleted: bool?,
+        ?synchronous: bool,
+        ?with_deleted: Onlyfans::Models::TrackingLinkListParams::with_deleted,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::TrackingLinkListResponse
 
