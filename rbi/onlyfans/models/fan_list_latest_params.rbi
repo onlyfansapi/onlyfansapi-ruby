@@ -14,8 +14,8 @@ module Onlyfans
       sig { returns(String) }
       attr_accessor :account
 
-      # End date for filtering (required with start_date). This field is required when
-      # <code>start_date</code> is present.
+      # End date for filtering (required with start_date). Must be a valid date. Must
+      # not be greater than 255 characters.
       sig { returns(T.nilable(String)) }
       attr_accessor :end_date
 
@@ -34,8 +34,8 @@ module Onlyfans
       sig { params(offset: Integer).void }
       attr_writer :offset
 
-      # Start date for filtering (required with end_date). This field is required when
-      # <code>end_date</code> is present.
+      # Start date for filtering (required with end_date). Must be a valid date. Must
+      # not be greater than 255 characters.
       sig { returns(T.nilable(String)) }
       attr_accessor :start_date
 
@@ -56,16 +56,16 @@ module Onlyfans
       end
       def self.new(
         account:,
-        # End date for filtering (required with start_date). This field is required when
-        # <code>start_date</code> is present.
+        # End date for filtering (required with start_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         end_date: nil,
         # Number of fans to return (1-50). Must be at least 1. Must not be greater
         # than 100.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Start date for filtering (required with end_date). This field is required when
-        # <code>end_date</code> is present.
+        # Start date for filtering (required with end_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         start_date: nil,
         # Filter by type: total, renew, or new.
         type: nil,

@@ -28,7 +28,7 @@ module Onlyfans
       sig { params(marker: String).void }
       attr_writer :marker
 
-      # The start date for transactions list. Default: `-30days`
+      # The start date for the transactions list. Defaults to 30 days ago.
       sig { returns(T.nilable(String)) }
       attr_reader :start_date
 
@@ -68,7 +68,7 @@ module Onlyfans
         limit: nil,
         # The marker used for pagination. Default: `null`
         marker: nil,
-        # The start date for transactions list. Default: `-30days`
+        # The start date for the transactions list. Defaults to 30 days ago.
         start_date: nil,
         # Filter tips by source. Only applies when `type=tips`. Options: `profile`,
         # `post_all`, `chat`, `stream`, `story`

@@ -29,10 +29,6 @@ module Onlyfans
       sig { params(limit: Integer).void }
       attr_writer :limit
 
-      # Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
-      sig { returns(T.nilable(String)) }
-      attr_accessor :meta_pixel_ids
-
       # Filter Smart Links by name. Must not be greater than 255 characters.
       sig { returns(T.nilable(String)) }
       attr_accessor :name
@@ -53,7 +49,6 @@ module Onlyfans
           account_ids: T.nilable(String),
           filter: Onlyfans::SmartLinkListParams::Filter::OrHash,
           limit: Integer,
-          meta_pixel_ids: T.nilable(String),
           name: T.nilable(String),
           offset: Integer,
           pixel_ids: T.nilable(String),
@@ -67,8 +62,6 @@ module Onlyfans
         # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
         # be greater than 1000.
         limit: nil,
-        # Deprecated alias for `pixel_ids`. Comma-separated Pixel IDs to include.
-        meta_pixel_ids: nil,
         # Filter Smart Links by name. Must not be greater than 255 characters.
         name: nil,
         # The offset used for pagination. Default `0`. Must be at least 0.
@@ -85,7 +78,6 @@ module Onlyfans
             account_ids: T.nilable(String),
             filter: Onlyfans::SmartLinkListParams::Filter,
             limit: Integer,
-            meta_pixel_ids: T.nilable(String),
             name: T.nilable(String),
             offset: Integer,
             pixel_ids: T.nilable(String),

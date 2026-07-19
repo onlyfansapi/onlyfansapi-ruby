@@ -142,7 +142,7 @@ module Onlyfans
       #
       # @param account [String] The Account ID
       #
-      # @param end_date [String] The latest mass message to retrieve. Keep empty to get all. MUST BE DATE AFTER `
+      # @param end_date [String] The latest mass message to retrieve. Keep empty to get all. It must be after `st
       #
       # @param limit [Integer] Number of mass messages to return (default = 10)
       #

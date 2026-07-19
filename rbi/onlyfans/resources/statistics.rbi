@@ -22,9 +22,9 @@ module Onlyfans
         # The Account ID
         account,
         # The end date for the period. Keep empty to calculate everything.
-        end_date:,
+        end_date: nil,
         # The start date for the period. Keep empty to calculate everything.
-        start_date:,
+        start_date: nil,
         request_options: {}
       )
       end

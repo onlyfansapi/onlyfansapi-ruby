@@ -30,7 +30,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.retrieve("est", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.retrieve("vel", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkRetrieveResponse
@@ -44,10 +44,10 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
     end
   end
 
-  def test_list_required_params
+  def test_list
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.list("acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
+    response = @only_fans_api.trial_links.list("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkListResponse
@@ -65,7 +65,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.delete("est", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.delete("vel", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkDeleteResponse
@@ -100,7 +100,12 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
     skip("Mock server tests are disabled")
 
     response =
-      @only_fans_api.trial_links.list_subscribers("ut", account: "acct_XXXXXXXXXXXXXXX", limit: 10, offset: 0)
+      @only_fans_api.trial_links.list_subscribers(
+        "modi",
+        account: "acct_XXXXXXXXXXXXXXX",
+        limit: 10,
+        offset: 0
+      )
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkListSubscribersResponse
@@ -117,7 +122,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_cohort_arps_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.retrieve_cohort_arps("aliquam", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.retrieve_cohort_arps("vel", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => nil
@@ -127,7 +132,7 @@ class Onlyfans::Test::Resources::TrialLinksTest < Onlyfans::Test::ResourceTest
   def test_retrieve_stats_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.trial_links.retrieve_stats("inventore", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.trial_links.retrieve_stats("facilis", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrialLinkRetrieveStatsResponse

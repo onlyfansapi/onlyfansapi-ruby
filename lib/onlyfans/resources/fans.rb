@@ -158,13 +158,13 @@ module Onlyfans
       #
       # @param account [String] The Account ID
       #
-      # @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
+      # @param end_date [String, nil] End date for filtering (required with start_date). Must be a valid date. Must no
       #
       # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 10
       #
       # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      # @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
+      # @param start_date [String, nil] Start date for filtering (required with end_date). Must be a valid date. Must no
       #
       # @param type [Symbol, Onlyfans::Models::FanListLatestParams::Type, nil] Filter by type: total, renew, or new.
       #
@@ -197,9 +197,9 @@ module Onlyfans
       #
       # @param by [Symbol, Onlyfans::Models::FanListTopParams::By, nil] Sort by: total (default), subscribes, tips, messages, post, streams.
       #
-      # @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
+      # @param end_date [String, nil] End date for filtering (required with start_date). Must be a valid date. Must no
       #
-      # @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
+      # @param start_date [String, nil] Start date for filtering (required with end_date). Must be a valid date. Must no
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

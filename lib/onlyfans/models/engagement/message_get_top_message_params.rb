@@ -14,8 +14,8 @@ module Onlyfans
         required :account, String
 
         # @!attribute end_date
-        #   The end date for the period. Keep empty to retrieve until now. MUST BE DATE
-        #   AFTER `startDate`.
+        #   The end date for the period. Keep empty to retrieve until now. It must be after
+        #   `startDate`.
         #
         #   @return [String, nil]
         optional :end_date, String
@@ -32,7 +32,7 @@ module Onlyfans
         #
         #   @param account [String]
         #
-        #   @param end_date [String] The end date for the period. Keep empty to retrieve until now. MUST BE DATE AFTE
+        #   @param end_date [String] The end date for the period. Keep empty to retrieve until now. It must be after
         #
         #   @param start_date [String] The start date for the period. Keep empty to retrieve from the model start date.
         #

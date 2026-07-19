@@ -42,7 +42,7 @@ module Onlyfans
         sig { params(offset: Integer).void }
         attr_writer :offset
 
-        # Optional flag for subsequent pages (example: all)
+        # Optional flag for subsequent pages (example: all).
         sig { returns(T.nilable(String)) }
         attr_reader :skip_users
 
@@ -77,7 +77,7 @@ module Onlyfans
           marker: nil,
           # Offset for pagination (default = 0)
           offset: nil,
-          # Optional flag for subsequent pages (example: all)
+          # Optional flag for subsequent pages (example: all).
           skip_users: nil,
           # Skip duplicate users in results (0/1). Default = 1
           skip_users_dups: nil,
