@@ -11,6 +11,7 @@ module Onlyfans
         String id,
         account: String,
         text: String,
+        ?block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words,
         ?giphy_id: String,
         ?locked_text: bool,
         ?media_files: ::Array[String],
@@ -45,6 +46,7 @@ module Onlyfans
       def send_: (
         String account,
         text: String,
+        ?block_banned_words: Onlyfans::Models::MassMessagingSendParams::block_banned_words,
         ?excluded_lists: ::Array[String],
         ?giphy_id: String,
         ?locked_text: bool,

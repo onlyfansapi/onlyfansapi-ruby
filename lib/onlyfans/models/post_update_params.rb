@@ -23,6 +23,17 @@ module Onlyfans
       #   @return [String]
       required :text, String
 
+      # @!attribute block_banned_words
+      #   Screen `text` for OnlyFans banned words and block the update if any are found
+      #   (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      #   `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      #   only. Omit to disable screening.
+      #
+      #   @return [Symbol, Onlyfans::Models::PostUpdateParams::BlockBannedWords, nil]
+      optional :block_banned_words,
+               enum: -> { Onlyfans::PostUpdateParams::BlockBannedWords },
+               api_name: :blockBannedWords
+
       # @!attribute expire_days
       #   Number of days after which the post will expire. Between 1 and 30 days. Keep
       #   empty for no expiration.
@@ -109,7 +120,7 @@ module Onlyfans
       #   @return [Symbol, Onlyfans::Models::PostUpdateParams::VotingType, nil]
       optional :voting_type, enum: -> { Onlyfans::PostUpdateParams::VotingType }, api_name: :votingType
 
-      # @!method initialize(account:, post_id:, text:, expire_days: nil, fund_raising_target_amount: nil, fund_raising_tips_presets: nil, label_ids: nil, media_files: nil, price: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, voting_correct_index: nil, voting_due: nil, voting_options: nil, voting_type: nil, request_options: {})
+      # @!method initialize(account:, post_id:, text:, block_banned_words: nil, expire_days: nil, fund_raising_target_amount: nil, fund_raising_tips_presets: nil, label_ids: nil, media_files: nil, price: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, voting_correct_index: nil, voting_due: nil, voting_options: nil, voting_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::PostUpdateParams} for more details.
       #
@@ -118,6 +129,8 @@ module Onlyfans
       #   @param post_id [Integer]
       #
       #   @param text [String] The post text content
+      #
+      #   @param block_banned_words [Symbol, Onlyfans::Models::PostUpdateParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the update if any are found (r
       #
       #   @param expire_days [Integer] Number of days after which the post will expire. Between 1 and 30 days. Keep emp
       #
@@ -147,6 +160,21 @@ module Onlyfans
       #   @param voting_type [Symbol, Onlyfans::Models::PostUpdateParams::VotingType] Include a poll or quiz within your post.
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+
+      # Screen `text` for OnlyFans banned words and block the update if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        STRICT_BAN = :strict_ban
+        RISKY = :risky
+        REPLACE_SOFTEN = :replace_soften
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
 
       # Include a poll or quiz within your post.
       module VotingType

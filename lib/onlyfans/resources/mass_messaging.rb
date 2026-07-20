@@ -38,13 +38,15 @@ module Onlyfans
       #
       # Update a mass message.
       #
-      # @overload update(id, account:, text:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @overload update(id, account:, text:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
       # @param id [String] Path param: The ID of the message queue item. Can be retrieved from the above st
       #
       # @param account [String] Path param: The Account ID
       #
       # @param text [String] Body param: The message text content
+      #
+      # @param block_banned_words [Symbol, Onlyfans::Models::MassMessagingUpdateParams::BlockBannedWords] Body param: Screen `text` for OnlyFans banned words and block the update if any
       #
       # @param giphy_id [String] Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the G
       #
@@ -174,11 +176,13 @@ module Onlyfans
       # `userIds` parameters to send the same message to both lists and individual
       # users.
       #
-      # @overload send_(account, text:, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @overload send_(account, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param text [String] The message text content
+      #
+      # @param block_banned_words [Symbol, Onlyfans::Models::MassMessagingSendParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the send if any are found (ret
       #
       # @param excluded_lists [Array<String>] Array of user list IDs that the mass message will NOT be sent to.
       #

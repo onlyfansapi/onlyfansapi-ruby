@@ -18,6 +18,17 @@ module Onlyfans
       #   @return [String]
       required :text, String
 
+      # @!attribute block_banned_words
+      #   Screen `text` for OnlyFans banned words and block the send if any are found
+      #   (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      #   `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      #   only. Omit to disable screening.
+      #
+      #   @return [Symbol, Onlyfans::Models::MassMessagingSendParams::BlockBannedWords, nil]
+      optional :block_banned_words,
+               enum: -> { Onlyfans::MassMessagingSendParams::BlockBannedWords },
+               api_name: :blockBannedWords
+
       # @!attribute excluded_lists
       #   Array of user list IDs that the mass message will NOT be sent to.
       #
@@ -103,13 +114,15 @@ module Onlyfans
       #   @return [Array<String>, nil]
       optional :user_lists, Onlyfans::Internal::Type::ArrayOf[String], api_name: :userLists
 
-      # @!method initialize(account:, text:, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @!method initialize(account:, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::MassMessagingSendParams} for more details.
       #
       #   @param account [String]
       #
       #   @param text [String] The message text content
+      #
+      #   @param block_banned_words [Symbol, Onlyfans::Models::MassMessagingSendParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the send if any are found (ret
       #
       #   @param excluded_lists [Array<String>] Array of user list IDs that the mass message will NOT be sent to.
       #
@@ -139,6 +152,21 @@ module Onlyfans
       #   @param user_lists [Array<String>] Array of user list IDs that the mass message will be sent to.
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+
+      # Screen `text` for OnlyFans banned words and block the send if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        STRICT_BAN = :strict_ban
+        RISKY = :risky
+        REPLACE_SOFTEN = :replace_soften
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
     end
   end
 end

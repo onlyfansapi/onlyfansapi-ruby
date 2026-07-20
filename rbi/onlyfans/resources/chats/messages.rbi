@@ -152,6 +152,8 @@ module Onlyfans
           params(
             chat_id: String,
             account: String,
+            block_banned_words:
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol,
             giphy_id: String,
             locked_text: T::Boolean,
             media_files: T::Array[T.anything],
@@ -170,6 +172,11 @@ module Onlyfans
           chat_id,
           # Path param: The Account ID
           account:,
+          # Body param: Screen `text` for OnlyFans banned words and block the send if any
+          # are found (returns a 422 listing the offending words). `strict_ban` blocks all
+          # tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks
+          # Replace/soften only. Omit to disable screening.
+          block_banned_words: nil,
           # Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the
           # Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
           giphy_id: nil,
