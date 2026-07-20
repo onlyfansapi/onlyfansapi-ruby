@@ -23,7 +23,7 @@ class Onlyfans::Test::Resources::TrackingLinksTest < Onlyfans::Test::ResourceTes
   def test_retrieve_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.tracking_links.retrieve("non", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.tracking_links.retrieve("laborum", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrackingLinkRetrieveResponse
@@ -58,7 +58,7 @@ class Onlyfans::Test::Resources::TrackingLinksTest < Onlyfans::Test::ResourceTes
   def test_delete_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.tracking_links.delete("non", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.tracking_links.delete("laborum", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrackingLinkDeleteResponse
@@ -75,7 +75,7 @@ class Onlyfans::Test::Resources::TrackingLinksTest < Onlyfans::Test::ResourceTes
   def test_get_cohort_arps_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.tracking_links.get_cohort_arps("iusto", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.tracking_links.get_cohort_arps("natus", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => nil
@@ -85,7 +85,7 @@ class Onlyfans::Test::Resources::TrackingLinksTest < Onlyfans::Test::ResourceTes
   def test_get_stats_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.tracking_links.get_stats("voluptatem", account: "acct_XXXXXXXXXXXXXXX")
+    response = @only_fans_api.tracking_links.get_stats("excepturi", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::TrackingLinkGetStatsResponse
