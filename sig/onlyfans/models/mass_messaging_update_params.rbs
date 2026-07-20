@@ -5,6 +5,7 @@ module Onlyfans
         account: String,
         id: String,
         text: String,
+        block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words,
         giphy_id: String,
         locked_text: bool,
         media_files: ::Array[String],
@@ -25,6 +26,12 @@ module Onlyfans
       attr_accessor id: String
 
       attr_accessor text: String
+
+      attr_reader block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words?
+
+      def block_banned_words=: (
+        Onlyfans::Models::MassMessagingUpdateParams::block_banned_words
+      ) -> Onlyfans::Models::MassMessagingUpdateParams::block_banned_words
 
       attr_reader giphy_id: String?
 
@@ -62,6 +69,7 @@ module Onlyfans
         account: String,
         id: String,
         text: String,
+        ?block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words,
         ?giphy_id: String,
         ?locked_text: bool,
         ?media_files: ::Array[String],
@@ -77,6 +85,7 @@ module Onlyfans
         account: String,
         id: String,
         text: String,
+        block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words,
         giphy_id: String,
         locked_text: bool,
         media_files: ::Array[String],
@@ -87,6 +96,18 @@ module Onlyfans
         user_lists: ::Array[String],
         request_options: Onlyfans::RequestOptions
       }
+
+      type block_banned_words = :strict_ban | :risky | :replace_soften
+
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        STRICT_BAN: :strict_ban
+        RISKY: :risky
+        REPLACE_SOFTEN: :replace_soften
+
+        def self?.values: -> ::Array[Onlyfans::Models::MassMessagingUpdateParams::block_banned_words]
+      end
     end
   end
 end

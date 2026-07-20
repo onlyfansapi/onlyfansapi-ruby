@@ -21,6 +21,27 @@ module Onlyfans
         sig { returns(String) }
         attr_accessor :chat_id
 
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        sig do
+          returns(
+            T.nilable(
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol
+            )
+          )
+        end
+        attr_reader :block_banned_words
+
+        sig do
+          params(
+            block_banned_words:
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol
+          ).void
+        end
+        attr_writer :block_banned_words
+
         # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
         # endpoints (`/giphy/trending`, `/giphy/search`).
         sig { returns(T.nilable(String)) }
@@ -101,6 +122,8 @@ module Onlyfans
           params(
             account: String,
             chat_id: String,
+            block_banned_words:
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol,
             giphy_id: String,
             locked_text: T::Boolean,
             media_files: T::Array[T.anything],
@@ -117,6 +140,11 @@ module Onlyfans
         def self.new(
           account:,
           chat_id:,
+          # Screen `text` for OnlyFans banned words and block the send if any are found
+          # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+          # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+          # only. Omit to disable screening.
+          block_banned_words: nil,
           # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
           # endpoints (`/giphy/trending`, `/giphy/search`).
           giphy_id: nil,
@@ -152,6 +180,8 @@ module Onlyfans
             {
               account: String,
               chat_id: String,
+              block_banned_words:
+                Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol,
               giphy_id: String,
               locked_text: T::Boolean,
               media_files: T::Array[T.anything],
@@ -167,6 +197,49 @@ module Onlyfans
           )
         end
         def to_hash
+        end
+
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        module BlockBannedWords
+          extend Onlyfans::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                Onlyfans::Chats::MessageSendParams::BlockBannedWords
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          STRICT_BAN =
+            T.let(
+              :strict_ban,
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+            )
+          RISKY =
+            T.let(
+              :risky,
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+            )
+          REPLACE_SOFTEN =
+            T.let(
+              :replace_soften,
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

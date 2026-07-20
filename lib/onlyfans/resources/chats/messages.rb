@@ -219,11 +219,13 @@ module Onlyfans
         #
         # Send a new message to a chat.
         #
-        # @overload send_(chat_id, account:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
+        # @overload send_(chat_id, account:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
         #
         # @param chat_id [String] Path param: The ID of the chat (usually a fan's OnlyFans User ID)
         #
         # @param account [String] Path param: The Account ID
+        #
+        # @param block_banned_words [Symbol, Onlyfans::Models::Chats::MessageSendParams::BlockBannedWords] Body param: Screen `text` for OnlyFans banned words and block the send if any ar
         #
         # @param giphy_id [String] Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the G
         #

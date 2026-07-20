@@ -52,6 +52,7 @@ module Onlyfans
         def send_: (
           String chat_id,
           account: String,
+          ?block_banned_words: Onlyfans::Models::Chats::MessageSendParams::block_banned_words,
           ?giphy_id: String,
           ?locked_text: bool,
           ?media_files: ::Array[top],

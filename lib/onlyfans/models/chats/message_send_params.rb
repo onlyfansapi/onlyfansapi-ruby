@@ -18,6 +18,17 @@ module Onlyfans
         #   @return [String]
         required :chat_id, String
 
+        # @!attribute block_banned_words
+        #   Screen `text` for OnlyFans banned words and block the send if any are found
+        #   (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        #   `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        #   only. Omit to disable screening.
+        #
+        #   @return [Symbol, Onlyfans::Models::Chats::MessageSendParams::BlockBannedWords, nil]
+        optional :block_banned_words,
+                 enum: -> { Onlyfans::Chats::MessageSendParams::BlockBannedWords },
+                 api_name: :blockBannedWords
+
         # @!attribute giphy_id
         #   The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
         #   endpoints (`/giphy/trending`, `/giphy/search`).
@@ -86,13 +97,15 @@ module Onlyfans
         #   @return [String, nil]
         optional :text, String
 
-        # @!method initialize(account:, chat_id:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
+        # @!method initialize(account:, chat_id:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Onlyfans::Models::Chats::MessageSendParams} for more details.
         #
         #   @param account [String]
         #
         #   @param chat_id [String]
+        #
+        #   @param block_banned_words [Symbol, Onlyfans::Models::Chats::MessageSendParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the send if any are found (ret
         #
         #   @param giphy_id [String] The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
         #
@@ -116,6 +129,21 @@ module Onlyfans
         #   @param text [String] The message text content. Required unless a media file is present.
         #
         #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        module BlockBannedWords
+          extend Onlyfans::Internal::Type::Enum
+
+          STRICT_BAN = :strict_ban
+          RISKY = :risky
+          REPLACE_SOFTEN = :replace_soften
+
+          # @!method self.values
+          #   @return [Array<Symbol>]
+        end
       end
     end
   end

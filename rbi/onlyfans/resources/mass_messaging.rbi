@@ -27,6 +27,8 @@ module Onlyfans
           id: String,
           account: String,
           text: String,
+          block_banned_words:
+            Onlyfans::MassMessagingUpdateParams::BlockBannedWords::OrSymbol,
           giphy_id: String,
           locked_text: T::Boolean,
           media_files: T::Array[String],
@@ -46,6 +48,11 @@ module Onlyfans
         account:,
         # Body param: The message text content
         text:,
+        # Body param: Screen `text` for OnlyFans banned words and block the update if any
+        # are found (returns a 422 listing the offending words). `strict_ban` blocks all
+        # tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks
+        # Replace/soften only. Omit to disable screening.
+        block_banned_words: nil,
         # Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the
         # Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
         giphy_id: nil,
@@ -138,6 +145,8 @@ module Onlyfans
         params(
           account: String,
           text: String,
+          block_banned_words:
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::OrSymbol,
           excluded_lists: T::Array[String],
           giphy_id: String,
           locked_text: T::Boolean,
@@ -159,6 +168,11 @@ module Onlyfans
         account,
         # The message text content
         text:,
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        block_banned_words: nil,
         # Array of user list IDs that the mass message will NOT be sent to.
         excluded_lists: nil,
         # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
