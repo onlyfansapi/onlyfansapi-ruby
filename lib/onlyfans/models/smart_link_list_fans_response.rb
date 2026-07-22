@@ -318,6 +318,11 @@ module Onlyfans
           #   @return [Integer, nil]
           optional :fans_total, Integer
 
+          # @!attribute fans_with_1_plus_messages_total
+          #
+          #   @return [Integer, nil]
+          optional :fans_with_1_plus_messages_total, Integer
+
           # @!attribute fans_with_3_plus_messages_total
           #
           #   @return [Integer, nil]
@@ -333,8 +338,9 @@ module Onlyfans
           #   @return [Integer, nil]
           optional :tips_net_total, Integer
 
-          # @!method initialize(fans_total: nil, fans_with_3_plus_messages_total: nil, revenue_net_total: nil, tips_net_total: nil)
+          # @!method initialize(fans_total: nil, fans_with_1_plus_messages_total: nil, fans_with_3_plus_messages_total: nil, revenue_net_total: nil, tips_net_total: nil)
           #   @param fans_total [Integer]
+          #   @param fans_with_1_plus_messages_total [Integer]
           #   @param fans_with_3_plus_messages_total [Integer]
           #   @param revenue_net_total [Integer]
           #   @param tips_net_total [Integer]
