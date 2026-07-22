@@ -88,6 +88,7 @@ module Onlyfans
         NEW_SUBSCRIBER = :new_subscriber
         NEW_TRANSACTION = :new_transaction
         MESSAGE_RECEIVED = :message_received
+        FAN_SENT_1_MESSAGE = :fan_sent_1_message
         FAN_SENT_3_MESSAGES = :fan_sent_3_messages
 
         # @!method self.values

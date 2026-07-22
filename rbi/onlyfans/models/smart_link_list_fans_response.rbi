@@ -712,6 +712,12 @@ module Onlyfans
           attr_writer :fans_total
 
           sig { returns(T.nilable(Integer)) }
+          attr_reader :fans_with_1_plus_messages_total
+
+          sig { params(fans_with_1_plus_messages_total: Integer).void }
+          attr_writer :fans_with_1_plus_messages_total
+
+          sig { returns(T.nilable(Integer)) }
           attr_reader :fans_with_3_plus_messages_total
 
           sig { params(fans_with_3_plus_messages_total: Integer).void }
@@ -732,6 +738,7 @@ module Onlyfans
           sig do
             params(
               fans_total: Integer,
+              fans_with_1_plus_messages_total: Integer,
               fans_with_3_plus_messages_total: Integer,
               revenue_net_total: Integer,
               tips_net_total: Integer
@@ -739,6 +746,7 @@ module Onlyfans
           end
           def self.new(
             fans_total: nil,
+            fans_with_1_plus_messages_total: nil,
             fans_with_3_plus_messages_total: nil,
             revenue_net_total: nil,
             tips_net_total: nil
@@ -749,6 +757,7 @@ module Onlyfans
             override.returns(
               {
                 fans_total: Integer,
+                fans_with_1_plus_messages_total: Integer,
                 fans_with_3_plus_messages_total: Integer,
                 revenue_net_total: Integer,
                 tips_net_total: Integer

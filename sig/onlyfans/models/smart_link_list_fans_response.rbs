@@ -404,6 +404,7 @@ module Onlyfans
         type summary =
           {
             fans_total: Integer,
+            :fans_with_1_plus_messages_total => Integer,
             :fans_with_3_plus_messages_total => Integer,
             revenue_net_total: Integer,
             tips_net_total: Integer
@@ -413,6 +414,10 @@ module Onlyfans
           attr_reader fans_total: Integer?
 
           def fans_total=: (Integer) -> Integer
+
+          attr_reader fans_with_1_plus_messages_total: Integer?
+
+          def fans_with_1_plus_messages_total=: (Integer) -> Integer
 
           attr_reader fans_with_3_plus_messages_total: Integer?
 
@@ -428,6 +433,7 @@ module Onlyfans
 
           def initialize: (
             ?fans_total: Integer,
+            ?fans_with_1_plus_messages_total: Integer,
             ?fans_with_3_plus_messages_total: Integer,
             ?revenue_net_total: Integer,
             ?tips_net_total: Integer
@@ -435,6 +441,7 @@ module Onlyfans
 
           def to_hash: -> {
             fans_total: Integer,
+            :fans_with_1_plus_messages_total => Integer,
             :fans_with_3_plus_messages_total => Integer,
             revenue_net_total: Integer,
             tips_net_total: Integer
