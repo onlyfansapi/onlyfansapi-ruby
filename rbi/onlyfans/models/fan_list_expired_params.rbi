@@ -22,8 +22,8 @@ module Onlyfans
       end
       attr_writer :filter
 
-      # Number of fans to return (1-50). Must be at least 1. Must not be greater
-      # than 20.
+      # Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
+      # Must be at least 1. Must not be greater than 20.
       sig { returns(T.nilable(Integer)) }
       attr_reader :limit
 
@@ -62,8 +62,8 @@ module Onlyfans
       def self.new(
         account:,
         filter: nil,
-        # Number of fans to return (1-50). Must be at least 1. Must not be greater
-        # than 20.
+        # Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
+        # Must be at least 1. Must not be greater than 20.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,
@@ -100,14 +100,18 @@ module Onlyfans
             )
           end
 
-        # Filter by minimum subscription duration in months. Must be at least 0.
+        # Filter by minimum subscription duration in months. Must use bracket syntax:
+        # filter[duration]=1 — the dot form (filter.duration=1) is NOT supported and will
+        # be ignored. Must be at least 0.
         sig { returns(T.nilable(Integer)) }
         attr_reader :duration
 
         sig { params(duration: Integer).void }
         attr_writer :duration
 
-        # Filter by online status (`1` for online fans).
+        # Filter by online status (`1` for online fans). Must use bracket syntax:
+        # filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be
+        # ignored.
         sig do
           returns(
             T.nilable(Onlyfans::FanListExpiredParams::Filter::Online::OrInteger)
@@ -115,14 +119,17 @@ module Onlyfans
         end
         attr_accessor :online
 
-        # Filter by minimum tips. Must be at least 0.
+        # Filter by minimum tips. Must use bracket syntax: filter[tips]=100 — the dot form
+        # (filter.tips=100) is NOT supported and will be ignored. Must be at least 0.
         sig { returns(T.nilable(Integer)) }
         attr_reader :tips
 
         sig { params(tips: Integer).void }
         attr_writer :tips
 
-        # Filter by minimum amount total spent by a fan. Must be at least 0.
+        # Filter by minimum amount total spent by a fan. Must use bracket syntax:
+        # filter[total_spent]=100 — the dot form (filter.total_spent=100) is NOT supported
+        # and will be ignored. Must be at least 0.
         sig { returns(T.nilable(Integer)) }
         attr_reader :total_spent
 
@@ -141,13 +148,20 @@ module Onlyfans
           ).returns(T.attached_class)
         end
         def self.new(
-          # Filter by minimum subscription duration in months. Must be at least 0.
+          # Filter by minimum subscription duration in months. Must use bracket syntax:
+          # filter[duration]=1 — the dot form (filter.duration=1) is NOT supported and will
+          # be ignored. Must be at least 0.
           duration: nil,
-          # Filter by online status (`1` for online fans).
+          # Filter by online status (`1` for online fans). Must use bracket syntax:
+          # filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be
+          # ignored.
           online: nil,
-          # Filter by minimum tips. Must be at least 0.
+          # Filter by minimum tips. Must use bracket syntax: filter[tips]=100 — the dot form
+          # (filter.tips=100) is NOT supported and will be ignored. Must be at least 0.
           tips: nil,
-          # Filter by minimum amount total spent by a fan. Must be at least 0.
+          # Filter by minimum amount total spent by a fan. Must use bracket syntax:
+          # filter[total_spent]=100 — the dot form (filter.total_spent=100) is NOT supported
+          # and will be ignored. Must be at least 0.
           total_spent: nil
         )
         end
@@ -168,7 +182,9 @@ module Onlyfans
         def to_hash
         end
 
-        # Filter by online status (`1` for online fans).
+        # Filter by online status (`1` for online fans). Must use bracket syntax:
+        # filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be
+        # ignored.
         module Online
           extend Onlyfans::Internal::Type::Enum
 
