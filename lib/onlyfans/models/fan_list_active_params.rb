@@ -18,8 +18,8 @@ module Onlyfans
       optional :filter, -> { Onlyfans::FanListActiveParams::Filter }
 
       # @!attribute limit
-      #   Number of fans to return (1-50). Must be at least 1. Must not be greater
-      #   than 20.
+      #   Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
+      #   Must be at least 1. Must not be greater than 20.
       #
       #   @return [Integer, nil]
       optional :limit, Integer
@@ -50,7 +50,7 @@ module Onlyfans
       #
       #   @param filter [Onlyfans::Models::FanListActiveParams::Filter]
       #
-      #   @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
+      #   @param limit [Integer] Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
       #
       #   @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
@@ -62,39 +62,51 @@ module Onlyfans
 
       class Filter < Onlyfans::Internal::Type::BaseModel
         # @!attribute duration
-        #   Filter by minimum subscription duration in months. Must be at least 0.
+        #   Filter by minimum subscription duration in months. Must use bracket syntax:
+        #   filter[duration]=1 — the dot form (filter.duration=1) is NOT supported and will
+        #   be ignored. Must be at least 0.
         #
         #   @return [Integer, nil]
         optional :duration, Integer
 
         # @!attribute online
-        #   Filter by online status (`1` for online fans).
+        #   Filter by online status (`1` for online fans). Must use bracket syntax:
+        #   filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be
+        #   ignored.
         #
         #   @return [Integer, Onlyfans::Models::FanListActiveParams::Filter::Online, nil]
         optional :online, enum: -> { Onlyfans::FanListActiveParams::Filter::Online }, nil?: true
 
         # @!attribute tips
-        #   Filter by minimum tips. Must be at least 0.
+        #   Filter by minimum tips. Must use bracket syntax: filter[tips]=100 — the dot form
+        #   (filter.tips=100) is NOT supported and will be ignored. Must be at least 0.
         #
         #   @return [Integer, nil]
         optional :tips, Integer
 
         # @!attribute total_spent
-        #   Filter by minimum amount total spent by a fan. Must be at least 0.
+        #   Filter by minimum amount total spent by a fan. Must use bracket syntax:
+        #   filter[total_spent]=100 — the dot form (filter.total_spent=100) is NOT supported
+        #   and will be ignored. Must be at least 0.
         #
         #   @return [Integer, nil]
         optional :total_spent, Integer
 
         # @!method initialize(duration: nil, online: nil, tips: nil, total_spent: nil)
-        #   @param duration [Integer] Filter by minimum subscription duration in months. Must be at least 0.
+        #   Some parameter documentations has been truncated, see
+        #   {Onlyfans::Models::FanListActiveParams::Filter} for more details.
         #
-        #   @param online [Integer, Onlyfans::Models::FanListActiveParams::Filter::Online, nil] Filter by online status (`1` for online fans).
+        #   @param duration [Integer] Filter by minimum subscription duration in months. Must use bracket syntax: filt
         #
-        #   @param tips [Integer] Filter by minimum tips. Must be at least 0.
+        #   @param online [Integer, Onlyfans::Models::FanListActiveParams::Filter::Online, nil] Filter by online status (`1` for online fans). Must use bracket syntax: filter[o
         #
-        #   @param total_spent [Integer] Filter by minimum amount total spent by a fan. Must be at least 0.
+        #   @param tips [Integer] Filter by minimum tips. Must use bracket syntax: filter[tips]=100 — the dot form
+        #
+        #   @param total_spent [Integer] Filter by minimum amount total spent by a fan. Must use bracket syntax: filter[t
 
-        # Filter by online status (`1` for online fans).
+        # Filter by online status (`1` for online fans). Must use bracket syntax:
+        # filter[online]=1 — the dot form (filter.online=1) is NOT supported and will be
+        # ignored.
         #
         # @see Onlyfans::Models::FanListActiveParams::Filter#online
         module Online

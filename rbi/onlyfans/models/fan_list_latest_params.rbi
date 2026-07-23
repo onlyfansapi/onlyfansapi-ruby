@@ -20,7 +20,7 @@ module Onlyfans
       attr_accessor :end_date
 
       # Number of fans to return (1-50). Must be at least 1. Must not be greater
-      # than 100.
+      # than 50.
       sig { returns(T.nilable(Integer)) }
       attr_reader :limit
 
@@ -60,7 +60,7 @@ module Onlyfans
         # not be greater than 255 characters.
         end_date: nil,
         # Number of fans to return (1-50). Must be at least 1. Must not be greater
-        # than 100.
+        # than 50.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,

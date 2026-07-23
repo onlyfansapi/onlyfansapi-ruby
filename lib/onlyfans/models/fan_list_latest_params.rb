@@ -21,7 +21,7 @@ module Onlyfans
 
       # @!attribute limit
       #   Number of fans to return (1-50). Must be at least 1. Must not be greater
-      #   than 100.
+      #   than 50.
       #
       #   @return [Integer, nil]
       optional :limit, Integer
@@ -53,7 +53,7 @@ module Onlyfans
       #
       #   @param end_date [String, nil] End date for filtering (required with start_date). Must be a valid date. Must no
       #
-      #   @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 10
+      #   @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 50
       #
       #   @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
