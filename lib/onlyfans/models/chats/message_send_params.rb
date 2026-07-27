@@ -60,11 +60,11 @@ module Onlyfans
         optional :previews, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
 
         # @!attribute price
-        #   Price for paid content (0 or between 3-200). In case this is not zero,
+        #   Price for paid content in USD (0 or between 3-200). In case this is not zero,
         #   **mediaFiles** is required
         #
-        #   @return [Integer, nil]
-        optional :price, Integer
+        #   @return [Float, nil]
+        optional :price, Float
 
         # @!attribute reply_to_message_id
         #   Mark this message as a reply to another (can be either your own, or the
@@ -115,8 +115,8 @@ module Onlyfans
         #
         #   @param previews [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
         #
-        #   @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
-        #   \*\*mediaFi
+        #   @param price [Float] Price for paid content in USD (0 or between 3-200). In case this is not zero,
+        #   \*\*
         #
         #   @param reply_to_message_id [Integer] Mark this message as a reply to another (can be either your own, or the recipien
         #

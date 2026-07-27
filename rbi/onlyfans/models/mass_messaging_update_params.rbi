@@ -77,12 +77,12 @@ module Onlyfans
       sig { params(previews: T::Array[String]).void }
       attr_writer :previews
 
-      # Price for paid content (0 or between 3-200). In case this is not zero,
+      # Price for paid content in USD (0 or between 3-200). In case this is not zero,
       # **mediaFiles** is required
-      sig { returns(T.nilable(Integer)) }
+      sig { returns(T.nilable(Float)) }
       attr_reader :price
 
-      sig { params(price: Integer).void }
+      sig { params(price: Float).void }
       attr_writer :price
 
       # Schedule the chat message in the future (UTC timezone).
@@ -117,7 +117,7 @@ module Onlyfans
           locked_text: T::Boolean,
           media_files: T::Array[String],
           previews: T::Array[String],
-          price: Integer,
+          price: Float,
           scheduled_date: String,
           user_ids: T::Array[String],
           user_lists: T::Array[String],
@@ -146,7 +146,7 @@ module Onlyfans
         # not 0). Will be shown if `price` is provided. All `previews` values must also
         # exist in the `mediaFiles` array.
         previews: nil,
-        # Price for paid content (0 or between 3-200). In case this is not zero,
+        # Price for paid content in USD (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
         price: nil,
         # Schedule the chat message in the future (UTC timezone).
@@ -171,7 +171,7 @@ module Onlyfans
             locked_text: T::Boolean,
             media_files: T::Array[String],
             previews: T::Array[String],
-            price: Integer,
+            price: Float,
             scheduled_date: String,
             user_ids: T::Array[String],
             user_lists: T::Array[String],

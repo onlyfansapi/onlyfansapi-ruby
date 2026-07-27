@@ -10,7 +10,7 @@ module Onlyfans
         locked_text: bool,
         media_files: ::Array[String],
         previews: ::Array[String],
-        price: Integer,
+        price: Float,
         scheduled_date: String,
         user_ids: ::Array[String],
         user_lists: ::Array[String]
@@ -49,9 +49,9 @@ module Onlyfans
 
       def previews=: (::Array[String]) -> ::Array[String]
 
-      attr_reader price: Integer?
+      attr_reader price: Float?
 
-      def price=: (Integer) -> Integer
+      def price=: (Float) -> Float
 
       attr_reader scheduled_date: String?
 
@@ -74,7 +74,7 @@ module Onlyfans
         ?locked_text: bool,
         ?media_files: ::Array[String],
         ?previews: ::Array[String],
-        ?price: Integer,
+        ?price: Float,
         ?scheduled_date: String,
         ?user_ids: ::Array[String],
         ?user_lists: ::Array[String],
@@ -90,7 +90,7 @@ module Onlyfans
         locked_text: bool,
         media_files: ::Array[String],
         previews: ::Array[String],
-        price: Integer,
+        price: Float,
         scheduled_date: String,
         user_ids: ::Array[String],
         user_lists: ::Array[String],

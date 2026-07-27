@@ -10,7 +10,7 @@ module Onlyfans
           locked_text: bool,
           media_files: ::Array[top],
           previews: ::Array[top],
-          price: Integer,
+          price: Float,
           reply_to_message_id: Integer,
           rf_guest: String,
           rf_partner: String,
@@ -49,9 +49,9 @@ module Onlyfans
 
         def previews=: (::Array[top]) -> ::Array[top]
 
-        attr_reader price: Integer?
+        attr_reader price: Float?
 
-        def price=: (Integer) -> Integer
+        def price=: (Float) -> Float
 
         attr_reader reply_to_message_id: Integer?
 
@@ -81,7 +81,7 @@ module Onlyfans
           ?locked_text: bool,
           ?media_files: ::Array[top],
           ?previews: ::Array[top],
-          ?price: Integer,
+          ?price: Float,
           ?reply_to_message_id: Integer,
           ?rf_guest: String,
           ?rf_partner: String,
@@ -98,7 +98,7 @@ module Onlyfans
           locked_text: bool,
           media_files: ::Array[top],
           previews: ::Array[top],
-          price: Integer,
+          price: Float,
           reply_to_message_id: Integer,
           rf_guest: String,
           rf_partner: String,

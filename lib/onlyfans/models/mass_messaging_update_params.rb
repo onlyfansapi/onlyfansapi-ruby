@@ -63,11 +63,11 @@ module Onlyfans
       optional :previews, Onlyfans::Internal::Type::ArrayOf[String]
 
       # @!attribute price
-      #   Price for paid content (0 or between 3-200). In case this is not zero,
+      #   Price for paid content in USD (0 or between 3-200). In case this is not zero,
       #   **mediaFiles** is required
       #
-      #   @return [Integer, nil]
-      optional :price, Integer
+      #   @return [Float, nil]
+      optional :price, Float
 
       # @!attribute scheduled_date
       #   Schedule the chat message in the future (UTC timezone).
@@ -107,8 +107,8 @@ module Onlyfans
       #
       #   @param previews [Array<String>] Array of media file upload prefixed_ids, or OF media IDs (required if price is n
       #
-      #   @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
-      #   \*\*mediaFi
+      #   @param price [Float] Price for paid content in USD (0 or between 3-200). In case this is not zero,
+      #   \*\*
       #
       #   @param scheduled_date [String] Schedule the chat message in the future (UTC timezone).
       #
