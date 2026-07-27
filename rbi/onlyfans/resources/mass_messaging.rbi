@@ -33,7 +33,7 @@ module Onlyfans
           locked_text: T::Boolean,
           media_files: T::Array[String],
           previews: T::Array[String],
-          price: Integer,
+          price: Float,
           scheduled_date: String,
           user_ids: T::Array[String],
           user_lists: T::Array[String],
@@ -65,8 +65,8 @@ module Onlyfans
         # if price is not 0). Will be shown if `price` is provided. All `previews` values
         # must also exist in the `mediaFiles` array.
         previews: nil,
-        # Body param: Price for paid content (0 or between 3-200). In case this is not
-        # zero, **mediaFiles** is required
+        # Body param: Price for paid content in USD (0 or between 3-200). In case this is
+        # not zero, **mediaFiles** is required
         price: nil,
         # Body param: Schedule the chat message in the future (UTC timezone).
         scheduled_date: nil,
@@ -152,7 +152,7 @@ module Onlyfans
           locked_text: T::Boolean,
           media_files: T::Array[T.anything],
           previews: T::Array[T.anything],
-          price: Integer,
+          price: Float,
           rf_guest: String,
           rf_partner: String,
           rf_tag: String,
@@ -187,7 +187,7 @@ module Onlyfans
         # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
         # provided.
         previews: nil,
-        # Price for paid content (0 or between 3-200). In case this is not zero,
+        # Price for paid content in USD (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
         price: nil,
         # Array of OnlyFans Release Form Guest IDs to tag in your mass message

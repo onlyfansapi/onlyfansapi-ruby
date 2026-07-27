@@ -78,12 +78,12 @@ module Onlyfans
       sig { params(previews: T::Array[T.anything]).void }
       attr_writer :previews
 
-      # Price for paid content (0 or between 3-200). In case this is not zero,
+      # Price for paid content in USD (0 or between 3-200). In case this is not zero,
       # **mediaFiles** is required
-      sig { returns(T.nilable(Integer)) }
+      sig { returns(T.nilable(Float)) }
       attr_reader :price
 
-      sig { params(price: Integer).void }
+      sig { params(price: Float).void }
       attr_writer :price
 
       # Array of OnlyFans Release Form Guest IDs to tag in your mass message
@@ -146,7 +146,7 @@ module Onlyfans
           locked_text: T::Boolean,
           media_files: T::Array[T.anything],
           previews: T::Array[T.anything],
-          price: Integer,
+          price: Float,
           rf_guest: String,
           rf_partner: String,
           rf_tag: String,
@@ -180,7 +180,7 @@ module Onlyfans
         # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
         # provided.
         previews: nil,
-        # Price for paid content (0 or between 3-200). In case this is not zero,
+        # Price for paid content in USD (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
         price: nil,
         # Array of OnlyFans Release Form Guest IDs to tag in your mass message
@@ -213,7 +213,7 @@ module Onlyfans
             locked_text: T::Boolean,
             media_files: T::Array[T.anything],
             previews: T::Array[T.anything],
-            price: Integer,
+            price: Float,
             rf_guest: String,
             rf_partner: String,
             rf_tag: String,

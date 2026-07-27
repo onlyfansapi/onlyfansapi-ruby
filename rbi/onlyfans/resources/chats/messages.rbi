@@ -158,7 +158,7 @@ module Onlyfans
             locked_text: T::Boolean,
             media_files: T::Array[T.anything],
             previews: T::Array[T.anything],
-            price: Integer,
+            price: Float,
             reply_to_message_id: Integer,
             rf_guest: String,
             rf_partner: String,
@@ -189,8 +189,8 @@ module Onlyfans
           # integer indices referencing uploaded files in `mediaFiles`. Will be shown if
           # `price` is provided.
           previews: nil,
-          # Body param: Price for paid content (0 or between 3-200). In case this is not
-          # zero, **mediaFiles** is required
+          # Body param: Price for paid content in USD (0 or between 3-200). In case this is
+          # not zero, **mediaFiles** is required
           price: nil,
           # Body param: Mark this message as a reply to another (can be either your own, or
           # the recipient's)

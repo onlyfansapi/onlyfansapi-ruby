@@ -56,7 +56,7 @@ module Onlyfans
       #
       # @param previews [Array<String>] Body param: Array of media file upload prefixed_ids, or OF media IDs (required i
       #
-      # @param price [Integer] Body param: Price for paid content (0 or between 3-200). In case this is not zer
+      # @param price [Float] Body param: Price for paid content in USD (0 or between 3-200). In case this is
       #
       # @param scheduled_date [String] Body param: Schedule the chat message in the future (UTC timezone).
       #
@@ -194,8 +194,8 @@ module Onlyfans
       #
       # @param previews [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
       #
-      # @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
-      # \*\*mediaFi
+      # @param price [Float] Price for paid content in USD (0 or between 3-200). In case this is not zero,
+      # \*\*
       #
       # @param rf_guest [String] Array of OnlyFans Release Form Guest IDs to tag in your mass message
       #

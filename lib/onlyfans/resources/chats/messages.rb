@@ -235,7 +235,7 @@ module Onlyfans
         #
         # @param previews [Array<Object>] Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or inte
         #
-        # @param price [Integer] Body param: Price for paid content (0 or between 3-200). In case this is not zer
+        # @param price [Float] Body param: Price for paid content in USD (0 or between 3-200). In case this is
         #
         # @param reply_to_message_id [Integer] Body param: Mark this message as a reply to another (can be either your own, or
         #
