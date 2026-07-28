@@ -6,7 +6,7 @@ class Onlyfans::Test::Resources::UserListsTest < Onlyfans::Test::ResourceTest
   def test_create_required_params
     skip("Mock server tests are disabled")
 
-    response = @only_fans_api.user_lists.create("acct_XXXXXXXXXXXXXXX", name: "quwgwlaqvwpvskghhgsps")
+    response = @only_fans_api.user_lists.create("acct_XXXXXXXXXXXXXXX", name: "uopqbezqdvxomnnbvnysw")
 
     assert_pattern do
       response => Onlyfans::Models::UserListCreateResponse
