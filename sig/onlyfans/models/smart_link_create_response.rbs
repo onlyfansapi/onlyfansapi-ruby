@@ -159,7 +159,7 @@ module Onlyfans
           free_trial_days: Integer,
           link_type: String,
           name: String,
-          revenue: String?,
+          revenue: String,
           subscribers_count: Integer,
           traffic_redirect_url: String,
           updated_at: String
@@ -206,7 +206,9 @@ module Onlyfans
 
         def name=: (String) -> String
 
-        attr_accessor revenue: String?
+        attr_reader revenue: String?
+
+        def revenue=: (String) -> String
 
         attr_reader subscribers_count: Integer?
 
@@ -230,7 +232,7 @@ module Onlyfans
           ?free_trial_days: Integer,
           ?link_type: String,
           ?name: String,
-          ?revenue: String?,
+          ?revenue: String,
           ?subscribers_count: Integer,
           ?traffic_redirect_url: String,
           ?updated_at: String
@@ -246,7 +248,7 @@ module Onlyfans
           free_trial_days: Integer,
           link_type: String,
           name: String,
-          revenue: String?,
+          revenue: String,
           subscribers_count: Integer,
           traffic_redirect_url: String,
           updated_at: String
