@@ -15,7 +15,8 @@ module Onlyfans
           rf_guest: String,
           rf_partner: String,
           rf_tag: String,
-          text: String
+          text: String,
+          idempotency_key: String
         }
         & Onlyfans::Internal::Type::request_parameters
 
@@ -73,6 +74,10 @@ module Onlyfans
 
         def text=: (String) -> String
 
+        attr_reader idempotency_key: String?
+
+        def idempotency_key=: (String) -> String
+
         def initialize: (
           account: String,
           chat_id: String,
@@ -87,6 +92,7 @@ module Onlyfans
           ?rf_partner: String,
           ?rf_tag: String,
           ?text: String,
+          ?idempotency_key: String,
           ?request_options: Onlyfans::request_opts
         ) -> void
 
@@ -104,6 +110,7 @@ module Onlyfans
           rf_partner: String,
           rf_tag: String,
           text: String,
+          idempotency_key: String,
           request_options: Onlyfans::RequestOptions
         }
 

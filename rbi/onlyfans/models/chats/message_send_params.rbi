@@ -118,6 +118,12 @@ module Onlyfans
         sig { params(text: String).void }
         attr_writer :text
 
+        sig { returns(T.nilable(String)) }
+        attr_reader :idempotency_key
+
+        sig { params(idempotency_key: String).void }
+        attr_writer :idempotency_key
+
         sig do
           params(
             account: String,
@@ -134,6 +140,7 @@ module Onlyfans
             rf_partner: String,
             rf_tag: String,
             text: String,
+            idempotency_key: String,
             request_options: Onlyfans::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
@@ -171,6 +178,7 @@ module Onlyfans
           rf_tag: nil,
           # The message text content. Required unless a media file is present.
           text: nil,
+          idempotency_key: nil,
           request_options: {}
         )
         end
@@ -192,6 +200,7 @@ module Onlyfans
               rf_partner: String,
               rf_tag: String,
               text: String,
+              idempotency_key: String,
               request_options: Onlyfans::RequestOptions
             }
           )
