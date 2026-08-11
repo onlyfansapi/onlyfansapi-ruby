@@ -51,6 +51,12 @@ module Onlyfans
       # track progress, GET `/{account}/me` returns data.subscribersCount (the current
       # active-subscriber count) as a total.
       #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
+      #
       # @overload list_active(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
       # @param account [String] The Account ID
@@ -90,6 +96,12 @@ module Onlyfans
       # authoritative flag). Do NOT use the page's item count to detect the last page —
       # OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on
       # a non-final page because it filters entries server-side; no fans are skipped.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       #
       # @overload list_all(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
@@ -131,6 +143,12 @@ module Onlyfans
       # page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for
       # limit=20) on a non-final page because it filters entries server-side; no fans
       # are skipped.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       #
       # @overload list_expired(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #

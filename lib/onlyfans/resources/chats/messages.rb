@@ -219,7 +219,31 @@ module Onlyfans
         #
         # Send a new message to a chat.
         #
-        # @overload send_(chat_id, account:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
+        # **Idempotency.** Pass an `Idempotency-Key` header to make retries safe. The
+        # first request with a given key is executed normally and its response is stored
+        # for **24 hours**; any later request with the same key returns that stored
+        # response, plus an `Idempotent-Replayed: true` header, without contacting
+        # OnlyFans and without consuming credits. The replayed body is the original
+        # response with its `_meta._credits` block rewritten to show `used: 0` and your
+        # current balance.
+        #
+        # Keys are scoped to your team, this endpoint and the account in the URL, so the
+        # same value can be reused safely against a different account. Use a fresh, unique
+        # value (a UUID works well) for each message you send; it must be 1-255 printable
+        # ASCII characters.
+        #
+        # - `400 IDEMPOTENCY_KEY_INVALID` — the header value is empty, too long, or
+        #   contains non-ASCII characters.
+        # - `409 IDEMPOTENCY_CONFLICT` — an earlier request with this key is still
+        #   running. Retry once it finishes.
+        # - `422 IDEMPOTENCY_KEY_MISMATCH` — this key was already used with a different
+        #   request body or chat.
+        #
+        # Responses with a `5xx` status (and `408`/`429`) are never stored, so a failed
+        # send can be retried with the same key. The header is optional: omit it and the
+        # endpoint behaves exactly as before.
+        #
+        # @overload send_(chat_id, account:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, idempotency_key: nil, request_options: {})
         #
         # @param chat_id [String] Path param: The ID of the chat (usually a fan's OnlyFans User ID)
         #
@@ -247,6 +271,8 @@ module Onlyfans
         #
         # @param text [String] Body param: The message text content. Required unless a media file is present.
         #
+        # @param idempotency_key [String] Header param
+        #
         # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
         #
         # @return [Onlyfans::Models::Chats::MessageSendResponse]
@@ -258,10 +284,12 @@ module Onlyfans
             parsed.delete(:account) do
               raise ArgumentError.new("missing required path argument #{_1}")
             end
+          header_params = {idempotency_key: "idempotency-key"}
           @client.request(
             method: :post,
             path: ["api/%1$s/chats/%2$s/messages", account, chat_id],
-            body: parsed,
+            headers: parsed.slice(*header_params.keys).transform_keys(header_params),
+            body: parsed.except(*header_params.keys),
             model: Onlyfans::Models::Chats::MessageSendResponse,
             options: options
           )

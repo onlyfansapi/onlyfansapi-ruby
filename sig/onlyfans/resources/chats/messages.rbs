@@ -63,6 +63,7 @@ module Onlyfans
           ?rf_partner: String,
           ?rf_tag: String,
           ?text: String,
+          ?idempotency_key: String,
           ?request_options: Onlyfans::request_opts
         ) -> Onlyfans::Models::Chats::MessageSendResponse
 

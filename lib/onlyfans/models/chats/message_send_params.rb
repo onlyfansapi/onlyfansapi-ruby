@@ -97,7 +97,12 @@ module Onlyfans
         #   @return [String, nil]
         optional :text, String
 
-        # @!method initialize(account:, chat_id:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
+        # @!attribute idempotency_key
+        #
+        #   @return [String, nil]
+        optional :idempotency_key, String
+
+        # @!method initialize(account:, chat_id:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, idempotency_key: nil, request_options: {})
         #   Some parameter documentations has been truncated, see
         #   {Onlyfans::Models::Chats::MessageSendParams} for more details.
         #
@@ -127,6 +132,8 @@ module Onlyfans
         #   @param rf_tag [String] Array of OnlyFans Creator User IDs to tag in your message
         #
         #   @param text [String] The message text content. Required unless a media file is present.
+        #
+        #   @param idempotency_key [String]
         #
         #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 
