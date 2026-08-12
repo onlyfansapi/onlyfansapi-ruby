@@ -89,6 +89,7 @@ module Onlyfans
         | :public_profiles
         | :fans
         | :followings
+        | :profile_visitors
 
       module Type
         extend Onlyfans::Internal::Type::Enum
@@ -104,6 +105,7 @@ module Onlyfans
         PUBLIC_PROFILES: :public_profiles
         FANS: :fans
         FOLLOWINGS: :followings
+        PROFILE_VISITORS: :profile_visitors
 
         def self?.values: -> ::Array[Onlyfans::Models::DataExportCreateParams::type_]
       end

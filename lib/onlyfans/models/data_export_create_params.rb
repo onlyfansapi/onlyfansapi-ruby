@@ -16,7 +16,8 @@ module Onlyfans
       # @!attribute file_type
       #   The output file format. Supported formats vary by export type: `csv` or `xlsx`
       #   for transactions, chat_messages, trial_links, tracking_links, smart_links,
-      #   payouts, chargebacks, public_profiles, fans, followings; `zip` for media_vault.
+      #   payouts, chargebacks, public_profiles, fans, followings, profile_visitors; `zip`
+      #   for media_vault.
       #
       #   @return [Symbol, Onlyfans::Models::DataExportCreateParams::FileType]
       required :file_type, enum: -> { Onlyfans::DataExportCreateParams::FileType }
@@ -28,7 +29,9 @@ module Onlyfans
       required :start_date, String
 
       # @!attribute type
-      #   The type of data to export
+      #   The type of data to export. `profile_visitors` returns one row per account per
+      #   day, scraped one day at a time so the daily numbers are not aggregated away by
+      #   OnlyFans.
       #
       #   @return [Symbol, Onlyfans::Models::DataExportCreateParams::Type]
       required :type, enum: -> { Onlyfans::DataExportCreateParams::Type }
@@ -86,7 +89,7 @@ module Onlyfans
       #
       #   @param start_date [String] The start date for the export (ISO 8601 format).
       #
-      #   @param type [Symbol, Onlyfans::Models::DataExportCreateParams::Type] The type of data to export
+      #   @param type [Symbol, Onlyfans::Models::DataExportCreateParams::Type] The type of data to export. `profile_visitors` returns one row per account per d
       #
       #   @param account_ids [Array<String>] Array of account prefixed IDs to export data from. Not required for `public_prof
       #
@@ -100,7 +103,8 @@ module Onlyfans
 
       # The output file format. Supported formats vary by export type: `csv` or `xlsx`
       # for transactions, chat_messages, trial_links, tracking_links, smart_links,
-      # payouts, chargebacks, public_profiles, fans, followings; `zip` for media_vault.
+      # payouts, chargebacks, public_profiles, fans, followings, profile_visitors; `zip`
+      # for media_vault.
       module FileType
         extend Onlyfans::Internal::Type::Enum
 
@@ -112,7 +116,9 @@ module Onlyfans
         #   @return [Array<Symbol>]
       end
 
-      # The type of data to export
+      # The type of data to export. `profile_visitors` returns one row per account per
+      # day, scraped one day at a time so the daily numbers are not aggregated away by
+      # OnlyFans.
       module Type
         extend Onlyfans::Internal::Type::Enum
 
@@ -127,6 +133,7 @@ module Onlyfans
         PUBLIC_PROFILES = :public_profiles
         FANS = :fans
         FOLLOWINGS = :followings
+        PROFILE_VISITORS = :profile_visitors
 
         # @!method self.values
         #   @return [Array<Symbol>]
