@@ -18,7 +18,7 @@ module Onlyfans
       #
       # @param start_date [String] The start date for the export (ISO 8601 format).
       #
-      # @param type [Symbol, Onlyfans::Models::DataExportCreateParams::Type] The type of data to export
+      # @param type [Symbol, Onlyfans::Models::DataExportCreateParams::Type] The type of data to export. `profile_visitors` returns one row per account per d
       #
       # @param account_ids [Array<String>] Array of account prefixed IDs to export data from. Not required for `public_prof
       #

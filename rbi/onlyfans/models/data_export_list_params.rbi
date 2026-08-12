@@ -170,6 +170,11 @@ module Onlyfans
             :tracking_links,
             Onlyfans::DataExportListParams::Type::TaggedSymbol
           )
+        SMART_LINKS =
+          T.let(
+            :smart_links,
+            Onlyfans::DataExportListParams::Type::TaggedSymbol
+          )
         PAYOUTS =
           T.let(:payouts, Onlyfans::DataExportListParams::Type::TaggedSymbol)
         CHARGEBACKS =
@@ -180,6 +185,14 @@ module Onlyfans
         PUBLIC_PROFILES =
           T.let(
             :public_profiles,
+            Onlyfans::DataExportListParams::Type::TaggedSymbol
+          )
+        FANS = T.let(:fans, Onlyfans::DataExportListParams::Type::TaggedSymbol)
+        FOLLOWINGS =
+          T.let(:followings, Onlyfans::DataExportListParams::Type::TaggedSymbol)
+        PROFILE_VISITORS =
+          T.let(
+            :profile_visitors,
             Onlyfans::DataExportListParams::Type::TaggedSymbol
           )
 
