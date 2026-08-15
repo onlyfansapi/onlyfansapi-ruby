@@ -62,6 +62,10 @@ module Onlyfans
           end_date: String,
           start_date: String,
           detailed: T.nilable(T::Boolean),
+          detailed_type:
+            T.nilable(
+              Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::OrSymbol
+            ),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::StatisticGetSubscriberMetricsResponse)
       end
@@ -75,6 +79,9 @@ module Onlyfans
         # Include paid and free fan metrics. Will slow down the response time, and might
         # time out if timeframe is too large. Default = `false`
         detailed: nil,
+        # Use only with `detailed=true` - otherwise, it has no effect. Filter the
+        # subscriber statistics (default = total)
+        detailed_type: nil,
         request_options: {}
       )
       end
