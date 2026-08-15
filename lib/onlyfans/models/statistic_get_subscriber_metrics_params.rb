@@ -31,7 +31,16 @@ module Onlyfans
       #   @return [Boolean, nil]
       optional :detailed, Onlyfans::Internal::Type::Boolean, nil?: true
 
-      # @!method initialize(account:, end_date:, start_date:, detailed: nil, request_options: {})
+      # @!attribute detailed_type
+      #   Use only with `detailed=true` - otherwise, it has no effect. Filter the
+      #   subscriber statistics (default = total)
+      #
+      #   @return [Symbol, Onlyfans::Models::StatisticGetSubscriberMetricsParams::DetailedType, nil]
+      optional :detailed_type,
+               enum: -> { Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType },
+               nil?: true
+
+      # @!method initialize(account:, end_date:, start_date:, detailed: nil, detailed_type: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::StatisticGetSubscriberMetricsParams} for more details.
       #
@@ -43,7 +52,22 @@ module Onlyfans
       #
       #   @param detailed [Boolean, nil] Include paid and free fan metrics. Will slow down the response time, and might t
       #
+      #   @param detailed_type [Symbol, Onlyfans::Models::StatisticGetSubscriberMetricsParams::DetailedType, nil] Use only with `detailed=true` - otherwise, it has no effect. Filter the subscrib
+      #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+
+      # Use only with `detailed=true` - otherwise, it has no effect. Filter the
+      # subscriber statistics (default = total)
+      module DetailedType
+        extend Onlyfans::Internal::Type::Enum
+
+        TOTAL = :total
+        RENEW = :renew
+        NEW = :new
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
     end
   end
 end
