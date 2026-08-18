@@ -7,7 +7,11 @@ class Onlyfans::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfans::Test
     skip("Mock server tests are disabled")
 
     response =
-      @only_fans_api.media.vault.lists.media.add("in", account: "acct_XXXXXXXXXXXXXXX", media_ids: ["string"])
+      @only_fans_api.media.vault.lists.media.add(
+        "dolores",
+        account: "acct_XXXXXXXXXXXXXXX",
+        media_ids: ["string"]
+      )
 
     assert_pattern do
       response => Onlyfans::Models::Media::Vault::Lists::MediaAddResponse
@@ -26,7 +30,7 @@ class Onlyfans::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfans::Test
 
     response =
       @only_fans_api.media.vault.lists.media.remove(
-        "in",
+        "dolores",
         account: "acct_XXXXXXXXXXXXXXX",
         media_ids: ["string"]
       )
