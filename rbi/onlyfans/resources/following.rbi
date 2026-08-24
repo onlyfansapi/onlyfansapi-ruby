@@ -4,9 +4,11 @@ module Onlyfans
   module Resources
     # APIs for managing OnlyFans followings (people you're subscribed to)
     class Following
-      # Get a paginated list of followings for an Account. OnlyFans returns this list
-      # newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired
-      # list does not share this order, so do not assume it applies there.
+      # Get a paginated list of followings for an Account. By default OnlyFans returns
+      # this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The
+      # expired list does not share this order, so do not assume it applies there. Pass
+      # `sort` (optionally with `sortDirection`) to reorder the list — see the parameter
+      # description for the caveat that OnlyFans persists the chosen order account-wide.
       sig do
         params(
           account: String,
@@ -14,6 +16,11 @@ module Onlyfans
           limit: Integer,
           offset: Integer,
           query: T.nilable(String),
+          sort: T.nilable(Onlyfans::FollowingListActiveParams::Sort::OrSymbol),
+          sort_direction:
+            T.nilable(
+              Onlyfans::FollowingListActiveParams::SortDirection::OrSymbol
+            ),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::FollowingListActiveResponse)
       end
@@ -28,13 +35,26 @@ module Onlyfans
         offset: nil,
         # Search within following name/username.
         query: nil,
+        # Order the list by `last_activity` (the followed creator's last activity),
+        # `expire_date` (subscription expiry), `subscribe_date` (subscription start) or
+        # `is_expired` (expired first — OnlyFans only offers this one on the expired
+        # list). Omit it to keep whichever order is currently stored for the account.
+        # **Note:** OnlyFans persists this order account-wide, so it also applies to later
+        # requests that omit `sort` and to the creator's own onlyfans.com UI, until it is
+        # changed again. This field is required when <code>sortDirection</code> is
+        # present.
+        sort: nil,
+        # Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+        sort_direction: nil,
         request_options: {}
       )
       end
 
-      # Get a paginated list of followings for an Account. OnlyFans returns this list
-      # newest-first, sorted by `subscribedByData.subscribeAt` descending. The expired
-      # list does not share this order, so do not assume it applies there.
+      # Get a paginated list of followings for an Account. By default OnlyFans returns
+      # this list newest-first, sorted by `subscribedByData.subscribeAt` descending. The
+      # expired list does not share this order, so do not assume it applies there. Pass
+      # `sort` (optionally with `sortDirection`) to reorder the list — see the parameter
+      # description for the caveat that OnlyFans persists the chosen order account-wide.
       sig do
         params(
           account: String,
@@ -42,6 +62,11 @@ module Onlyfans
           limit: Integer,
           offset: Integer,
           query: T.nilable(String),
+          sort: T.nilable(Onlyfans::FollowingListAllParams::Sort::OrSymbol),
+          sort_direction:
+            T.nilable(
+              Onlyfans::FollowingListAllParams::SortDirection::OrSymbol
+            ),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::FollowingListAllResponse)
       end
@@ -56,6 +81,17 @@ module Onlyfans
         offset: nil,
         # Search within following name/username.
         query: nil,
+        # Order the list by `last_activity` (the followed creator's last activity),
+        # `expire_date` (subscription expiry), `subscribe_date` (subscription start) or
+        # `is_expired` (expired first — OnlyFans only offers this one on the expired
+        # list). Omit it to keep whichever order is currently stored for the account.
+        # **Note:** OnlyFans persists this order account-wide, so it also applies to later
+        # requests that omit `sort` and to the creator's own onlyfans.com UI, until it is
+        # changed again. This field is required when <code>sortDirection</code> is
+        # present.
+        sort: nil,
+        # Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+        sort_direction: nil,
         request_options: {}
       )
       end
@@ -66,7 +102,10 @@ module Onlyfans
       # expirations, page through the full list each cycle (`limit=50`, follow
       # `_pagination.next_page` until it is null) and diff it against your own store
       # using `subscribedByData.expiredAt`. Do NOT stop early at the first entry you
-      # have already seen, as that can silently skip real expirations.
+      # have already seen, as that can silently skip real expirations. Pass
+      # `sort=expire_date` (optionally with `sortDirection`) to get a deterministic
+      # order instead — see the parameter description for the caveat that OnlyFans
+      # persists the chosen order account-wide.
       sig do
         params(
           account: String,
@@ -74,6 +113,11 @@ module Onlyfans
           limit: Integer,
           offset: Integer,
           query: T.nilable(String),
+          sort: T.nilable(Onlyfans::FollowingListExpiredParams::Sort::OrSymbol),
+          sort_direction:
+            T.nilable(
+              Onlyfans::FollowingListExpiredParams::SortDirection::OrSymbol
+            ),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::FollowingListExpiredResponse)
       end
@@ -88,6 +132,17 @@ module Onlyfans
         offset: nil,
         # Search within following name/username.
         query: nil,
+        # Order the list by `last_activity` (the followed creator's last activity),
+        # `expire_date` (subscription expiry), `subscribe_date` (subscription start) or
+        # `is_expired` (expired first — OnlyFans only offers this one on the expired
+        # list). Omit it to keep whichever order is currently stored for the account.
+        # **Note:** OnlyFans persists this order account-wide, so it also applies to later
+        # requests that omit `sort` and to the creator's own onlyfans.com UI, until it is
+        # changed again. This field is required when <code>sortDirection</code> is
+        # present.
+        sort: nil,
+        # Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+        sort_direction: nil,
         request_options: {}
       )
       end
