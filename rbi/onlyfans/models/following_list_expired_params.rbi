@@ -46,6 +46,29 @@ module Onlyfans
       sig { returns(T.nilable(String)) }
       attr_accessor :query
 
+      # Order the list by `last_activity` (the followed creator's last activity),
+      # `expire_date` (subscription expiry), `subscribe_date` (subscription start) or
+      # `is_expired` (expired first — OnlyFans only offers this one on the expired
+      # list). Omit it to keep whichever order is currently stored for the account.
+      # **Note:** OnlyFans persists this order account-wide, so it also applies to later
+      # requests that omit `sort` and to the creator's own onlyfans.com UI, until it is
+      # changed again. This field is required when <code>sortDirection</code> is
+      # present.
+      sig do
+        returns(T.nilable(Onlyfans::FollowingListExpiredParams::Sort::OrSymbol))
+      end
+      attr_accessor :sort
+
+      # Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+      sig do
+        returns(
+          T.nilable(
+            Onlyfans::FollowingListExpiredParams::SortDirection::OrSymbol
+          )
+        )
+      end
+      attr_accessor :sort_direction
+
       sig do
         params(
           account: String,
@@ -53,6 +76,11 @@ module Onlyfans
           limit: Integer,
           offset: Integer,
           query: T.nilable(String),
+          sort: T.nilable(Onlyfans::FollowingListExpiredParams::Sort::OrSymbol),
+          sort_direction:
+            T.nilable(
+              Onlyfans::FollowingListExpiredParams::SortDirection::OrSymbol
+            ),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -66,6 +94,17 @@ module Onlyfans
         offset: nil,
         # Search within following name/username.
         query: nil,
+        # Order the list by `last_activity` (the followed creator's last activity),
+        # `expire_date` (subscription expiry), `subscribe_date` (subscription start) or
+        # `is_expired` (expired first — OnlyFans only offers this one on the expired
+        # list). Omit it to keep whichever order is currently stored for the account.
+        # **Note:** OnlyFans persists this order account-wide, so it also applies to later
+        # requests that omit `sort` and to the creator's own onlyfans.com UI, until it is
+        # changed again. This field is required when <code>sortDirection</code> is
+        # present.
+        sort: nil,
+        # Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+        sort_direction: nil,
         request_options: {}
       )
       end
@@ -78,6 +117,12 @@ module Onlyfans
             limit: Integer,
             offset: Integer,
             query: T.nilable(String),
+            sort:
+              T.nilable(Onlyfans::FollowingListExpiredParams::Sort::OrSymbol),
+            sort_direction:
+              T.nilable(
+                Onlyfans::FollowingListExpiredParams::SortDirection::OrSymbol
+              ),
             request_options: Onlyfans::RequestOptions
           }
         )
@@ -216,6 +261,85 @@ module Onlyfans
           end
           def self.values
           end
+        end
+      end
+
+      # Order the list by `last_activity` (the followed creator's last activity),
+      # `expire_date` (subscription expiry), `subscribe_date` (subscription start) or
+      # `is_expired` (expired first — OnlyFans only offers this one on the expired
+      # list). Omit it to keep whichever order is currently stored for the account.
+      # **Note:** OnlyFans persists this order account-wide, so it also applies to later
+      # requests that omit `sort` and to the creator's own onlyfans.com UI, until it is
+      # changed again. This field is required when <code>sortDirection</code> is
+      # present.
+      module Sort
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Onlyfans::FollowingListExpiredParams::Sort)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        LAST_ACTIVITY =
+          T.let(
+            :last_activity,
+            Onlyfans::FollowingListExpiredParams::Sort::TaggedSymbol
+          )
+        EXPIRE_DATE =
+          T.let(
+            :expire_date,
+            Onlyfans::FollowingListExpiredParams::Sort::TaggedSymbol
+          )
+        SUBSCRIBE_DATE =
+          T.let(
+            :subscribe_date,
+            Onlyfans::FollowingListExpiredParams::Sort::TaggedSymbol
+          )
+        IS_EXPIRED =
+          T.let(
+            :is_expired,
+            Onlyfans::FollowingListExpiredParams::Sort::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[Onlyfans::FollowingListExpiredParams::Sort::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+      module SortDirection
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Onlyfans::FollowingListExpiredParams::SortDirection)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        ASC =
+          T.let(
+            :asc,
+            Onlyfans::FollowingListExpiredParams::SortDirection::TaggedSymbol
+          )
+        DESC =
+          T.let(
+            :desc,
+            Onlyfans::FollowingListExpiredParams::SortDirection::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              Onlyfans::FollowingListExpiredParams::SortDirection::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
         end
       end
     end
