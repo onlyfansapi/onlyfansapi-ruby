@@ -3,7 +3,8 @@
 module Onlyfans
   module Resources
     class MassMessaging
-      # Get the content of a mass message.
+      # Get the content and settings of a mass message, including a message scheduled
+      # for later.
       sig do
         params(
           id: String,
@@ -21,7 +22,8 @@ module Onlyfans
       )
       end
 
-      # Update a mass message.
+      # Update the content, recipients, media, price, or scheduled send time of an
+      # existing mass message.
       sig do
         params(
           id: String,
@@ -78,7 +80,8 @@ module Onlyfans
       )
       end
 
-      # List the pending or recently sent mass messages in the message queue.
+      # List pending, scheduled, and recently sent mass messages. Use an item ID to
+      # retrieve, update, reschedule, delete, or unsend the message.
       sig do
         params(
           account: String,

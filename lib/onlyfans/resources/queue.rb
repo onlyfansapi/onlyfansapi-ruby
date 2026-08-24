@@ -6,19 +6,22 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::QueueListParams} for more details.
       #
-      # List posts and messages in the queue.
+      # List scheduled posts and mass messages for a date range. Use the type filter to
+      # return only posts, messages, or both.
       #
-      # @overload list(account, limit:, publish_date_end:, publish_date_start:, timezone:, request_options: {})
+      # @overload list(account, publish_date_end:, publish_date_start:, timezone:, limit: nil, type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
-      # @param limit [Integer] Maximum number of queue items to return (default = 20)
+      # @param publish_date_end [String] Latest publish date to return. Must be a valid date. Must be a valid date. Must
       #
-      # @param publish_date_end [String] Latest publish date to return
+      # @param publish_date_start [String] Earliest publish date to return (must be at least today). Must be a valid date.
       #
-      # @param publish_date_start [String] Earliest publish date to return (must be at least today)
+      # @param timezone [String] Timezone of the provided dates. [View available timezone values](https://www.php
       #
-      # @param timezone [String] Time timezone of the provided dates. [View available timezone values](https://ww
+      # @param limit [Integer] Maximum number of queue items to return (default 20). Must be at least 1. Must n
+      #
+      # @param type [Array<Symbol, Onlyfans::Models::QueueListParams::Type>]
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

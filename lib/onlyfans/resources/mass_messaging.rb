@@ -6,7 +6,8 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::MassMessagingRetrieveParams} for more details.
       #
-      # Get the content of a mass message.
+      # Get the content and settings of a mass message, including a message scheduled
+      # for later.
       #
       # @overload retrieve(id, account:, request_options: {})
       #
@@ -36,7 +37,8 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::MassMessagingUpdateParams} for more details.
       #
-      # Update a mass message.
+      # Update the content, recipients, media, price, or scheduled send time of an
+      # existing mass message.
       #
       # @overload update(id, account:, text:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
@@ -84,7 +86,8 @@ module Onlyfans
         )
       end
 
-      # List the pending or recently sent mass messages in the message queue.
+      # List pending, scheduled, and recently sent mass messages. Use an item ID to
+      # retrieve, update, reschedule, delete, or unsend the message.
       #
       # @overload list(account, request_options: {})
       #

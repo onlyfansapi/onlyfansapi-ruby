@@ -3,10 +3,11 @@ module Onlyfans
     type queue_list_params =
       {
         account: String,
-        limit: Integer,
         publish_date_end: String,
         publish_date_start: String,
-        timezone: String
+        timezone: String,
+        limit: Integer,
+        type: ::Array[Onlyfans::Models::QueueListParams::type_]
       }
       & Onlyfans::Internal::Type::request_parameters
 
@@ -16,31 +17,52 @@ module Onlyfans
 
       attr_accessor account: String
 
-      attr_accessor limit: Integer
-
       attr_accessor publish_date_end: String
 
       attr_accessor publish_date_start: String
 
       attr_accessor timezone: String
 
+      attr_reader limit: Integer?
+
+      def limit=: (Integer) -> Integer
+
+      attr_reader type: ::Array[Onlyfans::Models::QueueListParams::type_]?
+
+      def type=: (
+        ::Array[Onlyfans::Models::QueueListParams::type_]
+      ) -> ::Array[Onlyfans::Models::QueueListParams::type_]
+
       def initialize: (
         account: String,
-        limit: Integer,
         publish_date_end: String,
         publish_date_start: String,
         timezone: String,
+        ?limit: Integer,
+        ?type: ::Array[Onlyfans::Models::QueueListParams::type_],
         ?request_options: Onlyfans::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
-        limit: Integer,
         publish_date_end: String,
         publish_date_start: String,
         timezone: String,
+        limit: Integer,
+        type: ::Array[Onlyfans::Models::QueueListParams::type_],
         request_options: Onlyfans::RequestOptions
       }
+
+      type type_ = :chat | :post
+
+      module Type
+        extend Onlyfans::Internal::Type::Enum
+
+        CHAT: :chat
+        POST: :post
+
+        def self?.values: -> ::Array[Onlyfans::Models::QueueListParams::type_]
+      end
     end
   end
 end
