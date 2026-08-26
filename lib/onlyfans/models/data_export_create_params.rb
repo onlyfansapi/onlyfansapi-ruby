@@ -15,9 +15,9 @@ module Onlyfans
 
       # @!attribute file_type
       #   The output file format. Supported formats vary by export type: `csv` or `xlsx`
-      #   for transactions, chat_messages, trial_links, tracking_links, smart_links,
-      #   payouts, chargebacks, public_profiles, fans, followings, profile_visitors; `zip`
-      #   for media_vault.
+      #   for transactions, chat_messages, fansly_chat_messages, trial_links,
+      #   tracking_links, smart_links, payouts, chargebacks, public_profiles, fans,
+      #   followings, profile_visitors; `zip` for media_vault.
       #
       #   @return [Symbol, Onlyfans::Models::DataExportCreateParams::FileType]
       required :file_type, enum: -> { Onlyfans::DataExportCreateParams::FileType }
@@ -29,16 +29,18 @@ module Onlyfans
       required :start_date, String
 
       # @!attribute type
-      #   The type of data to export. `profile_visitors` returns one row per account per
-      #   day, scraped one day at a time so the daily numbers are not aggregated away by
-      #   OnlyFans.
+      #   The type of data to export. Use `fansly_chat_messages` to export Fansly chat
+      #   messages (all other types are OnlyFans). `profile_visitors` returns one row per
+      #   account per day, scraped one day at a time so the daily numbers are not
+      #   aggregated away by OnlyFans.
       #
       #   @return [Symbol, Onlyfans::Models::DataExportCreateParams::Type]
       required :type, enum: -> { Onlyfans::DataExportCreateParams::Type }
 
       # @!attribute account_ids
       #   Array of account prefixed IDs to export data from. Not required for
-      #   `public_profiles` type.
+      #   `public_profiles` type. For `fansly_chat_messages`, pass Fansly account prefixed
+      #   IDs (`fansly_acct_...`); all other types take OnlyFans account IDs.
       #
       #   @return [Array<String>, nil]
       optional :account_ids, Onlyfans::Internal::Type::ArrayOf[String]
@@ -61,20 +63,23 @@ module Onlyfans
       #   account, max 10,000,000), `maxChats` (optional per-account chat scrape limit),
       #   `skipMassMessages` (optional, bool), `chatIds` (optional array of numeric
       #   fan/chat IDs; filters output and can drastically reduce totals). For
-      #   `media_vault`: `mediaType` (required, one of: `all`, `photo`, `gif`, `video`,
-      #   `audio`). For `fans`: `type` (required, one of: `all`, `active`, `expired`,
-      #   `latest`). For `followings`: `type` (required, one of: `all`, `active`,
-      #   `expired`). For `public_profiles`: `query` (optional, full-text search),
-      #   `gender` (optional, filter: male, female, trans, couple), `minSubscribePrice`
-      #   (optional, USD), `maxSubscribePrice` (optional, USD), `location` (optional),
-      #   `minPostsCount` (optional, minimum posts), `minPhotosCount` (optional, minimum
-      #   photos), `minVideosCount` (optional, minimum videos), `minSubscribersCount`
-      #   (optional, minimum subscribers), `maxSubscribersCount` (optional, maximum
-      #   subscribers), `minJoinDate` (optional, ISO 8601 date), `minLastSeenAt`
-      #   (optional, ISO 8601 date), `createdAtFrom` (optional, ISO 8601 date, profile
-      #   added to DB after), `createdAtTo` (optional, ISO 8601 date, profile added to DB
-      #   before), `instagram` (optional), `twitter` (optional), `tiktok` (optional),
-      #   `maxResults` (optional, limit results).
+      #   `fansly_chat_messages`: `maxMessages` (required per account, max 10,000,000),
+      #   `maxChats` (optional per-account chat scrape limit), `chatIds` (optional array
+      #   of Fansly group ID strings; filters output and can drastically reduce totals).
+      #   For `media_vault`: `mediaType` (required, one of: `all`, `photo`, `gif`,
+      #   `video`, `audio`). For `fans`: `type` (required, one of: `all`, `active`,
+      #   `expired`, `latest`). For `followings`: `type` (required, one of: `all`,
+      #   `active`, `expired`). For `public_profiles`: `query` (optional, full-text
+      #   search), `gender` (optional, filter: male, female, trans, couple),
+      #   `minSubscribePrice` (optional, USD), `maxSubscribePrice` (optional, USD),
+      #   `location` (optional), `minPostsCount` (optional, minimum posts),
+      #   `minPhotosCount` (optional, minimum photos), `minVideosCount` (optional, minimum
+      #   videos), `minSubscribersCount` (optional, minimum subscribers),
+      #   `maxSubscribersCount` (optional, maximum subscribers), `minJoinDate` (optional,
+      #   ISO 8601 date), `minLastSeenAt` (optional, ISO 8601 date), `createdAtFrom`
+      #   (optional, ISO 8601 date, profile added to DB after), `createdAtTo` (optional,
+      #   ISO 8601 date, profile added to DB before), `instagram` (optional), `twitter`
+      #   (optional), `tiktok` (optional), `maxResults` (optional, limit results).
       #
       #   @return [Hash{Symbol=>Object}, nil]
       optional :options, Onlyfans::Internal::Type::HashOf[Onlyfans::Internal::Type::Unknown]
@@ -89,7 +94,7 @@ module Onlyfans
       #
       #   @param start_date [String] The start date for the export (ISO 8601 format).
       #
-      #   @param type [Symbol, Onlyfans::Models::DataExportCreateParams::Type] The type of data to export. `profile_visitors` returns one row per account per d
+      #   @param type [Symbol, Onlyfans::Models::DataExportCreateParams::Type] The type of data to export. Use `fansly_chat_messages` to export Fansly chat mes
       #
       #   @param account_ids [Array<String>] Array of account prefixed IDs to export data from. Not required for `public_prof
       #
@@ -102,9 +107,9 @@ module Onlyfans
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 
       # The output file format. Supported formats vary by export type: `csv` or `xlsx`
-      # for transactions, chat_messages, trial_links, tracking_links, smart_links,
-      # payouts, chargebacks, public_profiles, fans, followings, profile_visitors; `zip`
-      # for media_vault.
+      # for transactions, chat_messages, fansly_chat_messages, trial_links,
+      # tracking_links, smart_links, payouts, chargebacks, public_profiles, fans,
+      # followings, profile_visitors; `zip` for media_vault.
       module FileType
         extend Onlyfans::Internal::Type::Enum
 
@@ -116,9 +121,10 @@ module Onlyfans
         #   @return [Array<Symbol>]
       end
 
-      # The type of data to export. `profile_visitors` returns one row per account per
-      # day, scraped one day at a time so the daily numbers are not aggregated away by
-      # OnlyFans.
+      # The type of data to export. Use `fansly_chat_messages` to export Fansly chat
+      # messages (all other types are OnlyFans). `profile_visitors` returns one row per
+      # account per day, scraped one day at a time so the daily numbers are not
+      # aggregated away by OnlyFans.
       module Type
         extend Onlyfans::Internal::Type::Enum
 
@@ -134,6 +140,7 @@ module Onlyfans
         FANS = :fans
         FOLLOWINGS = :followings
         PROFILE_VISITORS = :profile_visitors
+        FANSLY_CHAT_MESSAGES = :fansly_chat_messages
 
         # @!method self.values
         #   @return [Array<Symbol>]

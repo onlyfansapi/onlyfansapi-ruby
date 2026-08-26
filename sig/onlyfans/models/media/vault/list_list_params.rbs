@@ -3,7 +3,13 @@ module Onlyfans
     module Media
       module Vault
         type list_list_params =
-          { account: String, limit: Integer, offset: Integer, query: String }
+          {
+            account: String,
+            lightweight: bool,
+            limit: Integer,
+            offset: Integer,
+            query: String
+          }
           & Onlyfans::Internal::Type::request_parameters
 
         class ListListParams < Onlyfans::Internal::Type::BaseModel
@@ -11,6 +17,10 @@ module Onlyfans
           include Onlyfans::Internal::Type::RequestParameters
 
           attr_accessor account: String
+
+          attr_reader lightweight: bool?
+
+          def lightweight=: (bool) -> bool
 
           attr_reader limit: Integer?
 
@@ -26,6 +36,7 @@ module Onlyfans
 
           def initialize: (
             account: String,
+            ?lightweight: bool,
             ?limit: Integer,
             ?offset: Integer,
             ?query: String,
@@ -34,6 +45,7 @@ module Onlyfans
 
           def to_hash: -> {
             account: String,
+            lightweight: bool,
             limit: Integer,
             offset: Integer,
             query: String,

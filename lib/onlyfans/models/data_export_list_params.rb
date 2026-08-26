@@ -82,6 +82,7 @@ module Onlyfans
         FANS = :fans
         FOLLOWINGS = :followings
         PROFILE_VISITORS = :profile_visitors
+        FANSLY_CHAT_MESSAGES = :fansly_chat_messages
 
         # @!method self.values
         #   @return [Array<Symbol>]
