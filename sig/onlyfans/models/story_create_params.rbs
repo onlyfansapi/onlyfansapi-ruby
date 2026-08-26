@@ -1,7 +1,14 @@
 module Onlyfans
   module Models
     type story_create_params =
-      { account: String, media_files: ::Array[String] }
+      {
+        account: String,
+        media_files: ::Array[String],
+        canvas_height: Integer,
+        canvas_width: Integer,
+        question: Onlyfans::StoryCreateParams::Question,
+        texts: ::Array[Onlyfans::StoryCreateParams::Text]
+      }
       & Onlyfans::Internal::Type::request_parameters
 
     class StoryCreateParams < Onlyfans::Internal::Type::BaseModel
@@ -12,17 +19,280 @@ module Onlyfans
 
       attr_accessor media_files: ::Array[String]
 
+      attr_reader canvas_height: Integer?
+
+      def canvas_height=: (Integer) -> Integer
+
+      attr_reader canvas_width: Integer?
+
+      def canvas_width=: (Integer) -> Integer
+
+      attr_reader question: Onlyfans::StoryCreateParams::Question?
+
+      def question=: (
+        Onlyfans::StoryCreateParams::Question
+      ) -> Onlyfans::StoryCreateParams::Question
+
+      attr_reader texts: ::Array[Onlyfans::StoryCreateParams::Text]?
+
+      def texts=: (
+        ::Array[Onlyfans::StoryCreateParams::Text]
+      ) -> ::Array[Onlyfans::StoryCreateParams::Text]
+
       def initialize: (
         account: String,
         media_files: ::Array[String],
+        ?canvas_height: Integer,
+        ?canvas_width: Integer,
+        ?question: Onlyfans::StoryCreateParams::Question,
+        ?texts: ::Array[Onlyfans::StoryCreateParams::Text],
         ?request_options: Onlyfans::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
         media_files: ::Array[String],
+        canvas_height: Integer,
+        canvas_width: Integer,
+        question: Onlyfans::StoryCreateParams::Question,
+        texts: ::Array[Onlyfans::StoryCreateParams::Text],
         request_options: Onlyfans::RequestOptions
       }
+
+      type question =
+        {
+          color: String,
+          height: Float,
+          left: Float,
+          text: String,
+          top: Float,
+          width: Float
+        }
+
+      class Question < Onlyfans::Internal::Type::BaseModel
+        attr_reader color: String?
+
+        def color=: (String) -> String
+
+        attr_reader height: Float?
+
+        def height=: (Float) -> Float
+
+        attr_reader left: Float?
+
+        def left=: (Float) -> Float
+
+        attr_reader text: String?
+
+        def text=: (String) -> String
+
+        attr_reader top: Float?
+
+        def top=: (Float) -> Float
+
+        attr_reader width: Float?
+
+        def width=: (Float) -> Float
+
+        def initialize: (
+          ?color: String,
+          ?height: Float,
+          ?left: Float,
+          ?text: String,
+          ?top: Float,
+          ?width: Float
+        ) -> void
+
+        def to_hash: -> {
+          color: String,
+          height: Float,
+          left: Float,
+          text: String,
+          top: Float,
+          width: Float
+        }
+      end
+
+      type text =
+        {
+          text: String,
+          angle: Float,
+          bg_color: String,
+          color: String,
+          font_family: Onlyfans::Models::StoryCreateParams::Text::font_family,
+          font_size: Float,
+          font_weight: Onlyfans::Models::StoryCreateParams::Text::font_weight,
+          left: Float,
+          scale: Float,
+          text_align: Onlyfans::Models::StoryCreateParams::Text::text_align,
+          text_height: Float,
+          text_width: Float,
+          top: Float,
+          type: Onlyfans::Models::StoryCreateParams::Text::type_,
+          z_index: Integer
+        }
+
+      class Text < Onlyfans::Internal::Type::BaseModel
+        attr_accessor text: String
+
+        attr_reader angle: Float?
+
+        def angle=: (Float) -> Float
+
+        attr_reader bg_color: String?
+
+        def bg_color=: (String) -> String
+
+        attr_reader color: String?
+
+        def color=: (String) -> String
+
+        attr_reader font_family: Onlyfans::Models::StoryCreateParams::Text::font_family?
+
+        def font_family=: (
+          Onlyfans::Models::StoryCreateParams::Text::font_family
+        ) -> Onlyfans::Models::StoryCreateParams::Text::font_family
+
+        attr_reader font_size: Float?
+
+        def font_size=: (Float) -> Float
+
+        attr_reader font_weight: Onlyfans::Models::StoryCreateParams::Text::font_weight?
+
+        def font_weight=: (
+          Onlyfans::Models::StoryCreateParams::Text::font_weight
+        ) -> Onlyfans::Models::StoryCreateParams::Text::font_weight
+
+        attr_reader left: Float?
+
+        def left=: (Float) -> Float
+
+        attr_reader scale: Float?
+
+        def scale=: (Float) -> Float
+
+        attr_reader text_align: Onlyfans::Models::StoryCreateParams::Text::text_align?
+
+        def text_align=: (
+          Onlyfans::Models::StoryCreateParams::Text::text_align
+        ) -> Onlyfans::Models::StoryCreateParams::Text::text_align
+
+        attr_reader text_height: Float?
+
+        def text_height=: (Float) -> Float
+
+        attr_reader text_width: Float?
+
+        def text_width=: (Float) -> Float
+
+        attr_reader top: Float?
+
+        def top=: (Float) -> Float
+
+        attr_reader type: Onlyfans::Models::StoryCreateParams::Text::type_?
+
+        def type=: (
+          Onlyfans::Models::StoryCreateParams::Text::type_
+        ) -> Onlyfans::Models::StoryCreateParams::Text::type_
+
+        attr_reader z_index: Integer?
+
+        def z_index=: (Integer) -> Integer
+
+        def initialize: (
+          text: String,
+          ?angle: Float,
+          ?bg_color: String,
+          ?color: String,
+          ?font_family: Onlyfans::Models::StoryCreateParams::Text::font_family,
+          ?font_size: Float,
+          ?font_weight: Onlyfans::Models::StoryCreateParams::Text::font_weight,
+          ?left: Float,
+          ?scale: Float,
+          ?text_align: Onlyfans::Models::StoryCreateParams::Text::text_align,
+          ?text_height: Float,
+          ?text_width: Float,
+          ?top: Float,
+          ?type: Onlyfans::Models::StoryCreateParams::Text::type_,
+          ?z_index: Integer
+        ) -> void
+
+        def to_hash: -> {
+          text: String,
+          angle: Float,
+          bg_color: String,
+          color: String,
+          font_family: Onlyfans::Models::StoryCreateParams::Text::font_family,
+          font_size: Float,
+          font_weight: Onlyfans::Models::StoryCreateParams::Text::font_weight,
+          left: Float,
+          scale: Float,
+          text_align: Onlyfans::Models::StoryCreateParams::Text::text_align,
+          text_height: Float,
+          text_width: Float,
+          top: Float,
+          type: Onlyfans::Models::StoryCreateParams::Text::type_,
+          z_index: Integer
+        }
+
+        type font_family =
+          :Roboto
+          | :PTMono
+          | :ShantellSans
+          | :SofiaSans
+          | :YanoneKaffeesatz
+          | :RubikMedium
+          | :RubikBlack
+
+        module FontFamily
+          extend Onlyfans::Internal::Type::Enum
+
+          ROBOTO: :Roboto
+          PT_MONO: :PTMono
+          SHANTELL_SANS: :ShantellSans
+          SOFIA_SANS: :SofiaSans
+          YANONE_KAFFEESATZ: :YanoneKaffeesatz
+          RUBIK_MEDIUM: :RubikMedium
+          RUBIK_BLACK: :RubikBlack
+
+          def self?.values: -> ::Array[Onlyfans::Models::StoryCreateParams::Text::font_family]
+        end
+
+        type font_weight = 400 | 500 | 700
+
+        module FontWeight
+          extend Onlyfans::Internal::Type::Enum
+
+          FONT_WEIGHT_400: 400
+          FONT_WEIGHT_500: 500
+          FONT_WEIGHT_700: 700
+
+          def self?.values: -> ::Array[Onlyfans::Models::StoryCreateParams::Text::font_weight]
+        end
+
+        type text_align = :left | :center | :right
+
+        module TextAlign
+          extend Onlyfans::Internal::Type::Enum
+
+          LEFT: :left
+          CENTER: :center
+          RIGHT: :right
+
+          def self?.values: -> ::Array[Onlyfans::Models::StoryCreateParams::Text::text_align]
+        end
+
+        type type_ = :text | :mention
+
+        module Type
+          extend Onlyfans::Internal::Type::Enum
+
+          TEXT: :text
+          MENTION: :mention
+
+          def self?.values: -> ::Array[Onlyfans::Models::StoryCreateParams::Text::type_]
+        end
+      end
     end
   end
 end
