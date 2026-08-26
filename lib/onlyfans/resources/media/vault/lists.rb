@@ -92,11 +92,30 @@ module Onlyfans
             )
           end
 
+          # Some parameter documentations has been truncated, see
+          # {Onlyfans::Models::Media::Vault::ListListParams} for more details.
+          #
           # List your Vault lists (categories).
           #
-          # @overload list(account, limit: nil, offset: nil, query: nil, request_options: {})
+          # Every response carries an `ETag` computed over the `data` payload. Send it back
+          # as `If-None-Match` on your next call and you will get a `304 Not Modified` with
+          # an empty body when nothing changed, so you can keep serving your cached copy
+          # instead of re-parsing the full list. Credits are debited either way — we still
+          # have to ask OnlyFans for the current state to know whether it changed.
+          #
+          # The `ETag` covers `data` only, never `_meta` — your credits balance changes on
+          # every call, so including it would mean the `ETag` never matches. Because a `304`
+          # has no body, it also has no `_meta`: read the current credits and rate-limit
+          # counters from the `X-OFAPI-Credits-Used`, `X-OFAPI-Credits-Balance`,
+          # `X-Rate-Limit-Limit-Minute` and `X-Rate-Limit-Remaining-Minute` response
+          # headers, which are sent on `304` responses too. The `_meta` inside a body you
+          # cached earlier is stale by definition.
+          #
+          # @overload list(account, lightweight: nil, limit: nil, offset: nil, query: nil, request_options: {})
           #
           # @param account [String] The Account ID
+          #
+          # @param lightweight [Boolean] Set to `true` to return only `id`, `name`, `type`, `canUpdate` and a rolled-up `
           #
           # @param limit [Integer] Number of media to return per page. Default: `24`
           #
@@ -106,7 +125,7 @@ module Onlyfans
           #
           # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
           #
-          # @return [Onlyfans::Models::Media::Vault::ListListResponse]
+          # @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0, Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1]
           #
           # @see Onlyfans::Models::Media::Vault::ListListParams
           def list(account, params = {})

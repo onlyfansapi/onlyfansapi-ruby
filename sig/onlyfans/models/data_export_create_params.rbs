@@ -90,6 +90,7 @@ module Onlyfans
         | :fans
         | :followings
         | :profile_visitors
+        | :fansly_chat_messages
 
       module Type
         extend Onlyfans::Internal::Type::Enum
@@ -106,6 +107,7 @@ module Onlyfans
         FANS: :fans
         FOLLOWINGS: :followings
         PROFILE_VISITORS: :profile_visitors
+        FANSLY_CHAT_MESSAGES: :fansly_chat_messages
 
         def self?.values: -> ::Array[Onlyfans::Models::DataExportCreateParams::type_]
       end

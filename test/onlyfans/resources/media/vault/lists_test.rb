@@ -65,10 +65,10 @@ class Onlyfans::Test::Resources::Media::Vault::ListsTest < Onlyfans::Test::Resou
     end
 
     assert_pattern do
-      response => {
-        _meta: Onlyfans::Models::Media::Vault::ListListResponse::Meta | nil,
-        data: Onlyfans::Models::Media::Vault::ListListResponse::Data | nil
-      }
+      case response
+      in Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0
+      in Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1
+      end
     end
   end
 

@@ -195,6 +195,11 @@ module Onlyfans
             :profile_visitors,
             Onlyfans::DataExportListParams::Type::TaggedSymbol
           )
+        FANSLY_CHAT_MESSAGES =
+          T.let(
+            :fansly_chat_messages,
+            Onlyfans::DataExportListParams::Type::TaggedSymbol
+          )
 
         sig do
           override.returns(
