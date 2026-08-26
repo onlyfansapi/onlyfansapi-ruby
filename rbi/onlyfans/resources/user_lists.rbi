@@ -64,12 +64,14 @@ module Onlyfans
       )
       end
 
-      # Get a list of OnlyFans Collections - User Lists
+      # Get a list of OnlyFans Collections - User Lists. If you only want to get User
+      # Lists available for sending a Mass-Message, use `?view=queue`
       sig do
         params(
           account: String,
           limit: T.nilable(Integer),
           offset: T.nilable(Integer),
+          view: Onlyfans::UserListListParams::View::OrSymbol,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::UserListListResponse)
       end
@@ -81,6 +83,9 @@ module Onlyfans
         limit: nil,
         # Must be at least 0.
         offset: nil,
+        # How to return the results. `queue` returns the user lists that are available for
+        # Mass-Messaging.
+        view: nil,
         request_options: {}
       )
       end

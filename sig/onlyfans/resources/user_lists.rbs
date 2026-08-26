@@ -27,6 +27,7 @@ module Onlyfans
         String account,
         ?limit: Integer?,
         ?offset: Integer?,
+        ?view: Onlyfans::Models::UserListListParams::view,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::UserListListResponse
 
