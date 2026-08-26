@@ -23,11 +23,20 @@ module Onlyfans
       sig { returns(T.nilable(Integer)) }
       attr_accessor :offset
 
+      # How to return the results. `queue` returns the user lists that are available for
+      # Mass-Messaging.
+      sig { returns(T.nilable(Onlyfans::UserListListParams::View::OrSymbol)) }
+      attr_reader :view
+
+      sig { params(view: Onlyfans::UserListListParams::View::OrSymbol).void }
+      attr_writer :view
+
       sig do
         params(
           account: String,
           limit: T.nilable(Integer),
           offset: T.nilable(Integer),
+          view: Onlyfans::UserListListParams::View::OrSymbol,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -38,6 +47,9 @@ module Onlyfans
         limit: nil,
         # Must be at least 0.
         offset: nil,
+        # How to return the results. `queue` returns the user lists that are available for
+        # Mass-Messaging.
+        view: nil,
         request_options: {}
       )
       end
@@ -48,11 +60,32 @@ module Onlyfans
             account: String,
             limit: T.nilable(Integer),
             offset: T.nilable(Integer),
+            view: Onlyfans::UserListListParams::View::OrSymbol,
             request_options: Onlyfans::RequestOptions
           }
         )
       end
       def to_hash
+      end
+
+      # How to return the results. `queue` returns the user lists that are available for
+      # Mass-Messaging.
+      module View
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias { T.all(Symbol, Onlyfans::UserListListParams::View) }
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        QUEUE = T.let(:queue, Onlyfans::UserListListParams::View::TaggedSymbol)
+
+        sig do
+          override.returns(
+            T::Array[Onlyfans::UserListListParams::View::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
     end
   end
