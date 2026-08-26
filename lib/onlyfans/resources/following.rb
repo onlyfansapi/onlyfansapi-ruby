@@ -12,6 +12,11 @@ module Onlyfans
       # expired list does not share this order, so do not assume it applies there. Pass
       # `sort` (optionally with `sortDirection`) to reorder the list — see the parameter
       # description for the caveat that OnlyFans persists the chosen order account-wide.
+      # An empty page is not the end of the list: OnlyFans applies `offset` to the whole
+      # following collection before filtering it down to the requested list, so a page
+      # can come back empty while more results follow. Keep following
+      # `_pagination.next_page` until it is `null` instead of stopping at the first
+      # empty page.
       #
       # @overload list_active(account, filter: nil, limit: nil, offset: nil, query: nil, sort: nil, sort_direction: nil, request_options: {})
       #
@@ -27,7 +32,7 @@ module Onlyfans
       #
       # @param sort [Symbol, Onlyfans::Models::FollowingListActiveParams::Sort, nil] Order the list by `last_activity` (the followed creator's last activity), `expir
       #
-      # @param sort_direction [Symbol, Onlyfans::Models::FollowingListActiveParams::SortDirection, nil] Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+      # @param sort_direction [Symbol, Onlyfans::Models::FollowingListActiveParams::SortDirection, nil] Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set. Exce
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -54,6 +59,11 @@ module Onlyfans
       # expired list does not share this order, so do not assume it applies there. Pass
       # `sort` (optionally with `sortDirection`) to reorder the list — see the parameter
       # description for the caveat that OnlyFans persists the chosen order account-wide.
+      # An empty page is not the end of the list: OnlyFans applies `offset` to the whole
+      # following collection before filtering it down to the requested list, so a page
+      # can come back empty while more results follow. Keep following
+      # `_pagination.next_page` until it is `null` instead of stopping at the first
+      # empty page.
       #
       # @overload list_all(account, filter: nil, limit: nil, offset: nil, query: nil, sort: nil, sort_direction: nil, request_options: {})
       #
@@ -69,7 +79,7 @@ module Onlyfans
       #
       # @param sort [Symbol, Onlyfans::Models::FollowingListAllParams::Sort, nil] Order the list by `last_activity` (the followed creator's last activity), `expir
       #
-      # @param sort_direction [Symbol, Onlyfans::Models::FollowingListAllParams::SortDirection, nil] Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+      # @param sort_direction [Symbol, Onlyfans::Models::FollowingListAllParams::SortDirection, nil] Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set. Exce
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -97,10 +107,18 @@ module Onlyfans
       # expirations, page through the full list each cycle (`limit=50`, follow
       # `_pagination.next_page` until it is null) and diff it against your own store
       # using `subscribedByData.expiredAt`. Do NOT stop early at the first entry you
-      # have already seen, as that can silently skip real expirations. Pass
-      # `sort=expire_date` (optionally with `sortDirection`) to get a deterministic
-      # order instead — see the parameter description for the caveat that OnlyFans
-      # persists the chosen order account-wide.
+      # have already seen, as that can silently skip real expirations. An empty page is
+      # not the end of the list either: OnlyFans applies `offset` to the whole following
+      # collection and only then filters that window down to expired subscriptions, so
+      # early pages can come back empty while hundreds of expired rows still follow.
+      # Keep following `_pagination.next_page` until it is `null` instead of stopping at
+      # the first empty page. Pass `sort=expire_date` (optionally with `sortDirection`)
+      # to get a deterministic order instead — see the parameter description for the
+      # caveat that OnlyFans persists the chosen order account-wide. Ordering by expiry
+      # descending puts the still-active subscriptions first and moves the expired rows
+      # to the tail of the collection, so prefer `sortDirection=asc` or
+      # `sort=is_expired` for expired-first results; for that reason `sort=expire_date`
+      # defaults to `asc` on this list when no `sortDirection` is given.
       #
       # @overload list_expired(account, filter: nil, limit: nil, offset: nil, query: nil, sort: nil, sort_direction: nil, request_options: {})
       #
@@ -116,7 +134,7 @@ module Onlyfans
       #
       # @param sort [Symbol, Onlyfans::Models::FollowingListExpiredParams::Sort, nil] Order the list by `last_activity` (the followed creator's last activity), `expir
       #
-      # @param sort_direction [Symbol, Onlyfans::Models::FollowingListExpiredParams::SortDirection, nil] Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set.
+      # @param sort_direction [Symbol, Onlyfans::Models::FollowingListExpiredParams::SortDirection, nil] Direction for `sort`: `desc` (default) or `asc`. Requires `sort` to be set. Exce
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
