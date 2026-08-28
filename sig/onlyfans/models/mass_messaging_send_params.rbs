@@ -16,6 +16,7 @@ module Onlyfans
         rf_tag: String,
         save_for_later: bool,
         scheduled_date: String,
+        subscribed_within_last_days: Integer,
         user_ids: ::Array[String],
         user_lists: ::Array[String]
       }
@@ -79,6 +80,10 @@ module Onlyfans
 
       def scheduled_date=: (String) -> String
 
+      attr_reader subscribed_within_last_days: Integer?
+
+      def subscribed_within_last_days=: (Integer) -> Integer
+
       attr_reader user_ids: ::Array[String]?
 
       def user_ids=: (::Array[String]) -> ::Array[String]
@@ -102,6 +107,7 @@ module Onlyfans
         ?rf_tag: String,
         ?save_for_later: bool,
         ?scheduled_date: String,
+        ?subscribed_within_last_days: Integer,
         ?user_ids: ::Array[String],
         ?user_lists: ::Array[String],
         ?request_options: Onlyfans::request_opts
@@ -122,6 +128,7 @@ module Onlyfans
         rf_tag: String,
         save_for_later: bool,
         scheduled_date: String,
+        subscribed_within_last_days: Integer,
         user_ids: ::Array[String],
         user_lists: ::Array[String],
         request_options: Onlyfans::RequestOptions

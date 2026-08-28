@@ -121,6 +121,15 @@ module Onlyfans
       sig { params(scheduled_date: String).void }
       attr_writer :scheduled_date
 
+      # Only send to fans who subscribed within the last N calendar days (1-30,
+      # including today). Can be combined with `userLists` and `userIds`. Cannot be
+      # combined with `scheduledDate` or `saveForLater`.
+      sig { returns(T.nilable(Integer)) }
+      attr_reader :subscribed_within_last_days
+
+      sig { params(subscribed_within_last_days: Integer).void }
+      attr_writer :subscribed_within_last_days
+
       # Array of user IDs that the mass message will be sent to.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :user_ids
@@ -152,6 +161,7 @@ module Onlyfans
           rf_tag: String,
           save_for_later: T::Boolean,
           scheduled_date: String,
+          subscribed_within_last_days: Integer,
           user_ids: T::Array[String],
           user_lists: T::Array[String],
           request_options: Onlyfans::RequestOptions::OrHash
@@ -193,6 +203,10 @@ module Onlyfans
         save_for_later: nil,
         # Schedule the chat message in the future (UTC timezone).
         scheduled_date: nil,
+        # Only send to fans who subscribed within the last N calendar days (1-30,
+        # including today). Can be combined with `userLists` and `userIds`. Cannot be
+        # combined with `scheduledDate` or `saveForLater`.
+        subscribed_within_last_days: nil,
         # Array of user IDs that the mass message will be sent to.
         user_ids: nil,
         # Array of user list IDs that the mass message will be sent to.
@@ -219,6 +233,7 @@ module Onlyfans
             rf_tag: String,
             save_for_later: T::Boolean,
             scheduled_date: String,
+            subscribed_within_last_days: Integer,
             user_ids: T::Array[String],
             user_lists: T::Array[String],
             request_options: Onlyfans::RequestOptions
