@@ -102,6 +102,14 @@ module Onlyfans
       #   @return [String, nil]
       optional :scheduled_date, String, api_name: :scheduledDate
 
+      # @!attribute subscribed_within_last_days
+      #   Only send to fans who subscribed within the last N calendar days (1-30,
+      #   including today). Can be combined with `userLists` and `userIds`. Cannot be
+      #   combined with `scheduledDate` or `saveForLater`.
+      #
+      #   @return [Integer, nil]
+      optional :subscribed_within_last_days, Integer, api_name: :subscribedWithinLastDays
+
       # @!attribute user_ids
       #   Array of user IDs that the mass message will be sent to.
       #
@@ -114,7 +122,7 @@ module Onlyfans
       #   @return [Array<String>, nil]
       optional :user_lists, Onlyfans::Internal::Type::ArrayOf[String], api_name: :userLists
 
-      # @!method initialize(account:, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @!method initialize(account:, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, subscribed_within_last_days: nil, user_ids: nil, user_lists: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::MassMessagingSendParams} for more details.
       #
@@ -146,6 +154,8 @@ module Onlyfans
       #   @param save_for_later [Boolean] Add your message to the "Saved for later" queue.
       #
       #   @param scheduled_date [String] Schedule the chat message in the future (UTC timezone).
+      #
+      #   @param subscribed_within_last_days [Integer] Only send to fans who subscribed within the last N calendar days (1-30, includin
       #
       #   @param user_ids [Array<String>] Array of user IDs that the mass message will be sent to.
       #

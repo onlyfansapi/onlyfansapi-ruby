@@ -179,7 +179,7 @@ module Onlyfans
       # `userIds` parameters to send the same message to both lists and individual
       # users.
       #
-      # @overload send_(account, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @overload send_(account, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, subscribed_within_last_days: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -209,6 +209,8 @@ module Onlyfans
       # @param save_for_later [Boolean] Add your message to the "Saved for later" queue.
       #
       # @param scheduled_date [String] Schedule the chat message in the future (UTC timezone).
+      #
+      # @param subscribed_within_last_days [Integer] Only send to fans who subscribed within the last N calendar days (1-30, includin
       #
       # @param user_ids [Array<String>] Array of user IDs that the mass message will be sent to.
       #

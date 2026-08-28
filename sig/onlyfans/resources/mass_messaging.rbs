@@ -58,6 +58,7 @@ module Onlyfans
         ?rf_tag: String,
         ?save_for_later: bool,
         ?scheduled_date: String,
+        ?subscribed_within_last_days: Integer,
         ?user_ids: ::Array[String],
         ?user_lists: ::Array[String],
         ?request_options: Onlyfans::request_opts
