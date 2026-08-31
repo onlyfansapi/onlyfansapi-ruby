@@ -128,6 +128,16 @@ module Onlyfans
         #   @return [Array<Object>, nil]
         optional :smart_links, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
 
+        # @!attribute traffic_source_ids
+        #
+        #   @return [Array<Object>, nil]
+        optional :traffic_source_ids, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
+
+        # @!attribute traffic_sources
+        #
+        #   @return [Array<Object>, nil]
+        optional :traffic_sources, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
+
         # @!attribute updated_at
         #
         #   @return [String, nil]
@@ -138,7 +148,7 @@ module Onlyfans
         #   @return [String, nil]
         optional :url, String
 
-        # @!method initialize(id: nil, body: nil, conversion_types: nil, created_at: nil, headers: nil, http_method: nil, latest_response: nil, smart_link_ids: nil, smart_link_scope: nil, smart_links: nil, updated_at: nil, url: nil)
+        # @!method initialize(id: nil, body: nil, conversion_types: nil, created_at: nil, headers: nil, http_method: nil, latest_response: nil, smart_link_ids: nil, smart_link_scope: nil, smart_links: nil, traffic_source_ids: nil, traffic_sources: nil, updated_at: nil, url: nil)
         #   @param id [Integer]
         #   @param body [String]
         #   @param conversion_types [Array<String>]
@@ -149,6 +159,8 @@ module Onlyfans
         #   @param smart_link_ids [Array<Object>]
         #   @param smart_link_scope [String]
         #   @param smart_links [Array<Object>]
+        #   @param traffic_source_ids [Array<Object>]
+        #   @param traffic_sources [Array<Object>]
         #   @param updated_at [String]
         #   @param url [String]
 

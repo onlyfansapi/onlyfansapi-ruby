@@ -111,6 +111,8 @@ module Onlyfans
           smart_link_ids: ::Array[top],
           smart_link_scope: String,
           smart_links: ::Array[top],
+          traffic_source_ids: ::Array[top],
+          traffic_sources: ::Array[top],
           updated_at: String,
           url: String
         }
@@ -156,6 +158,14 @@ module Onlyfans
 
         def smart_links=: (::Array[top]) -> ::Array[top]
 
+        attr_reader traffic_source_ids: ::Array[top]?
+
+        def traffic_source_ids=: (::Array[top]) -> ::Array[top]
+
+        attr_reader traffic_sources: ::Array[top]?
+
+        def traffic_sources=: (::Array[top]) -> ::Array[top]
+
         attr_reader updated_at: String?
 
         def updated_at=: (String) -> String
@@ -175,6 +185,8 @@ module Onlyfans
           ?smart_link_ids: ::Array[top],
           ?smart_link_scope: String,
           ?smart_links: ::Array[top],
+          ?traffic_source_ids: ::Array[top],
+          ?traffic_sources: ::Array[top],
           ?updated_at: String,
           ?url: String
         ) -> void
@@ -190,6 +202,8 @@ module Onlyfans
           smart_link_ids: ::Array[top],
           smart_link_scope: String,
           smart_links: ::Array[top],
+          traffic_source_ids: ::Array[top],
+          traffic_sources: ::Array[top],
           updated_at: String,
           url: String
         }

@@ -300,6 +300,18 @@ module Onlyfans
         end
         attr_writer :smart_links
 
+        sig { returns(T.nilable(T::Array[T.anything])) }
+        attr_reader :traffic_source_ids
+
+        sig { params(traffic_source_ids: T::Array[T.anything]).void }
+        attr_writer :traffic_source_ids
+
+        sig { returns(T.nilable(T::Array[T.anything])) }
+        attr_reader :traffic_sources
+
+        sig { params(traffic_sources: T::Array[T.anything]).void }
+        attr_writer :traffic_sources
+
         sig { returns(T.nilable(String)) }
         attr_reader :updated_at
 
@@ -330,6 +342,8 @@ module Onlyfans
               T::Array[
                 Onlyfans::Models::SmartLinkPostbackUpdateResponse::Data::SmartLink::OrHash
               ],
+            traffic_source_ids: T::Array[T.anything],
+            traffic_sources: T::Array[T.anything],
             updated_at: String,
             url: String
           ).returns(T.attached_class)
@@ -345,6 +359,8 @@ module Onlyfans
           smart_link_ids: nil,
           smart_link_scope: nil,
           smart_links: nil,
+          traffic_source_ids: nil,
+          traffic_sources: nil,
           updated_at: nil,
           url: nil
         )
@@ -369,6 +385,8 @@ module Onlyfans
                 T::Array[
                   Onlyfans::Models::SmartLinkPostbackUpdateResponse::Data::SmartLink
                 ],
+              traffic_source_ids: T::Array[T.anything],
+              traffic_sources: T::Array[T.anything],
               updated_at: String,
               url: String
             }

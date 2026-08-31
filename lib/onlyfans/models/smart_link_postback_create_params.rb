@@ -22,7 +22,8 @@ module Onlyfans
 
       # @!attribute url
       #   The destination URL. Variables such as `{external_click_id}`, `{fbclid}`,
-      #   `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+      #   `{gclid}`, `{gbraid}`, `{wbraid}`, `{ttclid}`, and `{sccid}` are replaced when
+      #   the postback is dispatched.
       #
       #   @return [String]
       required :url, String
