@@ -27,7 +27,8 @@ module Onlyfans
         # Smart Links.
         smart_link_scope:,
         # The destination URL. Variables such as `{external_click_id}`, `{fbclid}`,
-        # `{gclid}`, and `{ttclid}` are replaced when the postback is dispatched.
+        # `{gclid}`, `{gbraid}`, `{wbraid}`, `{ttclid}`, and `{sccid}` are replaced when
+        # the postback is dispatched.
         url:,
         # Optional request body template for POST postbacks. Variables are replaced when
         # the postback is dispatched.

@@ -657,6 +657,9 @@ module Onlyfans
             attr_accessor :fbclid
 
             sig { returns(T.nilable(String)) }
+            attr_accessor :gbraid
+
+            sig { returns(T.nilable(String)) }
             attr_reader :gclid
 
             sig { params(gclid: String).void }
@@ -691,6 +694,9 @@ module Onlyfans
 
             sig { params(referrer: String).void }
             attr_writer :referrer
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :sccid
 
             sig { returns(T.nilable(String)) }
             attr_reader :ttclid
@@ -734,6 +740,9 @@ module Onlyfans
             sig { params(utm_term: String).void }
             attr_writer :utm_term
 
+            sig { returns(T.nilable(String)) }
+            attr_accessor :wbraid
+
             sig do
               params(
                 id: String,
@@ -750,19 +759,22 @@ module Onlyfans
                 created_at: String,
                 external_click_id: String,
                 fbclid: T.nilable(String),
+                gbraid: T.nilable(String),
                 gclid: String,
                 gross_clicks: Integer,
                 ip_address: String,
                 is_bot: T::Boolean,
                 is_duplicate: T::Boolean,
                 referrer: String,
+                sccid: T.nilable(String),
                 ttclid: String,
                 user_agent: String,
                 utm_campaign: String,
                 utm_content: String,
                 utm_medium: String,
                 utm_source: String,
-                utm_term: String
+                utm_term: String,
+                wbraid: T.nilable(String)
               ).returns(T.attached_class)
             end
             def self.new(
@@ -780,19 +792,22 @@ module Onlyfans
               created_at: nil,
               external_click_id: nil,
               fbclid: nil,
+              gbraid: nil,
               gclid: nil,
               gross_clicks: nil,
               ip_address: nil,
               is_bot: nil,
               is_duplicate: nil,
               referrer: nil,
+              sccid: nil,
               ttclid: nil,
               user_agent: nil,
               utm_campaign: nil,
               utm_content: nil,
               utm_medium: nil,
               utm_source: nil,
-              utm_term: nil
+              utm_term: nil,
+              wbraid: nil
             )
             end
 
@@ -813,19 +828,22 @@ module Onlyfans
                   created_at: String,
                   external_click_id: String,
                   fbclid: T.nilable(String),
+                  gbraid: T.nilable(String),
                   gclid: String,
                   gross_clicks: Integer,
                   ip_address: String,
                   is_bot: T::Boolean,
                   is_duplicate: T::Boolean,
                   referrer: String,
+                  sccid: T.nilable(String),
                   ttclid: String,
                   user_agent: String,
                   utm_campaign: String,
                   utm_content: String,
                   utm_medium: String,
                   utm_source: String,
-                  utm_term: String
+                  utm_term: String,
+                  wbraid: T.nilable(String)
                 }
               )
             end
