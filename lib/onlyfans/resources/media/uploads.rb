@@ -27,7 +27,7 @@ module Onlyfans
         #
         # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember0, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3]
+        # @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember0, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4]
         #
         # @see Onlyfans::Models::Media::UploadGetStatusParams
         def get_status(upload, params)

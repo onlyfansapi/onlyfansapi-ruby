@@ -15,11 +15,14 @@ module Onlyfans
         # Upload failed
         variant -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1 }
 
-        # Completed POST /media/vault upload
+        # Upload rejected by OnlyFans — `error` carries the upstream reason verbatim
         variant -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2 }
 
-        # Completed POST /media/upload upload
+        # Completed POST /media/vault upload
         variant -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3 }
+
+        # Completed POST /media/upload upload
+        variant -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4 }
 
         class UnionMember0 < Onlyfans::Internal::Type::BaseModel
           # @!attribute prefixed_id
@@ -64,6 +67,30 @@ module Onlyfans
         end
 
         class UnionMember2 < Onlyfans::Internal::Type::BaseModel
+          # @!attribute error
+          #
+          #   @return [String, nil]
+          optional :error, String
+
+          # @!attribute prefixed_id
+          #
+          #   @return [String, nil]
+          optional :prefixed_id, String
+
+          # @!attribute status
+          #
+          #   @return [String, nil]
+          optional :status, String
+
+          # @!method initialize(error: nil, prefixed_id: nil, status: nil)
+          #   Upload rejected by OnlyFans — `error` carries the upstream reason verbatim
+          #
+          #   @param error [String]
+          #   @param prefixed_id [String]
+          #   @param status [String]
+        end
+
+        class UnionMember3 < Onlyfans::Internal::Type::BaseModel
           # @!attribute credits_used
           #
           #   @return [Integer, nil]
@@ -71,8 +98,8 @@ module Onlyfans
 
           # @!attribute media
           #
-          #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media, nil]
-          optional :media, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media }
+          #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media, nil]
+          optional :media, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media }
 
           # @!attribute prefixed_id
           #
@@ -88,11 +115,11 @@ module Onlyfans
           #   Completed POST /media/vault upload
           #
           #   @param credits_used [Integer]
-          #   @param media [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media]
+          #   @param media [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media]
           #   @param prefixed_id [String]
           #   @param status [String]
 
-          # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2#media
+          # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3#media
           class Media < Onlyfans::Internal::Type::BaseModel
             # @!attribute id
             #
@@ -121,8 +148,8 @@ module Onlyfans
 
             # @!attribute files
             #
-            #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files, nil]
-            optional :files, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files }
+            #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files, nil]
+            optional :files, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files }
 
             # @!attribute has_custom_preview
             #
@@ -157,19 +184,19 @@ module Onlyfans
             #   @param converted_to_video [Boolean]
             #   @param created_at [String]
             #   @param duration [Integer]
-            #   @param files [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files]
+            #   @param files [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files]
             #   @param has_custom_preview [Boolean]
             #   @param has_error [Boolean]
             #   @param is_ready [Boolean]
             #   @param release_forms [Array<Object>]
             #   @param type [String]
 
-            # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media#files
+            # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media#files
             class Files < Onlyfans::Internal::Type::BaseModel
               # @!attribute full
               #
-              #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full, nil]
-              optional :full, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full }
+              #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full, nil]
+              optional :full, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full }
 
               # @!attribute preview
               #
@@ -187,12 +214,12 @@ module Onlyfans
               optional :thumb, String, nil?: true
 
               # @!method initialize(full: nil, preview: nil, square_preview: nil, thumb: nil)
-              #   @param full [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full]
+              #   @param full [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full]
               #   @param preview [String, nil]
               #   @param square_preview [String, nil]
               #   @param thumb [String, nil]
 
-              # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files#full
+              # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files#full
               class Full < Onlyfans::Internal::Type::BaseModel
                 # @!attribute height
                 #
@@ -230,7 +257,7 @@ module Onlyfans
           end
         end
 
-        class UnionMember3 < Onlyfans::Internal::Type::BaseModel
+        class UnionMember4 < Onlyfans::Internal::Type::BaseModel
           # @!attribute credits_used
           #
           #   @return [Integer, nil]
@@ -238,8 +265,8 @@ module Onlyfans
 
           # @!attribute media
           #
-          #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media, nil]
-          optional :media, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media }
+          #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media, nil]
+          optional :media, -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media }
 
           # @!attribute prefixed_id
           #
@@ -255,17 +282,17 @@ module Onlyfans
           #   Completed POST /media/upload upload
           #
           #   @param credits_used [Integer]
-          #   @param media [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media]
+          #   @param media [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media]
           #   @param prefixed_id [String]
           #   @param status [String]
 
-          # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3#media
+          # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4#media
           class Media < Onlyfans::Internal::Type::BaseModel
             # @!attribute additional
             #
-            #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional, nil]
+            #   @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional, nil]
             optional :additional,
-                     -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional }
+                     -> { Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional }
 
             # @!attribute extra
             #
@@ -299,21 +326,21 @@ module Onlyfans
 
             # @!attribute thumbs
             #
-            #   @return [Array<Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb>, nil]
+            #   @return [Array<Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb>, nil]
             optional :thumbs,
-                     -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb] }
+                     -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb] }
 
             # @!method initialize(additional: nil, extra: nil, file_name: nil, host: nil, prefixed_id: nil, process_id: nil, source_url: nil, thumbs: nil)
-            #   @param additional [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional]
+            #   @param additional [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional]
             #   @param extra [String]
             #   @param file_name [String]
             #   @param host [String]
             #   @param prefixed_id [String]
             #   @param process_id [String]
             #   @param source_url [String]
-            #   @param thumbs [Array<Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb>]
+            #   @param thumbs [Array<Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb>]
 
-            # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media#additional
+            # @see Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media#additional
             class Additional < Onlyfans::Internal::Type::BaseModel
               # @!attribute user
               #
@@ -343,7 +370,7 @@ module Onlyfans
         end
 
         # @!method self.variants
-        #   @return [Array(Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember0, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3)]
+        #   @return [Array(Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember0, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4)]
       end
     end
   end
