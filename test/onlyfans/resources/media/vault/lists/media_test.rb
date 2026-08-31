@@ -8,7 +8,7 @@ class Onlyfans::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfans::Test
 
     response =
       @only_fans_api.media.vault.lists.media.add(
-        "quod",
+        "error",
         account: "acct_XXXXXXXXXXXXXXX",
         media_ids: ["string"]
       )
@@ -30,7 +30,7 @@ class Onlyfans::Test::Resources::Media::Vault::Lists::MediaTest < Onlyfans::Test
 
     response =
       @only_fans_api.media.vault.lists.media.remove(
-        "quod",
+        "error",
         account: "acct_XXXXXXXXXXXXXXX",
         media_ids: ["string"]
       )
