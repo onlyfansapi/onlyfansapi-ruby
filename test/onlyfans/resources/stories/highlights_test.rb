@@ -106,7 +106,7 @@ class Onlyfans::Test::Resources::Stories::HighlightsTest < Onlyfans::Test::Resou
 
     response =
       @only_fans_api.stories.highlights.add_story(
-        "facere",
+        "ut",
         account: "acct_XXXXXXXXXXXXXXX",
         highlight_id: 1_234_567_890,
         body_story_id: 2_345_678_901
@@ -129,7 +129,7 @@ class Onlyfans::Test::Resources::Stories::HighlightsTest < Onlyfans::Test::Resou
 
     response =
       @only_fans_api.stories.highlights.remove_story(
-        "facere",
+        "ut",
         account: "acct_XXXXXXXXXXXXXXX",
         highlight_id: 1_234_567_890
       )
