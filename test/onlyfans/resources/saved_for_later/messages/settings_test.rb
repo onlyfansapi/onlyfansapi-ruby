@@ -44,7 +44,7 @@ class Onlyfans::Test::Resources::SavedForLater::Messages::SettingsTest < Onlyfan
     response =
       @only_fans_api.saved_for_later.messages.settings.enable_or_update_automatic_messaging(
         "acct_XXXXXXXXXXXXXXX",
-        period: 12
+        period: 48
       )
 
     assert_pattern do
