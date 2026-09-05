@@ -7,7 +7,7 @@ class Onlyfans::Test::Resources::Engagement::MessagesTest < Onlyfans::Test::Reso
     skip("Mock server tests are disabled")
 
     response =
-      @only_fans_api.engagement.messages.get_message_buyers("cupiditate", account: "acct_XXXXXXXXXXXXXXX")
+      @only_fans_api.engagement.messages.get_message_buyers("dolore", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::Engagement::MessageGetMessageBuyersResponse
