@@ -43,7 +43,19 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::FanListActiveParams} for more details.
       #
-      # Get a paginated list of fans for an Account. Newest fans are first.
+      # Get a paginated list of fans for an Account. Newest fans are first. Paginate by
+      # following `_pagination.next_page` until it is null (`data.hasMore` is the
+      # authoritative flag). Do NOT use the page's item count to detect the last page —
+      # OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on
+      # a non-final page because it filters entries server-side; no fans are skipped. To
+      # track progress, GET `/{account}/me` returns data.subscribersCount (the current
+      # active-subscriber count) as a total.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       #
       # @overload list_active(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
@@ -51,7 +63,7 @@ module Onlyfans
       #
       # @param filter [Onlyfans::Models::FanListActiveParams::Filter]
       #
-      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
+      # @param limit [Integer] Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
       #
       # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
@@ -79,7 +91,17 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::FanListAllParams} for more details.
       #
-      # Get a paginated list of fans for an Account. Newest fans are first.
+      # Get a paginated list of fans for an Account. Newest fans are first. Paginate by
+      # following `_pagination.next_page` until it is null (`data.hasMore` is the
+      # authoritative flag). Do NOT use the page's item count to detect the last page —
+      # OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on
+      # a non-final page because it filters entries server-side; no fans are skipped.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       #
       # @overload list_all(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
@@ -87,7 +109,7 @@ module Onlyfans
       #
       # @param filter [Onlyfans::Models::FanListAllParams::Filter]
       #
-      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
+      # @param limit [Integer] Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
       #
       # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
@@ -116,6 +138,17 @@ module Onlyfans
       # {Onlyfans::Models::FanListExpiredParams} for more details.
       #
       # Get a paginated list of expired fans for an Account. Newest fans are first.
+      # Paginate by following `_pagination.next_page` until it is null (`data.hasMore`
+      # is the authoritative flag). Do NOT use the page's item count to detect the last
+      # page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for
+      # limit=20) on a non-final page because it filters entries server-side; no fans
+      # are skipped.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       #
       # @overload list_expired(account, filter: nil, limit: nil, offset: nil, query: nil, type: nil, request_options: {})
       #
@@ -123,7 +156,7 @@ module Onlyfans
       #
       # @param filter [Onlyfans::Models::FanListExpiredParams::Filter]
       #
-      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 20
+      # @param limit [Integer] Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
       #
       # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
@@ -158,13 +191,13 @@ module Onlyfans
       #
       # @param account [String] The Account ID
       #
-      # @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
+      # @param end_date [String, nil] End date for filtering (required with start_date). Must be a valid date. Must no
       #
-      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 10
+      # @param limit [Integer] Number of fans to return (1-50). Must be at least 1. Must not be greater than 50
       #
       # @param offset [Integer] Number of fans to skip. Must be at least 0.
       #
-      # @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
+      # @param start_date [String, nil] Start date for filtering (required with end_date). Must be a valid date. Must no
       #
       # @param type [Symbol, Onlyfans::Models::FanListLatestParams::Type, nil] Filter by type: total, renew, or new.
       #
@@ -197,9 +230,9 @@ module Onlyfans
       #
       # @param by [Symbol, Onlyfans::Models::FanListTopParams::By, nil] Sort by: total (default), subscribes, tips, messages, post, streams.
       #
-      # @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
+      # @param end_date [String, nil] End date for filtering (required with start_date). Must be a valid date. Must no
       #
-      # @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
+      # @param start_date [String, nil] Start date for filtering (required with end_date). Must be a valid date. Must no
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

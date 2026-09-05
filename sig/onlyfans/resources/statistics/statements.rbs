@@ -4,8 +4,8 @@ module Onlyfans
       class Statements
         def get_earnings: (
           String account,
+          end_date: String,
           start_date: String,
-          ?end_date: String,
           ?type: Onlyfans::Models::Statistics::StatementGetEarningsParams::type_,
           ?request_options: Onlyfans::request_opts
         ) -> Onlyfans::Models::Statistics::StatementGetEarningsResponse

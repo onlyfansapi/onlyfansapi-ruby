@@ -1,7 +1,13 @@
 module Onlyfans
   module Models
     type statistic_get_subscriber_metrics_params =
-      { account: String, end_date: String, start_date: String, detailed: bool? }
+      {
+        account: String,
+        end_date: String,
+        start_date: String,
+        detailed: bool?,
+        detailed_type: Onlyfans::Models::StatisticGetSubscriberMetricsParams::detailed_type?
+      }
       & Onlyfans::Internal::Type::request_parameters
 
     class StatisticGetSubscriberMetricsParams < Onlyfans::Internal::Type::BaseModel
@@ -16,11 +22,14 @@ module Onlyfans
 
       attr_accessor detailed: bool?
 
+      attr_accessor detailed_type: Onlyfans::Models::StatisticGetSubscriberMetricsParams::detailed_type?
+
       def initialize: (
         account: String,
         end_date: String,
         start_date: String,
         ?detailed: bool?,
+        ?detailed_type: Onlyfans::Models::StatisticGetSubscriberMetricsParams::detailed_type?,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
@@ -29,8 +38,21 @@ module Onlyfans
         end_date: String,
         start_date: String,
         detailed: bool?,
+        detailed_type: Onlyfans::Models::StatisticGetSubscriberMetricsParams::detailed_type?,
         request_options: Onlyfans::RequestOptions
       }
+
+      type detailed_type = :total | :renew | :new
+
+      module DetailedType
+        extend Onlyfans::Internal::Type::Enum
+
+        TOTAL: :total
+        RENEW: :renew
+        NEW: :new
+
+        def self?.values: -> ::Array[Onlyfans::Models::StatisticGetSubscriberMetricsParams::detailed_type]
+      end
     end
   end
 end

@@ -123,25 +123,25 @@ module Onlyfans
         #   @return [String, nil]
         optional :next_page, String
 
-        # @!method initialize(next_page: nil)
+        # @!attribute notice
+        #
+        #   @return [String, nil]
+        optional :notice, String
+
+        # @!method initialize(next_page: nil, notice: nil)
         #   @param next_page [String]
+        #   @param notice [String]
       end
 
       # @see Onlyfans::Models::ReleaseFormListTaggableUsersResponse#data
       class Data < Onlyfans::Internal::Type::BaseModel
-        # @!attribute has_more
-        #
-        #   @return [Boolean, nil]
-        optional :has_more, Onlyfans::Internal::Type::Boolean, api_name: :hasMore
-
         # @!attribute items
         #
         #   @return [Array<Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item>, nil]
         optional :items,
                  -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item] }
 
-        # @!method initialize(has_more: nil, items: nil)
-        #   @param has_more [Boolean]
+        # @!method initialize(items: nil)
         #   @param items [Array<Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item>]
 
         class Item < Onlyfans::Internal::Type::BaseModel

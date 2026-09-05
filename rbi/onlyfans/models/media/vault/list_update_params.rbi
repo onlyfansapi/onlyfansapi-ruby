@@ -22,14 +22,25 @@ module Onlyfans
           sig { returns(String) }
           attr_accessor :list_id
 
+          # The new name for the vault list. Must not be greater than 255 characters.
+          sig { returns(String) }
+          attr_accessor :name
+
           sig do
             params(
               account: String,
               list_id: String,
+              name: String,
               request_options: Onlyfans::RequestOptions::OrHash
             ).returns(T.attached_class)
           end
-          def self.new(account:, list_id:, request_options: {})
+          def self.new(
+            account:,
+            list_id:,
+            # The new name for the vault list. Must not be greater than 255 characters.
+            name:,
+            request_options: {}
+          )
           end
 
           sig do
@@ -37,6 +48,7 @@ module Onlyfans
               {
                 account: String,
                 list_id: String,
+                name: String,
                 request_options: Onlyfans::RequestOptions
               }
             )

@@ -1,7 +1,13 @@
 module Onlyfans
   module Models
     type shared_trial_link_list_params =
-      { account: String, limit: Integer, offset: Integer, synchronous: bool? }
+      {
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        pagination: Onlyfans::Models::SharedTrialLinkListParams::pagination,
+        synchronous: bool
+      }
       & Onlyfans::Internal::Type::request_parameters
 
     class SharedTrialLinkListParams < Onlyfans::Internal::Type::BaseModel
@@ -18,13 +24,22 @@ module Onlyfans
 
       def offset=: (Integer) -> Integer
 
-      attr_accessor synchronous: bool?
+      attr_reader pagination: Onlyfans::Models::SharedTrialLinkListParams::pagination?
+
+      def pagination=: (
+        Onlyfans::Models::SharedTrialLinkListParams::pagination
+      ) -> Onlyfans::Models::SharedTrialLinkListParams::pagination
+
+      attr_reader synchronous: bool?
+
+      def synchronous=: (bool) -> bool
 
       def initialize: (
         account: String,
         ?limit: Integer,
         ?offset: Integer,
-        ?synchronous: bool?,
+        ?pagination: Onlyfans::Models::SharedTrialLinkListParams::pagination,
+        ?synchronous: bool,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
@@ -32,9 +47,21 @@ module Onlyfans
         account: String,
         limit: Integer,
         offset: Integer,
-        synchronous: bool?,
+        pagination: Onlyfans::Models::SharedTrialLinkListParams::pagination,
+        synchronous: bool,
         request_options: Onlyfans::RequestOptions
       }
+
+      type pagination = 0 | 1
+
+      module Pagination
+        extend Onlyfans::Internal::Type::Enum
+
+        PAGINATION_0: 0
+        PAGINATION_1: 1
+
+        def self?.values: -> ::Array[Onlyfans::Models::SharedTrialLinkListParams::pagination]
+      end
     end
   end
 end

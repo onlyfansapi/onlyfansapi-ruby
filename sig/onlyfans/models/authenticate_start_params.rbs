@@ -147,13 +147,14 @@ module Onlyfans
         }
       end
 
-      type proxy_country = :us | :uk
+      type proxy_country = :us | :uk | :gb
 
       module ProxyCountry
         extend Onlyfans::Internal::Type::Enum
 
         US: :us
         UK: :uk
+        GB: :gb
 
         def self?.values: -> ::Array[Onlyfans::Models::AuthenticateStartParams::proxy_country]
       end

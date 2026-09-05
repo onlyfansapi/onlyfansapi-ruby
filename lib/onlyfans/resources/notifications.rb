@@ -21,7 +21,7 @@ module Onlyfans
       #
       # @param limit [Integer] The number of notifications. Default `10`
       #
-      # @param skip_users [Symbol, Onlyfans::Models::NotificationListParams::SkipUsers] Whether to skip user details. Default `all`
+      # @param skip_users [Symbol, Onlyfans::Models::NotificationListParams::SkipUsers] Whether to skip user details. Defaults to `all`.
       #
       # @param type [Symbol, Onlyfans::Models::NotificationListParams::Type] Filter notifications by a specific type
       #

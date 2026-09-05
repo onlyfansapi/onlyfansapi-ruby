@@ -4,13 +4,14 @@ module Onlyfans
       {
         account: String,
         end_date: String?,
-        limit: Integer?,
-        offset: Integer?,
-        sort: Onlyfans::Models::TrackingLinkListParams::sort?,
-        sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        limit: Integer,
+        offset: Integer,
+        pagination: Onlyfans::Models::TrackingLinkListParams::pagination,
+        sort: Onlyfans::Models::TrackingLinkListParams::sort,
+        sortby: Onlyfans::Models::TrackingLinkListParams::sortby,
         start_date: String?,
-        synchronous: bool?,
-        with_deleted: bool?
+        synchronous: bool,
+        with_deleted: Onlyfans::Models::TrackingLinkListParams::with_deleted
       }
       & Onlyfans::Internal::Type::request_parameters
 
@@ -22,53 +23,90 @@ module Onlyfans
 
       attr_accessor end_date: String?
 
-      attr_accessor limit: Integer?
+      attr_reader limit: Integer?
 
-      attr_accessor offset: Integer?
+      def limit=: (Integer) -> Integer
 
-      attr_accessor sort: Onlyfans::Models::TrackingLinkListParams::sort?
+      attr_reader offset: Integer?
 
-      attr_accessor sortby: Onlyfans::Models::TrackingLinkListParams::sortby?
+      def offset=: (Integer) -> Integer
+
+      attr_reader pagination: Onlyfans::Models::TrackingLinkListParams::pagination?
+
+      def pagination=: (
+        Onlyfans::Models::TrackingLinkListParams::pagination
+      ) -> Onlyfans::Models::TrackingLinkListParams::pagination
+
+      attr_reader sort: Onlyfans::Models::TrackingLinkListParams::sort?
+
+      def sort=: (
+        Onlyfans::Models::TrackingLinkListParams::sort
+      ) -> Onlyfans::Models::TrackingLinkListParams::sort
+
+      attr_reader sortby: Onlyfans::Models::TrackingLinkListParams::sortby?
+
+      def sortby=: (
+        Onlyfans::Models::TrackingLinkListParams::sortby
+      ) -> Onlyfans::Models::TrackingLinkListParams::sortby
 
       attr_accessor start_date: String?
 
-      attr_accessor synchronous: bool?
+      attr_reader synchronous: bool?
 
-      attr_accessor with_deleted: bool?
+      def synchronous=: (bool) -> bool
+
+      attr_reader with_deleted: Onlyfans::Models::TrackingLinkListParams::with_deleted?
+
+      def with_deleted=: (
+        Onlyfans::Models::TrackingLinkListParams::with_deleted
+      ) -> Onlyfans::Models::TrackingLinkListParams::with_deleted
 
       def initialize: (
         account: String,
         ?end_date: String?,
-        ?limit: Integer?,
-        ?offset: Integer?,
-        ?sort: Onlyfans::Models::TrackingLinkListParams::sort?,
-        ?sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?pagination: Onlyfans::Models::TrackingLinkListParams::pagination,
+        ?sort: Onlyfans::Models::TrackingLinkListParams::sort,
+        ?sortby: Onlyfans::Models::TrackingLinkListParams::sortby,
         ?start_date: String?,
-        ?synchronous: bool?,
-        ?with_deleted: bool?,
+        ?synchronous: bool,
+        ?with_deleted: Onlyfans::Models::TrackingLinkListParams::with_deleted,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
         end_date: String?,
-        limit: Integer?,
-        offset: Integer?,
-        sort: Onlyfans::Models::TrackingLinkListParams::sort?,
-        sortby: Onlyfans::Models::TrackingLinkListParams::sortby?,
+        limit: Integer,
+        offset: Integer,
+        pagination: Onlyfans::Models::TrackingLinkListParams::pagination,
+        sort: Onlyfans::Models::TrackingLinkListParams::sort,
+        sortby: Onlyfans::Models::TrackingLinkListParams::sortby,
         start_date: String?,
-        synchronous: bool?,
-        with_deleted: bool?,
+        synchronous: bool,
+        with_deleted: Onlyfans::Models::TrackingLinkListParams::with_deleted,
         request_options: Onlyfans::RequestOptions
       }
 
-      type sort = :desc | :asc
+      type pagination = 0 | 1
+
+      module Pagination
+        extend Onlyfans::Internal::Type::Enum
+
+        PAGINATION_0: 0
+        PAGINATION_1: 1
+
+        def self?.values: -> ::Array[Onlyfans::Models::TrackingLinkListParams::pagination]
+      end
+
+      type sort = :asc | :desc
 
       module Sort
         extend Onlyfans::Internal::Type::Enum
 
-        DESC: :desc
         ASC: :asc
+        DESC: :desc
 
         def self?.values: -> ::Array[Onlyfans::Models::TrackingLinkListParams::sort]
       end
@@ -82,6 +120,17 @@ module Onlyfans
         CREATED_DATE: :created_date
 
         def self?.values: -> ::Array[Onlyfans::Models::TrackingLinkListParams::sortby]
+      end
+
+      type with_deleted = 0 | 1
+
+      module WithDeleted
+        extend Onlyfans::Internal::Type::Enum
+
+        WITH_DELETED_0: 0
+        WITH_DELETED_1: 1
+
+        def self?.values: -> ::Array[Onlyfans::Models::TrackingLinkListParams::with_deleted]
       end
     end
   end

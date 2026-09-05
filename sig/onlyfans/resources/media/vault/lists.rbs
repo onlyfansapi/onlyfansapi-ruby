@@ -20,16 +20,18 @@ module Onlyfans
           def update: (
             String list_id,
             account: String,
+            name: String,
             ?request_options: Onlyfans::request_opts
           ) -> Onlyfans::Models::Media::Vault::ListUpdateResponse
 
           def list: (
             String account,
+            ?lightweight: bool,
             ?limit: Integer,
             ?offset: Integer,
             ?query: String,
             ?request_options: Onlyfans::request_opts
-          ) -> Onlyfans::Models::Media::Vault::ListListResponse
+          ) -> Onlyfans::Models::Media::Vault::list_list_response
 
           def delete: (
             String list_id,
