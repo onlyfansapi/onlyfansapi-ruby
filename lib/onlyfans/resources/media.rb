@@ -15,8 +15,9 @@ module Onlyfans
       # Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the
       # file is already cached on our CDN, this endpoint returns a `302` redirect to a
       # `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects
-      # automatically (`curl` requires `-L`). Otherwise, the file is streamed through
-      # our proxies and queued for caching.
+      # automatically (`curl` requires `-L`). Otherwise, the file is redirected to
+      # `dl.fansapi.com`, which streams it through the account proxy and reports billing
+      # back to the API.
       #
       # @overload download(cdn_url, account:, request_options: {})
       #
@@ -27,7 +28,7 @@ module Onlyfans
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
-      # @return [String]
+      # @return [nil]
       #
       # @see Onlyfans::Models::MediaDownloadParams
       def download(cdn_url, params)
@@ -39,8 +40,7 @@ module Onlyfans
         @client.request(
           method: :get,
           path: ["api/%1$s/media/download/%2$s", account, cdn_url],
-          headers: {"accept" => "text/plain"},
-          model: String,
+          model: NilClass,
           options: options
         )
       end

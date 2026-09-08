@@ -8,6 +8,7 @@ module Onlyfans
       def create: (
         String account,
         text: String,
+        ?block_banned_words: Onlyfans::Models::PostCreateParams::block_banned_words,
         ?expire_days: Integer,
         ?fund_raising_target_amount: Integer,
         ?fund_raising_tips_presets: ::Array[String],
@@ -34,6 +35,7 @@ module Onlyfans
         Integer post_id,
         account: String,
         text: String,
+        ?block_banned_words: Onlyfans::Models::PostUpdateParams::block_banned_words,
         ?expire_days: Integer,
         ?fund_raising_target_amount: Integer,
         ?fund_raising_tips_presets: ::Array[String],

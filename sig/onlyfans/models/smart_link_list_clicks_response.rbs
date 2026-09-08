@@ -232,19 +232,22 @@ module Onlyfans
             created_at: String,
             external_click_id: String,
             fbclid: String?,
+            gbraid: String?,
             gclid: String,
             gross_clicks: Integer,
             ip_address: String,
             is_bot: bool,
             is_duplicate: bool,
             referrer: String,
+            sccid: String?,
             ttclid: String,
             user_agent: String,
             utm_campaign: String,
             utm_content: String,
             utm_medium: String,
             utm_source: String,
-            utm_term: String
+            utm_term: String,
+            wbraid: String?
           }
 
         class Row < Onlyfans::Internal::Type::BaseModel
@@ -294,6 +297,8 @@ module Onlyfans
 
           attr_accessor fbclid: String?
 
+          attr_accessor gbraid: String?
+
           attr_reader gclid: String?
 
           def gclid=: (String) -> String
@@ -317,6 +322,8 @@ module Onlyfans
           attr_reader referrer: String?
 
           def referrer=: (String) -> String
+
+          attr_accessor sccid: String?
 
           attr_reader ttclid: String?
 
@@ -346,6 +353,8 @@ module Onlyfans
 
           def utm_term=: (String) -> String
 
+          attr_accessor wbraid: String?
+
           def initialize: (
             ?id: String,
             ?aff_s1: String,
@@ -361,19 +370,22 @@ module Onlyfans
             ?created_at: String,
             ?external_click_id: String,
             ?fbclid: String?,
+            ?gbraid: String?,
             ?gclid: String,
             ?gross_clicks: Integer,
             ?ip_address: String,
             ?is_bot: bool,
             ?is_duplicate: bool,
             ?referrer: String,
+            ?sccid: String?,
             ?ttclid: String,
             ?user_agent: String,
             ?utm_campaign: String,
             ?utm_content: String,
             ?utm_medium: String,
             ?utm_source: String,
-            ?utm_term: String
+            ?utm_term: String,
+            ?wbraid: String?
           ) -> void
 
           def to_hash: -> {
@@ -391,19 +403,22 @@ module Onlyfans
             created_at: String,
             external_click_id: String,
             fbclid: String?,
+            gbraid: String?,
             gclid: String,
             gross_clicks: Integer,
             ip_address: String,
             is_bot: bool,
             is_duplicate: bool,
             referrer: String,
+            sccid: String?,
             ttclid: String,
             user_agent: String,
             utm_campaign: String,
             utm_content: String,
             utm_medium: String,
             utm_source: String,
-            utm_term: String
+            utm_term: String,
+            wbraid: String?
           }
         end
 

@@ -62,17 +62,19 @@ module Onlyfans
       #
       # List all Smart Links
       #
-      # @overload list(account_ids: nil, limit: nil, meta_pixel_ids: nil, name: nil, offset: nil, request_options: {})
+      # @overload list(account_ids: nil, filter: nil, limit: nil, name: nil, offset: nil, pixel_ids: nil, request_options: {})
       #
       # @param account_ids [String, nil] Comma-separated account prefixed IDs to include.
       #
-      # @param limit [Integer] The number of Smart Links to return. Default `50`. Must be at least 1. Must not
+      # @param filter [Onlyfans::Models::SmartLinkListParams::Filter]
       #
-      # @param meta_pixel_ids [String, nil] Comma-separated Meta Pixel IDs to include.
+      # @param limit [Integer] The number of Smart Links to return. Default `50`. Must be at least 1. Must not
       #
       # @param name [String, nil] Filter Smart Links by name. Must not be greater than 255 characters.
       #
       # @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
+      #
+      # @param pixel_ids [String, nil] Comma-separated ad platform Pixel IDs to include.
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -186,10 +188,13 @@ module Onlyfans
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfans::Models::SmartLinkListFansParams} for more details.
+      #
       # Query attributed Smart Link fans with aggregate fan metrics and subscriber
       # attribution metadata
       #
-      # @overload list_fans(smart_link_id, has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, sort: nil, request_options: {})
+      # @overload list_fans(smart_link_id, has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, previously_subscribed: nil, sort: nil, subscribed_using_promo: nil, request_options: {})
       #
       # @param smart_link_id [String] The ID of the smart link.
       #
@@ -205,7 +210,11 @@ module Onlyfans
       #
       # @param offset [Integer] Offset for pagination. Default `0`
       #
+      # @param previously_subscribed [Boolean] Optional - Filter to returning subscribers (fans previously subscribed before th
+      #
       # @param sort [Symbol, Onlyfans::Models::SmartLinkListFansParams::Sort] Optional sort field. Default `-revenue_net`
+      #
+      # @param subscribed_using_promo [Boolean] Optional - Filter to fans who subscribed via a promotion/offer
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

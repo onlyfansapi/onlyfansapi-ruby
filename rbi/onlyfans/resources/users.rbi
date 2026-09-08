@@ -27,7 +27,8 @@ module Onlyfans
         ).returns(Onlyfans::Models::UserRetrieveResponse)
       end
       def retrieve(
-        # The OnlyFans username of the user to retrieve details for.
+        # The OnlyFans username or numeric user ID to retrieve details for. Display names
+        # and profile URLs are not accepted.
         username,
         # The Account ID
         account:,

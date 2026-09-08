@@ -160,7 +160,7 @@ module Onlyfans
         # @!attribute revenue
         #
         #   @return [String, nil]
-        optional :revenue, String, nil?: true
+        optional :revenue, String
 
         # @!attribute subscribers_count
         #
@@ -187,7 +187,7 @@ module Onlyfans
         #   @param free_trial_days [Integer]
         #   @param link_type [String]
         #   @param name [String]
-        #   @param revenue [String, nil]
+        #   @param revenue [String]
         #   @param subscribers_count [Integer]
         #   @param traffic_redirect_url [String]
         #   @param updated_at [String]

@@ -59,7 +59,7 @@ module Onlyfans
           limit: nil,
           # Query param: Sort order for messages (desc or asc)
           order: nil,
-          # Query param: Whether to skip user details (all or none)
+          # Query param: Whether to skip user details (`all` or `none`).
           skip_users: nil,
           request_options: {}
         )
@@ -148,20 +148,47 @@ module Onlyfans
         end
 
         # Send a new message to a chat.
+        #
+        # **Idempotency.** Pass an `Idempotency-Key` header to make retries safe. The
+        # first request with a given key is executed normally and its response is stored
+        # for **24 hours**; any later request with the same key returns that stored
+        # response, plus an `Idempotent-Replayed: true` header, without contacting
+        # OnlyFans and without consuming credits. The replayed body is the original
+        # response with its `_meta._credits` block rewritten to show `used: 0` and your
+        # current balance.
+        #
+        # Keys are scoped to your team, this endpoint and the account in the URL, so the
+        # same value can be reused safely against a different account. Use a fresh, unique
+        # value (a UUID works well) for each message you send; it must be 1-255 printable
+        # ASCII characters.
+        #
+        # - `400 IDEMPOTENCY_KEY_INVALID` — the header value is empty, too long, or
+        #   contains non-ASCII characters.
+        # - `409 IDEMPOTENCY_CONFLICT` — an earlier request with this key is still
+        #   running. Retry once it finishes.
+        # - `422 IDEMPOTENCY_KEY_MISMATCH` — this key was already used with a different
+        #   request body or chat.
+        #
+        # Responses with a `5xx` status (and `408`/`429`) are never stored, so a failed
+        # send can be retried with the same key. The header is optional: omit it and the
+        # endpoint behaves exactly as before.
         sig do
           params(
             chat_id: String,
             account: String,
+            block_banned_words:
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol,
             giphy_id: String,
             locked_text: T::Boolean,
             media_files: T::Array[T.anything],
             previews: T::Array[T.anything],
-            price: Integer,
+            price: Float,
             reply_to_message_id: Integer,
             rf_guest: String,
             rf_partner: String,
             rf_tag: String,
             text: String,
+            idempotency_key: String,
             request_options: Onlyfans::RequestOptions::OrHash
           ).returns(Onlyfans::Models::Chats::MessageSendResponse)
         end
@@ -170,6 +197,11 @@ module Onlyfans
           chat_id,
           # Path param: The Account ID
           account:,
+          # Body param: Screen `text` for OnlyFans banned words and block the send if any
+          # are found (returns a 422 listing the offending words). `strict_ban` blocks all
+          # tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks
+          # Replace/soften only. Omit to disable screening.
+          block_banned_words: nil,
           # Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the
           # Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
           giphy_id: nil,
@@ -182,8 +214,8 @@ module Onlyfans
           # integer indices referencing uploaded files in `mediaFiles`. Will be shown if
           # `price` is provided.
           previews: nil,
-          # Body param: Price for paid content (0 or between 3-200). In case this is not
-          # zero, **mediaFiles** is required
+          # Body param: Price for paid content in USD (0 or between 3-200). In case this is
+          # not zero, **mediaFiles** is required
           price: nil,
           # Body param: Mark this message as a reply to another (can be either your own, or
           # the recipient's)
@@ -196,6 +228,8 @@ module Onlyfans
           rf_tag: nil,
           # Body param: The message text content. Required unless a media file is present.
           text: nil,
+          # Header param
+          idempotency_key: nil,
           request_options: {}
         )
         end

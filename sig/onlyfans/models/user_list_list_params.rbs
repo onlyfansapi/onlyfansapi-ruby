@@ -1,7 +1,12 @@
 module Onlyfans
   module Models
     type user_list_list_params =
-      { account: String, limit: Integer?, offset: Integer? }
+      {
+        account: String,
+        limit: Integer?,
+        offset: Integer?,
+        view: Onlyfans::Models::UserListListParams::view
+      }
       & Onlyfans::Internal::Type::request_parameters
 
     class UserListListParams < Onlyfans::Internal::Type::BaseModel
@@ -14,10 +19,17 @@ module Onlyfans
 
       attr_accessor offset: Integer?
 
+      attr_reader view: Onlyfans::Models::UserListListParams::view?
+
+      def view=: (
+        Onlyfans::Models::UserListListParams::view
+      ) -> Onlyfans::Models::UserListListParams::view
+
       def initialize: (
         account: String,
         ?limit: Integer?,
         ?offset: Integer?,
+        ?view: Onlyfans::Models::UserListListParams::view,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
@@ -25,8 +37,19 @@ module Onlyfans
         account: String,
         limit: Integer?,
         offset: Integer?,
+        view: Onlyfans::Models::UserListListParams::view,
         request_options: Onlyfans::RequestOptions
       }
+
+      type view = :queue
+
+      module View
+        extend Onlyfans::Internal::Type::Enum
+
+        QUEUE: :queue
+
+        def self?.values: -> ::Array[Onlyfans::Models::UserListListParams::view]
+      end
     end
   end
 end

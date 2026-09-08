@@ -4,279 +4,497 @@ module Onlyfans
   module Models
     module Media
       module Vault
+        # Success
+        #
         # @see Onlyfans::Resources::Media::Vault::Lists#list
-        class ListListResponse < Onlyfans::Internal::Type::BaseModel
-          # @!attribute _meta
-          #
-          #   @return [Onlyfans::Models::Media::Vault::ListListResponse::Meta, nil]
-          optional :_meta, -> { Onlyfans::Models::Media::Vault::ListListResponse::Meta }
+        module ListListResponse
+          extend Onlyfans::Internal::Type::Union
 
-          # @!attribute data
-          #
-          #   @return [Onlyfans::Models::Media::Vault::ListListResponse::Data, nil]
-          optional :data, -> { Onlyfans::Models::Media::Vault::ListListResponse::Data }
+          # Success
+          variant -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0 }
 
-          # @!method initialize(_meta: nil, data: nil)
-          #   @param _meta [Onlyfans::Models::Media::Vault::ListListResponse::Meta]
-          #   @param data [Onlyfans::Models::Media::Vault::ListListResponse::Data]
+          # Success (lightweight=true)
+          variant -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1 }
 
-          # @see Onlyfans::Models::Media::Vault::ListListResponse#_meta
-          class Meta < Onlyfans::Internal::Type::BaseModel
-            # @!attribute _cache
+          class UnionMember0 < Onlyfans::Internal::Type::BaseModel
+            # @!attribute _meta
             #
-            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache, nil]
-            optional :_cache, -> { Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache }
+            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta, nil]
+            optional :_meta, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta }
 
-            # @!attribute _credits
+            # @!attribute data
             #
-            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits, nil]
-            optional :_credits, -> { Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits }
+            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data, nil]
+            optional :data, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data }
 
-            # @!attribute _rate_limits
+            # @!method initialize(_meta: nil, data: nil)
+            #   Success
             #
-            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits, nil]
-            optional :_rate_limits, -> { Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits }
+            #   @param _meta [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta]
+            #   @param data [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data]
 
-            # @!method initialize(_cache: nil, _credits: nil, _rate_limits: nil)
-            #   @param _cache [Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache]
-            #   @param _credits [Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits]
-            #   @param _rate_limits [Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits]
+            # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0#_meta
+            class Meta < Onlyfans::Internal::Type::BaseModel
+              # @!attribute _cache
+              #
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache, nil]
+              optional :_cache, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache }
 
-            # @see Onlyfans::Models::Media::Vault::ListListResponse::Meta#_cache
-            class Cache < Onlyfans::Internal::Type::BaseModel
-              # @!attribute is_cached
+              # @!attribute _credits
+              #
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits, nil]
+              optional :_credits, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits }
+
+              # @!attribute _rate_limits
+              #
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits, nil]
+              optional :_rate_limits,
+                       -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits }
+
+              # @!method initialize(_cache: nil, _credits: nil, _rate_limits: nil)
+              #   @param _cache [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache]
+              #   @param _credits [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits]
+              #   @param _rate_limits [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits]
+
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta#_cache
+              class Cache < Onlyfans::Internal::Type::BaseModel
+                # @!attribute is_cached
+                #
+                #   @return [Boolean, nil]
+                optional :is_cached, Onlyfans::Internal::Type::Boolean
+
+                # @!attribute note
+                #
+                #   @return [String, nil]
+                optional :note, String
+
+                # @!method initialize(is_cached: nil, note: nil)
+                #   @param is_cached [Boolean]
+                #   @param note [String]
+              end
+
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta#_credits
+              class Credits < Onlyfans::Internal::Type::BaseModel
+                # @!attribute balance
+                #
+                #   @return [Integer, nil]
+                optional :balance, Integer
+
+                # @!attribute note
+                #
+                #   @return [String, nil]
+                optional :note, String
+
+                # @!attribute used
+                #
+                #   @return [Integer, nil]
+                optional :used, Integer
+
+                # @!method initialize(balance: nil, note: nil, used: nil)
+                #   @param balance [Integer]
+                #   @param note [String]
+                #   @param used [Integer]
+              end
+
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta#_rate_limits
+              class RateLimits < Onlyfans::Internal::Type::BaseModel
+                # @!attribute limit_day
+                #
+                #   @return [Integer, nil]
+                optional :limit_day, Integer
+
+                # @!attribute limit_minute
+                #
+                #   @return [Integer, nil]
+                optional :limit_minute, Integer
+
+                # @!attribute remaining_day
+                #
+                #   @return [Integer, nil]
+                optional :remaining_day, Integer
+
+                # @!attribute remaining_minute
+                #
+                #   @return [Integer, nil]
+                optional :remaining_minute, Integer
+
+                # @!method initialize(limit_day: nil, limit_minute: nil, remaining_day: nil, remaining_minute: nil)
+                #   @param limit_day [Integer]
+                #   @param limit_minute [Integer]
+                #   @param remaining_day [Integer]
+                #   @param remaining_minute [Integer]
+              end
+            end
+
+            # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0#data
+            class Data < Onlyfans::Internal::Type::BaseModel
+              # @!attribute all
+              #
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All, nil]
+              optional :all, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All }
+
+              # @!attribute can_create_vault_lists
               #
               #   @return [Boolean, nil]
-              optional :is_cached, Onlyfans::Internal::Type::Boolean
+              optional :can_create_vault_lists,
+                       Onlyfans::Internal::Type::Boolean,
+                       api_name: :canCreateVaultLists
 
-              # @!attribute note
+              # @!attribute has_more
+              #
+              #   @return [Boolean, nil]
+              optional :has_more, Onlyfans::Internal::Type::Boolean, api_name: :hasMore
+
+              # @!attribute list
+              #
+              #   @return [Array<Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List>, nil]
+              optional :list,
+                       -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List] }
+
+              # @!attribute order
               #
               #   @return [String, nil]
-              optional :note, String
+              optional :order, String
 
-              # @!method initialize(is_cached: nil, note: nil)
-              #   @param is_cached [Boolean]
-              #   @param note [String]
-            end
-
-            # @see Onlyfans::Models::Media::Vault::ListListResponse::Meta#_credits
-            class Credits < Onlyfans::Internal::Type::BaseModel
-              # @!attribute balance
-              #
-              #   @return [Integer, nil]
-              optional :balance, Integer
-
-              # @!attribute note
+              # @!attribute sort
               #
               #   @return [String, nil]
-              optional :note, String
+              optional :sort, String
 
-              # @!attribute used
-              #
-              #   @return [Integer, nil]
-              optional :used, Integer
+              # @!method initialize(all: nil, can_create_vault_lists: nil, has_more: nil, list: nil, order: nil, sort: nil)
+              #   @param all [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All]
+              #   @param can_create_vault_lists [Boolean]
+              #   @param has_more [Boolean]
+              #   @param list [Array<Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List>]
+              #   @param order [String]
+              #   @param sort [String]
 
-              # @!method initialize(balance: nil, note: nil, used: nil)
-              #   @param balance [Integer]
-              #   @param note [String]
-              #   @param used [Integer]
-            end
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data#all
+              class All < Onlyfans::Internal::Type::BaseModel
+                # @!attribute audios_count
+                #
+                #   @return [Integer, nil]
+                optional :audios_count, Integer, api_name: :audiosCount
 
-            # @see Onlyfans::Models::Media::Vault::ListListResponse::Meta#_rate_limits
-            class RateLimits < Onlyfans::Internal::Type::BaseModel
-              # @!attribute limit_day
-              #
-              #   @return [Integer, nil]
-              optional :limit_day, Integer
+                # @!attribute gifs_count
+                #
+                #   @return [Integer, nil]
+                optional :gifs_count, Integer, api_name: :gifsCount
 
-              # @!attribute limit_minute
-              #
-              #   @return [Integer, nil]
-              optional :limit_minute, Integer
+                # @!attribute medias
+                #
+                #   @return [Array<Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media>, nil]
+                optional :medias,
+                         -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media] }
 
-              # @!attribute remaining_day
-              #
-              #   @return [Integer, nil]
-              optional :remaining_day, Integer
+                # @!attribute photos_count
+                #
+                #   @return [Integer, nil]
+                optional :photos_count, Integer, api_name: :photosCount
 
-              # @!attribute remaining_minute
-              #
-              #   @return [Integer, nil]
-              optional :remaining_minute, Integer
+                # @!attribute videos_count
+                #
+                #   @return [Integer, nil]
+                optional :videos_count, Integer, api_name: :videosCount
 
-              # @!method initialize(limit_day: nil, limit_minute: nil, remaining_day: nil, remaining_minute: nil)
-              #   @param limit_day [Integer]
-              #   @param limit_minute [Integer]
-              #   @param remaining_day [Integer]
-              #   @param remaining_minute [Integer]
-            end
-          end
+                # @!method initialize(audios_count: nil, gifs_count: nil, medias: nil, photos_count: nil, videos_count: nil)
+                #   @param audios_count [Integer]
+                #   @param gifs_count [Integer]
+                #   @param medias [Array<Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media>]
+                #   @param photos_count [Integer]
+                #   @param videos_count [Integer]
 
-          # @see Onlyfans::Models::Media::Vault::ListListResponse#data
-          class Data < Onlyfans::Internal::Type::BaseModel
-            # @!attribute all
-            #
-            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::Data::All, nil]
-            optional :all, -> { Onlyfans::Models::Media::Vault::ListListResponse::Data::All }
+                class Media < Onlyfans::Internal::Type::BaseModel
+                  # @!attribute type
+                  #
+                  #   @return [String, nil]
+                  optional :type, String
 
-            # @!attribute can_create_vault_lists
-            #
-            #   @return [Boolean, nil]
-            optional :can_create_vault_lists,
-                     Onlyfans::Internal::Type::Boolean,
-                     api_name: :canCreateVaultLists
+                  # @!attribute url
+                  #
+                  #   @return [String, nil]
+                  optional :url, String
 
-            # @!attribute has_more
-            #
-            #   @return [Boolean, nil]
-            optional :has_more, Onlyfans::Internal::Type::Boolean, api_name: :hasMore
+                  # @!method initialize(type: nil, url: nil)
+                  #   @param type [String]
+                  #   @param url [String]
+                end
+              end
 
-            # @!attribute list
-            #
-            #   @return [Array<Onlyfans::Models::Media::Vault::ListListResponse::Data::List>, nil]
-            optional :list,
-                     -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Media::Vault::ListListResponse::Data::List] }
+              class List < Onlyfans::Internal::Type::BaseModel
+                # @!attribute id
+                #
+                #   @return [Integer, nil]
+                optional :id, Integer
 
-            # @!attribute order
-            #
-            #   @return [String, nil]
-            optional :order, String
+                # @!attribute audios_count
+                #
+                #   @return [Integer, nil]
+                optional :audios_count, Integer, api_name: :audiosCount
 
-            # @!attribute sort
-            #
-            #   @return [String, nil]
-            optional :sort, String
+                # @!attribute can_delete
+                #
+                #   @return [Boolean, nil]
+                optional :can_delete, Onlyfans::Internal::Type::Boolean, api_name: :canDelete
 
-            # @!method initialize(all: nil, can_create_vault_lists: nil, has_more: nil, list: nil, order: nil, sort: nil)
-            #   @param all [Onlyfans::Models::Media::Vault::ListListResponse::Data::All]
-            #   @param can_create_vault_lists [Boolean]
-            #   @param has_more [Boolean]
-            #   @param list [Array<Onlyfans::Models::Media::Vault::ListListResponse::Data::List>]
-            #   @param order [String]
-            #   @param sort [String]
+                # @!attribute can_update
+                #
+                #   @return [Boolean, nil]
+                optional :can_update, Onlyfans::Internal::Type::Boolean, api_name: :canUpdate
 
-            # @see Onlyfans::Models::Media::Vault::ListListResponse::Data#all
-            class All < Onlyfans::Internal::Type::BaseModel
-              # @!attribute audios_count
-              #
-              #   @return [Integer, nil]
-              optional :audios_count, Integer, api_name: :audiosCount
+                # @!attribute gifs_count
+                #
+                #   @return [Integer, nil]
+                optional :gifs_count, Integer, api_name: :gifsCount
 
-              # @!attribute gifs_count
-              #
-              #   @return [Integer, nil]
-              optional :gifs_count, Integer, api_name: :gifsCount
+                # @!attribute has_media
+                #
+                #   @return [Boolean, nil]
+                optional :has_media, Onlyfans::Internal::Type::Boolean, api_name: :hasMedia
 
-              # @!attribute medias
-              #
-              #   @return [Array<Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media>, nil]
-              optional :medias,
-                       -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media] }
+                # @!attribute medias
+                #
+                #   @return [Array<Object>, nil]
+                optional :medias, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
 
-              # @!attribute photos_count
-              #
-              #   @return [Integer, nil]
-              optional :photos_count, Integer, api_name: :photosCount
+                # @!attribute name
+                #
+                #   @return [String, nil]
+                optional :name, String
 
-              # @!attribute videos_count
-              #
-              #   @return [Integer, nil]
-              optional :videos_count, Integer, api_name: :videosCount
+                # @!attribute photos_count
+                #
+                #   @return [Integer, nil]
+                optional :photos_count, Integer, api_name: :photosCount
 
-              # @!method initialize(audios_count: nil, gifs_count: nil, medias: nil, photos_count: nil, videos_count: nil)
-              #   @param audios_count [Integer]
-              #   @param gifs_count [Integer]
-              #   @param medias [Array<Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media>]
-              #   @param photos_count [Integer]
-              #   @param videos_count [Integer]
-
-              class Media < Onlyfans::Internal::Type::BaseModel
                 # @!attribute type
                 #
                 #   @return [String, nil]
                 optional :type, String
 
-                # @!attribute url
+                # @!attribute videos_count
+                #
+                #   @return [Integer, nil]
+                optional :videos_count, Integer, api_name: :videosCount
+
+                # @!method initialize(id: nil, audios_count: nil, can_delete: nil, can_update: nil, gifs_count: nil, has_media: nil, medias: nil, name: nil, photos_count: nil, type: nil, videos_count: nil)
+                #   @param id [Integer]
+                #   @param audios_count [Integer]
+                #   @param can_delete [Boolean]
+                #   @param can_update [Boolean]
+                #   @param gifs_count [Integer]
+                #   @param has_media [Boolean]
+                #   @param medias [Array<Object>]
+                #   @param name [String]
+                #   @param photos_count [Integer]
+                #   @param type [String]
+                #   @param videos_count [Integer]
+              end
+            end
+          end
+
+          class UnionMember1 < Onlyfans::Internal::Type::BaseModel
+            # @!attribute _meta
+            #
+            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta, nil]
+            optional :_meta, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta }
+
+            # @!attribute data
+            #
+            #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data, nil]
+            optional :data, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data }
+
+            # @!method initialize(_meta: nil, data: nil)
+            #   Success (lightweight=true)
+            #
+            #   @param _meta [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta]
+            #   @param data [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data]
+
+            # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1#_meta
+            class Meta < Onlyfans::Internal::Type::BaseModel
+              # @!attribute _cache
+              #
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache, nil]
+              optional :_cache, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache }
+
+              # @!attribute _credits
+              #
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits, nil]
+              optional :_credits, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits }
+
+              # @!attribute _rate_limits
+              #
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits, nil]
+              optional :_rate_limits,
+                       -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits }
+
+              # @!method initialize(_cache: nil, _credits: nil, _rate_limits: nil)
+              #   @param _cache [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache]
+              #   @param _credits [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits]
+              #   @param _rate_limits [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits]
+
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta#_cache
+              class Cache < Onlyfans::Internal::Type::BaseModel
+                # @!attribute is_cached
+                #
+                #   @return [Boolean, nil]
+                optional :is_cached, Onlyfans::Internal::Type::Boolean
+
+                # @!attribute note
                 #
                 #   @return [String, nil]
-                optional :url, String
+                optional :note, String
 
-                # @!method initialize(type: nil, url: nil)
-                #   @param type [String]
-                #   @param url [String]
+                # @!method initialize(is_cached: nil, note: nil)
+                #   @param is_cached [Boolean]
+                #   @param note [String]
+              end
+
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta#_credits
+              class Credits < Onlyfans::Internal::Type::BaseModel
+                # @!attribute balance
+                #
+                #   @return [Integer, nil]
+                optional :balance, Integer
+
+                # @!attribute note
+                #
+                #   @return [String, nil]
+                optional :note, String
+
+                # @!attribute used
+                #
+                #   @return [Integer, nil]
+                optional :used, Integer
+
+                # @!method initialize(balance: nil, note: nil, used: nil)
+                #   @param balance [Integer]
+                #   @param note [String]
+                #   @param used [Integer]
+              end
+
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta#_rate_limits
+              class RateLimits < Onlyfans::Internal::Type::BaseModel
+                # @!attribute limit_day
+                #
+                #   @return [Integer, nil]
+                optional :limit_day, Integer
+
+                # @!attribute limit_minute
+                #
+                #   @return [Integer, nil]
+                optional :limit_minute, Integer
+
+                # @!attribute remaining_day
+                #
+                #   @return [Integer, nil]
+                optional :remaining_day, Integer
+
+                # @!attribute remaining_minute
+                #
+                #   @return [Integer, nil]
+                optional :remaining_minute, Integer
+
+                # @!method initialize(limit_day: nil, limit_minute: nil, remaining_day: nil, remaining_minute: nil)
+                #   @param limit_day [Integer]
+                #   @param limit_minute [Integer]
+                #   @param remaining_day [Integer]
+                #   @param remaining_minute [Integer]
               end
             end
 
-            class List < Onlyfans::Internal::Type::BaseModel
-              # @!attribute id
+            # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1#data
+            class Data < Onlyfans::Internal::Type::BaseModel
+              # @!attribute all
               #
-              #   @return [Integer, nil]
-              optional :id, Integer
+              #   @return [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All, nil]
+              optional :all, -> { Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All }
 
-              # @!attribute audios_count
-              #
-              #   @return [Integer, nil]
-              optional :audios_count, Integer, api_name: :audiosCount
-
-              # @!attribute can_delete
+              # @!attribute can_create_vault_lists
               #
               #   @return [Boolean, nil]
-              optional :can_delete, Onlyfans::Internal::Type::Boolean, api_name: :canDelete
+              optional :can_create_vault_lists,
+                       Onlyfans::Internal::Type::Boolean,
+                       api_name: :canCreateVaultLists
 
-              # @!attribute can_update
+              # @!attribute has_more
               #
               #   @return [Boolean, nil]
-              optional :can_update, Onlyfans::Internal::Type::Boolean, api_name: :canUpdate
+              optional :has_more, Onlyfans::Internal::Type::Boolean, api_name: :hasMore
 
-              # @!attribute gifs_count
+              # @!attribute list
               #
-              #   @return [Integer, nil]
-              optional :gifs_count, Integer, api_name: :gifsCount
+              #   @return [Array<Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List>, nil]
+              optional :list,
+                       -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List] }
 
-              # @!attribute has_media
-              #
-              #   @return [Boolean, nil]
-              optional :has_media, Onlyfans::Internal::Type::Boolean, api_name: :hasMedia
-
-              # @!attribute medias
-              #
-              #   @return [Array<Object>, nil]
-              optional :medias, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
-
-              # @!attribute name
+              # @!attribute order
               #
               #   @return [String, nil]
-              optional :name, String
+              optional :order, String
 
-              # @!attribute photos_count
-              #
-              #   @return [Integer, nil]
-              optional :photos_count, Integer, api_name: :photosCount
-
-              # @!attribute type
+              # @!attribute sort
               #
               #   @return [String, nil]
-              optional :type, String
+              optional :sort, String
 
-              # @!attribute videos_count
-              #
-              #   @return [Integer, nil]
-              optional :videos_count, Integer, api_name: :videosCount
+              # @!method initialize(all: nil, can_create_vault_lists: nil, has_more: nil, list: nil, order: nil, sort: nil)
+              #   @param all [Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All]
+              #   @param can_create_vault_lists [Boolean]
+              #   @param has_more [Boolean]
+              #   @param list [Array<Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List>]
+              #   @param order [String]
+              #   @param sort [String]
 
-              # @!method initialize(id: nil, audios_count: nil, can_delete: nil, can_update: nil, gifs_count: nil, has_media: nil, medias: nil, name: nil, photos_count: nil, type: nil, videos_count: nil)
-              #   @param id [Integer]
-              #   @param audios_count [Integer]
-              #   @param can_delete [Boolean]
-              #   @param can_update [Boolean]
-              #   @param gifs_count [Integer]
-              #   @param has_media [Boolean]
-              #   @param medias [Array<Object>]
-              #   @param name [String]
-              #   @param photos_count [Integer]
-              #   @param type [String]
-              #   @param videos_count [Integer]
+              # @see Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data#all
+              class All < Onlyfans::Internal::Type::BaseModel
+                # @!attribute media_count
+                #
+                #   @return [Integer, nil]
+                optional :media_count, Integer, api_name: :mediaCount
+
+                # @!method initialize(media_count: nil)
+                #   @param media_count [Integer]
+              end
+
+              class List < Onlyfans::Internal::Type::BaseModel
+                # @!attribute id
+                #
+                #   @return [Integer, nil]
+                optional :id, Integer
+
+                # @!attribute can_update
+                #
+                #   @return [Boolean, nil]
+                optional :can_update, Onlyfans::Internal::Type::Boolean, api_name: :canUpdate
+
+                # @!attribute media_count
+                #
+                #   @return [Integer, nil]
+                optional :media_count, Integer, api_name: :mediaCount
+
+                # @!attribute name
+                #
+                #   @return [String, nil]
+                optional :name, String
+
+                # @!attribute type
+                #
+                #   @return [String, nil]
+                optional :type, String
+
+                # @!method initialize(id: nil, can_update: nil, media_count: nil, name: nil, type: nil)
+                #   @param id [Integer]
+                #   @param can_update [Boolean]
+                #   @param media_count [Integer]
+                #   @param name [String]
+                #   @param type [String]
+              end
             end
           end
+
+          # @!method self.variants
+          #   @return [Array(Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0, Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1)]
         end
       end
     end

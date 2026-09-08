@@ -12,14 +12,15 @@ module Onlyfans
       # Downloads a file directly from a `https://cdn*.onlyfans.com/*` URL. When the
       # file is already cached on our CDN, this endpoint returns a `302` redirect to a
       # `https://cdn.fansapi.com/*` URL. Most HTTP clients follow redirects
-      # automatically (`curl` requires `-L`). Otherwise, the file is streamed through
-      # our proxies and queued for caching.
+      # automatically (`curl` requires `-L`). Otherwise, the file is redirected to
+      # `dl.fansapi.com`, which streams it through the account proxy and reports billing
+      # back to the API.
       sig do
         params(
           cdn_url: String,
           account: String,
           request_options: Onlyfans::RequestOptions::OrHash
-        ).returns(String)
+        ).void
       end
       def download(
         # Optional parameter. The CDN URL to scrape. **Keep in mind that these URLs expire
@@ -84,7 +85,9 @@ module Onlyfans
         # The Account ID
         account,
         # Set to `true` to process uploads in the background. Returns a `polling_url` to
-        # check status. Recommended for large files.
+        # check status. Recommended for large files. Instead of polling, you can subscribe
+        # to the `media_uploads.completed` and `media_uploads.failed` webhook events —
+        # they only fire for async uploads.
         async: nil,
         # The file to upload. Required if `file_url` is not provided. Maximum file size:
         # 100 MB (limited by Cloudflare).

@@ -3,10 +3,11 @@ module Onlyfans
     class Queue
       def list: (
         String account,
-        limit: Integer,
         publish_date_end: String,
         publish_date_start: String,
         timezone: String,
+        ?limit: Integer,
+        ?type: ::Array[Onlyfans::Models::QueueListParams::type_],
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::QueueListResponse
 

@@ -14,6 +14,11 @@ module Onlyfans
         # - `completed` — Upload finished, `media` and `credits_used` are included
         # - `failed` — Upload failed, `error` is included
         #
+        # Instead of polling, you can subscribe to the `media_uploads.completed` and
+        # `media_uploads.failed` webhook events. They carry the same fields as this
+        # endpoint and are only sent for async (`async=true`) uploads — synchronous
+        # uploads return their result directly.
+        #
         # @overload get_status(upload, account:, request_options: {})
         #
         # @param upload [String] The prefixed ID of the upload.
@@ -22,7 +27,7 @@ module Onlyfans
         #
         # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember0, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3]
+        # @return [Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember0, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3, Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4]
         #
         # @see Onlyfans::Models::Media::UploadGetStatusParams
         def get_status(upload, params)

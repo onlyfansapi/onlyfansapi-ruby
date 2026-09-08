@@ -30,12 +30,27 @@ module Onlyfans
       sig { returns(T.nilable(T::Boolean)) }
       attr_accessor :detailed
 
+      # Use only with `detailed=true` - otherwise, it has no effect. Filter the
+      # subscriber statistics (default = total)
+      sig do
+        returns(
+          T.nilable(
+            Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::OrSymbol
+          )
+        )
+      end
+      attr_accessor :detailed_type
+
       sig do
         params(
           account: String,
           end_date: String,
           start_date: String,
           detailed: T.nilable(T::Boolean),
+          detailed_type:
+            T.nilable(
+              Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::OrSymbol
+            ),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -48,6 +63,9 @@ module Onlyfans
         # Include paid and free fan metrics. Will slow down the response time, and might
         # time out if timeframe is too large. Default = `false`
         detailed: nil,
+        # Use only with `detailed=true` - otherwise, it has no effect. Filter the
+        # subscriber statistics (default = total)
+        detailed_type: nil,
         request_options: {}
       )
       end
@@ -59,11 +77,56 @@ module Onlyfans
             end_date: String,
             start_date: String,
             detailed: T.nilable(T::Boolean),
+            detailed_type:
+              T.nilable(
+                Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::OrSymbol
+              ),
             request_options: Onlyfans::RequestOptions
           }
         )
       end
       def to_hash
+      end
+
+      # Use only with `detailed=true` - otherwise, it has no effect. Filter the
+      # subscriber statistics (default = total)
+      module DetailedType
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(
+              Symbol,
+              Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType
+            )
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        TOTAL =
+          T.let(
+            :total,
+            Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::TaggedSymbol
+          )
+        RENEW =
+          T.let(
+            :renew,
+            Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::TaggedSymbol
+          )
+        NEW =
+          T.let(
+            :new,
+            Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              Onlyfans::StatisticGetSubscriberMetricsParams::DetailedType::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

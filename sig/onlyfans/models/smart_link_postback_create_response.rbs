@@ -102,12 +102,17 @@ module Onlyfans
       type data =
         {
           id: Integer,
+          body: String,
           conversion_types: ::Array[String],
           created_at: String,
+          headers: ::Array[Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header],
+          http_method: String,
           latest_response: String?,
           smart_link_ids: ::Array[top],
           smart_link_scope: String,
           smart_links: ::Array[top],
+          traffic_source_ids: ::Array[top],
+          traffic_sources: ::Array[top],
           updated_at: String,
           url: String
         }
@@ -117,6 +122,10 @@ module Onlyfans
 
         def id=: (Integer) -> Integer
 
+        attr_reader body: String?
+
+        def body=: (String) -> String
+
         attr_reader conversion_types: ::Array[String]?
 
         def conversion_types=: (::Array[String]) -> ::Array[String]
@@ -124,6 +133,16 @@ module Onlyfans
         attr_reader created_at: String?
 
         def created_at=: (String) -> String
+
+        attr_reader headers: ::Array[Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header]?
+
+        def headers=: (
+          ::Array[Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header]
+        ) -> ::Array[Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header]
+
+        attr_reader http_method: String?
+
+        def http_method=: (String) -> String
 
         attr_accessor latest_response: String?
 
@@ -139,6 +158,14 @@ module Onlyfans
 
         def smart_links=: (::Array[top]) -> ::Array[top]
 
+        attr_reader traffic_source_ids: ::Array[top]?
+
+        def traffic_source_ids=: (::Array[top]) -> ::Array[top]
+
+        attr_reader traffic_sources: ::Array[top]?
+
+        def traffic_sources=: (::Array[top]) -> ::Array[top]
+
         attr_reader updated_at: String?
 
         def updated_at=: (String) -> String
@@ -149,27 +176,53 @@ module Onlyfans
 
         def initialize: (
           ?id: Integer,
+          ?body: String,
           ?conversion_types: ::Array[String],
           ?created_at: String,
+          ?headers: ::Array[Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header],
+          ?http_method: String,
           ?latest_response: String?,
           ?smart_link_ids: ::Array[top],
           ?smart_link_scope: String,
           ?smart_links: ::Array[top],
+          ?traffic_source_ids: ::Array[top],
+          ?traffic_sources: ::Array[top],
           ?updated_at: String,
           ?url: String
         ) -> void
 
         def to_hash: -> {
           id: Integer,
+          body: String,
           conversion_types: ::Array[String],
           created_at: String,
+          headers: ::Array[Onlyfans::Models::SmartLinkPostbackCreateResponse::Data::Header],
+          http_method: String,
           latest_response: String?,
           smart_link_ids: ::Array[top],
           smart_link_scope: String,
           smart_links: ::Array[top],
+          traffic_source_ids: ::Array[top],
+          traffic_sources: ::Array[top],
           updated_at: String,
           url: String
         }
+
+        type header = { name: String, value: String }
+
+        class Header < Onlyfans::Internal::Type::BaseModel
+          attr_reader name: String?
+
+          def name=: (String) -> String
+
+          attr_reader value: String?
+
+          def value=: (String) -> String
+
+          def initialize: (?name: String, ?value: String) -> void
+
+          def to_hash: -> { name: String, value: String }
+        end
       end
     end
   end

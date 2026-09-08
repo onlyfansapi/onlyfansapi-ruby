@@ -16,6 +16,8 @@ module Onlyfans
         params(
           account: String,
           text: String,
+          block_banned_words:
+            Onlyfans::PostCreateParams::BlockBannedWords::OrSymbol,
           expire_days: Integer,
           fund_raising_target_amount: Integer,
           fund_raising_tips_presets: T::Array[String],
@@ -37,6 +39,11 @@ module Onlyfans
         account,
         # The post text content
         text:,
+        # Screen `text` for OnlyFans banned words and block the post if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        block_banned_words: nil,
         # Number of days after which the post will expire. Between 1 and 30 days. Keep
         # empty for no expiration.
         expire_days: nil,
@@ -97,6 +104,8 @@ module Onlyfans
           post_id: Integer,
           account: String,
           text: String,
+          block_banned_words:
+            Onlyfans::PostUpdateParams::BlockBannedWords::OrSymbol,
           expire_days: Integer,
           fund_raising_target_amount: Integer,
           fund_raising_tips_presets: T::Array[String],
@@ -120,6 +129,11 @@ module Onlyfans
         account:,
         # Body param: The post text content
         text:,
+        # Body param: Screen `text` for OnlyFans banned words and block the update if any
+        # are found (returns a 422 listing the offending words). `strict_ban` blocks all
+        # tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks
+        # Replace/soften only. Omit to disable screening.
+        block_banned_words: nil,
         # Body param: Number of days after which the post will expire. Between 1 and 30
         # days. Keep empty for no expiration.
         expire_days: nil,

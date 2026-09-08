@@ -24,7 +24,7 @@ module Onlyfans
         #
         # @param offset [Integer] Query param: Offset for pagination (default = 0)
         #
-        # @param skip_users [String] Query param: Optional flag for subsequent pages (example: all)
+        # @param skip_users [String] Query param: Optional flag for subsequent pages (example: all).
         #
         # @param skip_users_dups [Integer] Query param: Skip duplicate users in results (0/1). Default = 1
         #
@@ -58,7 +58,7 @@ module Onlyfans
         #
         # @param account [String] The Account ID
         #
-        # @param end_date [String] The end date for the period. Keep empty to retrieve until now. MUST BE DATE AFTE
+        # @param end_date [String] The end date for the period. Keep empty to retrieve until now. It must be after
         #
         # @param start_date [String] The start date for the period. Keep empty to retrieve from the model start date.
         #

@@ -9,7 +9,7 @@ class Onlyfans::Test::Resources::MediaTest < Onlyfans::Test::ResourceTest
     response = @only_fans_api.media.download("cdnUrl", account: "acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
-      response => String
+      response => nil
     end
   end
 

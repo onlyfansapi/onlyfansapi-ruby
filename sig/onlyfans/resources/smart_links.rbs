@@ -16,10 +16,11 @@ module Onlyfans
 
       def list: (
         ?account_ids: String?,
+        ?filter: Onlyfans::SmartLinkListParams::Filter,
         ?limit: Integer,
-        ?meta_pixel_ids: String?,
         ?name: String?,
         ?offset: Integer,
+        ?pixel_ids: String?,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::SmartLinkListResponse
 
@@ -60,7 +61,9 @@ module Onlyfans
         ?min_revenue_net: Float,
         ?min_tips_net: Float,
         ?offset: Integer,
+        ?previously_subscribed: bool,
         ?sort: Onlyfans::Models::SmartLinkListFansParams::sort,
+        ?subscribed_using_promo: bool,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::SmartLinkListFansResponse
 

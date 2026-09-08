@@ -130,19 +130,31 @@ module Onlyfans
           #   @return [Integer, nil]
           optional :offset, Integer
 
+          # @!attribute previously_subscribed
+          #
+          #   @return [String, nil]
+          optional :previously_subscribed, String, nil?: true
+
           # @!attribute sort
           #
           #   @return [String, nil]
           optional :sort, String
 
-          # @!method initialize(has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, sort: nil)
+          # @!attribute subscribed_using_promo
+          #
+          #   @return [String, nil]
+          optional :subscribed_using_promo, String, nil?: true
+
+          # @!method initialize(has_messages: nil, limit: nil, min_messages_sent_by_fan: nil, min_revenue_net: nil, min_tips_net: nil, offset: nil, previously_subscribed: nil, sort: nil, subscribed_using_promo: nil)
           #   @param has_messages [String, nil]
           #   @param limit [Integer]
           #   @param min_messages_sent_by_fan [String, nil]
           #   @param min_revenue_net [String, nil]
           #   @param min_tips_net [String, nil]
           #   @param offset [Integer]
+          #   @param previously_subscribed [String, nil]
           #   @param sort [String]
+          #   @param subscribed_using_promo [String, nil]
         end
 
         class Row < Onlyfans::Internal::Type::BaseModel
@@ -196,6 +208,12 @@ module Onlyfans
           #   @return [Integer, nil]
           optional :revenue_net, Integer
 
+          # @!attribute subscription_insights
+          #
+          #   @return [Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights, nil]
+          optional :subscription_insights,
+                   -> { Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights }
+
           # @!attribute tips_net
           #
           #   @return [Integer, nil]
@@ -206,7 +224,7 @@ module Onlyfans
           #   @return [String, nil]
           optional :username, String
 
-          # @!method initialize(avatar_url: nil, click_id: nil, conversion_id: nil, converted_at: nil, external_click_id: nil, fan_id: nil, messages_sent_by_fan: nil, name: nil, onlyfans_id: nil, revenue_net: nil, tips_net: nil, username: nil)
+          # @!method initialize(avatar_url: nil, click_id: nil, conversion_id: nil, converted_at: nil, external_click_id: nil, fan_id: nil, messages_sent_by_fan: nil, name: nil, onlyfans_id: nil, revenue_net: nil, subscription_insights: nil, tips_net: nil, username: nil)
           #   @param avatar_url [String]
           #   @param click_id [String]
           #   @param conversion_id [Integer]
@@ -217,8 +235,80 @@ module Onlyfans
           #   @param name [String]
           #   @param onlyfans_id [String]
           #   @param revenue_net [Integer]
+          #   @param subscription_insights [Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights]
           #   @param tips_net [Integer]
           #   @param username [String]
+
+          # @see Onlyfans::Models::SmartLinkListFansResponse::Data::Row#subscription_insights
+          class SubscriptionInsights < Onlyfans::Internal::Type::BaseModel
+            # @!attribute current_subscription
+            #
+            #   @return [Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription, nil]
+            optional :current_subscription,
+                     -> { Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription }
+
+            # @!attribute current_subscription_from_smart_link
+            #
+            #   @return [Boolean, nil]
+            optional :current_subscription_from_smart_link, Onlyfans::Internal::Type::Boolean
+
+            # @!attribute has_subscription_data
+            #
+            #   @return [Boolean, nil]
+            optional :has_subscription_data, Onlyfans::Internal::Type::Boolean
+
+            # @!attribute previously_subscribed
+            #
+            #   @return [Boolean, nil]
+            optional :previously_subscribed, Onlyfans::Internal::Type::Boolean
+
+            # @!attribute subscribed_using_promo
+            #
+            #   @return [Boolean, nil]
+            optional :subscribed_using_promo, Onlyfans::Internal::Type::Boolean
+
+            # @!method initialize(current_subscription: nil, current_subscription_from_smart_link: nil, has_subscription_data: nil, previously_subscribed: nil, subscribed_using_promo: nil)
+            #   @param current_subscription [Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription]
+            #   @param current_subscription_from_smart_link [Boolean]
+            #   @param has_subscription_data [Boolean]
+            #   @param previously_subscribed [Boolean]
+            #   @param subscribed_using_promo [Boolean]
+
+            # @see Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights#current_subscription
+            class CurrentSubscription < Onlyfans::Internal::Type::BaseModel
+              # @!attribute action
+              #
+              #   @return [String, nil]
+              optional :action, String
+
+              # @!attribute is_free
+              #
+              #   @return [Boolean, nil]
+              optional :is_free, Onlyfans::Internal::Type::Boolean
+
+              # @!attribute price
+              #
+              #   @return [Integer, nil]
+              optional :price, Integer
+
+              # @!attribute regular_price
+              #
+              #   @return [Integer, nil]
+              optional :regular_price, Integer
+
+              # @!attribute type
+              #
+              #   @return [String, nil]
+              optional :type, String
+
+              # @!method initialize(action: nil, is_free: nil, price: nil, regular_price: nil, type: nil)
+              #   @param action [String]
+              #   @param is_free [Boolean]
+              #   @param price [Integer]
+              #   @param regular_price [Integer]
+              #   @param type [String]
+            end
+          end
         end
 
         # @see Onlyfans::Models::SmartLinkListFansResponse::Data#summary
@@ -227,6 +317,11 @@ module Onlyfans
           #
           #   @return [Integer, nil]
           optional :fans_total, Integer
+
+          # @!attribute fans_with_1_plus_messages_total
+          #
+          #   @return [Integer, nil]
+          optional :fans_with_1_plus_messages_total, Integer
 
           # @!attribute fans_with_3_plus_messages_total
           #
@@ -243,8 +338,9 @@ module Onlyfans
           #   @return [Integer, nil]
           optional :tips_net_total, Integer
 
-          # @!method initialize(fans_total: nil, fans_with_3_plus_messages_total: nil, revenue_net_total: nil, tips_net_total: nil)
+          # @!method initialize(fans_total: nil, fans_with_1_plus_messages_total: nil, fans_with_3_plus_messages_total: nil, revenue_net_total: nil, tips_net_total: nil)
           #   @param fans_total [Integer]
+          #   @param fans_with_1_plus_messages_total [Integer]
           #   @param fans_with_3_plus_messages_total [Integer]
           #   @param revenue_net_total [Integer]
           #   @param tips_net_total [Integer]

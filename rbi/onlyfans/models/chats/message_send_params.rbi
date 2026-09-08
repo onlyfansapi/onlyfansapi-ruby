@@ -21,6 +21,27 @@ module Onlyfans
         sig { returns(String) }
         attr_accessor :chat_id
 
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        sig do
+          returns(
+            T.nilable(
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol
+            )
+          )
+        end
+        attr_reader :block_banned_words
+
+        sig do
+          params(
+            block_banned_words:
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol
+          ).void
+        end
+        attr_writer :block_banned_words
+
         # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
         # endpoints (`/giphy/trending`, `/giphy/search`).
         sig { returns(T.nilable(String)) }
@@ -53,12 +74,12 @@ module Onlyfans
         sig { params(previews: T::Array[T.anything]).void }
         attr_writer :previews
 
-        # Price for paid content (0 or between 3-200). In case this is not zero,
+        # Price for paid content in USD (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
-        sig { returns(T.nilable(Integer)) }
+        sig { returns(T.nilable(Float)) }
         attr_reader :price
 
-        sig { params(price: Integer).void }
+        sig { params(price: Float).void }
         attr_writer :price
 
         # Mark this message as a reply to another (can be either your own, or the
@@ -97,26 +118,40 @@ module Onlyfans
         sig { params(text: String).void }
         attr_writer :text
 
+        sig { returns(T.nilable(String)) }
+        attr_reader :idempotency_key
+
+        sig { params(idempotency_key: String).void }
+        attr_writer :idempotency_key
+
         sig do
           params(
             account: String,
             chat_id: String,
+            block_banned_words:
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol,
             giphy_id: String,
             locked_text: T::Boolean,
             media_files: T::Array[T.anything],
             previews: T::Array[T.anything],
-            price: Integer,
+            price: Float,
             reply_to_message_id: Integer,
             rf_guest: String,
             rf_partner: String,
             rf_tag: String,
             text: String,
+            idempotency_key: String,
             request_options: Onlyfans::RequestOptions::OrHash
           ).returns(T.attached_class)
         end
         def self.new(
           account:,
           chat_id:,
+          # Screen `text` for OnlyFans banned words and block the send if any are found
+          # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+          # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+          # only. Omit to disable screening.
+          block_banned_words: nil,
           # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
           # endpoints (`/giphy/trending`, `/giphy/search`).
           giphy_id: nil,
@@ -129,7 +164,7 @@ module Onlyfans
           # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
           # provided.
           previews: nil,
-          # Price for paid content (0 or between 3-200). In case this is not zero,
+          # Price for paid content in USD (0 or between 3-200). In case this is not zero,
           # **mediaFiles** is required
           price: nil,
           # Mark this message as a reply to another (can be either your own, or the
@@ -143,6 +178,7 @@ module Onlyfans
           rf_tag: nil,
           # The message text content. Required unless a media file is present.
           text: nil,
+          idempotency_key: nil,
           request_options: {}
         )
         end
@@ -152,21 +188,67 @@ module Onlyfans
             {
               account: String,
               chat_id: String,
+              block_banned_words:
+                Onlyfans::Chats::MessageSendParams::BlockBannedWords::OrSymbol,
               giphy_id: String,
               locked_text: T::Boolean,
               media_files: T::Array[T.anything],
               previews: T::Array[T.anything],
-              price: Integer,
+              price: Float,
               reply_to_message_id: Integer,
               rf_guest: String,
               rf_partner: String,
               rf_tag: String,
               text: String,
+              idempotency_key: String,
               request_options: Onlyfans::RequestOptions
             }
           )
         end
         def to_hash
+        end
+
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        module BlockBannedWords
+          extend Onlyfans::Internal::Type::Enum
+
+          TaggedSymbol =
+            T.type_alias do
+              T.all(
+                Symbol,
+                Onlyfans::Chats::MessageSendParams::BlockBannedWords
+              )
+            end
+          OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+          STRICT_BAN =
+            T.let(
+              :strict_ban,
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+            )
+          RISKY =
+            T.let(
+              :risky,
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+            )
+          REPLACE_SOFTEN =
+            T.let(
+              :replace_soften,
+              Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+            )
+
+          sig do
+            override.returns(
+              T::Array[
+                Onlyfans::Chats::MessageSendParams::BlockBannedWords::TaggedSymbol
+              ]
+            )
+          end
+          def self.values
+          end
         end
       end
     end

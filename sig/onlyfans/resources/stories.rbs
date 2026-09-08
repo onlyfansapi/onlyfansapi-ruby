@@ -6,6 +6,10 @@ module Onlyfans
       def create: (
         String account,
         media_files: ::Array[String],
+        ?canvas_height: Integer,
+        ?canvas_width: Integer,
+        ?question: Onlyfans::StoryCreateParams::Question,
+        ?texts: ::Array[Onlyfans::StoryCreateParams::Text],
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::StoryCreateResponse
 

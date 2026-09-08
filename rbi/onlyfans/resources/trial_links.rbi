@@ -61,28 +61,35 @@ module Onlyfans
       sig do
         params(
           account: String,
+          end_date: T.nilable(String),
+          field: Onlyfans::TrialLinkListParams::Field::OrSymbol,
           limit: Integer,
           offset: Integer,
-          field: T.nilable(Onlyfans::TrialLinkListParams::Field::OrSymbol),
-          sort: T.nilable(Onlyfans::TrialLinkListParams::Sort::OrSymbol),
-          synchronous: T.nilable(T::Boolean),
+          sort: Onlyfans::TrialLinkListParams::Sort::OrSymbol,
+          start_date: T.nilable(String),
+          synchronous: T::Boolean,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::TrialLinkListResponse)
       end
       def list(
         # The Account ID
         account,
-        # The number of trial links to return. Default `10`
-        limit:,
-        # The offset used for pagination. Default `0`
-        offset:,
-        # Sort the results by a field. Default `create_date`
+        # The end date for trial links. Keep empty to get all. Must not be greater than
+        # 255 characters.
+        end_date: nil,
+        # Field to sort by. Default `create_date`.
         field: nil,
-        # Sort the results. Default `desc`
+        # The number of trial links to return. Default `10`. Must be at least 1. Must not
+        # be greater than 100.
+        limit: nil,
+        # The offset used for pagination. Default `0`. Must be at least 0.
+        offset: nil,
+        # Sort direction. Default `desc`.
         sort: nil,
-        # Wait for the revenue data to finish processing, instead of processing in the
-        # background. **Will result in longer response times, use with caution**. Default
-        # `false`
+        # The start date for trial links. Keep empty to get all. Must not be greater than
+        # 255 characters.
+        start_date: nil,
+        # Wait for revenue calculation instead of processing it in the background.
         synchronous: nil,
         request_options: {}
       )

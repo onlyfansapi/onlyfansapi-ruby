@@ -63,7 +63,7 @@ module Onlyfans
         sig { params(order: String).void }
         attr_writer :order
 
-        # Whether to skip user details (all or none)
+        # Whether to skip user details (`all` or `none`).
         sig { returns(T.nilable(String)) }
         attr_reader :skip_users
 
@@ -101,7 +101,7 @@ module Onlyfans
           limit: nil,
           # Sort order for messages (desc or asc)
           order: nil,
-          # Whether to skip user details (all or none)
+          # Whether to skip user details (`all` or `none`).
           skip_users: nil,
           request_options: {}
         )

@@ -30,7 +30,19 @@ module Onlyfans
       )
       end
 
-      # Get a paginated list of fans for an Account. Newest fans are first.
+      # Get a paginated list of fans for an Account. Newest fans are first. Paginate by
+      # following `_pagination.next_page` until it is null (`data.hasMore` is the
+      # authoritative flag). Do NOT use the page's item count to detect the last page —
+      # OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on
+      # a non-final page because it filters entries server-side; no fans are skipped. To
+      # track progress, GET `/{account}/me` returns data.subscribersCount (the current
+      # active-subscriber count) as a total.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       sig do
         params(
           account: String,
@@ -46,8 +58,8 @@ module Onlyfans
         # The Account ID
         account,
         filter: nil,
-        # Number of fans to return (1-50). Must be at least 1. Must not be greater
-        # than 20.
+        # Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
+        # Must be at least 1. Must not be greater than 20.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,
@@ -59,7 +71,17 @@ module Onlyfans
       )
       end
 
-      # Get a paginated list of fans for an Account. Newest fans are first.
+      # Get a paginated list of fans for an Account. Newest fans are first. Paginate by
+      # following `_pagination.next_page` until it is null (`data.hasMore` is the
+      # authoritative flag). Do NOT use the page's item count to detect the last page —
+      # OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for limit=20) on
+      # a non-final page because it filters entries server-side; no fans are skipped.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       sig do
         params(
           account: String,
@@ -75,8 +97,8 @@ module Onlyfans
         # The Account ID
         account,
         filter: nil,
-        # Number of fans to return (1-50). Must be at least 1. Must not be greater
-        # than 20.
+        # Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
+        # Must be at least 1. Must not be greater than 20.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,
@@ -89,6 +111,17 @@ module Onlyfans
       end
 
       # Get a paginated list of expired fans for an Account. Newest fans are first.
+      # Paginate by following `_pagination.next_page` until it is null (`data.hasMore`
+      # is the authoritative flag). Do NOT use the page's item count to detect the last
+      # page — OnlyFans occasionally returns fewer than `limit` items (e.g. 19 for
+      # limit=20) on a non-final page because it filters entries server-side; no fans
+      # are skipped.
+      #
+      # Supports `filter[max_total_spent]` (e.g. `filter[max_total_spent]=0` for fans
+      # who have never spent), which OnlyFans itself cannot do. Those requests are
+      # answered from OnlyFansAPI's own fan index rather than proxied, so the page is
+      # limited to fans we have already indexed for this account — see `data._source` in
+      # the response.
       sig do
         params(
           account: String,
@@ -104,8 +137,8 @@ module Onlyfans
         # The Account ID
         account,
         filter: nil,
-        # Number of fans to return (1-50). Must be at least 1. Must not be greater
-        # than 20.
+        # Number of fans to return (1-20). OnlyFans does not allow more than 20 per page.
+        # Must be at least 1. Must not be greater than 20.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,
@@ -133,16 +166,16 @@ module Onlyfans
       def list_latest(
         # The Account ID
         account,
-        # End date for filtering (required with start_date). This field is required when
-        # <code>start_date</code> is present.
+        # End date for filtering (required with start_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         end_date: nil,
         # Number of fans to return (1-50). Must be at least 1. Must not be greater
-        # than 100.
+        # than 50.
         limit: nil,
         # Number of fans to skip. Must be at least 0.
         offset: nil,
-        # Start date for filtering (required with end_date). This field is required when
-        # <code>end_date</code> is present.
+        # Start date for filtering (required with end_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         start_date: nil,
         # Filter by type: total, renew, or new.
         type: nil,
@@ -166,11 +199,11 @@ module Onlyfans
         account,
         # Sort by: total (default), subscribes, tips, messages, post, streams.
         by: nil,
-        # End date for filtering (required with start_date). This field is required when
-        # <code>start_date</code> is present.
+        # End date for filtering (required with start_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         end_date: nil,
-        # Start date for filtering (required with end_date). This field is required when
-        # <code>end_date</code> is present.
+        # Start date for filtering (required with end_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         start_date: nil,
         request_options: {}
       )

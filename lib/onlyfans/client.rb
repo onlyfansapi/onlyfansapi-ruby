@@ -75,7 +75,7 @@ module Onlyfans
     # @return [Onlyfans::Resources::Giphy]
     attr_reader :giphy
 
-    # APIs for managing tags on free trial links and tracking links
+    # APIs for managing tags on free trial links, tracking links, and Smart Links
     # @return [Onlyfans::Resources::LinkTags]
     attr_reader :link_tags
 

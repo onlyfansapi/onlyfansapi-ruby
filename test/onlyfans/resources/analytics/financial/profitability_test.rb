@@ -13,7 +13,13 @@ class Onlyfans::Test::Resources::Analytics::Financial::ProfitabilityTest < Onlyf
       )
 
     assert_pattern do
-      response => ^(Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponseItem])
+      response => Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: ^(Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponse::Data]) | nil
+      }
     end
   end
 
@@ -28,7 +34,13 @@ class Onlyfans::Test::Resources::Analytics::Financial::ProfitabilityTest < Onlyf
       )
 
     assert_pattern do
-      response => ^(Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem])
+      response => Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse
+    end
+
+    assert_pattern do
+      response => {
+        data: ^(Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data]) | nil
+      }
     end
   end
 end

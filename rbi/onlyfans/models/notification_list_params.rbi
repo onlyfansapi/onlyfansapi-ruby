@@ -29,7 +29,7 @@ module Onlyfans
       sig { params(limit: Integer).void }
       attr_writer :limit
 
-      # Whether to skip user details. Default `all`
+      # Whether to skip user details. Defaults to `all`.
       sig do
         returns(
           T.nilable(Onlyfans::NotificationListParams::SkipUsers::OrSymbol)
@@ -72,7 +72,7 @@ module Onlyfans
         from_id: nil,
         # The number of notifications. Default `10`
         limit: nil,
-        # Whether to skip user details. Default `all`
+        # Whether to skip user details. Defaults to `all`.
         skip_users: nil,
         # Filter notifications by a specific type
         type: nil,
@@ -95,7 +95,7 @@ module Onlyfans
       def to_hash
       end
 
-      # Whether to skip user details. Default `all`
+      # Whether to skip user details. Defaults to `all`.
       module SkipUsers
         extend Onlyfans::Internal::Type::Enum
 

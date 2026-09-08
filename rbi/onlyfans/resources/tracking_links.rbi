@@ -50,37 +50,40 @@ module Onlyfans
         params(
           account: String,
           end_date: T.nilable(String),
-          limit: T.nilable(Integer),
-          offset: T.nilable(Integer),
-          sort: T.nilable(Onlyfans::TrackingLinkListParams::Sort::OrSymbol),
-          sortby: T.nilable(Onlyfans::TrackingLinkListParams::Sortby::OrSymbol),
+          limit: Integer,
+          offset: Integer,
+          pagination: Onlyfans::TrackingLinkListParams::Pagination::OrInteger,
+          sort: Onlyfans::TrackingLinkListParams::Sort::OrSymbol,
+          sortby: Onlyfans::TrackingLinkListParams::Sortby::OrSymbol,
           start_date: T.nilable(String),
-          synchronous: T.nilable(T::Boolean),
-          with_deleted: T.nilable(T::Boolean),
+          synchronous: T::Boolean,
+          with_deleted:
+            Onlyfans::TrackingLinkListParams::WithDeleted::OrInteger,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::TrackingLinkListResponse)
       end
       def list(
         # The Account ID
         account,
-        # The end date for Tracking Links. Keep empty to get all.
+        # The end date for tracking links. Keep empty to get all. Must not be greater than
+        # 255 characters.
         end_date: nil,
-        # The number of tracking links to return. Default `3`
+        # The number of tracking links to return. Default `10`. Must be at least 1. Must
+        # not be greater than 100.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
-        # Sort the results. Default `desc`
+        pagination: nil,
+        # Sort direction. Default `desc`.
         sort: nil,
-        # Sort by subscriber count (claims), or creation date
+        # Sort by subscriber count (`claims`) or creation date (`created_date`).
         sortby: nil,
-        # The start date for Tracking Links. Keep empty to get all.
+        # The start date for tracking links. Keep empty to get all. Must not be greater
+        # than 255 characters.
         start_date: nil,
-        # Wait for the revenue data to finish processing, instead of processing in the
-        # background. **Will result in longer response times, use with caution**. Default
-        # `false`
+        # Wait for revenue calculation instead of processing it in the background.
         synchronous: nil,
-        # Whether or not to include deleted tracking links in the response. Default
-        # `false`
+        # Whether to include deleted tracking links. Default `true`.
         with_deleted: nil,
         request_options: {}
       )

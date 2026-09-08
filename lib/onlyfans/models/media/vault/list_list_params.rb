@@ -14,6 +14,14 @@ module Onlyfans
           #   @return [String]
           required :account, String
 
+          # @!attribute lightweight
+          #   Set to `true` to return only `id`, `name`, `type`, `canUpdate` and a rolled-up
+          #   `mediaCount` per list, dropping the `medias` previews. Much smaller payload —
+          #   ideal for rendering a folder picker. Default: `false`
+          #
+          #   @return [Boolean, nil]
+          optional :lightweight, Onlyfans::Internal::Type::Boolean
+
           # @!attribute limit
           #   Number of media to return per page. Default: `24`
           #
@@ -32,8 +40,13 @@ module Onlyfans
           #   @return [String, nil]
           optional :query, String
 
-          # @!method initialize(account:, limit: nil, offset: nil, query: nil, request_options: {})
+          # @!method initialize(account:, lightweight: nil, limit: nil, offset: nil, query: nil, request_options: {})
+          #   Some parameter documentations has been truncated, see
+          #   {Onlyfans::Models::Media::Vault::ListListParams} for more details.
+          #
           #   @param account [String]
+          #
+          #   @param lightweight [Boolean] Set to `true` to return only `id`, `name`, `type`, `canUpdate` and a rolled-up `
           #
           #   @param limit [Integer] Number of media to return per page. Default: `24`
           #

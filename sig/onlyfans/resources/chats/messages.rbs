@@ -52,16 +52,18 @@ module Onlyfans
         def send_: (
           String chat_id,
           account: String,
+          ?block_banned_words: Onlyfans::Models::Chats::MessageSendParams::block_banned_words,
           ?giphy_id: String,
           ?locked_text: bool,
           ?media_files: ::Array[top],
           ?previews: ::Array[top],
-          ?price: Integer,
+          ?price: Float,
           ?reply_to_message_id: Integer,
           ?rf_guest: String,
           ?rf_partner: String,
           ?rf_tag: String,
           ?text: String,
+          ?idempotency_key: String,
           ?request_options: Onlyfans::request_opts
         ) -> Onlyfans::Models::Chats::MessageSendResponse
 

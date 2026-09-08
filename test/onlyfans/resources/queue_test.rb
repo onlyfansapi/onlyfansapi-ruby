@@ -9,7 +9,6 @@ class Onlyfans::Test::Resources::QueueTest < Onlyfans::Test::ResourceTest
     response =
       @only_fans_api.queue.list(
         "acct_XXXXXXXXXXXXXXX",
-        limit: 20,
         publish_date_end: "2025-01-01",
         publish_date_start: "2025-01-01",
         timezone: "Europe/Prague"

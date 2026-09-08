@@ -15,8 +15,8 @@ module Onlyfans
           required :account, String
 
           # @!attribute end_date
-          #   The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER
-          #   `startDate`. This is also used for pagination.
+          #   The latest message to retrieve. Keep empty to get all. It must be after
+          #   `startDate` and is also used for pagination.
           #
           #   @return [String, nil]
           optional :end_date, String
@@ -46,7 +46,7 @@ module Onlyfans
           #
           #   @param account [String]
           #
-          #   @param end_date [String] The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `start
+          #   @param end_date [String] The latest message to retrieve. Keep empty to get all. It must be after `startDa
           #
           #   @param limit [Integer] Number of messages to return (default = 10)
           #

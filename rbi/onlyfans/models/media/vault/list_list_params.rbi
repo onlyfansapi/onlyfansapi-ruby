@@ -19,6 +19,15 @@ module Onlyfans
           sig { returns(String) }
           attr_accessor :account
 
+          # Set to `true` to return only `id`, `name`, `type`, `canUpdate` and a rolled-up
+          # `mediaCount` per list, dropping the `medias` previews. Much smaller payload —
+          # ideal for rendering a folder picker. Default: `false`
+          sig { returns(T.nilable(T::Boolean)) }
+          attr_reader :lightweight
+
+          sig { params(lightweight: T::Boolean).void }
+          attr_writer :lightweight
+
           # Number of media to return per page. Default: `24`
           sig { returns(T.nilable(Integer)) }
           attr_reader :limit
@@ -43,6 +52,7 @@ module Onlyfans
           sig do
             params(
               account: String,
+              lightweight: T::Boolean,
               limit: Integer,
               offset: Integer,
               query: String,
@@ -51,6 +61,10 @@ module Onlyfans
           end
           def self.new(
             account:,
+            # Set to `true` to return only `id`, `name`, `type`, `canUpdate` and a rolled-up
+            # `mediaCount` per list, dropping the `medias` previews. Much smaller payload —
+            # ideal for rendering a folder picker. Default: `false`
+            lightweight: nil,
             # Number of media to return per page. Default: `24`
             limit: nil,
             # The offset used for pagination. Default `0`
@@ -65,6 +79,7 @@ module Onlyfans
             override.returns(
               {
                 account: String,
+                lightweight: T::Boolean,
                 limit: Integer,
                 offset: Integer,
                 query: String,

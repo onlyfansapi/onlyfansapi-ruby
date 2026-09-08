@@ -18,12 +18,18 @@ module Onlyfans
       attr_accessor :account
 
       # The end date for the period. Keep empty to calculate everything.
-      sig { returns(String) }
-      attr_accessor :end_date
+      sig { returns(T.nilable(String)) }
+      attr_reader :end_date
+
+      sig { params(end_date: String).void }
+      attr_writer :end_date
 
       # The start date for the period. Keep empty to calculate everything.
-      sig { returns(String) }
-      attr_accessor :start_date
+      sig { returns(T.nilable(String)) }
+      attr_reader :start_date
+
+      sig { params(start_date: String).void }
+      attr_writer :start_date
 
       sig do
         params(
@@ -36,9 +42,9 @@ module Onlyfans
       def self.new(
         account:,
         # The end date for the period. Keep empty to calculate everything.
-        end_date:,
+        end_date: nil,
         # The start date for the period. Keep empty to calculate everything.
-        start_date:,
+        start_date: nil,
         request_options: {}
       )
       end

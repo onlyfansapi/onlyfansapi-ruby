@@ -169,6 +169,11 @@ module Onlyfans
             :message_received,
             Onlyfans::SmartLinkListConversionsParams::ConversionType::TaggedSymbol
           )
+        FAN_SENT_1_MESSAGE =
+          T.let(
+            :fan_sent_1_message,
+            Onlyfans::SmartLinkListConversionsParams::ConversionType::TaggedSymbol
+          )
         FAN_SENT_3_MESSAGES =
           T.let(
             :fan_sent_3_messages,

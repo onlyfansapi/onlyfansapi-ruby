@@ -316,6 +316,11 @@ module Onlyfans
             :uk,
             Onlyfans::AuthenticateStartParams::ProxyCountry::TaggedSymbol
           )
+        GB =
+          T.let(
+            :gb,
+            Onlyfans::AuthenticateStartParams::ProxyCountry::TaggedSymbol
+          )
 
         sig do
           override.returns(

@@ -21,6 +21,25 @@ module Onlyfans
       sig { returns(String) }
       attr_accessor :text
 
+      # Screen `text` for OnlyFans banned words and block the update if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      sig do
+        returns(
+          T.nilable(Onlyfans::PostUpdateParams::BlockBannedWords::OrSymbol)
+        )
+      end
+      attr_reader :block_banned_words
+
+      sig do
+        params(
+          block_banned_words:
+            Onlyfans::PostUpdateParams::BlockBannedWords::OrSymbol
+        ).void
+      end
+      attr_writer :block_banned_words
+
       # Number of days after which the post will expire. Between 1 and 30 days. Keep
       # empty for no expiration.
       sig { returns(T.nilable(Integer)) }
@@ -129,6 +148,8 @@ module Onlyfans
           account: String,
           post_id: Integer,
           text: String,
+          block_banned_words:
+            Onlyfans::PostUpdateParams::BlockBannedWords::OrSymbol,
           expire_days: Integer,
           fund_raising_target_amount: Integer,
           fund_raising_tips_presets: T::Array[String],
@@ -150,6 +171,11 @@ module Onlyfans
         post_id:,
         # The post text content
         text:,
+        # Screen `text` for OnlyFans banned words and block the update if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        block_banned_words: nil,
         # Number of days after which the post will expire. Between 1 and 30 days. Keep
         # empty for no expiration.
         expire_days: nil,
@@ -192,6 +218,8 @@ module Onlyfans
             account: String,
             post_id: Integer,
             text: String,
+            block_banned_words:
+              Onlyfans::PostUpdateParams::BlockBannedWords::OrSymbol,
             expire_days: Integer,
             fund_raising_target_amount: Integer,
             fund_raising_tips_presets: T::Array[String],
@@ -210,6 +238,44 @@ module Onlyfans
         )
       end
       def to_hash
+      end
+
+      # Screen `text` for OnlyFans banned words and block the update if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Onlyfans::PostUpdateParams::BlockBannedWords)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        STRICT_BAN =
+          T.let(
+            :strict_ban,
+            Onlyfans::PostUpdateParams::BlockBannedWords::TaggedSymbol
+          )
+        RISKY =
+          T.let(
+            :risky,
+            Onlyfans::PostUpdateParams::BlockBannedWords::TaggedSymbol
+          )
+        REPLACE_SOFTEN =
+          T.let(
+            :replace_soften,
+            Onlyfans::PostUpdateParams::BlockBannedWords::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[Onlyfans::PostUpdateParams::BlockBannedWords::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
       end
 
       # Include a poll or quiz within your post.

@@ -11,7 +11,7 @@ module Onlyfans
 
       # Calculate the total transactions and amounts.
       #
-      # @overload calculate_total_transactions(account, end_date:, start_date:, request_options: {})
+      # @overload calculate_total_transactions(account, end_date: nil, start_date: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -24,7 +24,7 @@ module Onlyfans
       # @return [Onlyfans::Models::StatisticCalculateTotalTransactionsResponse]
       #
       # @see Onlyfans::Models::StatisticCalculateTotalTransactionsParams
-      def calculate_total_transactions(account, params)
+      def calculate_total_transactions(account, params = {})
         parsed, options = Onlyfans::StatisticCalculateTotalTransactionsParams.dump_request(params)
         query = Onlyfans::Internal::Util.encode_query_params(parsed)
         @client.request(
@@ -75,7 +75,7 @@ module Onlyfans
       # subscriptions for a specified timeframe. `unknown_subscriptions` indicates
       # deleted fan accounts.
       #
-      # @overload get_subscriber_metrics(account, end_date:, start_date:, detailed: nil, request_options: {})
+      # @overload get_subscriber_metrics(account, end_date:, start_date:, detailed: nil, detailed_type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
@@ -84,6 +84,8 @@ module Onlyfans
       # @param start_date [String] The start date for the metrics.
       #
       # @param detailed [Boolean, nil] Include paid and free fan metrics. Will slow down the response time, and might t
+      #
+      # @param detailed_type [Symbol, Onlyfans::Models::StatisticGetSubscriberMetricsParams::DetailedType, nil] Use only with `detailed=true` - otherwise, it has no effect. Filter the subscrib
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

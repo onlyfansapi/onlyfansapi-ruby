@@ -24,13 +24,14 @@ module Onlyfans
         request_options: Onlyfans::RequestOptions
       }
 
-      type type_ = :trial_links | :tracking_links
+      type type_ = :trial_links | :tracking_links | :smart_links
 
       module Type
         extend Onlyfans::Internal::Type::Enum
 
         TRIAL_LINKS: :trial_links
         TRACKING_LINKS: :tracking_links
+        SMART_LINKS: :smart_links
 
         def self?.values: -> ::Array[Onlyfans::Models::LinkTagListParams::type_]
       end

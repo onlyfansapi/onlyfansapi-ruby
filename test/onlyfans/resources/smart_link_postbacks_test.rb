@@ -10,7 +10,7 @@ class Onlyfans::Test::Resources::SmartLinkPostbacksTest < Onlyfans::Test::Resour
       @only_fans_api.smart_link_postbacks.create(
         conversion_types: %w[new_subscriber new_transaction],
         smart_link_scope: :campaign_specific,
-        url: "https://example.com/postback?click={click_id}&type={conversion_type}&gclid={gclid}"
+        url: "https://example.com/postback?click={external_click_id}&type={conversion_type}&gclid={gclid}"
       )
 
     assert_pattern do
@@ -50,7 +50,7 @@ class Onlyfans::Test::Resources::SmartLinkPostbacksTest < Onlyfans::Test::Resour
         123,
         conversion_types: ["new_subscriber"],
         smart_link_scope: :global,
-        url: "https://example.com/postback?click={click_id}&type={conversion_type}"
+        url: "https://example.com/postback?click={external_click_id}&type={conversion_type}"
       )
 
     assert_pattern do

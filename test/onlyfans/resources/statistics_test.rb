@@ -3,15 +3,10 @@
 require_relative "../test_helper"
 
 class Onlyfans::Test::Resources::StatisticsTest < Onlyfans::Test::ResourceTest
-  def test_calculate_total_transactions_required_params
+  def test_calculate_total_transactions
     skip("Mock server tests are disabled")
 
-    response =
-      @only_fans_api.statistics.calculate_total_transactions(
-        "acct_XXXXXXXXXXXXXXX",
-        end_date: "2025-03-31 23:59:59",
-        start_date: "2025-01-01 00:00:00"
-      )
+    response = @only_fans_api.statistics.calculate_total_transactions("acct_XXXXXXXXXXXXXXX")
 
     assert_pattern do
       response => Onlyfans::Models::StatisticCalculateTotalTransactionsResponse

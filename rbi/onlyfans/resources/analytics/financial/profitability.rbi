@@ -14,9 +14,7 @@ module Onlyfans
               months: Integer,
               request_options: Onlyfans::RequestOptions::OrHash
             ).returns(
-              T::Array[
-                Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponseItem
-              ]
+              Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponse
             )
           end
           def get_history(
@@ -40,9 +38,7 @@ module Onlyfans
               year: Integer,
               request_options: Onlyfans::RequestOptions::OrHash
             ).returns(
-              T::Array[
-                Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem
-              ]
+              Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse
             )
           end
           def get_profitability(

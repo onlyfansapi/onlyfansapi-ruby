@@ -35,10 +35,10 @@ class Onlyfans::Test::Resources::UserLists::UsersTest < Onlyfans::Test::Resource
     end
 
     assert_pattern do
-      response => {
-        _meta: Onlyfans::Models::UserLists::UserAddResponse::Meta | nil,
-        data: Onlyfans::Models::UserLists::UserAddResponse::Data | nil
-      }
+      case response
+      in Onlyfans::Models::UserLists::UserAddResponse::UnionMember0
+      in Onlyfans::Models::UserLists::UserAddResponse::UnionMember1
+      end
     end
   end
 

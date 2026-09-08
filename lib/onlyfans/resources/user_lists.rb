@@ -95,15 +95,18 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::UserListListParams} for more details.
       #
-      # Get a list of OnlyFans Collections - User Lists
+      # Get a list of OnlyFans Collections - User Lists. If you only want to get User
+      # Lists available for sending a Mass-Message, use `?view=queue`
       #
-      # @overload list(account, limit: nil, offset: nil, request_options: {})
+      # @overload list(account, limit: nil, offset: nil, view: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param limit [Integer, nil] How many results to return in the request. Max. 50 user lists. Must be at least
       #
       # @param offset [Integer, nil] Must be at least 0.
+      #
+      # @param view [Symbol, Onlyfans::Models::UserListListParams::View] How to return the results. `queue` returns the user lists that are available for
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #

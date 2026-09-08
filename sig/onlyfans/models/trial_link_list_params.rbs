@@ -3,11 +3,13 @@ module Onlyfans
     type trial_link_list_params =
       {
         account: String,
+        end_date: String?,
+        field: Onlyfans::Models::TrialLinkListParams::field,
         limit: Integer,
         offset: Integer,
-        field: Onlyfans::Models::TrialLinkListParams::field?,
-        sort: Onlyfans::Models::TrialLinkListParams::sort?,
-        synchronous: bool?
+        sort: Onlyfans::Models::TrialLinkListParams::sort,
+        start_date: String?,
+        synchronous: bool
       }
       & Onlyfans::Internal::Type::request_parameters
 
@@ -17,33 +19,55 @@ module Onlyfans
 
       attr_accessor account: String
 
-      attr_accessor limit: Integer
+      attr_accessor end_date: String?
 
-      attr_accessor offset: Integer
+      attr_reader field: Onlyfans::Models::TrialLinkListParams::field?
 
-      attr_accessor field: Onlyfans::Models::TrialLinkListParams::field?
+      def field=: (
+        Onlyfans::Models::TrialLinkListParams::field
+      ) -> Onlyfans::Models::TrialLinkListParams::field
 
-      attr_accessor sort: Onlyfans::Models::TrialLinkListParams::sort?
+      attr_reader limit: Integer?
 
-      attr_accessor synchronous: bool?
+      def limit=: (Integer) -> Integer
+
+      attr_reader offset: Integer?
+
+      def offset=: (Integer) -> Integer
+
+      attr_reader sort: Onlyfans::Models::TrialLinkListParams::sort?
+
+      def sort=: (
+        Onlyfans::Models::TrialLinkListParams::sort
+      ) -> Onlyfans::Models::TrialLinkListParams::sort
+
+      attr_accessor start_date: String?
+
+      attr_reader synchronous: bool?
+
+      def synchronous=: (bool) -> bool
 
       def initialize: (
         account: String,
-        limit: Integer,
-        offset: Integer,
-        ?field: Onlyfans::Models::TrialLinkListParams::field?,
-        ?sort: Onlyfans::Models::TrialLinkListParams::sort?,
-        ?synchronous: bool?,
+        ?end_date: String?,
+        ?field: Onlyfans::Models::TrialLinkListParams::field,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?sort: Onlyfans::Models::TrialLinkListParams::sort,
+        ?start_date: String?,
+        ?synchronous: bool,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
       def to_hash: -> {
         account: String,
+        end_date: String?,
+        field: Onlyfans::Models::TrialLinkListParams::field,
         limit: Integer,
         offset: Integer,
-        field: Onlyfans::Models::TrialLinkListParams::field?,
-        sort: Onlyfans::Models::TrialLinkListParams::sort?,
-        synchronous: bool?,
+        sort: Onlyfans::Models::TrialLinkListParams::sort,
+        start_date: String?,
+        synchronous: bool,
         request_options: Onlyfans::RequestOptions
       }
 
@@ -66,13 +90,13 @@ module Onlyfans
         def self?.values: -> ::Array[Onlyfans::Models::TrialLinkListParams::field]
       end
 
-      type sort = :desc | :asc
+      type sort = :asc | :desc
 
       module Sort
         extend Onlyfans::Internal::Type::Enum
 
-        DESC: :desc
         ASC: :asc
+        DESC: :desc
 
         def self?.values: -> ::Array[Onlyfans::Models::TrialLinkListParams::sort]
       end

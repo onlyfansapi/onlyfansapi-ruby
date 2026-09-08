@@ -15,7 +15,7 @@ module Onlyfans
         #
         # @param end_date [String] The end date for the period.
         #
-        # @param start_date [String] The start date for the period
+        # @param start_date [String] The start date for the period.
         #
         # @param filter [Symbol, Onlyfans::Models::Statistics::ReachGetProfileVisitorsParams::Filter, nil] Optionally, filter the results by `chart` or `topCountries`. See example respons
         #

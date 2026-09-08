@@ -38,6 +38,7 @@ module Onlyfans
 
         US = :us
         UK = :uk
+        GB = :gb
 
         # @!method self.values
         #   @return [Array<Symbol>]

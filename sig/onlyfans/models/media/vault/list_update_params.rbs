@@ -3,7 +3,7 @@ module Onlyfans
     module Media
       module Vault
         type list_update_params =
-          { account: String, list_id: String }
+          { account: String, list_id: String, name: String }
           & Onlyfans::Internal::Type::request_parameters
 
         class ListUpdateParams < Onlyfans::Internal::Type::BaseModel
@@ -14,15 +14,19 @@ module Onlyfans
 
           attr_accessor list_id: String
 
+          attr_accessor name: String
+
           def initialize: (
             account: String,
             list_id: String,
+            name: String,
             ?request_options: Onlyfans::request_opts
           ) -> void
 
           def to_hash: -> {
             account: String,
             list_id: String,
+            name: String,
             request_options: Onlyfans::RequestOptions
           }
         end

@@ -15,7 +15,9 @@ module Onlyfans
 
         # @!attribute async
         #   Set to `true` to process uploads in the background. Returns a `polling_url` to
-        #   check status. Recommended for large files.
+        #   check status. Recommended for large files. Instead of polling, you can subscribe
+        #   to the `media_uploads.completed` and `media_uploads.failed` webhook events —
+        #   they only fire for async uploads.
         #
         #   @return [Boolean, nil]
         optional :async, Onlyfans::Internal::Type::Boolean

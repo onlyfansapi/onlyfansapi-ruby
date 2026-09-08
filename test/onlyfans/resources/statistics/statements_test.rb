@@ -9,6 +9,7 @@ class Onlyfans::Test::Resources::Statistics::StatementsTest < Onlyfans::Test::Re
     response =
       @only_fans_api.statistics.statements.get_earnings(
         "acct_XXXXXXXXXXXXXXX",
+        end_date: "2025-03-31 23:59:59",
         start_date: "2025-01-01 00:00:00"
       )
 

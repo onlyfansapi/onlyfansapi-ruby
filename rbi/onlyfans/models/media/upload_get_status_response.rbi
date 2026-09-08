@@ -13,7 +13,8 @@ module Onlyfans
               Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember0,
               Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1,
               Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2,
-              Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3
+              Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3,
+              Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4
             )
           end
 
@@ -106,6 +107,51 @@ module Onlyfans
               )
             end
 
+          sig { returns(T.nilable(String)) }
+          attr_reader :error
+
+          sig { params(error: String).void }
+          attr_writer :error
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :prefixed_id
+
+          sig { params(prefixed_id: String).void }
+          attr_writer :prefixed_id
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :status
+
+          sig { params(status: String).void }
+          attr_writer :status
+
+          # Upload rejected by OnlyFans — `error` carries the upstream reason verbatim
+          sig do
+            params(error: String, prefixed_id: String, status: String).returns(
+              T.attached_class
+            )
+          end
+          def self.new(error: nil, prefixed_id: nil, status: nil)
+          end
+
+          sig do
+            override.returns(
+              { error: String, prefixed_id: String, status: String }
+            )
+          end
+          def to_hash
+          end
+        end
+
+        class UnionMember3 < Onlyfans::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3,
+                Onlyfans::Internal::AnyHash
+              )
+            end
+
           sig { returns(T.nilable(Integer)) }
           attr_reader :credits_used
 
@@ -115,7 +161,7 @@ module Onlyfans
           sig do
             returns(
               T.nilable(
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media
               )
             )
           end
@@ -124,7 +170,7 @@ module Onlyfans
           sig do
             params(
               media:
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::OrHash
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::OrHash
             ).void
           end
           attr_writer :media
@@ -146,7 +192,7 @@ module Onlyfans
             params(
               credits_used: Integer,
               media:
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::OrHash,
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::OrHash,
               prefixed_id: String,
               status: String
             ).returns(T.attached_class)
@@ -164,7 +210,7 @@ module Onlyfans
               {
                 credits_used: Integer,
                 media:
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
                 prefixed_id: String,
                 status: String
               }
@@ -177,7 +223,7 @@ module Onlyfans
             OrHash =
               T.type_alias do
                 T.any(
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
                   Onlyfans::Internal::AnyHash
                 )
               end
@@ -215,7 +261,7 @@ module Onlyfans
             sig do
               returns(
                 T.nilable(
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files
                 )
               )
             end
@@ -224,7 +270,7 @@ module Onlyfans
             sig do
               params(
                 files:
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::OrHash
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::OrHash
               ).void
             end
             attr_writer :files
@@ -267,7 +313,7 @@ module Onlyfans
                 created_at: String,
                 duration: Integer,
                 files:
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::OrHash,
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::OrHash,
                 has_custom_preview: T::Boolean,
                 has_error: T::Boolean,
                 is_ready: T::Boolean,
@@ -299,7 +345,7 @@ module Onlyfans
                   created_at: String,
                   duration: Integer,
                   files:
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files,
                   has_custom_preview: T::Boolean,
                   has_error: T::Boolean,
                   is_ready: T::Boolean,
@@ -315,7 +361,7 @@ module Onlyfans
               OrHash =
                 T.type_alias do
                   T.any(
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files,
                     Onlyfans::Internal::AnyHash
                   )
                 end
@@ -323,7 +369,7 @@ module Onlyfans
               sig do
                 returns(
                   T.nilable(
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full
                   )
                 )
               end
@@ -332,7 +378,7 @@ module Onlyfans
               sig do
                 params(
                   full:
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full::OrHash
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full::OrHash
                 ).void
               end
               attr_writer :full
@@ -349,7 +395,7 @@ module Onlyfans
               sig do
                 params(
                   full:
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full::OrHash,
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full::OrHash,
                   preview: T.nilable(String),
                   square_preview: T.nilable(String),
                   thumb: T.nilable(String)
@@ -367,7 +413,7 @@ module Onlyfans
                 override.returns(
                   {
                     full:
-                      Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                      Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full,
                     preview: T.nilable(String),
                     square_preview: T.nilable(String),
                     thumb: T.nilable(String)
@@ -381,7 +427,7 @@ module Onlyfans
                 OrHash =
                   T.type_alias do
                     T.any(
-                      Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                      Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full,
                       Onlyfans::Internal::AnyHash
                     )
                   end
@@ -449,11 +495,11 @@ module Onlyfans
           end
         end
 
-        class UnionMember3 < Onlyfans::Internal::Type::BaseModel
+        class UnionMember4 < Onlyfans::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
               T.any(
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3,
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4,
                 Onlyfans::Internal::AnyHash
               )
             end
@@ -467,7 +513,7 @@ module Onlyfans
           sig do
             returns(
               T.nilable(
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media
               )
             )
           end
@@ -476,7 +522,7 @@ module Onlyfans
           sig do
             params(
               media:
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::OrHash
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::OrHash
             ).void
           end
           attr_writer :media
@@ -498,7 +544,7 @@ module Onlyfans
             params(
               credits_used: Integer,
               media:
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::OrHash,
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::OrHash,
               prefixed_id: String,
               status: String
             ).returns(T.attached_class)
@@ -516,7 +562,7 @@ module Onlyfans
               {
                 credits_used: Integer,
                 media:
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media,
                 prefixed_id: String,
                 status: String
               }
@@ -529,7 +575,7 @@ module Onlyfans
             OrHash =
               T.type_alias do
                 T.any(
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media,
                   Onlyfans::Internal::AnyHash
                 )
               end
@@ -537,7 +583,7 @@ module Onlyfans
             sig do
               returns(
                 T.nilable(
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional
                 )
               )
             end
@@ -546,7 +592,7 @@ module Onlyfans
             sig do
               params(
                 additional:
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional::OrHash
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional::OrHash
               ).void
             end
             attr_writer :additional
@@ -591,7 +637,7 @@ module Onlyfans
               returns(
                 T.nilable(
                   T::Array[
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb
                   ]
                 )
               )
@@ -602,7 +648,7 @@ module Onlyfans
               params(
                 thumbs:
                   T::Array[
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb::OrHash
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb::OrHash
                   ]
               ).void
             end
@@ -611,7 +657,7 @@ module Onlyfans
             sig do
               params(
                 additional:
-                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional::OrHash,
+                  Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional::OrHash,
                 extra: String,
                 file_name: String,
                 host: String,
@@ -620,7 +666,7 @@ module Onlyfans
                 source_url: String,
                 thumbs:
                   T::Array[
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb::OrHash
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb::OrHash
                   ]
               ).returns(T.attached_class)
             end
@@ -640,7 +686,7 @@ module Onlyfans
               override.returns(
                 {
                   additional:
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional,
                   extra: String,
                   file_name: String,
                   host: String,
@@ -649,7 +695,7 @@ module Onlyfans
                   source_url: String,
                   thumbs:
                     T::Array[
-                      Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb
+                      Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb
                     ]
                 }
               )
@@ -661,7 +707,7 @@ module Onlyfans
               OrHash =
                 T.type_alias do
                   T.any(
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional,
                     Onlyfans::Internal::AnyHash
                   )
                 end
@@ -685,7 +731,7 @@ module Onlyfans
               OrHash =
                 T.type_alias do
                   T.any(
-                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb,
+                    Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb,
                     Onlyfans::Internal::AnyHash
                   )
                 end

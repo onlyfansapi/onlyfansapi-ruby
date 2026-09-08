@@ -70,7 +70,7 @@ module Onlyfans
     sig { returns(Onlyfans::Resources::Giphy) }
     attr_reader :giphy
 
-    # APIs for managing tags on free trial links and tracking links
+    # APIs for managing tags on free trial links, tracking links, and Smart Links
     sig { returns(Onlyfans::Resources::LinkTags) }
     attr_reader :link_tags
 
