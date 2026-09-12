@@ -242,6 +242,11 @@ module Onlyfans
             #   @return [String, nil]
             optional :calculated_at, String, api_name: :calculatedAt
 
+            # @!attribute chargebacks
+            #
+            #   @return [Integer, nil]
+            optional :chargebacks, Integer
+
             # @!attribute is_loading
             #
             #   @return [Boolean, nil]
@@ -267,8 +272,9 @@ module Onlyfans
             #   @return [Integer, nil]
             optional :total, Integer
 
-            # @!method initialize(calculated_at: nil, is_loading: nil, revenue_per_click: nil, revenue_per_subscriber: nil, spenders_count: nil, total: nil)
+            # @!method initialize(calculated_at: nil, chargebacks: nil, is_loading: nil, revenue_per_click: nil, revenue_per_subscriber: nil, spenders_count: nil, total: nil)
             #   @param calculated_at [String]
+            #   @param chargebacks [Integer]
             #   @param is_loading [Boolean]
             #   @param revenue_per_click [Float]
             #   @param revenue_per_subscriber [Integer]

@@ -620,6 +620,12 @@ module Onlyfans
           sig { params(calculated_at: String).void }
           attr_writer :calculated_at
 
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :chargebacks
+
+          sig { params(chargebacks: Integer).void }
+          attr_writer :chargebacks
+
           sig { returns(T.nilable(T::Boolean)) }
           attr_reader :is_loading
 
@@ -653,6 +659,7 @@ module Onlyfans
           sig do
             params(
               calculated_at: String,
+              chargebacks: Integer,
               is_loading: T::Boolean,
               revenue_per_click: Float,
               revenue_per_subscriber: Integer,
@@ -662,6 +669,7 @@ module Onlyfans
           end
           def self.new(
             calculated_at: nil,
+            chargebacks: nil,
             is_loading: nil,
             revenue_per_click: nil,
             revenue_per_subscriber: nil,
@@ -674,6 +682,7 @@ module Onlyfans
             override.returns(
               {
                 calculated_at: String,
+                chargebacks: Integer,
                 is_loading: T::Boolean,
                 revenue_per_click: Float,
                 revenue_per_subscriber: Integer,

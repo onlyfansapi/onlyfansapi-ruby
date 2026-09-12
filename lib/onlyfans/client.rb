@@ -68,7 +68,11 @@ module Onlyfans
     # @return [Onlyfans::Resources::Following]
     attr_reader :following
 
-    # APIs for managing Free Trial Links
+    # APIs for managing Free Trial Links. Revenue totals are net earnings after
+    # refunds and chargebacks. `revenue.chargebacks` (or `summary.chargebacks_total`
+    # in stats) is the positive cached net amount already excluded from revenue; do
+    # not subtract it again. Spender responses include chargebacks across all
+    # attributed periods for each fan with positive net revenue.
     # @return [Onlyfans::Resources::TrialLinks]
     attr_reader :trial_links
 
@@ -153,7 +157,11 @@ module Onlyfans
     # @return [Onlyfans::Resources::Bundles]
     attr_reader :bundles
 
-    # APIs for managing tracking links
+    # APIs for managing tracking links. Revenue totals are net earnings after refunds
+    # and chargebacks. `revenue.chargebacks` (or `summary.chargebacks_total` in stats)
+    # is the positive cached net amount already excluded from revenue; do not subtract
+    # it again. Spender responses include chargebacks across all attributed periods
+    # for each fan with positive net revenue.
     # @return [Onlyfans::Resources::TrackingLinks]
     attr_reader :tracking_links
 
