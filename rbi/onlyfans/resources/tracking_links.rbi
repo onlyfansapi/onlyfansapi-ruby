@@ -2,9 +2,17 @@
 
 module Onlyfans
   module Resources
-    # APIs for managing tracking links
+    # APIs for managing tracking links. Revenue totals are net earnings after refunds
+    # and chargebacks. `revenue.chargebacks` (or `summary.chargebacks_total` in stats)
+    # is the positive cached net amount already excluded from revenue; do not subtract
+    # it again. Spender responses include chargebacks across all attributed periods
+    # for each fan with positive net revenue.
     class TrackingLinks
-      # APIs for managing tracking links
+      # APIs for managing tracking links. Revenue totals are net earnings after refunds
+      # and chargebacks. `revenue.chargebacks` (or `summary.chargebacks_total` in stats)
+      # is the positive cached net amount already excluded from revenue; do not subtract
+      # it again. Spender responses include chargebacks across all attributed periods
+      # for each fan with positive net revenue.
       sig { returns(Onlyfans::Resources::TrackingLinks::Tags) }
       attr_reader :tags
 

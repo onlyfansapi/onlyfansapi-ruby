@@ -400,6 +400,7 @@ module Onlyfans
           type revenue =
             {
               calculated_at: String,
+              chargebacks: Float,
               is_loading: bool,
               revenue_per_subscriber: Float,
               spenders_count: Integer,
@@ -410,6 +411,10 @@ module Onlyfans
             attr_reader calculated_at: String?
 
             def calculated_at=: (String) -> String
+
+            attr_reader chargebacks: Float?
+
+            def chargebacks=: (Float) -> Float
 
             attr_reader is_loading: bool?
 
@@ -429,6 +434,7 @@ module Onlyfans
 
             def initialize: (
               ?calculated_at: String,
+              ?chargebacks: Float,
               ?is_loading: bool,
               ?revenue_per_subscriber: Float,
               ?spenders_count: Integer,
@@ -437,6 +443,7 @@ module Onlyfans
 
             def to_hash: -> {
               calculated_at: String,
+              chargebacks: Float,
               is_loading: bool,
               revenue_per_subscriber: Float,
               spenders_count: Integer,
