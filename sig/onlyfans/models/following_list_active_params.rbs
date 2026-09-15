@@ -6,7 +6,9 @@ module Onlyfans
         filter: Onlyfans::FollowingListActiveParams::Filter,
         limit: Integer,
         offset: Integer,
-        query: String?
+        query: String?,
+        sort: Onlyfans::Models::FollowingListActiveParams::sort?,
+        sort_direction: Onlyfans::Models::FollowingListActiveParams::sort_direction?
       }
       & Onlyfans::Internal::Type::request_parameters
 
@@ -32,12 +34,18 @@ module Onlyfans
 
       attr_accessor query: String?
 
+      attr_accessor sort: Onlyfans::Models::FollowingListActiveParams::sort?
+
+      attr_accessor sort_direction: Onlyfans::Models::FollowingListActiveParams::sort_direction?
+
       def initialize: (
         account: String,
         ?filter: Onlyfans::FollowingListActiveParams::Filter,
         ?limit: Integer,
         ?offset: Integer,
         ?query: String?,
+        ?sort: Onlyfans::Models::FollowingListActiveParams::sort?,
+        ?sort_direction: Onlyfans::Models::FollowingListActiveParams::sort_direction?,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
@@ -47,6 +55,8 @@ module Onlyfans
         limit: Integer,
         offset: Integer,
         query: String?,
+        sort: Onlyfans::Models::FollowingListActiveParams::sort?,
+        sort_direction: Onlyfans::Models::FollowingListActiveParams::sort_direction?,
         request_options: Onlyfans::RequestOptions
       }
 
@@ -92,6 +102,30 @@ module Onlyfans
 
           def self?.values: -> ::Array[Onlyfans::Models::FollowingListActiveParams::Filter::paid]
         end
+      end
+
+      type sort = :last_activity | :expire_date | :subscribe_date | :is_expired
+
+      module Sort
+        extend Onlyfans::Internal::Type::Enum
+
+        LAST_ACTIVITY: :last_activity
+        EXPIRE_DATE: :expire_date
+        SUBSCRIBE_DATE: :subscribe_date
+        IS_EXPIRED: :is_expired
+
+        def self?.values: -> ::Array[Onlyfans::Models::FollowingListActiveParams::sort]
+      end
+
+      type sort_direction = :asc | :desc
+
+      module SortDirection
+        extend Onlyfans::Internal::Type::Enum
+
+        ASC: :asc
+        DESC: :desc
+
+        def self?.values: -> ::Array[Onlyfans::Models::FollowingListActiveParams::sort_direction]
       end
     end
   end

@@ -88,6 +88,11 @@ module Onlyfans
             :uk,
             Onlyfans::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
           )
+        GB =
+          T.let(
+            :gb,
+            Onlyfans::ClientSessionCreateParams::ProxyCountry::TaggedSymbol
+          )
 
         sig do
           override.returns(

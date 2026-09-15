@@ -3,29 +3,36 @@
 module Onlyfans
   module Resources
     class Queue
-      # List posts and messages in the queue.
+      # List scheduled posts and mass messages for a date range. Use the type filter to
+      # return only posts, messages, or both.
       sig do
         params(
           account: String,
-          limit: Integer,
           publish_date_end: String,
           publish_date_start: String,
           timezone: String,
+          limit: Integer,
+          type: T::Array[Onlyfans::QueueListParams::Type::OrSymbol],
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::QueueListResponse)
       end
       def list(
         # The Account ID
         account,
-        # Maximum number of queue items to return (default = 20)
-        limit:,
-        # Latest publish date to return
+        # Latest publish date to return. Must be a valid date. Must be a valid date. Must
+        # be a date after or equal to <code>publishDateStart</code>.
         publish_date_end:,
-        # Earliest publish date to return (must be at least today)
+        # Earliest publish date to return (must be at least today). Must be a valid date.
+        # Must be a valid date. Must be a date after or equal to <code>today</code>.
         publish_date_start:,
-        # Time timezone of the provided dates.
-        # [View available timezone values](https://www.php.net/manual/en/timezones.php)
+        # Timezone of the provided dates.
+        # [View available timezone values](https://www.php.net/manual/en/timezones.php).
+        # Must be a valid time zone, such as <code>Africa/Accra</code>.
         timezone:,
+        # Maximum number of queue items to return (default 20). Must be at least 1. Must
+        # not be greater than 100.
+        limit: nil,
+        type: nil,
         request_options: {}
       )
       end

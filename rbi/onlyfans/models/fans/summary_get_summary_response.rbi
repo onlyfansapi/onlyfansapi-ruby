@@ -18,6 +18,27 @@ module Onlyfans
         sig { params(analyzed_message_count: Integer).void }
         attr_writer :analyzed_message_count
 
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField
+              ]
+            )
+          )
+        end
+        attr_reader :custom_fields
+
+        sig do
+          params(
+            custom_fields:
+              T::Array[
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField::OrHash
+              ]
+          ).void
+        end
+        attr_writer :custom_fields
+
         sig { returns(T.nilable(String)) }
         attr_accessor :error_message
 
@@ -26,6 +47,12 @@ module Onlyfans
 
         sig { params(last_analyzed_at: String).void }
         attr_writer :last_analyzed_at
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :last_buy_date
+
+        sig { params(last_buy_date: String).void }
+        attr_writer :last_buy_date
 
         sig { returns(T.nilable(String)) }
         attr_reader :status
@@ -53,8 +80,13 @@ module Onlyfans
         sig do
           params(
             analyzed_message_count: Integer,
+            custom_fields:
+              T::Array[
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField::OrHash
+              ],
             error_message: T.nilable(String),
             last_analyzed_at: String,
+            last_buy_date: String,
             status: String,
             summary_data:
               Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData::OrHash
@@ -62,8 +94,10 @@ module Onlyfans
         end
         def self.new(
           analyzed_message_count: nil,
+          custom_fields: nil,
           error_message: nil,
           last_analyzed_at: nil,
+          last_buy_date: nil,
           status: nil,
           summary_data: nil
         )
@@ -73,8 +107,13 @@ module Onlyfans
           override.returns(
             {
               analyzed_message_count: Integer,
+              custom_fields:
+                T::Array[
+                  Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField
+                ],
               error_message: T.nilable(String),
               last_analyzed_at: String,
+              last_buy_date: String,
               status: String,
               summary_data:
                 Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
@@ -82,6 +121,36 @@ module Onlyfans
           )
         end
         def to_hash
+        end
+
+        class CustomField < Onlyfans::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField,
+                Onlyfans::Internal::AnyHash
+              )
+            end
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :key
+
+          sig { params(key: String).void }
+          attr_writer :key
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :label
+
+          sig { params(label: String).void }
+          attr_writer :label
+
+          sig { params(key: String, label: String).returns(T.attached_class) }
+          def self.new(key: nil, label: nil)
+          end
+
+          sig { override.returns({ key: String, label: String }) }
+          def to_hash
+          end
         end
 
         class SummaryData < Onlyfans::Internal::Type::BaseModel
@@ -94,10 +163,22 @@ module Onlyfans
             end
 
           sig { returns(T.nilable(String)) }
+          attr_reader :content_dislikes
+
+          sig { params(content_dislikes: String).void }
+          attr_writer :content_dislikes
+
+          sig { returns(T.nilable(String)) }
           attr_reader :content_preferences
 
           sig { params(content_preferences: String).void }
           attr_writer :content_preferences
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :dos_and_donts
+
+          sig { params(dos_and_donts: String).void }
+          attr_writer :dos_and_donts
 
           sig { returns(T.nilable(String)) }
           attr_reader :family_pets
@@ -148,6 +229,12 @@ module Onlyfans
           attr_writer :requests
 
           sig { returns(T.nilable(String)) }
+          attr_reader :spend_cadence
+
+          sig { params(spend_cadence: String).void }
+          attr_writer :spend_cadence
+
+          sig { returns(T.nilable(String)) }
           attr_reader :themes
 
           sig { params(themes: String).void }
@@ -161,7 +248,9 @@ module Onlyfans
 
           sig do
             params(
+              content_dislikes: String,
               content_preferences: String,
+              dos_and_donts: String,
               family_pets: String,
               hobbies: String,
               interests: String,
@@ -170,12 +259,15 @@ module Onlyfans
               other_notes: String,
               preferred_name: String,
               requests: String,
+              spend_cadence: String,
               themes: String,
               travel_plans: String
             ).returns(T.attached_class)
           end
           def self.new(
+            content_dislikes: nil,
             content_preferences: nil,
+            dos_and_donts: nil,
             family_pets: nil,
             hobbies: nil,
             interests: nil,
@@ -184,6 +276,7 @@ module Onlyfans
             other_notes: nil,
             preferred_name: nil,
             requests: nil,
+            spend_cadence: nil,
             themes: nil,
             travel_plans: nil
           )
@@ -192,7 +285,9 @@ module Onlyfans
           sig do
             override.returns(
               {
+                content_dislikes: String,
                 content_preferences: String,
+                dos_and_donts: String,
                 family_pets: String,
                 hobbies: String,
                 interests: String,
@@ -201,6 +296,7 @@ module Onlyfans
                 other_notes: String,
                 preferred_name: String,
                 requests: String,
+                spend_cadence: String,
                 themes: String,
                 travel_plans: String
               }

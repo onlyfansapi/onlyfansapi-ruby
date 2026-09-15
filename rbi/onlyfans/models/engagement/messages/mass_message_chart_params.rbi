@@ -19,7 +19,7 @@ module Onlyfans
           sig { returns(String) }
           attr_accessor :account
 
-          # End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+          # End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
           sig { returns(T.nilable(String)) }
           attr_reader :end_date
 
@@ -51,7 +51,7 @@ module Onlyfans
           end
           def self.new(
             account:,
-            # End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+            # End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
             end_date: nil,
             # Start of the chart window in `Y-m-d H:i:s` format.
             start_date: nil,

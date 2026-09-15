@@ -25,7 +25,14 @@ module Onlyfans
       #   @return [Integer, nil]
       optional :offset, Integer, nil?: true
 
-      # @!method initialize(account:, limit: nil, offset: nil, request_options: {})
+      # @!attribute view
+      #   How to return the results. `queue` returns the user lists that are available for
+      #   Mass-Messaging.
+      #
+      #   @return [Symbol, Onlyfans::Models::UserListListParams::View, nil]
+      optional :view, enum: -> { Onlyfans::UserListListParams::View }
+
+      # @!method initialize(account:, limit: nil, offset: nil, view: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::UserListListParams} for more details.
       #
@@ -35,7 +42,20 @@ module Onlyfans
       #
       #   @param offset [Integer, nil] Must be at least 0.
       #
+      #   @param view [Symbol, Onlyfans::Models::UserListListParams::View] How to return the results. `queue` returns the user lists that are available for
+      #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+
+      # How to return the results. `queue` returns the user lists that are available for
+      # Mass-Messaging.
+      module View
+        extend Onlyfans::Internal::Type::Enum
+
+        QUEUE = :queue
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
     end
   end
 end

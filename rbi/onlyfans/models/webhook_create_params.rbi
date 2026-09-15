@@ -11,8 +11,9 @@ module Onlyfans
           T.any(Onlyfans::WebhookCreateParams, Onlyfans::Internal::AnyHash)
         end
 
-      # The account scope for the webhook. Use "global" for all accounts, "inclusive"
-      # for only selected accounts, or "exclusive" for all except selected accounts.
+      # The account scope for the webhook (OnlyFans and Fansly webhooks alike). Use
+      # "global" for all accounts, "inclusive" for only selected accounts, or
+      # "exclusive" for all except selected accounts.
       sig { returns(String) }
       attr_accessor :account_scope
 
@@ -21,12 +22,14 @@ module Onlyfans
       attr_accessor :endpoint_url
 
       # An array of webhook events to subscribe to. For all options, refer to our **List
-      # Available Events** endpoint.
+      # Available Events** endpoint. A webhook is single-platform: subscribe to either
+      # OnlyFans events or Fansly (`fansly.*`) events, never both in one webhook.
       sig { returns(T::Array[String]) }
       attr_accessor :events
 
-      # An array of account IDs to apply the scope to. Required unless account_scope is
-      # "global".
+      # An array of account IDs to apply the scope to. Use OnlyFans account IDs
+      # (`acct_...`) for OnlyFans webhooks and Fansly account IDs (`fansly_acct_...`)
+      # for Fansly webhooks. Required unless account_scope is "global".
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :account_ids
 
@@ -48,16 +51,19 @@ module Onlyfans
         ).returns(T.attached_class)
       end
       def self.new(
-        # The account scope for the webhook. Use "global" for all accounts, "inclusive"
-        # for only selected accounts, or "exclusive" for all except selected accounts.
+        # The account scope for the webhook (OnlyFans and Fansly webhooks alike). Use
+        # "global" for all accounts, "inclusive" for only selected accounts, or
+        # "exclusive" for all except selected accounts.
         account_scope:,
         # The URL of your webhook endpoint.
         endpoint_url:,
         # An array of webhook events to subscribe to. For all options, refer to our **List
-        # Available Events** endpoint.
+        # Available Events** endpoint. A webhook is single-platform: subscribe to either
+        # OnlyFans events or Fansly (`fansly.*`) events, never both in one webhook.
         events:,
-        # An array of account IDs to apply the scope to. Required unless account_scope is
-        # "global".
+        # An array of account IDs to apply the scope to. Use OnlyFans account IDs
+        # (`acct_...`) for OnlyFans webhooks and Fansly account IDs (`fansly_acct_...`)
+        # for Fansly webhooks. Required unless account_scope is "global".
         account_ids: nil,
         # Optionally, add a signing secret to protect your webhook.
         signing_secret: nil,

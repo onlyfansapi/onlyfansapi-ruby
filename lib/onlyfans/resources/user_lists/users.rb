@@ -37,9 +37,12 @@ module Onlyfans
           )
         end
 
+        # Some parameter documentations has been truncated, see
+        # {Onlyfans::Models::UserLists::UserAddParams} for more details.
+        #
         # Add multiple Users To OnlyFans User List
         #
-        # @overload add(user_list_id, account:, ids:, request_options: {})
+        # @overload add(user_list_id, account:, ids:, skip_invalid: nil, request_options: {})
         #
         # @param user_list_id [String] Path param: OnlyFans User List ID, or a default list name like `tagged`
         #
@@ -47,9 +50,11 @@ module Onlyfans
         #
         # @param ids [Array<String>] Body param: Array of OnlyFans User IDs to be added into the list
         #
+        # @param skip_invalid [Boolean] Body param: Set to `true` to skip the User IDs OnlyFans refuses instead of faili
+        #
         # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
         #
-        # @return [Onlyfans::Models::UserLists::UserAddResponse]
+        # @return [Onlyfans::Models::UserLists::UserAddResponse::UnionMember0, Onlyfans::Models::UserLists::UserAddResponse::UnionMember1]
         #
         # @see Onlyfans::Models::UserLists::UserAddParams
         def add(user_list_id, params)

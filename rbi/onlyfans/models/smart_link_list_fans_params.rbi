@@ -56,6 +56,14 @@ module Onlyfans
       sig { params(offset: Integer).void }
       attr_writer :offset
 
+      # Optional - Filter to returning subscribers (fans previously subscribed before
+      # this subscription)
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :previously_subscribed
+
+      sig { params(previously_subscribed: T::Boolean).void }
+      attr_writer :previously_subscribed
+
       # Optional sort field. Default `-revenue_net`
       sig do
         returns(T.nilable(Onlyfans::SmartLinkListFansParams::Sort::OrSymbol))
@@ -67,6 +75,13 @@ module Onlyfans
       end
       attr_writer :sort
 
+      # Optional - Filter to fans who subscribed via a promotion/offer
+      sig { returns(T.nilable(T::Boolean)) }
+      attr_reader :subscribed_using_promo
+
+      sig { params(subscribed_using_promo: T::Boolean).void }
+      attr_writer :subscribed_using_promo
+
       sig do
         params(
           smart_link_id: String,
@@ -76,7 +91,9 @@ module Onlyfans
           min_revenue_net: Float,
           min_tips_net: Float,
           offset: Integer,
+          previously_subscribed: T::Boolean,
           sort: Onlyfans::SmartLinkListFansParams::Sort::OrSymbol,
+          subscribed_using_promo: T::Boolean,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
@@ -94,8 +111,13 @@ module Onlyfans
         min_tips_net: nil,
         # Offset for pagination. Default `0`
         offset: nil,
+        # Optional - Filter to returning subscribers (fans previously subscribed before
+        # this subscription)
+        previously_subscribed: nil,
         # Optional sort field. Default `-revenue_net`
         sort: nil,
+        # Optional - Filter to fans who subscribed via a promotion/offer
+        subscribed_using_promo: nil,
         request_options: {}
       )
       end
@@ -110,7 +132,9 @@ module Onlyfans
             min_revenue_net: Float,
             min_tips_net: Float,
             offset: Integer,
+            previously_subscribed: T::Boolean,
             sort: Onlyfans::SmartLinkListFansParams::Sort::OrSymbol,
+            subscribed_using_promo: T::Boolean,
             request_options: Onlyfans::RequestOptions
           }
         )

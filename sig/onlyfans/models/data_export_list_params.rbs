@@ -85,9 +85,14 @@ module Onlyfans
         | :media_vault
         | :trial_links
         | :tracking_links
+        | :smart_links
         | :payouts
         | :chargebacks
         | :public_profiles
+        | :fans
+        | :followings
+        | :profile_visitors
+        | :fansly_chat_messages
 
       module Type
         extend Onlyfans::Internal::Type::Enum
@@ -97,9 +102,14 @@ module Onlyfans
         MEDIA_VAULT: :media_vault
         TRIAL_LINKS: :trial_links
         TRACKING_LINKS: :tracking_links
+        SMART_LINKS: :smart_links
         PAYOUTS: :payouts
         CHARGEBACKS: :chargebacks
         PUBLIC_PROFILES: :public_profiles
+        FANS: :fans
+        FOLLOWINGS: :followings
+        PROFILE_VISITORS: :profile_visitors
+        FANSLY_CHAT_MESSAGES: :fansly_chat_messages
 
         def self?.values: -> ::Array[Onlyfans::Models::DataExportListParams::type_]
       end
