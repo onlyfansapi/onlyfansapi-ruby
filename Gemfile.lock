@@ -11,7 +11,7 @@ GIT
 PATH
   remote: .
   specs:
-    onlyfans (0.2.0)
+    onlyfans (0.3.0)
       cgi
       connection_pool
 
