@@ -25,9 +25,9 @@ module Onlyfans
         optional :filter, enum: -> { Onlyfans::Chats::MessageListParams::Filter }
 
         # @!attribute first_id
-        #   Use for pagination when `order=desc` (newest to oldest). Include this message ID
-        #   as the first message in the results. Used to retrieve messages from e.g. the
-        #   Search Chat Messages endpoint IDs.
+        #   Use for pagination when `order=desc` (newest to oldest). Pass the last message
+        #   ID from the previous page to retrieve older messages, excluding that cursor
+        #   message.
         #
         #   @return [String, nil]
         optional :first_id, String, nil?: true
@@ -69,7 +69,7 @@ module Onlyfans
         #
         #   @param filter [Symbol, Onlyfans::Models::Chats::MessageListParams::Filter] Filter by certain messages. Currently, only pins are filterable.
         #
-        #   @param first_id [String, nil] Use for pagination when `order=desc` (newest to oldest). Include this message ID
+        #   @param first_id [String, nil] Use for pagination when `order=desc` (newest to oldest). Pass the last message I
         #
         #   @param last_id [String, nil] Use for pagination when `order=asc` (oldest to newest). Include this message ID
         #
