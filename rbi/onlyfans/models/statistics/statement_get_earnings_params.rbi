@@ -18,16 +18,13 @@ module Onlyfans
         sig { returns(String) }
         attr_accessor :account
 
-        # The start date for the period
+        # The end date for the period.
+        sig { returns(String) }
+        attr_accessor :end_date
+
+        # The start date for the period.
         sig { returns(String) }
         attr_accessor :start_date
-
-        # The end date for the period.
-        sig { returns(T.nilable(String)) }
-        attr_reader :end_date
-
-        sig { params(end_date: String).void }
-        attr_writer :end_date
 
         # Filter by All / Subscriptions / Tips / Posts / Messages / Streams
         sig do
@@ -50,8 +47,8 @@ module Onlyfans
         sig do
           params(
             account: String,
-            start_date: String,
             end_date: String,
+            start_date: String,
             type:
               Onlyfans::Statistics::StatementGetEarningsParams::Type::OrSymbol,
             request_options: Onlyfans::RequestOptions::OrHash
@@ -59,10 +56,10 @@ module Onlyfans
         end
         def self.new(
           account:,
-          # The start date for the period
-          start_date:,
           # The end date for the period.
-          end_date: nil,
+          end_date:,
+          # The start date for the period.
+          start_date:,
           # Filter by All / Subscriptions / Tips / Posts / Messages / Streams
           type: nil,
           request_options: {}
@@ -73,8 +70,8 @@ module Onlyfans
           override.returns(
             {
               account: String,
-              start_date: String,
               end_date: String,
+              start_date: String,
               type:
                 Onlyfans::Statistics::StatementGetEarningsParams::Type::OrSymbol,
               request_options: Onlyfans::RequestOptions

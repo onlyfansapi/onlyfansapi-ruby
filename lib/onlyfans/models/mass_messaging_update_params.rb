@@ -23,6 +23,17 @@ module Onlyfans
       #   @return [String]
       required :text, String
 
+      # @!attribute block_banned_words
+      #   Screen `text` for OnlyFans banned words and block the update if any are found
+      #   (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      #   `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      #   only. Omit to disable screening.
+      #
+      #   @return [Symbol, Onlyfans::Models::MassMessagingUpdateParams::BlockBannedWords, nil]
+      optional :block_banned_words,
+               enum: -> { Onlyfans::MassMessagingUpdateParams::BlockBannedWords },
+               api_name: :blockBannedWords
+
       # @!attribute giphy_id
       #   The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
       #   endpoints (`/giphy/trending`, `/giphy/search`).
@@ -52,11 +63,11 @@ module Onlyfans
       optional :previews, Onlyfans::Internal::Type::ArrayOf[String]
 
       # @!attribute price
-      #   Price for paid content (0 or between 3-200). In case this is not zero,
+      #   Price for paid content in USD (0 or between 3-200). In case this is not zero,
       #   **mediaFiles** is required
       #
-      #   @return [Integer, nil]
-      optional :price, Integer
+      #   @return [Float, nil]
+      optional :price, Float
 
       # @!attribute scheduled_date
       #   Schedule the chat message in the future (UTC timezone).
@@ -76,7 +87,7 @@ module Onlyfans
       #   @return [Array<String>, nil]
       optional :user_lists, Onlyfans::Internal::Type::ArrayOf[String], api_name: :userLists
 
-      # @!method initialize(account:, id:, text:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @!method initialize(account:, id:, text:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::MassMessagingUpdateParams} for more details.
       #
@@ -86,6 +97,8 @@ module Onlyfans
       #
       #   @param text [String] The message text content
       #
+      #   @param block_banned_words [Symbol, Onlyfans::Models::MassMessagingUpdateParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the update if any are found (r
+      #
       #   @param giphy_id [String] The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
       #
       #   @param locked_text [Boolean] Whether the text should be shown or hidden
@@ -94,8 +107,8 @@ module Onlyfans
       #
       #   @param previews [Array<String>] Array of media file upload prefixed_ids, or OF media IDs (required if price is n
       #
-      #   @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
-      #   \*\*mediaFi
+      #   @param price [Float] Price for paid content in USD (0 or between 3-200). In case this is not zero,
+      #   \*\*
       #
       #   @param scheduled_date [String] Schedule the chat message in the future (UTC timezone).
       #
@@ -104,6 +117,21 @@ module Onlyfans
       #   @param user_lists [Array<String>] Array of user list IDs that the mass message will be sent to.
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+
+      # Screen `text` for OnlyFans banned words and block the update if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        STRICT_BAN = :strict_ban
+        RISKY = :risky
+        REPLACE_SOFTEN = :replace_soften
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
     end
   end
 end

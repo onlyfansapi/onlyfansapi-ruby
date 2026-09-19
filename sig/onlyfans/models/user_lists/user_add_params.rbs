@@ -2,7 +2,12 @@ module Onlyfans
   module Models
     module UserLists
       type user_add_params =
-        { account: String, user_list_id: String, ids: ::Array[String] }
+        {
+          account: String,
+          user_list_id: String,
+          ids: ::Array[String],
+          skip_invalid: bool
+        }
         & Onlyfans::Internal::Type::request_parameters
 
       class UserAddParams < Onlyfans::Internal::Type::BaseModel
@@ -15,10 +20,15 @@ module Onlyfans
 
         attr_accessor ids: ::Array[String]
 
+        attr_reader skip_invalid: bool?
+
+        def skip_invalid=: (bool) -> bool
+
         def initialize: (
           account: String,
           user_list_id: String,
           ids: ::Array[String],
+          ?skip_invalid: bool,
           ?request_options: Onlyfans::request_opts
         ) -> void
 
@@ -26,6 +36,7 @@ module Onlyfans
           account: String,
           user_list_id: String,
           ids: ::Array[String],
+          skip_invalid: bool,
           request_options: Onlyfans::RequestOptions
         }
       end

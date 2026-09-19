@@ -44,7 +44,7 @@ class Onlyfans::Test::Resources::SavedForLater::Posts::SettingsTest < Onlyfans::
     response =
       @only_fans_api.saved_for_later.posts.settings.enable_or_update_automatic_posting(
         "acct_XXXXXXXXXXXXXXX",
-        period: 48
+        period: 12
       )
 
     assert_pattern do

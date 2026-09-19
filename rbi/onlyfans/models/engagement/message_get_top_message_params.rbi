@@ -18,8 +18,8 @@ module Onlyfans
         sig { returns(String) }
         attr_accessor :account
 
-        # The end date for the period. Keep empty to retrieve until now. MUST BE DATE
-        # AFTER `startDate`.
+        # The end date for the period. Keep empty to retrieve until now. It must be after
+        # `startDate`.
         sig { returns(T.nilable(String)) }
         attr_reader :end_date
 
@@ -43,8 +43,8 @@ module Onlyfans
         end
         def self.new(
           account:,
-          # The end date for the period. Keep empty to retrieve until now. MUST BE DATE
-          # AFTER `startDate`.
+          # The end date for the period. Keep empty to retrieve until now. It must be after
+          # `startDate`.
           end_date: nil,
           # The start date for the period. Keep empty to retrieve from the model start date.
           start_date: nil,

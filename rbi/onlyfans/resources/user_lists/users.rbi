@@ -33,8 +33,9 @@ module Onlyfans
             user_list_id: String,
             account: String,
             ids: T::Array[String],
+            skip_invalid: T::Boolean,
             request_options: Onlyfans::RequestOptions::OrHash
-          ).returns(Onlyfans::Models::UserLists::UserAddResponse)
+          ).returns(Onlyfans::Models::UserLists::UserAddResponse::Variants)
         end
         def add(
           # Path param: OnlyFans User List ID, or a default list name like `tagged`
@@ -43,6 +44,14 @@ module Onlyfans
           account:,
           # Body param: Array of OnlyFans User IDs to be added into the list
           ids:,
+          # Body param: Set to `true` to skip the User IDs OnlyFans refuses instead of
+          # failing the whole batch. We drop the rejected IDs and retry the remainder for
+          # you (up to 5 OnlyFans attempts, each costing 1 credit), then respond `200` with
+          # `data.added` (the IDs that made it in) and `data.failed` (an object mapping each
+          # rejected User ID to the reason OnlyFans gave). Note this changes the shape of
+          # `data` — see the example responses. Failures that are not about individual users
+          # (e.g. an invalid or inaccessible list ID) still return the regular `400`.
+          skip_invalid: nil,
           request_options: {}
         )
         end

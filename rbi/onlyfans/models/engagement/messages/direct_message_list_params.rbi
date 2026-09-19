@@ -19,8 +19,8 @@ module Onlyfans
           sig { returns(String) }
           attr_accessor :account
 
-          # The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER
-          # `startDate`. This is also used for pagination.
+          # The latest message to retrieve. Keep empty to get all. It must be after
+          # `startDate` and is also used for pagination.
           sig { returns(T.nilable(String)) }
           attr_reader :end_date
 
@@ -68,8 +68,8 @@ module Onlyfans
           end
           def self.new(
             account:,
-            # The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER
-            # `startDate`. This is also used for pagination.
+            # The latest message to retrieve. Keep empty to get all. It must be after
+            # `startDate` and is also used for pagination.
             end_date: nil,
             # Number of messages to return (default = 10)
             limit: nil,

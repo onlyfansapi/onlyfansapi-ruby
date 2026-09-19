@@ -62,6 +62,7 @@ module Onlyfans
       type filter =
         {
           duration: Integer,
+          max_total_spent: Float,
           online: Onlyfans::Models::FanListExpiredParams::Filter::online?,
           tips: Integer,
           total_spent: Integer
@@ -71,6 +72,10 @@ module Onlyfans
         attr_reader duration: Integer?
 
         def duration=: (Integer) -> Integer
+
+        attr_reader max_total_spent: Float?
+
+        def max_total_spent=: (Float) -> Float
 
         attr_accessor online: Onlyfans::Models::FanListExpiredParams::Filter::online?
 
@@ -84,6 +89,7 @@ module Onlyfans
 
         def initialize: (
           ?duration: Integer,
+          ?max_total_spent: Float,
           ?online: Onlyfans::Models::FanListExpiredParams::Filter::online?,
           ?tips: Integer,
           ?total_spent: Integer
@@ -91,6 +97,7 @@ module Onlyfans
 
         def to_hash: -> {
           duration: Integer,
+          max_total_spent: Float,
           online: Onlyfans::Models::FanListExpiredParams::Filter::online?,
           tips: Integer,
           total_spent: Integer

@@ -3,364 +3,648 @@ module Onlyfans
     module Media
       module Vault
         type list_list_response =
-          {
-            _meta: Onlyfans::Models::Media::Vault::ListListResponse::Meta,
-            data: Onlyfans::Models::Media::Vault::ListListResponse::Data
-          }
+          Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0
+          | Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1
 
-        class ListListResponse < Onlyfans::Internal::Type::BaseModel
-          attr_reader _meta: Onlyfans::Models::Media::Vault::ListListResponse::Meta?
+        module ListListResponse
+          extend Onlyfans::Internal::Type::Union
 
-          def _meta=: (
-            Onlyfans::Models::Media::Vault::ListListResponse::Meta
-          ) -> Onlyfans::Models::Media::Vault::ListListResponse::Meta
-
-          attr_reader data: Onlyfans::Models::Media::Vault::ListListResponse::Data?
-
-          def data=: (
-            Onlyfans::Models::Media::Vault::ListListResponse::Data
-          ) -> Onlyfans::Models::Media::Vault::ListListResponse::Data
-
-          def initialize: (
-            ?_meta: Onlyfans::Models::Media::Vault::ListListResponse::Meta,
-            ?data: Onlyfans::Models::Media::Vault::ListListResponse::Data
-          ) -> void
-
-          def to_hash: -> {
-            _meta: Onlyfans::Models::Media::Vault::ListListResponse::Meta,
-            data: Onlyfans::Models::Media::Vault::ListListResponse::Data
-          }
-
-          type meta =
+          type union_member0 =
             {
-              _cache: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache,
-              _credits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits,
-              _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits
+              _meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta,
+              data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data
             }
 
-          class Meta < Onlyfans::Internal::Type::BaseModel
-            attr_reader _cache: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache?
+          class UnionMember0 < Onlyfans::Internal::Type::BaseModel
+            attr_reader _meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta?
 
-            def _cache=: (
-              Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache
-            ) -> Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache
+            def _meta=: (
+              Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta
+            ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta
 
-            attr_reader _credits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits?
+            attr_reader data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data?
 
-            def _credits=: (
-              Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits
-            ) -> Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits
-
-            attr_reader _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits?
-
-            def _rate_limits=: (
-              Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits
-            ) -> Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits
+            def data=: (
+              Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data
+            ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data
 
             def initialize: (
-              ?_cache: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache,
-              ?_credits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits,
-              ?_rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits
+              ?_meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta,
+              ?data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data
             ) -> void
 
             def to_hash: -> {
-              _cache: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Cache,
-              _credits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::Credits,
-              _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::Meta::RateLimits
+              _meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta,
+              data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data
             }
 
-            type cache = { is_cached: bool, note: String }
-
-            class Cache < Onlyfans::Internal::Type::BaseModel
-              attr_reader is_cached: bool?
-
-              def is_cached=: (bool) -> bool
-
-              attr_reader note: String?
-
-              def note=: (String) -> String
-
-              def initialize: (?is_cached: bool, ?note: String) -> void
-
-              def to_hash: -> { is_cached: bool, note: String }
-            end
-
-            type credits = { balance: Integer, note: String, used: Integer }
-
-            class Credits < Onlyfans::Internal::Type::BaseModel
-              attr_reader balance: Integer?
-
-              def balance=: (Integer) -> Integer
-
-              attr_reader note: String?
-
-              def note=: (String) -> String
-
-              attr_reader used: Integer?
-
-              def used=: (Integer) -> Integer
-
-              def initialize: (
-                ?balance: Integer,
-                ?note: String,
-                ?used: Integer
-              ) -> void
-
-              def to_hash: -> { balance: Integer, note: String, used: Integer }
-            end
-
-            type rate_limits =
+            type meta =
               {
-                limit_day: Integer,
-                limit_minute: Integer,
-                remaining_day: Integer,
-                remaining_minute: Integer
+                _cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache,
+                _credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits,
+                _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits
               }
 
-            class RateLimits < Onlyfans::Internal::Type::BaseModel
-              attr_reader limit_day: Integer?
+            class Meta < Onlyfans::Internal::Type::BaseModel
+              attr_reader _cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache?
 
-              def limit_day=: (Integer) -> Integer
+              def _cache=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache
 
-              attr_reader limit_minute: Integer?
+              attr_reader _credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits?
 
-              def limit_minute=: (Integer) -> Integer
+              def _credits=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits
 
-              attr_reader remaining_day: Integer?
+              attr_reader _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits?
 
-              def remaining_day=: (Integer) -> Integer
-
-              attr_reader remaining_minute: Integer?
-
-              def remaining_minute=: (Integer) -> Integer
+              def _rate_limits=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits
 
               def initialize: (
-                ?limit_day: Integer,
-                ?limit_minute: Integer,
-                ?remaining_day: Integer,
-                ?remaining_minute: Integer
+                ?_cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache,
+                ?_credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits,
+                ?_rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits
               ) -> void
 
               def to_hash: -> {
-                limit_day: Integer,
-                limit_minute: Integer,
-                remaining_day: Integer,
-                remaining_minute: Integer
+                _cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Cache,
+                _credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::Credits,
+                _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Meta::RateLimits
               }
+
+              type cache = { is_cached: bool, note: String }
+
+              class Cache < Onlyfans::Internal::Type::BaseModel
+                attr_reader is_cached: bool?
+
+                def is_cached=: (bool) -> bool
+
+                attr_reader note: String?
+
+                def note=: (String) -> String
+
+                def initialize: (?is_cached: bool, ?note: String) -> void
+
+                def to_hash: -> { is_cached: bool, note: String }
+              end
+
+              type credits = { balance: Integer, note: String, used: Integer }
+
+              class Credits < Onlyfans::Internal::Type::BaseModel
+                attr_reader balance: Integer?
+
+                def balance=: (Integer) -> Integer
+
+                attr_reader note: String?
+
+                def note=: (String) -> String
+
+                attr_reader used: Integer?
+
+                def used=: (Integer) -> Integer
+
+                def initialize: (
+                  ?balance: Integer,
+                  ?note: String,
+                  ?used: Integer
+                ) -> void
+
+                def to_hash: -> {
+                  balance: Integer,
+                  note: String,
+                  used: Integer
+                }
+              end
+
+              type rate_limits =
+                {
+                  limit_day: Integer,
+                  limit_minute: Integer,
+                  remaining_day: Integer,
+                  remaining_minute: Integer
+                }
+
+              class RateLimits < Onlyfans::Internal::Type::BaseModel
+                attr_reader limit_day: Integer?
+
+                def limit_day=: (Integer) -> Integer
+
+                attr_reader limit_minute: Integer?
+
+                def limit_minute=: (Integer) -> Integer
+
+                attr_reader remaining_day: Integer?
+
+                def remaining_day=: (Integer) -> Integer
+
+                attr_reader remaining_minute: Integer?
+
+                def remaining_minute=: (Integer) -> Integer
+
+                def initialize: (
+                  ?limit_day: Integer,
+                  ?limit_minute: Integer,
+                  ?remaining_day: Integer,
+                  ?remaining_minute: Integer
+                ) -> void
+
+                def to_hash: -> {
+                  limit_day: Integer,
+                  limit_minute: Integer,
+                  remaining_day: Integer,
+                  remaining_minute: Integer
+                }
+              end
             end
-          end
 
-          type data =
-            {
-              all: Onlyfans::Models::Media::Vault::ListListResponse::Data::All,
-              can_create_vault_lists: bool,
-              has_more: bool,
-              list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::List],
-              order: String,
-              sort: String
-            }
-
-          class Data < Onlyfans::Internal::Type::BaseModel
-            attr_reader all: Onlyfans::Models::Media::Vault::ListListResponse::Data::All?
-
-            def all=: (
-              Onlyfans::Models::Media::Vault::ListListResponse::Data::All
-            ) -> Onlyfans::Models::Media::Vault::ListListResponse::Data::All
-
-            attr_reader can_create_vault_lists: bool?
-
-            def can_create_vault_lists=: (bool) -> bool
-
-            attr_reader has_more: bool?
-
-            def has_more=: (bool) -> bool
-
-            attr_reader list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::List]?
-
-            def list=: (
-              ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::List]
-            ) -> ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::List]
-
-            attr_reader order: String?
-
-            def order=: (String) -> String
-
-            attr_reader sort: String?
-
-            def sort=: (String) -> String
-
-            def initialize: (
-              ?all: Onlyfans::Models::Media::Vault::ListListResponse::Data::All,
-              ?can_create_vault_lists: bool,
-              ?has_more: bool,
-              ?list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::List],
-              ?order: String,
-              ?sort: String
-            ) -> void
-
-            def to_hash: -> {
-              all: Onlyfans::Models::Media::Vault::ListListResponse::Data::All,
-              can_create_vault_lists: bool,
-              has_more: bool,
-              list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::List],
-              order: String,
-              sort: String
-            }
-
-            type all =
+            type data =
               {
-                audios_count: Integer,
-                gifs_count: Integer,
-                medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media],
-                photos_count: Integer,
-                videos_count: Integer
+                all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All,
+                can_create_vault_lists: bool,
+                has_more: bool,
+                list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List],
+                order: String,
+                sort: String
               }
 
-            class All < Onlyfans::Internal::Type::BaseModel
-              attr_reader audios_count: Integer?
+            class Data < Onlyfans::Internal::Type::BaseModel
+              attr_reader all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All?
 
-              def audios_count=: (Integer) -> Integer
+              def all=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All
 
-              attr_reader gifs_count: Integer?
+              attr_reader can_create_vault_lists: bool?
 
-              def gifs_count=: (Integer) -> Integer
+              def can_create_vault_lists=: (bool) -> bool
 
-              attr_reader medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media]?
+              attr_reader has_more: bool?
 
-              def medias=: (
-                ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media]
-              ) -> ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media]
+              def has_more=: (bool) -> bool
 
-              attr_reader photos_count: Integer?
+              attr_reader list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List]?
 
-              def photos_count=: (Integer) -> Integer
+              def list=: (
+                ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List]
+              ) -> ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List]
 
-              attr_reader videos_count: Integer?
+              attr_reader order: String?
 
-              def videos_count=: (Integer) -> Integer
+              def order=: (String) -> String
+
+              attr_reader sort: String?
+
+              def sort=: (String) -> String
 
               def initialize: (
-                ?audios_count: Integer,
-                ?gifs_count: Integer,
-                ?medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media],
-                ?photos_count: Integer,
-                ?videos_count: Integer
+                ?all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All,
+                ?can_create_vault_lists: bool,
+                ?has_more: bool,
+                ?list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List],
+                ?order: String,
+                ?sort: String
               ) -> void
 
               def to_hash: -> {
-                audios_count: Integer,
-                gifs_count: Integer,
-                medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::Data::All::Media],
-                photos_count: Integer,
-                videos_count: Integer
+                all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All,
+                can_create_vault_lists: bool,
+                has_more: bool,
+                list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::List],
+                order: String,
+                sort: String
               }
 
-              type media = { type: String, url: String }
+              type all =
+                {
+                  audios_count: Integer,
+                  gifs_count: Integer,
+                  medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media],
+                  photos_count: Integer,
+                  videos_count: Integer
+                }
 
-              class Media < Onlyfans::Internal::Type::BaseModel
+              class All < Onlyfans::Internal::Type::BaseModel
+                attr_reader audios_count: Integer?
+
+                def audios_count=: (Integer) -> Integer
+
+                attr_reader gifs_count: Integer?
+
+                def gifs_count=: (Integer) -> Integer
+
+                attr_reader medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media]?
+
+                def medias=: (
+                  ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media]
+                ) -> ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media]
+
+                attr_reader photos_count: Integer?
+
+                def photos_count=: (Integer) -> Integer
+
+                attr_reader videos_count: Integer?
+
+                def videos_count=: (Integer) -> Integer
+
+                def initialize: (
+                  ?audios_count: Integer,
+                  ?gifs_count: Integer,
+                  ?medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media],
+                  ?photos_count: Integer,
+                  ?videos_count: Integer
+                ) -> void
+
+                def to_hash: -> {
+                  audios_count: Integer,
+                  gifs_count: Integer,
+                  medias: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember0::Data::All::Media],
+                  photos_count: Integer,
+                  videos_count: Integer
+                }
+
+                type media = { type: String, url: String }
+
+                class Media < Onlyfans::Internal::Type::BaseModel
+                  attr_reader type: String?
+
+                  def type=: (String) -> String
+
+                  attr_reader url: String?
+
+                  def url=: (String) -> String
+
+                  def initialize: (?type: String, ?url: String) -> void
+
+                  def to_hash: -> { type: String, url: String }
+                end
+              end
+
+              type list =
+                {
+                  id: Integer,
+                  audios_count: Integer,
+                  can_delete: bool,
+                  can_update: bool,
+                  gifs_count: Integer,
+                  has_media: bool,
+                  medias: ::Array[top],
+                  name: String,
+                  photos_count: Integer,
+                  type: String,
+                  videos_count: Integer
+                }
+
+              class List < Onlyfans::Internal::Type::BaseModel
+                attr_reader id: Integer?
+
+                def id=: (Integer) -> Integer
+
+                attr_reader audios_count: Integer?
+
+                def audios_count=: (Integer) -> Integer
+
+                attr_reader can_delete: bool?
+
+                def can_delete=: (bool) -> bool
+
+                attr_reader can_update: bool?
+
+                def can_update=: (bool) -> bool
+
+                attr_reader gifs_count: Integer?
+
+                def gifs_count=: (Integer) -> Integer
+
+                attr_reader has_media: bool?
+
+                def has_media=: (bool) -> bool
+
+                attr_reader medias: ::Array[top]?
+
+                def medias=: (::Array[top]) -> ::Array[top]
+
+                attr_reader name: String?
+
+                def name=: (String) -> String
+
+                attr_reader photos_count: Integer?
+
+                def photos_count=: (Integer) -> Integer
+
                 attr_reader type: String?
 
                 def type=: (String) -> String
 
-                attr_reader url: String?
+                attr_reader videos_count: Integer?
 
-                def url=: (String) -> String
+                def videos_count=: (Integer) -> Integer
 
-                def initialize: (?type: String, ?url: String) -> void
+                def initialize: (
+                  ?id: Integer,
+                  ?audios_count: Integer,
+                  ?can_delete: bool,
+                  ?can_update: bool,
+                  ?gifs_count: Integer,
+                  ?has_media: bool,
+                  ?medias: ::Array[top],
+                  ?name: String,
+                  ?photos_count: Integer,
+                  ?type: String,
+                  ?videos_count: Integer
+                ) -> void
 
-                def to_hash: -> { type: String, url: String }
+                def to_hash: -> {
+                  id: Integer,
+                  audios_count: Integer,
+                  can_delete: bool,
+                  can_update: bool,
+                  gifs_count: Integer,
+                  has_media: bool,
+                  medias: ::Array[top],
+                  name: String,
+                  photos_count: Integer,
+                  type: String,
+                  videos_count: Integer
+                }
               end
             end
+          end
 
-            type list =
+          type union_member1 =
+            {
+              _meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta,
+              data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data
+            }
+
+          class UnionMember1 < Onlyfans::Internal::Type::BaseModel
+            attr_reader _meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta?
+
+            def _meta=: (
+              Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta
+            ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta
+
+            attr_reader data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data?
+
+            def data=: (
+              Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data
+            ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data
+
+            def initialize: (
+              ?_meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta,
+              ?data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data
+            ) -> void
+
+            def to_hash: -> {
+              _meta: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta,
+              data: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data
+            }
+
+            type meta =
               {
-                id: Integer,
-                audios_count: Integer,
-                can_delete: bool,
-                can_update: bool,
-                gifs_count: Integer,
-                has_media: bool,
-                medias: ::Array[top],
-                name: String,
-                photos_count: Integer,
-                type: String,
-                videos_count: Integer
+                _cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache,
+                _credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits,
+                _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits
               }
 
-            class List < Onlyfans::Internal::Type::BaseModel
-              attr_reader id: Integer?
+            class Meta < Onlyfans::Internal::Type::BaseModel
+              attr_reader _cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache?
 
-              def id=: (Integer) -> Integer
+              def _cache=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache
 
-              attr_reader audios_count: Integer?
+              attr_reader _credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits?
 
-              def audios_count=: (Integer) -> Integer
+              def _credits=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits
 
-              attr_reader can_delete: bool?
+              attr_reader _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits?
 
-              def can_delete=: (bool) -> bool
-
-              attr_reader can_update: bool?
-
-              def can_update=: (bool) -> bool
-
-              attr_reader gifs_count: Integer?
-
-              def gifs_count=: (Integer) -> Integer
-
-              attr_reader has_media: bool?
-
-              def has_media=: (bool) -> bool
-
-              attr_reader medias: ::Array[top]?
-
-              def medias=: (::Array[top]) -> ::Array[top]
-
-              attr_reader name: String?
-
-              def name=: (String) -> String
-
-              attr_reader photos_count: Integer?
-
-              def photos_count=: (Integer) -> Integer
-
-              attr_reader type: String?
-
-              def type=: (String) -> String
-
-              attr_reader videos_count: Integer?
-
-              def videos_count=: (Integer) -> Integer
+              def _rate_limits=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits
 
               def initialize: (
-                ?id: Integer,
-                ?audios_count: Integer,
-                ?can_delete: bool,
-                ?can_update: bool,
-                ?gifs_count: Integer,
-                ?has_media: bool,
-                ?medias: ::Array[top],
-                ?name: String,
-                ?photos_count: Integer,
-                ?type: String,
-                ?videos_count: Integer
+                ?_cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache,
+                ?_credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits,
+                ?_rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits
               ) -> void
 
               def to_hash: -> {
-                id: Integer,
-                audios_count: Integer,
-                can_delete: bool,
-                can_update: bool,
-                gifs_count: Integer,
-                has_media: bool,
-                medias: ::Array[top],
-                name: String,
-                photos_count: Integer,
-                type: String,
-                videos_count: Integer
+                _cache: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Cache,
+                _credits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::Credits,
+                _rate_limits: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Meta::RateLimits
               }
+
+              type cache = { is_cached: bool, note: String }
+
+              class Cache < Onlyfans::Internal::Type::BaseModel
+                attr_reader is_cached: bool?
+
+                def is_cached=: (bool) -> bool
+
+                attr_reader note: String?
+
+                def note=: (String) -> String
+
+                def initialize: (?is_cached: bool, ?note: String) -> void
+
+                def to_hash: -> { is_cached: bool, note: String }
+              end
+
+              type credits = { balance: Integer, note: String, used: Integer }
+
+              class Credits < Onlyfans::Internal::Type::BaseModel
+                attr_reader balance: Integer?
+
+                def balance=: (Integer) -> Integer
+
+                attr_reader note: String?
+
+                def note=: (String) -> String
+
+                attr_reader used: Integer?
+
+                def used=: (Integer) -> Integer
+
+                def initialize: (
+                  ?balance: Integer,
+                  ?note: String,
+                  ?used: Integer
+                ) -> void
+
+                def to_hash: -> {
+                  balance: Integer,
+                  note: String,
+                  used: Integer
+                }
+              end
+
+              type rate_limits =
+                {
+                  limit_day: Integer,
+                  limit_minute: Integer,
+                  remaining_day: Integer,
+                  remaining_minute: Integer
+                }
+
+              class RateLimits < Onlyfans::Internal::Type::BaseModel
+                attr_reader limit_day: Integer?
+
+                def limit_day=: (Integer) -> Integer
+
+                attr_reader limit_minute: Integer?
+
+                def limit_minute=: (Integer) -> Integer
+
+                attr_reader remaining_day: Integer?
+
+                def remaining_day=: (Integer) -> Integer
+
+                attr_reader remaining_minute: Integer?
+
+                def remaining_minute=: (Integer) -> Integer
+
+                def initialize: (
+                  ?limit_day: Integer,
+                  ?limit_minute: Integer,
+                  ?remaining_day: Integer,
+                  ?remaining_minute: Integer
+                ) -> void
+
+                def to_hash: -> {
+                  limit_day: Integer,
+                  limit_minute: Integer,
+                  remaining_day: Integer,
+                  remaining_minute: Integer
+                }
+              end
+            end
+
+            type data =
+              {
+                all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All,
+                can_create_vault_lists: bool,
+                has_more: bool,
+                list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List],
+                order: String,
+                sort: String
+              }
+
+            class Data < Onlyfans::Internal::Type::BaseModel
+              attr_reader all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All?
+
+              def all=: (
+                Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All
+              ) -> Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All
+
+              attr_reader can_create_vault_lists: bool?
+
+              def can_create_vault_lists=: (bool) -> bool
+
+              attr_reader has_more: bool?
+
+              def has_more=: (bool) -> bool
+
+              attr_reader list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List]?
+
+              def list=: (
+                ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List]
+              ) -> ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List]
+
+              attr_reader order: String?
+
+              def order=: (String) -> String
+
+              attr_reader sort: String?
+
+              def sort=: (String) -> String
+
+              def initialize: (
+                ?all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All,
+                ?can_create_vault_lists: bool,
+                ?has_more: bool,
+                ?list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List],
+                ?order: String,
+                ?sort: String
+              ) -> void
+
+              def to_hash: -> {
+                all: Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::All,
+                can_create_vault_lists: bool,
+                has_more: bool,
+                list: ::Array[Onlyfans::Models::Media::Vault::ListListResponse::UnionMember1::Data::List],
+                order: String,
+                sort: String
+              }
+
+              type all = { media_count: Integer }
+
+              class All < Onlyfans::Internal::Type::BaseModel
+                attr_reader media_count: Integer?
+
+                def media_count=: (Integer) -> Integer
+
+                def initialize: (?media_count: Integer) -> void
+
+                def to_hash: -> { media_count: Integer }
+              end
+
+              type list =
+                {
+                  id: Integer,
+                  can_update: bool,
+                  media_count: Integer,
+                  name: String,
+                  type: String
+                }
+
+              class List < Onlyfans::Internal::Type::BaseModel
+                attr_reader id: Integer?
+
+                def id=: (Integer) -> Integer
+
+                attr_reader can_update: bool?
+
+                def can_update=: (bool) -> bool
+
+                attr_reader media_count: Integer?
+
+                def media_count=: (Integer) -> Integer
+
+                attr_reader name: String?
+
+                def name=: (String) -> String
+
+                attr_reader type: String?
+
+                def type=: (String) -> String
+
+                def initialize: (
+                  ?id: Integer,
+                  ?can_update: bool,
+                  ?media_count: Integer,
+                  ?name: String,
+                  ?type: String
+                ) -> void
+
+                def to_hash: -> {
+                  id: Integer,
+                  can_update: bool,
+                  media_count: Integer,
+                  name: String,
+                  type: String
+                }
+              end
             end
           end
+
+          def self?.variants: -> ::Array[Onlyfans::Models::Media::Vault::list_list_response]
         end
       end
     end

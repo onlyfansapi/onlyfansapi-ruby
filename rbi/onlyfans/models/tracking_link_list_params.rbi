@@ -14,79 +14,126 @@ module Onlyfans
       sig { returns(String) }
       attr_accessor :account
 
-      # The end date for Tracking Links. Keep empty to get all.
+      # The end date for tracking links. Keep empty to get all. Must not be greater than
+      # 255 characters.
       sig { returns(T.nilable(String)) }
       attr_accessor :end_date
 
-      # The number of tracking links to return. Default `3`
+      # The number of tracking links to return. Default `10`. Must be at least 1. Must
+      # not be greater than 100.
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :limit
+      attr_reader :limit
 
-      # The offset used for pagination. Default `0`
+      sig { params(limit: Integer).void }
+      attr_writer :limit
+
+      # The offset used for pagination. Default `0`. Must be at least 0.
       sig { returns(T.nilable(Integer)) }
-      attr_accessor :offset
+      attr_reader :offset
 
-      # Sort the results. Default `desc`
+      sig { params(offset: Integer).void }
+      attr_writer :offset
+
+      sig do
+        returns(
+          T.nilable(Onlyfans::TrackingLinkListParams::Pagination::OrInteger)
+        )
+      end
+      attr_reader :pagination
+
+      sig do
+        params(
+          pagination: Onlyfans::TrackingLinkListParams::Pagination::OrInteger
+        ).void
+      end
+      attr_writer :pagination
+
+      # Sort direction. Default `desc`.
       sig do
         returns(T.nilable(Onlyfans::TrackingLinkListParams::Sort::OrSymbol))
       end
-      attr_accessor :sort
+      attr_reader :sort
 
-      # Sort by subscriber count (claims), or creation date
+      sig do
+        params(sort: Onlyfans::TrackingLinkListParams::Sort::OrSymbol).void
+      end
+      attr_writer :sort
+
+      # Sort by subscriber count (`claims`) or creation date (`created_date`).
       sig do
         returns(T.nilable(Onlyfans::TrackingLinkListParams::Sortby::OrSymbol))
       end
-      attr_accessor :sortby
+      attr_reader :sortby
 
-      # The start date for Tracking Links. Keep empty to get all.
+      sig do
+        params(sortby: Onlyfans::TrackingLinkListParams::Sortby::OrSymbol).void
+      end
+      attr_writer :sortby
+
+      # The start date for tracking links. Keep empty to get all. Must not be greater
+      # than 255 characters.
       sig { returns(T.nilable(String)) }
       attr_accessor :start_date
 
-      # Wait for the revenue data to finish processing, instead of processing in the
-      # background. **Will result in longer response times, use with caution**. Default
-      # `false`
+      # Wait for revenue calculation instead of processing it in the background.
       sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :synchronous
+      attr_reader :synchronous
 
-      # Whether or not to include deleted tracking links in the response. Default
-      # `false`
-      sig { returns(T.nilable(T::Boolean)) }
-      attr_accessor :with_deleted
+      sig { params(synchronous: T::Boolean).void }
+      attr_writer :synchronous
+
+      # Whether to include deleted tracking links. Default `true`.
+      sig do
+        returns(
+          T.nilable(Onlyfans::TrackingLinkListParams::WithDeleted::OrInteger)
+        )
+      end
+      attr_reader :with_deleted
+
+      sig do
+        params(
+          with_deleted: Onlyfans::TrackingLinkListParams::WithDeleted::OrInteger
+        ).void
+      end
+      attr_writer :with_deleted
 
       sig do
         params(
           account: String,
           end_date: T.nilable(String),
-          limit: T.nilable(Integer),
-          offset: T.nilable(Integer),
-          sort: T.nilable(Onlyfans::TrackingLinkListParams::Sort::OrSymbol),
-          sortby: T.nilable(Onlyfans::TrackingLinkListParams::Sortby::OrSymbol),
+          limit: Integer,
+          offset: Integer,
+          pagination: Onlyfans::TrackingLinkListParams::Pagination::OrInteger,
+          sort: Onlyfans::TrackingLinkListParams::Sort::OrSymbol,
+          sortby: Onlyfans::TrackingLinkListParams::Sortby::OrSymbol,
           start_date: T.nilable(String),
-          synchronous: T.nilable(T::Boolean),
-          with_deleted: T.nilable(T::Boolean),
+          synchronous: T::Boolean,
+          with_deleted:
+            Onlyfans::TrackingLinkListParams::WithDeleted::OrInteger,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(T.attached_class)
       end
       def self.new(
         account:,
-        # The end date for Tracking Links. Keep empty to get all.
+        # The end date for tracking links. Keep empty to get all. Must not be greater than
+        # 255 characters.
         end_date: nil,
-        # The number of tracking links to return. Default `3`
+        # The number of tracking links to return. Default `10`. Must be at least 1. Must
+        # not be greater than 100.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
-        # Sort the results. Default `desc`
+        pagination: nil,
+        # Sort direction. Default `desc`.
         sort: nil,
-        # Sort by subscriber count (claims), or creation date
+        # Sort by subscriber count (`claims`) or creation date (`created_date`).
         sortby: nil,
-        # The start date for Tracking Links. Keep empty to get all.
+        # The start date for tracking links. Keep empty to get all. Must not be greater
+        # than 255 characters.
         start_date: nil,
-        # Wait for the revenue data to finish processing, instead of processing in the
-        # background. **Will result in longer response times, use with caution**. Default
-        # `false`
+        # Wait for revenue calculation instead of processing it in the background.
         synchronous: nil,
-        # Whether or not to include deleted tracking links in the response. Default
-        # `false`
+        # Whether to include deleted tracking links. Default `true`.
         with_deleted: nil,
         request_options: {}
       )
@@ -97,14 +144,15 @@ module Onlyfans
           {
             account: String,
             end_date: T.nilable(String),
-            limit: T.nilable(Integer),
-            offset: T.nilable(Integer),
-            sort: T.nilable(Onlyfans::TrackingLinkListParams::Sort::OrSymbol),
-            sortby:
-              T.nilable(Onlyfans::TrackingLinkListParams::Sortby::OrSymbol),
+            limit: Integer,
+            offset: Integer,
+            pagination: Onlyfans::TrackingLinkListParams::Pagination::OrInteger,
+            sort: Onlyfans::TrackingLinkListParams::Sort::OrSymbol,
+            sortby: Onlyfans::TrackingLinkListParams::Sortby::OrSymbol,
             start_date: T.nilable(String),
-            synchronous: T.nilable(T::Boolean),
-            with_deleted: T.nilable(T::Boolean),
+            synchronous: T::Boolean,
+            with_deleted:
+              Onlyfans::TrackingLinkListParams::WithDeleted::OrInteger,
             request_options: Onlyfans::RequestOptions
           }
         )
@@ -112,7 +160,32 @@ module Onlyfans
       def to_hash
       end
 
-      # Sort the results. Default `desc`
+      module Pagination
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedInteger =
+          T.type_alias do
+            T.all(Integer, Onlyfans::TrackingLinkListParams::Pagination)
+          end
+        OrInteger = T.type_alias { Integer }
+
+        PAGINATION_0 =
+          T.let(0, Onlyfans::TrackingLinkListParams::Pagination::TaggedInteger)
+        PAGINATION_1 =
+          T.let(1, Onlyfans::TrackingLinkListParams::Pagination::TaggedInteger)
+
+        sig do
+          override.returns(
+            T::Array[
+              Onlyfans::TrackingLinkListParams::Pagination::TaggedInteger
+            ]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # Sort direction. Default `desc`.
       module Sort
         extend Onlyfans::Internal::Type::Enum
 
@@ -120,9 +193,9 @@ module Onlyfans
           T.type_alias { T.all(Symbol, Onlyfans::TrackingLinkListParams::Sort) }
         OrSymbol = T.type_alias { T.any(Symbol, String) }
 
+        ASC = T.let(:asc, Onlyfans::TrackingLinkListParams::Sort::TaggedSymbol)
         DESC =
           T.let(:desc, Onlyfans::TrackingLinkListParams::Sort::TaggedSymbol)
-        ASC = T.let(:asc, Onlyfans::TrackingLinkListParams::Sort::TaggedSymbol)
 
         sig do
           override.returns(
@@ -133,7 +206,7 @@ module Onlyfans
         end
       end
 
-      # Sort by subscriber count (claims), or creation date
+      # Sort by subscriber count (`claims`) or creation date (`created_date`).
       module Sortby
         extend Onlyfans::Internal::Type::Enum
 
@@ -154,6 +227,32 @@ module Onlyfans
         sig do
           override.returns(
             T::Array[Onlyfans::TrackingLinkListParams::Sortby::TaggedSymbol]
+          )
+        end
+        def self.values
+        end
+      end
+
+      # Whether to include deleted tracking links. Default `true`.
+      module WithDeleted
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedInteger =
+          T.type_alias do
+            T.all(Integer, Onlyfans::TrackingLinkListParams::WithDeleted)
+          end
+        OrInteger = T.type_alias { Integer }
+
+        WITH_DELETED_0 =
+          T.let(0, Onlyfans::TrackingLinkListParams::WithDeleted::TaggedInteger)
+        WITH_DELETED_1 =
+          T.let(1, Onlyfans::TrackingLinkListParams::WithDeleted::TaggedInteger)
+
+        sig do
+          override.returns(
+            T::Array[
+              Onlyfans::TrackingLinkListParams::WithDeleted::TaggedInteger
+            ]
           )
         end
         def self.values

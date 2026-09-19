@@ -17,19 +17,22 @@ module Onlyfans
           account: String,
           limit: Integer,
           offset: Integer,
-          synchronous: T.nilable(T::Boolean),
+          pagination:
+            Onlyfans::SharedTrialLinkListParams::Pagination::OrInteger,
+          synchronous: T::Boolean,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::SharedTrialLinkListResponse)
       end
       def list(
         # The Account ID
         account,
-        # The number of shared trial links to return. Default `10`
+        # The number of shared trial links to return. Default `10`. Must be at least 1.
+        # Must not be greater than 100.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
-        # Wait for the database sync to finish, instead of running it in the background.
-        # **Will result in longer response times, use with caution**. Default `false`
+        pagination: nil,
+        # Wait for the database sync instead of processing it in the background.
         synchronous: nil,
         request_options: {}
       )

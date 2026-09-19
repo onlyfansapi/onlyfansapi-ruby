@@ -48,25 +48,27 @@ module Onlyfans
       sig do
         params(
           account_ids: T.nilable(String),
+          filter: Onlyfans::SmartLinkListParams::Filter::OrHash,
           limit: Integer,
-          meta_pixel_ids: T.nilable(String),
           name: T.nilable(String),
           offset: Integer,
+          pixel_ids: T.nilable(String),
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::SmartLinkListResponse)
       end
       def list(
         # Comma-separated account prefixed IDs to include.
         account_ids: nil,
+        filter: nil,
         # The number of Smart Links to return. Default `50`. Must be at least 1. Must not
         # be greater than 1000.
         limit: nil,
-        # Comma-separated Meta Pixel IDs to include.
-        meta_pixel_ids: nil,
         # Filter Smart Links by name. Must not be greater than 255 characters.
         name: nil,
         # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
+        # Comma-separated ad platform Pixel IDs to include.
+        pixel_ids: nil,
         request_options: {}
       )
       end
@@ -168,7 +170,9 @@ module Onlyfans
           min_revenue_net: Float,
           min_tips_net: Float,
           offset: Integer,
+          previously_subscribed: T::Boolean,
           sort: Onlyfans::SmartLinkListFansParams::Sort::OrSymbol,
+          subscribed_using_promo: T::Boolean,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::SmartLinkListFansResponse)
       end
@@ -187,8 +191,13 @@ module Onlyfans
         min_tips_net: nil,
         # Offset for pagination. Default `0`
         offset: nil,
+        # Optional - Filter to returning subscribers (fans previously subscribed before
+        # this subscription)
+        previously_subscribed: nil,
         # Optional sort field. Default `-revenue_net`
         sort: nil,
+        # Optional - Filter to fans who subscribed via a promotion/offer
+        subscribed_using_promo: nil,
         request_options: {}
       )
       end

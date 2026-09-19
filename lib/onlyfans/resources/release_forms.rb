@@ -57,7 +57,8 @@ module Onlyfans
       #
       # Get a paginated list of users that can be tagged in release forms. These are
       # verified creators who have signed release forms to appear in your content. Use
-      # `offset` and `limit` for pagination.
+      # `offset` and `limit` for pagination, following `_pagination.next_page` until it
+      # is `null`.
       #
       # @overload list_taggable_users(account, filter: nil, limit: nil, name: nil, offset: nil, sort: nil, sort_direction: nil, request_options: {})
       #

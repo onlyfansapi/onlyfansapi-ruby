@@ -54,7 +54,7 @@ module Onlyfans
         optional :order, String
 
         # @!attribute skip_users
-        #   Whether to skip user details (all or none)
+        #   Whether to skip user details (`all` or `none`).
         #
         #   @return [String, nil]
         optional :skip_users, String
@@ -77,7 +77,7 @@ module Onlyfans
         #
         #   @param order [String] Sort order for messages (desc or asc)
         #
-        #   @param skip_users [String] Whether to skip user details (all or none)
+        #   @param skip_users [String] Whether to skip user details (`all` or `none`).
         #
         #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 

@@ -16,11 +16,13 @@ module Onlyfans
       #
       # Compose and send a new post to your OnlyFans account.
       #
-      # @overload create(account, text:, expire_days: nil, fund_raising_target_amount: nil, fund_raising_tips_presets: nil, label_ids: nil, media_files: nil, previews: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, voting_correct_index: nil, voting_due: nil, voting_options: nil, voting_type: nil, request_options: {})
+      # @overload create(account, text:, block_banned_words: nil, expire_days: nil, fund_raising_target_amount: nil, fund_raising_tips_presets: nil, label_ids: nil, media_files: nil, previews: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, voting_correct_index: nil, voting_due: nil, voting_options: nil, voting_type: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param text [String] The post text content
+      #
+      # @param block_banned_words [Symbol, Onlyfans::Models::PostCreateParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the post if any are found (ret
       #
       # @param expire_days [Integer] Number of days after which the post will expire. Between 1 and 30 days. Keep emp
       #
@@ -96,13 +98,15 @@ module Onlyfans
       #
       # Update a posted, queued, or "saved for later" post.
       #
-      # @overload update(post_id, account:, text:, expire_days: nil, fund_raising_target_amount: nil, fund_raising_tips_presets: nil, label_ids: nil, media_files: nil, price: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, voting_correct_index: nil, voting_due: nil, voting_options: nil, voting_type: nil, request_options: {})
+      # @overload update(post_id, account:, text:, block_banned_words: nil, expire_days: nil, fund_raising_target_amount: nil, fund_raising_tips_presets: nil, label_ids: nil, media_files: nil, price: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, voting_correct_index: nil, voting_due: nil, voting_options: nil, voting_type: nil, request_options: {})
       #
       # @param post_id [Integer] Path param: The ID of the post
       #
       # @param account [String] Path param: The Account ID
       #
       # @param text [String] Body param: The post text content
+      #
+      # @param block_banned_words [Symbol, Onlyfans::Models::PostUpdateParams::BlockBannedWords] Body param: Screen `text` for OnlyFans banned words and block the update if any
       #
       # @param expire_days [Integer] Body param: Number of days after which the post will expire. Between 1 and 30 da
       #

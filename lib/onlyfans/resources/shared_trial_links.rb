@@ -16,16 +16,17 @@ module Onlyfans
       # List all Free Trial Links shared with the account by other OF creators. Calls
       # OnlyFans live and syncs to our cache.
       #
-      # @overload list(account, limit: nil, offset: nil, synchronous: nil, request_options: {})
+      # @overload list(account, limit: nil, offset: nil, pagination: nil, synchronous: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
-      # @param limit [Integer] The number of shared trial links to return. Default `10`
+      # @param limit [Integer] The number of shared trial links to return. Default `10`. Must be at least 1. Mu
       #
-      # @param offset [Integer] The offset used for pagination. Default `0`
+      # @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
       #
-      # @param synchronous [Boolean, nil] Wait for the database sync to finish, instead of running it in the
-      # background. \*
+      # @param pagination [Integer, Onlyfans::Models::SharedTrialLinkListParams::Pagination]
+      #
+      # @param synchronous [Boolean] Wait for the database sync instead of processing it in the background.
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
