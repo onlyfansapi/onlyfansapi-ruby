@@ -57,8 +57,6 @@ module Onlyfans
 
   class DataExportCancelParams = Onlyfans::Models::DataExportCancelParams
 
-  class DataExportCreateParams = Onlyfans::Models::DataExportCreateParams
-
   class DataExportListParams = Onlyfans::Models::DataExportListParams
 
   class DataExportRetrieveParams = Onlyfans::Models::DataExportRetrieveParams

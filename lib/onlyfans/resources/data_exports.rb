@@ -5,46 +5,6 @@ module Onlyfans
     # APIs for managing data exports
     class DataExports
       # Some parameter documentations has been truncated, see
-      # {Onlyfans::Models::DataExportCreateParams} for more details.
-      #
-      # Create a new data export request. This will calculate the required credits and
-      # prepare the export for starting.
-      #
-      # @overload create(end_date:, file_type:, start_date:, type:, account_ids: nil, auto_start: nil, export_columns: nil, options: nil, request_options: {})
-      #
-      # @param end_date [String] The end date for the export (ISO 8601 format).
-      #
-      # @param file_type [Symbol, Onlyfans::Models::DataExportCreateParams::FileType] The output file format. Supported formats vary by export type: `csv` or `xlsx` f
-      #
-      # @param start_date [String] The start date for the export (ISO 8601 format).
-      #
-      # @param type [Symbol, Onlyfans::Models::DataExportCreateParams::Type] The type of data to export. Use `fansly_chat_messages` to export Fansly chat mes
-      #
-      # @param account_ids [Array<String>] Array of account prefixed IDs to export data from. Not required for `public_prof
-      #
-      # @param auto_start [Boolean] When true, automatically starts the export after creation.
-      #
-      # @param export_columns [Array<String>] Array of column names to include in the export (optional, defaults to all column
-      #
-      # @param options [Hash{Symbol=>Object}] Type-specific export options. For `chat_messages`: `maxMessages` (required per a
-      #
-      # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
-      #
-      # @return [Onlyfans::Models::DataExportCreateResponse]
-      #
-      # @see Onlyfans::Models::DataExportCreateParams
-      def create(params)
-        parsed, options = Onlyfans::DataExportCreateParams.dump_request(params)
-        @client.request(
-          method: :post,
-          path: "api/data-exports",
-          body: parsed,
-          model: Onlyfans::Models::DataExportCreateResponse,
-          options: options
-        )
-      end
-
-      # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::DataExportRetrieveParams} for more details.
       #
       # Get the current status and progress of a data export
