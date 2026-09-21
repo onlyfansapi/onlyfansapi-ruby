@@ -3,29 +3,6 @@
 require_relative "../test_helper"
 
 class Onlyfans::Test::Resources::DataExportsTest < Onlyfans::Test::ResourceTest
-  def test_create_required_params
-    skip("Mock server tests are disabled")
-
-    response =
-      @only_fans_api.data_exports.create(
-        end_date: "2024-12-31T23:59:59Z",
-        file_type: :csv,
-        start_date: "2024-01-01T00:00:00Z",
-        type: :transactions
-      )
-
-    assert_pattern do
-      response => Onlyfans::Models::DataExportCreateResponse
-    end
-
-    assert_pattern do
-      response => {
-        _meta: Onlyfans::Models::DataExportCreateResponse::Meta | nil,
-        data: Onlyfans::Models::DataExportCreateResponse::Data | nil
-      }
-    end
-  end
-
   def test_retrieve
     skip("Mock server tests are disabled")
 
