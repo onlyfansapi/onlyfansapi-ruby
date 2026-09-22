@@ -16,13 +16,16 @@ module Onlyfans
       # @return [Onlyfans::Resources::Users::Subscribe]
       attr_reader :subscribe
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfans::Models::UserRetrieveParams} for more details.
+      #
       # Get OnlyFans Profile details for a given username. User details are retrieved
       # using the current `{account}` so fields like `subscribedOnData` which include
       # potential subscription details will be included.
       #
       # @overload retrieve(username, account:, request_options: {})
       #
-      # @param username [String] The OnlyFans username of the user to retrieve details for.
+      # @param username [String] The OnlyFans username or numeric user ID to retrieve details for. Display names
       #
       # @param account [String] The Account ID
       #

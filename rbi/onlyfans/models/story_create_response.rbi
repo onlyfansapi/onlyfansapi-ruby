@@ -288,6 +288,18 @@ module Onlyfans
         attr_writer :can_delete
 
         sig { returns(T.nilable(Integer)) }
+        attr_reader :canvas_height
+
+        sig { params(canvas_height: Integer).void }
+        attr_writer :canvas_height
+
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :canvas_width
+
+        sig { params(canvas_width: Integer).void }
+        attr_writer :canvas_width
+
+        sig { returns(T.nilable(Integer)) }
         attr_reader :comments_count
 
         sig { params(comments_count: Integer).void }
@@ -354,14 +366,58 @@ module Onlyfans
         end
         attr_writer :media
 
-        sig { returns(T.nilable(String)) }
-        attr_accessor :question
+        sig do
+          returns(
+            T.nilable(Onlyfans::Models::StoryCreateResponse::Data::Question)
+          )
+        end
+        attr_reader :question
 
-        sig { returns(T.nilable(T::Array[T.anything])) }
+        sig do
+          params(
+            question:
+              Onlyfans::Models::StoryCreateResponse::Data::Question::OrHash
+          ).void
+        end
+        attr_writer :question
+
+        sig do
+          returns(
+            T.nilable(
+              T::Array[Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm]
+            )
+          )
+        end
         attr_reader :release_forms
 
-        sig { params(release_forms: T::Array[T.anything]).void }
+        sig do
+          params(
+            release_forms:
+              T::Array[
+                Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::OrHash
+              ]
+          ).void
+        end
         attr_writer :release_forms
+
+        sig do
+          returns(
+            T.nilable(
+              T::Array[Onlyfans::Models::StoryCreateResponse::Data::Text]
+            )
+          )
+        end
+        attr_reader :texts
+
+        sig do
+          params(
+            texts:
+              T::Array[
+                Onlyfans::Models::StoryCreateResponse::Data::Text::OrHash
+              ]
+          ).void
+        end
+        attr_writer :texts
 
         sig { returns(T.nilable(String)) }
         attr_reader :tips_amount
@@ -403,6 +459,8 @@ module Onlyfans
           params(
             id: Integer,
             can_delete: T::Boolean,
+            canvas_height: Integer,
+            canvas_width: Integer,
             comments_count: Integer,
             created_at: String,
             has_post: T::Boolean,
@@ -415,8 +473,16 @@ module Onlyfans
               T::Array[
                 Onlyfans::Models::StoryCreateResponse::Data::Media::OrHash
               ],
-            question: T.nilable(String),
-            release_forms: T::Array[T.anything],
+            question:
+              Onlyfans::Models::StoryCreateResponse::Data::Question::OrHash,
+            release_forms:
+              T::Array[
+                Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::OrHash
+              ],
+            texts:
+              T::Array[
+                Onlyfans::Models::StoryCreateResponse::Data::Text::OrHash
+              ],
             tips_amount: String,
             tips_amount_raw: Integer,
             tips_count: Integer,
@@ -428,6 +494,8 @@ module Onlyfans
         def self.new(
           id: nil,
           can_delete: nil,
+          canvas_height: nil,
+          canvas_width: nil,
           comments_count: nil,
           created_at: nil,
           has_post: nil,
@@ -439,6 +507,7 @@ module Onlyfans
           media: nil,
           question: nil,
           release_forms: nil,
+          texts: nil,
           tips_amount: nil,
           tips_amount_raw: nil,
           tips_count: nil,
@@ -453,6 +522,8 @@ module Onlyfans
             {
               id: Integer,
               can_delete: T::Boolean,
+              canvas_height: Integer,
+              canvas_width: Integer,
               comments_count: Integer,
               created_at: String,
               has_post: T::Boolean,
@@ -463,8 +534,13 @@ module Onlyfans
               likes_count: Integer,
               media:
                 T::Array[Onlyfans::Models::StoryCreateResponse::Data::Media],
-              question: T.nilable(String),
-              release_forms: T::Array[T.anything],
+              question: Onlyfans::Models::StoryCreateResponse::Data::Question,
+              release_forms:
+                T::Array[
+                  Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm
+                ],
+              texts:
+                T::Array[Onlyfans::Models::StoryCreateResponse::Data::Text],
               tips_amount: String,
               tips_amount_raw: Integer,
               tips_count: Integer,
@@ -740,6 +816,592 @@ module Onlyfans
               def to_hash
               end
             end
+          end
+        end
+
+        class Question < Onlyfans::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Onlyfans::Models::StoryCreateResponse::Data::Question,
+                Onlyfans::Internal::AnyHash
+              )
+            end
+
+          sig do
+            returns(
+              T.nilable(
+                Onlyfans::Models::StoryCreateResponse::Data::Question::Entity
+              )
+            )
+          end
+          attr_reader :entity
+
+          sig do
+            params(
+              entity:
+                Onlyfans::Models::StoryCreateResponse::Data::Question::Entity::OrHash
+            ).void
+          end
+          attr_writer :entity
+
+          sig do
+            returns(
+              T.nilable(
+                Onlyfans::Models::StoryCreateResponse::Data::Question::Positions
+              )
+            )
+          end
+          attr_reader :positions
+
+          sig do
+            params(
+              positions:
+                Onlyfans::Models::StoryCreateResponse::Data::Question::Positions::OrHash
+            ).void
+          end
+          attr_writer :positions
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :type
+
+          sig { params(type: String).void }
+          attr_writer :type
+
+          sig do
+            params(
+              entity:
+                Onlyfans::Models::StoryCreateResponse::Data::Question::Entity::OrHash,
+              positions:
+                Onlyfans::Models::StoryCreateResponse::Data::Question::Positions::OrHash,
+              type: String
+            ).returns(T.attached_class)
+          end
+          def self.new(entity: nil, positions: nil, type: nil)
+          end
+
+          sig do
+            override.returns(
+              {
+                entity:
+                  Onlyfans::Models::StoryCreateResponse::Data::Question::Entity,
+                positions:
+                  Onlyfans::Models::StoryCreateResponse::Data::Question::Positions,
+                type: String
+              }
+            )
+          end
+          def to_hash
+          end
+
+          class Entity < Onlyfans::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Onlyfans::Models::StoryCreateResponse::Data::Question::Entity,
+                  Onlyfans::Internal::AnyHash
+                )
+              end
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :id
+
+            sig { params(id: Integer).void }
+            attr_writer :id
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :created_at
+
+            sig { params(created_at: String).void }
+            attr_writer :created_at
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :text
+
+            sig { params(text: String).void }
+            attr_writer :text
+
+            sig do
+              params(id: Integer, created_at: String, text: String).returns(
+                T.attached_class
+              )
+            end
+            def self.new(id: nil, created_at: nil, text: nil)
+            end
+
+            sig do
+              override.returns(
+                { id: Integer, created_at: String, text: String }
+              )
+            end
+            def to_hash
+            end
+          end
+
+          class Positions < Onlyfans::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Onlyfans::Models::StoryCreateResponse::Data::Question::Positions,
+                  Onlyfans::Internal::AnyHash
+                )
+              end
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :angle
+
+            sig { params(angle: Integer).void }
+            attr_writer :angle
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :color
+
+            sig { params(color: String).void }
+            attr_writer :color
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :height
+
+            sig { params(height: Integer).void }
+            attr_writer :height
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :left
+
+            sig { params(left: Integer).void }
+            attr_writer :left
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :top
+
+            sig { params(top: Integer).void }
+            attr_writer :top
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :width
+
+            sig { params(width: Integer).void }
+            attr_writer :width
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :x
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :y_
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :z_index
+
+            sig { params(z_index: Integer).void }
+            attr_writer :z_index
+
+            sig do
+              params(
+                angle: Integer,
+                color: String,
+                height: Integer,
+                left: Integer,
+                top: Integer,
+                width: Integer,
+                x: T.nilable(String),
+                y_: T.nilable(String),
+                z_index: Integer
+              ).returns(T.attached_class)
+            end
+            def self.new(
+              angle: nil,
+              color: nil,
+              height: nil,
+              left: nil,
+              top: nil,
+              width: nil,
+              x: nil,
+              y_: nil,
+              z_index: nil
+            )
+            end
+
+            sig do
+              override.returns(
+                {
+                  angle: Integer,
+                  color: String,
+                  height: Integer,
+                  left: Integer,
+                  top: Integer,
+                  width: Integer,
+                  x: T.nilable(String),
+                  y_: T.nilable(String),
+                  z_index: Integer
+                }
+              )
+            end
+            def to_hash
+            end
+          end
+        end
+
+        class ReleaseForm < Onlyfans::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm,
+                Onlyfans::Internal::AnyHash
+              )
+            end
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :id
+
+          sig { params(id: Integer).void }
+          attr_writer :id
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :name
+
+          sig { params(name: String).void }
+          attr_writer :name
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :partner_source
+
+          sig { params(partner_source: String).void }
+          attr_writer :partner_source
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :type
+
+          sig { params(type: String).void }
+          attr_writer :type
+
+          sig do
+            returns(
+              T.nilable(
+                Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User
+              )
+            )
+          end
+          attr_reader :user
+
+          sig do
+            params(
+              user:
+                Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User::OrHash
+            ).void
+          end
+          attr_writer :user
+
+          sig do
+            params(
+              id: Integer,
+              name: String,
+              partner_source: String,
+              type: String,
+              user:
+                Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User::OrHash
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            id: nil,
+            name: nil,
+            partner_source: nil,
+            type: nil,
+            user: nil
+          )
+          end
+
+          sig do
+            override.returns(
+              {
+                id: Integer,
+                name: String,
+                partner_source: String,
+                type: String,
+                user:
+                  Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User
+              }
+            )
+          end
+          def to_hash
+          end
+
+          class User < Onlyfans::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User,
+                  Onlyfans::Internal::AnyHash
+                )
+              end
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :id
+
+            sig { params(id: Integer).void }
+            attr_writer :id
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :avatar
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :avatar_thumbs
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :is_from_guest
+
+            sig { params(is_from_guest: T::Boolean).void }
+            attr_writer :is_from_guest
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :is_identity_verified
+
+            sig { params(is_identity_verified: T::Boolean).void }
+            attr_writer :is_identity_verified
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :iv_status
+
+            sig { params(iv_status: String).void }
+            attr_writer :iv_status
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :name
+
+            sig { params(name: String).void }
+            attr_writer :name
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :username
+
+            sig { params(username: String).void }
+            attr_writer :username
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :view
+
+            sig { params(view: String).void }
+            attr_writer :view
+
+            sig do
+              params(
+                id: Integer,
+                avatar: T.nilable(String),
+                avatar_thumbs: T.nilable(String),
+                is_from_guest: T::Boolean,
+                is_identity_verified: T::Boolean,
+                iv_status: String,
+                name: String,
+                username: String,
+                view: String
+              ).returns(T.attached_class)
+            end
+            def self.new(
+              id: nil,
+              avatar: nil,
+              avatar_thumbs: nil,
+              is_from_guest: nil,
+              is_identity_verified: nil,
+              iv_status: nil,
+              name: nil,
+              username: nil,
+              view: nil
+            )
+            end
+
+            sig do
+              override.returns(
+                {
+                  id: Integer,
+                  avatar: T.nilable(String),
+                  avatar_thumbs: T.nilable(String),
+                  is_from_guest: T::Boolean,
+                  is_identity_verified: T::Boolean,
+                  iv_status: String,
+                  name: String,
+                  username: String,
+                  view: String
+                }
+              )
+            end
+            def to_hash
+            end
+          end
+        end
+
+        class Text < Onlyfans::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Onlyfans::Models::StoryCreateResponse::Data::Text,
+                Onlyfans::Internal::AnyHash
+              )
+            end
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :angle
+
+          sig { params(angle: Integer).void }
+          attr_writer :angle
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :bg_color
+
+          sig { params(bg_color: String).void }
+          attr_writer :bg_color
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :color
+
+          sig { params(color: String).void }
+          attr_writer :color
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :font_family
+
+          sig { params(font_family: String).void }
+          attr_writer :font_family
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :font_size
+
+          sig { params(font_size: String).void }
+          attr_writer :font_size
+
+          sig { returns(T.nilable(String)) }
+          attr_accessor :font_style
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :font_weight
+
+          sig { params(font_weight: Integer).void }
+          attr_writer :font_weight
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :left
+
+          sig { params(left: Integer).void }
+          attr_writer :left
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :scale
+
+          sig { params(scale: Integer).void }
+          attr_writer :scale
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :text
+
+          sig { params(text: String).void }
+          attr_writer :text
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :text_align
+
+          sig { params(text_align: String).void }
+          attr_writer :text_align
+
+          sig { returns(T.nilable(Float)) }
+          attr_reader :text_height
+
+          sig { params(text_height: Float).void }
+          attr_writer :text_height
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :text_width
+
+          sig { params(text_width: Integer).void }
+          attr_writer :text_width
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :top
+
+          sig { params(top: Integer).void }
+          attr_writer :top
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :type
+
+          sig { params(type: String).void }
+          attr_writer :type
+
+          sig { returns(T.nilable(T::Array[T.anything])) }
+          attr_reader :users
+
+          sig { params(users: T::Array[T.anything]).void }
+          attr_writer :users
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :z_index
+
+          sig { params(z_index: Integer).void }
+          attr_writer :z_index
+
+          sig do
+            params(
+              angle: Integer,
+              bg_color: String,
+              color: String,
+              font_family: String,
+              font_size: String,
+              font_style: T.nilable(String),
+              font_weight: Integer,
+              left: Integer,
+              scale: Integer,
+              text: String,
+              text_align: String,
+              text_height: Float,
+              text_width: Integer,
+              top: Integer,
+              type: String,
+              users: T::Array[T.anything],
+              z_index: Integer
+            ).returns(T.attached_class)
+          end
+          def self.new(
+            angle: nil,
+            bg_color: nil,
+            color: nil,
+            font_family: nil,
+            font_size: nil,
+            font_style: nil,
+            font_weight: nil,
+            left: nil,
+            scale: nil,
+            text: nil,
+            text_align: nil,
+            text_height: nil,
+            text_width: nil,
+            top: nil,
+            type: nil,
+            users: nil,
+            z_index: nil
+          )
+          end
+
+          sig do
+            override.returns(
+              {
+                angle: Integer,
+                bg_color: String,
+                color: String,
+                font_family: String,
+                font_size: String,
+                font_style: T.nilable(String),
+                font_weight: Integer,
+                left: Integer,
+                scale: Integer,
+                text: String,
+                text_align: String,
+                text_height: Float,
+                text_width: Integer,
+                top: Integer,
+                type: String,
+                users: T::Array[T.anything],
+                z_index: Integer
+              }
+            )
+          end
+          def to_hash
           end
         end
       end

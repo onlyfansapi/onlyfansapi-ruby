@@ -233,6 +233,7 @@ module Onlyfans
 
         type summary =
           {
+            chargebacks_total: Float,
             clicks_total: Integer,
             revenue_cached_at: String,
             revenue_total: Float,
@@ -241,6 +242,10 @@ module Onlyfans
           }
 
         class Summary < Onlyfans::Internal::Type::BaseModel
+          attr_reader chargebacks_total: Float?
+
+          def chargebacks_total=: (Float) -> Float
+
           attr_reader clicks_total: Integer?
 
           def clicks_total=: (Integer) -> Integer
@@ -262,6 +267,7 @@ module Onlyfans
           def subs_total=: (Integer) -> Integer
 
           def initialize: (
+            ?chargebacks_total: Float,
             ?clicks_total: Integer,
             ?revenue_cached_at: String,
             ?revenue_total: Float,
@@ -270,6 +276,7 @@ module Onlyfans
           ) -> void
 
           def to_hash: -> {
+            chargebacks_total: Float,
             clicks_total: Integer,
             revenue_cached_at: String,
             revenue_total: Float,

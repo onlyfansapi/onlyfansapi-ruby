@@ -9,6 +9,9 @@ module Onlyfans
       # @return [Onlyfans::Resources::Chats::MarkAllAsRead]
       attr_reader :mark_all_as_read
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfans::Models::ChatListParams} for more details.
+      #
       # Get the list of chats for an Account.
       #
       # @overload list(account, filter: nil, limit: nil, offset: nil, order: nil, query: nil, skip_users: nil, request_options: {})
@@ -25,7 +28,7 @@ module Onlyfans
       #
       # @param query [String] Search query to filter chats
       #
-      # @param skip_users [Symbol, Onlyfans::Models::ChatListParams::SkipUsers] Whether to skip user details in response (all or none). Default = all
+      # @param skip_users [Symbol, Onlyfans::Models::ChatListParams::SkipUsers] Whether to skip user details in the response (`all` or `none`). Defaults to `all
       #
       # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
       #
@@ -114,7 +117,7 @@ module Onlyfans
       #
       # @param offset [String] Query param: Number of medias to skip for pagination
       #
-      # @param skip_users [String] Query param: Whether to skip user details in response (all or none). Default = a
+      # @param skip_users [String] Query param: Whether to skip user details in the response (`all` or `none`). Def
       #
       # @param type [Symbol, Onlyfans::Models::ChatListMediaParams::Type, nil] Query param: Filter by specific media types. Keep empty to return all.
       #
@@ -222,8 +225,8 @@ module Onlyfans
       end
 
       # Calling this endpoint will show the target fan a "Model is typing..." note in
-      # the chat for ~4 seconds. If you want to continue showing the indicator call this
-      # endpoint multiple times. Free - no credits charged.
+      # the chat for ~4 seconds. Duplicate calls for the same account and chat are
+      # coalesced during that window.
       #
       # @overload start_typing(chat_id, account:, request_options: {})
       #

@@ -169,6 +169,11 @@ module Onlyfans
 
         # @see Onlyfans::Models::TrackingLinkGetStatsResponse::Data#summary
         class Summary < Onlyfans::Internal::Type::BaseModel
+          # @!attribute chargebacks_total
+          #
+          #   @return [Float, nil]
+          optional :chargebacks_total, Float
+
           # @!attribute clicks_total
           #
           #   @return [Integer, nil]
@@ -194,7 +199,8 @@ module Onlyfans
           #   @return [Integer, nil]
           optional :subs_total, Integer
 
-          # @!method initialize(clicks_total: nil, revenue_cached_at: nil, revenue_total: nil, spenders_total: nil, subs_total: nil)
+          # @!method initialize(chargebacks_total: nil, clicks_total: nil, revenue_cached_at: nil, revenue_total: nil, spenders_total: nil, subs_total: nil)
+          #   @param chargebacks_total [Float]
           #   @param clicks_total [Integer]
           #   @param revenue_cached_at [String]
           #   @param revenue_total [Float]

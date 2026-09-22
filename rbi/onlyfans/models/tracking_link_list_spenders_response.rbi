@@ -376,20 +376,32 @@ module Onlyfans
           attr_writer :calculated_at
 
           sig { returns(T.nilable(Float)) }
+          attr_reader :chargebacks
+
+          sig { params(chargebacks: Float).void }
+          attr_writer :chargebacks
+
+          sig { returns(T.nilable(Float)) }
           attr_reader :total
 
           sig { params(total: Float).void }
           attr_writer :total
 
           sig do
-            params(calculated_at: String, total: Float).returns(
-              T.attached_class
-            )
+            params(
+              calculated_at: String,
+              chargebacks: Float,
+              total: Float
+            ).returns(T.attached_class)
           end
-          def self.new(calculated_at: nil, total: nil)
+          def self.new(calculated_at: nil, chargebacks: nil, total: nil)
           end
 
-          sig { override.returns({ calculated_at: String, total: Float }) }
+          sig do
+            override.returns(
+              { calculated_at: String, chargebacks: Float, total: Float }
+            )
+          end
           def to_hash
           end
         end

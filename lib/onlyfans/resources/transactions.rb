@@ -18,7 +18,7 @@ module Onlyfans
       #
       # @param marker [String] The marker used for pagination. Default: `null`
       #
-      # @param start_date [String] The start date for transactions list. Default: `-30days`
+      # @param start_date [String] The start date for the transactions list. Defaults to 30 days ago.
       #
       # @param tips_source [String] Filter tips by source. Only applies when `type=tips`. Options: `profile`,
       # `post\_

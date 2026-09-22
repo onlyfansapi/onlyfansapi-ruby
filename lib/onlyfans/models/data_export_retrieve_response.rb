@@ -159,6 +159,11 @@ module Onlyfans
         #   @return [String, nil]
         optional :failed_at, String, nil?: true
 
+        # @!attribute failed_downloads
+        #
+        #   @return [Integer, nil]
+        optional :failed_downloads, Integer
+
         # @!attribute failed_reason
         #
         #   @return [String, nil]
@@ -199,7 +204,7 @@ module Onlyfans
         #   @return [String, nil]
         optional :type, String
 
-        # @!method initialize(id: nil, accounts: nil, completed_at: nil, created_at: nil, credit_cost: nil, end_date: nil, export_columns: nil, failed_at: nil, failed_reason: nil, file_type: nil, progress_percentage: nil, rows_processed: nil, start_date: nil, status: nil, total_rows: nil, type: nil)
+        # @!method initialize(id: nil, accounts: nil, completed_at: nil, created_at: nil, credit_cost: nil, end_date: nil, export_columns: nil, failed_at: nil, failed_downloads: nil, failed_reason: nil, file_type: nil, progress_percentage: nil, rows_processed: nil, start_date: nil, status: nil, total_rows: nil, type: nil)
         #   @param id [String]
         #   @param accounts [Array<Onlyfans::Models::DataExportRetrieveResponse::Data::Account>]
         #   @param completed_at [String, nil]
@@ -208,6 +213,7 @@ module Onlyfans
         #   @param end_date [String]
         #   @param export_columns [Array<String>]
         #   @param failed_at [String, nil]
+        #   @param failed_downloads [Integer]
         #   @param failed_reason [String, nil]
         #   @param file_type [String]
         #   @param progress_percentage [Integer]

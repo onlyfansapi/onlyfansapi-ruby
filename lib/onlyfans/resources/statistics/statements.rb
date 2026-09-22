@@ -6,13 +6,13 @@ module Onlyfans
       class Statements
         # Get the earnings for a given period.
         #
-        # @overload get_earnings(account, start_date:, end_date: nil, type: nil, request_options: {})
+        # @overload get_earnings(account, end_date:, start_date:, type: nil, request_options: {})
         #
         # @param account [String] The Account ID
         #
-        # @param start_date [String] The start date for the period
-        #
         # @param end_date [String] The end date for the period.
+        #
+        # @param start_date [String] The start date for the period.
         #
         # @param type [Symbol, Onlyfans::Models::Statistics::StatementGetEarningsParams::Type] Filter by All / Subscriptions / Tips / Posts / Messages / Streams
         #

@@ -359,7 +359,10 @@ module Onlyfans
         attr_writer :name
 
         sig { returns(T.nilable(String)) }
-        attr_accessor :revenue
+        attr_reader :revenue
+
+        sig { params(revenue: String).void }
+        attr_writer :revenue
 
         sig { returns(T.nilable(Integer)) }
         attr_reader :subscribers_count
@@ -391,7 +394,7 @@ module Onlyfans
             free_trial_days: Integer,
             link_type: String,
             name: String,
-            revenue: T.nilable(String),
+            revenue: String,
             subscribers_count: Integer,
             traffic_redirect_url: String,
             updated_at: String
@@ -426,7 +429,7 @@ module Onlyfans
               free_trial_days: Integer,
               link_type: String,
               name: String,
-              revenue: T.nilable(String),
+              revenue: String,
               subscribers_count: Integer,
               traffic_redirect_url: String,
               updated_at: String

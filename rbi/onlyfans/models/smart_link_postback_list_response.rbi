@@ -227,6 +227,12 @@ module Onlyfans
         sig { params(id: Integer).void }
         attr_writer :id
 
+        sig { returns(T.nilable(String)) }
+        attr_reader :body
+
+        sig { params(body: String).void }
+        attr_writer :body
+
         sig { returns(T.nilable(T::Array[String])) }
         attr_reader :conversion_types
 
@@ -238,6 +244,33 @@ module Onlyfans
 
         sig { params(created_at: String).void }
         attr_writer :created_at
+
+        sig do
+          returns(
+            T.nilable(
+              T::Array[
+                Onlyfans::Models::SmartLinkPostbackListResponse::Data::Header
+              ]
+            )
+          )
+        end
+        attr_reader :headers
+
+        sig do
+          params(
+            headers:
+              T::Array[
+                Onlyfans::Models::SmartLinkPostbackListResponse::Data::Header::OrHash
+              ]
+          ).void
+        end
+        attr_writer :headers
+
+        sig { returns(T.nilable(String)) }
+        attr_reader :http_method
+
+        sig { params(http_method: String).void }
+        attr_writer :http_method
 
         sig do
           returns(
@@ -289,6 +322,18 @@ module Onlyfans
         end
         attr_writer :smart_links
 
+        sig { returns(T.nilable(T::Array[T.anything])) }
+        attr_reader :traffic_source_ids
+
+        sig { params(traffic_source_ids: T::Array[T.anything]).void }
+        attr_writer :traffic_source_ids
+
+        sig { returns(T.nilable(T::Array[T.anything])) }
+        attr_reader :traffic_sources
+
+        sig { params(traffic_sources: T::Array[T.anything]).void }
+        attr_writer :traffic_sources
+
         sig { returns(T.nilable(String)) }
         attr_reader :updated_at
 
@@ -304,8 +349,14 @@ module Onlyfans
         sig do
           params(
             id: Integer,
+            body: String,
             conversion_types: T::Array[String],
             created_at: String,
+            headers:
+              T::Array[
+                Onlyfans::Models::SmartLinkPostbackListResponse::Data::Header::OrHash
+              ],
+            http_method: String,
             latest_response:
               Onlyfans::Models::SmartLinkPostbackListResponse::Data::LatestResponse::OrHash,
             smart_link_ids: T::Array[String],
@@ -314,18 +365,25 @@ module Onlyfans
               T::Array[
                 Onlyfans::Models::SmartLinkPostbackListResponse::Data::SmartLink::OrHash
               ],
+            traffic_source_ids: T::Array[T.anything],
+            traffic_sources: T::Array[T.anything],
             updated_at: String,
             url: String
           ).returns(T.attached_class)
         end
         def self.new(
           id: nil,
+          body: nil,
           conversion_types: nil,
           created_at: nil,
+          headers: nil,
+          http_method: nil,
           latest_response: nil,
           smart_link_ids: nil,
           smart_link_scope: nil,
           smart_links: nil,
+          traffic_source_ids: nil,
+          traffic_sources: nil,
           updated_at: nil,
           url: nil
         )
@@ -335,8 +393,14 @@ module Onlyfans
           override.returns(
             {
               id: Integer,
+              body: String,
               conversion_types: T::Array[String],
               created_at: String,
+              headers:
+                T::Array[
+                  Onlyfans::Models::SmartLinkPostbackListResponse::Data::Header
+                ],
+              http_method: String,
               latest_response:
                 Onlyfans::Models::SmartLinkPostbackListResponse::Data::LatestResponse,
               smart_link_ids: T::Array[String],
@@ -345,12 +409,44 @@ module Onlyfans
                 T::Array[
                   Onlyfans::Models::SmartLinkPostbackListResponse::Data::SmartLink
                 ],
+              traffic_source_ids: T::Array[T.anything],
+              traffic_sources: T::Array[T.anything],
               updated_at: String,
               url: String
             }
           )
         end
         def to_hash
+        end
+
+        class Header < Onlyfans::Internal::Type::BaseModel
+          OrHash =
+            T.type_alias do
+              T.any(
+                Onlyfans::Models::SmartLinkPostbackListResponse::Data::Header,
+                Onlyfans::Internal::AnyHash
+              )
+            end
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :name
+
+          sig { params(name: String).void }
+          attr_writer :name
+
+          sig { returns(T.nilable(String)) }
+          attr_reader :value
+
+          sig { params(value: String).void }
+          attr_writer :value
+
+          sig { params(name: String, value: String).returns(T.attached_class) }
+          def self.new(name: nil, value: nil)
+          end
+
+          sig { override.returns({ name: String, value: String }) }
+          def to_hash
+          end
         end
 
         class LatestResponse < Onlyfans::Internal::Type::BaseModel

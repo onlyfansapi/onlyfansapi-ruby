@@ -82,6 +82,11 @@ module Onlyfans
         #   @return [Integer, nil]
         optional :id, Integer
 
+        # @!attribute body
+        #
+        #   @return [String, nil]
+        optional :body, String
+
         # @!attribute conversion_types
         #
         #   @return [Array<String>, nil]
@@ -91,6 +96,17 @@ module Onlyfans
         #
         #   @return [String, nil]
         optional :created_at, String
+
+        # @!attribute headers
+        #
+        #   @return [Array<Onlyfans::Models::SmartLinkPostbackUpdateResponse::Data::Header>, nil]
+        optional :headers,
+                 -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::SmartLinkPostbackUpdateResponse::Data::Header] }
+
+        # @!attribute http_method
+        #
+        #   @return [String, nil]
+        optional :http_method, String
 
         # @!attribute latest_response
         #
@@ -113,6 +129,16 @@ module Onlyfans
         optional :smart_links,
                  -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::SmartLinkPostbackUpdateResponse::Data::SmartLink] }
 
+        # @!attribute traffic_source_ids
+        #
+        #   @return [Array<Object>, nil]
+        optional :traffic_source_ids, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
+
+        # @!attribute traffic_sources
+        #
+        #   @return [Array<Object>, nil]
+        optional :traffic_sources, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
+
         # @!attribute updated_at
         #
         #   @return [String, nil]
@@ -123,16 +149,37 @@ module Onlyfans
         #   @return [String, nil]
         optional :url, String
 
-        # @!method initialize(id: nil, conversion_types: nil, created_at: nil, latest_response: nil, smart_link_ids: nil, smart_link_scope: nil, smart_links: nil, updated_at: nil, url: nil)
+        # @!method initialize(id: nil, body: nil, conversion_types: nil, created_at: nil, headers: nil, http_method: nil, latest_response: nil, smart_link_ids: nil, smart_link_scope: nil, smart_links: nil, traffic_source_ids: nil, traffic_sources: nil, updated_at: nil, url: nil)
         #   @param id [Integer]
+        #   @param body [String]
         #   @param conversion_types [Array<String>]
         #   @param created_at [String]
+        #   @param headers [Array<Onlyfans::Models::SmartLinkPostbackUpdateResponse::Data::Header>]
+        #   @param http_method [String]
         #   @param latest_response [String, nil]
         #   @param smart_link_ids [Array<String>]
         #   @param smart_link_scope [String]
         #   @param smart_links [Array<Onlyfans::Models::SmartLinkPostbackUpdateResponse::Data::SmartLink>]
+        #   @param traffic_source_ids [Array<Object>]
+        #   @param traffic_sources [Array<Object>]
         #   @param updated_at [String]
         #   @param url [String]
+
+        class Header < Onlyfans::Internal::Type::BaseModel
+          # @!attribute name
+          #
+          #   @return [String, nil]
+          optional :name, String
+
+          # @!attribute value
+          #
+          #   @return [String, nil]
+          optional :value, String
+
+          # @!method initialize(name: nil, value: nil)
+          #   @param name [String]
+          #   @param value [String]
+        end
 
         class SmartLink < Onlyfans::Internal::Type::BaseModel
           # @!attribute account_display_name

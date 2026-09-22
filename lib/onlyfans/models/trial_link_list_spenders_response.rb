@@ -139,13 +139,19 @@ module Onlyfans
           #   @return [String, nil]
           optional :calculated_at, String
 
+          # @!attribute chargebacks
+          #
+          #   @return [Float, nil]
+          optional :chargebacks, Float
+
           # @!attribute total
           #
           #   @return [Float, nil]
           optional :total, Float
 
-          # @!method initialize(calculated_at: nil, total: nil)
+          # @!method initialize(calculated_at: nil, chargebacks: nil, total: nil)
           #   @param calculated_at [String]
+          #   @param chargebacks [Float]
           #   @param total [Float]
         end
       end

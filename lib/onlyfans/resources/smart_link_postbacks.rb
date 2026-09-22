@@ -9,13 +9,19 @@ module Onlyfans
       #
       # Create a postback that fires for selected Smart Link conversion types
       #
-      # @overload create(conversion_types:, smart_link_scope:, url:, smart_link_ids: nil, request_options: {})
+      # @overload create(conversion_types:, smart_link_scope:, url:, body: nil, headers: nil, http_method: nil, smart_link_ids: nil, request_options: {})
       #
       # @param conversion_types [Array<String>] One or more Smart Link conversion types that should trigger this postback.
       #
       # @param smart_link_scope [Symbol, Onlyfans::Models::SmartLinkPostbackCreateParams::SmartLinkScope] `global` fires for all Smart Links. `campaign_specific` fires only for selected
       #
-      # @param url [String] The destination URL. Variables such as `{click_id}`, `{fbclid}`, `{gclid}`, and
+      # @param url [String] The destination URL. Variables such as `{external_click_id}`, `{fbclid}`, `{gcli
+      #
+      # @param body [String] Optional request body template for POST postbacks. Variables are replaced when t
+      #
+      # @param headers [Array<Onlyfans::Models::SmartLinkPostbackCreateParams::Header>] Optional request headers. Header values may include postback variables.
+      #
+      # @param http_method [Symbol, Onlyfans::Models::SmartLinkPostbackCreateParams::HTTPMethod] HTTP method used for the postback request. Defaults to `GET` when omitted.
       #
       # @param smart_link_ids [Array<String>] Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
       #
@@ -55,9 +61,12 @@ module Onlyfans
         )
       end
 
+      # Some parameter documentations has been truncated, see
+      # {Onlyfans::Models::SmartLinkPostbackUpdateParams} for more details.
+      #
       # Update a Smart Link postback configuration
       #
-      # @overload update(postback_id, conversion_types:, smart_link_scope:, url:, smart_link_ids: nil, request_options: {})
+      # @overload update(postback_id, conversion_types:, smart_link_scope:, url:, body: nil, headers: nil, http_method: nil, smart_link_ids: nil, request_options: {})
       #
       # @param postback_id [Integer] The postback ID
       #
@@ -66,6 +75,12 @@ module Onlyfans
       # @param smart_link_scope [Symbol, Onlyfans::Models::SmartLinkPostbackUpdateParams::SmartLinkScope] `global` or `campaign_specific`.
       #
       # @param url [String] The destination URL.
+      #
+      # @param body [String] Optional request body template for POST postbacks. Variables are replaced when t
+      #
+      # @param headers [Array<Onlyfans::Models::SmartLinkPostbackUpdateParams::Header>] Optional request headers. Header values may include postback variables.
+      #
+      # @param http_method [Symbol, Onlyfans::Models::SmartLinkPostbackUpdateParams::HTTPMethod] HTTP method used for the postback request. Existing value is kept when omitted.
       #
       # @param smart_link_ids [Array<String>] Smart Link ULIDs. Required when `smart_link_scope` is `campaign_specific`.
       #

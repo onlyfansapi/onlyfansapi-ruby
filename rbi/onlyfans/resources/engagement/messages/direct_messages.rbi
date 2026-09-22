@@ -22,8 +22,8 @@ module Onlyfans
           def list(
             # The Account ID
             account,
-            # The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER
-            # `startDate`. This is also used for pagination.
+            # The latest message to retrieve. Keep empty to get all. It must be after
+            # `startDate` and is also used for pagination.
             end_date: nil,
             # Number of messages to return (default = 10)
             limit: nil,
@@ -53,7 +53,7 @@ module Onlyfans
           def chart(
             # The Account ID
             account,
-            # End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+            # End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
             end_date: nil,
             # Start of the chart window in `Y-m-d H:i:s` format.
             start_date: nil,

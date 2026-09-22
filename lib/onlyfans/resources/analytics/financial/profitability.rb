@@ -22,7 +22,7 @@ module Onlyfans
           #
           # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
           #
-          # @return [Array<Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponseItem>]
+          # @return [Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponse]
           #
           # @see Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryParams
           def get_history(account, params)
@@ -32,7 +32,7 @@ module Onlyfans
               method: :get,
               path: ["api/analytics/financial/profitability/%1$s/history", account],
               query: query,
-              model: Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponseItem],
+              model: Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponse,
               options: options
             )
           end
@@ -50,7 +50,7 @@ module Onlyfans
           #
           # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
           #
-          # @return [Array<Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem>]
+          # @return [Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse]
           #
           # @see Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityParams
           def get_profitability(params)
@@ -60,7 +60,7 @@ module Onlyfans
               method: :post,
               path: "api/analytics/financial/profitability",
               body: parsed,
-              model: Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem],
+              model: Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse,
               options: options
             )
           end

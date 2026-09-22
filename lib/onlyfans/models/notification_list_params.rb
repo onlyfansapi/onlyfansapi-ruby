@@ -26,7 +26,7 @@ module Onlyfans
       optional :limit, Integer
 
       # @!attribute skip_users
-      #   Whether to skip user details. Default `all`
+      #   Whether to skip user details. Defaults to `all`.
       #
       #   @return [Symbol, Onlyfans::Models::NotificationListParams::SkipUsers, nil]
       optional :skip_users, enum: -> { Onlyfans::NotificationListParams::SkipUsers }
@@ -47,13 +47,13 @@ module Onlyfans
       #
       #   @param limit [Integer] The number of notifications. Default `10`
       #
-      #   @param skip_users [Symbol, Onlyfans::Models::NotificationListParams::SkipUsers] Whether to skip user details. Default `all`
+      #   @param skip_users [Symbol, Onlyfans::Models::NotificationListParams::SkipUsers] Whether to skip user details. Defaults to `all`.
       #
       #   @param type [Symbol, Onlyfans::Models::NotificationListParams::Type] Filter notifications by a specific type
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 
-      # Whether to skip user details. Default `all`
+      # Whether to skip user details. Defaults to `all`.
       module SkipUsers
         extend Onlyfans::Internal::Type::Enum
 

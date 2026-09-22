@@ -182,20 +182,33 @@ module Onlyfans
           username: String
         }
 
-        type revenue = { calculated_at: String, total: Float }
+        type revenue =
+          { calculated_at: String, chargebacks: Float, total: Float }
 
         class Revenue < Onlyfans::Internal::Type::BaseModel
           attr_reader calculated_at: String?
 
           def calculated_at=: (String) -> String
 
+          attr_reader chargebacks: Float?
+
+          def chargebacks=: (Float) -> Float
+
           attr_reader total: Float?
 
           def total=: (Float) -> Float
 
-          def initialize: (?calculated_at: String, ?total: Float) -> void
+          def initialize: (
+            ?calculated_at: String,
+            ?chargebacks: Float,
+            ?total: Float
+          ) -> void
 
-          def to_hash: -> { calculated_at: String, total: Float }
+          def to_hash: -> {
+            calculated_at: String,
+            chargebacks: Float,
+            total: Float
+          }
         end
       end
     end

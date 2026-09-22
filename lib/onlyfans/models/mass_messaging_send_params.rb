@@ -18,6 +18,17 @@ module Onlyfans
       #   @return [String]
       required :text, String
 
+      # @!attribute block_banned_words
+      #   Screen `text` for OnlyFans banned words and block the send if any are found
+      #   (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      #   `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      #   only. Omit to disable screening.
+      #
+      #   @return [Symbol, Onlyfans::Models::MassMessagingSendParams::BlockBannedWords, nil]
+      optional :block_banned_words,
+               enum: -> { Onlyfans::MassMessagingSendParams::BlockBannedWords },
+               api_name: :blockBannedWords
+
       # @!attribute excluded_lists
       #   Array of user list IDs that the mass message will NOT be sent to.
       #
@@ -55,11 +66,11 @@ module Onlyfans
       optional :previews, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
 
       # @!attribute price
-      #   Price for paid content (0 or between 3-200). In case this is not zero,
+      #   Price for paid content in USD (0 or between 3-200). In case this is not zero,
       #   **mediaFiles** is required
       #
-      #   @return [Integer, nil]
-      optional :price, Integer
+      #   @return [Float, nil]
+      optional :price, Float
 
       # @!attribute rf_guest
       #   Array of OnlyFans Release Form Guest IDs to tag in your mass message
@@ -91,6 +102,14 @@ module Onlyfans
       #   @return [String, nil]
       optional :scheduled_date, String, api_name: :scheduledDate
 
+      # @!attribute subscribed_within_last_days
+      #   Only send to fans who subscribed within the last N calendar days (1-30,
+      #   including today). Can be combined with `userLists` and `userIds`. Cannot be
+      #   combined with `scheduledDate` or `saveForLater`.
+      #
+      #   @return [Integer, nil]
+      optional :subscribed_within_last_days, Integer, api_name: :subscribedWithinLastDays
+
       # @!attribute user_ids
       #   Array of user IDs that the mass message will be sent to.
       #
@@ -103,13 +122,15 @@ module Onlyfans
       #   @return [Array<String>, nil]
       optional :user_lists, Onlyfans::Internal::Type::ArrayOf[String], api_name: :userLists
 
-      # @!method initialize(account:, text:, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @!method initialize(account:, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, subscribed_within_last_days: nil, user_ids: nil, user_lists: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::MassMessagingSendParams} for more details.
       #
       #   @param account [String]
       #
       #   @param text [String] The message text content
+      #
+      #   @param block_banned_words [Symbol, Onlyfans::Models::MassMessagingSendParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the send if any are found (ret
       #
       #   @param excluded_lists [Array<String>] Array of user list IDs that the mass message will NOT be sent to.
       #
@@ -121,8 +142,8 @@ module Onlyfans
       #
       #   @param previews [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
       #
-      #   @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
-      #   \*\*mediaFi
+      #   @param price [Float] Price for paid content in USD (0 or between 3-200). In case this is not zero,
+      #   \*\*
       #
       #   @param rf_guest [String] Array of OnlyFans Release Form Guest IDs to tag in your mass message
       #
@@ -134,11 +155,28 @@ module Onlyfans
       #
       #   @param scheduled_date [String] Schedule the chat message in the future (UTC timezone).
       #
+      #   @param subscribed_within_last_days [Integer] Only send to fans who subscribed within the last N calendar days (1-30, includin
+      #
       #   @param user_ids [Array<String>] Array of user IDs that the mass message will be sent to.
       #
       #   @param user_lists [Array<String>] Array of user list IDs that the mass message will be sent to.
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
+
+      # Screen `text` for OnlyFans banned words and block the send if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        STRICT_BAN = :strict_ban
+        RISKY = :risky
+        REPLACE_SOFTEN = :replace_soften
+
+        # @!method self.values
+        #   @return [Array<Symbol>]
+      end
     end
   end
 end

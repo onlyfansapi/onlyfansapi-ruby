@@ -128,6 +128,16 @@ module Onlyfans
         #   @return [Boolean, nil]
         optional :can_delete, Onlyfans::Internal::Type::Boolean, api_name: :canDelete
 
+        # @!attribute canvas_height
+        #
+        #   @return [Integer, nil]
+        optional :canvas_height, Integer, api_name: :canvasHeight
+
+        # @!attribute canvas_width
+        #
+        #   @return [Integer, nil]
+        optional :canvas_width, Integer, api_name: :canvasWidth
+
         # @!attribute comments_count
         #
         #   @return [Integer, nil]
@@ -176,15 +186,21 @@ module Onlyfans
 
         # @!attribute question
         #
-        #   @return [String, nil]
-        optional :question, String, nil?: true
+        #   @return [Onlyfans::Models::StoryCreateResponse::Data::Question, nil]
+        optional :question, -> { Onlyfans::Models::StoryCreateResponse::Data::Question }
 
         # @!attribute release_forms
         #
-        #   @return [Array<Object>, nil]
+        #   @return [Array<Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm>, nil]
         optional :release_forms,
-                 Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown],
+                 -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm] },
                  api_name: :releaseForms
+
+        # @!attribute texts
+        #
+        #   @return [Array<Onlyfans::Models::StoryCreateResponse::Data::Text>, nil]
+        optional :texts,
+                 -> { Onlyfans::Internal::Type::ArrayOf[Onlyfans::Models::StoryCreateResponse::Data::Text] }
 
         # @!attribute tips_amount
         #
@@ -216,9 +232,11 @@ module Onlyfans
         #   @return [Integer, nil]
         optional :viewers_count, Integer, api_name: :viewersCount
 
-        # @!method initialize(id: nil, can_delete: nil, comments_count: nil, created_at: nil, has_post: nil, is_highlight_cover: nil, is_last_in_highlight: nil, is_ready: nil, is_watched: nil, likes_count: nil, media: nil, question: nil, release_forms: nil, tips_amount: nil, tips_amount_raw: nil, tips_count: nil, user_id: nil, viewers: nil, viewers_count: nil)
+        # @!method initialize(id: nil, can_delete: nil, canvas_height: nil, canvas_width: nil, comments_count: nil, created_at: nil, has_post: nil, is_highlight_cover: nil, is_last_in_highlight: nil, is_ready: nil, is_watched: nil, likes_count: nil, media: nil, question: nil, release_forms: nil, texts: nil, tips_amount: nil, tips_amount_raw: nil, tips_count: nil, user_id: nil, viewers: nil, viewers_count: nil)
         #   @param id [Integer]
         #   @param can_delete [Boolean]
+        #   @param canvas_height [Integer]
+        #   @param canvas_width [Integer]
         #   @param comments_count [Integer]
         #   @param created_at [String]
         #   @param has_post [Boolean]
@@ -228,8 +246,9 @@ module Onlyfans
         #   @param is_watched [Boolean]
         #   @param likes_count [Integer]
         #   @param media [Array<Onlyfans::Models::StoryCreateResponse::Data::Media>]
-        #   @param question [String, nil]
-        #   @param release_forms [Array<Object>]
+        #   @param question [Onlyfans::Models::StoryCreateResponse::Data::Question]
+        #   @param release_forms [Array<Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm>]
+        #   @param texts [Array<Onlyfans::Models::StoryCreateResponse::Data::Text>]
         #   @param tips_amount [String]
         #   @param tips_amount_raw [Integer]
         #   @param tips_count [Integer]
@@ -363,6 +382,310 @@ module Onlyfans
               #   @param width [Integer]
             end
           end
+        end
+
+        # @see Onlyfans::Models::StoryCreateResponse::Data#question
+        class Question < Onlyfans::Internal::Type::BaseModel
+          # @!attribute entity
+          #
+          #   @return [Onlyfans::Models::StoryCreateResponse::Data::Question::Entity, nil]
+          optional :entity, -> { Onlyfans::Models::StoryCreateResponse::Data::Question::Entity }
+
+          # @!attribute positions
+          #
+          #   @return [Onlyfans::Models::StoryCreateResponse::Data::Question::Positions, nil]
+          optional :positions, -> { Onlyfans::Models::StoryCreateResponse::Data::Question::Positions }
+
+          # @!attribute type
+          #
+          #   @return [String, nil]
+          optional :type, String
+
+          # @!method initialize(entity: nil, positions: nil, type: nil)
+          #   @param entity [Onlyfans::Models::StoryCreateResponse::Data::Question::Entity]
+          #   @param positions [Onlyfans::Models::StoryCreateResponse::Data::Question::Positions]
+          #   @param type [String]
+
+          # @see Onlyfans::Models::StoryCreateResponse::Data::Question#entity
+          class Entity < Onlyfans::Internal::Type::BaseModel
+            # @!attribute id
+            #
+            #   @return [Integer, nil]
+            optional :id, Integer
+
+            # @!attribute created_at
+            #
+            #   @return [String, nil]
+            optional :created_at, String, api_name: :createdAt
+
+            # @!attribute text
+            #
+            #   @return [String, nil]
+            optional :text, String
+
+            # @!method initialize(id: nil, created_at: nil, text: nil)
+            #   @param id [Integer]
+            #   @param created_at [String]
+            #   @param text [String]
+          end
+
+          # @see Onlyfans::Models::StoryCreateResponse::Data::Question#positions
+          class Positions < Onlyfans::Internal::Type::BaseModel
+            # @!attribute angle
+            #
+            #   @return [Integer, nil]
+            optional :angle, Integer
+
+            # @!attribute color
+            #
+            #   @return [String, nil]
+            optional :color, String
+
+            # @!attribute height
+            #
+            #   @return [Integer, nil]
+            optional :height, Integer
+
+            # @!attribute left
+            #
+            #   @return [Integer, nil]
+            optional :left, Integer
+
+            # @!attribute top
+            #
+            #   @return [Integer, nil]
+            optional :top, Integer
+
+            # @!attribute width
+            #
+            #   @return [Integer, nil]
+            optional :width, Integer
+
+            # @!attribute x
+            #
+            #   @return [String, nil]
+            optional :x, String, nil?: true
+
+            # @!attribute y_
+            #
+            #   @return [String, nil]
+            optional :y_, String, api_name: :y, nil?: true
+
+            # @!attribute z_index
+            #
+            #   @return [Integer, nil]
+            optional :z_index, Integer, api_name: :zIndex
+
+            # @!method initialize(angle: nil, color: nil, height: nil, left: nil, top: nil, width: nil, x: nil, y_: nil, z_index: nil)
+            #   @param angle [Integer]
+            #   @param color [String]
+            #   @param height [Integer]
+            #   @param left [Integer]
+            #   @param top [Integer]
+            #   @param width [Integer]
+            #   @param x [String, nil]
+            #   @param y_ [String, nil]
+            #   @param z_index [Integer]
+          end
+        end
+
+        class ReleaseForm < Onlyfans::Internal::Type::BaseModel
+          # @!attribute id
+          #
+          #   @return [Integer, nil]
+          optional :id, Integer
+
+          # @!attribute name
+          #
+          #   @return [String, nil]
+          optional :name, String
+
+          # @!attribute partner_source
+          #
+          #   @return [String, nil]
+          optional :partner_source, String, api_name: :partnerSource
+
+          # @!attribute type
+          #
+          #   @return [String, nil]
+          optional :type, String
+
+          # @!attribute user
+          #
+          #   @return [Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User, nil]
+          optional :user, -> { Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User }
+
+          # @!method initialize(id: nil, name: nil, partner_source: nil, type: nil, user: nil)
+          #   @param id [Integer]
+          #   @param name [String]
+          #   @param partner_source [String]
+          #   @param type [String]
+          #   @param user [Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm::User]
+
+          # @see Onlyfans::Models::StoryCreateResponse::Data::ReleaseForm#user
+          class User < Onlyfans::Internal::Type::BaseModel
+            # @!attribute id
+            #
+            #   @return [Integer, nil]
+            optional :id, Integer
+
+            # @!attribute avatar
+            #
+            #   @return [String, nil]
+            optional :avatar, String, nil?: true
+
+            # @!attribute avatar_thumbs
+            #
+            #   @return [String, nil]
+            optional :avatar_thumbs, String, api_name: :avatarThumbs, nil?: true
+
+            # @!attribute is_from_guest
+            #
+            #   @return [Boolean, nil]
+            optional :is_from_guest, Onlyfans::Internal::Type::Boolean, api_name: :isFromGuest
+
+            # @!attribute is_identity_verified
+            #
+            #   @return [Boolean, nil]
+            optional :is_identity_verified, Onlyfans::Internal::Type::Boolean, api_name: :isIdentityVerified
+
+            # @!attribute iv_status
+            #
+            #   @return [String, nil]
+            optional :iv_status, String, api_name: :ivStatus
+
+            # @!attribute name
+            #
+            #   @return [String, nil]
+            optional :name, String
+
+            # @!attribute username
+            #
+            #   @return [String, nil]
+            optional :username, String
+
+            # @!attribute view
+            #
+            #   @return [String, nil]
+            optional :view, String
+
+            # @!method initialize(id: nil, avatar: nil, avatar_thumbs: nil, is_from_guest: nil, is_identity_verified: nil, iv_status: nil, name: nil, username: nil, view: nil)
+            #   @param id [Integer]
+            #   @param avatar [String, nil]
+            #   @param avatar_thumbs [String, nil]
+            #   @param is_from_guest [Boolean]
+            #   @param is_identity_verified [Boolean]
+            #   @param iv_status [String]
+            #   @param name [String]
+            #   @param username [String]
+            #   @param view [String]
+          end
+        end
+
+        class Text < Onlyfans::Internal::Type::BaseModel
+          # @!attribute angle
+          #
+          #   @return [Integer, nil]
+          optional :angle, Integer
+
+          # @!attribute bg_color
+          #
+          #   @return [String, nil]
+          optional :bg_color, String, api_name: :bgColor
+
+          # @!attribute color
+          #
+          #   @return [String, nil]
+          optional :color, String
+
+          # @!attribute font_family
+          #
+          #   @return [String, nil]
+          optional :font_family, String, api_name: :fontFamily
+
+          # @!attribute font_size
+          #
+          #   @return [String, nil]
+          optional :font_size, String, api_name: :fontSize
+
+          # @!attribute font_style
+          #
+          #   @return [String, nil]
+          optional :font_style, String, api_name: :fontStyle, nil?: true
+
+          # @!attribute font_weight
+          #
+          #   @return [Integer, nil]
+          optional :font_weight, Integer, api_name: :fontWeight
+
+          # @!attribute left
+          #
+          #   @return [Integer, nil]
+          optional :left, Integer
+
+          # @!attribute scale
+          #
+          #   @return [Integer, nil]
+          optional :scale, Integer
+
+          # @!attribute text
+          #
+          #   @return [String, nil]
+          optional :text, String
+
+          # @!attribute text_align
+          #
+          #   @return [String, nil]
+          optional :text_align, String, api_name: :textAlign
+
+          # @!attribute text_height
+          #
+          #   @return [Float, nil]
+          optional :text_height, Float, api_name: :textHeight
+
+          # @!attribute text_width
+          #
+          #   @return [Integer, nil]
+          optional :text_width, Integer, api_name: :textWidth
+
+          # @!attribute top
+          #
+          #   @return [Integer, nil]
+          optional :top, Integer
+
+          # @!attribute type
+          #
+          #   @return [String, nil]
+          optional :type, String
+
+          # @!attribute users
+          #
+          #   @return [Array<Object>, nil]
+          optional :users, Onlyfans::Internal::Type::ArrayOf[Onlyfans::Internal::Type::Unknown]
+
+          # @!attribute z_index
+          #
+          #   @return [Integer, nil]
+          optional :z_index, Integer, api_name: :zIndex
+
+          # @!method initialize(angle: nil, bg_color: nil, color: nil, font_family: nil, font_size: nil, font_style: nil, font_weight: nil, left: nil, scale: nil, text: nil, text_align: nil, text_height: nil, text_width: nil, top: nil, type: nil, users: nil, z_index: nil)
+          #   @param angle [Integer]
+          #   @param bg_color [String]
+          #   @param color [String]
+          #   @param font_family [String]
+          #   @param font_size [String]
+          #   @param font_style [String, nil]
+          #   @param font_weight [Integer]
+          #   @param left [Integer]
+          #   @param scale [Integer]
+          #   @param text [String]
+          #   @param text_align [String]
+          #   @param text_height [Float]
+          #   @param text_width [Integer]
+          #   @param top [Integer]
+          #   @param type [String]
+          #   @param users [Array<Object>]
+          #   @param z_index [Integer]
         end
       end
     end

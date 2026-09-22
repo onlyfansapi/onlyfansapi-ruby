@@ -4,8 +4,10 @@ module Onlyfans
       type summary_get_summary_response =
         {
           analyzed_message_count: Integer,
+          custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField],
           error_message: String?,
           last_analyzed_at: String,
+          last_buy_date: String,
           status: String,
           summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
         }
@@ -15,11 +17,21 @@ module Onlyfans
 
         def analyzed_message_count=: (Integer) -> Integer
 
+        attr_reader custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField]?
+
+        def custom_fields=: (
+          ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField]
+        ) -> ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField]
+
         attr_accessor error_message: String?
 
         attr_reader last_analyzed_at: String?
 
         def last_analyzed_at=: (String) -> String
+
+        attr_reader last_buy_date: String?
+
+        def last_buy_date=: (String) -> String
 
         attr_reader status: String?
 
@@ -33,23 +45,45 @@ module Onlyfans
 
         def initialize: (
           ?analyzed_message_count: Integer,
+          ?custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField],
           ?error_message: String?,
           ?last_analyzed_at: String,
+          ?last_buy_date: String,
           ?status: String,
           ?summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
         ) -> void
 
         def to_hash: -> {
           analyzed_message_count: Integer,
+          custom_fields: ::Array[Onlyfans::Models::Fans::SummaryGetSummaryResponse::CustomField],
           error_message: String?,
           last_analyzed_at: String,
+          last_buy_date: String,
           status: String,
           summary_data: Onlyfans::Models::Fans::SummaryGetSummaryResponse::SummaryData
         }
 
+        type custom_field = { key: String, label: String }
+
+        class CustomField < Onlyfans::Internal::Type::BaseModel
+          attr_reader key: String?
+
+          def key=: (String) -> String
+
+          attr_reader label: String?
+
+          def label=: (String) -> String
+
+          def initialize: (?key: String, ?label: String) -> void
+
+          def to_hash: -> { key: String, label: String }
+        end
+
         type summary_data =
           {
+            content_dislikes: String,
             content_preferences: String,
+            dos_and_donts: String,
             family_pets: String,
             hobbies: String,
             interests: String,
@@ -58,14 +92,23 @@ module Onlyfans
             other_notes: String,
             preferred_name: String,
             requests: String,
+            spend_cadence: String,
             themes: String,
             travel_plans: String
           }
 
         class SummaryData < Onlyfans::Internal::Type::BaseModel
+          attr_reader content_dislikes: String?
+
+          def content_dislikes=: (String) -> String
+
           attr_reader content_preferences: String?
 
           def content_preferences=: (String) -> String
+
+          attr_reader dos_and_donts: String?
+
+          def dos_and_donts=: (String) -> String
 
           attr_reader family_pets: String?
 
@@ -99,6 +142,10 @@ module Onlyfans
 
           def requests=: (String) -> String
 
+          attr_reader spend_cadence: String?
+
+          def spend_cadence=: (String) -> String
+
           attr_reader themes: String?
 
           def themes=: (String) -> String
@@ -108,7 +155,9 @@ module Onlyfans
           def travel_plans=: (String) -> String
 
           def initialize: (
+            ?content_dislikes: String,
             ?content_preferences: String,
+            ?dos_and_donts: String,
             ?family_pets: String,
             ?hobbies: String,
             ?interests: String,
@@ -117,12 +166,15 @@ module Onlyfans
             ?other_notes: String,
             ?preferred_name: String,
             ?requests: String,
+            ?spend_cadence: String,
             ?themes: String,
             ?travel_plans: String
           ) -> void
 
           def to_hash: -> {
+            content_dislikes: String,
             content_preferences: String,
+            dos_and_donts: String,
             family_pets: String,
             hobbies: String,
             interests: String,
@@ -131,6 +183,7 @@ module Onlyfans
             other_notes: String,
             preferred_name: String,
             requests: String,
+            spend_cadence: String,
             themes: String,
             travel_plans: String
           }

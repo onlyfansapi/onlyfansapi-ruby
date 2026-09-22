@@ -30,7 +30,8 @@ module Onlyfans
       optional :offset, String
 
       # @!attribute skip_users
-      #   Whether to skip user details in response (all or none). Default = all
+      #   Whether to skip user details in the response (`all` or `none`). Defaults to
+      #   `all`.
       #
       #   @return [String, nil]
       optional :skip_users, String
@@ -42,6 +43,9 @@ module Onlyfans
       optional :type, enum: -> { Onlyfans::ChatListMediaParams::Type }, nil?: true
 
       # @!method initialize(account:, chat_id:, limit: nil, offset: nil, skip_users: nil, type: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfans::Models::ChatListMediaParams} for more details.
+      #
       #   @param account [String]
       #
       #   @param chat_id [String]
@@ -50,7 +54,7 @@ module Onlyfans
       #
       #   @param offset [String] Number of medias to skip for pagination
       #
-      #   @param skip_users [String] Whether to skip user details in response (all or none). Default = all
+      #   @param skip_users [String] Whether to skip user details in the response (`all` or `none`). Defaults to `all
       #
       #   @param type [Symbol, Onlyfans::Models::ChatListMediaParams::Type, nil] Filter by specific media types. Keep empty to return all.
       #

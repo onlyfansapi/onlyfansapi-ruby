@@ -11,7 +11,7 @@ module Onlyfans
           T.any(Onlyfans::LinkTagListParams, Onlyfans::Internal::AnyHash)
         end
 
-      # Filter by link type. If not provided, returns tags for both types.
+      # Filter by link type. If not provided, returns tags for all types.
       sig { returns(T.nilable(Onlyfans::LinkTagListParams::Type::OrSymbol)) }
       attr_reader :type
 
@@ -25,7 +25,7 @@ module Onlyfans
         ).returns(T.attached_class)
       end
       def self.new(
-        # Filter by link type. If not provided, returns tags for both types.
+        # Filter by link type. If not provided, returns tags for all types.
         type: nil,
         request_options: {}
       )
@@ -42,7 +42,7 @@ module Onlyfans
       def to_hash
       end
 
-      # Filter by link type. If not provided, returns tags for both types.
+      # Filter by link type. If not provided, returns tags for all types.
       module Type
         extend Onlyfans::Internal::Type::Enum
 
@@ -57,6 +57,8 @@ module Onlyfans
             :tracking_links,
             Onlyfans::LinkTagListParams::Type::TaggedSymbol
           )
+        SMART_LINKS =
+          T.let(:smart_links, Onlyfans::LinkTagListParams::Type::TaggedSymbol)
 
         sig do
           override.returns(
