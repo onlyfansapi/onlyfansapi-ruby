@@ -1,8 +1,13 @@
-# Only Fans API Ruby API library
+# OnlyFans Ruby SDK
 
-The Only Fans API Ruby library provides convenient access to the Only Fans API REST API from any Ruby 3.2.0+ application. It ships with comprehensive types & docstrings in Yard, RBS, and RBI – [see below](https://github.com/onlyfansapi/onlyfansapi-ruby#Sorbet) for usage with Sorbet. The standard library's `net/http` is used as the HTTP transport, with connection pooling via the `connection_pool` gem.
+[![Gem version](https://img.shields.io/gem/v/onlyfans.svg)](https://rubygems.org/gems/onlyfans)
 
-It is generated with [Stainless](https://www.stainless.com/).
+The OnlyFans Ruby SDK for the [OnlyFans API](https://onlyfansapi.com). Add the `onlyfans` gem and call any OnlyFans API endpoint from Ruby 3.2+, with types for Sorbet and RBS, plus Rails examples for credentials, controllers, signed webhooks and Active Job.
+
+- **OnlyFans Ruby SDK guide:** [onlyfansapi.com/sdk/ruby](https://onlyfansapi.com/sdk/ruby)
+- **OnlyFans API:** [onlyfansapi.com](https://onlyfansapi.com)
+- **API reference:** [docs.onlyfansapi.com](https://docs.onlyfansapi.com)
+- **Get an API key:** [app.onlyfansapi.com](https://app.onlyfansapi.com)
 
 ## Documentation
 
