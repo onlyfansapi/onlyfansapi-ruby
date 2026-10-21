@@ -27,7 +27,7 @@ module Onlyfans
         from_id: nil,
         # The number of notifications. Default `10`
         limit: nil,
-        # Whether to skip user details. Default `all`
+        # Whether to skip user details. Defaults to `all`.
         skip_users: nil,
         # Filter notifications by a specific type
         type: nil,

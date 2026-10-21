@@ -5,11 +5,12 @@ module Onlyfans
         account: String,
         id: String,
         text: String,
+        block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words,
         giphy_id: String,
         locked_text: bool,
         media_files: ::Array[String],
         previews: ::Array[String],
-        price: Integer,
+        price: Float,
         scheduled_date: String,
         user_ids: ::Array[String],
         user_lists: ::Array[String]
@@ -25,6 +26,12 @@ module Onlyfans
       attr_accessor id: String
 
       attr_accessor text: String
+
+      attr_reader block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words?
+
+      def block_banned_words=: (
+        Onlyfans::Models::MassMessagingUpdateParams::block_banned_words
+      ) -> Onlyfans::Models::MassMessagingUpdateParams::block_banned_words
 
       attr_reader giphy_id: String?
 
@@ -42,9 +49,9 @@ module Onlyfans
 
       def previews=: (::Array[String]) -> ::Array[String]
 
-      attr_reader price: Integer?
+      attr_reader price: Float?
 
-      def price=: (Integer) -> Integer
+      def price=: (Float) -> Float
 
       attr_reader scheduled_date: String?
 
@@ -62,11 +69,12 @@ module Onlyfans
         account: String,
         id: String,
         text: String,
+        ?block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words,
         ?giphy_id: String,
         ?locked_text: bool,
         ?media_files: ::Array[String],
         ?previews: ::Array[String],
-        ?price: Integer,
+        ?price: Float,
         ?scheduled_date: String,
         ?user_ids: ::Array[String],
         ?user_lists: ::Array[String],
@@ -77,16 +85,29 @@ module Onlyfans
         account: String,
         id: String,
         text: String,
+        block_banned_words: Onlyfans::Models::MassMessagingUpdateParams::block_banned_words,
         giphy_id: String,
         locked_text: bool,
         media_files: ::Array[String],
         previews: ::Array[String],
-        price: Integer,
+        price: Float,
         scheduled_date: String,
         user_ids: ::Array[String],
         user_lists: ::Array[String],
         request_options: Onlyfans::RequestOptions
       }
+
+      type block_banned_words = :strict_ban | :risky | :replace_soften
+
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        STRICT_BAN: :strict_ban
+        RISKY: :risky
+        REPLACE_SOFTEN: :replace_soften
+
+        def self?.values: -> ::Array[Onlyfans::Models::MassMessagingUpdateParams::block_banned_words]
+      end
     end
   end
 end

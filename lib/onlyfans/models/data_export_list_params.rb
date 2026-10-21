@@ -75,9 +75,14 @@ module Onlyfans
         MEDIA_VAULT = :media_vault
         TRIAL_LINKS = :trial_links
         TRACKING_LINKS = :tracking_links
+        SMART_LINKS = :smart_links
         PAYOUTS = :payouts
         CHARGEBACKS = :chargebacks
         PUBLIC_PROFILES = :public_profiles
+        FANS = :fans
+        FOLLOWINGS = :followings
+        PROFILE_VISITORS = :profile_visitors
+        FANSLY_CHAT_MESSAGES = :fansly_chat_messages
 
         # @!method self.values
         #   @return [Array<Symbol>]

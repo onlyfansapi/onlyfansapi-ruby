@@ -15,7 +15,7 @@ module Onlyfans
           #
           # @param account [String] The Account ID
           #
-          # @param end_date [String] The latest message to retrieve. Keep empty to get all. MUST BE DATE AFTER `start
+          # @param end_date [String] The latest message to retrieve. Keep empty to get all. It must be after `startDa
           #
           # @param limit [Integer] Number of messages to return (default = 10)
           #
@@ -47,7 +47,7 @@ module Onlyfans
           #
           # @param account [String] The Account ID
           #
-          # @param end_date [String] End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+          # @param end_date [String] End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
           #
           # @param start_date [String] Start of the chart window in `Y-m-d H:i:s` format.
           #

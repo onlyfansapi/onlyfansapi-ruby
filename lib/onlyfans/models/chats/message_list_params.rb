@@ -25,9 +25,9 @@ module Onlyfans
         optional :filter, enum: -> { Onlyfans::Chats::MessageListParams::Filter }
 
         # @!attribute first_id
-        #   Use for pagination when `order=desc` (newest to oldest). Include this message ID
-        #   as the first message in the results. Used to retrieve messages from e.g. the
-        #   Search Chat Messages endpoint IDs.
+        #   Use for pagination when `order=desc` (newest to oldest). Pass the last message
+        #   ID from the previous page to retrieve older messages, excluding that cursor
+        #   message.
         #
         #   @return [String, nil]
         optional :first_id, String, nil?: true
@@ -54,7 +54,7 @@ module Onlyfans
         optional :order, String
 
         # @!attribute skip_users
-        #   Whether to skip user details (all or none)
+        #   Whether to skip user details (`all` or `none`).
         #
         #   @return [String, nil]
         optional :skip_users, String
@@ -69,7 +69,7 @@ module Onlyfans
         #
         #   @param filter [Symbol, Onlyfans::Models::Chats::MessageListParams::Filter] Filter by certain messages. Currently, only pins are filterable.
         #
-        #   @param first_id [String, nil] Use for pagination when `order=desc` (newest to oldest). Include this message ID
+        #   @param first_id [String, nil] Use for pagination when `order=desc` (newest to oldest). Pass the last message I
         #
         #   @param last_id [String, nil] Use for pagination when `order=asc` (oldest to newest). Include this message ID
         #
@@ -77,7 +77,7 @@ module Onlyfans
         #
         #   @param order [String] Sort order for messages (desc or asc)
         #
-        #   @param skip_users [String] Whether to skip user details (all or none)
+        #   @param skip_users [String] Whether to skip user details (`all` or `none`).
         #
         #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 

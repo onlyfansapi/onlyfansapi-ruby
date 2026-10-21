@@ -7,6 +7,8 @@ module Onlyfans
         ?limit: Integer,
         ?offset: Integer,
         ?query: String?,
+        ?sort: Onlyfans::Models::FollowingListActiveParams::sort?,
+        ?sort_direction: Onlyfans::Models::FollowingListActiveParams::sort_direction?,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::FollowingListActiveResponse
 
@@ -16,6 +18,8 @@ module Onlyfans
         ?limit: Integer,
         ?offset: Integer,
         ?query: String?,
+        ?sort: Onlyfans::Models::FollowingListAllParams::sort?,
+        ?sort_direction: Onlyfans::Models::FollowingListAllParams::sort_direction?,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::FollowingListAllResponse
 
@@ -25,6 +29,8 @@ module Onlyfans
         ?limit: Integer,
         ?offset: Integer,
         ?query: String?,
+        ?sort: Onlyfans::Models::FollowingListExpiredParams::sort?,
+        ?sort_direction: Onlyfans::Models::FollowingListExpiredParams::sort_direction?,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::FollowingListExpiredResponse
 

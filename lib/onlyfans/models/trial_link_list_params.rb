@@ -12,57 +12,74 @@ module Onlyfans
       #   @return [String]
       required :account, String
 
-      # @!attribute limit
-      #   The number of trial links to return. Default `10`
+      # @!attribute end_date
+      #   The end date for trial links. Keep empty to get all. Must not be greater than
+      #   255 characters.
       #
-      #   @return [Integer]
-      required :limit, Integer
-
-      # @!attribute offset
-      #   The offset used for pagination. Default `0`
-      #
-      #   @return [Integer]
-      required :offset, Integer
+      #   @return [String, nil]
+      optional :end_date, String, nil?: true
 
       # @!attribute field
-      #   Sort the results by a field. Default `create_date`
+      #   Field to sort by. Default `create_date`.
       #
       #   @return [Symbol, Onlyfans::Models::TrialLinkListParams::Field, nil]
-      optional :field, enum: -> { Onlyfans::TrialLinkListParams::Field }, nil?: true
+      optional :field, enum: -> { Onlyfans::TrialLinkListParams::Field }
+
+      # @!attribute limit
+      #   The number of trial links to return. Default `10`. Must be at least 1. Must not
+      #   be greater than 100.
+      #
+      #   @return [Integer, nil]
+      optional :limit, Integer
+
+      # @!attribute offset
+      #   The offset used for pagination. Default `0`. Must be at least 0.
+      #
+      #   @return [Integer, nil]
+      optional :offset, Integer
 
       # @!attribute sort
-      #   Sort the results. Default `desc`
+      #   Sort direction. Default `desc`.
       #
       #   @return [Symbol, Onlyfans::Models::TrialLinkListParams::Sort, nil]
-      optional :sort, enum: -> { Onlyfans::TrialLinkListParams::Sort }, nil?: true
+      optional :sort, enum: -> { Onlyfans::TrialLinkListParams::Sort }
+
+      # @!attribute start_date
+      #   The start date for trial links. Keep empty to get all. Must not be greater than
+      #   255 characters.
+      #
+      #   @return [String, nil]
+      optional :start_date, String, nil?: true
 
       # @!attribute synchronous
-      #   Wait for the revenue data to finish processing, instead of processing in the
-      #   background. **Will result in longer response times, use with caution**. Default
-      #   `false`
+      #   Wait for revenue calculation instead of processing it in the background.
       #
       #   @return [Boolean, nil]
-      optional :synchronous, Onlyfans::Internal::Type::Boolean, nil?: true
+      optional :synchronous, Onlyfans::Internal::Type::Boolean
 
-      # @!method initialize(account:, limit:, offset:, field: nil, sort: nil, synchronous: nil, request_options: {})
+      # @!method initialize(account:, end_date: nil, field: nil, limit: nil, offset: nil, sort: nil, start_date: nil, synchronous: nil, request_options: {})
       #   Some parameter documentations has been truncated, see
       #   {Onlyfans::Models::TrialLinkListParams} for more details.
       #
       #   @param account [String]
       #
-      #   @param limit [Integer] The number of trial links to return. Default `10`
+      #   @param end_date [String, nil] The end date for trial links. Keep empty to get all. Must not be greater than 25
       #
-      #   @param offset [Integer] The offset used for pagination. Default `0`
+      #   @param field [Symbol, Onlyfans::Models::TrialLinkListParams::Field] Field to sort by. Default `create_date`.
       #
-      #   @param field [Symbol, Onlyfans::Models::TrialLinkListParams::Field, nil] Sort the results by a field. Default `create_date`
+      #   @param limit [Integer] The number of trial links to return. Default `10`. Must be at least 1. Must not
       #
-      #   @param sort [Symbol, Onlyfans::Models::TrialLinkListParams::Sort, nil] Sort the results. Default `desc`
+      #   @param offset [Integer] The offset used for pagination. Default `0`. Must be at least 0.
       #
-      #   @param synchronous [Boolean, nil] Wait for the revenue data to finish processing, instead of processing in the bac
+      #   @param sort [Symbol, Onlyfans::Models::TrialLinkListParams::Sort] Sort direction. Default `desc`.
+      #
+      #   @param start_date [String, nil] The start date for trial links. Keep empty to get all. Must not be greater than
+      #
+      #   @param synchronous [Boolean] Wait for revenue calculation instead of processing it in the background.
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 
-      # Sort the results by a field. Default `create_date`
+      # Field to sort by. Default `create_date`.
       module Field
         extend Onlyfans::Internal::Type::Enum
 
@@ -76,12 +93,12 @@ module Onlyfans
         #   @return [Array<Symbol>]
       end
 
-      # Sort the results. Default `desc`
+      # Sort direction. Default `desc`.
       module Sort
         extend Onlyfans::Internal::Type::Enum
 
-        DESC = :desc
         ASC = :asc
+        DESC = :desc
 
         # @!method self.values
         #   @return [Array<Symbol>]

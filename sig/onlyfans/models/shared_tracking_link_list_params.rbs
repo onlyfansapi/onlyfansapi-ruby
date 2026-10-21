@@ -1,7 +1,16 @@
 module Onlyfans
   module Models
     type shared_tracking_link_list_params =
-      { account: String, limit: Integer, offset: Integer, synchronous: bool? }
+      {
+        account: String,
+        limit: Integer,
+        offset: Integer,
+        pagination: Onlyfans::Models::SharedTrackingLinkListParams::pagination,
+        sorting_deleted: Onlyfans::Models::SharedTrackingLinkListParams::sorting_deleted,
+        stats: String,
+        synchronous: bool,
+        with_deleted: Onlyfans::Models::SharedTrackingLinkListParams::with_deleted
+      }
       & Onlyfans::Internal::Type::request_parameters
 
     class SharedTrackingLinkListParams < Onlyfans::Internal::Type::BaseModel
@@ -18,13 +27,41 @@ module Onlyfans
 
       def offset=: (Integer) -> Integer
 
-      attr_accessor synchronous: bool?
+      attr_reader pagination: Onlyfans::Models::SharedTrackingLinkListParams::pagination?
+
+      def pagination=: (
+        Onlyfans::Models::SharedTrackingLinkListParams::pagination
+      ) -> Onlyfans::Models::SharedTrackingLinkListParams::pagination
+
+      attr_reader sorting_deleted: Onlyfans::Models::SharedTrackingLinkListParams::sorting_deleted?
+
+      def sorting_deleted=: (
+        Onlyfans::Models::SharedTrackingLinkListParams::sorting_deleted
+      ) -> Onlyfans::Models::SharedTrackingLinkListParams::sorting_deleted
+
+      attr_reader stats: String?
+
+      def stats=: (String) -> String
+
+      attr_reader synchronous: bool?
+
+      def synchronous=: (bool) -> bool
+
+      attr_reader with_deleted: Onlyfans::Models::SharedTrackingLinkListParams::with_deleted?
+
+      def with_deleted=: (
+        Onlyfans::Models::SharedTrackingLinkListParams::with_deleted
+      ) -> Onlyfans::Models::SharedTrackingLinkListParams::with_deleted
 
       def initialize: (
         account: String,
         ?limit: Integer,
         ?offset: Integer,
-        ?synchronous: bool?,
+        ?pagination: Onlyfans::Models::SharedTrackingLinkListParams::pagination,
+        ?sorting_deleted: Onlyfans::Models::SharedTrackingLinkListParams::sorting_deleted,
+        ?stats: String,
+        ?synchronous: bool,
+        ?with_deleted: Onlyfans::Models::SharedTrackingLinkListParams::with_deleted,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
@@ -32,9 +69,46 @@ module Onlyfans
         account: String,
         limit: Integer,
         offset: Integer,
-        synchronous: bool?,
+        pagination: Onlyfans::Models::SharedTrackingLinkListParams::pagination,
+        sorting_deleted: Onlyfans::Models::SharedTrackingLinkListParams::sorting_deleted,
+        stats: String,
+        synchronous: bool,
+        with_deleted: Onlyfans::Models::SharedTrackingLinkListParams::with_deleted,
         request_options: Onlyfans::RequestOptions
       }
+
+      type pagination = 0 | 1
+
+      module Pagination
+        extend Onlyfans::Internal::Type::Enum
+
+        PAGINATION_0: 0
+        PAGINATION_1: 1
+
+        def self?.values: -> ::Array[Onlyfans::Models::SharedTrackingLinkListParams::pagination]
+      end
+
+      type sorting_deleted = 0 | 1
+
+      module SortingDeleted
+        extend Onlyfans::Internal::Type::Enum
+
+        SORTING_DELETED_0: 0
+        SORTING_DELETED_1: 1
+
+        def self?.values: -> ::Array[Onlyfans::Models::SharedTrackingLinkListParams::sorting_deleted]
+      end
+
+      type with_deleted = 0 | 1
+
+      module WithDeleted
+        extend Onlyfans::Internal::Type::Enum
+
+        WITH_DELETED_0: 0
+        WITH_DELETED_1: 1
+
+        def self?.values: -> ::Array[Onlyfans::Models::SharedTrackingLinkListParams::with_deleted]
+      end
     end
   end
 end

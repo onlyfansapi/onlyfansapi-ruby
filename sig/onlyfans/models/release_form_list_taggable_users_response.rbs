@@ -157,29 +157,28 @@ module Onlyfans
         end
       end
 
-      type pagination = { next_page: String }
+      type pagination = { next_page: String, notice: String }
 
       class Pagination < Onlyfans::Internal::Type::BaseModel
         attr_reader next_page: String?
 
         def next_page=: (String) -> String
 
-        def initialize: (?next_page: String) -> void
+        attr_reader notice: String?
 
-        def to_hash: -> { next_page: String }
+        def notice=: (String) -> String
+
+        def initialize: (?next_page: String, ?notice: String) -> void
+
+        def to_hash: -> { next_page: String, notice: String }
       end
 
       type data =
         {
-          has_more: bool,
           items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
         }
 
       class Data < Onlyfans::Internal::Type::BaseModel
-        attr_reader has_more: bool?
-
-        def has_more=: (bool) -> bool
-
         attr_reader items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]?
 
         def items=: (
@@ -187,12 +186,10 @@ module Onlyfans
         ) -> ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
 
         def initialize: (
-          ?has_more: bool,
           ?items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
         ) -> void
 
         def to_hash: -> {
-          has_more: bool,
           items: ::Array[Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item]
         }
 

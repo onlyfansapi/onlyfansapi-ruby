@@ -18,6 +18,27 @@ module Onlyfans
       sig { returns(String) }
       attr_accessor :text
 
+      # Screen `text` for OnlyFans banned words and block the send if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      sig do
+        returns(
+          T.nilable(
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::OrSymbol
+          )
+        )
+      end
+      attr_reader :block_banned_words
+
+      sig do
+        params(
+          block_banned_words:
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::OrSymbol
+        ).void
+      end
+      attr_writer :block_banned_words
+
       # Array of user list IDs that the mass message will NOT be sent to.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :excluded_lists
@@ -57,12 +78,12 @@ module Onlyfans
       sig { params(previews: T::Array[T.anything]).void }
       attr_writer :previews
 
-      # Price for paid content (0 or between 3-200). In case this is not zero,
+      # Price for paid content in USD (0 or between 3-200). In case this is not zero,
       # **mediaFiles** is required
-      sig { returns(T.nilable(Integer)) }
+      sig { returns(T.nilable(Float)) }
       attr_reader :price
 
-      sig { params(price: Integer).void }
+      sig { params(price: Float).void }
       attr_writer :price
 
       # Array of OnlyFans Release Form Guest IDs to tag in your mass message
@@ -100,6 +121,15 @@ module Onlyfans
       sig { params(scheduled_date: String).void }
       attr_writer :scheduled_date
 
+      # Only send to fans who subscribed within the last N calendar days (1-30,
+      # including today). Can be combined with `userLists` and `userIds`. Cannot be
+      # combined with `scheduledDate` or `saveForLater`.
+      sig { returns(T.nilable(Integer)) }
+      attr_reader :subscribed_within_last_days
+
+      sig { params(subscribed_within_last_days: Integer).void }
+      attr_writer :subscribed_within_last_days
+
       # Array of user IDs that the mass message will be sent to.
       sig { returns(T.nilable(T::Array[String])) }
       attr_reader :user_ids
@@ -118,17 +148,20 @@ module Onlyfans
         params(
           account: String,
           text: String,
+          block_banned_words:
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::OrSymbol,
           excluded_lists: T::Array[String],
           giphy_id: String,
           locked_text: T::Boolean,
           media_files: T::Array[T.anything],
           previews: T::Array[T.anything],
-          price: Integer,
+          price: Float,
           rf_guest: String,
           rf_partner: String,
           rf_tag: String,
           save_for_later: T::Boolean,
           scheduled_date: String,
+          subscribed_within_last_days: Integer,
           user_ids: T::Array[String],
           user_lists: T::Array[String],
           request_options: Onlyfans::RequestOptions::OrHash
@@ -138,6 +171,11 @@ module Onlyfans
         account:,
         # The message text content
         text:,
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        block_banned_words: nil,
         # Array of user list IDs that the mass message will NOT be sent to.
         excluded_lists: nil,
         # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
@@ -152,7 +190,7 @@ module Onlyfans
         # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
         # provided.
         previews: nil,
-        # Price for paid content (0 or between 3-200). In case this is not zero,
+        # Price for paid content in USD (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
         price: nil,
         # Array of OnlyFans Release Form Guest IDs to tag in your mass message
@@ -165,6 +203,10 @@ module Onlyfans
         save_for_later: nil,
         # Schedule the chat message in the future (UTC timezone).
         scheduled_date: nil,
+        # Only send to fans who subscribed within the last N calendar days (1-30,
+        # including today). Can be combined with `userLists` and `userIds`. Cannot be
+        # combined with `scheduledDate` or `saveForLater`.
+        subscribed_within_last_days: nil,
         # Array of user IDs that the mass message will be sent to.
         user_ids: nil,
         # Array of user list IDs that the mass message will be sent to.
@@ -178,17 +220,20 @@ module Onlyfans
           {
             account: String,
             text: String,
+            block_banned_words:
+              Onlyfans::MassMessagingSendParams::BlockBannedWords::OrSymbol,
             excluded_lists: T::Array[String],
             giphy_id: String,
             locked_text: T::Boolean,
             media_files: T::Array[T.anything],
             previews: T::Array[T.anything],
-            price: Integer,
+            price: Float,
             rf_guest: String,
             rf_partner: String,
             rf_tag: String,
             save_for_later: T::Boolean,
             scheduled_date: String,
+            subscribed_within_last_days: Integer,
             user_ids: T::Array[String],
             user_lists: T::Array[String],
             request_options: Onlyfans::RequestOptions
@@ -196,6 +241,46 @@ module Onlyfans
         )
       end
       def to_hash
+      end
+
+      # Screen `text` for OnlyFans banned words and block the send if any are found
+      # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+      # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+      # only. Omit to disable screening.
+      module BlockBannedWords
+        extend Onlyfans::Internal::Type::Enum
+
+        TaggedSymbol =
+          T.type_alias do
+            T.all(Symbol, Onlyfans::MassMessagingSendParams::BlockBannedWords)
+          end
+        OrSymbol = T.type_alias { T.any(Symbol, String) }
+
+        STRICT_BAN =
+          T.let(
+            :strict_ban,
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::TaggedSymbol
+          )
+        RISKY =
+          T.let(
+            :risky,
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::TaggedSymbol
+          )
+        REPLACE_SOFTEN =
+          T.let(
+            :replace_soften,
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::TaggedSymbol
+          )
+
+        sig do
+          override.returns(
+            T::Array[
+              Onlyfans::MassMessagingSendParams::BlockBannedWords::TaggedSymbol
+            ]
+          )
+        end
+        def self.values
+        end
       end
     end
   end

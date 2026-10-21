@@ -17,20 +17,36 @@ module Onlyfans
           account: String,
           limit: Integer,
           offset: Integer,
-          synchronous: T.nilable(T::Boolean),
+          pagination:
+            Onlyfans::SharedTrackingLinkListParams::Pagination::OrInteger,
+          sorting_deleted:
+            Onlyfans::SharedTrackingLinkListParams::SortingDeleted::OrInteger,
+          stats: String,
+          synchronous: T::Boolean,
+          with_deleted:
+            Onlyfans::SharedTrackingLinkListParams::WithDeleted::OrInteger,
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::SharedTrackingLinkListResponse)
       end
       def list(
         # The Account ID
         account,
-        # The number of shared tracking links to return. Default `10`
+        # The number of shared tracking links to return. Default `10`. Must be at least 1.
+        # Must not be greater than 100.
         limit: nil,
-        # The offset used for pagination. Default `0`
+        # The offset used for pagination. Default `0`. Must be at least 0.
         offset: nil,
-        # Wait for the database sync to finish, instead of running it in the background.
-        # **Will result in longer response times, use with caution**. Default `false`
+        # Whether pagination metadata is enabled. Default `1`.
+        pagination: nil,
+        # Whether deleted links participate in sorting. Default `1`.
+        sorting_deleted: nil,
+        # Whether statistics are included. Default `true`. Must not be greater than 10
+        # characters.
+        stats: nil,
+        # Wait for the database sync instead of processing it in the background.
         synchronous: nil,
+        # Whether to include deleted shared tracking links. Default `1`.
+        with_deleted: nil,
         request_options: {}
       )
       end

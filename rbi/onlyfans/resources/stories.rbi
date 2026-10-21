@@ -8,20 +8,33 @@ module Onlyfans
       sig { returns(Onlyfans::Resources::Stories::Highlights) }
       attr_reader :highlights
 
-      # Post a new media or vault file to your story.
+      # Post a new media or vault file to your story, optionally with text overlays,
+      # @mentions, and a question sticker. Overlay elements are rendered by OnlyFans on
+      # top of your story media at view time.
       sig do
         params(
           account: String,
           media_files: T::Array[String],
+          canvas_height: Integer,
+          canvas_width: Integer,
+          question: Onlyfans::StoryCreateParams::Question::OrHash,
+          texts: T::Array[Onlyfans::StoryCreateParams::Text::OrHash],
           request_options: Onlyfans::RequestOptions::OrHash
         ).returns(Onlyfans::Models::StoryCreateResponse)
       end
       def create(
         # The Account ID
         account,
-        # Array of media file upload prefixed_ids, or OF media IDs (required if price is
-        # not 0).
+        # Array of media file upload prefixed_ids, or OF vault media IDs.
         media_files:,
+        # Canvas height overlay positions are relative to. Default `1920`.
+        canvas_height: nil,
+        # Canvas width overlay positions are relative to. Default `1080`.
+        canvas_width: nil,
+        # Interactive question sticker viewers can answer.
+        question: nil,
+        # Text and @mention overlays.
+        texts: nil,
         request_options: {}
       )
       end

@@ -14,8 +14,9 @@ module Onlyfans
           String user_list_id,
           account: String,
           ids: ::Array[String],
+          ?skip_invalid: bool,
           ?request_options: Onlyfans::request_opts
-        ) -> Onlyfans::Models::UserLists::UserAddResponse
+        ) -> Onlyfans::Models::UserLists::user_add_response
 
         def clear: (
           String user_list_id,

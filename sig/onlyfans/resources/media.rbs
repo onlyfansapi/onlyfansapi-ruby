@@ -9,7 +9,7 @@ module Onlyfans
         String cdn_url,
         account: String,
         ?request_options: Onlyfans::request_opts
-      ) -> String
+      ) -> nil
 
       def scrape: (
         String account,

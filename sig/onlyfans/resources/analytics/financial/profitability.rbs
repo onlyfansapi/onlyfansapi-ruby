@@ -8,14 +8,14 @@ module Onlyfans
             account_prefixed_id: String,
             ?months: Integer,
             ?request_options: Onlyfans::request_opts
-          ) -> Onlyfans::Models::Analytics::Financial::profitability_get_history_response
+          ) -> Onlyfans::Models::Analytics::Financial::ProfitabilityGetHistoryResponse
 
           def get_profitability: (
             account_ids: ::Array[String],
             month: Integer,
             year: Integer,
             ?request_options: Onlyfans::request_opts
-          ) -> Onlyfans::Models::Analytics::Financial::profitability_get_profitability_response
+          ) -> Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse
 
           def initialize: (client: Onlyfans::Client) -> void
         end

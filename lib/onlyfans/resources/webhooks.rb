@@ -10,14 +10,15 @@ module Onlyfans
       #
       # @overload create(account_scope:, endpoint_url:, events:, account_ids: nil, signing_secret: nil, request_options: {})
       #
-      # @param account_scope [String] The account scope for the webhook. Use "global" for all accounts, "inclusive" fo
+      # @param account_scope [String] The account scope for the webhook (OnlyFans and Fansly webhooks alike). Use "glo
       #
       # @param endpoint_url [String] The URL of your webhook endpoint.
       #
       # @param events [Array<String>] An array of webhook events to subscribe to. For all options, refer to our
       # \*\*List
       #
-      # @param account_ids [Array<String>] An array of account IDs to apply the scope to. Required unless account_scope is
+      # @param account_ids [Array<String>] An array of account IDs to apply the scope to. Use OnlyFans account IDs
+      # (`acct\_.
       #
       # @param signing_secret [String, nil] Optionally, add a signing secret to protect your webhook.
       #
@@ -66,14 +67,15 @@ module Onlyfans
       #
       # @param webhook_id [String] The ID of the webhook
       #
-      # @param account_scope [String] The account scope for the webhook. Use "global" for all accounts, "inclusive" fo
+      # @param account_scope [String] The account scope for the webhook (OnlyFans and Fansly webhooks alike). Use "glo
       #
       # @param endpoint_url [String] The URL of your webhook endpoint.
       #
       # @param events [Array<String>] An array of webhook events to subscribe to. For all options, refer to our
       # \*\*List
       #
-      # @param account_ids [Array<String>] An array of account IDs to apply the scope to. Required unless account_scope is
+      # @param account_ids [Array<String>] An array of account IDs to apply the scope to. Use OnlyFans account IDs
+      # (`acct\_.
       #
       # @param enabled [Boolean, nil] Optionally, enabled/disable the webhook. This will stop/resume the sending of ev
       #

@@ -4,112 +4,234 @@ module Onlyfans
   module Models
     module Analytics
       module Financial
-        class ProfitabilityGetProfitabilityResponseItem < Onlyfans::Internal::Type::BaseModel
+        class ProfitabilityGetProfitabilityResponse < Onlyfans::Internal::Type::BaseModel
           OrHash =
             T.type_alias do
               T.any(
-                Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem,
+                Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse,
                 Onlyfans::Internal::AnyHash
               )
             end
 
-          sig { returns(T.nilable(Float)) }
-          attr_reader :commission
-
-          sig { params(commission: Float).void }
-          attr_writer :commission
-
-          sig { returns(T.nilable(Integer)) }
-          attr_reader :creator_id
-
-          sig { params(creator_id: Integer).void }
-          attr_writer :creator_id
-
-          sig { returns(T.nilable(Float)) }
-          attr_reader :gross_revenue
-
-          sig { params(gross_revenue: Float).void }
-          attr_writer :gross_revenue
-
-          sig { returns(T.nilable(Float)) }
-          attr_reader :margin
-
-          sig { params(margin: Float).void }
-          attr_writer :margin
-
-          sig { returns(T.nilable(String)) }
-          attr_reader :name
-
-          sig { params(name: String).void }
-          attr_writer :name
-
-          sig { returns(T.nilable(Float)) }
-          attr_reader :net_revenue
-
-          sig { params(net_revenue: Float).void }
-          attr_writer :net_revenue
-
-          sig { returns(T.nilable(Float)) }
-          attr_reader :profit
-
-          sig { params(profit: Float).void }
-          attr_writer :profit
-
-          sig { returns(T.nilable(Float)) }
-          attr_reader :total_costs
-
-          sig { params(total_costs: Float).void }
-          attr_writer :total_costs
+          sig do
+            returns(
+              T.nilable(
+                T::Array[
+                  Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data
+                ]
+              )
+            )
+          end
+          attr_reader :data
 
           sig do
             params(
-              commission: Float,
-              creator_id: Integer,
-              gross_revenue: Float,
-              margin: Float,
-              name: String,
-              net_revenue: Float,
-              profit: Float,
-              total_costs: Float
+              data:
+                T::Array[
+                  Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data::OrHash
+                ]
+            ).void
+          end
+          attr_writer :data
+
+          sig do
+            params(
+              data:
+                T::Array[
+                  Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data::OrHash
+                ]
             ).returns(T.attached_class)
           end
-          def self.new(
-            commission: nil,
-            creator_id: nil,
-            gross_revenue: nil,
-            margin: nil,
-            name: nil,
-            net_revenue: nil,
-            profit: nil,
-            total_costs: nil
-          )
+          def self.new(data: nil)
           end
 
           sig do
             override.returns(
               {
-                commission: Float,
-                creator_id: Integer,
-                gross_revenue: Float,
-                margin: Float,
-                name: String,
-                net_revenue: Float,
-                profit: Float,
-                total_costs: Float
+                data:
+                  T::Array[
+                    Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data
+                  ]
               }
             )
           end
           def to_hash
           end
-        end
 
-        ProfitabilityGetProfitabilityResponse =
-          T.let(
-            Onlyfans::Internal::Type::ArrayOf[
-              Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponseItem
-            ],
-            Onlyfans::Internal::Type::Converter
-          )
+          class Data < Onlyfans::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Onlyfans::Models::Analytics::Financial::ProfitabilityGetProfitabilityResponse::Data,
+                  Onlyfans::Internal::AnyHash
+                )
+              end
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :active_milestones
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :agency_earnings
+
+            sig { params(agency_earnings: String).void }
+            attr_writer :agency_earnings
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :commission_amount
+
+            sig { params(commission_amount: String).void }
+            attr_writer :commission_amount
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :commission_rate
+
+            sig { params(commission_rate: String).void }
+            attr_writer :commission_rate
+
+            sig { returns(T.nilable(T::Array[T.anything])) }
+            attr_reader :costs
+
+            sig { params(costs: T::Array[T.anything]).void }
+            attr_writer :costs
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :creator_name
+
+            sig { params(creator_name: String).void }
+            attr_writer :creator_name
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :has_commission_for_period
+
+            sig { params(has_commission_for_period: T::Boolean).void }
+            attr_writer :has_commission_for_period
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :has_costs_for_period
+
+            sig { params(has_costs_for_period: T::Boolean).void }
+            attr_writer :has_costs_for_period
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :margin_percentage
+
+            sig { params(margin_percentage: String).void }
+            attr_writer :margin_percentage
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :month
+
+            sig { params(month: Integer).void }
+            attr_writer :month
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :only_fans_user_id
+
+            sig { params(only_fans_user_id: Integer).void }
+            attr_writer :only_fans_user_id
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :profit
+
+            sig { params(profit: String).void }
+            attr_writer :profit
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :projected_net
+
+            sig { params(projected_net: String).void }
+            attr_writer :projected_net
+
+            sig { returns(T.nilable(T::Array[T.anything])) }
+            attr_reader :rate_periods
+
+            sig { params(rate_periods: T::Array[T.anything]).void }
+            attr_writer :rate_periods
+
+            sig { returns(T.nilable(String)) }
+            attr_accessor :referral_note
+
+            sig { returns(T.nilable(String)) }
+            attr_reader :total_costs
+
+            sig { params(total_costs: String).void }
+            attr_writer :total_costs
+
+            sig { returns(T.nilable(Integer)) }
+            attr_reader :year
+
+            sig { params(year: Integer).void }
+            attr_writer :year
+
+            sig do
+              params(
+                active_milestones: T.nilable(String),
+                agency_earnings: String,
+                commission_amount: String,
+                commission_rate: String,
+                costs: T::Array[T.anything],
+                creator_name: String,
+                has_commission_for_period: T::Boolean,
+                has_costs_for_period: T::Boolean,
+                margin_percentage: String,
+                month: Integer,
+                only_fans_user_id: Integer,
+                profit: String,
+                projected_net: String,
+                rate_periods: T::Array[T.anything],
+                referral_note: T.nilable(String),
+                total_costs: String,
+                year: Integer
+              ).returns(T.attached_class)
+            end
+            def self.new(
+              active_milestones: nil,
+              agency_earnings: nil,
+              commission_amount: nil,
+              commission_rate: nil,
+              costs: nil,
+              creator_name: nil,
+              has_commission_for_period: nil,
+              has_costs_for_period: nil,
+              margin_percentage: nil,
+              month: nil,
+              only_fans_user_id: nil,
+              profit: nil,
+              projected_net: nil,
+              rate_periods: nil,
+              referral_note: nil,
+              total_costs: nil,
+              year: nil
+            )
+            end
+
+            sig do
+              override.returns(
+                {
+                  active_milestones: T.nilable(String),
+                  agency_earnings: String,
+                  commission_amount: String,
+                  commission_rate: String,
+                  costs: T::Array[T.anything],
+                  creator_name: String,
+                  has_commission_for_period: T::Boolean,
+                  has_costs_for_period: T::Boolean,
+                  margin_percentage: String,
+                  month: Integer,
+                  only_fans_user_id: Integer,
+                  profit: String,
+                  projected_net: String,
+                  rate_periods: T::Array[T.anything],
+                  referral_note: T.nilable(String),
+                  total_costs: String,
+                  year: Integer
+                }
+              )
+            end
+            def to_hash
+            end
+          end
+        end
       end
     end
   end

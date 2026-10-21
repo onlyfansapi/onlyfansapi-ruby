@@ -20,7 +20,7 @@ module Onlyfans
         required :end_date, String
 
         # @!attribute start_date
-        #   The start date for the period
+        #   The start date for the period.
         #
         #   @return [String]
         required :start_date, String
@@ -52,7 +52,7 @@ module Onlyfans
         #
         #   @param end_date [String] The end date for the period.
         #
-        #   @param start_date [String] The start date for the period
+        #   @param start_date [String] The start date for the period.
         #
         #   @param filter [Symbol, Onlyfans::Models::Statistics::ReachGetProfileVisitorsParams::Filter, nil] Optionally, filter the results by `chart` or `topCountries`. See example respons
         #

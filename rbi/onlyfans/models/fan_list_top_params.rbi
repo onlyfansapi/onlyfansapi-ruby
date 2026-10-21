@@ -18,13 +18,13 @@ module Onlyfans
       sig { returns(T.nilable(Onlyfans::FanListTopParams::By::OrSymbol)) }
       attr_accessor :by
 
-      # End date for filtering (required with start_date). This field is required when
-      # <code>start_date</code> is present.
+      # End date for filtering (required with start_date). Must be a valid date. Must
+      # not be greater than 255 characters.
       sig { returns(T.nilable(String)) }
       attr_accessor :end_date
 
-      # Start date for filtering (required with end_date). This field is required when
-      # <code>end_date</code> is present.
+      # Start date for filtering (required with end_date). Must be a valid date. Must
+      # not be greater than 255 characters.
       sig { returns(T.nilable(String)) }
       attr_accessor :start_date
 
@@ -41,11 +41,11 @@ module Onlyfans
         account:,
         # Sort by: total (default), subscribes, tips, messages, post, streams.
         by: nil,
-        # End date for filtering (required with start_date). This field is required when
-        # <code>start_date</code> is present.
+        # End date for filtering (required with start_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         end_date: nil,
-        # Start date for filtering (required with end_date). This field is required when
-        # <code>end_date</code> is present.
+        # Start date for filtering (required with end_date). Must be a valid date. Must
+        # not be greater than 255 characters.
         start_date: nil,
         request_options: {}
       )

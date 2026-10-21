@@ -19,6 +19,7 @@ class Onlyfans::Test::Resources::Media::UploadsTest < Onlyfans::Test::ResourceTe
       in Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1
       in Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2
       in Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3
+      in Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4
       end
     end
   end

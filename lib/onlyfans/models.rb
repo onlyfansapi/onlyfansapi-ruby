@@ -163,8 +163,6 @@ module Onlyfans
 
   MeRetrieveParams = Onlyfans::Models::MeRetrieveParams
 
-  MessageAttachTagsParams = Onlyfans::Models::MessageAttachTagsParams
-
   NotificationGetCountsParams = Onlyfans::Models::NotificationGetCountsParams
 
   NotificationListParams = Onlyfans::Models::NotificationListParams

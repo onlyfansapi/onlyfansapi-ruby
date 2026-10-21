@@ -19,15 +19,15 @@ module Onlyfans
       optional :by, enum: -> { Onlyfans::FanListTopParams::By }, nil?: true
 
       # @!attribute end_date
-      #   End date for filtering (required with start_date). This field is required when
-      #   <code>start_date</code> is present.
+      #   End date for filtering (required with start_date). Must be a valid date. Must
+      #   not be greater than 255 characters.
       #
       #   @return [String, nil]
       optional :end_date, String, nil?: true
 
       # @!attribute start_date
-      #   Start date for filtering (required with end_date). This field is required when
-      #   <code>end_date</code> is present.
+      #   Start date for filtering (required with end_date). Must be a valid date. Must
+      #   not be greater than 255 characters.
       #
       #   @return [String, nil]
       optional :start_date, String, nil?: true
@@ -40,9 +40,9 @@ module Onlyfans
       #
       #   @param by [Symbol, Onlyfans::Models::FanListTopParams::By, nil] Sort by: total (default), subscribes, tips, messages, post, streams.
       #
-      #   @param end_date [String, nil] End date for filtering (required with start_date). This field is required when <
+      #   @param end_date [String, nil] End date for filtering (required with start_date). Must be a valid date. Must no
       #
-      #   @param start_date [String, nil] Start date for filtering (required with end_date). This field is required when <
+      #   @param start_date [String, nil] Start date for filtering (required with end_date). Must be a valid date. Must no
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 

@@ -233,6 +233,11 @@ module Onlyfans
           #   @return [String, nil]
           optional :fbclid, String, nil?: true
 
+          # @!attribute gbraid
+          #
+          #   @return [String, nil]
+          optional :gbraid, String, nil?: true
+
           # @!attribute gclid
           #
           #   @return [String, nil]
@@ -262,6 +267,11 @@ module Onlyfans
           #
           #   @return [String, nil]
           optional :referrer, String
+
+          # @!attribute sccid
+          #
+          #   @return [String, nil]
+          optional :sccid, String, nil?: true
 
           # @!attribute ttclid
           #
@@ -298,7 +308,12 @@ module Onlyfans
           #   @return [String, nil]
           optional :utm_term, String
 
-          # @!method initialize(id: nil, aff_s1: nil, aff_s2: nil, aff_s3: nil, aff_s4: nil, aff_s5: nil, browser_device_type: nil, browser_family: nil, browser_name: nil, browser_platform: nil, country_code: nil, created_at: nil, external_click_id: nil, fbclid: nil, gclid: nil, gross_clicks: nil, ip_address: nil, is_bot: nil, is_duplicate: nil, referrer: nil, ttclid: nil, user_agent: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil)
+          # @!attribute wbraid
+          #
+          #   @return [String, nil]
+          optional :wbraid, String, nil?: true
+
+          # @!method initialize(id: nil, aff_s1: nil, aff_s2: nil, aff_s3: nil, aff_s4: nil, aff_s5: nil, browser_device_type: nil, browser_family: nil, browser_name: nil, browser_platform: nil, country_code: nil, created_at: nil, external_click_id: nil, fbclid: nil, gbraid: nil, gclid: nil, gross_clicks: nil, ip_address: nil, is_bot: nil, is_duplicate: nil, referrer: nil, sccid: nil, ttclid: nil, user_agent: nil, utm_campaign: nil, utm_content: nil, utm_medium: nil, utm_source: nil, utm_term: nil, wbraid: nil)
           #   @param id [String]
           #   @param aff_s1 [String]
           #   @param aff_s2 [String, nil]
@@ -313,12 +328,14 @@ module Onlyfans
           #   @param created_at [String]
           #   @param external_click_id [String]
           #   @param fbclid [String, nil]
+          #   @param gbraid [String, nil]
           #   @param gclid [String]
           #   @param gross_clicks [Integer]
           #   @param ip_address [String]
           #   @param is_bot [Boolean]
           #   @param is_duplicate [Boolean]
           #   @param referrer [String]
+          #   @param sccid [String, nil]
           #   @param ttclid [String]
           #   @param user_agent [String]
           #   @param utm_campaign [String]
@@ -326,6 +343,7 @@ module Onlyfans
           #   @param utm_medium [String]
           #   @param utm_source [String]
           #   @param utm_term [String]
+          #   @param wbraid [String, nil]
         end
 
         # @see Onlyfans::Models::SmartLinkListClicksResponse::Data#summary

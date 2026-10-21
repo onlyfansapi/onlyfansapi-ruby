@@ -3,7 +3,8 @@
 module Onlyfans
   module Resources
     class MassMessaging
-      # Get the content of a mass message.
+      # Get the content and settings of a mass message, including a message scheduled
+      # for later.
       sig do
         params(
           id: String,
@@ -21,17 +22,20 @@ module Onlyfans
       )
       end
 
-      # Update a mass message.
+      # Update the content, recipients, media, price, or scheduled send time of an
+      # existing mass message.
       sig do
         params(
           id: String,
           account: String,
           text: String,
+          block_banned_words:
+            Onlyfans::MassMessagingUpdateParams::BlockBannedWords::OrSymbol,
           giphy_id: String,
           locked_text: T::Boolean,
           media_files: T::Array[String],
           previews: T::Array[String],
-          price: Integer,
+          price: Float,
           scheduled_date: String,
           user_ids: T::Array[String],
           user_lists: T::Array[String],
@@ -46,6 +50,11 @@ module Onlyfans
         account:,
         # Body param: The message text content
         text:,
+        # Body param: Screen `text` for OnlyFans banned words and block the update if any
+        # are found (returns a 422 listing the offending words). `strict_ban` blocks all
+        # tiers, `risky` blocks Risky + Replace/soften, `replace_soften` blocks
+        # Replace/soften only. Omit to disable screening.
+        block_banned_words: nil,
         # Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the
         # Giphy listing endpoints (`/giphy/trending`, `/giphy/search`).
         giphy_id: nil,
@@ -58,8 +67,8 @@ module Onlyfans
         # if price is not 0). Will be shown if `price` is provided. All `previews` values
         # must also exist in the `mediaFiles` array.
         previews: nil,
-        # Body param: Price for paid content (0 or between 3-200). In case this is not
-        # zero, **mediaFiles** is required
+        # Body param: Price for paid content in USD (0 or between 3-200). In case this is
+        # not zero, **mediaFiles** is required
         price: nil,
         # Body param: Schedule the chat message in the future (UTC timezone).
         scheduled_date: nil,
@@ -71,7 +80,8 @@ module Onlyfans
       )
       end
 
-      # List the pending or recently sent mass messages in the message queue.
+      # List pending, scheduled, and recently sent mass messages. Use an item ID to
+      # retrieve, update, reschedule, delete, or unsend the message.
       sig do
         params(
           account: String,
@@ -118,8 +128,8 @@ module Onlyfans
       def retrieve_overview(
         # The Account ID
         account,
-        # The latest mass message to retrieve. Keep empty to get all. MUST BE DATE AFTER
-        # `startDate`. This is also used for pagination.
+        # The latest mass message to retrieve. Keep empty to get all. It must be after
+        # `startDate` and is also used for pagination.
         end_date: nil,
         # Number of mass messages to return (default = 10)
         limit: nil,
@@ -138,17 +148,20 @@ module Onlyfans
         params(
           account: String,
           text: String,
+          block_banned_words:
+            Onlyfans::MassMessagingSendParams::BlockBannedWords::OrSymbol,
           excluded_lists: T::Array[String],
           giphy_id: String,
           locked_text: T::Boolean,
           media_files: T::Array[T.anything],
           previews: T::Array[T.anything],
-          price: Integer,
+          price: Float,
           rf_guest: String,
           rf_partner: String,
           rf_tag: String,
           save_for_later: T::Boolean,
           scheduled_date: String,
+          subscribed_within_last_days: Integer,
           user_ids: T::Array[String],
           user_lists: T::Array[String],
           request_options: Onlyfans::RequestOptions::OrHash
@@ -159,6 +172,11 @@ module Onlyfans
         account,
         # The message text content
         text:,
+        # Screen `text` for OnlyFans banned words and block the send if any are found
+        # (returns a 422 listing the offending words). `strict_ban` blocks all tiers,
+        # `risky` blocks Risky + Replace/soften, `replace_soften` blocks Replace/soften
+        # only. Omit to disable screening.
+        block_banned_words: nil,
         # Array of user list IDs that the mass message will NOT be sent to.
         excluded_lists: nil,
         # The ID of the Giphy GIF to attach to the message. Get IDs from the Giphy listing
@@ -173,7 +191,7 @@ module Onlyfans
         # referencing uploaded files in `mediaFiles`. Will be shown if `price` is
         # provided.
         previews: nil,
-        # Price for paid content (0 or between 3-200). In case this is not zero,
+        # Price for paid content in USD (0 or between 3-200). In case this is not zero,
         # **mediaFiles** is required
         price: nil,
         # Array of OnlyFans Release Form Guest IDs to tag in your mass message
@@ -186,6 +204,10 @@ module Onlyfans
         save_for_later: nil,
         # Schedule the chat message in the future (UTC timezone).
         scheduled_date: nil,
+        # Only send to fans who subscribed within the last N calendar days (1-30,
+        # including today). Can be combined with `userLists` and `userIds`. Cannot be
+        # combined with `scheduledDate` or `saveForLater`.
+        subscribed_within_last_days: nil,
         # Array of user IDs that the mass message will be sent to.
         user_ids: nil,
         # Array of user list IDs that the mass message will be sent to.

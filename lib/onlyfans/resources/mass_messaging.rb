@@ -6,7 +6,8 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::MassMessagingRetrieveParams} for more details.
       #
-      # Get the content of a mass message.
+      # Get the content and settings of a mass message, including a message scheduled
+      # for later.
       #
       # @overload retrieve(id, account:, request_options: {})
       #
@@ -36,15 +37,18 @@ module Onlyfans
       # Some parameter documentations has been truncated, see
       # {Onlyfans::Models::MassMessagingUpdateParams} for more details.
       #
-      # Update a mass message.
+      # Update the content, recipients, media, price, or scheduled send time of an
+      # existing mass message.
       #
-      # @overload update(id, account:, text:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @overload update(id, account:, text:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
       # @param id [String] Path param: The ID of the message queue item. Can be retrieved from the above st
       #
       # @param account [String] Path param: The Account ID
       #
       # @param text [String] Body param: The message text content
+      #
+      # @param block_banned_words [Symbol, Onlyfans::Models::MassMessagingUpdateParams::BlockBannedWords] Body param: Screen `text` for OnlyFans banned words and block the update if any
       #
       # @param giphy_id [String] Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the G
       #
@@ -54,7 +58,7 @@ module Onlyfans
       #
       # @param previews [Array<String>] Body param: Array of media file upload prefixed_ids, or OF media IDs (required i
       #
-      # @param price [Integer] Body param: Price for paid content (0 or between 3-200). In case this is not zer
+      # @param price [Float] Body param: Price for paid content in USD (0 or between 3-200). In case this is
       #
       # @param scheduled_date [String] Body param: Schedule the chat message in the future (UTC timezone).
       #
@@ -82,7 +86,8 @@ module Onlyfans
         )
       end
 
-      # List the pending or recently sent mass messages in the message queue.
+      # List pending, scheduled, and recently sent mass messages. Use an item ID to
+      # retrieve, update, reschedule, delete, or unsend the message.
       #
       # @overload list(account, request_options: {})
       #
@@ -142,7 +147,7 @@ module Onlyfans
       #
       # @param account [String] The Account ID
       #
-      # @param end_date [String] The latest mass message to retrieve. Keep empty to get all. MUST BE DATE AFTER `
+      # @param end_date [String] The latest mass message to retrieve. Keep empty to get all. It must be after `st
       #
       # @param limit [Integer] Number of mass messages to return (default = 10)
       #
@@ -174,11 +179,13 @@ module Onlyfans
       # `userIds` parameters to send the same message to both lists and individual
       # users.
       #
-      # @overload send_(account, text:, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, user_ids: nil, user_lists: nil, request_options: {})
+      # @overload send_(account, text:, block_banned_words: nil, excluded_lists: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, save_for_later: nil, scheduled_date: nil, subscribed_within_last_days: nil, user_ids: nil, user_lists: nil, request_options: {})
       #
       # @param account [String] The Account ID
       #
       # @param text [String] The message text content
+      #
+      # @param block_banned_words [Symbol, Onlyfans::Models::MassMessagingSendParams::BlockBannedWords] Screen `text` for OnlyFans banned words and block the send if any are found (ret
       #
       # @param excluded_lists [Array<String>] Array of user list IDs that the mass message will NOT be sent to.
       #
@@ -190,8 +197,8 @@ module Onlyfans
       #
       # @param previews [Array<Object>] Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or integer indices
       #
-      # @param price [Integer] Price for paid content (0 or between 3-200). In case this is not zero,
-      # \*\*mediaFi
+      # @param price [Float] Price for paid content in USD (0 or between 3-200). In case this is not zero,
+      # \*\*
       #
       # @param rf_guest [String] Array of OnlyFans Release Form Guest IDs to tag in your mass message
       #
@@ -202,6 +209,8 @@ module Onlyfans
       # @param save_for_later [Boolean] Add your message to the "Saved for later" queue.
       #
       # @param scheduled_date [String] Schedule the chat message in the future (UTC timezone).
+      #
+      # @param subscribed_within_last_days [Integer] Only send to fans who subscribed within the last N calendar days (1-30, includin
       #
       # @param user_ids [Array<String>] Array of user IDs that the mass message will be sent to.
       #

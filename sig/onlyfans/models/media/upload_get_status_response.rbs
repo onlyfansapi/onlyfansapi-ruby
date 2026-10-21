@@ -6,6 +6,7 @@ module Onlyfans
         | Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember1
         | Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2
         | Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3
+        | Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4
 
       module UploadGetStatusResponse
         extend Onlyfans::Internal::Type::Union
@@ -52,23 +53,48 @@ module Onlyfans
         end
 
         type union_member2 =
+          { error: String, prefixed_id: String, status: String }
+
+        class UnionMember2 < Onlyfans::Internal::Type::BaseModel
+          attr_reader error: String?
+
+          def error=: (String) -> String
+
+          attr_reader prefixed_id: String?
+
+          def prefixed_id=: (String) -> String
+
+          attr_reader status: String?
+
+          def status=: (String) -> String
+
+          def initialize: (
+            ?error: String,
+            ?prefixed_id: String,
+            ?status: String
+          ) -> void
+
+          def to_hash: -> { error: String, prefixed_id: String, status: String }
+        end
+
+        type union_member3 =
           {
             credits_used: Integer,
-            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
             prefixed_id: String,
             status: String
           }
 
-        class UnionMember2 < Onlyfans::Internal::Type::BaseModel
+        class UnionMember3 < Onlyfans::Internal::Type::BaseModel
           attr_reader credits_used: Integer?
 
           def credits_used=: (Integer) -> Integer
 
-          attr_reader media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media?
+          attr_reader media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media?
 
           def media=: (
-            Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media
-          ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media
+            Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media
+          ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media
 
           attr_reader prefixed_id: String?
 
@@ -80,14 +106,14 @@ module Onlyfans
 
           def initialize: (
             ?credits_used: Integer,
-            ?media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+            ?media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
             ?prefixed_id: String,
             ?status: String
           ) -> void
 
           def to_hash: -> {
             credits_used: Integer,
-            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media,
+            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
             prefixed_id: String,
             status: String
           }
@@ -99,7 +125,7 @@ module Onlyfans
               converted_to_video: bool,
               created_at: String,
               duration: Integer,
-              files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+              files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files,
               has_custom_preview: bool,
               has_error: bool,
               is_ready: bool,
@@ -128,11 +154,11 @@ module Onlyfans
 
             def duration=: (Integer) -> Integer
 
-            attr_reader files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files?
+            attr_reader files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files?
 
             def files=: (
-              Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files
-            ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files
+              Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files
+            ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files
 
             attr_reader has_custom_preview: bool?
 
@@ -160,7 +186,7 @@ module Onlyfans
               ?converted_to_video: bool,
               ?created_at: String,
               ?duration: Integer,
-              ?files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+              ?files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files,
               ?has_custom_preview: bool,
               ?has_error: bool,
               ?is_ready: bool,
@@ -174,7 +200,7 @@ module Onlyfans
               converted_to_video: bool,
               created_at: String,
               duration: Integer,
-              files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files,
+              files: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files,
               has_custom_preview: bool,
               has_error: bool,
               is_ready: bool,
@@ -184,18 +210,18 @@ module Onlyfans
 
             type files =
               {
-                full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full,
                 preview: String?,
                 square_preview: String?,
                 thumb: String?
               }
 
             class Files < Onlyfans::Internal::Type::BaseModel
-              attr_reader full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full?
+              attr_reader full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full?
 
               def full=: (
-                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full
-              ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full
+                Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full
+              ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full
 
               attr_accessor preview: String?
 
@@ -204,14 +230,14 @@ module Onlyfans
               attr_accessor thumb: String?
 
               def initialize: (
-                ?full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                ?full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full,
                 ?preview: String?,
                 ?square_preview: String?,
                 ?thumb: String?
               ) -> void
 
               def to_hash: -> {
-                full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember2::Media::Files::Full,
+                full: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Files::Full,
                 preview: String?,
                 square_preview: String?,
                 thumb: String?
@@ -265,24 +291,24 @@ module Onlyfans
           end
         end
 
-        type union_member3 =
+        type union_member4 =
           {
             credits_used: Integer,
-            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media,
             prefixed_id: String,
             status: String
           }
 
-        class UnionMember3 < Onlyfans::Internal::Type::BaseModel
+        class UnionMember4 < Onlyfans::Internal::Type::BaseModel
           attr_reader credits_used: Integer?
 
           def credits_used=: (Integer) -> Integer
 
-          attr_reader media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media?
+          attr_reader media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media?
 
           def media=: (
-            Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media
-          ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media
+            Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media
+          ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media
 
           attr_reader prefixed_id: String?
 
@@ -294,36 +320,36 @@ module Onlyfans
 
           def initialize: (
             ?credits_used: Integer,
-            ?media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+            ?media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media,
             ?prefixed_id: String,
             ?status: String
           ) -> void
 
           def to_hash: -> {
             credits_used: Integer,
-            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media,
+            media: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media,
             prefixed_id: String,
             status: String
           }
 
           type media =
             {
-              additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+              additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional,
               extra: String,
               file_name: String,
               host: String,
               prefixed_id: String,
               process_id: String,
               source_url: String,
-              thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+              thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb]
             }
 
           class Media < Onlyfans::Internal::Type::BaseModel
-            attr_reader additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional?
+            attr_reader additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional?
 
             def additional=: (
-              Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional
-            ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional
+              Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional
+            ) -> Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional
 
             attr_reader extra: String?
 
@@ -349,32 +375,32 @@ module Onlyfans
 
             def source_url=: (String) -> String
 
-            attr_reader thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]?
+            attr_reader thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb]?
 
             def thumbs=: (
-              ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
-            ) -> ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+              ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb]
+            ) -> ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb]
 
             def initialize: (
-              ?additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+              ?additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional,
               ?extra: String,
               ?file_name: String,
               ?host: String,
               ?prefixed_id: String,
               ?process_id: String,
               ?source_url: String,
-              ?thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+              ?thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb]
             ) -> void
 
             def to_hash: -> {
-              additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Additional,
+              additional: Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Additional,
               extra: String,
               file_name: String,
               host: String,
               prefixed_id: String,
               process_id: String,
               source_url: String,
-              thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember3::Media::Thumb]
+              thumbs: ::Array[Onlyfans::Models::Media::UploadGetStatusResponse::UnionMember4::Media::Thumb]
             }
 
             type additional = { user: String }

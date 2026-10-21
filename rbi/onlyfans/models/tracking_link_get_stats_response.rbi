@@ -456,6 +456,12 @@ module Onlyfans
               )
             end
 
+          sig { returns(T.nilable(Float)) }
+          attr_reader :chargebacks_total
+
+          sig { params(chargebacks_total: Float).void }
+          attr_writer :chargebacks_total
+
           sig { returns(T.nilable(Integer)) }
           attr_reader :clicks_total
 
@@ -488,6 +494,7 @@ module Onlyfans
 
           sig do
             params(
+              chargebacks_total: Float,
               clicks_total: Integer,
               revenue_cached_at: String,
               revenue_total: Float,
@@ -496,6 +503,7 @@ module Onlyfans
             ).returns(T.attached_class)
           end
           def self.new(
+            chargebacks_total: nil,
             clicks_total: nil,
             revenue_cached_at: nil,
             revenue_total: nil,
@@ -507,6 +515,7 @@ module Onlyfans
           sig do
             override.returns(
               {
+                chargebacks_total: Float,
                 clicks_total: Integer,
                 revenue_cached_at: String,
                 revenue_total: Float,

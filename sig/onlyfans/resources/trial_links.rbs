@@ -21,11 +21,13 @@ module Onlyfans
 
       def list: (
         String account,
-        limit: Integer,
-        offset: Integer,
-        ?field: Onlyfans::Models::TrialLinkListParams::field?,
-        ?sort: Onlyfans::Models::TrialLinkListParams::sort?,
-        ?synchronous: bool?,
+        ?end_date: String?,
+        ?field: Onlyfans::Models::TrialLinkListParams::field,
+        ?limit: Integer,
+        ?offset: Integer,
+        ?sort: Onlyfans::Models::TrialLinkListParams::sort,
+        ?start_date: String?,
+        ?synchronous: bool,
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::TrialLinkListResponse
 

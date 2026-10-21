@@ -29,7 +29,7 @@ module Onlyfans
           account,
           # The end date for the period.
           end_date:,
-          # The start date for the period
+          # The start date for the period.
           start_date:,
           # Optionally, filter the results by `chart` or `topCountries`. See example
           # responses.

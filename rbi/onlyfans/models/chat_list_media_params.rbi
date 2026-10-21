@@ -31,7 +31,8 @@ module Onlyfans
       sig { params(offset: String).void }
       attr_writer :offset
 
-      # Whether to skip user details in response (all or none). Default = all
+      # Whether to skip user details in the response (`all` or `none`). Defaults to
+      # `all`.
       sig { returns(T.nilable(String)) }
       attr_reader :skip_users
 
@@ -60,7 +61,8 @@ module Onlyfans
         limit: nil,
         # Number of medias to skip for pagination
         offset: nil,
-        # Whether to skip user details in response (all or none). Default = all
+        # Whether to skip user details in the response (`all` or `none`). Defaults to
+        # `all`.
         skip_users: nil,
         # Filter by specific media types. Keep empty to return all.
         type: nil,

@@ -349,6 +349,12 @@ module Onlyfans
         sig { returns(T.nilable(String)) }
         attr_accessor :failed_at
 
+        sig { returns(T.nilable(Integer)) }
+        attr_reader :failed_downloads
+
+        sig { params(failed_downloads: Integer).void }
+        attr_writer :failed_downloads
+
         sig { returns(T.nilable(String)) }
         attr_accessor :failed_reason
 
@@ -407,6 +413,7 @@ module Onlyfans
             end_date: String,
             export_columns: T::Array[String],
             failed_at: T.nilable(String),
+            failed_downloads: Integer,
             failed_reason: T.nilable(String),
             file_type: String,
             progress_percentage: Integer,
@@ -426,6 +433,7 @@ module Onlyfans
           end_date: nil,
           export_columns: nil,
           failed_at: nil,
+          failed_downloads: nil,
           failed_reason: nil,
           file_type: nil,
           progress_percentage: nil,
@@ -451,6 +459,7 @@ module Onlyfans
               end_date: String,
               export_columns: T::Array[String],
               failed_at: T.nilable(String),
+              failed_downloads: Integer,
               failed_reason: T.nilable(String),
               file_type: String,
               progress_percentage: Integer,

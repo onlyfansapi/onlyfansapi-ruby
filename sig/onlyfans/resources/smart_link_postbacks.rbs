@@ -5,6 +5,9 @@ module Onlyfans
         conversion_types: ::Array[String],
         smart_link_scope: Onlyfans::Models::SmartLinkPostbackCreateParams::smart_link_scope,
         url: String,
+        ?body: String,
+        ?headers: ::Array[Onlyfans::SmartLinkPostbackCreateParams::Header],
+        ?http_method: Onlyfans::Models::SmartLinkPostbackCreateParams::http_method,
         ?smart_link_ids: ::Array[String],
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::SmartLinkPostbackCreateResponse
@@ -19,6 +22,9 @@ module Onlyfans
         conversion_types: ::Array[String],
         smart_link_scope: Onlyfans::Models::SmartLinkPostbackUpdateParams::smart_link_scope,
         url: String,
+        ?body: String,
+        ?headers: ::Array[Onlyfans::SmartLinkPostbackUpdateParams::Header],
+        ?http_method: Onlyfans::Models::SmartLinkPostbackUpdateParams::http_method,
         ?smart_link_ids: ::Array[String],
         ?request_options: Onlyfans::request_opts
       ) -> Onlyfans::Models::SmartLinkPostbackUpdateResponse

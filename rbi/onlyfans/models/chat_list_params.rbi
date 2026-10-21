@@ -49,7 +49,8 @@ module Onlyfans
       sig { params(query: String).void }
       attr_writer :query
 
-      # Whether to skip user details in response (all or none). Default = all
+      # Whether to skip user details in the response (`all` or `none`). Defaults to
+      # `all`.
       sig { returns(T.nilable(Onlyfans::ChatListParams::SkipUsers::OrSymbol)) }
       attr_reader :skip_users
 
@@ -82,7 +83,8 @@ module Onlyfans
         order: nil,
         # Search query to filter chats
         query: nil,
-        # Whether to skip user details in response (all or none). Default = all
+        # Whether to skip user details in the response (`all` or `none`). Defaults to
+        # `all`.
         skip_users: nil,
         request_options: {}
       )
@@ -154,7 +156,8 @@ module Onlyfans
         end
       end
 
-      # Whether to skip user details in response (all or none). Default = all
+      # Whether to skip user details in the response (`all` or `none`). Defaults to
+      # `all`.
       module SkipUsers
         extend Onlyfans::Internal::Type::Enum
 

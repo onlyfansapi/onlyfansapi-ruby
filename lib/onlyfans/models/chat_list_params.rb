@@ -43,12 +43,16 @@ module Onlyfans
       optional :query, String
 
       # @!attribute skip_users
-      #   Whether to skip user details in response (all or none). Default = all
+      #   Whether to skip user details in the response (`all` or `none`). Defaults to
+      #   `all`.
       #
       #   @return [Symbol, Onlyfans::Models::ChatListParams::SkipUsers, nil]
       optional :skip_users, enum: -> { Onlyfans::ChatListParams::SkipUsers }
 
       # @!method initialize(account:, filter: nil, limit: nil, offset: nil, order: nil, query: nil, skip_users: nil, request_options: {})
+      #   Some parameter documentations has been truncated, see
+      #   {Onlyfans::Models::ChatListParams} for more details.
+      #
       #   @param account [String]
       #
       #   @param filter [Symbol, Onlyfans::Models::ChatListParams::Filter] Optionally, filter the chats by type.
@@ -61,7 +65,7 @@ module Onlyfans
       #
       #   @param query [String] Search query to filter chats
       #
-      #   @param skip_users [Symbol, Onlyfans::Models::ChatListParams::SkipUsers] Whether to skip user details in response (all or none). Default = all
+      #   @param skip_users [Symbol, Onlyfans::Models::ChatListParams::SkipUsers] Whether to skip user details in the response (`all` or `none`). Defaults to `all
       #
       #   @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}]
 
@@ -90,7 +94,8 @@ module Onlyfans
         #   @return [Array<Symbol>]
       end
 
-      # Whether to skip user details in response (all or none). Default = all
+      # Whether to skip user details in the response (`all` or `none`). Defaults to
+      # `all`.
       module SkipUsers
         extend Onlyfans::Internal::Type::Enum
 

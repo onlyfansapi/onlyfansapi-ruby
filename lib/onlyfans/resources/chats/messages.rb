@@ -41,7 +41,10 @@ module Onlyfans
         # Some parameter documentations has been truncated, see
         # {Onlyfans::Models::Chats::MessageListParams} for more details.
         #
-        # Get messages from a specific chat.
+        # Get messages from a specific chat. Use `filter=pinned` or
+        # [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages)
+        # to retrieve only pinned messages. Follow `_pagination.next_page` until it is
+        # null; a short page can still have more results.
         #
         # @overload list(chat_id, account:, filter: nil, first_id: nil, last_id: nil, limit: nil, order: nil, skip_users: nil, request_options: {})
         #
@@ -51,7 +54,7 @@ module Onlyfans
         #
         # @param filter [Symbol, Onlyfans::Models::Chats::MessageListParams::Filter] Query param: Filter by certain messages. Currently, only pins are filterable.
         #
-        # @param first_id [String, nil] Query param: Use for pagination when `order=desc` (newest to oldest). Include th
+        # @param first_id [String, nil] Query param: Use for pagination when `order=desc` (newest to oldest). Pass the l
         #
         # @param last_id [String, nil] Query param: Use for pagination when `order=asc` (oldest to newest). Include thi
         #
@@ -59,7 +62,7 @@ module Onlyfans
         #
         # @param order [String] Query param: Sort order for messages (desc or asc)
         #
-        # @param skip_users [String] Query param: Whether to skip user details (all or none)
+        # @param skip_users [String] Query param: Whether to skip user details (`all` or `none`).
         #
         # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -149,7 +152,10 @@ module Onlyfans
           )
         end
 
-        # Pin a message from a chat.
+        # Pin a message from a chat. Requires API-key write permission. No request body is
+        # needed. Use
+        # [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages)
+        # to read the current pins.
         #
         # @overload pin(message_id, account:, chat_id:, request_options: {})
         #
@@ -219,11 +225,37 @@ module Onlyfans
         #
         # Send a new message to a chat.
         #
-        # @overload send_(chat_id, account:, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, request_options: {})
+        # **Idempotency.** Pass an `Idempotency-Key` header to make retries safe. The
+        # first request with a given key is executed normally and its response is stored
+        # for **24 hours**; any later request with the same key returns that stored
+        # response, plus an `Idempotent-Replayed: true` header, without contacting
+        # OnlyFans and without consuming credits. The replayed body is the original
+        # response with its `_meta._credits` block rewritten to show `used: 0` and your
+        # current balance.
+        #
+        # Keys are scoped to your team, this endpoint and the account in the URL, so the
+        # same value can be reused safely against a different account. Use a fresh, unique
+        # value (a UUID works well) for each message you send; it must be 1-255 printable
+        # ASCII characters.
+        #
+        # - `400 IDEMPOTENCY_KEY_INVALID` — the header value is empty, too long, or
+        #   contains non-ASCII characters.
+        # - `409 IDEMPOTENCY_CONFLICT` — an earlier request with this key is still
+        #   running. Retry once it finishes.
+        # - `422 IDEMPOTENCY_KEY_MISMATCH` — this key was already used with a different
+        #   request body or chat.
+        #
+        # Responses with a `5xx` status (and `408`/`429`) are never stored, so a failed
+        # send can be retried with the same key. The header is optional: omit it and the
+        # endpoint behaves exactly as before.
+        #
+        # @overload send_(chat_id, account:, block_banned_words: nil, giphy_id: nil, locked_text: nil, media_files: nil, previews: nil, price: nil, reply_to_message_id: nil, rf_guest: nil, rf_partner: nil, rf_tag: nil, text: nil, idempotency_key: nil, request_options: {})
         #
         # @param chat_id [String] Path param: The ID of the chat (usually a fan's OnlyFans User ID)
         #
         # @param account [String] Path param: The Account ID
+        #
+        # @param block_banned_words [Symbol, Onlyfans::Models::Chats::MessageSendParams::BlockBannedWords] Body param: Screen `text` for OnlyFans banned words and block the send if any ar
         #
         # @param giphy_id [String] Body param: The ID of the Giphy GIF to attach to the message. Get IDs from the G
         #
@@ -233,7 +265,7 @@ module Onlyfans
         #
         # @param previews [Array<Object>] Body param: Direct file uploads, OFAPI `ofapi_media_` IDs, OF vault IDs, or inte
         #
-        # @param price [Integer] Body param: Price for paid content (0 or between 3-200). In case this is not zer
+        # @param price [Float] Body param: Price for paid content in USD (0 or between 3-200). In case this is
         #
         # @param reply_to_message_id [Integer] Body param: Mark this message as a reply to another (can be either your own, or
         #
@@ -244,6 +276,8 @@ module Onlyfans
         # @param rf_tag [String] Body param: Array of OnlyFans Creator User IDs to tag in your message
         #
         # @param text [String] Body param: The message text content. Required unless a media file is present.
+        #
+        # @param idempotency_key [String] Header param
         #
         # @param request_options [Onlyfans::RequestOptions, Hash{Symbol=>Object}, nil]
         #
@@ -256,10 +290,12 @@ module Onlyfans
             parsed.delete(:account) do
               raise ArgumentError.new("missing required path argument #{_1}")
             end
+          header_params = {idempotency_key: "idempotency-key"}
           @client.request(
             method: :post,
             path: ["api/%1$s/chats/%2$s/messages", account, chat_id],
-            body: parsed,
+            headers: parsed.slice(*header_params.keys).transform_keys(header_params),
+            body: parsed.except(*header_params.keys),
             model: Onlyfans::Models::Chats::MessageSendResponse,
             options: options
           )
@@ -298,7 +334,10 @@ module Onlyfans
           )
         end
 
-        # Unpin a message from a chat.
+        # Unpin a message from a chat. Requires API-key delete permission; a read_write
+        # key cannot unpin. No request body is needed. Use
+        # [List Pinned Chat Messages](https://docs.onlyfansapi.com/api-reference/chat-messages/list-pinned-chat-messages)
+        # to read the current pins.
         #
         # @overload unpin(message_id, account:, chat_id:, request_options: {})
         #

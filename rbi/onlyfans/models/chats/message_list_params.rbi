@@ -36,9 +36,9 @@ module Onlyfans
         end
         attr_writer :filter
 
-        # Use for pagination when `order=desc` (newest to oldest). Include this message ID
-        # as the first message in the results. Used to retrieve messages from e.g. the
-        # Search Chat Messages endpoint IDs.
+        # Use for pagination when `order=desc` (newest to oldest). Pass the last message
+        # ID from the previous page to retrieve older messages, excluding that cursor
+        # message.
         sig { returns(T.nilable(String)) }
         attr_accessor :first_id
 
@@ -63,7 +63,7 @@ module Onlyfans
         sig { params(order: String).void }
         attr_writer :order
 
-        # Whether to skip user details (all or none)
+        # Whether to skip user details (`all` or `none`).
         sig { returns(T.nilable(String)) }
         attr_reader :skip_users
 
@@ -88,9 +88,9 @@ module Onlyfans
           chat_id:,
           # Filter by certain messages. Currently, only pins are filterable.
           filter: nil,
-          # Use for pagination when `order=desc` (newest to oldest). Include this message ID
-          # as the first message in the results. Used to retrieve messages from e.g. the
-          # Search Chat Messages endpoint IDs.
+          # Use for pagination when `order=desc` (newest to oldest). Pass the last message
+          # ID from the previous page to retrieve older messages, excluding that cursor
+          # message.
           first_id: nil,
           # Use for pagination when `order=asc` (oldest to newest). Include this message ID
           # as the first message in the results. WARNING! The response list of messages will
@@ -101,7 +101,7 @@ module Onlyfans
           limit: nil,
           # Sort order for messages (desc or asc)
           order: nil,
-          # Whether to skip user details (all or none)
+          # Whether to skip user details (`all` or `none`).
           skip_users: nil,
           request_options: {}
         )

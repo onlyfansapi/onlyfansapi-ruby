@@ -15,7 +15,7 @@ module Onlyfans
           required :account, String
 
           # @!attribute end_date
-          #   End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+          #   End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
           #
           #   @return [String, nil]
           optional :end_date, String
@@ -35,7 +35,7 @@ module Onlyfans
           # @!method initialize(account:, end_date: nil, start_date: nil, with_total: nil, request_options: {})
           #   @param account [String]
           #
-          #   @param end_date [String] End of the chart window in `Y-m-d H:i:s` format. Must be after `startDate`.
+          #   @param end_date [String] End of the chart window in `Y-m-d H:i:s` format. It must be after `startDate`.
           #
           #   @param start_date [String] Start of the chart window in `Y-m-d H:i:s` format.
           #

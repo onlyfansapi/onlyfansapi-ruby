@@ -331,11 +331,19 @@ module Onlyfans
         sig { params(next_page: String).void }
         attr_writer :next_page
 
-        sig { params(next_page: String).returns(T.attached_class) }
-        def self.new(next_page: nil)
+        sig { returns(T.nilable(String)) }
+        attr_reader :notice
+
+        sig { params(notice: String).void }
+        attr_writer :notice
+
+        sig do
+          params(next_page: String, notice: String).returns(T.attached_class)
+        end
+        def self.new(next_page: nil, notice: nil)
         end
 
-        sig { override.returns({ next_page: String }) }
+        sig { override.returns({ next_page: String, notice: String }) }
         def to_hash
         end
       end
@@ -348,12 +356,6 @@ module Onlyfans
               Onlyfans::Internal::AnyHash
             )
           end
-
-        sig { returns(T.nilable(T::Boolean)) }
-        attr_reader :has_more
-
-        sig { params(has_more: T::Boolean).void }
-        attr_writer :has_more
 
         sig do
           returns(
@@ -378,20 +380,18 @@ module Onlyfans
 
         sig do
           params(
-            has_more: T::Boolean,
             items:
               T::Array[
                 Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item::OrHash
               ]
           ).returns(T.attached_class)
         end
-        def self.new(has_more: nil, items: nil)
+        def self.new(items: nil)
         end
 
         sig do
           override.returns(
             {
-              has_more: T::Boolean,
               items:
                 T::Array[
                   Onlyfans::Models::ReleaseFormListTaggableUsersResponse::Data::Item

@@ -324,10 +324,16 @@ module Onlyfans
           attr_writer :offset
 
           sig { returns(T.nilable(String)) }
+          attr_accessor :previously_subscribed
+
+          sig { returns(T.nilable(String)) }
           attr_reader :sort
 
           sig { params(sort: String).void }
           attr_writer :sort
+
+          sig { returns(T.nilable(String)) }
+          attr_accessor :subscribed_using_promo
 
           sig do
             params(
@@ -337,7 +343,9 @@ module Onlyfans
               min_revenue_net: T.nilable(String),
               min_tips_net: T.nilable(String),
               offset: Integer,
-              sort: String
+              previously_subscribed: T.nilable(String),
+              sort: String,
+              subscribed_using_promo: T.nilable(String)
             ).returns(T.attached_class)
           end
           def self.new(
@@ -347,7 +355,9 @@ module Onlyfans
             min_revenue_net: nil,
             min_tips_net: nil,
             offset: nil,
-            sort: nil
+            previously_subscribed: nil,
+            sort: nil,
+            subscribed_using_promo: nil
           )
           end
 
@@ -360,7 +370,9 @@ module Onlyfans
                 min_revenue_net: T.nilable(String),
                 min_tips_net: T.nilable(String),
                 offset: Integer,
-                sort: String
+                previously_subscribed: T.nilable(String),
+                sort: String,
+                subscribed_using_promo: T.nilable(String)
               }
             )
           end
@@ -437,6 +449,23 @@ module Onlyfans
           sig { params(revenue_net: Integer).void }
           attr_writer :revenue_net
 
+          sig do
+            returns(
+              T.nilable(
+                Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights
+              )
+            )
+          end
+          attr_reader :subscription_insights
+
+          sig do
+            params(
+              subscription_insights:
+                Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::OrHash
+            ).void
+          end
+          attr_writer :subscription_insights
+
           sig { returns(T.nilable(Integer)) }
           attr_reader :tips_net
 
@@ -461,6 +490,8 @@ module Onlyfans
               name: String,
               onlyfans_id: String,
               revenue_net: Integer,
+              subscription_insights:
+                Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::OrHash,
               tips_net: Integer,
               username: String
             ).returns(T.attached_class)
@@ -476,6 +507,7 @@ module Onlyfans
             name: nil,
             onlyfans_id: nil,
             revenue_net: nil,
+            subscription_insights: nil,
             tips_net: nil,
             username: nil
           )
@@ -494,12 +526,173 @@ module Onlyfans
                 name: String,
                 onlyfans_id: String,
                 revenue_net: Integer,
+                subscription_insights:
+                  Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights,
                 tips_net: Integer,
                 username: String
               }
             )
           end
           def to_hash
+          end
+
+          class SubscriptionInsights < Onlyfans::Internal::Type::BaseModel
+            OrHash =
+              T.type_alias do
+                T.any(
+                  Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights,
+                  Onlyfans::Internal::AnyHash
+                )
+              end
+
+            sig do
+              returns(
+                T.nilable(
+                  Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription
+                )
+              )
+            end
+            attr_reader :current_subscription
+
+            sig do
+              params(
+                current_subscription:
+                  Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription::OrHash
+              ).void
+            end
+            attr_writer :current_subscription
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :current_subscription_from_smart_link
+
+            sig do
+              params(current_subscription_from_smart_link: T::Boolean).void
+            end
+            attr_writer :current_subscription_from_smart_link
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :has_subscription_data
+
+            sig { params(has_subscription_data: T::Boolean).void }
+            attr_writer :has_subscription_data
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :previously_subscribed
+
+            sig { params(previously_subscribed: T::Boolean).void }
+            attr_writer :previously_subscribed
+
+            sig { returns(T.nilable(T::Boolean)) }
+            attr_reader :subscribed_using_promo
+
+            sig { params(subscribed_using_promo: T::Boolean).void }
+            attr_writer :subscribed_using_promo
+
+            sig do
+              params(
+                current_subscription:
+                  Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription::OrHash,
+                current_subscription_from_smart_link: T::Boolean,
+                has_subscription_data: T::Boolean,
+                previously_subscribed: T::Boolean,
+                subscribed_using_promo: T::Boolean
+              ).returns(T.attached_class)
+            end
+            def self.new(
+              current_subscription: nil,
+              current_subscription_from_smart_link: nil,
+              has_subscription_data: nil,
+              previously_subscribed: nil,
+              subscribed_using_promo: nil
+            )
+            end
+
+            sig do
+              override.returns(
+                {
+                  current_subscription:
+                    Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription,
+                  current_subscription_from_smart_link: T::Boolean,
+                  has_subscription_data: T::Boolean,
+                  previously_subscribed: T::Boolean,
+                  subscribed_using_promo: T::Boolean
+                }
+              )
+            end
+            def to_hash
+            end
+
+            class CurrentSubscription < Onlyfans::Internal::Type::BaseModel
+              OrHash =
+                T.type_alias do
+                  T.any(
+                    Onlyfans::Models::SmartLinkListFansResponse::Data::Row::SubscriptionInsights::CurrentSubscription,
+                    Onlyfans::Internal::AnyHash
+                  )
+                end
+
+              sig { returns(T.nilable(String)) }
+              attr_reader :action
+
+              sig { params(action: String).void }
+              attr_writer :action
+
+              sig { returns(T.nilable(T::Boolean)) }
+              attr_reader :is_free
+
+              sig { params(is_free: T::Boolean).void }
+              attr_writer :is_free
+
+              sig { returns(T.nilable(Integer)) }
+              attr_reader :price
+
+              sig { params(price: Integer).void }
+              attr_writer :price
+
+              sig { returns(T.nilable(Integer)) }
+              attr_reader :regular_price
+
+              sig { params(regular_price: Integer).void }
+              attr_writer :regular_price
+
+              sig { returns(T.nilable(String)) }
+              attr_reader :type
+
+              sig { params(type: String).void }
+              attr_writer :type
+
+              sig do
+                params(
+                  action: String,
+                  is_free: T::Boolean,
+                  price: Integer,
+                  regular_price: Integer,
+                  type: String
+                ).returns(T.attached_class)
+              end
+              def self.new(
+                action: nil,
+                is_free: nil,
+                price: nil,
+                regular_price: nil,
+                type: nil
+              )
+              end
+
+              sig do
+                override.returns(
+                  {
+                    action: String,
+                    is_free: T::Boolean,
+                    price: Integer,
+                    regular_price: Integer,
+                    type: String
+                  }
+                )
+              end
+              def to_hash
+              end
+            end
           end
         end
 
@@ -517,6 +710,12 @@ module Onlyfans
 
           sig { params(fans_total: Integer).void }
           attr_writer :fans_total
+
+          sig { returns(T.nilable(Integer)) }
+          attr_reader :fans_with_1_plus_messages_total
+
+          sig { params(fans_with_1_plus_messages_total: Integer).void }
+          attr_writer :fans_with_1_plus_messages_total
 
           sig { returns(T.nilable(Integer)) }
           attr_reader :fans_with_3_plus_messages_total
@@ -539,6 +738,7 @@ module Onlyfans
           sig do
             params(
               fans_total: Integer,
+              fans_with_1_plus_messages_total: Integer,
               fans_with_3_plus_messages_total: Integer,
               revenue_net_total: Integer,
               tips_net_total: Integer
@@ -546,6 +746,7 @@ module Onlyfans
           end
           def self.new(
             fans_total: nil,
+            fans_with_1_plus_messages_total: nil,
             fans_with_3_plus_messages_total: nil,
             revenue_net_total: nil,
             tips_net_total: nil
@@ -556,6 +757,7 @@ module Onlyfans
             override.returns(
               {
                 fans_total: Integer,
+                fans_with_1_plus_messages_total: Integer,
                 fans_with_3_plus_messages_total: Integer,
                 revenue_net_total: Integer,
                 tips_net_total: Integer

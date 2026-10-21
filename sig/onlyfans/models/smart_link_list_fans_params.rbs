@@ -9,7 +9,9 @@ module Onlyfans
         min_revenue_net: Float,
         min_tips_net: Float,
         offset: Integer,
-        sort: Onlyfans::Models::SmartLinkListFansParams::sort
+        previously_subscribed: bool,
+        sort: Onlyfans::Models::SmartLinkListFansParams::sort,
+        subscribed_using_promo: bool
       }
       & Onlyfans::Internal::Type::request_parameters
 
@@ -43,11 +45,19 @@ module Onlyfans
 
       def offset=: (Integer) -> Integer
 
+      attr_reader previously_subscribed: bool?
+
+      def previously_subscribed=: (bool) -> bool
+
       attr_reader sort: Onlyfans::Models::SmartLinkListFansParams::sort?
 
       def sort=: (
         Onlyfans::Models::SmartLinkListFansParams::sort
       ) -> Onlyfans::Models::SmartLinkListFansParams::sort
+
+      attr_reader subscribed_using_promo: bool?
+
+      def subscribed_using_promo=: (bool) -> bool
 
       def initialize: (
         smart_link_id: String,
@@ -57,7 +67,9 @@ module Onlyfans
         ?min_revenue_net: Float,
         ?min_tips_net: Float,
         ?offset: Integer,
+        ?previously_subscribed: bool,
         ?sort: Onlyfans::Models::SmartLinkListFansParams::sort,
+        ?subscribed_using_promo: bool,
         ?request_options: Onlyfans::request_opts
       ) -> void
 
@@ -69,7 +81,9 @@ module Onlyfans
         min_revenue_net: Float,
         min_tips_net: Float,
         offset: Integer,
+        previously_subscribed: bool,
         sort: Onlyfans::Models::SmartLinkListFansParams::sort,
+        subscribed_using_promo: bool,
         request_options: Onlyfans::RequestOptions
       }
 

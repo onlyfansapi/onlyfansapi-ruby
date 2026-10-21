@@ -35,7 +35,8 @@ module Onlyfans
         order: nil,
         # Search query to filter chats
         query: nil,
-        # Whether to skip user details in response (all or none). Default = all
+        # Whether to skip user details in the response (`all` or `none`). Defaults to
+        # `all`.
         skip_users: nil,
         request_options: {}
       )
@@ -98,8 +99,8 @@ module Onlyfans
         limit: nil,
         # Query param: Number of medias to skip for pagination
         offset: nil,
-        # Query param: Whether to skip user details in response (all or none). Default =
-        # all
+        # Query param: Whether to skip user details in the response (`all` or `none`).
+        # Defaults to `all`.
         skip_users: nil,
         # Query param: Filter by specific media types. Keep empty to return all.
         type: nil,
@@ -160,8 +161,8 @@ module Onlyfans
       end
 
       # Calling this endpoint will show the target fan a "Model is typing..." note in
-      # the chat for ~4 seconds. If you want to continue showing the indicator call this
-      # endpoint multiple times. Free - no credits charged.
+      # the chat for ~4 seconds. Duplicate calls for the same account and chat are
+      # coalesced during that window.
       sig do
         params(
           chat_id: String,
